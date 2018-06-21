@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extentreports>
+    <configuration>
+        <theme>standard</theme>
+        <encoding>UTF-8</encoding>
+        <protocol>https</protocol>
+        <documentTitle>FHLBNY</documentTitle>
+        <reportName>
+            <image id="image-zoom">
+                <![CDATA[
+              <img src='http://lx-phoenixd1.fhlbny.net:8080/AuditConfirmations/assets/images/logo/logo.png' alt="FHLBNY"
+            ]]>
+            </image>
+        </reportName>
+        <reportHeadline>Audit Confirmations</reportHeadline>
+        <dateFormat>yyyy-MM-dd</dateFormat>
+        <timeFormat>HH:mm:ss</timeFormat>
+
+        <!-- custom javascript -->
+        <scripts>
+            <![CDATA[
+                $(document).ready(function() {
+                    $("#image-zoom").src("src",src);
+                    $("#image-zoom").append("src",src);
+                });
+            ]]>
+        </scripts>
+
+        <!-- custom styles -->
+        <styles>
+            <![CDATA[
+                .report-name { padding-left: 7px;
+                               display:flex;
+                               justify-content:space-between }
+                .report-name > img { float: left;
+                                     height: 44px;
+                                     padding:0 10px;
+                                     margin-left: 53px;
+                                     margin-top: 2px;
+                                     background-color : #fff;
+                                     margin-bottom: 2px;
+                                     width:auto; }
+                .logo-container{ display:none }
+                nav{padding-left:0}
+
+            ]]>
+        </styles>
+    </configuration>
+</extentreports>
