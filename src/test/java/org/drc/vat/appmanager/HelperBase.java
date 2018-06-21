@@ -252,4 +252,32 @@ public class HelperBase
     	}
     	
     }
+	    public static void call_url(String object) {    	
+    	wd.get(obj.getProperty(object));
+    }
+    public static void check_page_url(String data) throws InterruptedException {
+    	Thread.sleep(2000);
+    	wd.getCurrentUrl().equals(obj.getProperty(data));
+    	
+    }
+    public static String validationMessage(String messages) {
+    	//System.out.println(text(By.xpath("//*[@class='text-danger position-absolute error-msg']")));
+    	String body_Message=wd.findElement(By.tagName("body")).getText();
+    	if(body_Message.contains(messages.toLowerCase())) {
+    	System.out.println("Message Validated");
+    	}
+    	//text(By.xpath("//*[@class='toast-top-right toast-container']"));
+    	return text(By.xpath("//*[@class='text-danger position-absolute error-msg']"));  
+    	
+    	
+    }
+    public static String elementText(String object) {
+   	 try {
+         obj.load(fis);
+     } catch (IOException e) {
+         e.printStackTrace();
+     }
+    By locator = By.xpath(obj.getProperty(object));
+    return wd.findElement(locator).getText();
+    }
 }
