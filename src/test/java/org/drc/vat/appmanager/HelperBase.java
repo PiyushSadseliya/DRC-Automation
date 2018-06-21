@@ -280,4 +280,42 @@ public class HelperBase
     By locator = By.xpath(obj.getProperty(object));
     return wd.findElement(locator).getText();
     }
+	
+	public static void bodymessage(String expectedMessage) throws InterruptedException
+    {
+    	
+		try 
+		{
+			//WebDriverWait Wait = new WebDriverWait(wd, 30);
+		//	Wait.until(ExpectedConditions.visibilityOfElementLocated((By.xpath("(//*[contains(text(),'" + expectedMessage + "')]")))).getText();
+			//bodyMessage = Wait.until(ExpectedConditions.visibilityOfElementLocated((By.xpath("(//*[contains(text(),'" + expectedMessage + "')]")))).getText();
+			bodyMessage= wd.findElement(By.tagName("body")).getText();
+			//System.out.println(expectedMessage);
+			//System.out.println(bodyMessage);
+			Thread.sleep(2000);
+			if(bodyMessage.equals(null)||bodyMessage.equals(""))
+			{
+				System.out.println("Fail");				
+			}
+			else
+			{
+				if (bodyMessage.toLowerCase().contains(expectedMessage.toLowerCase()))	
+				{
+					//addLog.info("Validation message verified successfully " + expectedMessage);
+					System.out.println("Validation message verified successfully " + expectedMessage);
+				} 
+				else 
+				{
+					//addLog.info("Validation message  not verified successfully " +expectedMessage);
+					System.out.println("Validation message  not verified successfully " +expectedMessage);
+				}
+			}
+				
+		} 
+		catch(Exception e)
+		{
+			//addLog.info("Body message not verified successfully " +expectedMessage);
+			System.out.println("Body message not verified successfully " +expectedMessage);
+		}
+    }
 }
