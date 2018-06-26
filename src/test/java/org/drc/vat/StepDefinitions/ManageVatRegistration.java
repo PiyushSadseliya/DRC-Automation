@@ -201,7 +201,56 @@ public class ManageVatRegistration
 	public void user_see_Result() throws Throwable 
 	{
 		
-			
+			System.out.println("Result Display");
 	}
 	
+	//For Sorting
+	@And("^user click on the sorting \"([^\"]*)\"$")
+	public void user_click_on_the_sorting(String value) throws Throwable 
+	{
+		System.out.println("User Click on Sorting");		
+		
+		clickOn("start","[@class='sorting_" + value + "']");		
+	}
+	
+	@Then("^User see sorting result$")
+	public void user_see_sorting_result() throws Throwable 
+	{	
+		int rowCount=wd.findElements(By.tagName("tr")).size();
+		int ColmnCount=wd.findElements(By.xpath("//table//thead//tr//th")).size();
+		
+		System.out.println("rowCount :"+rowCount);
+		System.out.println("ColmnCount :"+ColmnCount);
+		
+			String name= wd.findElement(By.xpath("//*[@id='example']/tbody/tr[1]/td[1]")).getText();
+			System.out.println(name);								
+			
+			if(name.contains("Y. Berry"))
+			{				
+				System.out.println("Desceding order");				
+			}
+			else
+			{
+				System.out.println("No Desceding order");
+			}				 				
+	}
+	
+	//For Show Enteries
+	@And("^user click on Dropdown \"([^\"]*)\"$")
+	public void user_click_on_Dropdown(String value) throws Throwable 
+	{
+		drp_select("selectdropdown", value); 
+		Thread.sleep(1000);
+	}
+
+	/*@Then("^user see the page result$")
+	public void user_see_the_page_result() throws Throwable 
+	{
+		int rowCount=wd.findElements(By.tagName("tr")).size();
+		int ColmnCount=wd.findElements(By.xpath("//table//thead//tr//th")).size();
+		
+		System.out.println("rowCount :"+rowCount);
+		System.out.println("ColmnCount :"+ColmnCount);			
+	}*/
+		
 }

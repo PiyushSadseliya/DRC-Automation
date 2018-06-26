@@ -160,3 +160,16 @@ Examples:
 
 |Sorting|
 |FixSort|
+
+
+Scenario Outline: Validate User Click on Show Enteries 
+
+Given user is in current page
+And user click on Dropdown "<dropdown>"
+Then user see the page result 
+
+Examples:
+
+|dropdown|
+|100|
+
