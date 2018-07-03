@@ -318,4 +318,61 @@ public class HelperBase
 			System.out.println("Body message not verified successfully " +expectedMessage);
 		}
     }
+	public static void UploadImage(String object, String data) throws Exception {
+		try {
+			
+			StringSelection stringSelection_filepath = new StringSelection(data);
+			Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection_filepath, null);
+			Thread.sleep(500);
+			Robot robot = new Robot();
+			/**
+			 *  Press CTRL+V
+			 */
+			robot.setAutoDelay(100);
+			robot.keyPress(KeyEvent.VK_CONTROL);
+			robot.keyPress(KeyEvent.VK_V);
+			/**
+			 * Release CTRL+V
+			 */
+			robot.keyRelease(KeyEvent.VK_V);
+			robot.keyRelease(KeyEvent.VK_CONTROL);
+			/**
+			 * Press Enter
+			 */
+			robot.setAutoDelay(100);
+			robot.keyPress(KeyEvent.VK_ENTER);
+			robot.keyRelease(KeyEvent.VK_ENTER);
+			Thread.sleep(5000);
+			
+		} 	catch (Exception e)	{
+			
+		}
+		
+	}
+	public static void viewDoc(String object,int data) throws InterruptedException {
+		 try {
+             obj.load(fis);
+         } catch (IOException e) {
+             e.printStackTrace();
+         }
+		 String  handle= wd.getWindowHandle();
+		 System.out.println(handle);
+		 By locator = By.xpath(obj.getProperty(object));
+		List<WebElement> view = wd.findElements(locator);
+		for(WebElement element:view){
+	element.click();
+	Thread.sleep(5000);
+		}
+		System.out.println(view.size());
+		if(view.size()==data) {
+			System.out.println("All Documents viewed");
+			wd.switchTo().window(handle);
+			 
+		}
+		
+	}
+	public static String pageSource() {
+		return wd.getPageSource();
+	}
+
 }
