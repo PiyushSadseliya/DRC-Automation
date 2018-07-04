@@ -105,12 +105,12 @@ Feature: Upload Documents after all process are completed till the Banks details
     Examples: 
       | Test Case ID            | POA       | POA path                    | A/C Proof | a/c path                    | INCcerti  | incpath                     | LOAuth     | LOAuthpath                  | Revenue    | Revpath                     |
       | DRC_ATC_Required_doc_22 | doc_desc7 | F:\\documents\\capture.png  | doc_desc9 | F:\\documents\\capture.png  | doc_desc6 | F:\\documents\\capture.png  | doc_desc11 | F:\\documents\\capture.png  | doc_desc10 | F:\\documents\\capture.png  |
-      #| DRC_ATC_Required_doc_23 | doc_desc7 | F:\\documents\\capture.jpg  | doc_desc9 | F:\\documents\\capture.jpg  | doc_desc6 | F:\\documents\\capture.jpg  | doc_desc11 | F:\\documents\\capture.jpg  | doc_desc10 | F:\\documents\\capture.jpg  |
-      #| DRC_ATC_Required_doc_24 | doc_desc7 | F:\\documents\\capture.jpeg | doc_desc9 | F:\\documents\\capture.jpeg | doc_desc6 | F:\\documents\\capture.jpeg | doc_desc11 | F:\\documents\\capture.jpeg | doc_desc10 | F:\\documents\\capture.jpeg |
-      #| DRC_ATC_Required_doc_25 | doc_desc7 | F:\\documents\\capture.pdf  | doc_desc9 | F:\\documents\\capture.pdf  | doc_desc6 | F:\\documents\\capture.pdf  | doc_desc11 | F:\\documents\\capture.pdf  | doc_desc10 | F:\\documents\\capture.pdf  |
-      #| DRC_ATC_Required_doc_26 | doc_desc7 | F:\\documents\\capture.docx | doc_desc9 | F:\\documents\\capture.docx | doc_desc6 | F:\\documents\\capture.docx | doc_desc11 | F:\\documents\\capture.docx | doc_desc10 | F:\\documents\\capture.docx |
-      #| DRC_ATC_Required_doc_27 | doc_desc7 | F:\\documents\\capture.gif  | doc_desc9 | F:\\documents\\capture.gif  | doc_desc6 | F:\\documents\\capture.gif  | doc_desc11 | F:\\documents\\capture.gif  | doc_desc10 | F:\\documents\\capture.gif  |
-      #| DRC_ATC_Required_doc_28 | doc_desc7 | F:\\documents\\capture.xlsx | doc_desc9 | F:\\documents\\capture.xlsx | doc_desc6 | F:\\documents\\capture.xlsx | doc_desc11 | F:\\documents\\capture.xlsx | doc_desc10 | F:\\documents\\capture.xlsx |
+      | DRC_ATC_Required_doc_23 | doc_desc7 | F:\\documents\\capture.jpg  | doc_desc9 | F:\\documents\\capture.jpg  | doc_desc6 | F:\\documents\\capture.jpg  | doc_desc11 | F:\\documents\\capture.jpg  | doc_desc10 | F:\\documents\\capture.jpg  |
+      | DRC_ATC_Required_doc_24 | doc_desc7 | F:\\documents\\capture.jpeg | doc_desc9 | F:\\documents\\capture.jpeg | doc_desc6 | F:\\documents\\capture.jpeg | doc_desc11 | F:\\documents\\capture.jpeg | doc_desc10 | F:\\documents\\capture.jpeg |
+      | DRC_ATC_Required_doc_25 | doc_desc7 | F:\\documents\\capture.pdf  | doc_desc9 | F:\\documents\\capture.pdf  | doc_desc6 | F:\\documents\\capture.pdf  | doc_desc11 | F:\\documents\\capture.pdf  | doc_desc10 | F:\\documents\\capture.pdf  |
+      | DRC_ATC_Required_doc_26 | doc_desc7 | F:\\documents\\capture.docx | doc_desc9 | F:\\documents\\capture.docx | doc_desc6 | F:\\documents\\capture.docx | doc_desc11 | F:\\documents\\capture.docx | doc_desc10 | F:\\documents\\capture.docx |
+      | DRC_ATC_Required_doc_27 | doc_desc7 | F:\\documents\\capture.gif  | doc_desc9 | F:\\documents\\capture.gif  | doc_desc6 | F:\\documents\\capture.gif  | doc_desc11 | F:\\documents\\capture.gif  | doc_desc10 | F:\\documents\\capture.gif  |
+      | DRC_ATC_Required_doc_28 | doc_desc7 | F:\\documents\\capture.xlsx | doc_desc9 | F:\\documents\\capture.xlsx | doc_desc6 | F:\\documents\\capture.xlsx | doc_desc11 | F:\\documents\\capture.xlsx | doc_desc10 | F:\\documents\\capture.xlsx |
 
   # non corp llp Yes 7 docs poa,a/c,coi,assoc,loa,llp,lyr #done
   @NonCopratesLLPY

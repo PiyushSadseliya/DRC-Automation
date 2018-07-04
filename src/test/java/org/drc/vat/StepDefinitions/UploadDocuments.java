@@ -29,7 +29,7 @@ public class UploadDocuments {
 	String delete_msg="Document file deleted Successfully";
 	String doctype_errormsg="Allow only Image and pdf file only!";
 	String pageSource=null;
-	File file;
+	File file =null;
 	double maxMB=2.00;
 
 	int upload_doc=0;
@@ -37,8 +37,8 @@ public class UploadDocuments {
 	String subcat = null;
 	String llpyn = null;
 	SoftAssert softAssert = new SoftAssert();
-	
-	
+
+
 	@Given("^The users has logged in and proceeds for VAT Registration$")
 	public void the_users_has_logged_in_and_proceeds_for_VAT_Registration() throws InterruptedException {
 		// Write code here that turns the phrase above into concrete actions
@@ -78,11 +78,11 @@ public class UploadDocuments {
 		Thread.sleep(2000);
 		clickOn("span", "[contains(text(),'" + subcategory + "')]");
 		Thread.sleep(2000);
-	if (!llp.equals("")) {			
+		if (!llp.equals("")) {			
 
 			clickOn("partnership_firm", "");
 			Thread.sleep(5000);
-			clickOn("option_no", "/span[text()='" + llp + "']");
+			//clickOn("option_no", "/span[text()='" + llp + "']");
 			System.out.println("llp ");
 			Thread.sleep(3000);
 		}
@@ -92,11 +92,11 @@ public class UploadDocuments {
 	public void fills_General_details(String arg1, String arg2, String arg3, String arg4, String arg5, String arg6,
 			String arg7, String arg8, String arg9) throws InterruptedException {
 		// Write code here that turns the phrase above into concrete actions
-System.out.println(arg1+arg2+arg3+arg4+arg5+arg6+arg7+arg8+arg9);
-Thread.sleep(6000);
+		System.out.println(arg1+arg2+arg3+arg4+arg5+arg6+arg7+arg8+arg9);
+		Thread.sleep(6000);
 		type("nif", arg1);
 		Thread.sleep(4000);
-	
+
 		//clickOn("nif_reg_date", "");
 		Thread.sleep(5000);
 		//clickOn("nifdate", "");
@@ -109,7 +109,7 @@ Thread.sleep(6000);
 			Thread.sleep(4000);
 			//clickOn("Business_start_date", "");			
 			//clickOn("busdate", "");
-			
+
 			clickOn("company_size", "");
 			Thread.sleep(1000);
 			clickOn("span", "[contains(text(),'" + arg6 + "')]");
@@ -155,36 +155,36 @@ Thread.sleep(6000);
 		type("zipcode", ZipCode);
 		Thread.sleep(1000);
 		type("mobileno", MobileNo);
-	
+
 		Thread.sleep(1000);	}
 
 	@When("^fills Details of Business Promoters \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
 	public void fills_Details_of_Business_Promoters(String NameOfPromoters, String P_address1, String P_province,
 			String P_city, String P_zipcode, String P_email, String P_Mobileno) throws InterruptedException {
 		if(!cat.equals("Natural Person")) {
-		System.out.println(NameOfPromoters + P_address1 + P_province + P_city + P_zipcode + P_email + P_Mobileno);
-		type("name", NameOfPromoters);
-		Thread.sleep(1000);
-		type("buspromadd1", P_address1);
-		Thread.sleep(1000);
-		clickOn("buspromprovince", "");
-		Thread.sleep(1000);
-		clickOn("span", "[contains(text(),'" + P_province + "')]");
-		Thread.sleep(1000);
-		WebElement we;
-		we = wd.findElement(By.xpath("(//*[@formcontrolname='cityId'])[1]"));
-		if (we.isEnabled()) {
+			System.out.println(NameOfPromoters + P_address1 + P_province + P_city + P_zipcode + P_email + P_Mobileno);
+			type("name", NameOfPromoters);
 			Thread.sleep(1000);
-			clickOn("buspromcity", "");
+			type("buspromadd1", P_address1);
+			Thread.sleep(1000);
+			clickOn("buspromprovince", "");
+			Thread.sleep(1000);
+			clickOn("span", "[contains(text(),'" + P_province + "')]");
+			Thread.sleep(1000);
+			WebElement we;
+			we = wd.findElement(By.xpath("(//*[@formcontrolname='cityId'])[1]"));
+			if (we.isEnabled()) {
+				Thread.sleep(1000);
+				clickOn("buspromcity", "");
+				Thread.sleep(2000);
+				clickOn("span", "[contains(text(),'" + P_city + "')]");
+			}
 			Thread.sleep(2000);
-			clickOn("span", "[contains(text(),'" + P_city + "')]");
-		}
-		Thread.sleep(2000);
-		type("buspromzipcode", P_zipcode);
-		Thread.sleep(2000);
-		type("buspromemail", P_email);
-		Thread.sleep(1000);
-		type("busprommobileno", P_Mobileno);
+			type("buspromzipcode", P_zipcode);
+			Thread.sleep(2000);
+			type("buspromemail", P_email);
+			Thread.sleep(1000);
+			type("busprommobileno", P_Mobileno);
 		}
 	}
 
@@ -230,8 +230,9 @@ Thread.sleep(6000);
 		clickOn("file0_upload", "");
 		UploadImage("", addpath);
 		fileUploadMessage(addpath);
+
 		upload_doc++;
-		
+
 		System.out.println("uploaded add");
 
 	}
@@ -337,154 +338,144 @@ Thread.sleep(6000);
 
 		}
 		UploadImage("", lyrpath);
-		
+
 		fileUploadMessage(lyrpath);
 		upload_doc++;		
-		
+
 		Thread.sleep(2000);
 		System.out.println("uploaded rev");
 
 	}
 
 	void fileUploadMessage(String lyrpath){
-		System.out.println("File uplad Message");
+		System.out.println("File upload Message");
 		pageSource=pageSource();
 		try{
 			file =new File(lyrpath);
+			System.out.println(file.exists());	
+
+
+			if(lyrpath.endsWith(".pdf")||lyrpath.endsWith(".jpg")||lyrpath.endsWith(".jpeg")||lyrpath.endsWith(".png")) {
+				if(getFileSizeInMb(file)<=maxMB) {
+					if(pageSource.contains("<div>"+Upload_Msg+"</div>")) {
+						System.out.println("UPload message shown");
+					}					
+					softAssert.assertEquals(true, true,"File Uploaded Succesully with correct message");
+					System.out.println("File Uploaded Succesully with correct message");
+				}else {
+					pageSource.contains("<div>"+Upload_msgError_size+"</div>");
+					softAssert.assertEquals(true, true,"Only Document type Matched & Size  is greater than maximum size");
+				}
+			}else if((!lyrpath.endsWith(".pdf"))||(!lyrpath.endsWith(".jpg"))||(!lyrpath.endsWith(".jpeg"))||(!lyrpath.endsWith(".png"))) {
+				pageSource.contains("<div>"+doctype_errormsg+"</div>");
+				softAssert.assertEquals(true, true,"Document Type donot match");		
+		}}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
 			
-			if(pageSource.contains("<div>"+Upload_Msg+"</div>") || pageSource.contains("<div>"+doctype_errormsg+"</div>")||pageSource.contains("<div>"+Upload_msgError_size+"</div>")) {
-				
-				if(lyrpath.endsWith(".pdf")||lyrpath.endsWith(".jpg")||lyrpath.endsWith(".jpeg")||lyrpath.endsWith(".png")) {
-					
-					 
-					 if(getFileSizeInMb(file)<=2.00) {
-						 softAssert.assertEquals(true, true,"As per the Requirements");
-						 System.out.println("File Uploaded Succesully");
-					 }else {
-						 softAssert.assertEquals(true, true,"Requirements Do not match");
-					 }
-
-
-					
-				}
-				else if(pageSource.contains("<div>"+Upload_msgError_size+"</div>")){
-					if((lyrpath.endsWith(".pdf")||lyrpath.endsWith(".jpg")||lyrpath.endsWith(".jpeg")||lyrpath.endsWith(".png"))&& getFileSizeInMb(file)>2.00) {
-						softAssert.assertEquals(true, true,"Only Document type Matched Size & is greater than maximum size");
-					}
-					else {
-						softAssert.fail();
-					}
-					
-				}
-				else if((!lyrpath.endsWith(".pdf"))||(!lyrpath.endsWith(".jpg"))||(!lyrpath.endsWith(".jpeg"))||(!lyrpath.endsWith(".png"))) {
-					softAssert.assertEquals(true, true,"Document Type donot match");
-				}
-				
-				
-			}
-	
-			}catch(Exception e) {
-				e.printStackTrace();
-			}
-	}
-		
-	 double getFileSizeInMb(File file) {
-		  return (double) file.length() / (1024 * 1024);
-		 
-	 }
-
-
-	 @When("^Views the files$")
-	 public void views_the_files()   {
-	     // Write code here that turns the phrase above into concrete actions
-		 System.out.println("viewed Documents");
-		 viewDoc("btn_view",upload_doc);
-	 }
-
-
-	@Then("^Clicks on Continue\\.$")
-	public void clicks_on_Continue() throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		logout();
 	}
 
-	@When("^Asssoc \"([^\"]*)\" \"([^\"]*)\"$")
-	public void asssoc(String assoc, String assocpath) throws Exception {
-		// Write code here that turns the phrase above into concrete actions
-		System.out.println(assoc);
-		clickOn("dropdown_3", "");
-		Thread.sleep(1000);
-		clickOn("span", "[contains(text(),'" + assoc + "')]");
-		clickOn("file3_upload", "");
-		Thread.sleep(1000);
-		UploadImage("", assocpath);
-		fileUploadMessage(assocpath);
-		upload_doc++;
-		System.out.println("uploaded assoc");
 
-	}
 
-	@When("^llp\"([^\"]*)\"\"([^\"]*)\"$")
-	public void llp(String llp, String llppath) throws Exception {
-		// Write code here that turns the phrase above into concrete actions
-		System.out.println(llp);
-		if(subcat.equals("Incorporated Bodies") && llpyn.equals("Yes")) {
-			clickOn("dropdown_4", "");
-			Thread.sleep(1000);
-			clickOn("span", "[contains(text(),'" + llp + "')]");
-			clickOn("file4_upload", "");
-			Thread.sleep(1000);
+		double getFileSizeInMb(File file) {
+			return (double) file.length() / (1024 * 1024);
+
 		}
-		else {
-		clickOn("dropdown_5", "");
-		Thread.sleep(1000);
-		clickOn("span", "[contains(text(),'" + llp + "')]");
-		clickOn("file5_upload", "");
-		Thread.sleep(1000);
-		}
-		UploadImage("", llppath);
-		fileUploadMessage(llppath);	
-		upload_doc++;		
-		System.out.println("uploaded LLP");
-	}
 
-	@Then("^Removes the document$")
-	public void removes_the_document() throws InterruptedException{
-	    // Write code here that turns the phrase above into concrete actions
-		clickOn("doc_remove","");
-		Thread.sleep(2000);
-		clickOn("btn_cancel","");
-		Thread.sleep(2000);
-		clickOn("btn_delete","");
-		Thread.sleep(1500);
-		try{
+
+		@When("^Views the files$")
+		public void views_the_files() throws InterruptedException   {
+			// Write code here that turns the phrase above into concrete actions
+			System.out.println("viewed Documents");
+			viewDoc("btn_view",upload_doc);
+		}
+
+
+		@Then("^Clicks on Continue\\.$")
+		public void clicks_on_Continue() throws Throwable {
+			// Write code here that turns the phrase above into concrete actions
+			logout();
+		}
+
+		@When("^Asssoc \"([^\"]*)\" \"([^\"]*)\"$")
+		public void asssoc(String assoc, String assocpath) throws Exception {
+			// Write code here that turns the phrase above into concrete actions
+			System.out.println(assoc);
+			clickOn("dropdown_3", "");
+			Thread.sleep(1000);
+			clickOn("span", "[contains(text(),'" + assoc + "')]");
+			clickOn("file3_upload", "");
+			Thread.sleep(1000);
+			UploadImage("", assocpath);
+			fileUploadMessage(assocpath);
+			upload_doc++;
+			System.out.println("uploaded assoc");
+
+		}
+
+		@When("^llp\"([^\"]*)\"\"([^\"]*)\"$")
+		public void llp(String llp, String llppath) throws Exception {
+			// Write code here that turns the phrase above into concrete actions
+			System.out.println(llp);
+			if(subcat.equals("Incorporated Bodies") && llpyn.equals("Yes")) {
+				clickOn("dropdown_4", "");
+				Thread.sleep(1000);
+				clickOn("span", "[contains(text(),'" + llp + "')]");
+				clickOn("file4_upload", "");
+				Thread.sleep(1000);
+			}
+			else {
+				clickOn("dropdown_5", "");
+				Thread.sleep(1000);
+				clickOn("span", "[contains(text(),'" + llp + "')]");
+				clickOn("file5_upload", "");
+				Thread.sleep(1000);
+			}
+			UploadImage("", llppath);
+			fileUploadMessage(llppath);	
+			upload_doc++;		
+			System.out.println("uploaded LLP");
+		}
+
+		@Then("^Removes the document$")
+		public void removes_the_document() throws InterruptedException{
+			// Write code here that turns the phrase above into concrete actions
 			clickOn("doc_remove","");
 			Thread.sleep(2000);
 			clickOn("btn_cancel","");
 			Thread.sleep(2000);
-			clickOn("doc_remove","");
-			Thread.sleep(2000);
 			clickOn("btn_delete","");
 			Thread.sleep(1500);
-		if(pageSource().contains("<div>"+delete_msg+"</div>")) {
-			System.out.println("File Deleted Succesully");
-			softAssert.assertEquals(true, true);
+			try{
+				clickOn("doc_remove","");
+				Thread.sleep(2000);
+				clickOn("btn_cancel","");
+				Thread.sleep(2000);
+				clickOn("doc_remove","");
+				Thread.sleep(2000);
+				clickOn("btn_delete","");
+				Thread.sleep(1500);
+				if(pageSource().contains("<div>"+delete_msg+"</div>")) {
+					System.out.println("File Deleted Succesully");
+					softAssert.assertEquals(true, true);
+				}
+				else{
+					softAssert.fail();
+				}
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+
+
 		}
-		else{
-			softAssert.fail();
+		@Then("^clicks on previous button and goes to Bank details page$")
+		public void clicks_on_previous_button_and_goes_to_Bank_details_page() throws InterruptedException {
+			// Write code here that turns the phrase above into concrete actions
+			clickOn("btn_prev","");
+			Thread.sleep(5000);	
+			elementText("page_bank");
+
 		}
-		}catch(Exception e) {
-			e.printStackTrace();
-		}
-		
-	 
 	}
-@Then("^clicks on previous button and goes to Bank details page$")
-public void clicks_on_previous_button_and_goes_to_Bank_details_page() throws InterruptedException {
-    // Write code here that turns the phrase above into concrete actions
-	clickOn("btn_prev","");
-	Thread.sleep(5000);	
-	elementText("page_bank");
-   
-}
-}

@@ -5,6 +5,12 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import static org.drc.vat.appmanager.HelperBase.*;
 import static org.drc.vat.appmanager.HelperBase.clickOn;
+import static org.drc.vat.appmanager.HelperBase.emailVerification;
+import static org.drc.vat.appmanager.HelperBase.change_tab;
+
+import java.awt.AWTException;
+
+import static org.drc.vat.appmanager.HelperBase.cookieclear;
 
 public class userRegistration {
 	static int count = 1;
@@ -24,6 +30,8 @@ public class userRegistration {
 	boolean maxPasswordcount=false;
 	boolean showvalidationMessage = true;
 	boolean novalidationMessage = false;
+	String email=null;
+	String verificationMsg="Your account has been verified";
 	
 	
 
@@ -37,10 +45,12 @@ public class userRegistration {
 
 	@When("^User Clicks on Register$")
 	public void user_Clicks_on_Register() throws Throwable {
-		if(count==1) {
+		if(count==1) {			
 		clickOn("register_link","");	
-		count++;
+		count++;		
+	//	clickOn("chkbox_captcha","");
 		}
+		
 
 	}
 
@@ -49,6 +59,9 @@ public class userRegistration {
 		check_page_url("URL_Register");
 		if(count>1) {
 			call_url("URL_Register");
+			Thread.sleep(3000);
+			//cookieclear();
+			//clickOn("chkbox_captcha","");
 		}
 
 
@@ -57,6 +70,7 @@ public class userRegistration {
 	@Then("^User Enters Data \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" in the respective fields$")
 	public void user_Enters_Data_in_the_respective_fields(String FullName, String Email, String Password, String ConfirmPassword, String MobileNumber) throws Throwable {
 		Thread.sleep(5000);
+		email=Email;
 		//Blank value
 		if(FullName.length()==0) {	
 			System.out.println("full name blank");
@@ -139,7 +153,7 @@ public class userRegistration {
 
 	@Then("^Accepts Terms and condition$")
 	public void accepts_Terms_and_condition() throws Throwable {
-		Thread.sleep(9000);
+		Thread.sleep(120000);
 		clickOn("chkbx_agree","");
 		Thread.sleep(3000);
 		clickOn("btn_accept","");
@@ -149,7 +163,7 @@ public class userRegistration {
 	@Then("^Clicks On Register Button$")
 	public void clicks_On_Register_Button() throws Throwable {
 		//System.out.println(maxPasswordcount);
-		Thread.sleep(2000);
+		Thread.sleep(50000);
 		clickOn("btn_register","");
 		//Validation Message of Max and Min count is true skip Register button click
 		
@@ -159,7 +173,21 @@ public class userRegistration {
 	@Then("^User should be navigated to ThankYou for Registering Page after successful Registration\\.$")
 	public void user_should_be_navigated_to_ThankYou_for_Registering_Page_after_successful_Registration() throws Throwable {
 		check_page_url("URL_Success");		
+		Thread.sleep(5000);
 
+	}
+	@Then("^checks inbox for verification mail\\.$")
+	public void checks_inbox_for_verification_mail() throws Exception   {
+	    // Write code here that turns the phrase above into concrete actions
+		emailVerification(email);
+		change_tab();
+		System.out.println(elementText("heading_linkverify"));
+		if(elementText("heading_linkverify").equals(verificationMsg)) {
+			System.out.println("Email verificatin completed");
+		}else {
+			System.out.println("Verification Failed");
+		}
+	  
 	}
 	@Then("^Accepts/Rejects Terms and conditions$")
 	public void accepts_Rejects_Terms_and_conditions() throws Throwable {
