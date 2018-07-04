@@ -352,7 +352,54 @@ public class ManageVatRegistration
 		{
 			System.out.println("Pass");
 		}
-		
 	}
+		
+	//TC_15	
+	@And("^enter valid data in Type Here \"([^\"]*)\"$")
+	public void enter_valid_data_in_Type_Here(String value) throws Throwable 
+	{
+		System.out.println("User Enter Data in Type Here ");
+		//Thread.sleep(5000);
+		type("TypeHere",value);
+		Thread.sleep(5000);	
+	}
+	@And("^user select from filter \"([^\"]*)\"$")
+	public void user_select_from_filter(String value) throws Throwable 
+	{
+		System.out.println("User select Filter ");
+		clickOn("FilterBy", "");
+		clickOn("span","[contains(text(),'" + value + "')]");
+		Thread.sleep(2000);
+	}
+	@And("^enter filter data \"([^\"]*)\"$")
+	public void enter_filter_data(String value2) throws Throwable 
+	{
+		System.out.println("Enter Value 2 data");
+		clickOn("span","[contains(text(),'" + value2 + "')]");
+		Thread.sleep(2000);
+	}
+
+	@And("^user click on NIF sorting \"([^\"]*)\"$")
+	public void user_click_on_NIF_sorting(String value) throws Throwable {
+		
+		System.out.println("User Click on Sorting Nif ");
+		
+		clickOn("SortNifClick", "");
+		clickOn("start","[@class='pl-1 fa fa-sort-" + value + "']");
+		Thread.sleep(2000);		
+	}
+	
+	@And("^user Refresh Manage VAT Registration page$")
+	public void user_Refresh_Manage_VAT_Registration_page() throws Throwable 
+	{
+		System.out.println("Refresh Manage Vat Registration");
+		wd.navigate().refresh();
+	}
+	@And("^enter valid filter data \"([^\"]*)\"$")
+	public void enter_valid_filter_data(String value3) throws Throwable 
+	{
+		type("TypeHere",value3);
+		Thread.sleep(2000);
+	}	
 		
 }
