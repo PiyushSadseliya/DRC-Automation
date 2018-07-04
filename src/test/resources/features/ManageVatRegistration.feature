@@ -191,6 +191,25 @@ Examples:
 |Valid_Manage_VAT_Reg_Sort_01|desc|9|
 #|Valid_Manage_VAT_Reg_Sort_02|desc|8|
 
+
+#@TestTC_15
+Scenario Outline: Validate whether all filter working properly when used simultaneously. 
+Given User is on Internal Portal
+When user selects Manage Vat Registraion
+And enter valid data in Type Here "<Value1>"
+And user select from filter "<Filters>"
+And enter filter data "<Value2>"
+And user click on NIF sorting "<sorting>"
+And user Refresh Manage VAT Registration page
+And user click on NIF sorting "<sorting>"
+And user select from filter "<Filters>" 
+And enter valid filter data "<Value3>"
+
+Examples:
+| TestcaseID                            |Value1  |Filters      |Value2  |sorting|Value3|
+|Valid_Manage_VAT_Reg_Filter_Simultaneously_01|10       |Priority     |5       |desc   |4|
+
+
 #TC_16
 #@FilterCombinationInvalid
 Scenario Outline: Validate filter fucntionality and Type here with different combination Invalid 
