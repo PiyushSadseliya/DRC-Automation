@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="0" name="Failed suite [org.drc.vat.StepDefinitions.TestRunner]">
+  <test name="Command line test(failed)">
+    <classes>
+      <class name="org.drc.vat.StepDefinitions.TestRunner">
+        <methods>
+          <include name="tearDown"/>
+          <include name="setUpClass"/>
+          <include name="feature" invocation-numbers="0"/>
+          <include name="setUP_Mobilenop"/>
+          <include name="tearDownClass"/>
+        </methods>
+      </class> <!-- org.drc.vat.StepDefinitions.TestRunner -->
+    </classes>
+  </test> <!-- Command line test(failed) -->
+</suite> <!-- Failed suite [org.drc.vat.StepDefinitions.TestRunner] -->

@@ -1,6 +1,10 @@
 package org.drc.vat.appmanager;
 
 import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
@@ -16,6 +20,7 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.BrowserType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+
 
 public class ApplicationManager {
     private final Properties properties;
@@ -51,26 +56,47 @@ public class ApplicationManager {
 
         wd.manage().window().maximize();
         wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        //wd.get(properties.getProperty("web.Url"));
-        //auth();
+    //    wd.get(properties.getProperty("web.Url"));
+        
 
         helperBase = new HelperBase(wd);
+    //    helperBase.auth();
     }
 
     public void stop() {
-        wd.quit();
-        wd = null;
+     wd.quit();
+      wd = null;
     }
 
     public HelperBase helperBase() {
         return helperBase;
     }
     
-    public void callurl()
+    public void callurl() throws AWTException, InterruptedException
     {
-    	wd.get(properties.getProperty("web.Url"));
-    }
-    
+    	//wd.get(properties.getProperty("web.Url"));http://103.249.120.58:8068
+    	//System.out.println("executionstartafterURL");
+    	Robot rb = new Robot();
+		  // Enter user name in username field 
+		// StringSelection un = new StringSelection("http://103.249.120.58:8068");
+	/*	 StringSelection un = new StringSelection("web.Url");
+		        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(un, null);   
+		    	rb.keyPress(KeyEvent.VK_TAB);
+		    	rb.keyRelease(KeyEvent.VK_TAB);
+		    	Thread.sleep(2000);
+		    	rb.keyPress(KeyEvent.VK_TAB);
+		    	rb.keyRelease(KeyEvent.VK_TAB);
+		        rb.keyPress(KeyEvent.VK_CONTROL);
+		        rb.keyPress(KeyEvent.VK_V);
+		        rb.keyRelease(KeyEvent.VK_V);
+		        rb.keyRelease(KeyEvent.VK_CONTROL);
+		  // press tab to move to password field
+		        rb.keyPress(KeyEvent.VK_ENTER);
+		       rb.keyRelease(KeyEvent.VK_TAB);
+		       Thread.sleep(2000);//http://103.249.120.58:8068*/
+  
+    wd.get(properties.getProperty("web.Url"));
+}
     public byte[] takeScreenshot() {
         return ((TakesScreenshot) wd).getScreenshotAs(OutputType.BYTES);
     }

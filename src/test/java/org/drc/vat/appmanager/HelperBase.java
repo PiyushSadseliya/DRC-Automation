@@ -4,6 +4,9 @@ import static org.drc.vat.appmanager.HelperBase.clickOn;
 
 import java.awt.AWTException;
 import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.FileInputStream;
@@ -12,6 +15,9 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Objects;
 import java.util.Properties;
+
+import javax.xml.bind.DatatypeConverter;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -25,6 +31,7 @@ public class HelperBase
     public static WebDriver wd;
     private static String bodyMessage="";
     public static Properties obj = new Properties();
+    private static Properties properties;
     private static FileInputStream fis;
     private static File dir = new File(
             System.getProperty("user.home") + "/Downloads");
@@ -147,7 +154,7 @@ public class HelperBase
         drp_down.selectByVisibleText(data);
     }
     
-    public static void bodymessage(String object) throws InterruptedException
+    public static void bodymessage1(String object) throws InterruptedException
     {
     	
 		try 
@@ -190,12 +197,12 @@ public class HelperBase
     	try
     	{
     		String d,m,y;
-    		d=date.substring(8,2);
-    		m=date.substring(5,2);
+    		d=date.substring(8,10);;
+    		m=date.substring(5,7);
     		y=date.substring(0,4);
     		clickOn("span","[contains(text(),'2018')]");
     		clickOn("span","[contains(text(),'" +y+"')]");
-    		clickOn("span","[contains(text(),'June')]");
+    		//clickOn("span","[contains(text(),'June')]");
     		if(m.equals("01"))
     		{
     			clickOn("span","[contains(text(),'January')]");
@@ -318,6 +325,56 @@ public class HelperBase
 			System.out.println("Body message not verified successfully " +expectedMessage);
 		}
     }
+	 public void auth() throws AWTException {
+	        String decoded = new String(DatatypeConverter.parseBase64Binary(properties.getProperty("pw")));
+	        Robot robot = new Robot();
+	        robotType(robot, properties.getProperty("un"));
+	        robot.keyPress(KeyEvent.VK_TAB);
+	        robotType(robot, decoded);
+	        robot.keyPress(KeyEvent.VK_ENTER);
+	    }
+
+	    public void robotType(Robot robot, String characters) {
+	        Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+	        StringSelection stringSelection = new StringSelection(characters);
+	        clipboard.setContents(stringSelection, stringSelection);
+
+	        robot.delay(500);
+	        robot.keyPress(KeyEvent.VK_CONTROL);
+	        robot.keyPress(KeyEvent.VK_V);
+	        robot.keyRelease(KeyEvent.VK_V);
+	        robot.keyRelease(KeyEvent.VK_CONTROL);
+	        robot.delay(500);
+	    }
+	public static void pass() throws AWTException, InterruptedException
+	{
+		Robot rb = new Robot();
+
+		  // Enter user name in username field 
+		 StringSelection username = new StringSelection("testUser1");
+		        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(username, null);            
+		        rb.keyPress(KeyEvent.VK_CONTROL);
+		        rb.keyPress(KeyEvent.VK_V);
+		        rb.keyRelease(KeyEvent.VK_V);
+		        rb.keyRelease(KeyEvent.VK_CONTROL);
+
+		  // press tab to move to password field
+		       rb.keyPress(KeyEvent.VK_TAB);
+		       rb.keyRelease(KeyEvent.VK_TAB);
+		       Thread.sleep(2000);
+
+		  //Enter password in password field
+		       StringSelection pwd = new StringSelection("testPassword");
+		       Toolkit.getDefaultToolkit().getSystemClipboard().setContents(pwd, null);
+		       rb.keyPress(KeyEvent.VK_CONTROL);
+		       rb.keyPress(KeyEvent.VK_V);
+		       rb.keyRelease(KeyEvent.VK_V);
+		       rb.keyRelease(KeyEvent.VK_CONTROL);
+
+		  //press enter
+		 rb.keyPress(KeyEvent.VK_ENTER);
+		 rb.keyRelease(KeyEvent.VK_ENTER);
+	}
 	public static void UploadImage(String object, String data) throws Exception {
 		try {
 			
@@ -347,32 +404,6 @@ public class HelperBase
 		} 	catch (Exception e)	{
 			
 		}
+	}
 		
-	}
-	public static void viewDoc(String object,int data) throws InterruptedException {
-		 try {
-             obj.load(fis);
-         } catch (IOException e) {
-             e.printStackTrace();
-         }
-		 String  handle= wd.getWindowHandle();
-		 System.out.println(handle);
-		 By locator = By.xpath(obj.getProperty(object));
-		List<WebElement> view = wd.findElements(locator);
-		for(WebElement element:view){
-	element.click();
-	Thread.sleep(5000);
-		}
-		System.out.println(view.size());
-		if(view.size()==data) {
-			System.out.println("All Documents viewed");
-			wd.switchTo().window(handle);
-			 
-		}
-		
-	}
-	public static String pageSource() {
-		return wd.getPageSource();
-	}
-
 }
