@@ -23,11 +23,11 @@ import java.util.Date;
 
 import static org.drc.vat.appmanager.HelperBase.logout;
 
-@CucumberOptions(features = {"src/test/resources/features/SmokeSuiteSprint6.feature"},
+@CucumberOptions(features = {"src/test/resources/features"},
        glue = "org.drc.vat.StepDefinitions",
         plugin = {"com.cucumber.listener.ExtentCucumberFormatter:",
-                  "html:test-output/cucumber-report"},
-        tags={"@Run"}
+                  "html:test-output/cucumber-report"}
+        //tags={"@Run"}
       )
 
 public class TestRunner extends AbstractTestNGCucumberTests {

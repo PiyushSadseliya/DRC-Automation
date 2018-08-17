@@ -2,27 +2,27 @@
 <testng-results skipped="0" failed="0" ignored="0" total="0" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="org.drc.vat.StepDefinitions.TestRunner" duration-ms="624" started-at="2018-08-16T13:47:30Z" finished-at="2018-08-16T13:47:30Z">
+  <suite name="org.drc.vat.StepDefinitions.TestRunner" duration-ms="1012" started-at="2018-08-17T09:34:45Z" finished-at="2018-08-17T09:34:46Z">
     <groups>
       <group name="cucumber">
         <method signature="AbstractTestNGCucumberTests.feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:org.drc.vat.StepDefinitions.TestRunner@685cb137]" name="feature" class="cucumber.api.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test name="Command line test" duration-ms="624" started-at="2018-08-16T13:47:30Z" finished-at="2018-08-16T13:47:30Z">
+    <test name="Command line test" duration-ms="1012" started-at="2018-08-17T09:34:45Z" finished-at="2018-08-17T09:34:46Z">
       <class name="org.drc.vat.StepDefinitions.TestRunner">
-        <test-method status="PASS" signature="setUP_Mobilenop()[pri:0, instance:org.drc.vat.StepDefinitions.TestRunner@685cb137]" name="setUP_Mobilenop" is-config="true" duration-ms="7734" started-at="2018-08-16T19:17:22Z" finished-at="2018-08-16T19:17:30Z">
+        <test-method status="PASS" signature="setUP_Mobilenop()[pri:0, instance:org.drc.vat.StepDefinitions.TestRunner@685cb137]" name="setUP_Mobilenop" is-config="true" duration-ms="5961" started-at="2018-08-17T15:04:39Z" finished-at="2018-08-17T15:04:45Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUP_Mobilenop -->
-        <test-method status="PASS" signature="setUpClass()[pri:0, instance:org.drc.vat.StepDefinitions.TestRunner@685cb137]" name="setUpClass" is-config="true" duration-ms="367" started-at="2018-08-16T19:17:30Z" finished-at="2018-08-16T19:17:30Z">
+        <test-method status="PASS" signature="setUpClass()[pri:0, instance:org.drc.vat.StepDefinitions.TestRunner@685cb137]" name="setUpClass" is-config="true" duration-ms="405" started-at="2018-08-17T15:04:45Z" finished-at="2018-08-17T15:04:45Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method status="PASS" signature="tearDownClass()[pri:0, instance:org.drc.vat.StepDefinitions.TestRunner@685cb137]" name="tearDownClass" is-config="true" duration-ms="167" started-at="2018-08-16T19:17:30Z" finished-at="2018-08-16T19:17:30Z">
+        <test-method status="PASS" signature="tearDownClass()[pri:0, instance:org.drc.vat.StepDefinitions.TestRunner@685cb137]" name="tearDownClass" is-config="true" duration-ms="284" started-at="2018-08-17T15:04:45Z" finished-at="2018-08-17T15:04:46Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:org.drc.vat.StepDefinitions.TestRunner@685cb137]" name="tearDown" is-config="true" duration-ms="679" started-at="2018-08-16T19:17:30Z" finished-at="2018-08-16T19:17:31Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:org.drc.vat.StepDefinitions.TestRunner@685cb137]" name="tearDown" is-config="true" duration-ms="1440" started-at="2018-08-17T15:04:46Z" finished-at="2018-08-17T15:04:47Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
