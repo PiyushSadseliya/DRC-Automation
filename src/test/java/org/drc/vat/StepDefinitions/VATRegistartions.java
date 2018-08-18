@@ -68,7 +68,7 @@ public class VATRegistartions {
 	@Then("^Click on continue button$")
 	public void click_on_continue_button() throws Throwable {
 	    
-		wd.findElement(By.xpath("//*[contains(text(),'Continue')]")).click();
+	//	wd.findElement(By.xpath("//*[contains(text(),'Continue')]")).click();
 	}
 
 	@Then("^check Validation message for General Detail page$")
@@ -85,7 +85,7 @@ public class VATRegistartions {
 		clickOn("nif_reg_date","");
 		Thread.sleep(1000);
 		datePicker(date);
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 
 	}
 
@@ -312,19 +312,26 @@ public void enter_Business_Email_Business_Mobile_Number(String BEmail, String BM
 	    
 		 //  clickOn("btn_continue", "");
 		wd.findElement(By.xpath("//*[contains(text(),'Continue')]")).click();
+		
+		Thread.sleep(5000);
 
 	}
 
 	@Then("^Enters Account Number \"([^\"]*)\"$")
 	public void enters_Account_Number(String acct) throws Throwable {
 	    
-		 if(acct.equals(""))
+		System.out.println("test");
+		Thread.sleep(2000);
+		
+		type("acct_no",acct);
+		
+		/* if(acct.equals(""))
 		    {
 		    }
 		    else
 		    {
 		    	type("acct_no",acct);
-		    }
+		    }*/
 	    
 
 	}
@@ -374,26 +381,35 @@ public void enter_Business_Email_Business_Mobile_Number(String BEmail, String BM
 
 	@Then("^Select Address Proof \"([^\"]*)\" ,Address Proof File \"([^\"]*)\"$")
 	public void select_Address_Proof_Address_Proof_File(String Document1, String File1) throws Throwable {
+		String cwd = System. getProperty("user.dir");
+		String imagePath=cwd;
+		imagePath=imagePath.concat("\\");
+		imagePath=imagePath.concat(File1);
 	   Thread.sleep(5000);
 	   clickOn("selectbx_address_proof_doc", "");
 	   Thread.sleep(1000);
 	   clickOn("span", "[contains(text(),'"+ Document1 +"')]");
 	   Thread.sleep(1000);
 	   clickOn("file1_upload","");
-	   UploadImage("",File1);
+	//   imagePath=imagePath.concat(File1);
+	   UploadImage("",imagePath);
 	   Thread.sleep(5000);
 	}
 
 	@Then("^Select Bank Account Proof \"([^\"]*)\" , Bank Account Proof File \"([^\"]*)\"$")
 	public void select_Bank_Account_Proof_Bank_Account_Proof_File(String Document2, String File2) throws Throwable {
 	    
+		String cwd1 = System. getProperty("user.dir");
+		String imagePath1=cwd1;
+		imagePath1=imagePath1.concat("\\");
+		imagePath1=imagePath1.concat(File2);
 		Thread.sleep(5000);
 		   clickOn("selectbx_bank_ac_proof", "");
 		   Thread.sleep(1000);
 		   clickOn("span", "[contains(text(),'"+ Document2 +"')]");
 		   Thread.sleep(1000);
 		   clickOn("file2_upload","");
-		   UploadImage("",File2);
+		   UploadImage("",imagePath1);
 		   Thread.sleep(5000);
 	}
 	@Then("^Select Certification Of Incorporation \"([^\"]*)\" , File \"([^\"]*)\"$")
@@ -410,26 +426,34 @@ public void enter_Business_Email_Business_Mobile_Number(String BEmail, String BM
 	@Then("^Select Letter of Authorization \"([^\"]*)\" , Letter of Authorization File \"([^\"]*)\"$")
 	public void select_Letter_of_Authorization_Letter_of_Authorization_File(String Document3, String File3) throws Throwable {
 	    
+		String cwd2 = System. getProperty("user.dir");
+		String imagePath2=cwd2;
+		imagePath2=imagePath2.concat("\\");
+		imagePath2=imagePath2.concat(File3);
 		Thread.sleep(5000);
 		   clickOn("selectbx_auth_letter", "");
 		   Thread.sleep(1000);
 		   clickOn("span", "[contains(text(),'"+ Document3 +"')]");
 		   Thread.sleep(1000);
 		   clickOn("file3_upload","");
-		   UploadImage("",File3);
+		   UploadImage("",imagePath2);
 		   Thread.sleep(5000);
 	}
 
 	@Then("^Select Proof of Last Year \"([^\"]*)\" , Proof File \"([^\"]*)\"$")
 	public void select_Proof_of_Last_Year_Proof_File(String Document4, String File4) throws Throwable {
 	   
+		String cwd3 = System. getProperty("user.dir");
+		String imagePath3=cwd3;
+		imagePath3=imagePath3.concat("\\");
+		imagePath3=imagePath3.concat(File4);
 		Thread.sleep(5000);
 		   clickOn("selectbx_revenue", "");
 		   Thread.sleep(1000);
 		   clickOn("span", "[contains(text(),'"+ Document4 +"')]");
 		   Thread.sleep(1000);
 		   clickOn("file4_upload","");
-		   UploadImage("",File4);
+		   UploadImage("",imagePath3);
 		   Thread.sleep(5000);
 		   wd.findElement(By.xpath("//*[contains(text(),'Continue')]")).click();
 		   //Thread.sleep(3000);

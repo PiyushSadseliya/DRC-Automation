@@ -31,13 +31,11 @@ Feature: VAT Registration
     And Enters Email of Authorized Signatory "<Authorized Email>"
     And Enters Mobile Number of Authorized Signatory "<Authorized Mobile Number>"
     And Clicks on Continue Button
-    And check validation message for bank details page
     And Enters Account Number "<Account Number>"
     And Enters Account Holder Name "<Holder Name>"
     And Enters Bank Name "<Bank Name>"
     And Enters Branch of Bank "<Branch Name>"
     And Clicks on Continue Button
-    And check validation message for Required document page
     And Select Address Proof "<ADP>" ,Address Proof File "<ADPF>"
     And Select Bank Account Proof "<BAP>" , Bank Account Proof File "<BAPF>"
     And Select Letter of Authorization "<LOA>" , Letter of Authorization File "<LOAF>"
@@ -47,8 +45,8 @@ Feature: VAT Registration
 
     Examples: 
       | Test Case Id  | Category       | Sub Category | Nif                  | Nif Registration Date | Applicant Name    | Training Name | Type of Business | Business Start Date | Company Size | Revenue | Addres1           | Address2       | Province | City  | Zipcode | Mobile Number | EAddres1          | EAddress2      | EProvince | ECity  | EZipcode | EMobile Number | Search Element | BName | BAddressLine1 | BAddressLine2 | Authorized Signatory | Authorized Job Title    | Authorized Name | Authorized Email    | Authorized Mobile Number | Account Number       | Holder Name | Bank Name   | Branch Name | ADP         | ADPF          | BAP       | BAPF          | LOA       | LOAF          | PR        | PRF           |
-      | TC_VAT_Reg_01 | Natural Person | Individual   | ABCD123456789EFGHIJK | 2018-07-15            | Alexander Johnson | 1Rivevt       | Mining           | 2018-07-15          | Large Scale  | 8000000 | Dharamdas Chamber | Near Axis Bank | Bas-Uele | Aketi |  444604 |    1234567890 | Dharamdas Chamber | Near Axis Bank | Bas-Uele  | Valsad |   444604 |     1234567890 | Valsad         |       |               |               | yes                  | Chief Technical officer | Alexander Smith | alexander@gmail.com |               9876543250 | 78945869214566333333 | Eric Thomas | Advans Bank | Branch4     | doc_desc1_1 | F:\\logo1.png | doc_desc3 | F:\\logo1.png | doc_desc5 | F:\\logo1.png | doc_desc4 | F:\\logo1.png |
-      | TC_VAT_Reg_02 | Natural Person | Individual   | ABCD123456789EFGHIJK | 2018-07-15            | Alexander Johnson | 1Rivevt       | Mining           | 2018-07-15          | Large Scale  | 8000000 | Dharamdas Chamber | Near Axis Bank | Bas-Uele | Aketi |  444604 |    1234567890 | Dharamdas Chamber | Near Axis Bank | Bas-Uele  | Valsad |   444604 |     1234567890 | Valsad         |       |               |               | no                   |                         |                 |                     |                          | 78945869214566333333 | Eric Thomas | Advans Bank | Branch4     | doc_desc1_1 | F:\\logo1.png | doc_desc3 | F:\\logo1.png | doc_desc5 | F:\\logo1.png | doc_desc4 | F:\\logo1.png |
+      | TC_VAT_Reg_01 | Natural Person | Individual   | ABCD123456789EFGHIJK | 2018-07-15            | Alexander Johnson | 1Rivevt       | Mining           | 2018-07-15         | Large Scale  | 8000000 | Dharamdas Chamber | Near Axis Bank | Bas-Uele | Aketi |  444604 |    1234567890 | Dharamdas Chamber | Near Axis Bank | Bas-Uele  | Valsad |   444604 |     1234567890 | Valsad         |       |               |               | yes                  | Chief Technical officer | Alexander Smith | alexander@gmail.com |               9876543250 | 78945869214566333333 | Eric Thomas | Advans Bank | Branch4     | doc_desc1_1 | src\\test\\resources\\test.jpg | doc_desc3 | src\\test\\resources\\test.jpg | doc_desc5 | src\\test\\resources\\test.jpg | doc_desc4 | src\\test\\resources\\test.jpg |
+      | TC_VAT_Reg_02 | Natural Person | Individual   | ABCD123456789EFGHIJK | 2018-07-15            | Alexander Johnson | 1Rivevt       | Mining           | 2018-07-15          | Large Scale  | 8000000 | Dharamdas Chamber | Near Axis Bank | Bas-Uele | Aketi |  444604 |    1234567890 | Dharamdas Chamber | Near Axis Bank | Bas-Uele  | Valsad |   444604 |     1234567890 | Valsad         |       |               |               | no                   |                         |                 |                     |                          | 78945869214566333333 | Eric Thomas | Advans Bank | Branch4     | doc_desc1_1 | src\\test\\resources\\test.jpg | doc_desc3 | src\\test\\resources\\test.jpg | doc_desc5 | src\\test\\resources\\test.jpg | doc_desc4 | src\\test\\resources\\test.jpg |
 
   Scenario Outline: Fill VAT Registration form for Legal Entity with adding new place and deleting it
     Given User is on VAT Registration Dashboard for adding extra data
