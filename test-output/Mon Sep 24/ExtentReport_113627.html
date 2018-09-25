@@ -1,0 +1,2791 @@
+
+<!DOCTYPE html>
+<html>
+
+
+<head>
+	<meta charset='utf-8' /> 
+	<meta name='description' content='' />
+	<meta name='robots' content='noodp, noydir' />
+	<meta name='viewport' content='width=device-width, initial-scale=1' />
+	<meta id="timeStampFormat" name="timeStampFormat" content='MMM d, yyyy hh:mm:ss a'/>
+	
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css' />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+		<link href='https://cdn.rawgit.com/anshooarora/extentreports-java/b4a58fcfd1e137bd9287244035a7c80d3d73b3af/dist/css/extent.css' type='text/css' rel='stylesheet' />
+	
+	<title>ExtentReports</title>
+
+	<style type='text/css'>
+	</style>
+</head>
+
+	<body class='extent standard default hide-overflow bdd-report'>
+		<div id='theme-selector' alt='Click to toggle theme. To enable by default, use theme configuration.' title='Click to toggle theme. To enable by default, use theme configuration.'>
+			<span><i class='material-icons'>desktop_windows</i></span>
+		</div>
+
+<nav>
+	<div class="nav-wrapper">
+		<a href="#!" class="brand-logo blue darken-3">Extent</a>
+
+		<!-- slideout menu -->
+		<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
+			<li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
+						<li class='waves-effect'><a href='#!' view='category-view' onclick="configureView(1)"><i class='material-icons'>label_outline</i></a></li>
+			<li class='waves-effect'><a href='#!' view='exception-view' onclick="configureView(2)"><i class='material-icons'>bug_report</i></a></li>
+			<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></i></a></li>
+		</ul>
+
+		<!-- report name -->
+		<span class='report-name'>ExtentReports</span>
+		
+		<!-- report headline -->
+		<span class='report-headline'></span>
+
+		<!-- nav-right -->
+		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
+			<li>
+                <a href='#!'>
+                    <span class='label suite-start-time blue darken-3'>Sep 24, 2018 11:36:32 AM</span>
+				</a>
+			</li>
+			<li>
+                <a href='#!'>
+                    <span class='label blue darken-3'>3.1.5</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+
+		<!-- container -->
+		<div class='container'>
+
+<div id='test-view' class='view'>
+				
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- test toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button tests-toggle' data-activates='tests-toggle' data-constrainwidth='true' data-beloworigin='true' data-hover='true' href='#'>
+					<i class='material-icons'>warning</i> Status
+				</a>
+				<ul id='tests-toggle' class='dropdown-content'>
+											<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
+						<li status='fail'><a href='#!'>Fail <i class='material-icons red-text'>cancel</i></a></li>
+						<li status='skip'><a href='#!'>Skip <i class='material-icons cyan-text'>redo</i></a></li>
+					<li class='divider'></li>
+					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
+				</ul>
+			</div>
+			<!-- test toggle -->
+
+			<!-- category toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button category-toggle' data-activates='category-toggle' data-constrainwidth='false' data-beloworigin='true' data-hover='true' href='#'>
+					<i class='material-icons'>local_offer</i> Category
+				</a>
+				<ul id='category-toggle' class='dropdown-content'>
+					<li><a href='#'>@TC_26_Date</a></li>
+					<li><a href='#'>@TC_27_Agreement_ID</a></li>
+					<li><a href='#'>@TC_28_Validate_cases_ID</a></li>
+					<li><a href='#'>@TC_29_Validate_Total_Amount_disable</a></li>
+					<li><a href='#'>@TC_30_Initial_Amount_disable</a></li>
+					<li><a href='#'>@TC_31_Discount_Amount_radio_disable</a></li>
+					<li><a href='#'>@TC_32_Discount_Percentage_radio_disable</a></li>
+					<li><a href='#'>@TC_33_Discount_Amount_textbox_disable</a></li>
+					<li><a href='#'>@TC_34_Discount_Percentage_textbox_disable</a></li>
+					<li><a href='#'>@TC_35_Installement_radio_disable</a></li>
+					<li><a href='#'>@TC_36_No_of_Installement_radio_disable</a></li>
+					<li><a href='#'>@TC_37_Installement_amount_textbox</a></li>
+					<li><a href='#'>@TC_38_installment_frequency</a></li>
+					<li><a href='#'>@TC_39_Next_installment_date</a></li>
+					<li><a href='#'>@TC_40_Authorized_signatory</a></li>
+					<li><a href='#'>@TC_41_Payment_Agreement_Document</a></li>
+					<li><a href='#'>@TC_42_installment_Status</a></li>
+					<li><a href='#'>@TC_43_view_Icon</a></li>
+					<li><a href='#'>@TC_44_Comment_Status</a></li>
+					<li><a href='#'>@TC_45_browse_button</a></li>
+					<li><a href='#'>@TC_46_Cancel_button</a></li>
+					<li class='divider'></li>
+					<li class='clear'><a href='#!' clear='true'>Clear Filters</a></li>
+				</ul>
+			</div>
+			<!-- category toggle -->
+
+			<!-- clear filters -->
+			<div class='chip transparent hide'>
+				<a class='' id='clear-filters' alt='Clear Filters' title='Clear Filters'>
+					<i class='material-icons'>close</i> Clear
+				</a>
+			</div>
+			<!-- clear filters -->
+
+			<!-- enable dashboard -->
+			<div id='toggle-test-view-charts' class='chip transparent'>
+				<a class='pink-text' id='enable-dashboard' alt='Enable Dashboard' title='Enable Dashboard'>
+					<i class='material-icons'>track_changes</i> Dashboard
+				</a>
+			</div>
+			<!-- enable dashboard -->
+
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+					<i class='material-icons'>search</i> Search
+				</a>
+
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+				
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+
+
+<div id='test-view-charts' class='subview-full'>
+	<div id='charts-row' class='row nm-v nm-h'>
+		<div class='col s12 m4 l4 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Features</div>
+				<div class='chart-box'>
+					<canvas id='parent-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='0%'><span class='strong'>0</span> feature(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='100%'>1</span> feature(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+				</div>
+			</div>
+		</div>
+		
+		<div class='col s12 m4 l4 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Scenarios</div>
+				<div class='chart-box'>
+					<canvas id='child-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='80.952%'><span class='strong'>17</span> scenario(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='19.048%'>4</span> scenario(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+				</div>
+			</div>
+		</div>
+		
+		<div class='col s12 m4 l4 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Steps</div>
+				<div class='chart-box'>
+					<canvas id='grandchild-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='96.795%'><span class='strong'>151</span> step(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='2.564%'>4</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0.641%'>1</span> others
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+	<div class='subview-left left'>
+		
+		<div class='view-summary'>
+			<h5>Features</h5>
+			<ul id='test-collection' class='test-collection'>
+				
+				
+				<li class='test displayed active has-leaf fail' status='fail' bdd='true' test-id='1'>
+					<div class='test-heading'>
+						<span class='test-name'>User is on Payment Agreement Landing Screen (Tax-officer)</span>
+						<span class='test-time'>Sep 24, 2018 11:36:32 AM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='scenariooutline node' test-id='2' status='fail'>
+	<span class='duration right label'>0h 0m 33s+463ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Validate the Date</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='3' class='node scenario fail' status='fail'>
+			<div class='category-list'>
+				<span class='category label white-text'>@TC_26_Date</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Validate the Date</span>
+			
+				<ul class='steps'>
+					<li test-id='4' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given User is on Payment Agreement Landing Screen "Payment_Agrement_Tax_Officer_26" "Verify Date"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='5' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on Case Management</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='6' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on filter by on case management and click on "drp_CaseID_Click"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='7' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User Type id "R18092400000001"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='8' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on search button</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='9' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on manage drop down and click on view</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='10' class='node and fail' status='fail'><b>And</b>
+						<span class="bdd-step-name">And User see date "29 September, 2018" on payment agreement</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="D:\DRC_Franky\DRC_VAT\test-output\Mon Sep 24\screenshots\Validate the Date_113632.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//*[contains(text(),'Date:')]//following::input"}
+  (Session info: chrome=69.0.3497.100)
+  (Driver info: chromedriver=2.38.552522 (437e6fbedfa8762dec75e2c5b3ddb86763dc9dcb),platform=Windows NT 10.0.17134 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.11.0', revision: 'e59cfb3', time: '2018-03-11T20:26:55.152Z'
+System info: host: 'CS84-PC', ip: '192.168.0.84', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_171'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.38.552522 (437e6fbedfa876..., userDataDir: C:\Users\admin\AppData\Loca...}, cssSelectorsEnabled: true, databaseEnabled: false, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 69.0.3497.100, webStorageEnabled: true}
+Session ID: e6fa907146aa51ee915dfc9e22787dd9
+*** Element info: {Using=xpath, value=//*[contains(text(),'Date:')]//following::input}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:214)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:166)
+	at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:80)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:44)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:319)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:421)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:311)
+	at org.drc.vat.StepDefinitions.Payment_Agreement_LandingScreen_Tax_officer.user_see_date_on_payment_agreement(Payment_Agreement_LandingScreen_Tax_officer.java:558)
+	at ?.And User see date "29 September, 2018" on payment agreement(features/Payment_Agreement_LandingScreen_Tax_officer.feature:36)
+</pre></div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='11' status='pass'>
+	<span class='duration right label'>0h 0m 12s+615ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Validate the Agreement ID</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='12' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@TC_27_Agreement_ID</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Validate the Agreement ID</span>
+			
+				<ul class='steps'>
+					<li test-id='13' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given User is on Payment Agreement Landing Screen "Payment_Agrement_Tax_Officer_27" "Verify Agreement id"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='14' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on Case Management</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='15' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on filter by on case management and click on "drp_CaseID_Click"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='16' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User Type id "R18092400000001"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='17' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on search button</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='18' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on manage drop down and click on view</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='19' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User see new agrement id "PA18092400001"</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="D:\DRC_Franky\DRC_VAT\test-output\Mon Sep 24\screenshots\Validate the Agreement ID_113706.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='20' status='pass'>
+	<span class='duration right label'>0h 0m 13s+150ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Validate the cases ID</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='21' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@TC_28_Validate_cases_ID</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Validate the cases ID</span>
+			
+				<ul class='steps'>
+					<li test-id='22' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given User is on Payment Agreement Landing Screen "Payment_Agrement_Tax_Officer_28" "Verify case id"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='23' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on Case Management</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='24' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on filter by on case management and click on "drp_CaseID_Click"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='25' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User Type id "R18092400000001"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='26' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on search button</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='27' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on manage drop down and click on view</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='28' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User see Case Id "R18092400000001"</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="D:\DRC_Franky\DRC_VAT\test-output\Mon Sep 24\screenshots\Validate the cases ID_113720.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='29' status='pass'>
+	<span class='duration right label'>0h 0m 15s+877ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Validate the Total amount field.</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='30' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@TC_29_Validate_Total_Amount_disable</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Validate the Total amount field.</span>
+			
+				<ul class='steps'>
+					<li test-id='31' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given User is on Payment Agreement Landing Screen "Payment_Agrement_Tax_Officer_29" "Verify total amount disable"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='32' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on Case Management</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='33' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on filter by on case management and click on "drp_CaseID_Click"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='34' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User Type id "R18092400000001"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='35' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on search button</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='36' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on manage drop down and click on view</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='37' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User see total amount is displayed and field is disable "8400160"</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="D:\DRC_Franky\DRC_VAT\test-output\Mon Sep 24\screenshots\Validate the Total amount field._113734.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='38' status='pass'>
+	<span class='duration right label'>0h 0m 16s+301ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Validate the initial amount.</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='39' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@TC_30_Initial_Amount_disable</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Validate the initial amount.</span>
+			
+				<ul class='steps'>
+					<li test-id='40' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given User is on Payment Agreement Landing Screen "Payment_Agrement_Tax_Officer_30" "Verify amount disable"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='41' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on Case Management</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='42' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on filter by on case management and click on "drp_CaseID_Click"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='43' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User Type id "R18092400000001"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='44' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on search button</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='45' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on manage drop down and click on view</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='46' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User see initial amount is displayed and field is disable "500"</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="D:\DRC_Franky\DRC_VAT\test-output\Mon Sep 24\screenshots\Validate the initial amount._113750.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='47' status='pass'>
+	<span class='duration right label'>0h 0m 13s+956ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Validate the Discount amount radio button.</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='48' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@TC_31_Discount_Amount_radio_disable</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Validate the Discount amount radio button.</span>
+			
+				<ul class='steps'>
+					<li test-id='49' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given User is on Payment Agreement Landing Screen "Payment_Agrement_Tax_Officer_31" "Verify amount radio disable"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='50' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on Case Management</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='51' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on filter by on case management and click on "drp_CaseID_Click"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='52' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User Type id "R18092400000001"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='53' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on search button</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='54' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on manage drop down and click on view</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='55' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User see radio button is disable for discount</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="D:\DRC_Franky\DRC_VAT\test-output\Mon Sep 24\screenshots\Validate the Discount amount radio button._113807.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='56' status='pass'>
+	<span class='duration right label'>0h 0m 14s+63ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Validate the Discount percentage radio button.</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='57' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@TC_32_Discount_Percentage_radio_disable</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Validate the Discount percentage radio button.</span>
+			
+				<ul class='steps'>
+					<li test-id='58' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given User is on Payment Agreement Landing Screen "Payment_Agrement_Tax_Officer_32" "Verify percentage radio disable"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='59' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on Case Management</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='60' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on filter by on case management and click on "drp_CaseID_Click"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='61' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User Type id "R18092400000001"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='62' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on search button</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='63' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on manage drop down and click on view</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='64' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User see radio button is disable for percentage</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="D:\DRC_Franky\DRC_VAT\test-output\Mon Sep 24\screenshots\Validate the Discount percentage radio button._113822.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='65' status='pass'>
+	<span class='duration right label'>0h 0m 16s+99ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Validate the Discount amount textbox.</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='66' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@TC_33_Discount_Amount_textbox_disable</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Validate the Discount amount textbox.</span>
+			
+				<ul class='steps'>
+					<li test-id='67' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given User is on Payment Agreement Landing Screen "Payment_Agrement_Tax_Officer_33" "Verify discount amount textbox"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='68' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on Case Management</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='69' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on filter by on case management and click on "drp_CaseID_Click"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='70' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User Type id "R18092400000001"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='71' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on search button</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='72' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on manage drop down and click on view</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='73' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User see textbox is disable for discount "2100040"</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="D:\DRC_Franky\DRC_VAT\test-output\Mon Sep 24\screenshots\Validate the Discount amount textbox._113837.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='74' status='pass'>
+	<span class='duration right label'>0h 0m 16s+143ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Validate the discount percentage textbox.</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='75' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@TC_34_Discount_Percentage_textbox_disable</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Validate the discount percentage textbox.</span>
+			
+				<ul class='steps'>
+					<li test-id='76' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given User is on Payment Agreement Landing Screen "Payment_Agrement_Tax_Officer_34" "Verify discount per textbox disable"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='77' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on Case Management</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='78' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on filter by on case management and click on "drp_CaseID_Click"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='79' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User Type id "R18092400000001"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='80' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on search button</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='81' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on manage drop down and click on view</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='82' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User see radio button text box is disable for percentage "0"</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="D:\DRC_Franky\DRC_VAT\test-output\Mon Sep 24\screenshots\Validate the discount percentage textbox._113854.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='83' status='pass'>
+	<span class='duration right label'>0h 0m 15s+20ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Validate the Install amount radio button.</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='84' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@TC_35_Installement_radio_disable</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Validate the Install amount radio button.</span>
+			
+				<ul class='steps'>
+					<li test-id='85' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given User is on Payment Agreement Landing Screen "Payment_Agrement_Tax_Officer_35" "Verify install radio disable"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='86' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on Case Management</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='87' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on filter by on case management and click on "drp_CaseID_Click"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='88' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User Type id "R18092400000001"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='89' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on search button</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='90' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on manage drop down and click on view</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='91' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User see installement radio button is disable</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="D:\DRC_Franky\DRC_VAT\test-output\Mon Sep 24\screenshots\Validate the Install amount radio button._113911.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='92' status='pass'>
+	<span class='duration right label'>0h 0m 13s+823ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Validate the No of installment radio button.</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='93' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@TC_36_No_of_Installement_radio_disable</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Validate the No of installment radio button.</span>
+			
+				<ul class='steps'>
+					<li test-id='94' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given User is on Payment Agreement Landing Screen "Payment_Agrement_Tax_Officer_36" "Verify no of install radio disable"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='95' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on Case Management</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='96' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on filter by on case management and click on "drp_CaseID_Click"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='97' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User Type id "R18092400000001"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='98' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on search button</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='99' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on manage drop down and click on view</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='100' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User see no of installement radio button is disable</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="D:\DRC_Franky\DRC_VAT\test-output\Mon Sep 24\screenshots\Validate the No of installment radio button._113926.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='101' status='pass'>
+	<span class='duration right label'>0h 0m 16s+230ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Validate the Installement amount textbox.</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='102' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@TC_37_Installement_amount_textbox</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Validate the Installement amount textbox.</span>
+			
+				<ul class='steps'>
+					<li test-id='103' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given User is on Payment Agreement Landing Screen "Payment_Agrement_Tax_Officer_37" "Verify installement textbox"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='104' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on Case Management</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='105' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on filter by on case management and click on "drp_CaseID_Click"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='106' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User Type id "R18092400000001"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='107' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on search button</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='108' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on manage drop down and click on view</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='109' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User see installement amount textbox is disable "1259924"</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="D:\DRC_Franky\DRC_VAT\test-output\Mon Sep 24\screenshots\Validate the Installement amount textbox._113941.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='110' status='fail'>
+	<span class='duration right label'>0h 0m 15s+792ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Validate the installment frequency.</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='111' class='node scenario fail' status='fail'>
+			<div class='category-list'>
+				<span class='category label white-text'>@TC_38_installment_frequency</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Validate the installment frequency.</span>
+			
+				<ul class='steps'>
+					<li test-id='112' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given User is on Payment Agreement Landing Screen "Payment_Agrement_Tax_Officer_38" "Verify installement frequency"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='113' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on Case Management</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='114' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on filter by on case management and click on "drp_CaseID_Click"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='115' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User Type id "R18092400000001"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='116' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on search button</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='117' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on manage drop down and click on view</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='118' class='node and fail' status='fail'><b>And</b>
+						<span class="bdd-step-name">And User see installment frequency is disable "Weekly"</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="D:\DRC_Franky\DRC_VAT\test-output\Mon Sep 24\screenshots\Validate the installment frequency._113958.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'><pre>java.lang.NullPointerException
+	at org.drc.vat.StepDefinitions.Payment_Agreement_LandingScreen_Tax_officer.user_see_installment_frequency_is_disable(Payment_Agreement_LandingScreen_Tax_officer.java:728)
+	at ?.And User see installment frequency is disable "Weekly"(features/Payment_Agreement_LandingScreen_Tax_officer.feature:219)
+</pre></div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='119' status='pass'>
+	<span class='duration right label'>0h 0m 15s+998ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Validate next installment Date.</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='120' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@TC_39_Next_installment_date</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Validate next installment Date.</span>
+			
+				<ul class='steps'>
+					<li test-id='121' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given User is on Payment Agreement Landing Screen "Payment_Agrement_Tax_Officer_39" "Verify next installement date"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='122' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on Case Management</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='123' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on filter by on case management and click on "drp_CaseID_Click"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='124' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User Type id "R18092400000001"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='125' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on search button</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='126' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on manage drop down and click on view</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='127' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User see next installment data is disable "01 October, 2018"</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="D:\DRC_Franky\DRC_VAT\test-output\Mon Sep 24\screenshots\Validate next installment Date._114014.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='128' status='pass'>
+	<span class='duration right label'>0h 0m 14s+396ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Validate Authorized signatory.</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='129' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@TC_40_Authorized_signatory</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Validate Authorized signatory.</span>
+			
+				<ul class='steps'>
+					<li test-id='130' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given User is on Payment Agreement Landing Screen "Payment_Agrement_Tax_Officer_40" "Verify authorized signatory"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='131' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on Case Management</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='132' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on filter by on case management and click on "drp_CaseID_Click"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='133' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User Type id "R18092400000001"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='134' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on search button</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='135' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on manage drop down and click on view</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='136' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User see Authorized signatory is disable "<signatory>"</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="D:\DRC_Franky\DRC_VAT\test-output\Mon Sep 24\screenshots\Validate Authorized signatory._114031.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='137' status='fail'>
+	<span class='duration right label'>0h 0m 15s+584ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Validate Payment agreement Document.</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='138' class='node scenario fail' status='fail'>
+			<div class='category-list'>
+				<span class='category label white-text'>@TC_41_Payment_Agreement_Document</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Validate Payment agreement Document.</span>
+			
+				<ul class='steps'>
+					<li test-id='139' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given User is on Payment Agreement Landing Screen "Payment_Agrement_Tax_Officer_41" "Verify agreement document"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='140' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on Case Management</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='141' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on filter by on case management and click on "drp_CaseID_Click"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='142' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User Type id "R18092400000001"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='143' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on search button</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='144' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on manage drop down and click on view</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='145' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User clcik on action and select pa executed</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='146' class='node and fail' status='fail'><b>And</b>
+						<span class="bdd-step-name">And User click on browse button on payment agreement document browse</span>
+							<div class='pre'><textarea>org.openqa.selenium.WebDriverException: unknown error: Element <div _ngcontent-c14="" class="btn btn-primary">...</div> is not clickable at point (1256, 692). Other element would receive the click: <div _ngcontent-c0="" class="loader d-flex align-items-center justify-content-center ng-star-inserted">...</div>
+  (Session info: chrome=69.0.3497.100)
+  (Driver info: chromedriver=2.38.552522 (437e6fbedfa8762dec75e2c5b3ddb86763dc9dcb),platform=Windows NT 10.0.17134 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+Build info: version: '3.11.0', revision: 'e59cfb3', time: '2018-03-11T20:26:55.152Z'
+System info: host: 'CS84-PC', ip: '192.168.0.84', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_171'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.38.552522 (437e6fbedfa876..., userDataDir: C:\Users\admin\AppData\Loca...}, cssSelectorsEnabled: true, databaseEnabled: false, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 69.0.3497.100, webStorageEnabled: true}
+Session ID: e6fa907146aa51ee915dfc9e22787dd9
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:214)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:166)
+	at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:80)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:44)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:279)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:83)
+	at org.drc.vat.appmanager.HelperBase.clickOn(HelperBase.java:74)
+	at org.drc.vat.StepDefinitions.Payment_Agreement_LandingScreen_Tax_officer.user_click_on_browse_button_on_payment_agreement_document_browse(Payment_Agreement_LandingScreen_Tax_officer.java:777)
+	at ?.And User click on browse button on payment agreement document browse(features/Payment_Agreement_LandingScreen_Tax_officer.feature:266)
+</textarea></div>
+					</li>
+					<li test-id='147' class='node and skip' status='skip'><b>And</b>
+						<span class="bdd-step-name">And User select file and verify uploaded file</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="D:\DRC_Franky\DRC_VAT\test-output\Mon Sep 24\screenshots\Validate Payment agreement Document._114046.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>skipped</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='148' status='pass'>
+	<span class='duration right label'>0h 0m 14s+47ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Validate the installment status.</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='149' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@TC_42_installment_Status</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Validate the installment status.</span>
+			
+				<ul class='steps'>
+					<li test-id='150' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given User is on Payment Agreement Landing Screen "Payment_Agrement_Tax_Officer_42" "Verify installment status"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='151' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on Case Management</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='152' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on filter by on case management and click on "drp_CaseID_Click"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='153' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User Type id "R18092400000001"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='154' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on search button</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='155' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on manage drop down and click on view</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='156' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User see paid installment "0"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='157' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User see over due installment "0"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='158' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User see pending installement "5"</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="D:\DRC_Franky\DRC_VAT\test-output\Mon Sep 24\screenshots\Validate the installment status._114103.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='159' status='pass'>
+	<span class='duration right label'>0h 0m 14s+972ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Validate view icon</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='160' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@TC_43_view_Icon</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Validate view icon</span>
+			
+				<ul class='steps'>
+					<li test-id='161' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given User is on Payment Agreement Landing Screen "Payment_Agrement_Tax_Officer_43" "Verify view icon"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='162' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on Case Management</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='163' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on filter by on case management and click on "drp_CaseID_Click"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='164' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User Type id "R18092400000001"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='165' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on search button</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='166' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on manage drop down and click on view</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='167' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on view icon on installement status</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='168' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User see notification of installement details</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="D:\DRC_Franky\DRC_VAT\test-output\Mon Sep 24\screenshots\Validate view icon_114117.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='169' status='pass'>
+	<span class='duration right label'>0h 0m 19s+775ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Validate the comment textbox.</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='170' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@TC_44_Comment_Status</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Validate the comment textbox.</span>
+			
+				<ul class='steps'>
+					<li test-id='171' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given User is on Payment Agreement Landing Screen "Payment_Agrement_Tax_Officer_44" "Verify comment status"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='172' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on Case Management</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='173' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on filter by on case management and click on "drp_CaseID_Click"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='174' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User Type id "R18092400000001"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='175' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on search button</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='176' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on manage drop down and click on view</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='177' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User enter data in comment "test" and check</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='178' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User again enter data "123" and check</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="D:\DRC_Franky\DRC_VAT\test-output\Mon Sep 24\screenshots\Validate the comment textbox._114133.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='179' status='fail'>
+	<span class='duration right label'>0h 1m 22s+306ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Validate the Browse button functionality</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='180' class='node scenario fail' status='fail'>
+			<div class='category-list'>
+				<span class='category label white-text'>@TC_45_browse_button</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Validate the Browse button functionality</span>
+			
+				<ul class='steps'>
+					<li test-id='181' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given User is on Payment Agreement Landing Screen "Payment_Agrement_Tax_Officer_45" "Verify browse button"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='182' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on Case Management</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='183' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on filter by on case management and click on "drp_CaseID_Click"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='184' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User Type id "R18092400000001"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='185' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on search button</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='186' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on manage drop down and click on view</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='187' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on browse button on payment agreement</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='188' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User select file to upload</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='189' class='node and fail' status='fail'><b>And</b>
+						<span class="bdd-step-name">And User again click on browse and select file and user see message "Only 1 document can be uploaded"</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="D:\DRC_Franky\DRC_VAT\test-output\Mon Sep 24\screenshots\Validate the Browse button functionality_114154.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.xpath: null (tried for 60 second(s) with 500 milliseconds interval)
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:81)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:271)
+	at org.drc.vat.appmanager.HelperBase.clickOn(HelperBase.java:74)
+	at org.drc.vat.StepDefinitions.Payment_Agreement_LandingScreen_Tax_officer.user_again_click_on_browse_and_select_file_and_user_see_message(Payment_Agreement_LandingScreen_Tax_officer.java:392)
+	at ?.And User again click on browse and select file and user see message "Only 1 document can be uploaded"(features/Payment_Agreement_LandingScreen_Tax_officer.feature:335)
+Caused by: org.openqa.selenium.NoSuchElementException: Cannot locate an element using By.xpath: null
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.11.0', revision: 'e59cfb3', time: '2018-03-11T20:26:55.152Z'
+System info: host: 'CS84-PC', ip: '192.168.0.84', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_171'
+Driver info: driver.version: unknown
+	at org.openqa.selenium.support.ui.ExpectedConditions.lambda$findElement$0(ExpectedConditions.java:896)
+	at java.util.Optional.orElseThrow(Unknown Source)
+	at org.openqa.selenium.support.ui.ExpectedConditions.findElement(ExpectedConditions.java:895)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:44)
+	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:206)
+	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:202)
+	at org.openqa.selenium.support.ui.ExpectedConditions$22.apply(ExpectedConditions.java:657)
+	at org.openqa.selenium.support.ui.ExpectedConditions$22.apply(ExpectedConditions.java:654)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:248)
+	at org.drc.vat.appmanager.HelperBase.clickOn(HelperBase.java:74)
+	at org.drc.vat.StepDefinitions.Payment_Agreement_LandingScreen_Tax_officer.user_again_click_on_browse_and_select_file_and_user_see_message(Payment_Agreement_LandingScreen_Tax_officer.java:392)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at cucumber.runtime.Utils$1.call(Utils.java:40)
+	at cucumber.runtime.Timeout.timeout(Timeout.java:16)
+	at cucumber.runtime.Utils.invoke(Utils.java:34)
+	at cucumber.runtime.java.JavaStepDefinition.execute(JavaStepDefinition.java:38)
+	at cucumber.runtime.StepDefinitionMatch.runStep(StepDefinitionMatch.java:37)
+	at cucumber.runtime.Runtime.runStep(Runtime.java:300)
+	at cucumber.runtime.model.StepContainer.runStep(StepContainer.java:44)
+	at cucumber.runtime.model.StepContainer.runSteps(StepContainer.java:39)
+	at cucumber.runtime.model.CucumberScenario.run(CucumberScenario.java:44)
+	at cucumber.runtime.model.CucumberScenarioOutline.run(CucumberScenarioOutline.java:46)
+	at cucumber.runtime.model.CucumberFeature.run(CucumberFeature.java:165)
+	at cucumber.api.testng.TestNGCucumberRunner.runCucumber(TestNGCucumberRunner.java:63)
+	at cucumber.api.testng.AbstractTestNGCucumberTests.feature(AbstractTestNGCucumberTests.java:21)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:643)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:820)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1128)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:782)
+	at org.testng.TestRunner.run(TestRunner.java:632)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.run(TestNG.java:1064)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='190' status='pass'>
+	<span class='duration right label'>0h 0m 12s+767ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Validate the cancel button functionality.</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='191' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@TC_46_Cancel_button</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Validate the cancel button functionality.</span>
+			
+				<ul class='steps'>
+					<li test-id='192' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given User is on Payment Agreement Landing Screen "Payment_Agrement_Tax_Officer_46" "Verify cancel button"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='193' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on Case Management</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='194' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on filter by on case management and click on "drp_CaseID_Click"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='195' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User Type id "R18092400000001"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='196' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on search button</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='197' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on manage drop down and click on view</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='198' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on cancel button on payment agreement</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='199' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User is redirect to list</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="D:\DRC_Franky\DRC_VAT\test-output\Mon Sep 24\screenshots\Validate the cancel button functionality._114317.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- subview left -->
+
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='test-name'></h5>
+
+			<div id='step-filters' class="right">
+				<span class="blue-text" status="info" alt="info" title="info"><i class="material-icons">info_outline</i></span>
+				<span class="green-text" status="pass" alt="pass" title="pass"><i class="material-icons">check_circle</i></span>
+				<span class="red-text" status="fail" alt="fail" title="fail"><i class="material-icons">cancel</i></span>
+				<span class="red-text text-darken-4" status="fatal" alt="fatal" title="fatal"><i class="material-icons">cancel</i></span>
+				<span class="pink-text text-lighten-1" status="error" alt="error" title="error"><i class="material-icons">error</i></span>
+				<span class="orange-text" alt="warning" status="warning" title="warning"><i class="material-icons">warning</i></span>
+				<span class="teal-text" status="skip" alt="skip" title="skip"><i class="material-icons">redo</i></span>
+				<span status="clear" alt="Clear filters" title="Clear filters"><i class="material-icons">clear</i></span>
+			</div>
+		</div>
+	</div>
+	<!-- subview right -->
+
+</div>
+<!-- test view -->
+<div id='category-view' class='view hide'>
+
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+					<i class='material-icons'>search</i> Search
+				</a>
+				
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+				
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+
+	<div class='subview-left left'>
+		
+		<div class='view-summary'>
+			<h5>Categories</h3>
+			<ul id='category-collection' class='category-collection'>
+				
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@TC_26_Date</span>
+						<span class='category-status right'>
+							<span class='label fail'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							
+							<span class='label red lighten-1 white-text'>Failed: 1</span>
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Sep 24, 2018 11:36:32 AM</td>
+										<td class='linked' test-id='3'>User is on Payment Agreement Landing Screen (Tax-officer).Validate the Date.Validate the Date</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@TC_27_Agreement_ID</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Sep 24, 2018 11:37:06 AM</td>
+										<td class='linked' test-id='12'>User is on Payment Agreement Landing Screen (Tax-officer).Validate the Agreement ID.Validate the Agreement ID</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@TC_28_Validate_cases_ID</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Sep 24, 2018 11:37:20 AM</td>
+										<td class='linked' test-id='21'>User is on Payment Agreement Landing Screen (Tax-officer).Validate the cases ID.Validate the cases ID</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@TC_29_Validate_Total_Amount_disable</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Sep 24, 2018 11:37:34 AM</td>
+										<td class='linked' test-id='30'>User is on Payment Agreement Landing Screen (Tax-officer).Validate the Total amount field..Validate the Total amount field.</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@TC_30_Initial_Amount_disable</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Sep 24, 2018 11:37:50 AM</td>
+										<td class='linked' test-id='39'>User is on Payment Agreement Landing Screen (Tax-officer).Validate the initial amount..Validate the initial amount.</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@TC_31_Discount_Amount_radio_disable</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Sep 24, 2018 11:38:07 AM</td>
+										<td class='linked' test-id='48'>User is on Payment Agreement Landing Screen (Tax-officer).Validate the Discount amount radio button..Validate the Discount amount radio button.</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@TC_32_Discount_Percentage_radio_disable</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Sep 24, 2018 11:38:22 AM</td>
+										<td class='linked' test-id='57'>User is on Payment Agreement Landing Screen (Tax-officer).Validate the Discount percentage radio button..Validate the Discount percentage radio button.</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@TC_33_Discount_Amount_textbox_disable</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Sep 24, 2018 11:38:37 AM</td>
+										<td class='linked' test-id='66'>User is on Payment Agreement Landing Screen (Tax-officer).Validate the Discount amount textbox..Validate the Discount amount textbox.</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@TC_34_Discount_Percentage_textbox_disable</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Sep 24, 2018 11:38:54 AM</td>
+										<td class='linked' test-id='75'>User is on Payment Agreement Landing Screen (Tax-officer).Validate the discount percentage textbox..Validate the discount percentage textbox.</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@TC_35_Installement_radio_disable</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Sep 24, 2018 11:39:11 AM</td>
+										<td class='linked' test-id='84'>User is on Payment Agreement Landing Screen (Tax-officer).Validate the Install amount radio button..Validate the Install amount radio button.</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@TC_36_No_of_Installement_radio_disable</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Sep 24, 2018 11:39:26 AM</td>
+										<td class='linked' test-id='93'>User is on Payment Agreement Landing Screen (Tax-officer).Validate the No of installment radio button..Validate the No of installment radio button.</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@TC_37_Installement_amount_textbox</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Sep 24, 2018 11:39:41 AM</td>
+										<td class='linked' test-id='102'>User is on Payment Agreement Landing Screen (Tax-officer).Validate the Installement amount textbox..Validate the Installement amount textbox.</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@TC_38_installment_frequency</span>
+						<span class='category-status right'>
+							<span class='label fail'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							
+							<span class='label red lighten-1 white-text'>Failed: 1</span>
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Sep 24, 2018 11:39:58 AM</td>
+										<td class='linked' test-id='111'>User is on Payment Agreement Landing Screen (Tax-officer).Validate the installment frequency..Validate the installment frequency.</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@TC_39_Next_installment_date</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Sep 24, 2018 11:40:14 AM</td>
+										<td class='linked' test-id='120'>User is on Payment Agreement Landing Screen (Tax-officer).Validate next installment Date..Validate next installment Date.</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@TC_40_Authorized_signatory</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Sep 24, 2018 11:40:31 AM</td>
+										<td class='linked' test-id='129'>User is on Payment Agreement Landing Screen (Tax-officer).Validate Authorized signatory..Validate Authorized signatory.</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@TC_41_Payment_Agreement_Document</span>
+						<span class='category-status right'>
+							<span class='label fail'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							
+							<span class='label red lighten-1 white-text'>Failed: 1</span>
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Sep 24, 2018 11:40:46 AM</td>
+										<td class='linked' test-id='138'>User is on Payment Agreement Landing Screen (Tax-officer).Validate Payment agreement Document..Validate Payment agreement Document.</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@TC_42_installment_Status</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Sep 24, 2018 11:41:03 AM</td>
+										<td class='linked' test-id='149'>User is on Payment Agreement Landing Screen (Tax-officer).Validate the installment status..Validate the installment status.</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@TC_43_view_Icon</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Sep 24, 2018 11:41:17 AM</td>
+										<td class='linked' test-id='160'>User is on Payment Agreement Landing Screen (Tax-officer).Validate view icon.Validate view icon</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@TC_44_Comment_Status</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Sep 24, 2018 11:41:33 AM</td>
+										<td class='linked' test-id='170'>User is on Payment Agreement Landing Screen (Tax-officer).Validate the comment textbox..Validate the comment textbox.</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@TC_45_browse_button</span>
+						<span class='category-status right'>
+							<span class='label fail'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							
+							<span class='label red lighten-1 white-text'>Failed: 1</span>
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Sep 24, 2018 11:41:54 AM</td>
+										<td class='linked' test-id='180'>User is on Payment Agreement Landing Screen (Tax-officer).Validate the Browse button functionality.Validate the Browse button functionality</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@TC_46_Cancel_button</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Sep 24, 2018 11:43:17 AM</td>
+										<td class='linked' test-id='191'>User is on Payment Agreement Landing Screen (Tax-officer).Validate the cancel button functionality..Validate the cancel button functionality.</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+
+			</ul>
+		</div>
+	</div>
+
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='category-name'></h5>
+		</div>
+	</div>
+</div>
+<!-- category view -->
+<div id='exception-view' class='view hide'>
+
+    <section id='controls'>
+        <div class='controls grey lighten-4'>
+            <!-- search -->
+            <div class='chip transparent' alt='Search Tests' title='Search Tests'>
+                <a href="#" class='search-div'>
+                    <i class='material-icons'>search</i> Search
+                </a>
+
+                <div class='input-field left hide'>
+                    <input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+                </div>
+
+            </div>
+            <!-- search -->
+        </div>
+    </section>
+
+    <div class='subview-left left'>
+
+        <div class='view-summary'>
+            <h5>Exceptions</h3>
+                <ul id='exception-collection' class='exception-collection'>
+
+                        <li class='exception displayed active'>
+                            <div class='exception-heading'>
+                                <span class='exception-name'>org.openqa.selenium.NoSuchElementException</span>
+                                <span class='exception-count right'><span class='label red lighten-1 white-text'>1</span></span>
+                            </div>
+                            <div class='exception-content hide'>
+                                <div class='exception-tests'>
+                                    <table class='bordered table-results'>
+                                        <thead>
+                                        <tr>
+                                            <th>Timestamp</th>
+                                            <th>TestName</th>
+                                            <th>Status</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                                    <tr>
+                                                        <td>Sep 24, 2018 11:36:58 AM</td>
+                                                        <td class='linked' test-id='10'>User is on Payment Agreement Landing Screen (Tax-officer).Validate the Date.Validate the Date.And User see date "29 September, 2018" on payment agreement</td>
+                                                        <td><pre><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//*[contains(text(),'Date:')]//following::input"}
+  (Session info: chrome=69.0.3497.100)
+  (Driver info: chromedriver=2.38.552522 (437e6fbedfa8762dec75e2c5b3ddb86763dc9dcb),platform=Windows NT 10.0.17134 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.11.0', revision: 'e59cfb3', time: '2018-03-11T20:26:55.152Z'
+System info: host: 'CS84-PC', ip: '192.168.0.84', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_171'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.38.552522 (437e6fbedfa876..., userDataDir: C:\Users\admin\AppData\Loca...}, cssSelectorsEnabled: true, databaseEnabled: false, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 69.0.3497.100, webStorageEnabled: true}
+Session ID: e6fa907146aa51ee915dfc9e22787dd9
+*** Element info: {Using=xpath, value=//*[contains(text(),'Date:')]//following::input}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:214)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:166)
+	at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:80)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:44)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:319)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:421)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:311)
+	at org.drc.vat.StepDefinitions.Payment_Agreement_LandingScreen_Tax_officer.user_see_date_on_payment_agreement(Payment_Agreement_LandingScreen_Tax_officer.java:558)
+	at ?.And User see date "29 September, 2018" on payment agreement(features/Payment_Agreement_LandingScreen_Tax_officer.feature:36)
+</pre></pre></td>
+                                                    </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </li>
+                        <li class='exception displayed active'>
+                            <div class='exception-heading'>
+                                <span class='exception-name'>java.lang.NullPointerException</span>
+                                <span class='exception-count right'><span class='label red lighten-1 white-text'>1</span></span>
+                            </div>
+                            <div class='exception-content hide'>
+                                <div class='exception-tests'>
+                                    <table class='bordered table-results'>
+                                        <thead>
+                                        <tr>
+                                            <th>Timestamp</th>
+                                            <th>TestName</th>
+                                            <th>Status</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                                    <tr>
+                                                        <td>Sep 24, 2018 11:40:12 AM</td>
+                                                        <td class='linked' test-id='118'>User is on Payment Agreement Landing Screen (Tax-officer).Validate the installment frequency..Validate the installment frequency..And User see installment frequency is disable "Weekly"</td>
+                                                        <td><pre><pre>java.lang.NullPointerException
+	at org.drc.vat.StepDefinitions.Payment_Agreement_LandingScreen_Tax_officer.user_see_installment_frequency_is_disable(Payment_Agreement_LandingScreen_Tax_officer.java:728)
+	at ?.And User see installment frequency is disable "Weekly"(features/Payment_Agreement_LandingScreen_Tax_officer.feature:219)
+</pre></pre></td>
+                                                    </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </li>
+                        <li class='exception displayed active'>
+                            <div class='exception-heading'>
+                                <span class='exception-name'>org.openqa.selenium.WebDriverException</span>
+                                <span class='exception-count right'><span class='label red lighten-1 white-text'>1</span></span>
+                            </div>
+                            <div class='exception-content hide'>
+                                <div class='exception-tests'>
+                                    <table class='bordered table-results'>
+                                        <thead>
+                                        <tr>
+                                            <th>Timestamp</th>
+                                            <th>TestName</th>
+                                            <th>Status</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                                    <tr>
+                                                        <td>Sep 24, 2018 11:41:02 AM</td>
+                                                        <td class='linked' test-id='146'>User is on Payment Agreement Landing Screen (Tax-officer).Validate Payment agreement Document..Validate Payment agreement Document..And User click on browse button on payment agreement document browse</td>
+                                                        <td><pre><textarea>org.openqa.selenium.WebDriverException: unknown error: Element <div _ngcontent-c14="" class="btn btn-primary">...</div> is not clickable at point (1256, 692). Other element would receive the click: <div _ngcontent-c0="" class="loader d-flex align-items-center justify-content-center ng-star-inserted">...</div>
+  (Session info: chrome=69.0.3497.100)
+  (Driver info: chromedriver=2.38.552522 (437e6fbedfa8762dec75e2c5b3ddb86763dc9dcb),platform=Windows NT 10.0.17134 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+Build info: version: '3.11.0', revision: 'e59cfb3', time: '2018-03-11T20:26:55.152Z'
+System info: host: 'CS84-PC', ip: '192.168.0.84', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_171'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.38.552522 (437e6fbedfa876..., userDataDir: C:\Users\admin\AppData\Loca...}, cssSelectorsEnabled: true, databaseEnabled: false, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 69.0.3497.100, webStorageEnabled: true}
+Session ID: e6fa907146aa51ee915dfc9e22787dd9
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:214)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:166)
+	at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:80)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:44)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:279)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:83)
+	at org.drc.vat.appmanager.HelperBase.clickOn(HelperBase.java:74)
+	at org.drc.vat.StepDefinitions.Payment_Agreement_LandingScreen_Tax_officer.user_click_on_browse_button_on_payment_agreement_document_browse(Payment_Agreement_LandingScreen_Tax_officer.java:777)
+	at ?.And User click on browse button on payment agreement document browse(features/Payment_Agreement_LandingScreen_Tax_officer.feature:266)
+</textarea></pre></td>
+                                                    </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </li>
+                        <li class='exception displayed active'>
+                            <div class='exception-heading'>
+                                <span class='exception-name'>org.openqa.selenium.TimeoutException</span>
+                                <span class='exception-count right'><span class='label red lighten-1 white-text'>1</span></span>
+                            </div>
+                            <div class='exception-content hide'>
+                                <div class='exception-tests'>
+                                    <table class='bordered table-results'>
+                                        <thead>
+                                        <tr>
+                                            <th>Timestamp</th>
+                                            <th>TestName</th>
+                                            <th>Status</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                                    <tr>
+                                                        <td>Sep 24, 2018 11:42:16 AM</td>
+                                                        <td class='linked' test-id='189'>User is on Payment Agreement Landing Screen (Tax-officer).Validate the Browse button functionality.Validate the Browse button functionality.And User again click on browse and select file and user see message "Only 1 document can be uploaded"</td>
+                                                        <td><pre><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.xpath: null (tried for 60 second(s) with 500 milliseconds interval)
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:81)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:271)
+	at org.drc.vat.appmanager.HelperBase.clickOn(HelperBase.java:74)
+	at org.drc.vat.StepDefinitions.Payment_Agreement_LandingScreen_Tax_officer.user_again_click_on_browse_and_select_file_and_user_see_message(Payment_Agreement_LandingScreen_Tax_officer.java:392)
+	at ?.And User again click on browse and select file and user see message "Only 1 document can be uploaded"(features/Payment_Agreement_LandingScreen_Tax_officer.feature:335)
+Caused by: org.openqa.selenium.NoSuchElementException: Cannot locate an element using By.xpath: null
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.11.0', revision: 'e59cfb3', time: '2018-03-11T20:26:55.152Z'
+System info: host: 'CS84-PC', ip: '192.168.0.84', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_171'
+Driver info: driver.version: unknown
+	at org.openqa.selenium.support.ui.ExpectedConditions.lambda$findElement$0(ExpectedConditions.java:896)
+	at java.util.Optional.orElseThrow(Unknown Source)
+	at org.openqa.selenium.support.ui.ExpectedConditions.findElement(ExpectedConditions.java:895)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:44)
+	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:206)
+	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:202)
+	at org.openqa.selenium.support.ui.ExpectedConditions$22.apply(ExpectedConditions.java:657)
+	at org.openqa.selenium.support.ui.ExpectedConditions$22.apply(ExpectedConditions.java:654)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:248)
+	at org.drc.vat.appmanager.HelperBase.clickOn(HelperBase.java:74)
+	at org.drc.vat.StepDefinitions.Payment_Agreement_LandingScreen_Tax_officer.user_again_click_on_browse_and_select_file_and_user_see_message(Payment_Agreement_LandingScreen_Tax_officer.java:392)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at cucumber.runtime.Utils$1.call(Utils.java:40)
+	at cucumber.runtime.Timeout.timeout(Timeout.java:16)
+	at cucumber.runtime.Utils.invoke(Utils.java:34)
+	at cucumber.runtime.java.JavaStepDefinition.execute(JavaStepDefinition.java:38)
+	at cucumber.runtime.StepDefinitionMatch.runStep(StepDefinitionMatch.java:37)
+	at cucumber.runtime.Runtime.runStep(Runtime.java:300)
+	at cucumber.runtime.model.StepContainer.runStep(StepContainer.java:44)
+	at cucumber.runtime.model.StepContainer.runSteps(StepContainer.java:39)
+	at cucumber.runtime.model.CucumberScenario.run(CucumberScenario.java:44)
+	at cucumber.runtime.model.CucumberScenarioOutline.run(CucumberScenarioOutline.java:46)
+	at cucumber.runtime.model.CucumberFeature.run(CucumberFeature.java:165)
+	at cucumber.api.testng.TestNGCucumberRunner.runCucumber(TestNGCucumberRunner.java:63)
+	at cucumber.api.testng.AbstractTestNGCucumberTests.feature(AbstractTestNGCucumberTests.java:21)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:643)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:820)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1128)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:782)
+	at org.testng.TestRunner.run(TestRunner.java:632)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.run(TestNG.java:1064)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></pre></td>
+                                                    </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </li>
+                </ul>
+        </div>
+    </div>
+
+    <div class='subview-right left'>
+        <div class='view-summary'>
+            <h5 class='exception-name'></h5>
+        </div>
+    </div>
+</div>
+<!-- exception view -->
+<div id='dashboard-view' class='view hide'>
+	<div class='card-panel transparent np-v'>
+		<h5>Dashboard</h5>
+
+		<div class='row'>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Features
+					<div class='panel-lead'>1</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Scenarios
+					<div class='panel-lead'>21</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Steps
+					<div class='panel-lead'>156</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Start
+					<div class='panel-lead'>Sep 24, 2018 11:36:32 AM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+			 		End
+			 		<div class='panel-lead'>Sep 24, 2018 11:43:30 AM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Time Taken
+					<div class='panel-lead'>0h 6m 58s+594ms</div>
+				</div>
+			</div>
+			<div class='col s6'>
+				<div class='card-panel dashboard-categories'>
+					<span class='right label cyan white-text'>Categories</span><p>&nbsp;</p>
+					
+					<table>
+						<tr>
+							<th>Name</th>
+							<th>Passed</th>
+							<th>Failed</th>
+							<th>Others</th>
+							<th>Passed %</th>
+						</tr>
+						<tr>
+							<td>@TC_26_Date</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>
+									0%
+							</td>
+						</tr>
+						<tr>
+							<td>@TC_27_Agreement_ID</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>@TC_28_Validate_cases_ID</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>@TC_29_Validate_Total_Amount_disable</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>@TC_30_Initial_Amount_disable</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>@TC_31_Discount_Amount_radio_disable</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>@TC_32_Discount_Percentage_radio_disable</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>@TC_33_Discount_Amount_textbox_disable</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>@TC_34_Discount_Percentage_textbox_disable</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>@TC_35_Installement_radio_disable</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>@TC_36_No_of_Installement_radio_disable</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>@TC_37_Installement_amount_textbox</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>@TC_38_installment_frequency</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>
+									0%
+							</td>
+						</tr>
+						<tr>
+							<td>@TC_39_Next_installment_date</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>@TC_40_Authorized_signatory</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>@TC_41_Payment_Agreement_Document</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>
+									0%
+							</td>
+						</tr>
+						<tr>
+							<td>@TC_42_installment_Status</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>@TC_43_view_Icon</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>@TC_44_Comment_Status</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>@TC_45_browse_button</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>
+									0%
+							</td>
+						</tr>
+						<tr>
+							<td>@TC_46_Cancel_button</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- dashboard view -->
+<!-- testrunner-logs view -->
+		</div>
+		<!-- container -->
+
+		<script>
+			var statusGroup = {
+				passParent: 0,
+				failParent: 1,
+				fatalParent: 0,
+				errorParent: 0,
+				warningParent: 0,
+				skipParent: 0,
+				exceptionsParent: 1,
+				
+				passChild: 17,
+				failChild: 4,
+				fatalChild: 0,
+				errorChild: 0,
+				warningChild: 0,
+				skipChild: 0,
+				infoChild: 0,
+				exceptionsChild: 4,
+				
+				passGrandChild: 151,
+				failGrandChild: 4,
+				fatalGrandChild: 0,
+				errorGrandChild: 0,
+				warningGrandChild: 0,
+				skipGrandChild: 1,
+				infoGrandChild: 0,
+				exceptionsGrandChild: 5,
+			};
+		</script>
+		
+			<script src='https://cdn.rawgit.com/anshooarora/extentreports-java/fca20fb7653aade98810546ab96a2a4360e3e712/dist/js/extent.js' type='text/javascript'></script>
+		
+		
+ 		<script type='text/javascript'>
+ 		</script>
+	</body>
+	
+</html>
