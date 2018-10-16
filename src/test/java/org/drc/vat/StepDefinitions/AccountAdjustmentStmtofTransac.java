@@ -4,6 +4,19 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import static org.drc.vat.appmanager.HelperBase.clickOn;
+import static org.drc.vat.appmanager.HelperBase.elementText;
+import static org.drc.vat.appmanager.HelperBase.type;
+import static org.drc.vat.appmanager.HelperBase.getvalue;
+import static org.testng.Assert.assertEquals;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+import static org.drc.vat.appmanager.HelperBase.wd;
 
 public class AccountAdjustmentStmtofTransac {
 	@Given("^The officer has logged in with Uname\"([^\"]*)\"Password\"([^\"]*)\"$")
@@ -14,37 +27,74 @@ public class AccountAdjustmentStmtofTransac {
 
 	@When("^clicks on Account adjustment from TaxPayer Profile of user with NIF\"([^\"]*)\"$")
 	public void clicks_on_Account_adjustment_from_TaxPayer_Profile_of_user_with_NIF(String arg1) throws Throwable {
-	       clickOn("","");
+	       clickOn("nav_tpprofile","");
+	       Thread.sleep(3000);
+	       assertEquals(elementText("page_tpprofile",""),"Taxpayer Details");
+	       clickOn("filterby_tpprofile","");	
+	       Thread.sleep(2000);
+	       clickOn("span","[contains(text(),'NIF')]");
+	       
+	       type("input_search_tpprofile",arg1);
+		      clickOn("btn_searchtprofile","");
+		      
+		      clickOn("btn_viewtpprofile","");
+		      Thread.sleep(2000);
+		      assertEquals(elementText("page_tpdetails",""),arg1);
+		      clickOn("btn_accAdjstmt","");
+		      
+	       
 	   
 	}
 
 	@Then("^user is on account adustment page$")
 	public void user_is_on_account_adustment_page() throws Throwable {
 	       
-	   
+		assertEquals(elementText("txt_acadjstmnt",""),"Account Adjustment");
 	}
 
 	@Then("^selects action\"([^\"]*)\"$")
 	public void selects_action(String arg1) throws Throwable {
-	       
+	      List<WebElement> action = wd.findElements(By.xpath("//div[@role='option']"));
+	      assertEquals(action.get(0).getText(),"Reverse");
+	      assertEquals(action.get(1).getText(),"General");
+	      if(arg1.equalsIgnoreCase("reverse")) {
+	      clickOn("drp_reverse","");
+	      }
+	      if(arg1.equalsIgnoreCase("general")) {
+	    	  clickOn("drp_gen","");
+	      }
 	   
 	}
 
 	@Then("^validates created date Performed By\"([^\"]*)\"Source\"([^\"]*)\" and Source Id must be blank TaxPayer\"([^\"]*)\"$")
 	public void validates_created_date_Performed_By_Source_and_Source_Id_must_be_blank_TaxPayer(String arg1, String arg2, String arg3) throws Throwable {
+		Date d =new Date();
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM,yyyy");
+		String m =dateFormat.format(d);
+		assertEquals(getvalue("txt_CreatedDate", ""), m);
+		assertEquals(getvalue("input_performedby", ""), arg1);
+		assertEquals(getvalue("input_source", ""), arg2);
+		assertEquals(getvalue("input_sourceid", ""), "");
+		assertEquals(getvalue("input_taxpayer", ""), "");
 	       
 	   
 	}
 
 	@Then("^selects the Aprroved by officer\"([^\"]*)\"$")
 	public void selects_the_Aprroved_by_officer(String arg1) throws Throwable {
+		Thread.sleep(2000);
+		clickOn("drpdwn_approve","");
+		Thread.sleep(2000);
+		clickOn("span","[contains(text(),'"+arg1+"')]");
 	       
 	   
 	}
 
 	@Then("^click on Add button and selects the transaction for adjustment\"([^\"]*)\"from\"([^\"]*)\"to\"([^\"]*)\"$")
 	public void click_on_Add_button_and_selects_the_transaction_for_adjustment_from_to(String arg1, String arg2, String arg3) throws Throwable {
-	       
+	       clickOn("btn_add","");	       
+	       wd.switchTo().frame(wd.findElement(By.xpath("//iframe[@id='myiFrameForSilentRenew']")));
+	       Thread.sleep(2000);
 	   
 	}
 
