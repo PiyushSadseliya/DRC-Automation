@@ -50,8 +50,8 @@ Feature: Tax Bill Payment   | NetBanking and Over the counter
     Then user is on VAT e-Filing page"VAT e-Filing"
 
     Examples: 
-      | Test Case ID              | Description                                                           | uname                   | password    | period  |
-      | DRC_ATC_TaxBillPayment_02 | Vaildate the Tax Bill Payment for particular month done by Netbanking | execute@sharklasers.com | abcde@12345 | January |
+      | Test Case ID              | Description                                                           | uname                 | password    | period  |
+      | DRC_ATC_TaxBillPayment_02 | Vaildate the Tax Bill Payment for particular month done by Netbanking | 12345@sharklasers.com | abcde@12345 | January |
 
   @tc20_21
   Scenario Outline: Vaildate the Print and Cancel Button functionality on Tax Bill Payment Page
@@ -69,7 +69,7 @@ Feature: Tax Bill Payment   | NetBanking and Over the counter
 
     Examples: 
       | Test Case ID              | Description                                                                 | uname                 | password    | date1       | period  |
-      | DRC_ATC_TaxBillPayment_03 | Vaildate the Print and Cancel Button functionality on Tax Bill Payment Page | 12345@sharklasers.com | abcde@12345 | 26-Sep-2018 | January |
+      | DRC_ATC_TaxBillPayment_03 | Vaildate the Print and Cancel Button functionality on Tax Bill Payment Page | 12345@sharklasers.com | abcde@12345 | 26-Sep-2018 | June |
 
   @c19_13__17_5
   Scenario Outline: Vaildate the Tax Bill Payment when user pays from Total Liability Pay button
@@ -95,4 +95,4 @@ Feature: Tax Bill Payment   | NetBanking and Over the counter
 
     Examples: 
       | Test Case ID              | Description                                                                  | uname                 | password    | date1       | period  | nitva             | emailid               | mobile       | name      | add | period1 | vatamount1 | interest1 | penalty1 | ltfee1 | total1 | period2  | vatamount2 | interest2 | penalty2 | ltfee2 | total2 | period3  | vatamount3 | interest3 | penalty3 | ltfee3 | total3 | period4  | vatamount4 | interest4 | penalty4 | ltfee4 | total4 | period5  | vatamount5 | interest5 | penalty5 | ltfee5 | total5 | period6  | vatamount6 | interest6 | penalty6 | ltfee6 | total6 | period7  | vatamount7 | interest7 | penalty7 | ltfee7 | total7 | benfname | acno           | bname               | bcode       | amount |
-      | DRC_ATC_TaxBillPayment_04 | Vaildate the Tax Bill Payment when user pays from Total Liability Pay button | 12345@sharklasers.com | abcde@12345 | 26-Sep-2018 | January | 20180926012113710 | 12345@sharklasers.com | 340653459035 | Smit tran | Add |     800 |          0 |         0 |        0 |    800 |    800 | Feb-2018 |        320 |         0 |        0 |      0 |    320 | Apr-2018 |        800 |         0 |        0 |      0 |    800 | May-2018 |        800 |         0 |        0 |      0 |    800 | May-2018 |        800 |         0 |        0 |      0 |    800 | May-2018 |        800 |         0 |        0 |      0 |    800 | May-2018 |        800 |         0 |        0 |      0 |    800 | DGI      | 18042600001632 | Central Bank Of Drc | RBISOGSTPMT |   5120 |
+      | DRC_ATC_TaxBillPayment_04 | Vaildate the Tax Bill Payment when user pays from Total Liability Pay button | 12345@sharklasers.com | abcde@12345 | 26-Sep-2018 | Jan-Sep | 20180926012113710 | 12345@sharklasers.com | 340653459035 | Smit tran | Add |     800 |          0 |         0 |        0 |    800 |    800 | Feb-2018 |        320 |         0 |        0 |      0 |    320 | Apr-2018 |        800 |         0 |        0 |      0 |    800 | May-2018 |        800 |         0 |        0 |      0 |    800 | May-2018 |        800 |         0 |        0 |      0 |    800 | May-2018 |        800 |         0 |        0 |      0 |    800 | May-2018 |        800 |         0 |        0 |      0 |    800 | DGI      | 18042600001632 | Central Bank Of Drc | RBISOGSTPMT |   5120 |

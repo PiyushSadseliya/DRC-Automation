@@ -20,10 +20,10 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import static org.drc.vat.appmanager.HelperBase.logout;
 import static org.drc.vat.appmanager.HelperBase.assertEnding;
-@CucumberOptions(features = {"classpath:features/TaxBillPayment.feature"},
+@CucumberOptions(features = {"classpath:features/PaymentSummaryLiabilityCalculationPaymentDueManualAssessment.feature"},
        glue = "org.drc.vat.StepDefinitions",
         plugin = {"com.cucumber.listener.ExtentCucumberFormatter:",
-                  "html:test-output/cucumber-report"}
+                  "html:test-output/cucumber-report"},tags= {"@tc2345671820212223"}
 )
 public class TestRunner extends AbstractTestNGCucumberTests {
     private Logger logger = LoggerFactory.getLogger(TestRunner.class);
@@ -65,6 +65,7 @@ public class TestRunner extends AbstractTestNGCucumberTests {
         Reporter.addScreenCaptureFromPath(dest.toString());
         scenario.embed(app.takeScreenshot(), "image/png");
       //  logout();  
+       // assertEnding();
         logger.info("Stop scenario: " + scenario.getName());
     }
 }

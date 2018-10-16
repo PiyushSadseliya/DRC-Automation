@@ -6,7 +6,9 @@ import cucumber.api.java.en.When;
 
 import static org.drc.vat.appmanager.HelperBase.login;
 import static org.drc.vat.appmanager.HelperBase.wd;
+import static org.testng.Assert.assertEquals;
 import static org.drc.vat.appmanager.HelperBase.softAssert;
+import static org.drc.vat.appmanager.HelperBase.logout;
 import java.util.Set;
 
 import org.openqa.selenium.By;
@@ -17,9 +19,13 @@ import static org.drc.vat.appmanager.HelperBase.elementText;
 import static org.drc.vat.appmanager.HelperBase.type;
 public class ViewAllStatementofTransaction {
 	//SoftAssert sassert = new SoftAssert();
+	static Boolean login =true;
 	@Given("^\"([^\"]*)\"\"([^\"]*)\"The User has logged in the DRC Tax Payer Portal with \"([^\"]*)\"\"([^\"]*)\"$")
 	public void the_User_has_logged_in_the_DRC_Tax_Payer_Portal_with(String arg1, String arg2, String arg3, String arg4) throws Throwable {
-	  	login(arg3,arg4);
+		if(login) {
+		login(arg3,arg4);
+		login=false;
+		}
 
    
 	}
@@ -55,6 +61,7 @@ public class ViewAllStatementofTransaction {
 	@Then("^View Button should be disabled on Efiling Landing Screen$")
 	public void view_Button_should_be_disabled_on_Efiling_Landing_Screen() throws Throwable {
 		softAssert.assertEquals(wd.findElement(By.xpath("//button[@title='View All']")).isEnabled(), false);
+	//	logout();
 		
 		
    
@@ -69,7 +76,7 @@ public class ViewAllStatementofTransaction {
 	     if(arg1.equals("January")) {
 	    	 clickOn("div","[@id='collapseOne0']//button[@title='File']");
 	     }
-	     if(arg1.equals("Februrary")) {
+	     if(arg1.equals("February")) {
 	    	 clickOn("div","[@id='collapseOne1']//button[@title='File']");
 	     }
 	     if(arg1.equals("March")) {
@@ -89,14 +96,15 @@ public class ViewAllStatementofTransaction {
 
 	     type("txtbx_Taxable_goods",arg3);
 	     clickOn("chkbx_efilingagree","");
+	    // clickOn("btn_browse")
 	     clickOn("drpdown","");
-	     clickOn("span","[contains(text(),'Test')]");
-	     clickOn("btn_csubmit","");
+	     //clickOn("span","[contains(text(),'Test')]");
+	     //clickOn("btn_csubmit","");
 	     Thread.sleep(50000);
 	     
-	     clickOn("btn_prev","");
-	     Thread.sleep(1000);
-	     clickOn("btn_prev","");
+	     //clickOn("btn_prev","");
+	    // Thread.sleep(1000);
+	    //clickOn("btn_prev","");
    
 	}
 
@@ -111,15 +119,15 @@ public class ViewAllStatementofTransaction {
 	@Then("^Statemnt of Transaction should show the details of Date\"([^\"]*)\"\"([^\"]*)\"Period\"([^\"]*)\"\"([^\"]*)\"Particular\"([^\"]*)\"OpeningBalance\"([^\"]*)\"Liability Amount\"([^\"]*)\"Late Fee\"([^\"]*)\"Interest \"([^\"]*)\"Penalty\"([^\"]*)\"Total\"([^\"]*)\"$")
 	public void statemnt_of_Transaction_should_show_the_details_of_Date_Period_Particular_OpeningBalance_Liability_Amount_Late_Fee_Interest_Penalty_Total(String arg1, String date, String period, String year, String particular, String OpeningBal, String vamount, String ltfee, String interest, String penalty, String total) throws Throwable {
 	 
-		softAssert.assertEquals(wd.findElement(By.xpath("//tbody/tr["+arg1+"]/td[1]")).getText(),date);
-	 softAssert.assertEquals(wd.findElement(By.xpath("//tbody/tr["+arg1+"]/td[2]")).getText(),period+","+year);
-	 softAssert.assertEquals(wd.findElement(By.xpath("//tbody/tr["+arg1+"]/td[3]")).getText(),particular);
-	 softAssert.assertEquals(wd.findElement(By.xpath("//tbody/tr["+arg1+"]/td[4]")).getText(),OpeningBal);
-	 softAssert.assertEquals(wd.findElement(By.xpath("//tbody/tr["+arg1+"]/td[5]")).getText(),vamount);
-	 softAssert.assertEquals(wd.findElement(By.xpath("//tbody/tr["+arg1+"]/td[6]")).getText(),ltfee);
-	 softAssert.assertEquals(wd.findElement(By.xpath("//tbody/tr["+arg1+"]/td[7]")).getText(),interest);
-	 softAssert.assertEquals(wd.findElement(By.xpath("//tbody/tr["+arg1+"]/td[8]")).getText(),penalty);
-	softAssert.assertEquals(wd.findElement(By.xpath("//tbody/tr["+arg1+"]/td[9]")).getText(),total);
+		assertEquals(wd.findElement(By.xpath("//tbody/tr["+arg1+"]/td[1]")).getText(),date);
+	assertEquals(wd.findElement(By.xpath("//tbody/tr["+arg1+"]/td[2]")).getText(),period+", "+year);
+	 assertEquals(wd.findElement(By.xpath("//tbody/tr["+arg1+"]/td[3]")).getText(),particular);
+	 assertEquals(wd.findElement(By.xpath("//tbody/tr["+arg1+"]/td[4]")).getText(),OpeningBal);
+	 assertEquals(wd.findElement(By.xpath("//tbody/tr["+arg1+"]/td[5]")).getText(),vamount);
+	assertEquals(wd.findElement(By.xpath("//tbody/tr["+arg1+"]/td[6]")).getText(),ltfee);
+	 assertEquals(wd.findElement(By.xpath("//tbody/tr["+arg1+"]/td[7]")).getText(),interest);
+	assertEquals(wd.findElement(By.xpath("//tbody/tr["+arg1+"]/td[8]")).getText(),penalty);
+assertEquals(wd.findElement(By.xpath("//tbody/tr["+arg1+"]/td[9]")).getText(),total);
    System.out.println(wd.findElement(By.xpath("//tbody/tr["+arg1+"]/td[1]")).getText());
    System.out.println(date);
    System.out.println(wd.findElement(By.xpath("//tbody/tr["+arg1+"]/td[2]")).getText());
@@ -138,6 +146,7 @@ public class ViewAllStatementofTransaction {
    System.out.println(penalty);
    System.out.println(wd.findElement(By.xpath("//tbody/tr["+arg1+"]/td[9]")).getText());
    System.out.println(total);
+   //logout();
 	}
 
 	@Then("^Total Liability should be\"([^\"]*)\"$")

@@ -203,7 +203,7 @@ public class userRegistration {
 		if(showvalidationMessage) {
 			System.out.println(showvalidationMessage);
 			
-			validationMessage(validationMessage);
+			//validationMessage(validationMessage);
 		}
 		else {
 			System.out.println("No Validation messages");

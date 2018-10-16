@@ -15,8 +15,10 @@ import java.awt.Robot;
 import java.awt.Toolkit;
 
 import static org.drc.vat.appmanager.HelperBase.assertMsg;
+import static org.drc.vat.appmanager.HelperBase.clickOn;
 import static org.drc.vat.appmanager.HelperBase.internalPortal;
 import static org.drc.vat.appmanager.HelperBase.type;
+import static org.drc.vat.appmanager.HelperBase.wd;
 import static org.testng.Assert.assertFalse;
 
 import java.awt.*;
@@ -180,14 +182,15 @@ public class HelperBase {
     	wd.getCurrentUrl().equals(obj.getProperty(data));
     	
     }
-    public static String validationMessage(String messages) {
+    public static String validationMessage(){
     	//System.out.println(text(By.xpath("//*[@class='text-danger position-absolute error-msg']")));
-    	String body_Message=wd.findElement(By.tagName("body")).getText();
+/*    	String body_Message=wd.findElement(By.xpath("//div[@class='toast-message ng-star-inserted']")).getText();
     	if(body_Message.contains(messages.toLowerCase())) {
     	System.out.println("Message Validated");
     	}
     	//text(By.xpath("//*[@class='toast-top-right toast-container']"));
-    	return text(By.xpath("//*[@class='text-danger position-absolute error-msg']"));  
+*/    	
+    	return text(By.xpath("//div[@class='toast-message ng-star-inserted']"));  
     	
     	
     }
@@ -336,6 +339,12 @@ public static void login(String email,String password) throws InterruptedExcepti
 	type("txtbox_username",email);
 	type("txtbox_password",password);
 	clickOn("btn_login","");
+	Thread.sleep(2000);
+	clickOn("tile_vat","");
+	Thread.sleep(2000);
+	clickOn("a_sure","");
+	Thread.sleep(2000);
+	wd.switchTo().window(wd.getWindowHandles().toArray()[1].toString());
 	
 }
 public static void bodymessage(String object) throws InterruptedException
