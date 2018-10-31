@@ -24,6 +24,7 @@ Feature: User is on e-filing landing screen
 
   #@TC_03 help
   #Validate the Helpdesk (?) icon functionality.
+  
   @TC_04
   Scenario Outline: Validate the Financial Year dropdown functionality.
     #Given User login to DRC VAT
@@ -111,9 +112,9 @@ Feature: User is on e-filing landing screen
     #   And User see message "<mess>"
     # payment is done from backend
     #And User Logout
-    Examples: 
-      | TestcaseID        | Description                       | month | pay   | bankName             | cancel        | pay1          | mess |
-      | Landing_Screen_08 | validate pay button functionality | eJan  | eJanP | txt_BankName_Central | PaymentCancel | PaymentPayNow |      |
+    Examples:   
+      | TestcaseID        | Description                       | month | pay   | bankName             | cancel            | pay1              | mess |
+      | Landing_Screen_08 | validate pay button functionality | eJan  | eJanP | txt_BankName_Central | btn_PaymentCancel | btn_PaymentPayNow |      |
 
   # if payment is done
   #  @TC_09

@@ -1,0 +1,196 @@
+
+//--------------------calculation--------------------------------//
+	@Then("^Enter data in Operation Performed \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\" , \"([^\"]*)\",\"([^\"]*)\", \"([^\"]*)\" ,\"([^\"]*)\", \"([^\"]*)\",\"([^\"]*)\"$")
+	public void enter_data_in_Operation_Performed(String DG, String DS1, String DS2, String DGI, String DSI, String FPP, String Export, String Exempt, String Nontaxable) throws Throwable 
+	{
+	  /*  type("txt_Delivery_goods",DG);
+	  //  String VAT_Collected_DG = wd.findElement(By.xpath("//*[@ng-reflect-name='Delivery of goodsDOGVC']")).getAttribute("value");
+	    
+	   String VAT_Collected_DG= getValue("txt_Delivery_goods_disable");
+	  		//elementText("label_DOGTT");
+	   
+	 //   if(VAT_collected ==  DgVat)
+	    if(Float.parseFloat(VAT_Collected_DG)==((Float.parseFloat(DG))*16/100))
+	    {
+	    	System.out.println("Pass");
+	    }
+	    type("txtbox_DOSTR",DS1);
+	    type("txtbox_DOSTT",DS2);
+	    String VAT_Collected_DS = getValue("label_DOSTR");
+	    if(Float.parseFloat(VAT_Collected_DS)==((Float.parseFloat(DS2))*16/100))
+	    {
+	    	System.out.println("Pass");
+	    }   
+	    type("txtbox_DOGTITT",DGI);
+	    String VAT_Collected_DGI=getValue("label_DOGTITT");
+	    if(Float.parseFloat(VAT_Collected_DGI)==((Float.parseFloat(DGI))*16/100))
+	    {
+	    	System.out.println("Pass");
+	    }
+	    type("txtbox_DOSTITT",DSI);
+	    String VAT_Collected_DSI=getValue("label_DOSTITT");
+	    if(Float.parseFloat(VAT_Collected_DGI)==((Float.parseFloat(DSI))*16/100))
+	    {
+	    	System.out.println("Pass");
+	    }
+	    type("txtbox_ORTEFPPTT",FPP);
+	    String VAT_Collected_FPP=getValue("label_ORTEFPPTT");
+	    if(Float.parseFloat(VAT_Collected_FPP)==((Float.parseFloat(FPP))*16/100))
+	    {
+	    	System.out.println("Pass");
+	    }
+	    type("txtbox_EARTTT",Export);
+	    type("txtbox_ETTT",Exempt);
+	    type("txtbox_NTTTT",Nontaxable);
+	    
+	    Float Total_TTFC = (Float.parseFloat(DG)) + (Float.parseFloat(DS2)) + (Float.parseFloat(DGI)) + (Float.parseFloat(DSI)) + (Float.parseFloat(FPP));
+	    String Total_TT=getValue("label_TOTTT");
+	    
+	    if(Total_TTFC==Float.parseFloat(Total_TT))
+	    {
+	    	System.out.println("pass");
+	    }
+	    
+	    Float Total_VC = ((Float.parseFloat(DG))*16/100) + ((Float.parseFloat(DS2))*16/100) + ((Float.parseFloat(DGI))*16/100)+ ((Float.parseFloat(DSI))*16/100)+((Float.parseFloat(FPP))*16/100);
+	    
+	    String Total_VCT = getValue("label_TOTVC");
+	    
+	    if(Total_VC==Float.parseFloat(Total_VCT))
+	    {
+	    	System.out.println("pass");	
+	    }*/
+	    
+	}
+
+	@Then("^Enter data in Deduction \"([^\"]*)\" ,\"([^\"]*)\", \"([^\"]*)\" ,\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\" ,\"([^\"]*)\" ,\"([^\"]*)\"$")
+	public void enter_data_in_Deduction(String AI, String AL, String GI, String GL, String RI, String RL, String OI, String OL) throws Throwable {
+	    type("txtbox_ASTIMP",AI);
+	    type("txtbox_ASTLC",AL);
+	   Float TotalA= Float.parseFloat(AI)+Float.parseFloat(AL);
+	   String TotalAS = getValue("label_ASTIMP");
+	   if(TotalA==Float.parseFloat(TotalAS))
+	   {
+		   System.out.println("pass");	
+	   }
+	    type("txtbox_GDIMP",GI);
+	    type("txtbox_GDLC",GL);
+	    Float TotalG = Float.parseFloat(GI)+Float.parseFloat(GL);
+	    String TotalGS= getValue("");
+	    if(TotalG==Float.parseFloat(TotalGS))
+	    {
+	    	  System.out.println("pass");	
+	    }
+	    type("txtbox_RMIMP",RI);
+	    type("txtbox_RMLC",RL);
+	    
+	    Float TotalR= Float.parseFloat(RI)+ Float.parseFloat(RL);
+	    String TotalRS= getValue("");
+	    if (TotalR==Float.parseFloat(TotalRS))
+	    {
+	    	System.out.println("pass");
+	    }
+	    
+	    type("txtbox_OGASIMP",OI);
+	    type("txtbox_OGASLC",OL); 
+	    Float TotalO=Float.parseFloat(OI)+Float.parseFloat(OL);
+	    String TotalOS=getValue("");
+	    if(TotalO==Float.parseFloat(TotalOS))
+	    {
+	    	System.out.println("pass");
+	    }
+
+	    Float TotalD = TotalA + TotalG + TotalR + TotalO;
+	    String TotalDS = getValue("");
+	    
+	    if (TotalD==Float.parseFloat(TotalDS))
+	    {
+	    	System.out.println("pass");
+	    }
+	}
+
+	@Then("^Enter data in Adjustment \"([^\"]*)\" , \"([^\"]*)\" , \"([^\"]*)\" ,\"([^\"]*)\"$")
+	public void enter_data_in_Adjustment(String VR, String SD, String VD, String PC) throws Throwable {
+	    type("txtbox_VRAAMT",VR);
+	    type("txtbox_SDAAMT",SD);
+	    type("txtbox_VDBMCASAAMT",VD);
+	    type("txtbox_RODVOEFPCAAMT",PC);
+	}
+
+	/*@Then("^calculate tax calculations and enter \"([^\"]*)\"$")
+	public void calculate_tax_calculations_and_enter(String VAT3Party) throws Throwable 
+	{
+	    type("txtbox_VFTPATAMT",VAT3Party);
+	    
+	}*/
+
+
+	@Then("^Upload Efile schedule \"([^\"]*)\"$")
+	public void upload_Efile_schedule(String file) throws Throwable {
+		clickOn("btn_savedraft","");
+		Thread.sleep(2000);
+		clickOn("upload_efile","");
+	//	String image =cwd.concat(file);
+	//	UploadImage("", image);
+		System.out.println("Test");
+	    
+	}
+
+	
+	@Then("^calculate tax calculations and enter \"([^\"]*)\"$")
+	public void calculate_tax_calculations_and_enter(String VAT3Party) throws Throwable
+	{
+	  //  type("txt_VatThird",VAT3Party);
+	    
+	    Float NetVAT = Total_VC - TotalD + VRC -SDC -VDC -PCC-FPPS;
+	    String Total_NetVAT = getValue("txt_NetVat_disable"); 
+	    String Total_VATcredit = getValue("txt_VatCredit_disable");
+	    String Total_Refund = getValue("txt_RefundCredit_disable");
+	    String Total_Forward = getValue("txt_VarCredit_disable");
+	    String Total_Procurement = getValue("txt_Vatexternal_disable");
+	    String Total_Pay=getValue("txt_Amount_disable");
+	    if (NetVAT > 0)
+	    {
+	    if (NetVAT==Float.parseFloat(Total_NetVAT))
+	    {
+	    System.out.println("pass");
+	    }
+	    }
+	    else
+	    {
+	    if(NetVAT==Float.parseFloat(Total_VATcredit))
+	    {
+	    System.out.println("pass");
+	    }
+	    }
+	    
+	    if((Float.parseFloat("Total_VATcredit")) < 0)
+	    {
+	    	Float TotalForward = (Float.parseFloat(Total_VATcredit)) - (Float.parseFloat(Total_Refund))-(Float.parseFloat(Total_Procurement))-(Float.parseFloat(VAT3Party));
+	      	if (TotalForward==Float.parseFloat(Total_Forward))
+	      	{
+	      		System.out.println("pass");
+	      	}
+	    }
+	    else
+	    {
+	    	if(Float.parseFloat(Total_Forward)==0)
+	    	{
+	    		System.out.println("pass");
+	    	}  
+	    }
+	    if (Float.parseFloat(Total_Procurement)==FPPS)
+	    {
+	    	System.out.println("pass");
+	    }
+
+	    Float TotalPay = Float.parseFloat(Total_NetVAT) -Float.parseFloat(Total_VATcredit)+ Float.parseFloat(Total_Refund)+ Float.parseFloat(Total_Procurement)+Float.parseFloat(VAT3Party);
+	    if (TotalPay==Float.parseFloat(Total_Pay))
+	    {
+	    	System.out.println("Pass");
+	    }
+	}	
+	
+	
+	
+	
+	

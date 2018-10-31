@@ -72,6 +72,7 @@ public class HelperBase {
         }
         By locator = By.xpath(obj.getProperty(object) + data);
         wait.until(ExpectedConditions.elementToBeClickable(locator)).click();
+       
     }    
     
     // Franky
@@ -106,7 +107,25 @@ public class HelperBase {
         }
     }
 
-    public static String toastMessage() {
+    public static String getValue(String object) throws InterruptedException
+    {
+    try {
+            obj.load(fis);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+       By locator = By.xpath(obj.getProperty(object));
+      // String text;
+       return wd.findElement(locator).getAttribute("value");
+   
+    }
+
+  
+
+    
+    
+    public static String toastMessage() 
+    {
         waitFor("toast_message");
         return text(By.xpath("(//*[contains(@class,'toast-top-right toast-container')])[last()]"));
     }
@@ -123,13 +142,15 @@ public class HelperBase {
         robot.keyRelease(KeyEvent.VK_S);
     }*/
 
-    public static void verifyDownload(String data) {
+    public static void verifyDownload(String data)
+    {
         File[] files = dir.listFiles();
         assert files != null;
-        for (File file : files) {
-            if (file.getName().contains(data)) {
+        for (File file : files) 
+        {
+            if (file.getName().contains(data)) 
+            {
                 return;
-                
             }
         }
     }
@@ -404,5 +425,16 @@ public class HelperBase {
     	}
 
     }
+    
+    
+    public static void call_url(String object) {    	
+    	wd.get(obj.getProperty(object));
+    }
+    public static void check_page_url(String data) throws InterruptedException {
+    	Thread.sleep(2000);
+    	wd.getCurrentUrl().equals(obj.getProperty(data));
+    	
+    }
+    
     
 }    

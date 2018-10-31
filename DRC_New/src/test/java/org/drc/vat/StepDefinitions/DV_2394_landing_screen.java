@@ -157,7 +157,8 @@ public class DV_2394_landing_screen
 	@And("^User click on check box and click on submit button$")
 	public void user_click_on_check_box_and_click_on_submit_button() throws Throwable 
 	{
-	   clickOn("eFileCheckBox", "");
+	   Thread.sleep(1000);
+	   clickOn("checkBox_efile_click", "");
 	   System.out.println("user click on check box");
 	   Thread.sleep(1000);
 	   clickOn("drp_aut_efile_click", "");
@@ -300,9 +301,9 @@ public class DV_2394_landing_screen
 	}
 
 	@And("^User see cancel \"([^\"]*)\" and pay now \"([^\"]*)\" is enable$")
-	public void user_see_cancel_and_pay_now_is_enable(String PaymentCancel, String PaymentPayNow) throws Throwable 
+	public void user_see_cancel_and_pay_now_is_enable(String btn_PaymentCancel, String btn_PaymentPayNow) throws Throwable 
 	{
-		if(wd.findElement(By.xpath(obj.getProperty(PaymentCancel))).isEnabled() &&  wd.findElement(By.xpath(obj.getProperty(PaymentPayNow))).isEnabled());
+		if(wd.findElement(By.xpath(obj.getProperty(btn_PaymentCancel))).isEnabled() &&  wd.findElement(By.xpath(obj.getProperty(btn_PaymentPayNow))).isEnabled());
 		{
 				 assertTrue(true);
 		}	  
@@ -312,7 +313,7 @@ public class DV_2394_landing_screen
 	@And("^User click on cancel buttton and navigate to e-filing landing page$")
 	public void user_click_on_cancel_buttton_and_navigate_to_e_filing_landing_page() throws Throwable 
 	{
-		clickOn("PaymentCancel", "");
+		clickOn("btn_PaymentCancel", "");
 		if(wd.findElement(By.xpath(obj.getProperty("txt_efiingScreen"))).isDisplayed());
 		  {
 				 assertTrue(true);
@@ -403,14 +404,14 @@ public class DV_2394_landing_screen
  * Important dates 
  */
 	
-	@Given("^User login to DRC VAT$")
+	/*@Given("^User login to DRC VAT$")
     public void user_login_to_DRC_VAT() throws Throwable 
 	{
-    login("franky01@mailinator.com", "franky@123");
+    login("franky03@mailinator.com", "franky@123");
     clickOn("btn_login","");
     Thread.sleep(1000);
     
-    }
+    }*/
 
    @Then("^User open E-filing page$")
    public void user_open_E_filing_page() throws Throwable 

@@ -21,35 +21,12 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import static org.drc.vat.appmanager.HelperBase.logout;
-
-@CucumberOptions(features = {"classpath:features/DV_2394_Total_Liability.feature"},
+@CucumberOptions(features = {"classpath:features/DV_2881_OP_TD_Ad_with_Ass_and_Reass.feature"},
        glue = "org.drc.vat.StepDefinitions",
         plugin = {"com.cucumber.listener.ExtentCucumberFormatter:",
-                  "html:test-output/cucumber-report"}
-        		//VATeFiling
-        		//tags={"@TC_10"}
-        		//tags={"@TC_07,@TC_08,@TC_10"}
-        		//tags={"@TC_01_Login,@TC_02,@TC_04,@TC_05"}
-        		//tags={"@TC_49_Under_review,@TC_55_Cancel_button"}
-        		//tags={"@TC_001,@TC_07,@TC_08,@TC_09,@TC_10,@TC_11,@TC_12,@TC_13"}
-        		//tags={"@TC_001,@TC_02,@TC_03,@_TC_04,@TC_05"}
-        	//	tags={"@TC_01,@TC_06_Name_of_Applicant_TAX_Payer,@TC_06_NITVA,@TC_06_Business_Type,@TC_06_company_Size,@TC_06_Assessment_Officer, @TC_06_Status"}
-        	//	tags={"@TC_01,@TC_06_NITVA"}
-//tags={"@TC_01,@TC_06_Name_of_Applicant_TAX_Payer,@TC_06_NITVA,@TC_06_Business_Type,@TC_06_company_Size,@TC_06_Assessment_Officer, @TC_06_Status,@TC_07,@TC_08,@TC_09,@TC_10"}
-				//tags={"@Run_Valid_Login,@Run_InValid_Login"}
-        		//tags={"@Run_InValid_Login"}
-        		//tags={"@Forgot_Password_Email_Valid"}
-        		//tags={"@Forgot_Password_Email_InValid"}
-        		//tags={"@Run_Valid_Login"}
-        		//tags={"@Forgot_Password_New_Confirm_Valid"}
-				//tags={"@Forgot_Password_New_Confirm_InValid"}
+                  "html:test-output/cucumber-report"},
+        			tags={"@TC_01_Manual_2881,@TC_08_20_Manual_2881"}
                  )
-
-	
-
-	
-//ManualAssessmentSalesAdjustement
 
 public class TestRunner extends AbstractTestNGCucumberTests {
 
@@ -82,7 +59,7 @@ public class TestRunner extends AbstractTestNGCucumberTests {
     @Before
     public void startScenario(Scenario scenario) throws IOException, AWTException, InterruptedException 
     {
-    	app.callurl();
+    	//app.callurl();
     	//app.auth();   	
         logger.info("Start scenario: " + scenario.getName());
     }
