@@ -1,7 +1,7 @@
 package org.drc.vat.appmanager;
 
-import org.apache.poi.hssf.record.RefreshAllRecord;
-import org.apache.xmlbeans.impl.xb.xsdschema.Public;
+//import org.apache.poi.hssf.record.RefreshAllRecord;
+//import org.apache.xmlbeans.impl.xb.xsdschema.Public;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
@@ -21,7 +21,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.Objects;
+//import java.util.Objects;
 import java.util.Properties;
 import java.util.List;
 public class HelperBase {
@@ -29,33 +29,36 @@ public class HelperBase {
     private static String bodyMessage="";
     public static Properties obj = new Properties();
     public static FileInputStream fis;
-    private static File dir = new File(
-            System.getProperty("user.home") + "/Downloads");
+    private static File dir = new File(System.getProperty("user.home") + "/Downloads");
 
     HelperBase(WebDriver wd) 
     {
         HelperBase.wd = wd;
     }
-
-    static {
-        try {
-            fis = new FileInputStream(System.getProperty(
-                    "user.dir") + "/src/test/resources/locators.properties");
-        } catch (FileNotFoundException e) {
+    static 
+    {
+      try 
+      {
+          fis = new FileInputStream(System.getProperty("user.dir") + "/src/test/resources/locators.properties");
+      } catch (FileNotFoundException e) 
+      {
             e.printStackTrace();
-        }
+      }
     }
-
+    
+    
+    
+    
+    
     
     public static void login(String email,String password) throws InterruptedException 
     {
     	 type("txtbox_username",email);
     	 type("txtbox_password",password);
-    	 
-    	    	    	 
     }
         
-    private static void waitFor(String object) {
+    private static void waitFor(String object) 
+    {
         WebDriverWait wait = new WebDriverWait(wd, 60);
         By locator = By.xpath(obj.getProperty(object));
         wait.until(ExpectedConditions.elementToBeClickable(locator));
@@ -72,8 +75,8 @@ public class HelperBase {
         }
         By locator = By.xpath(obj.getProperty(object) + data);
         wait.until(ExpectedConditions.elementToBeClickable(locator)).click();
+       
     }    
-    
     // Franky
    /* public static void clickOn(String object, String data)throws InterruptedException {
         WebDriverWait wait = new WebDriverWait(wd, 60);
@@ -89,11 +92,22 @@ public class HelperBase {
         wait.until(ExpectedConditions.elementToBeClickable(locator)).click();
     }*/
     
+    /*
+     * Thread sleep method 
+     */
+    public static void sleepWait(long wait) throws InterruptedException 
+    {
+        Thread.sleep(wait);
+    }
+
+    
+    
     public static void type(String object, String data) 
     {
     	try {
             obj.load(fis);
-        } catch (IOException e) {
+        } catch (IOException e) 
+    	{
             e.printStackTrace();
         }
     	By locator = By.xpath(obj.getProperty(object));
@@ -105,13 +119,52 @@ public class HelperBase {
             }
         }
     }
+  
+    /*
+    * Type method without clearing the text 
+    */    
+    public static void type_without_clear(String object, String data) 
+    {
+    	try {
+            obj.load(fis);
+        } catch (IOException e) 
+    	{
+            e.printStackTrace();
+        }
+    	By locator = By.xpath(obj.getProperty(object));
+        if (data != null) {
+            String existingText = wd.findElement(locator).getAttribute("value");
+            if (!data.equals(existingText)) {            
+                wd.findElement(locator).sendKeys(data);
+            }
+        }
+    }
+     
 
-    public static String toastMessage() {
+    public static String getValue(String object) throws InterruptedException
+    {
+    try {
+            obj.load(fis);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+       By locator = By.xpath(obj.getProperty(object));
+      // String text;
+       return wd.findElement(locator).getAttribute("value");
+   
+    }
+
+  
+
+    
+    
+    public static String toastMessage() 
+    {
         waitFor("toast_message");
         return text(By.xpath("(//*[contains(@class,'toast-top-right toast-container')])[last()]"));
     }
 
-    public static void saveFile() throws AWTException {
+/*    public static void saveFile() throws AWTException {
         Arrays.stream(Objects.requireNonNull(
                 new File(String.valueOf(dir)).listFiles())).forEach(File::delete);
         Robot robot = new Robot();
@@ -121,15 +174,17 @@ public class HelperBase {
         robot.delay(100);
         robot.keyRelease(KeyEvent.VK_ALT);
         robot.keyRelease(KeyEvent.VK_S);
-    }
+    }*/
 
-    public static void verifyDownload(String data) {
+    public static void verifyDownload(String data)
+    {
         File[] files = dir.listFiles();
         assert files != null;
-        for (File file : files) {
-            if (file.getName().contains(data)) {
+        for (File file : files) 
+        {
+            if (file.getName().contains(data)) 
+            {
                 return;
-                
             }
         }
     }
@@ -400,9 +455,17 @@ public class HelperBase {
     	}
     	catch(Exception e)
     	{
-
     	}
-
+    }    
+    
+    public static void call_url(String object) 
+    {    	
+    	wd.get(obj.getProperty(object));
     }
+    public static void check_page_url(String data) throws InterruptedException 
+    {
+    	Thread.sleep(2000);
+    	wd.getCurrentUrl().equals(obj.getProperty(data));
+    }    
     
 }    

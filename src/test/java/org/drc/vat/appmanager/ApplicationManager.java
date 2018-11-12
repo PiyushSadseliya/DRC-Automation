@@ -13,7 +13,7 @@ import java.net.URL;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
-import javax.xml.bind.DatatypeConverter;
+//import javax.xml.bind.DatatypeConverter;
 
 
 import org.openqa.selenium.OutputType;
@@ -24,6 +24,7 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.BrowserType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.drc.vat.appmanager.*;
 
 public class ApplicationManager {
     private final Properties properties;
@@ -60,11 +61,11 @@ public class ApplicationManager {
 
         wd.manage().window().maximize();
         wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);       
-     //   wd.get(properties.getProperty("web.Url"));        
+        wd.get(properties.getProperty("web.Url"));        
         
         helperBase = new HelperBase(wd);
         //auth();       
-      
+       
     }
 
     public void stop() {
@@ -76,11 +77,11 @@ public class ApplicationManager {
     public HelperBase helperBase() {
         return helperBase;
     }
-    public void callurl() throws AWTException, InterruptedException
+   /* public void callurl() throws AWTException, InterruptedException
     {    		  	
     	
     	wd.get(properties.getProperty("web.Url"));       	    	    	
-    	/*Robot rb = new Robot();	
+    	Robot rb = new Robot();	
     	StringSelection un = new StringSelection("http://103.249.120.58:8068");
     	Toolkit.getDefaultToolkit().getSystemClipboard().setContents(un, null);
     	Toolkit.getDefaultToolkit().getSystemClipboard().setContents(un, null);   
@@ -96,8 +97,8 @@ public class ApplicationManager {
     	// press tab to move to password field
     	rb.keyPress(KeyEvent.VK_ENTER);
     	rb.keyRelease(KeyEvent.VK_TAB);
-    	Thread.sleep(2000);  	   	    	*/
-    }
+    	Thread.sleep(2000);  	   	    	
+    }*/
     public byte[] takeScreenshot() {
         return ((TakesScreenshot) wd).getScreenshotAs(OutputType.BYTES);
     }
