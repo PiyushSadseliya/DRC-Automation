@@ -8,6 +8,7 @@ import static org.drc.vat.appmanager.HelperBase.type;
 import static org.drc.vat.appmanager.HelperBase.wd;
 import static org.drc.vat.appmanager.HelperBase.UploadImage;
 import static org.drc.vat.appmanager.HelperBase.pageSource;
+import static org.drc.vat.appmanager.HelperBase.sleepWait;
 
 
 import org.openqa.selenium.By;
@@ -47,7 +48,7 @@ public class DebtCollectionCaseScreen {
 	public void enter_the_amount_to_be_Recovered_and_the_percentage_field_should_dispaly(String arg1, String arg2) throws Throwable {
 		System.out.println(arg1);
 		System.out.println(arg2);
-		Thread.sleep(2000);
+		sleepWait(2000);
 		type("txtbx_recAmt",arg1);		
 		WebElement rper=wd.findElement(By.xpath("//input[@formcontrolname='expectedRecoveryPercentage']"));
 	    JavascriptExecutor jse = (JavascriptExecutor)wd;

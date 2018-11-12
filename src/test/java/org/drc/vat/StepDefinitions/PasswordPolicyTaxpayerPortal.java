@@ -6,6 +6,7 @@ import static org.drc.vat.appmanager.HelperBase.elementText;
 import static org.drc.vat.appmanager.HelperBase.type;
 import static org.drc.vat.appmanager.HelperBase.pageSource;
 import static org.drc.vat.appmanager.HelperBase.wd;
+import static org.drc.vat.appmanager.HelperBase.sleepWait;
 
 import java.util.List;
 

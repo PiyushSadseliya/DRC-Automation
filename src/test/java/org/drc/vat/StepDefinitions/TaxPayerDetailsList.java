@@ -9,6 +9,7 @@ import static org.drc.vat.appmanager.HelperBase.buttonEnabled;
 import static org.drc.vat.appmanager.HelperBase.type;
 import static org.drc.vat.appmanager.HelperBase.wd;
 import static org.drc.vat.appmanager.HelperBase.elementDisplayed;
+import static org.drc.vat.appmanager.HelperBase.sleepWait;
 
 import java.util.List;
 
@@ -33,7 +34,7 @@ public class TaxPayerDetailsList {
 
 	@When("^Clicks on Tax Payer Profile Menu item\"([^\"]*)\"$")
 	public void clicks_on_Tax_Payer_Profile_Menu_item(String arg1)throws Throwable {
-		Thread.sleep(3000);
+		sleepWait(3000);
 		if(arg1.equalsIgnoreCase("admin")||arg1.equalsIgnoreCase("Taxofficer")) {
 			officer=arg1;
 			sassert.assertEquals(true,elementDisplayed("nav_tpprofile",""));

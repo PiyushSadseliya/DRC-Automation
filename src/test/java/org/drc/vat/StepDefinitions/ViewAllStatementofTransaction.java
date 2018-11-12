@@ -9,6 +9,7 @@ import static org.drc.vat.appmanager.HelperBase.wd;
 import static org.testng.Assert.assertEquals;
 import static org.drc.vat.appmanager.HelperBase.softAssert;
 import static org.drc.vat.appmanager.HelperBase.logout;
+import static org.drc.vat.appmanager.HelperBase.sleepWait;
 import java.util.Set;
 
 import org.openqa.selenium.By;
@@ -33,9 +34,9 @@ public class ViewAllStatementofTransaction {
 	@When("^User Clicks on the efiling menu$")
 	public void user_Clicks_on_the_efiling_menu() throws Throwable {
 		
-		Thread.sleep(2000);
+		sleepWait(2000);
 	     clickOn("nav_efiling","");	 
-	     Thread.sleep(2000);
+	     sleepWait(2000);
 	     
 	}
 	/*
@@ -91,7 +92,7 @@ public class ViewAllStatementofTransaction {
 	     if(arg1.equals("June")) {
 	    	 clickOn("div","[@id='collapseOne5']//button[@title='File']");
 	     }
-	     Thread.sleep(2000);
+	     sleepWait(2000);
 	     softAssert.assertEquals(elementText("h6","")," I. Operation Performed " );
 
 	     type("txtbx_Taxable_goods",arg3);
@@ -100,19 +101,19 @@ public class ViewAllStatementofTransaction {
 	     clickOn("drpdown","");
 	     //clickOn("span","[contains(text(),'Test')]");
 	     //clickOn("btn_csubmit","");
-	     Thread.sleep(50000);
+	     sleepWait(50000);
 	     
 	     //clickOn("btn_prev","");
-	    // Thread.sleep(1000);
+	    // sleepWait(1000);
 	    //clickOn("btn_prev","");
    
 	}
 
 	@Then("^Click on View All button$")
 	public void click_on_View_All_button() throws Throwable {
-		Thread.sleep(1000);
+		sleepWait(1000);
 	     clickOn("btn_viewall","");
-	     Thread.sleep(2000);
+	     sleepWait(2000);
    
 	}
 
@@ -151,7 +152,7 @@ assertEquals(wd.findElement(By.xpath("//tbody/tr["+arg1+"]/td[9]")).getText(),to
 
 	@Then("^Total Liability should be\"([^\"]*)\"$")
 	public void total_Liability_should_be(String arg1) throws Throwable {
-		Thread.sleep(2000);
+		sleepWait(2000);
 		clickOn("btn_prev","");
 		softAssert.assertEquals(elementText("txt_totalpay",""),arg1);
 		System.out.println(elementText("txt_totalpay",""));

@@ -9,7 +9,7 @@ import static org.drc.vat.appmanager.HelperBase.logout;
 import static org.drc.vat.appmanager.HelperBase.elementText;
 import static org.drc.vat.appmanager.HelperBase.viewDoc;
 import static org.drc.vat.appmanager.HelperBase.pageSource;
-
+import static org.drc.vat.appmanager.HelperBase.sleepWait;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -42,21 +42,22 @@ public class UploadDocuments {
 	@Given("^The users has logged in and proceeds for VAT Registration$")
 	public void the_users_has_logged_in_and_proceeds_for_VAT_Registration() throws InterruptedException {
 		// Write code here that turns the phrase above into concrete actions
-		type("txtbox_username", "rihe@o3enzyme.com");
-		Thread.sleep(2000);
-		type("txtbox_password", "12345678");
+		sleepWait(000);
+		type("txtbox_username", "nov05@sharklasers.com");
+		sleepWait(2000);
+		type("txtbox_password", "123456");
 
-		Thread.sleep(1000);
+		sleepWait(1000);
 		clickOn("btn_login", "");
 		// clickOn("send_code","");
-		Thread.sleep(3000);
+		sleepWait(10000);
 
 		clickOn("checkbox_vat", "");
-		Thread.sleep(2000);
+		sleepWait(2000);
 		clickOn("register_button", "");
-		Thread.sleep(3000);
+		sleepWait(3000);
 		clickOn("btn_continue", "");
-		Thread.sleep(3000);
+		sleepWait(3000);
 	}
 
 	@When("^Selects taxpayer \"([^\"]*)\" and sub category \"([^\"]*)\" and llp \"([^\"]*)\"$")
@@ -71,20 +72,20 @@ public class UploadDocuments {
 		System.out.println(llp);
 
 		clickOn("category", "");
-		Thread.sleep(1000);
+		sleepWait(1000);
 		clickOn("span", "[contains(text(),'" + category + "')]");
-		Thread.sleep(1000);
+		sleepWait(1000);
 		clickOn("sub_category", "");
-		Thread.sleep(2000);
+		sleepWait(2000);
 		clickOn("span", "[contains(text(),'" + subcategory + "')]");
-		Thread.sleep(2000);
+		sleepWait(2000);
 		if (!llp.equals("")) {			
 
 			clickOn("partnership_firm", "");
-			Thread.sleep(5000);
+			sleepWait(5000);
 			//clickOn("option_no", "/span[text()='" + llp + "']");
 			System.out.println("llp ");
-			Thread.sleep(3000);
+			sleepWait(3000);
 		}
 	}
 
@@ -93,49 +94,49 @@ public class UploadDocuments {
 			String arg7, String arg8, String arg9) throws InterruptedException {
 		// Write code here that turns the phrase above into concrete actions
 		System.out.println(arg1+arg2+arg3+arg4+arg5+arg6+arg7+arg8+arg9);
-		Thread.sleep(6000);
+		sleepWait(6000);
 		type("nif", arg1);
-		Thread.sleep(4000);
+		sleepWait(4000);
 
 		//clickOn("nif_reg_date", "");
-		Thread.sleep(5000);
+		sleepWait(5000);
 		//clickOn("nifdate", "");
-		Thread.sleep(1000);
+		sleepWait(1000);
 		// System.out.println(cat);
 		if (cat.equals("Natural Person")) {
 			type("fullname", arg3);
 			clickOn("type_0f_business", "");
 			clickOn("span", "[contains(text(),'" + arg4 + "')]");	
-			Thread.sleep(4000);
+			sleepWait(4000);
 			//clickOn("Business_start_date", "");			
 			//clickOn("busdate", "");
 
 			clickOn("company_size", "");
-			Thread.sleep(1000);
+			sleepWait(1000);
 			clickOn("span", "[contains(text(),'" + arg6 + "')]");
 
 			type("last_revenue", arg7);
 		} else {
 			type("business_name", arg3);
 			type("numberofcoi", arg4);
-			Thread.sleep(3000);
+			sleepWait(3000);
 			//clickOn("dateofincorporation", "");
-			Thread.sleep(3000);
+			sleepWait(3000);
 			//clickOn("datein", "");
-			Thread.sleep(1000);
+			sleepWait(1000);
 			clickOn("type_0f_business", "");
 			clickOn("span", "[contains(text(),'" + arg6 + "')]");		
-			Thread.sleep(4000);
+			sleepWait(4000);
 			//clickOn("Business_start_date", "");
-			Thread.sleep(1000);
+			sleepWait(1000);
 			//clickOn("busdate", "");
-			Thread.sleep(1000);
+			sleepWait(1000);
 			clickOn("company_size", "");
-			Thread.sleep(1000);
+			sleepWait(1000);
 			clickOn("span", "[contains(text(),'" + arg8 + "')]");
-			Thread.sleep(1000);
+			sleepWait(1000);
 			type("last_revenue", arg9);
-			Thread.sleep(1000);
+			sleepWait(1000);
 		}
 
 	}
@@ -145,18 +146,18 @@ public class UploadDocuments {
 		// Write code here that turns the phrase above into concrete actions
 		type("address1", Address1);
 		clickOn("province", "");
-		Thread.sleep(1000);
+		sleepWait(1000);
 		clickOn("span", "[contains(text(),'" + Province + "')]");
-		Thread.sleep(1000);
+		sleepWait(1000);
 		clickOn("city", "");
-		Thread.sleep(1000);
+		sleepWait(1000);
 		clickOn("span", "[contains(text(),'" + City + "')]");
-		Thread.sleep(1000);
+		sleepWait(1000);
 		type("zipcode", ZipCode);
-		Thread.sleep(1000);
+		sleepWait(1000);
 		type("mobileno", MobileNo);
 
-		Thread.sleep(1000);	}
+		sleepWait(1000);	}
 
 	@When("^fills Details of Business Promoters \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
 	public void fills_Details_of_Business_Promoters(String NameOfPromoters, String P_address1, String P_province,
@@ -164,26 +165,26 @@ public class UploadDocuments {
 		if(!cat.equals("Natural Person")) {
 			System.out.println(NameOfPromoters + P_address1 + P_province + P_city + P_zipcode + P_email + P_Mobileno);
 			type("name", NameOfPromoters);
-			Thread.sleep(1000);
+			sleepWait(1000);
 			type("buspromadd1", P_address1);
-			Thread.sleep(1000);
+			sleepWait(1000);
 			clickOn("buspromprovince", "");
-			Thread.sleep(1000);
+			sleepWait(1000);
 			clickOn("span", "[contains(text(),'" + P_province + "')]");
-			Thread.sleep(1000);
+			sleepWait(1000);
 			WebElement we;
 			we = wd.findElement(By.xpath("(//*[@formcontrolname='cityId'])[1]"));
 			if (we.isEnabled()) {
-				Thread.sleep(1000);
+				sleepWait(1000);
 				clickOn("buspromcity", "");
-				Thread.sleep(2000);
+				sleepWait(2000);
 				clickOn("span", "[contains(text(),'" + P_city + "')]");
 			}
-			Thread.sleep(2000);
+			sleepWait(2000);
 			type("buspromzipcode", P_zipcode);
-			Thread.sleep(2000);
+			sleepWait(2000);
 			type("buspromemail", P_email);
-			Thread.sleep(1000);
+			sleepWait(1000);
 			type("busprommobileno", P_Mobileno);
 		}
 	}
@@ -192,7 +193,7 @@ public class UploadDocuments {
 	public void selects_Authorized_signatory_no_and_clicks_continue() throws InterruptedException {
 		clickOn("input", "[@id='no']");
 		clickOn("btn_continue", "");
-		Thread.sleep(2000);
+		sleepWait(2000);
 
 	}
 
@@ -200,23 +201,23 @@ public class UploadDocuments {
 	public void fills_Bank_Details_and_clicks_continue(String acct, String name, String bank, String branch)
 			throws InterruptedException {
 		// Write code here that turns the phrase above into concrete actions
-		Thread.sleep(2000);
+		sleepWait(2000);
 		System.out.println(acct + name + bank + branch);
 		type("acct_no", acct);
-		Thread.sleep(1000);
+		sleepWait(1000);
 		type("acct_holder_name", name);
-		Thread.sleep(1000);
+		sleepWait(1000);
 		clickOn("bank_name", "");
-		Thread.sleep(1000);
+		sleepWait(1000);
 		clickOn("span", "[contains(text(),'" + bank + "')]");
 		WebElement we;
 		// we=wd.findElement(By.xpath("//*[@formcontrolname='bankBranchId']"));
 		clickOn("branch_name", "");
-		Thread.sleep(1000);
+		sleepWait(1000);
 		clickOn("span", "[contains(text(),'" + branch + "')]");
-		Thread.sleep(1000);
+		sleepWait(1000);
 		clickOn("btn_continue", "");
-		Thread.sleep(3000);
+		sleepWait(3000);
 	}
 
 	@When("^The user is on the upload the page with Proofs of Add \"([^\"]*)\"\"([^\"]*)\"$")
@@ -224,9 +225,9 @@ public class UploadDocuments {
 		// Write code here that turns the phrase above into concrete action
 		System.out.println(add + addpath);
 		clickOn("dropdown_0", "");
-		Thread.sleep(1000);
+		sleepWait(1000);
 		clickOn("span", "[contains(text(),'" + add + "')]");
-		Thread.sleep(1000);
+		sleepWait(1000);
 		clickOn("file0_upload", "");
 		UploadImage("", addpath);
 		fileUploadMessage(addpath);
@@ -259,21 +260,21 @@ public class UploadDocuments {
 		} else if (subcat.equals("Government Entity")
 				|| subcat.equals("Other Non-Corporates") && llpyn.equals("Yes")|| subcat.equals("Other Non-Corporates") && llpyn.equals("No")) {
 			clickOn("dropdown_4", "");
-			Thread.sleep(1000);
+			sleepWait(1000);
 			clickOn("span", "[contains(text(),'" + lauth + "')]");
 			clickOn("file4_upload", "");
-			Thread.sleep(1000);
+			sleepWait(1000);
 		} else if (subcat.equals("Incorporated Bodies") && llpyn.equals("No") || subcat.equals("Incorporated Bodies") && llpyn.equals("Yes")) {
 			clickOn("dropdown_3", "");
-			Thread.sleep(1000);
+			sleepWait(1000);
 			clickOn("span", "[contains(text(),'" + lauth + "')]");
 			clickOn("file3_upload", "");
-			Thread.sleep(1000);
+			sleepWait(1000);
 		}
 		UploadImage("", lauthpath);
 		fileUploadMessage(lauthpath);
 		upload_doc++;
-		Thread.sleep(2000);
+		sleepWait(2000);
 		System.out.println("uploaded author");
 	}
 
@@ -281,10 +282,10 @@ public class UploadDocuments {
 	public void inc(String inc, String incpath) throws Exception {
 		System.out.println(inc);
 		clickOn("dropdown_2", "");
-		Thread.sleep(1000);
+		sleepWait(1000);
 		clickOn("span", "[contains(text(),'" + inc + "')]");
 		clickOn("file2_upload", "");
-		Thread.sleep(1000);
+		sleepWait(1000);
 		UploadImage("", incpath);
 		fileUploadMessage(incpath);
 		upload_doc++;
@@ -296,10 +297,10 @@ public class UploadDocuments {
 		// Write code here that turns the phrase above into concrete actions
 		System.out.println(establish);
 		clickOn("dropdown_3", "");
-		Thread.sleep(1000);
+		sleepWait(1000);
 		clickOn("span", "[contains(text(),'" + establish + "')]");
 		clickOn("file3_upload", "");
-		Thread.sleep(1000);
+		sleepWait(1000);
 		UploadImage("", establishpath);
 		fileUploadMessage(establishpath);
 		upload_doc++;
@@ -312,13 +313,13 @@ public class UploadDocuments {
 		System.out.println(lyr);
 		if (cat.equals("Natural Person") & lyr != "") {
 			clickOn("dropdown_3", "");
-			Thread.sleep(1000);
+			sleepWait(1000);
 			clickOn("span", "[contains(text(),'" + lyr + "')]");
 			clickOn("file3_upload", "");
 
 		} else if (subcat.equals("Incorporated Bodies") && llpyn.equals("No")) {
 			clickOn("dropdown_4", "");
-			Thread.sleep(1000);
+			sleepWait(1000);
 			clickOn("span", "[contains(text(),'" + lyr + "')]");
 			clickOn("file4_upload", "");
 
@@ -326,13 +327,13 @@ public class UploadDocuments {
 				|| subcat.equals("Incorporated Bodies") && llpyn.equals("Yes")
 				|| subcat.equals("Other Non-Corporates") && llpyn.equals("No")) {
 			clickOn("dropdown_5", "");
-			Thread.sleep(1000);
+			sleepWait(1000);
 			clickOn("span", "[contains(text(),'" + lyr + "')]");
 			clickOn("file5_upload", "");
 
 		} else if (subcat.equals("Other Non-Corporates") && llpyn.equals("Yes")) {
 			clickOn("dropdown_6", "");
-			Thread.sleep(1000);
+			sleepWait(1000);
 			clickOn("span", "[contains(text(),'" + lyr + "')]");
 			clickOn("file6_upload", "");
 
@@ -342,7 +343,7 @@ public class UploadDocuments {
 		fileUploadMessage(lyrpath);
 		upload_doc++;		
 
-		Thread.sleep(2000);
+		sleepWait(2000);
 		System.out.println("uploaded rev");
 
 	}
@@ -404,10 +405,10 @@ public class UploadDocuments {
 			// Write code here that turns the phrase above into concrete actions
 			System.out.println(assoc);
 			clickOn("dropdown_3", "");
-			Thread.sleep(1000);
+			sleepWait(1000);
 			clickOn("span", "[contains(text(),'" + assoc + "')]");
 			clickOn("file3_upload", "");
-			Thread.sleep(1000);
+			sleepWait(1000);
 			UploadImage("", assocpath);
 			fileUploadMessage(assocpath);
 			upload_doc++;
@@ -421,17 +422,17 @@ public class UploadDocuments {
 			System.out.println(llp);
 			if(subcat.equals("Incorporated Bodies") && llpyn.equals("Yes")) {
 				clickOn("dropdown_4", "");
-				Thread.sleep(1000);
+				sleepWait(1000);
 				clickOn("span", "[contains(text(),'" + llp + "')]");
 				clickOn("file4_upload", "");
-				Thread.sleep(1000);
+				sleepWait(1000);
 			}
 			else {
 				clickOn("dropdown_5", "");
-				Thread.sleep(1000);
+				sleepWait(1000);
 				clickOn("span", "[contains(text(),'" + llp + "')]");
 				clickOn("file5_upload", "");
-				Thread.sleep(1000);
+				sleepWait(1000);
 			}
 			UploadImage("", llppath);
 			fileUploadMessage(llppath);	
@@ -443,20 +444,20 @@ public class UploadDocuments {
 		public void removes_the_document() throws InterruptedException{
 			// Write code here that turns the phrase above into concrete actions
 			clickOn("doc_remove","");
-			Thread.sleep(2000);
+			sleepWait(2000);
 			clickOn("btn_cancel","");
-			Thread.sleep(2000);
+			sleepWait(2000);
 			clickOn("btn_delete","");
-			Thread.sleep(1500);
+			sleepWait(1500);
 			try{
 				clickOn("doc_remove","");
-				Thread.sleep(2000);
+				sleepWait(2000);
 				clickOn("btn_cancel","");
-				Thread.sleep(2000);
+				sleepWait(2000);
 				clickOn("doc_remove","");
-				Thread.sleep(2000);
+				sleepWait(2000);
 				clickOn("btn_delete","");
-				Thread.sleep(1500);
+				sleepWait(1500);
 				if(pageSource().contains("<div>"+delete_msg+"</div>")) {
 					System.out.println("File Deleted Succesully");
 					softAssert.assertEquals(true, true);
@@ -474,7 +475,7 @@ public class UploadDocuments {
 		public void clicks_on_previous_button_and_goes_to_Bank_details_page() throws InterruptedException {
 			// Write code here that turns the phrase above into concrete actions
 			clickOn("btn_prev","");
-			Thread.sleep(5000);	
+			sleepWait(5000);	
 			elementText("page_bank","");
 
 		}

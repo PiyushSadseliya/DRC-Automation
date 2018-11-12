@@ -7,6 +7,7 @@ import static org.drc.vat.appmanager.HelperBase.clickOn;
 import static org.drc.vat.appmanager.HelperBase.elementText;
 import static org.drc.vat.appmanager.HelperBase.datePicker;
 import static org.drc.vat.appmanager.HelperBase.logout;
+import static org.drc.vat.appmanager.HelperBase.sleepWait;
 import org.testng.asserts.SoftAssert;
 
 
@@ -36,7 +37,7 @@ public class DebtManagementLandingScreen {
 	@Given("^DGI \"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"should be logged in to the internal portal$")
 	public void dgi_should_be_logged_in_to_the_internal_portal(String arg1, String arg2, String arg3, String arg4) throws Throwable {
 	    
-	  Thread.sleep(5000);
+	  sleepWait(5000);
 	    
 	      
 	}
@@ -44,14 +45,14 @@ public class DebtManagementLandingScreen {
 	@When("^clicked on Debt Management Module must be on Debt Management Module$")
 	public void clicked_on_Debt_Management_Module_must_be_on_Debt_Management_Module() throws Throwable {	    
 		clickOn("nav_debt","");
-		Thread.sleep(2000);
+		sleepWait(2000);
 	    sassert.assertEquals(elementText("txt_heading",""), "Debt Management");
 	//System.out.println(wd.findElement(By.xpath("//div[text()='Upto Date: ']/following::input")).isEnabled());
 	}
 
 	@Then("^Select date \"([^\"]*)\" from Upto date$")
 	public void select_date_from_Upto_date(String arg1) throws Throwable {
-		Thread.sleep(1000);
+		sleepWait(1000);
 	   clickOn("btn_uptodate", "");
 	 //  System.out.println(arg1);
 		datePicker(arg1);
@@ -86,7 +87,7 @@ WebElement dt=wd.findElement(By.xpath("//input[@formcontrolname='toDate']"));
 	   System.out.println(date);
 	    //clickOn("btn_dsave","");
 	    sassert.assertEquals("","Records Saved Successfully");
-	    Thread.sleep(6000);
+	    sleepWait(6000);
 	    logout();	   
 	    clicked_on_Debt_Management_Module_must_be_on_Debt_Management_Module();
 

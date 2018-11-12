@@ -6,6 +6,7 @@ import static org.drc.vat.appmanager.HelperBase.login;
 import static org.drc.vat.appmanager.HelperBase.softAssert;
 import static org.drc.vat.appmanager.HelperBase.elementText;
 import static org.drc.vat.appmanager.HelperBase.wd;
+import static org.drc.vat.appmanager.HelperBase.sleepWait;
 import static org.drc.vat.appmanager.HelperBase.elementDisplayed;
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -31,7 +32,7 @@ public void the_User_has_logged_in_the_DRC_Tax_Payer_Portal_with_and_has_declare
 
 @Then("^clicks on pay button of period\"([^\"]*)\"$")
 public void clicks_on_pay_button_of_period(String arg1) throws Throwable {
-	Thread.sleep(1000);
+	sleepWait(1000);
 	clickOn("h6","//div[contains(text(),'"+arg1+"')]");
 	if(arg1.equals("January")) {
    	 clickOn("div","[@id='collapseOne0']//button[@title='Pay']");
@@ -41,20 +42,20 @@ public void clicks_on_pay_button_of_period(String arg1) throws Throwable {
 
 @Then("^click on proceed button on Tax Calculation page\"([^\"]*)\"$")
 public void click_on_proceed_button_on_Tax_Calculation_page(String arg1) throws Throwable {
-	Thread.sleep(2000);	
+	sleepWait(2000);	
 	clickOn("btn_proceed","");
-	Thread.sleep(2000);
+	sleepWait(2000);
 	softAssert.assertEquals(elementText("h5",""), "Tax Calculation");  
        
 }
 
 @Then("^chooses \"([^\"]*)\" Payment Method$")
 public void chooses_Payment_Method(String arg1) throws Throwable {
-	Thread.sleep(1000);
+	sleepWait(1000);
 	softAssert.assertEquals(elementText("heading_pymtmethod",""), "Tax Calculation","");  
 	if(arg1.equals("over the counter")) {
 		clickOn("radio_overthecounter","");
-		Thread.sleep(1000);
+		sleepWait(1000);
 	}
 	if(arg1.equals("net banking")) {
 		clickOn("radio_netbanking","");
@@ -70,7 +71,7 @@ public void chooses_Payment_Method(String arg1) throws Throwable {
 
 @Then("^Verifies the Detaisl of TaxPayer NITVA \"([^\"]*)\" emailid\"([^\"]*)\"mobile no \"([^\"]*)\"name\"([^\"]*)\"Address\"([^\"]*)\"$")
 public void verifies_the_Detaisl_of_TaxPayer_NITVA_emailid_mobile_no_name_Address(String arg1, String arg2, String arg3, String arg4, String arg5) throws Throwable {
-	Thread.sleep(3000);
+	sleepWait(3000);
 	softAssert.assertEquals(elementText("txt_billno",""),elementText("txt_barcode",""));
 	softAssert.assertEquals(elementText("txt_nitva",""),arg1);
 	softAssert.assertEquals(elementText("txt_email",""),arg2);
@@ -81,7 +82,7 @@ public void verifies_the_Detaisl_of_TaxPayer_NITVA_emailid_mobile_no_name_Addres
 }
 @Then("^Verifies the Detaisl of TaxPayer NITVA \"([^\"]*)\" emailid\"([^\"]*)\"mobile no \"([^\"]*)\"name\"([^\"]*)\"Address\"([^\"]*)\"duedate\"([^\"]*)\"$")
 public void verifies_the_Detaisl_of_TaxPayer_NITVA_emailid_mobile_no_name_Address_duedate(String arg1, String arg2, String arg3, String arg4, String arg5, String arg6) throws Throwable {
-	Thread.sleep(3000);
+	sleepWait(3000);
 	softAssert.assertEquals(elementText("txt_billno",""),elementText("txt_barcode",""));
 	System.out.println(elementText("txt_billno",""));
 	System.out.println(elementText("txt_barcode",""));
@@ -168,7 +169,7 @@ public void click_on_Cancel_button_on_Payment_of_Tax() throws Throwable {
 
 @Then("^user is on VAT e-Filing page\"([^\"]*)\"$")
 public void user_is_on_VAT_e_Filing_page(String arg1) throws Throwable {
-   Thread.sleep(2000);
+   sleepWait(2000);
    softAssert.assertEquals(elementText("txt_heading",""), arg1);
        
 }
@@ -181,7 +182,7 @@ public void user_is_on_Tax_Payment_Bill_page(String arg1) throws Throwable {
 
 @Then("^does print of the tax Payment Bill$")
 public void does_print_of_the_tax_Payment_Bill() throws Throwable {
- 	Thread.sleep(3000);
+ 	sleepWait(3000);
    //clickOn("print_pymntbill","");
 	softAssert.assertEquals( elementDisplayed("print_pymntbill",""),true);
        
@@ -189,12 +190,12 @@ public void does_print_of_the_tax_Payment_Bill() throws Throwable {
 
 /*@Then("^closes the print page$")
 public void closes_the_print_page() throws Throwable {
-	Thread.sleep(2000);
+	sleepWait(2000);
 	//System.out.println(wd.getWindowHandles().toArray()[2].toString());
 	//wd.switchTo().window(wd.getWindowHandles().toArray()[2].toString());
-	Thread.sleep(5000);
+	sleepWait(5000);
    clickOn("cancel_printwindow","");
-   Thread.sleep(4000);
+   sleepWait(4000);
   // softAssert.assertEquals(elementText("txt_taxbillpymt",""), "Tax Payment Bill");
   // wd.close();
    

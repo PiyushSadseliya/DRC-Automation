@@ -9,6 +9,7 @@ import static org.drc.vat.appmanager.HelperBase.elementText;
 import static org.drc.vat.appmanager.HelperBase.type;
 import static org.drc.vat.appmanager.HelperBase.pageSource;
 import static org.drc.vat.appmanager.HelperBase.datePicker;
+import static org.drc.vat.appmanager.HelperBase.sleepWait;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -67,9 +68,9 @@ public class DebtManagementAssignedDebtList {
 	@Then("^click on filter by dropdown CaseID\"([^\"]*)\"$")
 	public void click_on_filter_by_dropdown_CaseID(String arg1) throws Throwable {
 		clickOn("txt_filterby","/following::span");
-		Thread.sleep(2000);
+		sleepWait(2000);
 		clickOn("span","[text()='Case Id']");	
-		Thread.sleep(2000);
+		sleepWait(2000);
 		type("txtbx_typehere",arg1);
 		clickOn("btn_search_case","");
 	}
@@ -83,11 +84,11 @@ public class DebtManagementAssignedDebtList {
 	@Then("^user selects \"([^\"]*)\" Debt collection case\"([^\"]*)\" page should be displayed of Case id\"([^\"]*)\"$")
 	public void user_selects_Debt_collection_case_page_should_be_displayed_of_Case_id(String arg1, String arg2, String arg3) throws Throwable {
 	  clickOn("href_viewCase","");
-	  Thread.sleep(2000);
+	  sleepWait(2000);
 	  sassert.assertEquals(elementText("h5",""),arg2);
 	  sassert.assertEquals(elementText("txt_Caseid",""), arg3);
 	  clickOn("debt_collection_prev","");
-	 Thread.sleep(2000);
+	 sleepWait(2000);
 	 sassert.assertEquals(elementText("txt_heading",""), "Case Management");
 	  
 	  
@@ -95,20 +96,20 @@ public class DebtManagementAssignedDebtList {
 	@Then("^User select officer\"([^\"]*)\" to Reassign$")
 	public void user_select_officer_to_Reassign(String officername) throws Throwable {
 		 clickOn("href_reAssignCase","");
-		 Thread.sleep(2000);
+		 sleepWait(2000);
 		 clickOn("btn_reassignViewof","");
-		 Thread.sleep(2000);
+		 sleepWait(2000);
 		 clickOn("span","[text()='"+officername+"']");
-		 Thread.sleep(2000);
+		 sleepWait(2000);
 		 clickOn("check_newassignof","");
-		 Thread.sleep(2000);
+		 sleepWait(2000);
 		sassert.assertEquals(pageSource().contentEquals("Officer reassigned successfully"), true);
 		 
 	}
 	@When("^clicked on Case Management Module must be on Case Management Module List of cases assigned to the officer should be displayed$")
 	public void clicked_on_Case_Management_Module_must_be_on_Case_Management_Module_List_of_cases_assigned_to_the_officer_should_be_displayed() throws Throwable {
 	    clickOn("nav_href_caseManagement","");
-		Thread.sleep(3000);
+		sleepWait(3000);
 	    sassert.assertEquals(elementText("txt_heading",""), "Case Management");
 		List <WebElement> ele = wd.findElements(By.xpath("//tbody//tr"));
 		sassert.assertNotEquals(ele.size(), 0);	
@@ -116,9 +117,9 @@ public class DebtManagementAssignedDebtList {
 	}
 	@Then("^user can filter by\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"$")
 	public void user_can_filter_by(String arg1, String arg2, String arg3, String arg4, String arg5, String arg6) throws Throwable {
-		Thread.sleep(2000);
+		sleepWait(2000);
 		clickOn("txt_filterby","/following::span");
-		Thread.sleep(2000);
+		sleepWait(2000);
 		List <WebElement> ele = wd.findElements(By.xpath("//div[@role='option']"));
 		System.out.println(ele.size());
 		System.out.println(ele.get(0).getText());

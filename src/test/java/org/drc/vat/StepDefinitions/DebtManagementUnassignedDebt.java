@@ -4,6 +4,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import static org.drc.vat.appmanager.HelperBase.wd;
+import static org.drc.vat.appmanager.HelperBase.sleepWait;
 
 import java.math.BigInteger;
 import java.util.List;
@@ -31,7 +32,7 @@ public class DebtManagementUnassignedDebt {
 	@When("^Clicked on pending amount for \"([^\"]*)\"$")
 	public void clicked_on_pending_amount_for(String arg1) throws Throwable {
 		//By pending_href =By.xpath("//td[1]/div[text()='0-3 Months']/following::a");
-		Thread.sleep(2000);
+		sleepWait(2000);
 		WebElement pendinglink=wd.findElement(By.xpath("//td/div[text()='0-3 Months']/following::a"));
 		pendingamount=pendinglink.getText();
 		pendinglink.click();
@@ -43,7 +44,7 @@ public class DebtManagementUnassignedDebt {
 
 	@Then("^user is on Pending debts$")
 	public void user_is_on_Pending_debts() throws Throwable {
-		Thread.sleep(5000);	
+		sleepWait(5000);	
 		sassert.assertEquals(elementText("txt_heading",""),"Debt Management");
 
 	}
@@ -52,7 +53,7 @@ public class DebtManagementUnassignedDebt {
 		List <WebElement> record = wd.findElements(By.xpath("//tr"));
 		if(record.size()>1) {
 			clickOn("slash","tr/following::label");
-			Thread.sleep(1000);
+			sleepWait(1000);
 			clickOn("btn_assignofficer","");
 			wd.manage().timeouts().implicitlyWait(2,TimeUnit.SECONDS);
 			clickOn("select_officer","");
@@ -229,7 +230,7 @@ public class DebtManagementUnassignedDebt {
 		if(records.size()>0) {
 			wd.findElement(By.xpath("//tbody/tr/td[8]//child::button")).click();
 		}
-		Thread.sleep(2000);
+		sleepWait(2000);
 		sassert.assertEquals(elementText("txt_heading",""),"Taxpayer Details");
 	}
 
@@ -241,7 +242,7 @@ public class DebtManagementUnassignedDebt {
 	@Then("^user clicks on Previous Button on Debt Unassigned and is on Debt Management List$")
 	public void user_clicks_on_Previous_Button_on_Debt_Unassigned_and_is_on_Debt_Management_List() throws Throwable {
 		clickOn("btn_prev","");
-		Thread.sleep(2000);
+		sleepWait(2000);
 		sassert.assertEquals(elementText("txt_heading",""),"Debt Management");
 		wd.findElement(By.xpath("//div[text()='Upto Date: ']/following::input")).isEnabled();
 
@@ -284,7 +285,7 @@ public class DebtManagementUnassignedDebt {
 	@Then("^Selects \"([^\"]*)\" from debt age$")
 	public void selects_from_debt_age(String arg1) throws Throwable {
 		clickOn("slash","input[@type='search']/following::span");
-		Thread.sleep(5000);
+		sleepWait(5000);
 		clickOn("span","[text()='"+arg1+"']");
 
 	}
@@ -307,7 +308,7 @@ public class DebtManagementUnassignedDebt {
 	@Then("^click on search button Records should be displayed in \"([^\"]*)\" as per From \"([^\"]*)\" value$")
 	public void click_on_search_button_Records_should_be_displayed_in_as_per_From_value(String agebkt, String from) throws Throwable {
 		clickOn("btn_search","");
-		Thread.sleep(2000);	  
+		sleepWait(2000);	  
 		if(agebkt.contains("months")) {
 			List <WebElement> months = wd.findElements(By.xpath("//tr/td[5]"));
 			for(int i =0;i<months.size();i++) {
@@ -353,7 +354,7 @@ public class DebtManagementUnassignedDebt {
 	@Then("^click on search button Records should be displayed in \"([^\"]*)\" as per To\"([^\"]*)\" value$")
 	public void click_on_search_button_Records_should_be_displayed_in_as_per_To_value(String agebkt, String to) throws Throwable {
 		clickOn("btn_search","");
-		Thread.sleep(2000);	  
+		sleepWait(2000);	  
 		if(agebkt.contains("Months")) {
 			List <WebElement> months = wd.findElements(By.xpath("//tr/td[5]"));
 			for(int i =0;i<months.size();i++) {
@@ -403,22 +404,22 @@ public void user_enters_uses_first_records_in_the_to_filter_the_records_click_ag
    if(records.size()>0) {
 	   
 	   String nitva = elementText("slash","td[2]");
-	   Thread.sleep(2000);
+	   sleepWait(2000);
 	  clickOn("btn_filter","");
-	   Thread.sleep(2000);
+	   sleepWait(2000);
 	   type("input_search_tpprofile",nitva);
-	   Thread.sleep(2000);
+	   sleepWait(2000);
 	   clickOn("btn_search","");
-	   Thread.sleep(2000);
+	   sleepWait(2000);
 	   List <WebElement> recordF = wd.findElements(By.xpath("//tr")); 
 	   if(recordF.size()==1) {
 		  sassert.assertEquals(elementText("slash","td[2]"), nitva);		  
 	   }
 	   clickOn("btn_filter","");
 	  
-	   Thread.sleep(2000);
+	   sleepWait(2000);
 	   clickOn("btn_reset", "");
-	   Thread.sleep(5000);
+	   sleepWait(5000);
 	   List <WebElement> ele = wd.findElements(By.xpath("//tr"));
 	   sassert.assertEquals(ele.size(), records.size());
 	   
@@ -465,7 +466,7 @@ clickOn("chkbx_select_all","");
 @Then("^click on assign button$")
 public void click_on_assign_button() throws Throwable {
    clickOn("btn_assignofficer", "");
-   Thread.sleep(2000);
+   sleepWait(2000);
    sassert.assertEquals(elementText("txt_collectionofficer",""), "Collection Officers");
 }
 @Then("^click on save button ,It should be disabled$")
@@ -476,21 +477,21 @@ public void click_on_save_button_It_should_be_disabled() throws Throwable {
 @Then("^user selects the user with Nitva \"([^\"]*)\" and assigns to officer and is on Case Management$")
 public void user_selects_the_user_with_Nitva_and_assigns_to_officer_and_is_on_Case_Management(String nitva) throws Throwable {
 	  clickOn("btn_filter","");
-	   Thread.sleep(2000);
+	   sleepWait(2000);
 	   type("input_search_tpprofile",nitva);
-	   Thread.sleep(2000);
+	   sleepWait(2000);
 	   clickOn("btn_search","");
-	   Thread.sleep(2000);
+	   sleepWait(2000);
 	   clickOn("chkbx_selectfirst","");	 
-	   Thread.sleep(2000);
+	   sleepWait(2000);
 	   clickOn("btn_assignofficer","");
 	   
-	   Thread.sleep(2000);
+	   sleepWait(2000);
 	   sassert.assertEquals(elementText("txt_collectionofficer", ""), "Collection Officers");
-	   Thread.sleep(2000);
+	   sleepWait(2000);
 	   clickOn("select_officer","");
 	   clickOn("btn_save","");
-	   Thread.sleep(2000);
+	   sleepWait(2000);
 	   sassert.assertEquals(elementText("txt_heading", ""), "Case Management");
 }
 

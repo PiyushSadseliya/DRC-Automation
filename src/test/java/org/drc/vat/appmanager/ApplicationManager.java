@@ -5,15 +5,21 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.OutputType;
+import org.openqa.selenium.Proxy;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.BrowserType;
+import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -26,6 +32,7 @@ public class ApplicationManager {
 
     public ApplicationManager(String browser) {
         this.browser = browser;
+        System.out.println(browser);
         properties = new Properties();
     }
 
@@ -39,9 +46,25 @@ public class ApplicationManager {
                 wd = new InternetExplorerDriver();
 
             } else if (browser.equals(BrowserType.CHROME)) {
-                 System.setProperty("webdriver.CHROME.driver","F:\\PROJECT-1\\DRC\\Automation\\drc_vat\\DRC_VAT\\chromedriver.exe");
-                wd = new ChromeDriver();
+            	System.setProperty("webdriver.CHROME.driver","F:\\PROJECT-1\\DRC\\Automation\\drc_vat\\DRC_VAT\\chromedriver.exe");
+
+
+            	ChromeOptions options = new ChromeOptions();
+            	options.setExperimentalOption("plugins.always_open_pdf_externally", true);
+            	
+            	ChromeOptions co = new ChromeOptions();
+            	Map<String,Object> prefs = new HashMap<>();
+            	prefs.put("plugins.always_open_pdf_externally", true);
+            	co.setExperimentalOption("prefs", prefs);
+            	
+
+                 
+                wd = new ChromeDriver(co);
             }
+            else if (browser.equals(BrowserType.FIREFOX)) {
+            	 System.setProperty("webdriver.gecko.driver", "F:\\DRC\\Automation\\drc_vat\\DRC_VAT\\geckodriver.exe");
+               wd = new FirefoxDriver();
+           }
         } else {
             DesiredCapabilities capabilities = new DesiredCapabilities();
             capabilities.setBrowserName(browser);

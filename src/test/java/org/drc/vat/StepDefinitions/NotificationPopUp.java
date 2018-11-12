@@ -4,6 +4,7 @@ import cucumber.api.java.en.Then;
 import static org.drc.vat.appmanager.HelperBase.clickOn;
 import static org.drc.vat.appmanager.HelperBase.elementText;
 import static org.drc.vat.appmanager.HelperBase.wd;
+import static org.drc.vat.appmanager.HelperBase.sleepWait;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;

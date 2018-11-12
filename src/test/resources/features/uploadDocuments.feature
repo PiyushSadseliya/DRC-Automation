@@ -1,4 +1,3 @@
-
 Feature: Upload Documents after all process are completed till the Banks details
 
   #Individual 4 docs poa*,a/c*,loa*,lyr
@@ -19,7 +18,7 @@ Feature: Upload Documents after all process are completed till the Banks details
 
     Examples: 
       | Test Case ID                  | POA         | POA path                    | A/C Proof | a/c path                    | LOAuth    | LOAuthpath                  | Revenue   | Revpath                     |
-      | DRC_ATC_Valid_Required_doc_01 | doc_desc1_1 | F:\\documents\\Capture.png  | doc_desc3 | F:\\documents\\capture.png  | doc_desc5 | F:\\documents\\capture.png  | doc_desc4 | F:\\documents\\capture.png  |
+      | DRC_ATC_Valid_Required_doc_01 | doc_desc1_1 | F:\\Capture.png             | doc_desc3 | F:\\Capture.png             | doc_desc5 | F:\\Capture.png             | doc_desc4 | F:\\Capture.png             |
       | DRC_ATC_Valid_Required_doc_02 | doc_desc1_1 | F:\\documents\\capture.jpg  | doc_desc3 | F:\\documents\\capture.jpg  | doc_desc5 | F:\\documents\\capture.jpg  | doc_desc4 | F:\\documents\\capture.jpg  |
       | DRC_ATC_Valid_Required_doc_03 | doc_desc1_1 | F:\\documents\\capture.jpeg | doc_desc3 | F:\\documents\\capture.jpeg | doc_desc5 | F:\\documents\\capture.jpeg | doc_desc4 | F:\\documents\\capture.jpeg |
       | DRC_ATC_Valid_Required_doc_04 | doc_desc1_1 | F:\\documents\\capture.pdf  | doc_desc3 | F:\\documents\\capture.pdf  | doc_desc5 | F:\\documents\\capture.pdf  | doc_desc4 | F:\\documents\\capture.pdf  |
@@ -33,11 +32,11 @@ Feature: Upload Documents after all process are completed till the Banks details
   Scenario Outline: Tax payer Category as Legal Entity and  Tax payer Sub Category as Governement Entity user wants to upload the document
     Given The users has logged in and proceeds for VAT Registration
     When Selects taxpayer "Legal Entity" and sub category "Government Entity" and llp ""
-    And Fills General details "4843758943798" "2018-06-10" "Newman" "3" "2018-02-02" "Mining" "2018-02-02" "Medium Scale" "8965741235698"
+    And Fills General details "4843758943798" "2018-06-10" "Nov F" "3" "2018-02-02" "Mining" "2018-02-02" "Medium Scale" "8965741235698"
     And Fills Business address "Confluence Software Dharmadas building 3rd floor" "Ituri" "Bunia" "4563212" "9865327452"
     And fills Details of Business Promoters "Shah" " 1rivet Building Valsad" "Haut-Uele" "Rungu" "789798" "shah@div.com" "98998945621"
     And Selects Authorized signatory no and clicks continue
-    And Fills Bank Details "32145645678" "1rivet" "Advans Bank" "Branch4" and clicks continue
+    And Fills Bank Details "32145645678" "Nov F" "Advans Bank" "Branch4" and clicks continue
     And The user is on the upload the page with Proofs of Add "<POA>""<POA path>"
     And Acc "<A/C Proof>" "<a/c path>"
     And INC "<INCcerti>" "<incpath>"
@@ -48,15 +47,15 @@ Feature: Upload Documents after all process are completed till the Banks details
     Then Clicks on Continue.
 
     Examples: 
-      | Test Case ID            | POA        | POA path                    | A/C Proof  | a/c path                    | INCcerti   | incpath                     | LOAuth     | LOAuthpath                  | Establish  | Estbpath                    | Revenue    | Revpath                     |
-      | DRC_ATC_Required_doc_08 | doc_desc23 | F:\\documents\\capture.png  | doc_desc25 | F:\\documents\\capture.png  | doc_desc22 | F:\\documents\\capture.png  | doc_desc27 | F:\\documents\\capture.png  | doc_desc21 | F:\\documents\\capture.png  | doc_desc26 | F:\\documents\\capture.png  |
-      | DRC_ATC_Required_doc_09 | doc_desc23 | F:\\documents\\capture.jpg  | doc_desc25 | F:\\documents\\capture.jpg  | doc_desc22 | F:\\documents\\capture.jpg  | doc_desc27 | F:\\documents\\capture.jpg  | doc_desc21 | F:\\documents\\capture.jpg  | doc_desc26 | F:\\documents\\capture.jpg  |
-      | DRC_ATC_Required_doc_10 | doc_desc23 | F:\\documents\\capture.jpeg | doc_desc25 | F:\\documents\\capture.jpeg | doc_desc22 | F:\\documents\\capture.jpeg | doc_desc27 | F:\\documents\\capture.jpeg | doc_desc21 | F:\\documents\\capture.jpeg | doc_desc26 | F:\\documents\\capture.jpeg |
-      | DRC_ATC_Required_doc_11 | doc_desc23 | F:\\documents\\capture.pdf  | doc_desc25 | F:\\documents\\capture.pdf  | doc_desc22 | F:\\documents\\capture.pdf  | doc_desc27 | F:\\documents\\capture.pdf  | doc_desc21 | F:\\documents\\capture.pdf  | doc_desc26 | F:\\documents\\capture.pdf  |
-      | DRC_ATC_Required_doc_12 | doc_desc23 | F:\\documents\\capture.gif  | doc_desc25 | F:\\documents\\capture.gif  | doc_desc22 | F:\\documents\\capture.gif  | doc_desc27 | F:\\documents\\capture.gif  | doc_desc21 | F:\\documents\\capture.gif  | doc_desc26 | F:\\documents\\capture.gif  |
-      | DRC_ATC_Required_doc_13 | doc_desc23 | F:\\documents\\capture.docx | doc_desc25 | F:\\documents\\capture.docx | doc_desc22 | F:\\documents\\capture.docx | doc_desc27 | F:\\documents\\capture.docx | doc_desc21 | F:\\documents\\capture.docx | doc_desc26 | F:\\documents\\capture.docx |
-      | DRC_ATC_Required_doc_14 | doc_desc23 | F:\\documents\\capture.xlsx | doc_desc25 | F:\\documents\\capture.xlsx | doc_desc22 | F:\\documents\\capture.xlsx | doc_desc27 | F:\\documents\\capture.xlsx | doc_desc21 | F:\\documents\\capture.xlsx | doc_desc26 | F:\\documents\\capture.xlsx |
+      | Test Case ID            | POA        | POA path        | A/C Proof  | a/c path        | INCcerti   | incpath         | LOAuth     | LOAuthpath      | Establish  | Estbpath        | Revenue    | Revpath         |
+      | DRC_ATC_Required_doc_08 | doc_desc23 | F:\\Capture.png | doc_desc25 | F:\\Capture.PNG | doc_desc22 | F:\\Capture.PNG | doc_desc27 | F:\\Capture.PNG | doc_desc21 | F:\\Capture.PNG | doc_desc26 | F:\\Capture.PNG |
 
+  # | DRC_ATC_Required_doc_09 | doc_desc23 | F:\\documents\\capture.jpg  | doc_desc25 | F:\\documents\\capture.jpg  | doc_desc22 | F:\\documents\\capture.jpg  | doc_desc27 | F:\\documents\\capture.jpg  | doc_desc21 | F:\\documents\\capture.jpg  | doc_desc26 | F:\\documents\\capture.jpg  |
+  #| DRC_ATC_Required_doc_10 | doc_desc23 | F:\\documents\\capture.jpeg | doc_desc25 | F:\\documents\\capture.jpeg | doc_desc22 | F:\\documents\\capture.jpeg | doc_desc27 | F:\\documents\\capture.jpeg | doc_desc21 | F:\\documents\\capture.jpeg | doc_desc26 | F:\\documents\\capture.jpeg |
+  #| DRC_ATC_Required_doc_11 | doc_desc23 | F:\\documents\\capture.pdf  | doc_desc25 | F:\\documents\\capture.pdf  | doc_desc22 | F:\\documents\\capture.pdf  | doc_desc27 | F:\\documents\\capture.pdf  | doc_desc21 | F:\\documents\\capture.pdf  | doc_desc26 | F:\\documents\\capture.pdf  |
+  #| DRC_ATC_Required_doc_12 | doc_desc23 | F:\\documents\\capture.gif  | doc_desc25 | F:\\documents\\capture.gif  | doc_desc22 | F:\\documents\\capture.gif  | doc_desc27 | F:\\documents\\capture.gif  | doc_desc21 | F:\\documents\\capture.gif  | doc_desc26 | F:\\documents\\capture.gif  |
+  #| DRC_ATC_Required_doc_13 | doc_desc23 | F:\\documents\\capture.docx | doc_desc25 | F:\\documents\\capture.docx | doc_desc22 | F:\\documents\\capture.docx | doc_desc27 | F:\\documents\\capture.docx | doc_desc21 | F:\\documents\\capture.docx | doc_desc26 | F:\\documents\\capture.docx |
+  #| DRC_ATC_Required_doc_14 | doc_desc23 | F:\\documents\\capture.xlsx | doc_desc25 | F:\\documents\\capture.xlsx | doc_desc22 | F:\\documents\\capture.xlsx | doc_desc27 | F:\\documents\\capture.xlsx | doc_desc21 | F:\\documents\\capture.xlsx | doc_desc26 | F:\\documents\\capture.xlsx |
   @IncLLPY
   Scenario Outline: Tax payer Category as Legal Entity and  Tax payer Sub Category as Incorporated Body and is  LLP user wants to upload the document
     Given The users has logged in and proceeds for VAT Registration

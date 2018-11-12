@@ -13,6 +13,7 @@ import static org.drc.vat.appmanager.HelperBase.wd;
 import static org.drc.vat.appmanager.HelperBase.closeCurrentWindow;
 import static org.drc.vat.appmanager.HelperBase.no_window;
 import static org.drc.vat.appmanager.HelperBase.key;
+import static org.drc.vat.appmanager.HelperBase.sleepWait;
 
 import org.testng.asserts.SoftAssert;
 import static org.drc.vat.appmanager.HelperBase.elementText;
@@ -41,7 +42,7 @@ public void the_User_has_logged_in_Using_Valid_Credentials_and_has_already_filed
 public void clicks_on_Pay_button_and_is_on_the_Payment_of_Tax() throws InterruptedException    {
     // Write code here that turns the phrase above into concrete actions
 	clickOn("efiling_btn_pay","");
-	Thread.sleep(10000);
+	sleepWait(10000);
      
 }
 
@@ -432,7 +433,7 @@ public void clicks_Print(String print) throws Throwable {
 	
 	System.out.println(wd.getTitle());
 	clickOn("efiling_btn_print","");	
-	Thread.sleep(2000);
+	sleepWait(2000);
 	switchPreviousWindow(2);
 	if(print.equalsIgnoreCase("y")) {
 	key("enter");
@@ -461,7 +462,7 @@ public void clicks_Print(String print) throws Throwable {
 public void click_Cancel() throws Throwable {
     // Write code here that turns the phrase above into concrete actions
 	clickOn("efiling_btn_cancel","");
-	Thread.sleep(2000);
+	sleepWait(2000);
 		if(!elementText("Efiling_directed_page","").equals("VAT e-Filing")) {
 			assertMsg("The User is not on E-filing View Page!!!");
 		}

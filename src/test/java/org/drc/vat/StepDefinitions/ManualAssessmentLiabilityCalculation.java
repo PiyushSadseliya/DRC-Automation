@@ -16,6 +16,7 @@ import static org.drc.vat.appmanager.HelperBase.getvalue;
 import static org.drc.vat.appmanager.HelperBase.pageSource;
 import static org.drc.vat.appmanager.HelperBase.isElementPresent;
 import static org.drc.vat.appmanager.HelperBase.logout;
+import static org.drc.vat.appmanager.HelperBase.sleepWait;
 
 import static org.drc.vat.appmanager.HelperBase.assertMsg;
 
@@ -41,33 +42,33 @@ public class ManualAssessmentLiabilityCalculation {
 	@When("^the officer is on liability calculation for the particular period\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"$")
 	public void the_officer_is_on_liability_calculation_for_the_particular_period(String month, String year, String Nitvano) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
-		Thread.sleep(3500);
+		sleepWait(3500);
 		clickOn("navlink_assessment_href","");		
 		/*clickOn("navlink_manualAssessment_href","");*/
-		Thread.sleep(4000);
+		sleepWait(4000);
 		if(!checkElement("manualAssessmentPage_verify")) {
 			assertMsg("Not on Manual Assessment Landing Screen");
-		}Thread.sleep(2500);
+		}sleepWait(2500);
 		clickOn("AssementPeriod","");
-		Thread.sleep(2500);
+		sleepWait(2500);
 		clickOn("span","[text()='"+month+"']");
-		Thread.sleep(2500);
+		sleepWait(2500);
 		clickOn("AssementYear","");
-		Thread.sleep(2500);
+		sleepWait(2500);
 		clickOn("AssessmentSelectyear","//span[text()='2018']");
 		//nitva number 
-		Thread.sleep(2500);
+		sleepWait(2500);
 		type("txtbox_search",Nitvano);
-		Thread.sleep(2500);
+		sleepWait(2500);
 		clickOn("AssementSearchClick","");
-		Thread.sleep(2500);
+		sleepWait(2500);
 		clickOn("AssestManage","");
-		Thread.sleep(2500);
+		sleepWait(2500);
 	clickOn("AssestManageAssess","");
 		if(!checkElement("manualAssessmentPage_verify")) {
 			assertMsg("Not on Manual Assessment Landing Screen");			
 		}
-		Thread.sleep(2500);
+		sleepWait(2500);
 		clickOn("btn_assess_next","");
 		if(!checkElement("txt_page_liabilitycalculation")) {
 			assertMsg("Not on Liablity Calculation Landing Screen");			
@@ -191,7 +192,7 @@ public class ManualAssessmentLiabilityCalculation {
 	@Then("^tax officer must be navigated to liability Calculation page$")
 	public void tax_officer_must_be_navigated_to_liability_Calculation_page() throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
-		Thread.sleep(5000);
+		sleepWait(5000);
 		Assert.assertEquals(elementText("txt_page_liabilitycalculation",""),"Liability Calculation");
 	      
 	}

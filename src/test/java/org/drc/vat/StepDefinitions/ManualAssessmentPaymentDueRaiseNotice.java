@@ -5,6 +5,7 @@ import cucumber.api.java.en.Then;
 import static org.drc.vat.appmanager.HelperBase.clickOn;
 import static org.drc.vat.appmanager.HelperBase.elementText;
 import static org.drc.vat.appmanager.HelperBase.buttonEnabled;
+import static org.drc.vat.appmanager.HelperBase.sleepWait;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -169,12 +170,12 @@ public void the_tax_officer_has_logged_in_and_has_done_Liability_Calculation(Str
 	public void validate_the_Button_Functionality(String btn) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
 	    if(btn.equals("Confirm")) {
-	    	Thread.sleep(2000);
+	    	sleepWait(2000);
 	    	Assert.assertEquals(buttonEnabled("btn_confirm",""), true);
 	    	
 	    }
 	    if(btn.equals("Close")) {
-	    	Thread.sleep(2000);
+	    	sleepWait(2000);
 	    	clickOn("btn_close","");
 	    	Assert.assertEquals(elementText("",""),"ManualAssessmentPage");
 	    }

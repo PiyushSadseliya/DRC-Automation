@@ -3,6 +3,7 @@ package org.drc.vat.StepDefinitions;
 import static org.drc.vat.appmanager.HelperBase.login;
 import static org.drc.vat.appmanager.HelperBase.clickOn;
 import static org.drc.vat.appmanager.HelperBase.logout;
+import static org.drc.vat.appmanager.HelperBase.sleepWait;
 import java.util.Arrays;
 import java.util.Collections;
 
@@ -36,31 +37,31 @@ public class PaymentLedgerMgmtViewAllTransactionPayment {
 	    clickOn("nav_vat_efiling","");
 	    if(elementText("efiling_stmt_of_transaction","").equalsIgnoreCase("Statement of Transaction")) {
 	    	//softAssert.assertTrue(true);
-	    	Thread.sleep(2000);	    	
+	    	sleepWait(2000);	    	
 	    }else {
 	    	assertMsg("not on Statement of Transaction After Clicking on View all" );
 	    	
 	    }
 	    clickOn("efiling_btn_view_all","");
 	    if(elementText("efiling_stmt_of_transaction","").equalsIgnoreCase("Statement of Transaction")) {
-	    	Thread.sleep(2000);	    
+	    	sleepWait(2000);	    
 	    }else {
 	    	assertMsg("not opened View all Statement of Transaction ");
-	    	Thread.sleep(2000);
+	    	sleepWait(2000);
 	    }
 	}
 
 	@When("^User Clicks on Previous button$")
 	public void user_Clicks_on_Previous_button() throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
-		Thread.sleep(2000);
+		sleepWait(2000);
 		clickOn("efiling_btn_previous","");
 	}
 
 	@Then("^the user should be redirected to VAT e-Filing Dashboard page$")
 	public void the_user_should_be_redirected_to_VAT_e_Filing_Dashboard_page() throws InterruptedException {
 	    // Write code here that turns the phrase above into concrete actions
-		Thread.sleep(2000);
+		sleepWait(2000);
 		 if(elementText("efiling_stmt_of_transaction","").equalsIgnoreCase("Statement of Transaction")) {
 			
 		    }else {
@@ -113,55 +114,55 @@ public class PaymentLedgerMgmtViewAllTransactionPayment {
 		}else {
 			assertMsg("Donot Match as per Expected");
 		}
-		Thread.sleep(2000);
+		sleepWait(2000);
 		if(elementText("text_row_period","").equals(arg2)) {
 			System.out.println("Matched"+elementText("text_row_period","")+arg2);
 		}else {
 			assertMsg("Donot Match as per Expected");
 		}
-		Thread.sleep(2000);
+		sleepWait(2000);
 		if(elementText("text_row_particular","").equals(arg3)) {
 			System.out.println("Matched"+elementText("text_row_particular","")+arg3);
 		}else {
 			assertMsg("Donot Match as per Expected");
 		}
-		Thread.sleep(2000);
+		sleepWait(2000);
 		if(elementText("text_row_openbal","").equals(arg4)) {
 			System.out.println("Matched"+elementText("text_row_openbal","")+arg4);
 		}else {
 			assertMsg("Donot Match as per Expected");
 		}
-		Thread.sleep(2000);
+		sleepWait(2000);
 		if(elementText("text_row_liablity","").equals(arg5)) {
 			System.out.println("Matched"+elementText("text_row_liablity","")+arg5);
 		}else {
 			assertMsg("Donot Match as per Expected");
 		}
-		Thread.sleep(2000);
+		sleepWait(2000);
 		if(elementText("text_row_latefee","").equals(arg6)) {
 			System.out.println("Matched"+elementText("text_row_latefee","")+arg6);
 		}else {
 			assertMsg("Donot Match as per Expected");
 		}
-		Thread.sleep(2000);
+		sleepWait(2000);
 		if(elementText("text_row_interest","").equals(arg7)) {
 			System.out.println("Matched"+elementText("text_row_interest","")+arg7);
 		}else {
 			assertMsg("Donot Match as per Expected");
 		}
-		Thread.sleep(2000);
+		sleepWait(2000);
 		if(elementText("text_row_penalty","").equals(arg8)) {
 			System.out.println("Matched"+elementText("text_row_penalty","")+arg8);
 		}else {
 			assertMsg("Donot Match as per Expected");
 		}
-		Thread.sleep(2000);
+		sleepWait(2000);
 		if(elementText("text_row_total","").equals(arg9)) {
 			System.out.println("Matched"+elementText("text_row_total","")+arg9);
 		}else {
 			assertMsg("Donot Match as per Expected");
 		}
-		Thread.sleep(2000);
+		sleepWait(2000);
 	}
 
 	@Then("^user clicks on Date column \"([^\"]*)\"again$")
@@ -178,55 +179,55 @@ public class PaymentLedgerMgmtViewAllTransactionPayment {
 		}else {
 			assertMsg("Donot Match as per Expected");
 		}
-		Thread.sleep(2000);
+		sleepWait(2000);
 		if(elementText("text_row_period","").equals(arg2)) {
 			System.out.println("Matched"+elementText("text_row_period","")+arg2);
 		}else {
 			assertMsg("Donot Match as per Expected");
 		}
-		Thread.sleep(2000);
+		sleepWait(2000);
 		if(elementText("text_row_particular","").equals(arg3)) {
 			System.out.println("Matched"+elementText("text_row_particular","")+arg3);
 		}else {
 			assertMsg("Donot Match as per Expected");
 		}
-		Thread.sleep(2000);
+		sleepWait(2000);
 		if(elementText("text_row_openbal","").equals(arg4)) {
 			System.out.println("Matched"+elementText("text_row_openbal","")+arg4);
 		}else {
 			assertMsg("Donot Match as per Expected");
 		}
-		Thread.sleep(2000);
+		sleepWait(2000);
 		if(elementText("text_row_liablity","").equals(arg5)) {
 			System.out.println("Matched"+elementText("text_row_liablity","")+arg5);
 		}else {
 			assertMsg("Donot Match as per Expected");
 		}
-		Thread.sleep(2000);
+		sleepWait(2000);
 		if(elementText("text_row_latefee","").equals(arg6)) {
 			System.out.println("Matched"+elementText("text_row_latefee","")+arg6);
 		}else {
 			assertMsg("Donot Match as per Expected");
 		}
-		Thread.sleep(2000);
+		sleepWait(2000);
 		if(elementText("text_row_interest","").equals(arg7)) {
 			System.out.println("Matched"+elementText("text_row_interest","")+arg7);
 		}else {
 			assertMsg("Donot Match as per Expected");
 		}
-		Thread.sleep(2000);
+		sleepWait(2000);
 		if(elementText("text_row_penalty","").equals(arg8)) {
 			System.out.println("Matched"+elementText("text_row_penalty","")+arg8);
 		}else {
 			assertMsg("Donot Match as per Expected");
 		}
-		Thread.sleep(2000);
+		sleepWait(2000);
 		if(elementText("text_row_total","").equals(arg9)) {
 			System.out.println("Matched"+elementText("text_row_total","")+arg9);
 		}else {
 			assertMsg("Donot Match as per Expected");
 		}
-		Thread.sleep(2000);
+		sleepWait(2000);
 		logout();
 	}
 

@@ -6,9 +6,13 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.asserts.SoftAssert;
+
+import com.google.common.base.Function;
 
 import java.awt.AWTException;
 import java.awt.Robot;
@@ -16,6 +20,7 @@ import java.awt.Toolkit;
 
 import static org.drc.vat.appmanager.HelperBase.assertMsg;
 import static org.drc.vat.appmanager.HelperBase.clickOn;
+import static org.drc.vat.appmanager.HelperBase.elementText;
 import static org.drc.vat.appmanager.HelperBase.internalPortal;
 import static org.drc.vat.appmanager.HelperBase.type;
 import static org.drc.vat.appmanager.HelperBase.wd;
@@ -28,6 +33,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -37,6 +44,7 @@ import java.util.concurrent.TimeUnit;
 
 public class HelperBase {
     public static WebDriver wd;
+	public static WebElement seleniumElement;
     private static Properties obj = new Properties();
     public static boolean flag=false;
     private static String bodyMessage="";
@@ -614,4 +622,88 @@ public static boolean elementDisplayed(String object,String data) {
     return wd.findElement(locator).isDisplayed();
 
 }
+
+public static File getLatestFilefromDir(){
+    
+    File[] files = dir.listFiles();
+    if (files == null || files.length == 0) {
+        return null;
+    }
+
+    File lastModifiedFile = files[0];
+    for (int i = 1; i < files.length; i++) {
+       if (lastModifiedFile.lastModified() < files[i].lastModified()) {
+           lastModifiedFile = files[i];
+       }
+    }
+    return lastModifiedFile;
+}
+/**
+ * Select the value from the Drop Down
+ * @param object
+ * @param data
+ * @throws Exception 
+ */
+public static void SelectDDByValue(String object, String data) throws Exception {
+	try {
+		FluetWait(wd.findElement(By.xpath(obj.getProperty(object))));
+		Select selectByValue = new Select(seleniumElement);
+		selectByValue.selectByValue(data);
+		
+	} catch (Exception e) {
+	
+	}
+}
+/**
+ *  Select the value from the Drop Down by visible text
+ * @param object
+ * @param data
+ * @throws Exception 
+ */
+public static void SelectDDByVisibleText(String object, String data) throws Exception	{
+	try {
+		FluetWait(wd.findElement(By.xpath(obj.getProperty(object))));
+		Select selectByValue = new Select(seleniumElement);
+		selectByValue.selectByVisibleText(data);
+		
+	} catch (Exception e) {
+		
+	}
+}
+/**
+ * Fluent wait will using polling for checking an element is visible on web page or not
+ * @param driverelement
+ * @return
+ */
+public static WebElement FluetWait(final WebElement driverelement) {
+	Wait<WebDriver> wait = new FluentWait<WebDriver>(wd).withTimeout(30, TimeUnit.SECONDS)
+			.pollingEvery(5, TimeUnit.SECONDS).ignoring(NoSuchElementException.class);
+	seleniumElement = wait.until(new Function<WebDriver, WebElement>()	{
+		public WebElement apply(WebDriver driver) {
+			return driverelement;
+		}
+	});
+	return seleniumElement;
+}
+
+public static long countDays(String dFormat,String Date1,String Date2) {
+	long diff=0;
+	SimpleDateFormat myFormat = new SimpleDateFormat(dFormat);
+
+	try {
+	    Date date1 = myFormat.parse(Date1);
+	    Date date2 = myFormat.parse(Date2);
+	    diff = date2.getTime() - date1.getTime();
+	    System.out.println ("Days: " + TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS));
+} catch (ParseException e) {
+	    e.printStackTrace();
+}
+	return diff;
+	
+}
+public static void sleepWait(long wait) throws InterruptedException {
+	Thread.sleep(wait);
+}
+
+
 }
