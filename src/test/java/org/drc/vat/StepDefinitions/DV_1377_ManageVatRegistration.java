@@ -36,10 +36,19 @@ public class DV_1377_ManageVatRegistration
 	
 	@Given("^User is on Internal Portal \"([^\"]*)\" \"([^\"]*)\"$")
 	public void user_is_on_Internal_Portal(String arg1, String arg2) throws Throwable 
-	{				
-		 /*
-		 * User is on internal portal
-		 */
+	{		
+		
+		 /* clickOn("tile_vat","");
+		  Set<String> handles = wd.getWindowHandles();
+		    String currentHandle = wd.getWindowHandle();
+		    sleepWait(3000);
+		    for (String handle : handles) 
+		    {
+		     if (!handle .equals(currentHandle))
+		     {
+		         wd.switchTo().window(handle);
+		     }
+		   }*/
 	}			
 	
 	@And("^User see mess \"([^\"]*)\"$")
@@ -121,7 +130,7 @@ public class DV_1377_ManageVatRegistration
 			clickOn("drp_Priority", "");			
 			sleepWait(1000);
 			clickOn("drp_FilterByMVT", "");
-			sleepWait(1000);
+			sleepWait(2000);
 			clickOn("span","[contains(text(),'" + value + "')]");			
 			sleepWait(1000);
 		}
@@ -136,7 +145,7 @@ public class DV_1377_ManageVatRegistration
 			clickOn("drp_Priority", "");			
 			sleepWait(1000);
 			clickOn("drp_FilterByMVT", "");
-			sleepWait(1000);
+			sleepWait(2000);
 			clickOn("span","[contains(text(),'" + value + "')]");			
 			sleepWait(1000);
 		}
@@ -302,9 +311,9 @@ public class DV_1377_ManageVatRegistration
 		{
 			sleepWait(1000);
 			clickOn("drp_ManageDropdown","");			
-			sleepWait(2000);
+			sleepWait(1000);
 			clickOn("drp_Review","");
-			sleepWait(10000);
+			sleepWait(1000);
 		}	
  
 		@And("^user click on Change Priority$")
@@ -544,7 +553,7 @@ public class DV_1377_ManageVatRegistration
 		{			
 			type("TypeHere",value3);
 			sleepWait(1000);			
-			if(elementText("txt_Rejected").equals(value3))
+			if(elementText("txt_Rejected").equals("Rejected"))
 			{
 				assertTrue(true);
 			}						

@@ -1,29 +1,29 @@
 Feature: User is on Manage VAT Registration
 
   @ManageVATRegistration_DV-1377
-    Scenario: Validate the Manual Assessment dashboard page All clicking compoment
-      Given User is on Assessment Page
-     And User click on windows icon
-     And User enter username and password and click on login and see dashboard
-  
+  Scenario: Validate the Manual Assessment dashboard page All clicking compoment
+    Given User is on Assessment Page
+    And User click on windows icon
+    And User enter username and password and click on login and see dashboard
+
   @FilterByDropdown_Piority
-  Scenario Outline: Validate Filter Functionality for Dropdown 
+  Scenario Outline: Validate Filter Functionality for Dropdown
     Given User is on Internal Portal "<TestcaseID>" "<Description>"
     When user selects Manage Vat Registraion
     Then user selects value from filter drop down "<Filters>"
     And enters data in type here text box "<Value>"
-    And User see piority "<Value>"  
-   
+    And User see piority "<Value>"
+
     Examples: 
       | TestcaseID                     | Description     | Filters  | Value |
-      | Valid_Manage_VAT_Reg_Filter_01 | Filter Priority | Priority |    1  |
+      | Valid_Manage_VAT_Reg_Filter_01 | Filter Priority | Priority |     1 |
 
   @FilterByDropdown_Piority_invalid_data_DV-1377
   Scenario Outline: Validate Filter Functionality for Dropdown
     Given User is on Internal Portal "<TestcaseID>" "<Description>"
     When user selects Manage Vat Registraion
     Then user selects value from filter drop down "<Filters>" for piority
-    And enters data in type here text box "<Value>" 
+    And enters data in type here text box "<Value>"
     And User see mess "<mess>"
 
     Examples: 
@@ -50,7 +50,6 @@ Feature: User is on Manage VAT Registration
       | Valid_Manage_VAT_Reg_Filter_06 | Filter Tax Officer       | Tax Officer       | Jitesh      |
       | Valid_Manage_VAT_Reg_Filter_07 | Filter Status Assigned   | Status            | Assigned    |
 
-
   @FilterByDropdown_NIF_invalid_data_DV-1377
   Scenario Outline: Validate Filter Functionality for Dropdown
     Given User is on Internal Portal "<TestcaseID>" "<Description>"
@@ -73,10 +72,10 @@ Feature: User is on Manage VAT Registration
     And User see mess "<mess>"
 
     Examples: 
-      | TestcaseID                          | Description                | Filters        | Value       | mess             |
-      | InValid_Manage_VAT_Reg_Filter_AN_01 | Enter Special character    | Applicant Name | !@!@$@@     | No records found |
-      | InValid_Manage_VAT_Reg_Filter_AN_02 | Enter character with space | Applicant Name | a b c d e f | No records found |
-      | InValid_Manage_VAT_Reg_Filter_AN_03 | Enter alphanumeric         | Applicant Name | Abd123454561  | No records found |
+      | TestcaseID                          | Description                | Filters        | Value        | mess             |
+      | InValid_Manage_VAT_Reg_Filter_AN_01 | Enter Special character    | Applicant Name | !@!@$@@      | No records found |
+      | InValid_Manage_VAT_Reg_Filter_AN_02 | Enter character with space | Applicant Name | a b c d e f  | No records found |
+      | InValid_Manage_VAT_Reg_Filter_AN_03 | Enter alphanumeric         | Applicant Name | Abd123454561 | No records found |
 
   @FilterByDropdown_TaxpayerCategory_invalid_data_DV-1377
   Scenario Outline: Validate Filter Functionality for Dropdown
@@ -87,10 +86,10 @@ Feature: User is on Manage VAT Registration
     And User see mess "<mess>"
 
     Examples: 
-      | TestcaseID                          | Description                | Filters           | Value       | mess             |
-      | InValid_Manage_VAT_Reg_Filter_TC_01 | Enter Special character    | Taxpayer Category | !@!@$@@     | No records found |
-      | InValid_Manage_VAT_Reg_Filter_TC_02 | Enter character with space | Taxpayer Category | a b c d e f | No records found |
-      | InValid_Manage_VAT_Reg_Filter_TC_03 | Enter alphanumeric         | Taxpayer Category | Abd123454561  | No records found |
+      | TestcaseID                          | Description                | Filters           | Value        | mess             |
+      | InValid_Manage_VAT_Reg_Filter_TC_01 | Enter Special character    | Taxpayer Category | !@!@$@@      | No records found |
+      | InValid_Manage_VAT_Reg_Filter_TC_02 | Enter character with space | Taxpayer Category | a b c d e f  | No records found |
+      | InValid_Manage_VAT_Reg_Filter_TC_03 | Enter alphanumeric         | Taxpayer Category | Abd123454561 | No records found |
 
   @FilterByDropdown_Location_invalid_data_DV-1377
   Scenario Outline: Validate Filter Functionality for Dropdown
@@ -101,10 +100,10 @@ Feature: User is on Manage VAT Registration
     And User see mess "<mess>"
 
     Examples: 
-      | TestcaseID                         | Description                | Filters  | Value       | mess             |
-      | InValid_Manage_VAT_Reg_Filter_L_01 | Enter Special character    | Location | !@!@$@@     | No records found |
-      | InValid_Manage_VAT_Reg_Filter_L_02 | Enter character with space | Location | a b c d e f | No records found |
-      | InValid_Manage_VAT_Reg_Filter_L_03 | Enter alphanumeric         | Location | Abd123454561  | No records found |
+      | TestcaseID                         | Description                | Filters  | Value        | mess             |
+      | InValid_Manage_VAT_Reg_Filter_L_01 | Enter Special character    | Location | !@!@$@@      | No records found |
+      | InValid_Manage_VAT_Reg_Filter_L_02 | Enter character with space | Location | a b c d e f  | No records found |
+      | InValid_Manage_VAT_Reg_Filter_L_03 | Enter alphanumeric         | Location | Abd123454561 | No records found |
 
   @FilterByDropdown_UpdatedDate_invalid_data_DV-1377
   Scenario Outline: Validate Filter Functionality for Dropdown
@@ -118,7 +117,7 @@ Feature: User is on Manage VAT Registration
       | TestcaseID                          | Description                | Filters      | Value       | mess             |
       | InValid_Manage_VAT_Reg_Filter_UD_01 | Enter Special character    | Updated Date | !@!@$@@     | No records found |
       | InValid_Manage_VAT_Reg_Filter_UD_02 | Enter character with space | Updated Date | a b c d e f | No records found |
-      | InValid_Manage_VAT_Reg_Filter_UD_03 | Enter alphanumeric         | Updated Date | Abd12345      | No records found |
+      | InValid_Manage_VAT_Reg_Filter_UD_03 | Enter alphanumeric         | Updated Date | Abd12345    | No records found |
 
   @FilterByDropdown_TaxOfficer_invalid_data_DV-1377
   Scenario Outline: Validate Filter Functionality for Dropdown
@@ -129,10 +128,10 @@ Feature: User is on Manage VAT Registration
     And User see mess "<mess>"
 
     Examples: 
-      | TestcaseID                          | Description                | Filters     | Value       | mess             |
-      | InValid_Manage_VAT_Reg_Filter_TO_01 | Enter Special character    | Tax Officer | !@!@$@@     | No records found |
-      | InValid_Manage_VAT_Reg_Filter_TO_02 | Enter character with space | Tax Officer | a b c d e f | No records found |
-      | InValid_Manage_VAT_Reg_Filter_TO_03 | Enter alphanumeric         | Tax Officer | Abd123454561  | No records found |
+      | TestcaseID                          | Description                | Filters     | Value        | mess             |
+      | InValid_Manage_VAT_Reg_Filter_TO_01 | Enter Special character    | Tax Officer | !@!@$@@      | No records found |
+      | InValid_Manage_VAT_Reg_Filter_TO_02 | Enter character with space | Tax Officer | a b c d e f  | No records found |
+      | InValid_Manage_VAT_Reg_Filter_TO_03 | Enter alphanumeric         | Tax Officer | Abd123454561 | No records found |
 
   @FilterByDropdown_Status_invalid_data_DV-1377
   Scenario Outline: Validate Filter Functionality for Dropdown
@@ -146,9 +145,9 @@ Feature: User is on Manage VAT Registration
       | TestcaseID                         | Description                | Filters | Value       | mess             |
       | InValid_Manage_VAT_Reg_Filter_S_01 | Enter Special character    | Status  | !@!@$@@     | No records found |
       | InValid_Manage_VAT_Reg_Filter_S_02 | Enter character with space | Status  | a b c d e f | No records found |
-      | InValid_Manage_VAT_Reg_Filter_S_03 | Enter alphanumeric         | Status  | Abd12345      | No records found |
+      | InValid_Manage_VAT_Reg_Filter_S_03 | Enter alphanumeric         | Status  | Abd12345    | No records found |
 
-  # filter will removed from all the screen 
+  # filter will removed from all the screen
   #TC_04
   #  @FilterByAll
   #  Scenario Outline: Validate Filter Functionality for All
@@ -160,21 +159,18 @@ Feature: User is on Manage VAT Registration
   #    Examples:
   #      | TestcaseID                         | Description    | Value    |
   #      | Valid_Manage_VAT_Reg_Filter_All_01 | enter Rejected | Rejected |
-  
- #  @FilterByAll_invalid_DV-1377
- # Scenario Outline: Validate Filter Functionality for All
- #   Given User is on Internal Portal "<TestcaseID>" "<Description>"
- #   When user selects Manage Vat Registraion
- #   Then user selects All from filter dropdown select
- #   And enters data in type here text box "<Value>"
- #   And User see mess "<mess>"
-
- #   Examples: 
- #     | TestcaseID                           | Description                | Value       | mess             |
- #     | InValid_Manage_VAT_Reg_Filter_All_01 | Enter Special character    | !@!@$@@     | No records found |
- #     | InValid_Manage_VAT_Reg_Filter_All_02 | Enter character with space | a b c d e f | No records found |
- #     | InValid_Manage_VAT_Reg_Filter_All_03 | Enter alphanumeric         | Abd12345    | No records found |
-
+  #  @FilterByAll_invalid_DV-1377
+  # Scenario Outline: Validate Filter Functionality for All
+  #   Given User is on Internal Portal "<TestcaseID>" "<Description>"
+  #   When user selects Manage Vat Registraion
+  #   Then user selects All from filter dropdown select
+  #   And enters data in type here text box "<Value>"
+  #   And User see mess "<mess>"
+  #   Examples:
+  #     | TestcaseID                           | Description                | Value       | mess             |
+  #     | InValid_Manage_VAT_Reg_Filter_All_01 | Enter Special character    | !@!@$@@     | No records found |
+  #     | InValid_Manage_VAT_Reg_Filter_All_02 | Enter character with space | a b c d e f | No records found |
+  #     | InValid_Manage_VAT_Reg_Filter_All_03 | Enter alphanumeric         | Abd12345    | No records found |
   @TC_06_TC_05_ManageVATRegistration_DV-1377
   Scenario Outline: Validate Admin/Supervisor is able to filter data and then download the pdf/excel file
     Given User is on Internal Portal "<TestcaseID>" "<Description>"
@@ -187,8 +183,7 @@ Feature: User is on Manage VAT Registration
     Examples: 
       | TestcaseID                        | Description                        | Filters  | Value |
       | Valid_Manage_VAT_Reg_DonPDF_05_06 | Filter with download PDF and Excel | Priority |    10 |
-    
-  
+
   @TC_07_ManageVATRegistration_DV-1377
   Scenario Outline: User Navigate to particular page
     Given User is on Internal Portal "<TestcaseID>" "<Description>"
@@ -197,29 +192,31 @@ Feature: User is on Manage VAT Registration
     And User click on Dashboard
 
     Examples: 
-      | TestcaseID                       | Description                | Period        | ClickPage       | CheckPage       | option          |
-      | Valid_Manage_VAT_Reg_Navigate_01 | validating last and right  | txt_PeriodJan | lbl_AssLast     | lbl_AssestRight | last and right  |
-      | Valid_Manage_VAT_Reg_Navigate_02 | validating last and left   | txt_PeriodJan | lbl_AssLast     | lbl_AssestLeft  | last and left   |
-      | Valid_Manage_VAT_Reg_Navigate_03 | validating right and left  | txt_PeriodJan | lbl_AssestRight | lbl_AssestLeft  | right and left  |
-      | Valid_Manage_VAT_Reg_Navigate_04 | validating right and first | txt_PeriodJan | lbl_AssestRight | lbl_AssFirst    | right and first |
-      | Valid_Manage_VAT_Reg_Navigate_05 | validating first and left  | txt_PeriodJan | lbl_AssFirst    | lbl_AssestLeft  | first and left  |
-      | Valid_Manage_VAT_Reg_Navigate_06 | validating first and first | txt_PeriodJan | lbl_AssFirst    | lbl_AssFirst    | first and first |
+      | TestcaseID                       | Description                | Filters  | Value    | Period        | ClickPage       | CheckPage       | option          |
+      | Valid_Manage_VAT_Reg_Navigate_01 | validating last and right  | Status   | rejected | txt_PeriodJan | lbl_AssLast     | lbl_AssestRight | last and right  |
+      | Valid_Manage_VAT_Reg_Navigate_02 | validating last and left   | Priority |        1 | txt_PeriodJan | lbl_AssLast     | lbl_AssestLeft  | last and left   |
+      | Valid_Manage_VAT_Reg_Navigate_03 | validating right and left  | Status   | rejected | txt_PeriodJan | lbl_AssestRight | lbl_AssestLeft  | right and left  |
+      | Valid_Manage_VAT_Reg_Navigate_04 | validating right and first | Priority |        1 | txt_PeriodJan | lbl_AssestRight | lbl_AssFirst    | right and first |
+      | Valid_Manage_VAT_Reg_Navigate_05 | validating first and left  | Status   | rejected | txt_PeriodJan | lbl_AssFirst    | lbl_AssestLeft  | first and left  |
+      | Valid_Manage_VAT_Reg_Navigate_06 | validating first and first | Priority |        1 | txt_PeriodJan | lbl_AssFirst    | lbl_AssFirst    | first and first |
 
   #TC_08
   @ShowEnteries_ManageVATRegistration_DV-1377
   Scenario Outline: Validate User Click on Show Enteries
     Given User is on Internal Portal "<TestcaseID>" "<Description>"
+  #  Then user selects value from filter drop down "<Filters>"
+  #  And enters data in type here text box "<Value>"
     When user selects Manage Vat Registraion
-    And User Click Dropdown "<Value>"
+    And User Click Dropdown "<Value1>"
     Then user see the page result
 
     Examples: 
-      | TestcaseID                   | Description      | Value |
-      | Valid_Manage_VAT_Reg_Show_01 | Show 20 Entries  |    20 |
-      | Valid_Manage_VAT_Reg_show_02 | Show 15 Entries  |    15 |
-      | Valid_Manage_VAT_Reg_Show_03 | Show 25 Entries  |    25 |
-      | Valid_Manage_VAT_Reg_Show_04 | Show 50 Entries  |    50 |
-      | Valid_Manage_VAT_Reg_Show_05 | Show 100 Entries |   100 |
+      | TestcaseID                   | Filters  | Value    | Description      | Value1 |
+      | Valid_Manage_VAT_Reg_Show_01 | Status   | rejected | Show 20 Entries  |    20 |
+      | Valid_Manage_VAT_Reg_show_02 | Priority |        1 | Show 15 Entries  |    15 |
+      | Valid_Manage_VAT_Reg_Show_03 | Status   | rejected | Show 25 Entries  |    25 |
+      | Valid_Manage_VAT_Reg_Show_04 | Priority |        1 | Show 50 Entries  |    50 |
+      | Valid_Manage_VAT_Reg_Show_05 | Status   | rejected | Show 100 Entries |   100 |
 
   #TC_09
   @StatusChangePriority_ManageVATRegistration_DV-1377
@@ -248,10 +245,10 @@ Feature: User is on Manage VAT Registration
     Then Tax Officier Changed and toast message display
 
     Examples: 
-      | TestcaseID                       | Description         |  Value              | ChangeOfficer           |
-      | Valid_Manage_VAT_Reg_Reassign_01 | user change officer |  Review in Progress | drp_SelectTaxOfficerOne |
+      | TestcaseID                       | Description         | Value              | ChangeOfficer           |
+      | Valid_Manage_VAT_Reg_Reassign_01 | user change officer | Review in Progress | drp_SelectTaxOfficerOne |
 
-  #TC_11 need to change
+  #TC_11
   @RejectedPopup_ManageVATRegistration_DV-1377
   Scenario Outline: Validate Pop up when user Click on Rejected
     Given User is on Internal Portal "<TestcaseID>" "<Description>"
@@ -276,8 +273,8 @@ Feature: User is on Manage VAT Registration
     Then User See pop up Reason for OnHold
 
     Examples: 
-      | TestcaseID                       | Description           | Filters | Value  |
-      | Valid_Manage_VAT_Reg_RejPopUp_01 | user click on on hold | Status  | OnHold |
+      | TestcaseID                          | Description           | Filters | Value  |
+      | Valid_Manage_VAT_Reg_OnHoldPopUp_01 | user click on on hold | Status  | OnHold |
 
   #TC_13
   @StatusReviewInProgress_ManageVATRegistration_DV-1377
@@ -293,8 +290,7 @@ Feature: User is on Manage VAT Registration
     Examples: 
       | TestcaseID                     | Description                        | Filters | Value              |
       | Valid_Manage_VAT_Reg_Review_01 | user navigate to tax payer details | Status  | Review in Progress |
-  
-  
+
   @TC_14_ManageVATRegistration_Sort_DV-1377
   Scenario Outline: Validate User is able to do sorting
     Given User is on Internal Portal "<TestcaseID>" "<Description>"
@@ -319,7 +315,7 @@ Feature: User is on Manage VAT Registration
 
     Examples: 
       | TestcaseID                                    | Description                                  | Value1 | Filters  | sorting | Value3   | Filters1 |
-      | Valid_Manage_VAT_Reg_Filter_Simultaneously_01 | user check multuiple possibility with filter |     7  | Priority | asc     | Rejected | Status   |
+      | Valid_Manage_VAT_Reg_Filter_Simultaneously_01 | user check multuiple possibility with filter |      7 | Priority | asc     | Rejected | Status   |
 
   #TC_16
   @FilterCombinationInvalid_ManageVATRegistration_DV-1377
@@ -332,7 +328,7 @@ Feature: User is on Manage VAT Registration
 
     Examples: 
       | TestcaseID                          | Filters           | Value         | check            |
-      | Valid_Manage_VAT_Reg_Combination_01 | Priority          |  A10          | No records found |
+      | Valid_Manage_VAT_Reg_Combination_01 | Priority          | A10           | No records found |
       | Valid_Manage_VAT_Reg_Combination_02 | NIF               | Arun          | No records found |
       | Valid_Manage_VAT_Reg_Combination_03 | Applicant Name    | Individual    | No records found |
       | Valid_Manage_VAT_Reg_Combination_04 | Taxpayer Category | Banana        | No records found |

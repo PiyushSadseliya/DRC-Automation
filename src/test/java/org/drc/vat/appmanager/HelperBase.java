@@ -7,11 +7,13 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static org.testng.Assert.assertFalse;
+import static org.testng.Assert.assertTrue;
 
 import java.awt.*;
 import java.awt.datatransfer.StringSelection;
@@ -46,11 +48,6 @@ public class HelperBase {
       }
     }
     
-    
-    
-    
-    
-    
     public static void login(String email,String password) throws InterruptedException 
     {
     	 type("txtbox_username",email);
@@ -63,8 +60,7 @@ public class HelperBase {
         By locator = By.xpath(obj.getProperty(object));
         wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
-
-    //Srijo 
+   
     public static void clickOn(String object, String data) {
         
         WebDriverWait wait = new WebDriverWait(wd, 60);
@@ -77,20 +73,7 @@ public class HelperBase {
         wait.until(ExpectedConditions.elementToBeClickable(locator)).click();
        
     }    
-    // Franky
-   /* public static void clickOn(String object, String data)throws InterruptedException {
-        WebDriverWait wait = new WebDriverWait(wd, 60);
-        try {
-            obj.load(fis);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        By locator = By.xpath(obj.getProperty(object) + data);
-       //add  and rest comment 
-        Thread.sleep(5000);
-        wd.findElement(By.xpath(obj.getProperty(object) + data)).click();
-        wait.until(ExpectedConditions.elementToBeClickable(locator)).click();
-    }*/
+  
     
     /*
      * Thread sleep method 
@@ -100,7 +83,6 @@ public class HelperBase {
         Thread.sleep(wait);
     }
 
-    
     
     public static void type(String object, String data) 
     {
@@ -153,10 +135,6 @@ public class HelperBase {
        return wd.findElement(locator).getAttribute("value");
    
     }
-
-  
-
-    
     
     public static String toastMessage() 
     {
@@ -166,7 +144,7 @@ public class HelperBase {
 
 /*    public static void saveFile() throws AWTException {
         Arrays.stream(Objects.requireNonNull(
-                new File(String.valueOf(dir)).listFiles())).forEach(File::delete);
+        new File(String.valueOf(dir)).listFiles())).forEach(File::delete);
         Robot robot = new Robot();
         robot.delay(1000);
         robot.keyPress(KeyEvent.VK_ALT);
@@ -176,18 +154,45 @@ public class HelperBase {
         robot.keyRelease(KeyEvent.VK_S);
     }*/
 
-    public static void verifyDownload(String data)
+    public static boolean verifyDownload(String data)
     {
+    	boolean name=false;
         File[] files = dir.listFiles();
         assert files != null;
         for (File file : files) 
         {
-            if (file.getName().contains(data)) 
+            if (file.getName().equals(data) ) 
             {
-                return;
+                 name=true;
+            }
+        }
+		return name;
+    }
+        
+    /**
+     *  
+     *  This cheeck extension for PDF, JPG ,PNG,JPEG    
+     */
+	public static void verifyDownloadCheck(String data) 
+    {     	
+        File[] files = dir.listFiles();
+        assert files != null;
+        for (File file : files) 
+        {
+            if (file.getName().contains(data) == file.getName().toLowerCase().endsWith(".pdf") || file.getName().toLowerCase().endsWith(".jpg") || file.getName().toLowerCase().endsWith(".png") || file.getName().toLowerCase().endsWith(".jpeg")) 
+            {
+            	System.out.println(file);
+            	assertTrue(true);
+            }
+            else
+            {
+            	assertTrue(false);
             }
         }
     }
+    
+    
+    
 
     void attach(By locator, File file) {
         if (file != null) {
@@ -208,23 +213,12 @@ public class HelperBase {
             return false;
         }
     }
-
-   /* public static void logout() {
-        WebDriverWait wait = new WebDriverWait(wd, 10);
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(
-                By.xpath("(//*[contains(@class,'toast-content')])[last()]")));
-        clickOn("span", "[@class='users-name']");
-        clickOn("link", "[contains(.,'Log out')]");
-
-    }*/
     
     public static void logout() throws Exception {
         WebDriverWait wait = new WebDriverWait(wd, 10);
         wait.until(ExpectedConditions.invisibilityOfElementLocated(
                 By.xpath("(//*[contains(@class,'toast-content')])[last()]")));
         clickOn("i", "[@class='fa fa-power-off']");
-       
-
     }
 
     public static void drp_select(String object,String data)
@@ -298,18 +292,19 @@ public class HelperBase {
 		 String  handle= wd.getWindowHandle();
 		 System.out.println(handle);
 		 By locator = By.xpath(obj.getProperty(object));
-		List<WebElement> view = wd.findElements(locator);
-		for(WebElement element:view){
-	element.click();
-	Thread.sleep(5000);
+		 List<WebElement> view = wd.findElements(locator);
+		for(WebElement element:view)
+		{
+			element.click();
+			Thread.sleep(5000);
 		}
-		System.out.println(view.size());
+		
 		if(view.size()==data) {
 			System.out.println("All Documents viewed");
 			wd.switchTo().window(handle);			 
 		}		
 	}
-    //srijo
+  
     public static boolean buttonEnabled(String object ,String data) {
     	 try {
     	        obj.load(fis);
@@ -320,7 +315,7 @@ public class HelperBase {
     	 return wd.findElement(locator).isEnabled();
     	}
     
-    //srijo
+   
     public static void assertMsg(String msg) {
     	 try {
     	 assertFalse(false, msg);
@@ -330,7 +325,7 @@ public class HelperBase {
     	 }
     	 
     	 }
-    //srijo
+   
     public static String elementText(String object,String data) {
         try {
             obj.load(fis);
@@ -341,7 +336,7 @@ public class HelperBase {
        return wd.findElement(locator).getText();
        }
     
-    //srijo
+  
     public static boolean checkElement(String object) {
     	 try {
     	        obj.load(fis);
@@ -356,7 +351,7 @@ public class HelperBase {
     	 }
     	 
     	}
-    //Srijo
+  
     public static void UploadImage(String object, String data) throws Exception 
     {
     	  try 
@@ -388,8 +383,7 @@ public class HelperBase {
     	  }  catch (Exception e) 
     	  {
     	  }            
-    }
-    
+    }    
     
     
     public static void datePicker(String date)
@@ -465,7 +459,9 @@ public class HelperBase {
     public static void check_page_url(String data) throws InterruptedException 
     {
     	Thread.sleep(2000);
-    	wd.getCurrentUrl().equals(obj.getProperty(data));
+    	wd.getCurrentUrl().equals(obj.getProperty(data));        
     }    
+    
+   
     
 }    
