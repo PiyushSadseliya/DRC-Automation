@@ -22,6 +22,7 @@ import static org.drc.vat.appmanager.HelperBase.assertMsg;
 import static org.drc.vat.appmanager.HelperBase.clickOn;
 import static org.drc.vat.appmanager.HelperBase.elementText;
 import static org.drc.vat.appmanager.HelperBase.internalPortal;
+import static org.drc.vat.appmanager.HelperBase.sleepWait;
 import static org.drc.vat.appmanager.HelperBase.type;
 import static org.drc.vat.appmanager.HelperBase.wd;
 import static org.testng.Assert.assertFalse;
@@ -50,6 +51,7 @@ public class HelperBase {
     private static String bodyMessage="";
     private static FileInputStream fis;
     private static String currentWindow=null;
+    static int i=0;
     public static int no_window;
   public static SoftAssert softAssert = new SoftAssert();
     private static File dir = new File(
@@ -58,8 +60,9 @@ public class HelperBase {
     HelperBase(WebDriver wd) {
         HelperBase.wd = wd;
     }
-    public static String TaxpayerURL="http://103.249.120.58:8066/";
-
+    private static String cwd=System.getProperty("user.dir");
+    private static String filedoc=cwd+"\\src\\test\\resources\\docs\\";
+   
     static {
         try {
             fis = new FileInputStream(System.getProperty(
@@ -84,7 +87,7 @@ public class HelperBase {
             e.printStackTrace();
         }
         By locator = By.xpath(obj.getProperty(object) + data);
-        wd.manage().timeouts().implicitlyWait(700,TimeUnit.MILLISECONDS) ;
+        wd.manage().timeouts().implicitlyWait(800,TimeUnit.MILLISECONDS) ;
         wait.until(ExpectedConditions.elementToBeClickable(locator)).click();
     }
     public static void waitfor(long time) {
@@ -106,6 +109,24 @@ public class HelperBase {
                 wd.findElement(locator).clear();
                 wd.findElement(locator).sendKeys(data);
             }
+        }
+    }
+
+    public static void typeb(String object, String data) 
+    {
+    	 try {
+             obj.load(fis);
+         } catch (IOException e) {
+             e.printStackTrace();
+         }
+    	 
+        By locator = By.xpath(obj.getProperty(object));
+        wd.manage().timeouts().implicitlyWait(700,TimeUnit.MILLISECONDS) ;
+        if (data != null) {
+          
+      
+                wd.findElement(locator).sendKeys(data);
+            
         }
     }
 
@@ -163,9 +184,9 @@ public class HelperBase {
       //  wait.until(ExpectedConditions.invisibilityOfElementLocated(
  //By.xpath("(//*[contains(@class,'toast-content')])[last()]")));
         clickOn("span", "[@class='fa fa-power-off']");
-        Thread.sleep(2000);
+        sleepWait(2000);
         clickOn("link_clickhere","");
-        Thread.sleep(1000);
+        sleepWait(1000);
 
     }
    
@@ -186,7 +207,7 @@ public class HelperBase {
     	wd.get(obj.getProperty(object));
     }
     public static void check_page_url(String data) throws InterruptedException {
-    	Thread.sleep(2000);
+    	sleepWait(2000);
     	wd.getCurrentUrl().equals(obj.getProperty(data));
     	
     }
@@ -225,16 +246,17 @@ public class HelperBase {
     }
     public static void elements(String object) throws InterruptedException {
     	 wd.findElement(By.xpath(object)).click();
-    	 Thread.sleep(3000);
+    	 sleepWait(3000);
        
        
     }
 	public static void UploadImage(String object, String data) throws Exception {
 		try {
 			
-			StringSelection stringSelection_filepath = new StringSelection(data);
+			StringSelection stringSelection_filepath = new StringSelection(filedoc+data);
+			System.out.println(filedoc+data);
 			Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection_filepath, null);
-			Thread.sleep(500);
+			sleepWait(500);
 			Robot robot = new Robot();
 			/**
 			 *  Press CTRL+V
@@ -253,7 +275,7 @@ public class HelperBase {
 			robot.setAutoDelay(100);
 			robot.keyPress(KeyEvent.VK_ENTER);
 			robot.keyRelease(KeyEvent.VK_ENTER);
-			Thread.sleep(5000);
+			sleepWait(5000);
 			
 		} 	catch (Exception e)	{
 			
@@ -277,7 +299,7 @@ public class HelperBase {
 		List<WebElement> view = wd.findElements(locator);
 		for(WebElement element:view){
 	element.click();
-	Thread.sleep(5000);
+	sleepWait(5000);
 		}
 		System.out.println(view.size());
 		if(view.size()==data) {
@@ -309,16 +331,16 @@ public class HelperBase {
        
         clickOn("button_Tempmail_submit","");
         System.out.println("Clciked on Save");
-        Thread.sleep(2000);
+        sleepWait(2000);
         wd.get("https://temp-mail.org/en/option/refresh/");
-        Thread.sleep(2000);
+        sleepWait(2000);
         clickOn("mail_inbox","");
         System.out.println("Clciked on inbox");
     
         clickOn("verification_link","");          
 
         System.out.println("Clciked on email veriification");
-        Thread.sleep(5000);
+        sleepWait(5000);
 	}
 public static void cookieclear() {
 	wd.manage().deleteAllCookies();
@@ -344,15 +366,42 @@ robot.keyRelease(KeyEvent.VK_CONTROL);
  * @param Password
  */
 public static void login(String email,String password) throws InterruptedException {
+	List <WebElement> homepage=wd.findElements(By.xpath("//h2"));
+	System.out.println(i++);
+	if(homepage.size()>0) {
+		if(!homepage.get(0).getText().equals("Welcome to e-Service Portal")) {
+			sleepWait(5000);
+			List <WebElement> logout =wd.findElements(By.xpath("//span[@class='fa fa-power-off']"));
+			if(logout.size()>0) {
+				logout.get(0).click();
+				
+			}
+			
+		}
+		if(wd.getCurrentUrl().contains("8066")) {
+			logout();
+		}
+
+	}
+		
+	
 	type("txtbox_username",email);
 	type("txtbox_password",password);
+	sleepWait(2000);
 	clickOn("btn_login","");
-	Thread.sleep(2000);
+	sleepWait(2000);
 	clickOn("tile_vat","");
-	Thread.sleep(2000);
-	clickOn("a_sure","");
-	Thread.sleep(2000);
+	sleepWait(2000);	
+	List <WebElement> sure =wd.findElements(By.xpath("//a[contains(text(),'Sure')]"));
+	if(sure.size()>0) {
+		sure.get(0).click();
+	}
+	sleepWait(2000);
+	if(wd.getWindowHandles().size()>0) {
 	wd.switchTo().window(wd.getWindowHandles().toArray()[1].toString());
+	}
+
+
 	
 }
 public static void bodymessage(String object) throws InterruptedException
@@ -363,7 +412,7 @@ public static void bodymessage(String object) throws InterruptedException
 	     obj.load(fis);   
 	     String expectedMessage = obj.getProperty(object);
 		bodyMessage= wd.findElement(By.tagName("body")).getText();
-		Thread.sleep(2000);
+		sleepWait(2000);
 		if(bodyMessage.equals(null)||bodyMessage.equals("")||expectedMessage.equals(""))
 		{
 			System.out.println("All data are inserted" );				
@@ -489,6 +538,7 @@ public static void datePicker(String date)
 		clickOn("span","[contains(text(),'2018')]");
 		clickOn("span","[contains(text(),'" +y+"')]");
 		//clickOn("span","[contains(text(),'June')]");
+		sleepWait(2000);
 		if(m.equals("01"))
 		{
 			clickOn("span","[contains(text(),'January')]");
@@ -537,6 +587,7 @@ public static void datePicker(String date)
 		{
 			clickOn("span","[contains(text(),'December')]");
 		}
+		sleepWait(2000);
 		clickOn("span","[contains(text(),'" +d+"')]");
 	}
 	catch(Exception e)
@@ -574,7 +625,7 @@ public static void user_Enter_Valid(String username, String password) throws Thr
    // Enter user name in username field 
   StringSelection un = new StringSelection(username);
          Toolkit.getDefaultToolkit().getSystemClipboard().setContents(un, null);            
-         Thread.sleep(2000);
+         sleepWait(2000);
          rb.keyPress(KeyEvent.VK_CONTROL);
          rb.keyPress(KeyEvent.VK_V);
          rb.keyRelease(KeyEvent.VK_V);
@@ -583,7 +634,7 @@ public static void user_Enter_Valid(String username, String password) throws Thr
    // press tab to move to password field
         rb.keyPress(KeyEvent.VK_TAB);
         rb.keyRelease(KeyEvent.VK_TAB);
-        Thread.sleep(2000);    
+        sleepWait(2000);    
         System.out.println(username);
   	  System.out.println(password);
 
@@ -594,7 +645,7 @@ public static void user_Enter_Valid(String username, String password) throws Thr
         rb.keyPress(KeyEvent.VK_V);
         rb.keyRelease(KeyEvent.VK_V);
         rb.keyRelease(KeyEvent.VK_CONTROL);
-        Thread.sleep(5000);
+        sleepWait(5000);
               
    //press enter
   rb.keyPress(KeyEvent.VK_ENTER);

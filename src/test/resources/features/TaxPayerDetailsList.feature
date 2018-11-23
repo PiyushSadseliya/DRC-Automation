@@ -4,7 +4,7 @@ Feature: Only authorized users are able to view the list of taxpayers.
   Tax officer can view the details of taxpayers managed by their own tax office, while Admin is able to view all the records.
 
   @Mtc_admin_02 @admin
-  Scenario Outline: Validate the  Functionality of Taxpayer Profile Menu Item .
+  Scenario Outline: Validate the  Functionality of Taxpayer Profile Menu Item internal portal.
     Given "<Test Case ID>""<Description>"the Officer"<officer>" has logged in internal portal"<uname>""<pwd>"
     When Clicks on Tax Payer Profile Menu item"<officer>"
     Then officer is on Tax Payer Profile List
@@ -15,19 +15,17 @@ Feature: Only authorized users are able to view the list of taxpayers.
       | DRC_ATC_TaxPayerProfile_List_01 | Validate the  Functionality of Taxpayer Profile Menu Item . | Admin   | ketan.prajapati | admin |
 
   @Mtc_admin_03 @admin @filter
-  Scenario Outline: Validate the filter by dropdown with respect to Filter option All, NITVA,NIF,,Tax Payer,Tax Office,Business Type
+  Scenario Outline: Validate the filter by dropdown with respect to Filter option All, NITVA,NIF,,Tax Payer,Tax Office,Business Type internal portal
     Given "<Test Case ID>""<Description>"the Officer"<officer>" has logged in internal portal"<uname>""<pwd>"
     When Clicks on Tax Payer Profile Menu item"<officer>"
     Then officer is on Tax Payer Profile List
-    Then Select the Option from the Filter by Dropdown as "All"
-    Then Enter valid data in "20180820071455014" Text Box and click on search icon Result should get filtered based on Input in Type Here Text box
     Then Select the Option from the Filter by Dropdown as "NITVA"
-    Then Enter valid data in "20180820071455014" Text Box and click on search icon Result should get filtered based on Input in Type Here Text box
+    Then Enter valid data in "20181121041249414" Text Box and click on search icon Result should get filtered based on Input in Type Here Text box
     Then Select the Option from the Filter by Dropdown as "NIF"
-    Then Enter valid data in "nitwa140" Text Box and click on search icon Result should get filtered based on Input in Type Here Text box
+    Then Enter valid data in "130748ADFSXXXABVCDFE00100" Text Box and click on search icon Result should get filtered based on Input in Type Here Text box
     Then Select the Option from the Filter by Dropdown as "TaxPayer"
-    Then Enter valid data in "Tapan Parekh" Text Box and click on search icon Result should get filtered based on Input in Type Here Text box
-    Then Select the Option from the Filter by Dropdown as "BusinessType"
+    Then Enter valid data in "1Rivet S" Text Box and click on search icon Result should get filtered based on Input in Type Here Text box
+    Then Select the Option from the Filter by Dropdown as "Business type"
     Then Enter valid data in "Mining" Text Box and click on search icon Result should get filtered based on Input in Type Here Text box
     Then Select the Option from the Filter by Dropdown as "TaxPayerCategory"
     Then Enter valid data in "Natural Person" Text Box and click on search icon Result should get filtered based on Input in Type Here Text box
@@ -39,7 +37,7 @@ Feature: Only authorized users are able to view the list of taxpayers.
       | DRC_ATC_TaxPayerProfile_List_02 | Validate the filter by dropdown with respect to Filter option All, NITVA,NIF,,Tax Payer,Tax Office,Business Type | Admin   | ketan.prajapati | admin |
 
   @Mtc_admin_04 @View @admin
-  Scenario Outline: Validate the View Icon Functionality.
+  Scenario Outline: Validate the View Icon Functionality internal portal.
     Given "<Test Case ID>""<Description>"the Officer"<officer>" has logged in internal portal"<uname>""<pwd>"
     When Clicks on Tax Payer Profile Menu item"<officer>"
     Then officer is on Tax Payer Profile List
@@ -53,7 +51,7 @@ Feature: Only authorized users are able to view the list of taxpayers.
       | DRC_ATC_TaxPayerProfile_List_03 | Validate the  Functionality of Taxpayer Profile Menu Item . | Admin   | ketan.prajapati | admin |
 
   @Mtc_admin_05 @pagination @admin
-  Scenario Outline: Validate the Pagination Button Functionality of First , Last,Next, Previous ,Page Number Search Button.
+  Scenario Outline: Validate the Pagination Button Functionality of First , Last,Next, Previous ,Page Number Search Button internal portal.
     Given "<Test Case ID>""<Description>"the Officer"<officer>" has logged in internal portal"<uname>""<pwd>"
     When Clicks on Tax Payer Profile Menu item"<officer>"
     Then officer is on Tax Payer Profile List
@@ -66,7 +64,7 @@ Feature: Only authorized users are able to view the list of taxpayers.
       | DRC_ATC_TaxPayerProfile_List_04 | Validate the  Functionality of Taxpayer Profile Menu Item . | Admin   | ketan.prajapati | admin |
 
   @Mtc_admin_05 @pagination @admin
-  Scenario Outline: Validate the Pagination Button Functionality of First , Last,Next, Previous ,Page Number Search Button.
+  Scenario Outline: Validate the Pagination Button Functionality of First , Last,Next, Previous ,Page Number Search Button internal portal.
     Given "<Test Case ID>""<Description>"the Officer"<officer>" has logged in internal portal"<uname>""<pwd>"
     When Clicks on Tax Payer Profile Menu item"<officer>"
     Then officer is on Tax Payer Profile List
@@ -80,7 +78,7 @@ Feature: Only authorized users are able to view the list of taxpayers.
       | DRC_ATC_TaxPayerProfile_List_05 | Validate the  Functionality of Taxpayer Profile Menu Item . | Admin   | ketan.prajapati | admin |
 
   @Mtc_admin_06 @admin
-  Scenario Outline: Validate the NITVA, NIF, Tax Payer, Address, Business Type , Tax Office of the Tax payer is correctly displayed  after VAT registration is approved successfully of the User.
+  Scenario Outline: Validate the NITVA, NIF, Tax Payer, Address, Business Type , Tax Office of the Tax payer is correctly displayed  after VAT registration is approved successfully of the User internal portal.
     Given "<Test Case ID>""<Description>"the Officer"<officer>" has logged in internal portal"<uname>""<pwd>"
     When Clicks on Tax Payer Profile Menu item"<officer>"
     Then officer is on Tax Payer Profile List
@@ -89,11 +87,11 @@ Feature: Only authorized users are able to view the list of taxpayers.
     Then Observes NITVA"<NITVA>"field
 
     Examples: 
-      | Test Case ID                    | Description                                                 | officer | uname           | pwd   | nif          | name    | add  | btype  | taxoffice | NITVA             |
-      | DRC_ATC_TaxPayerProfile_List_06 | Validate the  Functionality of Taxpayer Profile Menu Item . | Admin   | ketan.prajapati | admin | 345345345345 | LokunNp | add, | Mining | Aketi     | 20180829065611557 |
+      | Test Case ID                    | Description                                                 | officer | uname           | pwd   | nif                       | name     | add                              | btype  | taxoffice | NITVA             |
+      | DRC_ATC_TaxPayerProfile_List_06 | Validate the  Functionality of Taxpayer Profile Menu Item . | Admin   | ketan.prajapati | admin | 130748ADFSXXXABVCDFE00100 | 1Rivet S | Dharamdas Chamber,Near Axis Bank | Mining | Aketi     | 20181121041249414 |
 
   @Mtc_admin_07 @admin @ReviewInProgress @Status
-  Scenario Outline: Validate that profile is not getting listed in the Tax Payer List if the user submitted the form but the status is Review In Progress
+  Scenario Outline: Validate that profile is not getting listed in the Tax Payer List if the user submitted the form but the status is Review In Progress internal portal
     Given "<Test Case ID>""<Description>"the Officer"<officer>" has logged in internal portal"<uname>""<pwd>"
     When Clicks on Tax Payer Profile Menu item"<officer>"
     Then officer is on Tax Payer Profile List
@@ -101,11 +99,11 @@ Feature: Only authorized users are able to view the list of taxpayers.
     Then No record found Messages "<msg>"should be displayed
 
     Examples: 
-      | Test Case ID                    | Description                                                 | officer | uname           | pwd   | nif        | msg              |
-      | DRC_ATC_TaxPayerProfile_List_07 | Validate the  Functionality of Taxpayer Profile Menu Item . | Admin   | ketan.prajapati | admin | 6543210789 | No records found |
+      | Test Case ID                    | Description                                                 | officer | uname           | pwd   | nif                       | msg              |
+      | DRC_ATC_TaxPayerProfile_List_07 | Validate the  Functionality of Taxpayer Profile Menu Item . | Admin   | ketan.prajapati | admin | 105254ADFSXXXABVCDFE00100 | No records found |
 
   @Mtc_admin_08_09 @admin @OnHold @Status @Rejected
-  Scenario Outline: Validate that profile is not getting listed in the Tax Payer List
+  Scenario Outline: Validate that profile is not getting listed in the Tax Payer List internal portal
     Given "<Test Case ID>""<Description>"the Officer"<officer>" has logged in internal portal"<uname>""<pwd>"
     When Clicks on Tax Payer Profile Menu item"<officer>"
     Then officer is on Tax Payer Profile List
@@ -114,11 +112,11 @@ Feature: Only authorized users are able to view the list of taxpayers.
 
     Examples: 
       | Test Case ID                    | Description                                                                                                                            | officer | uname           | pwd   | nif                | msg              |
-      | DRC_ATC_TaxPayerProfile_List_08 | Validate that profile is not getting listed in the Tax Payer List if the user submitted the form but the status is On Hold             | Admin   | ketan.prajapati | admin | 344559347534152315 | No records found |
-      | DRC_ATC_TaxPayerProfile_List_09 | Validate that profile is not getting listed in the Tax Payer List if the user submitted the VAT Application and the Status is Rejected | Admin   | ketan.prajapati | admin |     44566970954456 | No records found |
+      | DRC_ATC_TaxPayerProfile_List_08 | Validate that profile is not getting listed in the Tax Payer List if the user submitted the form but the status is On Hold             | Admin   | ketan.prajapati | admin | 786786786 | No records found |
+      | DRC_ATC_TaxPayerProfile_List_09 | Validate that profile is not getting listed in the Tax Payer List if the user submitted the VAT Application and the Status is Rejected | Admin   | ketan.prajapati | admin |     1t2r3e1t | No records found |
 
   @Mtc_admin_10_11_12_13 @admin
-  Scenario Outline: Validate that profile is getting listed in the Tax Payer List for according to tax Payer Category
+  Scenario Outline: Validate that profile is getting listed in the Tax Payer List for according to tax Payer Category internal portal
     Given "<Test Case ID>""<Description>"the Officer"<officer>" has logged in internal portal"<uname>""<pwd>"
     When Clicks on Tax Payer Profile Menu item"<officer>"
     Then officer is on Tax Payer Profile List
@@ -126,14 +124,14 @@ Feature: Only authorized users are able to view the list of taxpayers.
     Then Taxpayer Detail list shows NITVA"<nitva>"NIF"<nif>"Taxpayer"<tpayer>"Address"<add>"BusinessType"<btype>"TaxOffice"<TaxOffice>"
 
     Examples: 
-      | Test Case ID                    | Description                                                                                                                                                      | officer | uname           | pwd   | nif             | nitva             | tpayer     | add  | btype         | TaxOffice |
-      | DRC_ATC_TaxPayerProfile_List_10 | Validate that profile is getting listed in the Tax Payer List if the user has tax Payer Category Natural Person and sub tax payer category as Individual         | Admin   | ketan.prajapati | admin |    345345345345 | 20180829065611557 | LokunNp    | add, | Mining        | Aketi     |
-      | DRC_ATC_TaxPayerProfile_List_11 | Validate that profile is getting listed in the Tax Payer List if the user has tax Payer Category Legal Entity and sub tax payer category as Government Entity    | Admin   | ketan.prajapati | admin |     65756752453 | 20180829072418896 | LokunLE    | Add, | Mining        | Aketi     |
-      | DRC_ATC_TaxPayerProfile_List_12 | Validate that profile is getting listed in the Tax Payer List if the user has tax Payer Category Legal Entity and sub tax payer category as Incorporated Bodies  | Admin   | ketan.prajapati | admin |   7652458755446 | 20180829074250394 | LukanLeInc | add, | Manufacturing | Aketi     |
-      | DRC_ATC_TaxPayerProfile_List_13 | Validate that profile is getting listed in the Tax Payer List if the user has tax Payer Category Legal Entity and sub tax payer category as Other Non-Corporates | Admin   | ketan.prajapati | admin | 341534475893759 | 20180830103151090 | Lokun non corporates  | add, | Manufacturing | Aketi     |
+      | Test Case ID                    | Description                                                                                                                                                      | officer | uname           | pwd   | nif             | nitva             | tpayer               | add  | btype         | TaxOffice |
+    #  | DRC_ATC_TaxPayerProfile_List_10 | Validate that profile is getting listed in the Tax Payer List if the user has tax Payer Category Natural Person and sub tax payer category as Individual         | Admin   | ketan.prajapati | admin |    345345345345 | 20180829065611557 | LokunNp              | add, | Mining        | Aketi     |
+      | DRC_ATC_TaxPayerProfile_List_11 | Validate that profile is getting listed in the Tax Payer List if the user has tax Payer Category Legal Entity and sub tax payer category as Government Entity    | Admin   | ketan.prajapati | admin |     130748ADFSXXXABVCDFE00100 | 20181121041249414 | 1Rivet S              |Dharamdas Chamber,Near Axis Bank| Mining        | Aketi     |
+    #  | DRC_ATC_TaxPayerProfile_List_12 | Validate that profile is getting listed in the Tax Payer List if the user has tax Payer Category Legal Entity and sub tax payer category as Incorporated Bodies  | Admin   | ketan.prajapati | admin |   7652458755446 | 20180829074250394 | LukanLeInc           | add, | Manufacturing | Aketi     |
+    #  | DRC_ATC_TaxPayerProfile_List_13 | Validate that profile is getting listed in the Tax Payer List if the user has tax Payer Category Legal Entity and sub tax payer category as Other Non-Corporates | Admin   | ketan.prajapati | admin | 341534475893759 | 20180830103151090 | Lokun non corporates | add, | Manufacturing | Aketi     |
 
   @Mtc_taxofficer_02 @taxofficer
-  Scenario Outline: Validate the  Functionality of Taxpayer Profile Menu Item .
+  Scenario Outline: Validate the  Functionality of Taxpayer Profile Menu Item internal portal.
     Given "<Test Case ID>""<Description>"the Officer"<officer>" has logged in internal portal"<uname>""<pwd>"
     When Clicks on Tax Payer Profile Menu item"<officer>"
     Then officer is on Tax Payer Profile List
@@ -144,12 +142,10 @@ Feature: Only authorized users are able to view the list of taxpayers.
       | DRC_ATC_TaxPayerProfile_List_01 | Validate the  Functionality of Taxpayer Profile Menu Item . | Taxofficer | jitesh.mistry | admin |
 
   @Mtc_taxofficer_03 @taxofficer
-  Scenario Outline: Validate the filter by dropdown with respect to Filter option All, NITVA,NIF,,Tax Payer,Tax Office,Business Type
+  Scenario Outline: Validate the filter by dropdown with respect to Filter option All, NITVA,NIF,,Tax Payer,Tax Office,Business Type internal portal
     Given "<Test Case ID>""<Description>"the Officer"<officer>" has logged in internal portal"<uname>""<pwd>"
     When Clicks on Tax Payer Profile Menu item"<officer>"
     Then officer is on Tax Payer Profile List
-    Then Select the Option from the Filter by Dropdown as "All"
-    Then Enter valid data in "20180820071455014" Text Box and click on search icon Result should get filtered based on Input in Type Here Text box
     Then Select the Option from the Filter by Dropdown as "NITVA"
     Then Enter valid data in "20180820071455014" Text Box and click on search icon Result should get filtered based on Input in Type Here Text box
     Then Select the Option from the Filter by Dropdown as "NIF"
@@ -166,7 +162,7 @@ Feature: Only authorized users are able to view the list of taxpayers.
       | DRC_ATC_TaxPayerProfile_List_02 | Validate the filter by dropdown with respect to Filter option All, NITVA,NIF,,Tax Payer,Tax Office,Business Type | Taxofficer | jitesh.mistry | admin |     |       |     |
 
   @Mtc_taxofficer_04 @taxofficer
-  Scenario Outline: Validate the filter by dropdown with respect to Filter option with valid data in type here Search Box.All,NITVA,NIF,Tax Payer,Tax Office,Business Type
+  Scenario Outline: Validate the filter by dropdown with respect to Filter option with valid data in type here Search Box.All,NITVA,NIF,Tax Payer,Tax Office,Business Type internal portal
     Given "<Test Case ID>""<Description>"the Officer"<officer>" has logged in internal portal"<uname>""<pwd>"
     When Clicks on Tax Payer Profile Menu item"<officer>"
     Then officer is on Tax Payer Profile List
@@ -194,7 +190,7 @@ Feature: Only authorized users are able to view the list of taxpayers.
       | DRC_ATC_TaxPayerProfile_List_03 | Validate the filter by dropdown with respect to Filter option with valid data in type here Search Box.All,NITVA,NIF,Tax Payer,Tax Office,Business Type | Taxofficer |       |     |
 
   @Mtc_taxofficer_05 @View @taxofficer
-  Scenario Outline: Validate the View Icon Functionality.
+  Scenario Outline: Validate the View Icon Functionality internal portal.
     Given "<Test Case ID>""<Description>"the Officer"<officer>" has logged in internal portal"<uname>""<pwd>"
     When Clicks on Tax Payer Profile Menu item"<officer>"
     Then officer is on Tax Payer Profile List
@@ -208,7 +204,7 @@ Feature: Only authorized users are able to view the list of taxpayers.
       | DRC_ATC_TaxPayerProfile_List_04 | Validate the  Functionality of Taxpayer Profile Menu Item . | Taxofficer | jitesh.mistry | admin |
 
   @Mtc_taxofficer_06 @navigation @taxofficer
-  Scenario Outline: Validate the Pagination Button Functionality of First , Last,Next, Previous ,Page Number Search Button.
+  Scenario Outline: Validate the Pagination Button Functionality of First , Last,Next, Previous ,Page Number Search Button internal portal.
     Given "<Test Case ID>""<Description>"the Officer"<officer>" has logged in internal portal"<uname>""<pwd>"
     When Clicks on Tax Payer Profile Menu item"<officer>"
     Then officer is on Tax Payer Profile List
@@ -221,7 +217,7 @@ Feature: Only authorized users are able to view the list of taxpayers.
       | DRC_ATC_TaxPayerProfile_List_05 | Validate the  Functionality of Taxpayer Profile Menu Item . | Taxofficer | saurabh.dongre | admin |
 
   @Mtc_taxofficer_07 @navigation @taxofficer
-  Scenario Outline: Validate the Pagination Button Functionality of First , Last,Next, Previous ,Page Number Search Button.
+  Scenario Outline: Validate the Pagination Button Functionality of First , Last,Next, Previous ,Page Number Search Button internal portal.
     Given "<Test Case ID>""<Description>"the Officer"<officer>" has logged in internal portal"<uname>""<pwd>"
     When Clicks on Tax Payer Profile Menu item"<officer>"
     Then officer is on Tax Payer Profile List
@@ -231,11 +227,11 @@ Feature: Only authorized users are able to view the list of taxpayers.
     Then User click on page button Last button User should be on Last Page
 
     Examples: 
-      | Test Case ID                    | Description                                                 | officer    | uname            | pwd   |
-      | DRC_ATC_TaxPayerProfile_List_06 | Validate the Pagination Button Functionality of First , Last,Next, Previous ,Page Number Search Button.| Taxofficer | jitesh.prajapati | admin |
+      | Test Case ID                    | Description                                                                                             | officer    | uname            | pwd   |
+      | DRC_ATC_TaxPayerProfile_List_06 | Validate the Pagination Button Functionality of First , Last,Next, Previous ,Page Number Search Button. | Taxofficer | jitesh.prajapati | admin |
 
   @Mtc_taxofficer_09 @taxofficer
-  Scenario Outline: Validate the NITVA, NIF, Tax Payer, Address, Business Type , Tax Office of the Tax payer is correctly displayed  after VAT registration is approved successfully of the User.
+  Scenario Outline: Validate the NITVA, NIF, Tax Payer, Address, Business Type , Tax Office of the Tax payer is correctly displayed  after VAT registration is approved successfully of the User internal portal.
     Given "<Test Case ID>""<Description>"the Officer"<officer>" has logged in internal portal"<uname>""<pwd>"
     When Clicks on Tax Payer Profile Menu item"<officer>"
     Then officer is on Tax Payer Profile List
@@ -244,11 +240,11 @@ Feature: Only authorized users are able to view the list of taxpayers.
     Then Observes NITVA"<NITVA>"field
 
     Examples: 
-      | Test Case ID                    | Description                                                 | officer    | uname         | pwd   | nif             | name      | add  | btype         | taxoffice | NITVA             |
+      | Test Case ID                    | Description                                                                                                                                                                   | officer    | uname         | pwd   | nif             | name      | add  | btype         | taxoffice | NITVA             |
       | DRC_ATC_TaxPayerProfile_List_08 | Validate the NITVA, NIF, Tax Payer, Address, Business Type , Tax Office of the Tax payer is correctly displayed  after VAT registration is approved successfully of the User. | Taxofficer | jitesh.mistry | admin | 341534475893759 | Lokuncopr | add, | Manufacturing | Aketi     | 20180830103151090 |
 
   @Mtc_taxofficer_08 @taxofficer
-  Scenario Outline: Validate the Pagination Functionality by using Page Number Search Option
+  Scenario Outline: Validate the Pagination Functionality by using Page Number Search Option internal portal
     Given "<Test Case ID>""<Description>"the Officer"<officer>" has logged in internal portal"<uname>""<pwd>"
     When Clicks on Tax Payer Profile Menu item"<officer>"
     Then officer is on Tax Payer Profile List
@@ -259,7 +255,7 @@ Feature: Only authorized users are able to view the list of taxpayers.
       | DRC_ATC_TaxPayerProfile_List_07 | Validate the Pagination Functionality by using Page Number Search Option. | Taxofficer | jitesh.mistry | admin |
 
   @Mtc_taxofficer_10 @taxofficer @ReviewInProgress @Status
-  Scenario Outline: Validate that profile is not getting listed in the Tax Payer List if the user submitted the form but the status is Review In Progress
+  Scenario Outline: Validate that profile is not getting listed in the Tax Payer List if the user submitted the form but the status is Review In Progress internal portal
     Given "<Test Case ID>""<Description>"the Officer"<officer>" has logged in internal portal"<uname>""<pwd>"
     When Clicks on Tax Payer Profile Menu item"<officer>"
     Then User Search using NIF"<nif>"
@@ -278,6 +274,6 @@ Feature: Only authorized users are able to view the list of taxpayers.
     Then No record found Messages "<msg>"should be displayed
 
     Examples: 
-      | Test Case ID                    | Description                                                                                                                            | officer    | uname         | pwd   | nif          | msg              |
-      | DRC_ATC_TaxPayerProfile_List_10 | Validate that profile is not getting listed in the Tax Payer List if the user submitted the form but the status is On Hold             | Taxofficer | jitesh.mistry | admin | 456456456464 | No records found |
-      | DRC_ATC_TaxPayerProfile_List_11 | Validate that profile is not getting listed in the Tax Payer List if the user submitted the VAT Application and the Status is Rejected | Taxofficer | jitesh.mistry | admin | bmpTWO       | No records found |
+      | Test Case ID                    | Description                                                                                                                            | officer    | uname         | pwd   | nif      | msg              |
+      # | DRC_ATC_TaxPayerProfile_List_10 | Validate that profile is not getting listed in the Tax Payer List if the user submitted the form but the status is On Hold             | Taxofficer | jitesh.mistry | admin | 456456456464 | No records found |
+      | DRC_ATC_TaxPayerProfile_List_11 | Validate that profile is not getting listed in the Tax Payer List if the user submitted the VAT Application and the Status is Rejected | Taxofficer | jitesh.mistry | admin | 1t2r3e1t | No records found |

@@ -19,11 +19,13 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import static org.drc.vat.appmanager.HelperBase.logout;
+import static org.drc.vat.appmanager.HelperBase.wd;
 import static org.drc.vat.appmanager.HelperBase.assertEnding;
-@CucumberOptions(features = {"classpath:features/userRegistration.feature"},
+@CucumberOptions(features = {"classpath:features/DebtManagementLandingScreen.feature","classpath:features/DebtManagementUnassignedDebt.feature"},
        glue = "org.drc.vat.StepDefinitions",
         plugin = {"com.cucumber.listener.ExtentCucumberFormatter:",
-                  "html:test-output/cucumber-report"},tags= {"@Invalid_Registration"}
+                  "html:test-output/cucumber-report"}
+                  
 )
 public class TestRunner extends AbstractTestNGCucumberTests {
     private Logger logger = LoggerFactory.getLogger(TestRunner.class);
@@ -31,6 +33,7 @@ public class TestRunner extends AbstractTestNGCucumberTests {
     private String timestamp = new SimpleDateFormat("_HHmmss").format(new Date());
     private static ApplicationManager app =
             new ApplicationManager((System.getProperty("browser", BrowserType.CHROME)));
+    
     @BeforeSuite
     public void setUP_Mobilenop() throws IOException, AWTException
     {
@@ -48,12 +51,30 @@ public class TestRunner extends AbstractTestNGCucumberTests {
         
         Reporter.setSystemInfo("user", System.getProperty("user.name"));
     }
-    @Before
+/*    @Before
     public void startScenario(Scenario scenario) throws IOException 
     {
     	//app.callurl();
     	logger.info("Start scenario: " + scenario.getName());
+    	//wd.get("http://103.249.120.58:8042");
+
+    }*/
+    @Before
+    public void startScenario(Scenario scenario) throws IOException, AWTException, InterruptedException 
+    {	
+    	if (scenario.getName().toLowerCase().contains("internal portal"))    	{	    	
+    		app.callinternalportal();   
+    		}		
+    		
+
+    	else
+    	{
+    		app.callurl();
+    	}
+    	Thread.sleep(5000);
+    	logger.info("Start scenario: " + scenario.getName());
     }
+
     @After
     public void endScenario(Scenario scenario) throws Exception {
     	  

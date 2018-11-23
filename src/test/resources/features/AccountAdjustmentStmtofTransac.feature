@@ -16,7 +16,7 @@
 #""
 ## (Comments)
 #Sample Feature Definition Template
-@AccountAdjustment
+@AccountAdjustment @3012
 Feature: Account Adjustment Statement of Transaction TaxPayer Profile & Objection
 
   @1882mtc1 @1882mtc30 @1882mtc31

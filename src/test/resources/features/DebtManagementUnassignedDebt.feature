@@ -17,10 +17,10 @@
 ## (Comments)
 #Sample Feature Definition Template
 @DebtManagementUnAssignedDebt
-Feature: The Supervisor can assign the collection officer the pending amount from the TaxPayer
+Feature: The Supervisor can assign the collection officer the pending amount from the TaxPayer 
 
   @mtc_19
-  Scenario Outline: Validate the close (X) icon functionality on officer selection Pop-up
+  Scenario Outline: Validate the close (X) icon functionality on officer selection Pop-up internal portal
     Given "<Test Case ID>""<Description>"DGI "<officer>""<uname>""<password>""<location>"should be logged in to the internal portal
     When clicked on Debt Management Module must be on Debt Management Module
     When Clicked on pending amount for "<ageing>"
@@ -32,7 +32,7 @@ Feature: The Supervisor can assign the collection officer the pending amount fro
       | DRC_ATC_DebtManagement_Unassigned_18 | Validate the close (X) icon functionality on officer selection Pop-up | 0-3 Months |
 
   @mtc_03
-  Scenario Outline: Validate the date picker functionality.
+  Scenario Outline: Validate the date picker functionality internal portal.
     Given "<Test Case ID>""<Description>"DGI "<officer>""<uname>""<password>""<location>"should be logged in to the internal portal
     When clicked on Debt Management Module must be on Debt Management Module
     When Clicked on pending amount for "<ageing>"
@@ -44,7 +44,7 @@ Feature: The Supervisor can assign the collection officer the pending amount fro
       | DRC_ATC_DebtManagement_Unassigned_03 | Validate the close (X) icon functionality on officer selection Pop-up | 0-3 Months |
 
   @mtc_04
-  Scenario Outline: Validate the sorting functionality
+  Scenario Outline: Validate the sorting functionality internal portal
     Given "<Test Case ID>""<Description>"DGI "<officer>""<uname>""<password>""<location>"should be logged in to the internal portal
     When clicked on Debt Management Module must be on Debt Management Module
     When Clicked on pending amount for "<ageing>"
@@ -53,17 +53,17 @@ Feature: The Supervisor can assign the collection officer the pending amount fro
     Then "NITVA" should be in ascending order
     Then clicks on "NITVA" column on Debt Management
     Then "NITVA" should be in descending order
-    Then clicks on "TaxPayer" column on Debt Management
+    Then clicks on "Taxpayer" column on Debt Management
     Then "TaxPayer" should be in ascending order
-    Then clicks on "TaxPayer" column on Debt Management
+    Then clicks on "Taxpayer" column on Debt Management
     Then "TaxPayer" should be in descending order
     Then clicks on "City" column on Debt Management
     Then "City" should be in ascending order
     Then clicks on "City" column on Debt Management
     Then "City" should be in descending order
-    Then clicks on "ageing" column on Debt Management
+    Then clicks on "<ageing>" column on Debt Management
     Then "ageing" should be in ascending order
-    Then clicks on "ageing" column on Debt Management
+    Then clicks on "<ageing>" column on Debt Management
     Then "ageing" should be in descending order
     Then clicks on "Others" column on Debt Management
     Then "Others" should be in ascending order
@@ -79,7 +79,7 @@ Feature: The Supervisor can assign the collection officer the pending amount fro
       | DRC_ATC_DebtManagement_Unassigned_04 | Validate the sorting functionality | 0-3 Months |
 
   @mtc_05
-  Scenario Outline: Validate the Filter drop down functionality on Debt screen
+  Scenario Outline: Validate the Filter drop down functionality on Debt screen internal portal
     Given "<Test Case ID>""<Description>"DGI "<officer>""<uname>""<password>""<location>"should be logged in to the internal portal
     When clicked on Debt Management Module must be on Debt Management Module
     When Clicked on pending amount for "<ageing>"
@@ -89,10 +89,10 @@ Feature: The Supervisor can assign the collection officer the pending amount fro
 
     Examples: 
       | Test Case ID                         | Description                                                | ageing     | nitva             |
-      | DRC_ATC_DebtManagement_Unassigned_05 | Validate the Filter drop down functionality on Debt screen | 0-3 Months | 20180912112636754 |
+      | DRC_ATC_DebtManagement_Unassigned_05 | Validate the Filter drop down functionality on Debt screen | 0-3 Months | 20181112014138931 |
 
   @mtc_14
-  Scenario Outline: Validate view icon functionality
+  Scenario Outline: Validate view icon functionality internal portal
     Given "<Test Case ID>""<Description>"DGI "<officer>""<uname>""<password>""<location>"should be logged in to the internal portal
     When clicked on Debt Management Module must be on Debt Management Module
     When Clicked on pending amount for "<ageing>"
@@ -105,7 +105,7 @@ Feature: The Supervisor can assign the collection officer the pending amount fro
       | DRC_ATC_DebtManagement_Unassigned_14 | Validate view icon functionality | 0-3 Months |
 
   @mtc_12
-  Scenario Outline: Validate previous button functionality.
+  Scenario Outline: Validate previous button functionality internal portal.
     Given "<Test Case ID>""<Description>"DGI "<officer>""<uname>""<password>""<location>"should be logged in to the internal portal
     When clicked on Debt Management Module must be on Debt Management Module
     When Clicked on pending amount for "<ageing>"
@@ -117,7 +117,7 @@ Feature: The Supervisor can assign the collection officer the pending amount fro
       | DRC_ATC_DebtManagement_Unassigned_12 | Validate previous button functionality. | 0-3 Months |
 
   @mtc_15 @TotalAgeBracket
-  Scenario Outline: Verify the total (FC) tile on list of Pending Debt Taxpayer.
+  Scenario Outline: Verify the total (FC) tile on list of Pending Debt Taxpayer internal portal.
     Given "<Test Case ID>""<Description>"DGI "<officer>""<uname>""<password>""<location>"should be logged in to the internal portal
     When clicked on Debt Management Module must be on Debt Management Module
     When Clicked on pending amount for "<ageing>"
@@ -129,7 +129,7 @@ Feature: The Supervisor can assign the collection officer the pending amount fro
       | DRC_ATC_DebtManagement_Unassigned_15 | Verify the total (FC) tile on list of Pending Debt Taxpayer. | 0-3 Months |
 
   @mtc_16 @TotalOther
-  Scenario Outline: Verify the Others (FC) tile on list of Pending Debt Taxpayer page
+  Scenario Outline: Verify the Others (FC) tile on list of Pending Debt Taxpayer page internal portal
     Given "<Test Case ID>""<Description>"DGI "<officer>""<uname>""<password>""<location>"should be logged in to the internal portal
     When clicked on Debt Management Module must be on Debt Management Module
     When Clicked on pending amount for "<ageing>"
@@ -141,7 +141,7 @@ Feature: The Supervisor can assign the collection officer the pending amount fro
       | DRC_ATC_DebtManagement_Unassigned_16 | Verify the Other (FC) tile on list of Pending Debt Taxpayer page | 0-3 Months |
 
   @mtc_17 @Total
-  Scenario Outline: Verify the total (FC) tile on list of Pending Debt Taxpayer.
+  Scenario Outline: Verify the total (FC) tile on list of Pending Debt Taxpayer internal portal.
     Given "<Test Case ID>""<Description>"DGI "<officer>""<uname>""<password>""<location>"should be logged in to the internal portal
     When clicked on Debt Management Module must be on Debt Management Module
     When Clicked on pending amount for "<ageing>"
@@ -153,7 +153,7 @@ Feature: The Supervisor can assign the collection officer the pending amount fro
       | DRC_ATC_DebtManagement_Unassigned_17 | Verify the total (FC) tile on list of Pending Debt Taxpayer. | 0-3 Months |
 
   @mtc_07
-  Scenario Outline: Validate the Search button functionality with only value in From field
+  Scenario Outline: Validate the Search button functionality with only value in From field internal portal
     Given "<Test Case ID>""<Description>"DGI "<officer>""<uname>""<password>""<location>"should be logged in to the internal portal
     When clicked on Debt Management Module must be on Debt Management Module
     When Clicked on pending amount for "<ageing>"
@@ -168,7 +168,7 @@ Feature: The Supervisor can assign the collection officer the pending amount fro
       | DRC_ATC_DebtManagement_Unassigned_07 | Validate the Search button functionality with only value in From field | 0-3 Months | 0-3 Months |    0 |
 
   @mtc_08
-  Scenario Outline: Validate the Search button functionality with only value in to field
+  Scenario Outline: Validate the Search button functionality with only value in to field internal portal
     Given "<Test Case ID>""<Description>"DGI "<officer>""<uname>""<password>""<location>"should be logged in to the internal portal
     When clicked on Debt Management Module must be on Debt Management Module
     When Clicked on pending amount for "<ageing>"
@@ -183,7 +183,7 @@ Feature: The Supervisor can assign the collection officer the pending amount fro
       | DRC_ATC_DebtManagement_Unassigned_08 | Validate the Search button functionality with only value in to field | 0-3 Months | 0-3 Months | 50000 |
 
   @mtc_09
-  Scenario Outline: Validate the Search button functionality
+  Scenario Outline: Validate the Search button functionality internal portal
     Given "<Test Case ID>""<Description>"DGI "<officer>""<uname>""<password>""<location>"should be logged in to the internal portal
     When clicked on Debt Management Module must be on Debt Management Module
     When Clicked on pending amount for "<ageing>"
@@ -196,7 +196,7 @@ Feature: The Supervisor can assign the collection officer the pending amount fro
       | DRC_ATC_DebtManagement_Unassigned_09 | Validate the Search button functionality | 0-3 Months | 0-3 Months | 50000 |
 
   @mtc_06
-  Scenario Outline: Validate the Reset button functionality
+  Scenario Outline: Validate the Reset button functionality internal portal
     Given "<Test Case ID>""<Description>"DGI "<officer>""<uname>""<password>""<location>"should be logged in to the internal portal
     When clicked on Debt Management Module must be on Debt Management Module
     When Clicked on pending amount for "<ageing>"
@@ -208,7 +208,7 @@ Feature: The Supervisor can assign the collection officer the pending amount fro
       | DRC_ATC_DebtManagement_Unassigned_06 | Validate the Reset button functionality | 0-3 Months |
 
   @mtc_13 @columnverify
-  Scenario Outline: Verify the tax payer details columns (NITVA, Tax payer Name, City)
+  Scenario Outline: Verify the tax payer details columns (NITVA, Tax payer Name, City) internal portal
     Given "<Test Case ID>""<Description>"DGI "<officer>""<uname>""<password>""<location>"should be logged in to the internal portal
     When clicked on Debt Management Module must be on Debt Management Module
     When Clicked on pending amount for "<ageing>"
@@ -219,8 +219,8 @@ Feature: The Supervisor can assign the collection officer the pending amount fro
       | Test Case ID                         | Description                                                        | ageing     |
       | DRC_ATC_DebtManagement_Unassigned_13 | Verify the tax payer details columns (NITVA, Tax payer Name, City) | 0-3 Months |
 
-  @mtc_11
-  Scenario Outline: Validate the pagination functionality
+  @mtc_11 
+  Scenario Outline: Validate the pagination functionality internal portal
     Given "<Test Case ID>""<Description>"DGI "<officer>""<uname>""<password>""<location>"should be logged in to the internal portal
     When clicked on Debt Management Module must be on Debt Management Module
     When Clicked on pending amount for "<ageing>"
@@ -235,7 +235,7 @@ Feature: The Supervisor can assign the collection officer the pending amount fro
       | DRC_ATC_DebtManagement_Unassigned_11 | Validate the pagination functionality | 0-3 Months |
 
   @mtc_10 @mtc18
-  Scenario Outline: Validate Assign officer button functionality
+  Scenario Outline: Validate Assign officer button functionality internal portal
     Given "<Test Case ID>""<Description>"DGI "<officer>""<uname>""<password>""<location>"should be logged in to the internal portal
     When clicked on Debt Management Module must be on Debt Management Module
     When Clicked on pending amount for "<ageing>"
@@ -249,7 +249,7 @@ Feature: The Supervisor can assign the collection officer the pending amount fro
       | DRC_ATC_DebtManagement_Unassigned_10 | Validate Assign officer button functionality | 0-3 Months |
 
   @mtc_02
-  Scenario Outline: Validate the assign officer button functionality with valid data
+  Scenario Outline: Validate the assign officer button functionality with valid data internal portal
     Given "<Test Case ID>""<Description>"DGI "<officer>""<uname>""<password>""<location>"should be logged in to the internal portal
     When clicked on Debt Management Module must be on Debt Management Module
     When Clicked on pending amount for "<ageing>"

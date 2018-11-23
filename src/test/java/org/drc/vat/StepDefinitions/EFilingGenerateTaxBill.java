@@ -17,7 +17,7 @@ import static org.drc.vat.appmanager.HelperBase.sleepWait;
 
 import org.testng.asserts.SoftAssert;
 import static org.drc.vat.appmanager.HelperBase.elementText;
-import static org.drc.vat.appmanager.HelperBase.TaxpayerURL;
+//import static org.drc.vat.appmanager.HelperBase.TaxpayerURL;
 import static org.drc.vat.appmanager.HelperBase.assertMsg;
 import static org.drc.vat.appmanager.HelperBase.logout;
 

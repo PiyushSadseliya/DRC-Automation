@@ -10,6 +10,7 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.Proxy;
 import org.openqa.selenium.TakesScreenshot;
@@ -74,7 +75,7 @@ public class ApplicationManager {
 
         wd.manage().window().maximize();
         wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        wd.get(properties.getProperty("web.Url"));
+       // wd.get(properties.getProperty("web.Url"));
         //auth();
 
         helperBase = new HelperBase(wd);
@@ -97,6 +98,25 @@ public class ApplicationManager {
     public File takeScreenshotAsFile() {
         return ((TakesScreenshot) wd).getScreenshotAs(OutputType.FILE);
     }
+ // application manager  
+    public void callinternalportal()throws AWTException, InterruptedException, IOException
+        {
+    
+        if(!wd.getCurrentUrl().contains("8068")) {
+        	Thread.sleep(5000);
+        	wd.get("http://103.249.120.58:8044");
+        	Runtime.getRuntime().exec("F:\\DRC\\Automation\\drc_vat\\DRC_VAT\\autoitsample.exe");
+        	wd.findElement(By.xpath("//*[contains (@title,'Windows Authentication')]")).click();
+            Thread.sleep(5000);}
+        }
+
+     public void callurl() throws AWTException, InterruptedException
+        {
+    	 System.out.println(wd.getCurrentUrl());
+        if(!wd.getCurrentUrl().contains("8042"))	{
+        wd.get(properties.getProperty("web.Url"));
+        }
+        }
 
 /*
     private void auth() throws AWTException {

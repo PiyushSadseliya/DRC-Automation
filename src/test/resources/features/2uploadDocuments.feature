@@ -2,7 +2,7 @@
 Feature: Upload Documents after all process are completed till the Banks details
 
   #Individual 4 docs poa*,a/c*,loa*,lyr
-  @Individual
+  @Individual_mtc6_mtc12_mtc10
   Scenario Outline: Tax payer Category as  Natural Person and  Tax payer Sub Category as Individual user wants to upload the document
     Given The users has logged in "<uname>""<pwd>" and proceeds for VAT Registration "<Test Case ID>" "<Description>"
     When Selects taxpayer "Natural Person" and sub category "Individual" and llp ""
@@ -19,26 +19,26 @@ Feature: Upload Documents after all process are completed till the Banks details
 
     Examples: 
       | Test Case ID                  | Description                                                                                                                               | POA         | POA path           | A/C Proof | a/c path           | LOAuth    | LOAuthpath         | Revenue   | Revpath            | uname                 | pwd    |
-      #| DRC_ATC_Valid_Required_doc_01 | Tax payer Category as  Natural Person and  Tax payer Sub Category as Individual user wants to upload the document (.png)                  | doc_desc1_1 | Capture.png        | doc_desc3 | Capture.png        | doc_desc5 | Capture.png        | doc_desc4 | Capture.png        | nov13@sharklasers.com | 123456 |
-      #| DRC_ATC_Valid_Required_doc_02 | Tax payer Category as  Natural Person and  Tax payer Sub Category as Individual user wants to upload the document (.jpg)                  | doc_desc1_1 | capture.jpg        | doc_desc3 | capture.jpg        | doc_desc5 | capture.jpg        | doc_desc4 | capture.jpg        | nov13@sharklasers.com | 123456 |
-      #| DRC_ATC_Valid_Required_doc_03 | Tax payer Category as  Natural Person and  Tax payer Sub Category as Individual user wants to upload the document (.jpeg)                 | doc_desc1_1 | capture.jpeg       | doc_desc3 | capture.jpeg       | doc_desc5 | capture.jpeg       | doc_desc4 | capture.jpeg       | nov13@sharklasers.com | 123456 |
-      #| DRC_ATC_Valid_Required_doc_04 | Tax payer Category as  Natural Person and  Tax payer Sub Category as Individual user wants to upload the document (.pdf)                  | doc_desc1_1 | capture.pdf        | doc_desc3 | capture.pdf        | doc_desc5 | capture.pdf        | doc_desc4 | capture.pdf        | nov13@sharklasers.com | 123456 |
-      #| DRC_ATC_Valid_Required_doc_05 | Tax payer Category as  Natural Person and  Tax payer Sub Category as Individual user wants to upload the document (.gif)                  | doc_desc1_1 | capture.gif        | doc_desc3 | capture.gif        | doc_desc5 | capture.gif        | doc_desc4 | capture.gif        | nov13@sharklasers.com | 123456 |
-      #| DRC_ATC_Valid_Required_doc_06 | Tax payer Category as  Natural Person and  Tax payer Sub Category as Individual user wants to upload the document (.docx)                 | doc_desc1_1 | capture.docx       | doc_desc3 | capture.docx       | doc_desc5 | capture.docx       | doc_desc4 | capture.docx       | nov13@sharklasers.com | 123456 |
-      #| DRC_ATC_Valid_Required_doc_07 | Tax payer Category as  Natural Person and  Tax payer Sub Category as Individual user wants to upload the document (.xlsx)                 | doc_desc1_1 | DRC Test Data.xlsx | doc_desc3 | DRC Test Data.xlsx | doc_desc5 | DRC Test Data.xlsx | doc_desc4 | DRC Test Data.xlsx | nov13@sharklasers.com | 123456 |
+      | DRC_ATC_Valid_Required_doc_01 | Tax payer Category as  Natural Person and  Tax payer Sub Category as Individual user wants to upload the document (.png)                  | doc_desc1_1 | Capture.png        | doc_desc3 | Capture.png        | doc_desc5 | Capture.png        | doc_desc4 | Capture.png        | nov13@sharklasers.com | 123456 |
+      | DRC_ATC_Valid_Required_doc_02 | Tax payer Category as  Natural Person and  Tax payer Sub Category as Individual user wants to upload the document (.jpg)                  | doc_desc1_1 | capture.jpg        | doc_desc3 | capture.jpg        | doc_desc5 | capture.jpg        | doc_desc4 | capture.jpg        | nov13@sharklasers.com | 123456 |
+      | DRC_ATC_Valid_Required_doc_03 | Tax payer Category as  Natural Person and  Tax payer Sub Category as Individual user wants to upload the document (.jpeg)                 | doc_desc1_1 | capture.jpeg       | doc_desc3 | capture.jpeg       | doc_desc5 | capture.jpeg       | doc_desc4 | capture.jpeg       | nov13@sharklasers.com | 123456 |
+      | DRC_ATC_Valid_Required_doc_04 | Tax payer Category as  Natural Person and  Tax payer Sub Category as Individual user wants to upload the document (.pdf)                  | doc_desc1_1 | capture.pdf        | doc_desc3 | capture.pdf        | doc_desc5 | capture.pdf        | doc_desc4 | capture.pdf        | nov13@sharklasers.com | 123456 |
+      | DRC_ATC_Valid_Required_doc_05 | Tax payer Category as  Natural Person and  Tax payer Sub Category as Individual user wants to upload the document (.gif)                  | doc_desc1_1 | capture.gif        | doc_desc3 | capture.gif        | doc_desc5 | capture.gif        | doc_desc4 | capture.gif        | nov13@sharklasers.com | 123456 |
+      | DRC_ATC_Valid_Required_doc_06 | Tax payer Category as  Natural Person and  Tax payer Sub Category as Individual user wants to upload the document (.docx)                 | doc_desc1_1 | capture.docx       | doc_desc3 | capture.docx       | doc_desc5 | capture.docx       | doc_desc4 | capture.docx       | nov13@sharklasers.com | 123456 |
+      | DRC_ATC_Valid_Required_doc_07 | Tax payer Category as  Natural Person and  Tax payer Sub Category as Individual user wants to upload the document (.xlsx)                 | doc_desc1_1 | DRC Test Data.xlsx | doc_desc3 | DRC Test Data.xlsx | doc_desc5 | DRC Test Data.xlsx | doc_desc4 | DRC Test Data.xlsx | nov13@sharklasers.com | 123456 |
       | DRC_ATC_Valid_Required_doc_08 | Tax payer Category as  Natural Person and  Tax payer Sub Category as Individual user wants to upload the document (pdf with greater size) | doc_desc1_1 | TCP_Estimation.pdf | doc_desc3 | TCP_Estimation.pdf | doc_desc5 | TCP_Estimation.pdf | doc_desc4 | TCP_Estimation.pdf | nov13@sharklasers.com | 123456 |
 
   #govt 6docs poa*,a/c*,coi*,establishemnt*,loa*,lyr 9 general details
   #LLP no 6 docs   poa,a/c,coi,loa,lyr.establishemnt
-  @GovernmentEntity
+  @GovernmentEntity_mtc7_mtc12_mtc10_mtc7
   Scenario Outline: Tax payer Category as Legal Entity and  Tax payer Sub Category as Governement Entity user wants to upload the document
     Given The users has logged in "<uname>""<pwd>" and proceeds for VAT Registration "<Test Case ID>" "<Description>"
     When Selects taxpayer "Legal Entity" and sub category "Government Entity" and llp ""
-    And Fills General details "4843758943798" "2018-06-10" "Nov F" "3" "2018-02-12" "Mining" "2018-02-12" "Medium Scale" "8965741235698"
-    And Fills Business address "Confluence Software Dharmadas building 3rd floor" "Ituri" "Bunia" "4563212" "9865327452"
-    And fills Details of Business Promoters "Shah" " 1rivet Building Valsad" "Haut-Uele" "Rungu" "789798" "shah@div.com" "98998945621"
+    And Fills General details "484375891798" "2018-06-10" "Nov M" "3" "2018-02-12" "Mining" "2018-02-12" "Medium Scale" "8965741235698"
+    And Fills Business address "Confluence Software Dharmadas building 3rd floor" "Bas-Uele" "Aketi" "4563212" "9865327452"
+    And fills Details of Business Promoters "Shah" " 1rivet Building Valsad" "Bas-Uele" "Aketi" "789798" "shah@div.com" "98998945621"
     And Selects Authorized signatory no and clicks continue
-    And Fills Bank Details "32145645678" "Nov F" "Advans Bank" "Branch4" and clicks continue
+    And Fills Bank Details "32145645678" "Nov M" "Advans Bank" "Branch4" and clicks continue
     And The user is on the upload the page with Proofs of Add "<POA>""<POA path>"
     And Acc "<A/C Proof>" "<a/c path>"
     And INC "<INCcerti>" "<incpath>"
@@ -50,15 +50,15 @@ Feature: Upload Documents after all process are completed till the Banks details
 
     Examples: 
       | Test Case ID            | Description                                                                                                            | POA        | POA path     | A/C Proof  | a/c path     | INCcerti   | incpath      | LOAuth     | LOAuthpath   | Establish  | Estbpath     | Revenue    | Revpath      | uname                 | pwd    |
-      | DRC_ATC_Required_doc_09 | Tax payer Category as Legal Entity and  Tax payer Sub Category as Governement Entity user wants to upload the document | doc_desc23 | Capture.png  | doc_desc25 | Capture.PNG  | doc_desc22 | Capture.PNG  | doc_desc27 | Capture.PNG  | doc_desc21 | Capture.PNG  | doc_desc26 | Capture.PNG  | nov13@sharklasers.com | 123456 |
-      | DRC_ATC_Required_doc_10 | Tax payer Category as Legal Entity and  Tax payer Sub Category as Governement Entity user wants to upload the document | doc_desc23 | capture.jpg  | doc_desc25 | capture.jpg  | doc_desc22 | capture.jpg  | doc_desc27 | capture.jpg  | doc_desc21 | capture.jpg  | doc_desc26 | capture.jpg  | nov13@sharklasers.com | 123456 |
-      | DRC_ATC_Required_doc_11 | Tax payer Category as Legal Entity and  Tax payer Sub Category as Governement Entity user wants to upload the document | doc_desc23 | capture.jpeg | doc_desc25 | capture.jpeg | doc_desc22 | capture.jpeg | doc_desc27 | capture.jpeg | doc_desc21 | capture.jpeg | doc_desc26 | capture.jpeg | nov13@sharklasers.com | 123456 |
-      | DRC_ATC_Required_doc_12 | Tax payer Category as Legal Entity and  Tax payer Sub Category as Governement Entity user wants to upload the document | doc_desc23 | capture.pdf  | doc_desc25 | capture.pdf  | doc_desc22 | capture.pdf  | doc_desc27 | capture.pdf  | doc_desc21 | capture.pdf  | doc_desc26 | capture.pdf  | nov13@sharklasers.com | 123456 |
-      | DRC_ATC_Required_doc_13 | Tax payer Category as Legal Entity and  Tax payer Sub Category as Governement Entity user wants to upload the document | doc_desc23 | capture.gif  | doc_desc25 | capture.gif  | doc_desc22 | capture.gif  | doc_desc27 | capture.gif  | doc_desc21 | capture.gif  | doc_desc26 | capture.gif  | nov13@sharklasers.com | 123456 |
-      | DRC_ATC_Required_doc_14 | Tax payer Category as Legal Entity and  Tax payer Sub Category as Governement Entity user wants to upload the document | doc_desc23 | capture.docx | doc_desc25 | capture.docx | doc_desc22 | capture.docx | doc_desc27 | capture.docx | doc_desc21 | capture.docx | doc_desc26 | capture.docx | nov13@sharklasers.com | 123456 |
-      | DRC_ATC_Required_doc_15 | Tax payer Category as Legal Entity and  Tax payer Sub Category as Governement Entity user wants to upload the document | doc_desc23 | capture.xlsx | doc_desc25 | capture.xlsx | doc_desc22 | capture.xlsx | doc_desc27 | capture.xlsx | doc_desc21 | capture.xlsx | doc_desc26 | capture.xlsx | nov13@sharklasers.com | 123456 |
+      | DRC_ATC_Required_doc_09 | Tax payer Category as Legal Entity and  Tax payer Sub Category as Governement Entity user wants to upload the document | doc_desc23 | Capture.png  | doc_desc25 | Capture.PNG  | doc_desc22 | Capture.PNG  | doc_desc27 | Capture.PNG  | doc_desc21 | Capture.PNG  | doc_desc26 | Capture.PNG  | atuser119@mailinator.com | Test@123 |
+     # | DRC_ATC_Required_doc_10 | Tax payer Category as Legal Entity and  Tax payer Sub Category as Governement Entity user wants to upload the document | doc_desc23 | capture.jpg  | doc_desc25 | capture.jpg  | doc_desc22 | capture.jpg  | doc_desc27 | capture.jpg  | doc_desc21 | capture.jpg  | doc_desc26 | capture.jpg  | nov13@sharklasers.com | 123456 |
+      #| DRC_ATC_Required_doc_11 | Tax payer Category as Legal Entity and  Tax payer Sub Category as Governement Entity user wants to upload the document | doc_desc23 | capture.jpeg | doc_desc25 | capture.jpeg | doc_desc22 | capture.jpeg | doc_desc27 | capture.jpeg | doc_desc21 | capture.jpeg | doc_desc26 | capture.jpeg | nov13@sharklasers.com | 123456 |
+      #| DRC_ATC_Required_doc_12 | Tax payer Category as Legal Entity and  Tax payer Sub Category as Governement Entity user wants to upload the document | doc_desc23 | capture.pdf  | doc_desc25 | capture.pdf  | doc_desc22 | capture.pdf  | doc_desc27 | capture.pdf  | doc_desc21 | capture.pdf  | doc_desc26 | capture.pdf  | nov13@sharklasers.com | 123456 |
+      #| DRC_ATC_Required_doc_13 | Tax payer Category as Legal Entity and  Tax payer Sub Category as Governement Entity user wants to upload the document | doc_desc23 | capture.gif  | doc_desc25 | capture.gif  | doc_desc22 | capture.gif  | doc_desc27 | capture.gif  | doc_desc21 | capture.gif  | doc_desc26 | capture.gif  | nov13@sharklasers.com | 123456 |
+      #| DRC_ATC_Required_doc_14 | Tax payer Category as Legal Entity and  Tax payer Sub Category as Governement Entity user wants to upload the document | doc_desc23 | capture.docx | doc_desc25 | capture.docx | doc_desc22 | capture.docx | doc_desc27 | capture.docx | doc_desc21 | capture.docx | doc_desc26 | capture.docx | nov13@sharklasers.com | 123456 |
+      #| DRC_ATC_Required_doc_15 | Tax payer Category as Legal Entity and  Tax payer Sub Category as Governement Entity user wants to upload the document | doc_desc23 | capture.xlsx | doc_desc25 | capture.xlsx | doc_desc22 | capture.xlsx | doc_desc27 | capture.xlsx | doc_desc21 | capture.xlsx | doc_desc26 | capture.xlsx | nov13@sharklasers.com | 123456 |
 
-  @IncLLPY
+  @IncLLPY_mtc12_mtc10_mtc8
   Scenario Outline: Tax payer Category as Legal Entity and  Tax payer Sub Category as Incorporated Body and is  LLP user wants to upload the document
     Given The users has logged in and proceeds for VAT Registration "<uname>""<pwd>"
     When Selects taxpayer "Legal Entity" and sub category "Incorporated Bodies" and llp "Yes"
@@ -87,7 +87,7 @@ Feature: Upload Documents after all process are completed till the Banks details
       | DRC_ATC_Required_doc_22 | Tax payer Category as Legal Entity and  Tax payer Sub Category as Incorporated Body and is  LLP user wants to upload the document | doc_desc7 | capture.xlsx | doc_desc9 | capture.xlsx | doc_desc6 | capture.xlsx | doc_desc11 | capture.xlsx | doc_desc12 | capture.xlsx | doc_desc10 | capture.xlsx | nov13@sharklasers.com | 123456 |
 
   #LLP no 5 docs  poa,a/c,coi,loa,lyr
-  @IncLLPN
+  @IncLLPN_mtc12_mtc10_mtc9
   Scenario Outline: Tax payer Category as Legal Entity and  Tax payer Sub Category as Incorporated Body and is not LLP user wants to upload the document
     Given The users has logged in "<uname>""<pwd>" and proceeds for VAT Registration "<Test Case ID>" "<Description>"
     When Selects taxpayer "Legal Entity" and sub category "Incorporated Bodies" and llp "No"
@@ -115,7 +115,7 @@ Feature: Upload Documents after all process are completed till the Banks details
       | DRC_ATC_Required_doc_29 | Tax payer Category as Legal Entity and  Tax payer Sub Category as Incorporated Body and is not LLP user wants to upload the document | doc_desc7 | capture.xlsx | doc_desc9 | capture.xlsx | doc_desc6 | capture.xlsx | doc_desc11 | capture.xlsx | doc_desc10 | capture.xlsx | nov13@sharklasers.com | 123456 |
 
   # non corp llp Yes 7 docs poa,a/c,coi,assoc,loa,llp,lyr #done
-  @NonCopratesLLPY
+  @NonCopratesLLPY_mtc12_mtc10
   Scenario Outline: Tax payer Category as Legal Entity and  Tax payer Sub Category as Other Non Corporates and is LLP user wants to upload the document
     Given The users has logged in "<uname>""<pwd>" and proceeds for VAT Registration "<Test Case ID>" "<Description>"
     When Selects taxpayer "Legal Entity" and sub category "Other Non-Corporates" and llp "Yes"
@@ -145,7 +145,7 @@ Feature: Upload Documents after all process are completed till the Banks details
       | DRC_ATC_Required_doc_36 | Tax payer Category as Legal Entity and  Tax payer Sub Category as Other Non Corporates and is LLP user wants to upload the document | doc_desc14 | capture.xlsx | doc_desc16 | capture.xlsx | doc_desc13 | capture.xlsx | doc_desc18 | capture.xlsx | doc_desc19 | capture.xlsx | doc_desc20 | capture.xlsx | doc_desc17 | capture.xlsx | nov13@sharklasers.com | 123456 |
 
   #other non corporates LLp no 6 docs- Poa,a/c,COI,Assoc REg,LOA,Lyr
-  @NonCopratesLLPN
+  @NonCopratesLLPN_mtc12_mtc10
   Scenario Outline: Tax payer Category as Legal Entity and  Tax payer Sub Category as Other Non Corporates and is not LLP user user wants to upload the document
     Given The users has logged in "<uname>""<pwd>" and proceeds for VAT Registration "<Test Case ID>" "<Description>"
     When Selects taxpayer "Legal Entity" and sub category "Other Non-Corporates" and llp "No"
@@ -173,7 +173,7 @@ Feature: Upload Documents after all process are completed till the Banks details
       | DRC_ATC_Required_doc_42 | Tax payer Category as Legal Entity and  Tax payer Sub Category as Other Non Corporates and is not LLP user user wants to upload the document | doc_desc14 | capture.gif  | doc_desc16 | capture.gif  | doc_desc13 | capture.gif  | doc_desc18 | capture.gif  | doc_desc19 | capture.gif  | doc_desc17 | capture.gif  | nov13@sharklasers.com | 123456 |
       | DRC_ATC_Required_doc_43 | Tax payer Category as Legal Entity and  Tax payer Sub Category as Other Non Corporates and is not LLP user user wants to upload the document | doc_desc14 | capture.xlsx | doc_desc16 | capture.xlsx | doc_desc13 | capture.xlsx | doc_desc18 | capture.xlsx | doc_desc19 | capture.xlsx | doc_desc17 | capture.xlsx | nov13@sharklasers.com | 123456 |
 
-  @Delete
+  @Delete_mtc13_mtc11
   Scenario Outline: Check the Delete Functionality
     Given The users has logged in "<uname>""<pwd>" and proceeds for VAT Registration "<Test Case ID>" "<Description>"
     When Selects taxpayer "Natural Person" and sub category "Individual" and llp ""
@@ -189,7 +189,7 @@ Feature: Upload Documents after all process are completed till the Banks details
       | Test Case ID            | Description                    | POA         | POA path    | uname                 | pwd    |
       | DRC_ATC_Required_doc_44 | Check the Delete Functionality | doc_desc1_1 | Capture.png | nov13@sharklasers.com | 123456 |
 
-  @previouspage
+  @previous_mtc3
   Scenario Outline: User is on Required Documents page and wants to redirect to Bank Details page.
     Given The users has logged in "<uname>""<pwd>" and proceeds for VAT Registration "<Test Case ID>" "<Description>"
     When Selects taxpayer "<Category>" and sub category "<SubCategory>" and llp "<Llp>"

@@ -10,7 +10,8 @@ import static org.drc.vat.appmanager.HelperBase.elementText;
 import static org.drc.vat.appmanager.HelperBase.viewDoc;
 import static org.drc.vat.appmanager.HelperBase.pageSource;
 import static org.drc.vat.appmanager.HelperBase.sleepWait;
-
+import static org.drc.vat.appmanager.HelperBase.login;
+import static org.drc.vat.appmanager.HelperBase.datePicker;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.asserts.SoftAssert;
@@ -20,9 +21,16 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import static org.drc.vat.appmanager.HelperBase.wd;
+import static org.testng.Assert.assertEquals;
 
 import java.io.File;
+import java.util.List;
 
+
+/*
+ * UploadDocuments Class upload documnets based on the Tax Payer Category & Tax Payer SubCategory 
+ * it checks the type of document uploaded size 
+ */
 public class UploadDocuments {
 	String Upload_Msg = "File Uploaded!";
 	String Upload_msgError_size="File size must be less than 2MB.";
@@ -30,7 +38,8 @@ public class UploadDocuments {
 	String doctype_errormsg="Allow only Image and pdf file only!";
 	String pageSource=null;
 	File file =null;
-	double maxMB=2.00;
+	double maxMB=2048.00;
+	boolean requiredDocsPage=false;
 
 	int upload_doc=0;
 	public String cat = null;
@@ -39,21 +48,20 @@ public class UploadDocuments {
 	SoftAssert softAssert = new SoftAssert();
 
 
-	@Given("^The users has logged in and proceeds for VAT Registration$")
-	public void the_users_has_logged_in_and_proceeds_for_VAT_Registration() throws InterruptedException {
+	@Given("^The users has logged in \"([^\"]*)\"\"([^\"]*)\" and proceeds for VAT Registration \"([^\"]*)\" \"([^\"]*)\"$")
+	public void the_users_has_logged_in_and_proceeds_for_VAT_Registration( String uname, String pwd, String arg3, String arg4) throws InterruptedException {
 		// Write code here that turns the phrase above into concrete actions
-		sleepWait(000);
-		type("txtbox_username", "nov05@sharklasers.com");
-		sleepWait(2000);
-		type("txtbox_password", "123456");
+		
+		login(uname,pwd);
+
 
 		sleepWait(1000);
 		clickOn("btn_login", "");
 		// clickOn("send_code","");
-		sleepWait(10000);
+		sleepWait(1000);
 
 		clickOn("checkbox_vat", "");
-		sleepWait(2000);
+		sleepWait(2000); 
 		clickOn("register_button", "");
 		sleepWait(3000);
 		clickOn("btn_continue", "");
@@ -83,8 +91,14 @@ public class UploadDocuments {
 
 			clickOn("partnership_firm", "");
 			sleepWait(5000);
-			//clickOn("option_no", "/span[text()='" + llp + "']");
-			System.out.println("llp ");
+			if(llp.equalsIgnoreCase("yes")) {
+				clickOn("llpYes", "");
+				
+			}else {
+				clickOn("llpno", "");
+			}
+			
+	
 			sleepWait(3000);
 		}
 	}
@@ -94,50 +108,57 @@ public class UploadDocuments {
 			String arg7, String arg8, String arg9) throws InterruptedException {
 		// Write code here that turns the phrase above into concrete actions
 		System.out.println(arg1+arg2+arg3+arg4+arg5+arg6+arg7+arg8+arg9);
-		sleepWait(6000);
+		sleepWait(3000);
 		type("nif", arg1);
-		sleepWait(4000);
+		sleepWait(2000);
+		clickOn("nif_reg_date", "");
+		sleepWait(2000);
+		datePicker(arg2);
 
-		//clickOn("nif_reg_date", "");
-		sleepWait(5000);
-		//clickOn("nifdate", "");
+	
+		
 		sleepWait(1000);
 		// System.out.println(cat);
 		if (cat.equals("Natural Person")) {
 			type("fullname", arg3);
-			clickOn("type_0f_business", "");
+			sleepWait(1500);
+			clickOn("drpdwn_type_0f_business", "");
+			sleepWait(1500);
 			clickOn("span", "[contains(text(),'" + arg4 + "')]");	
 			sleepWait(4000);
-			//clickOn("Business_start_date", "");			
-			//clickOn("busdate", "");
+			clickOn("Business_start_date", "");		
+			sleepWait(2000);
+			datePicker(arg2);
+			sleepWait(1000);
 
-			clickOn("company_size", "");
+			clickOn("drpdwn_company_size", "");
 			sleepWait(1000);
 			clickOn("span", "[contains(text(),'" + arg6 + "')]");
 
-			type("last_revenue", arg7);
+			type("txtbx_last_revenue", arg7);
 		} else {
-			type("business_name", arg3);
-			type("numberofcoi", arg4);
+			type("txtbx_business_name", arg3);
+			type("txtbx_numberofcoi", arg4);
 			sleepWait(3000);
-			//clickOn("dateofincorporation", "");
-			sleepWait(3000);
-			//clickOn("datein", "");
+			clickOn("dateofincorporation", "");
+			sleepWait(2000);
+			datePicker(arg5);
 			sleepWait(1000);
-			clickOn("type_0f_business", "");
+			clickOn("drpdwn_type_0f_business", "");
 			clickOn("span", "[contains(text(),'" + arg6 + "')]");		
 			sleepWait(4000);
-			//clickOn("Business_start_date", "");
+			clickOn("Business_start_date", "");
 			sleepWait(1000);
-			//clickOn("busdate", "");
+			datePicker(arg7);
 			sleepWait(1000);
-			clickOn("company_size", "");
+			clickOn("drpdwn_company_size", "");
 			sleepWait(1000);
 			clickOn("span", "[contains(text(),'" + arg8 + "')]");
 			sleepWait(1000);
-			type("last_revenue", arg9);
+			type("txtbx_last_revenue", arg9);
 			sleepWait(1000);
 		}
+
 
 	}
 
@@ -169,20 +190,20 @@ public class UploadDocuments {
 			type("buspromadd1", P_address1);
 			sleepWait(1000);
 			clickOn("buspromprovince", "");
-			sleepWait(1000);
+			sleepWait(3000);
 			clickOn("span", "[contains(text(),'" + P_province + "')]");
-			sleepWait(1000);
+			sleepWait(3000);
 			WebElement we;
 			we = wd.findElement(By.xpath("(//*[@formcontrolname='cityId'])[1]"));
 			if (we.isEnabled()) {
-				sleepWait(1000);
+				sleepWait(3000);
 				clickOn("buspromcity", "");
-				sleepWait(2000);
+				sleepWait(3000);
 				clickOn("span", "[contains(text(),'" + P_city + "')]");
 			}
-			sleepWait(2000);
+			sleepWait(3000);
 			type("buspromzipcode", P_zipcode);
-			sleepWait(2000);
+			sleepWait(3000);
 			type("buspromemail", P_email);
 			sleepWait(1000);
 			type("busprommobileno", P_Mobileno);
@@ -193,6 +214,7 @@ public class UploadDocuments {
 	public void selects_Authorized_signatory_no_and_clicks_continue() throws InterruptedException {
 		clickOn("input", "[@id='no']");
 		clickOn("btn_continue", "");
+		
 		sleepWait(2000);
 
 	}
@@ -209,12 +231,13 @@ public class UploadDocuments {
 		sleepWait(1000);
 		clickOn("bank_name", "");
 		sleepWait(1000);
-		clickOn("span", "[contains(text(),'" + bank + "')]");
-		WebElement we;
-		// we=wd.findElement(By.xpath("//*[@formcontrolname='bankBranchId']"));
+		clickOn("span", "[contains(text(),'" + bank + "')]");	
+		System.out.println(bank);
+		sleepWait(2000);
 		clickOn("branch_name", "");
-		sleepWait(1000);
+		sleepWait(2000);
 		clickOn("span", "[contains(text(),'" + branch + "')]");
+		System.out.println(branch);
 		sleepWait(1000);
 		clickOn("btn_continue", "");
 		sleepWait(3000);
@@ -349,27 +372,36 @@ public class UploadDocuments {
 	}
 
 	void fileUploadMessage(String lyrpath){
+		String errormessge=null;;
 		System.out.println("File upload Message");
+		List<WebElement> txt_toastMessage=wd.findElements(By.xpath("//div[@id='toast-container']"));
 		pageSource=pageSource();
+		if(txt_toastMessage.size()>0) {
+			errormessge=txt_toastMessage.get(0).getText();
+		}
+		
+		
+		
 		try{
 			file =new File(lyrpath);
 			System.out.println(file.exists());	
+			System.out.println(lyrpath.endsWith(".pdf"));
 
 
 			if(lyrpath.endsWith(".pdf")||lyrpath.endsWith(".jpg")||lyrpath.endsWith(".jpeg")||lyrpath.endsWith(".png")) {
-				if(getFileSizeInMb(file)<=maxMB) {
-					if(pageSource.contains("<div>"+Upload_Msg+"</div>")) {
-						System.out.println("UPload message shown");
-					}					
-					softAssert.assertEquals(true, true,"File Uploaded Succesully with correct message");
-					System.out.println("File Uploaded Succesully with correct message");
+				double filesize=getFileSizeInMb(file);
+				if(filesize<=maxMB && filesize>0) {
+				assertEquals(elementText("txt_fileUploaded0", ""), "Uploaded");					
 				}else {
-					pageSource.contains("<div>"+Upload_msgError_size+"</div>");
-					softAssert.assertEquals(true, true,"Only Document type Matched & Size  is greater than maximum size");
+					assertEquals(errormessge.contains(Upload_msgError_size), true,"Only Document type Matched & Size  is greater than maximum size\"");	
+					requiredDocsPage=true;
+					
+					
 				}
-			}else if((!lyrpath.endsWith(".pdf"))||(!lyrpath.endsWith(".jpg"))||(!lyrpath.endsWith(".jpeg"))||(!lyrpath.endsWith(".png"))) {
-				pageSource.contains("<div>"+doctype_errormsg+"</div>");
-				softAssert.assertEquals(true, true,"Document Type donot match");		
+			}else {
+				
+				assertEquals(pageSource.contains(doctype_errormsg), true,"Document Type donot match");		
+				requiredDocsPage=true;
 		}}
 		catch(Exception e)
 		{
@@ -381,7 +413,9 @@ public class UploadDocuments {
 
 
 		double getFileSizeInMb(File file) {
-			return (double) file.length() / (1024 * 1024);
+			System.out.println((double) file.length() );
+			System.out.println((double) file.length() /1024);
+			return (double) file.length() /  1024;
 
 		}
 
@@ -390,12 +424,21 @@ public class UploadDocuments {
 		public void views_the_files() throws InterruptedException   {
 			// Write code here that turns the phrase above into concrete actions
 			System.out.println("viewed Documents");
+			if(!requiredDocsPage) {
 			viewDoc("btn_view",upload_doc);
+			}
 		}
 
 
 		@Then("^Clicks on Continue\\.$")
 		public void clicks_on_Continue() throws Throwable {
+			clickOn("btn_continue", "");
+			sleepWait(4000);
+			if(requiredDocsPage) {
+				 assertEquals(elementText("h5", ""), "Required Documents");
+			}else {
+			assertEquals(elementText("ack_h3", ""), "Acknowledgment");
+			sleepWait(6000);}
 			// Write code here that turns the phrase above into concrete actions
 			logout();
 		}
@@ -443,13 +486,8 @@ public class UploadDocuments {
 		@Then("^Removes the document$")
 		public void removes_the_document() throws InterruptedException{
 			// Write code here that turns the phrase above into concrete actions
-			clickOn("doc_remove","");
-			sleepWait(2000);
-			clickOn("btn_cancel","");
-			sleepWait(2000);
-			clickOn("btn_delete","");
-			sleepWait(1500);
-			try{
+
+			
 				clickOn("doc_remove","");
 				sleepWait(2000);
 				clickOn("btn_cancel","");
@@ -458,16 +496,9 @@ public class UploadDocuments {
 				sleepWait(2000);
 				clickOn("btn_delete","");
 				sleepWait(1500);
-				if(pageSource().contains("<div>"+delete_msg+"</div>")) {
-					System.out.println("File Deleted Succesully");
-					softAssert.assertEquals(true, true);
-				}
-				else{
-					softAssert.fail();
-				}
-			}catch(Exception e) {
-				e.printStackTrace();
-			}
+				assertEquals(elementText("txt_fileUploaded0", ""), "");	
+
+		
 
 
 		}
@@ -479,4 +510,20 @@ public class UploadDocuments {
 			elementText("page_bank","");
 
 		}
+		@Then("^Logouts$")
+		public void logouts() throws Throwable {
+		sleepWait(1000);
+			logout();
+		}
+		@Then("^Clicks on Continue and user is on Upload Documents$")
+		public void clicks_on_Continue_and_user_is_on_Upload_Documents() throws Throwable {
+		 sleepWait(3000);
+		 clickOn("btn_continue", "");
+		 sleepWait(3000);
+		 assertEquals(elementText("h5", ""), "Required Documents");
+		 
+
+
 	}
+
+}

@@ -16,7 +16,14 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.asserts.SoftAssert;
-
+/*
+ * 
+ * The officer can see  the records of the tax payer whose nitva has been allocated
+ * for The Status Rejected and On HOld Status officer cannot view the profile for particular user
+ * only admin for now officer  is remaining
+ * 
+ * 
+ */
 public class TaxPayerDetailsList {
 	String nif=null;
 	SoftAssert sassert = new SoftAssert();
@@ -28,7 +35,19 @@ public class TaxPayerDetailsList {
 	public void the_Officer_has_logged_in_internal_portal(String arg1, String arg2, String arg3, String arg4, String arg5) throws Throwable {
 	      //login
 		
-		
+		List <WebElement> vat =wd.findElements(By.xpath("//h3[contains(text(),'VAT')]"));
+		if(!wd.getCurrentUrl().contains("8068")) {
+		if(vat.size()>0) {
+			vat.get(0).click();
+			sleepWait(3000);
+			List <WebElement> sure =wd.findElements(By.xpath("//a[contains(text(),'Sure')]"));
+			
+		}
+		sleepWait(3000);
+		if(wd.getWindowHandles().size()>0) {
+			wd.switchTo().window(wd.getWindowHandles().toArray()[1].toString());
+			}
+	}
    
 	}
 
@@ -54,7 +73,9 @@ public class TaxPayerDetailsList {
 
 	@Then("^Tax Payer Profile Page should get displayed along with  the List of all Registered Tax Payer$")
 	public void tax_Payer_Profile_Page_should_get_displayed_along_with_the_List_of_all_Registered_Tax_Payer() throws Throwable {
-		sassert.assertEquals(buttonEnabled("btn","[contains(text(),'1')]"),true);
+		List <WebElement> taxpayer= wd.findElements(By.xpath("//table/tbody/tr"));
+		
+		sassert.assertEquals(taxpayer.size()>0,true);
 	
    
 	}
@@ -62,6 +83,7 @@ public class TaxPayerDetailsList {
 	@Then("^Select the Option from the Filter by Dropdown as \"([^\"]*)\"$")
 	public void select_the_Option_from_the_Filter_by_Dropdown_as(String arg1) throws Throwable {
 	      clickOn("filterby_tpprofile","");
+	      sleepWait(2000);
 	      dp1=arg1;
 	      List <WebElement> dropdownmenu=wd.findElements(By.cssSelector("ng-option ng-star-inserted"));
 	      if(officer.equals("admin")) {
@@ -91,15 +113,16 @@ public class TaxPayerDetailsList {
 
 	@Then("^Enter valid data in \"([^\"]*)\" Text Box and click on search icon Result should get filtered based on Input in Type Here Text box$")
 	public void enter_valid_data_in_Text_Box_and_click_on_search_icon_Result_should_get_filtered_based_on_Input_in_Type_Here_Text_box(String arg1) throws Throwable {
-	    if(dp1.equals("TaxPayerCategory")||dp1.equals("BusinessType")) {
-	    	clickOn("general","span[@class='ng-arrow'])[2]");
+	    if(dp1.equals("TaxPayerCategory")||dp1.equals("Business type")) {
+	    	sleepWait(2000);
+	    	clickOn("general","span[@class='ng-arrow'])[3]");
 	    	clickOn("span","[text()='"+arg1+"']");
 	    }else {
 		type("input_search_tpprofile",arg1);
 	    }	     
 	      clickOn("btn_searchtprofile","");
-	      if(dp1.equals("BusinessType")||dp1.equals("Location")||dp1.equals("TaxPayerCategory")) {
-	    	  if(dp1.equals("BusinessType")){
+	      if(dp1.equals("Business type")||dp1.equals("Location")||dp1.equals("TaxPayerCategory")) {
+	    	  if(dp1.equals("Business type")){
 	    		  List <WebElement> list1=wd.findElements(By.xpath("//td[5]"));
 	    		  for(WebElement l:list1 ){
 	    			  sassert.assertEquals(l.getText(),dp2);	  
@@ -146,21 +169,23 @@ public class TaxPayerDetailsList {
 
 	@Then("^User clicks on page button\"([^\"]*)\" other than first button ths page should be displayed$")
 	public void user_clicks_on_page_button_other_than_first_button_ths_page_should_be_displayed(String arg1) throws Throwable {
-	      clickOn("btn","[contains(text(),'"+arg1+"')]");
+	      clickOn("a","[contains(text(),'"+arg1+"')]");
    
 	}
 
 	@Then("^User click on page button \"([^\"]*)\" User should be on that page$")
 	public void user_click_on_page_button_User_should_be_on_that_page(String arg1) throws Throwable {
-		 clickOn("btn","[contains(text(),'"+arg1+"')]");
+		 clickOn("a","[contains(text(),'"+arg1+"')]");
 		 
    
 	}
 
 	@Then("^User clicks on page button Next user should be second page$")
 	public void user_clicks_on_page_button_Next_user_should_be_second_page() throws Throwable {
-		clickOn("btn","[contains(text(),'First')]");		
+		clickOn("a","[contains(text(),'First')]");		
+		sleepWait(2000);
 		 clickOn("btn_nextpg_tprofile",""); 
+		 sleepWait(2000);
 		 
 		 
 		 
@@ -168,7 +193,9 @@ public class TaxPayerDetailsList {
 
 	@Then("^User click on page button Previous button User should be on First Page$")
 	public void user_click_on_page_button_Previous_button_User_should_be_on_First_Page() throws Throwable {
+		sleepWait(2000);
 		clickOn("btn_prevpg_tprofile","");
+		sleepWait(2000);
    
 	}
 
@@ -180,7 +207,7 @@ public class TaxPayerDetailsList {
 
 	@Then("^User click on page button Last button User should be on Last Page$")
 	public void user_click_on_page_button_Last_button_User_should_be_on_Last_Page() throws Throwable {
-		sassert.assertEquals(buttonEnabled("btn","[contains(text(),'Last')]"), false);
+		sassert.assertEquals(buttonEnabled("a","[contains(text(),'Last')]"), false);
 		
    
 	}
@@ -188,6 +215,7 @@ public class TaxPayerDetailsList {
 	@Then("^User Search using NITVA\"([^\"]*)\"$")
 	public void user_Search_using_NITVA(String arg1) throws Throwable {
 	      clickOn("filterby_tpprofile","");
+	      sleepWait(2000);
 	      clickOn("span","[contains(text(),'NITVA')]");
    
 	}
@@ -235,7 +263,7 @@ public class TaxPayerDetailsList {
 
 	@Then("^No record found Messages \"([^\"]*)\"should be displayed$")
 	public void no_record_found_Messages_should_be_displayed(String arg1) throws Throwable {
-		sassert.assertEquals(elementText("h2",""),arg1);
+		sassert.assertEquals(elementText("txt_norecd",""),arg1);
    
 	}
 

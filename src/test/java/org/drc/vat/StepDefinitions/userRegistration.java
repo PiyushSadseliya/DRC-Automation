@@ -6,6 +6,7 @@ import cucumber.api.java.en.When;
 import static org.drc.vat.appmanager.HelperBase.*;
 import static org.drc.vat.appmanager.HelperBase.clickOn;
 import static org.drc.vat.appmanager.HelperBase.emailVerification;
+import static org.junit.Assert.assertTrue;
 import static org.testng.Assert.assertEquals;
 import static org.drc.vat.appmanager.HelperBase.change_tab;
 
@@ -18,18 +19,18 @@ import org.openqa.selenium.WebElement;
 import static org.drc.vat.appmanager.HelperBase.cookieclear;
 /*
  * 
- * 
+ * User Registration to create account and login to perform tax related actitvities
  * 
  * 
  */
 public class userRegistration {	
 	int textbox_Maxcount=100;
-	int textbox_Mincount=2;
+	int textbox_Mincount=5;
 	int Email_Maxcount=150;
 	int Email_Mincount=6;
 	int phone_Maxcount=15;
 	int phone_Mincount=10;
-	int password_mincount=8;
+	int password_mincount=6;
 	int password_maxcount=20;
 	boolean maxTextcount=false;
 	boolean minTextcount=false;
@@ -52,7 +53,12 @@ public class userRegistration {
 
 	@Given("^User is on Welcome to DRC Tax Portal page\"([^\"]*)\" \"([^\"]*)\"$")
 	public void user_is_on_Welcome_to_DRC_Tax_Portal_page(String arg1, String arg2) throws Throwable {
-		List <WebElement> l = wd.findElements(By.xpath(""));
+		sleepWait(2000);
+		List <WebElement> buttonSignin = wd.findElements(By.xpath("//button[@title='Back to Sign In']"));
+		if(buttonSignin.size()>0) {
+			clickOn("btn_signin","");			
+		}
+		
 		sleepWait(3000);
 		assertEquals(elementText("h2",""), "Welcome to e-Service Portal");
 	}
@@ -71,7 +77,6 @@ public class userRegistration {
 		
 		//check_page_url("URL_Register");
 	
-
 
 	}
 
@@ -102,12 +107,12 @@ public class userRegistration {
 			
 			sleepWait(2000);	
 		}
-		else if(FullName.length()>textbox_Mincount && FullName.length()<textbox_Maxcount ) {
+		else if(FullName.length()>textbox_Mincount && FullName.length()<=textbox_Maxcount ) {
 			type("txtbx_fullname",FullName);
 			sleepWait(2000);	
 			if(getvalue("txtbx_fullname","").length()==FullName.length()) {				
-				System.out.println("As it is ");
-				showvalidationMessage=false;
+				fullNameValidation=false;
+			
 			}
 		}
 		else {
@@ -117,14 +122,17 @@ public class userRegistration {
 		//Email Field
 		if(Email.length()==0) {
 		type("txtbx_email",Email);
+		emailValidation=true;
 		System.out.println("Email- blank");
 		}
 		else if(Email.length()>Email_Maxcount) {
 			type("txtbx_email",Email);
 			sleepWait(2000);	
+			
 			if(elementText("txtbx_email","").length()==Email.length()) {				
 				System.out.println("As it isEmail ");
 				showvalidationMessage=false;
+				
 			}
 		}
 		
@@ -132,6 +140,7 @@ public class userRegistration {
 			type("txtbx_email",Email);
 
 		}
+		
 		if(Password.length()==0 && ConfirmPassword.length()!=0 ) {
 			type("txtbx_password",Password);
 			type("txtbx_cfpassword",ConfirmPassword);
@@ -146,16 +155,21 @@ public class userRegistration {
 		else if(Password.length()>password_maxcount){
 		type("txtbx_password",Password);
 		type("txtbx_cfpassword",ConfirmPassword);
-		if(elementText("txtbx_password","").length()==password_maxcount) {
-		System.out.println(elementText("txtbx_password",""));
-		showvalidationMessage=false;
+		if(!(getvalue("txtbx_password","").length()==password_maxcount)) {
+			assertTrue("Not Trimmed", true);
+		
 		}}
 		else {
 			type("txtbx_password",Password);
 			type("txtbx_cfpassword",ConfirmPassword);
 		}
 		if(MobileNumber.length()>phone_Maxcount) {
-			showvalidationMessage=false;
+			type("txtbx_phone",MobileNumber);
+			
+			if(!(getvalue("txtbx_phone", "").length()==phone_Maxcount)) {
+				assertTrue("Not Trimmed", true);
+			}
+			
 		}		
 		else {		
 		type("txtbx_phone",MobileNumber);
@@ -184,7 +198,7 @@ public class userRegistration {
 	@Then("^User should be navigated to ThankYou for Registering Page after successful Registration\\.$")
 	public void user_should_be_navigated_to_ThankYou_for_Registering_Page_after_successful_Registration() throws Throwable {
 		check_page_url("URL_Success");		
-		sleepWait(5000);
+		sleepWait(3000);
 
 	}
 	@Then("^checks inbox for verification mail\\.$")
@@ -202,17 +216,31 @@ public class userRegistration {
 	}
 	@Then("^Accepts/Rejects Terms and conditions$")
 	public void accepts_Rejects_Terms_and_conditions() throws Throwable {
-		sleepWait(4000);
+		sleepWait(2000);
 		clickOn("chkbx_agree","");
-		sleepWait(3000);
+		sleepWait(2000);
 		clickOn("btn_accept","");
+		sleepWait(1500);
 	}
 
 	@Then("^Error messages should be shown to user as\"([^\"]*)\"$")
 	public void error_messages_should_be_shown_to_user_as(String validationMessage) throws Throwable {
+		System.out.println(validationMessage.length());
+		if(validationMessage.length()>0) {
+			fullNameValidation=true;
+			emailValidation=true;
+			passwordValidation=true;
+			cpasswordValidation=true;
+			mobValidation=true;
+			
+			
+		}
+	
+		
 		if(fullNameValidation) {
+
 			assertEquals(elementText("txt_fullnamevalidation", ""), validationMessage);         //validation message for Full Name
-			System.out.println(elementText("txt_fullnamevalidation", ""));
+			
 			
 		}
 		if(emailValidation) {
@@ -231,15 +259,8 @@ public class userRegistration {
 			assertEquals(elementText("txt_mobvalidation", ""), validationMessage);				 //validation message for Mobile
 			
 		}
-		if(showvalidationMessage) {
-			System.out.println(showvalidationMessage);
-			
-			//validationMessage(validationMessage);
-		}
-		else {
-			System.out.println("No Validation messages");
-			
-		}
+	
+
 		
 	   
 	}

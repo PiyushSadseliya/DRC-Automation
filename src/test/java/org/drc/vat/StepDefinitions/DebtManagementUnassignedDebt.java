@@ -26,6 +26,20 @@ public class DebtManagementUnassignedDebt {
 	@Given("^\"([^\"]*)\"\"([^\"]*)\"DGI \"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"should be logged in to the internal portal$")
 	public void dgi_should_be_logged_in_to_the_internal_portal(String arg1, String arg2, String arg3, String arg4, String arg5, String arg6) throws Throwable {
 
+		List <WebElement> vat =wd.findElements(By.xpath("//h3[contains(text(),'VAT')]"));
+		if(!wd.getCurrentUrl().contains("8068")) {
+		if(vat.size()>0) {
+			vat.get(0).click();
+			sleepWait(3000);
+			List <WebElement> sure =wd.findElements(By.xpath("//a[contains(text(),'Sure')]"));
+			
+		}
+		sleepWait(3000);
+		if(wd.getWindowHandles().size()>0) {
+			wd.switchTo().window(wd.getWindowHandles().toArray()[1].toString());
+			}
+	}
+		  sleepWait(5000);
 
 	}
 
@@ -46,6 +60,7 @@ public class DebtManagementUnassignedDebt {
 	public void user_is_on_Pending_debts() throws Throwable {
 		sleepWait(5000);	
 		sassert.assertEquals(elementText("txt_heading",""),"Debt Management");
+		sleepWait(2000);
 
 	}
 	@Then("^selects unassigned debt and selects the officer and closes the popup window$")
@@ -71,12 +86,15 @@ public class DebtManagementUnassignedDebt {
 	}
 	@Then("^clicks on \"([^\"]*)\" column on Debt Management$")
 	public void clicks_on_column_on_Debt_Management(String arg1) throws Throwable {
-		clickOn("slash","table//span[text()='"+arg1+"']");
+		sleepWait(2000);
+		clickOn("slash","table//span[text()='"+arg1+"']/following::span");
+		sleepWait(3000);
 
 	}
 
 	@Then("^\"([^\"]*)\" should be in ascending order$")
 	public void should_be_in_ascending_order(String arg1) throws Throwable {
+		sleepWait(2000);
 		List <WebElement> records = wd.findElements(By.xpath("//tbody/tr"));
 		System.out.println(records.size());
 		if(records.size()>1) {
@@ -136,6 +154,7 @@ public class DebtManagementUnassignedDebt {
 			}
 
 		}
+		sleepWait(2000);
 
 	}
 
@@ -250,12 +269,15 @@ public class DebtManagementUnassignedDebt {
 	@Then("^Total amount for that particular\"([^\"]*)\" period  should  be displayed in  ageing bracket \\(FC\\) tile$")
 	public void total_amount_for_that_particular_period_should_be_displayed_in_ageing_bracket_FC_tile(String arg1) throws Throwable {
 		List <WebElement> records = wd.findElements(By.xpath("//tbody/tr"));
-		String totalamt=elementText("div","[contains(text(),'"+arg1+"')]/preceding-sibling::div");	  
-		long amount = 0;		  
+		String totalamt=elementText("div","[contains(text(),'"+arg1+"')]/preceding-sibling::div").replace(".", "").replace(",", ".");	  
+		double amount = 0;		  
+		System.out.println(records.size());
 		for(int i=0;i<records.size();i++) {
-			long l =new Long(wd.findElement(By.xpath("//tr["+i+"+1]/td[5]")).getText());
+			Double l =new Double(wd.findElement(By.xpath("//tr["+i+"+1]/td[5]")).getText().replace(".", "").replace(",", "."));
 			amount = amount + l;    		  
 		}
+		System.out.println(amount);
+		System.out.println(totalamt);
 
 		sassert.assertEquals(String.valueOf(amount), totalamt);
 
@@ -266,7 +288,7 @@ public class DebtManagementUnassignedDebt {
 		String totalamt=elementText("div","[contains(text(),'Others(FC)')]/preceding-sibling::div");	  
 		long amount = 0;		  
 		for(int i=0;i<records.size();i++) {
-			long l =new Long(wd.findElement(By.xpath("//tr["+i+"+1]/td[6]")).getText());
+			long l =new Long(wd.findElement(By.xpath("//tr["+i+"+1]/td[6]")).getText().replace(".", "").replace(",", "."));
 			amount = amount + l;    		  
 		}
 
@@ -276,7 +298,7 @@ public class DebtManagementUnassignedDebt {
 	public void total_amount_should_be_displayed_including_respective_ageing_bracket_FC_Other_FC(String arg1)throws Throwable {
 		int agebkamt=Integer.parseInt(elementText("div","[contains(text(),'Others(FC)')]/preceding-sibling::div"));	  
 		System.out.println(agebkamt);
-		int otheramt=Integer.parseInt(elementText("div","[contains(text(),'"+arg1+"')]/preceding-sibling::div"));	
+		int otheramt=Integer.parseInt(elementText("div","[contains(text(),'"+arg1+"')]/preceding-sibling::div").replace(".", "").replace(",", "."));	
 		System.out.println(otheramt);
 		int l = agebkamt+otheramt;
 		sassert.assertEquals(elementText("div","//div[contains(text(),'Total(FC)')]/preceding-sibling::div"),String.valueOf(l));
