@@ -25,7 +25,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-/*
+/**
  * Manage VAT Registration filter functionality , pagination , Show Entries , Download PDF and Excel , Review-Change Priority and Reassign , sorting 
  */
 public class DV_1377_ManageVatRegistration 
@@ -37,7 +37,8 @@ public class DV_1377_ManageVatRegistration
 	@Given("^User is on Internal Portal \"([^\"]*)\" \"([^\"]*)\"$")
 	public void user_is_on_Internal_Portal(String arg1, String arg2) throws Throwable 
 	{		
-		
+		System.out.println(arg1);
+		System.out.println(arg1);
 		 /* clickOn("tile_vat","");
 		  Set<String> handles = wd.getWindowHandles();
 		    String currentHandle = wd.getWindowHandle();

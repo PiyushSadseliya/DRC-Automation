@@ -12,6 +12,10 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 
+/** 
+ * This contains Calculation part of e filing with check box, save draft,submit,verify,authorized signature,upload file  functionality 
+ */
+
 public class DV_2390_e_filing  
 {
 	public String VAT_Store_DG;
@@ -22,7 +26,12 @@ public class DV_2390_e_filing
 	public String VAT_Store_FPP;
 	public String VAT_Store_Export;
 	public String VAT_Store_Exempt;
-	public String VAT_Store_Nontaxable;
+	public String VAT_Store_Nontaxable;	
+	
+	public String StoreDS1;
+	public String StoreDS2;
+	
+	public String StoreAuthorizedSignatory;
 	
 	public static  String VAT_Store_VR;
 	public static String VAT_Store_SD;
@@ -44,9 +53,7 @@ public class DV_2390_e_filing
 	public static  Float SDC ;
 	public static  Float VDC ;
 	public static  Float PCC ;
-
 	
-	public static  Float FPPS =0.0f;
 
 	public String DG;
 	
@@ -61,38 +68,31 @@ public class DV_2390_e_filing
 	
 	@And("^User Enter email \"([^\"]*)\" and  password \"([^\"]*)\"$")
 	public void user_Enter_email_and_password(String email, String pwd) throws Throwable 
-	{
-		 System.out.print("User Enter  Email");
-		 type("txtbox_username",email);
-		 System.out.print("User Enter  Password");
+	{	
+		
+	
+		 type("txtbox_username",email);		
 		 type("txtbox_password",pwd);
 	}
-
 	@And("^User Click on SignIn$")
 	public void user_Click_on_SignIn() throws Throwable 
 	{
+		sleepWait(1000);
 		clickOn("btn_login", "");		
-		//Thread.sleep(10000);
-		 Thread.sleep(2000);
+		 sleepWait(2000);
 		 clickOn("tile_vat","");
-		 Thread.sleep(2000);
+		 sleepWait(2000);
 		 clickOn("a_sure","");
-		 Thread.sleep(2000);
+		 sleepWait(2000);
 		 wd.switchTo().window(wd.getWindowHandles().toArray()[1].toString());
-		 Thread.sleep(1000);
-	}
-
-	@Then("^User see Dashboard$")
-	public void user_see_Dashboard() throws Throwable 
-	{
-		System.out.println("User is on DaswhBoard ");
+		 sleepWait(1000);
 	}
 	
 	@And("^User check value \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" for Operation Performed$")
 	public void user_check_value_for_Operation_Performed(String DG, String DS1, String DS2, String DGI, String DSI, String FPP, String Export, String Exempt, String Nontaxable) throws Throwable 
 	{
 		type("txt_Delivery_goods", DG);
-	    Thread.sleep(500);
+	    sleepWait(500);
 	    String VAT_Collected_DG= getValue("txt_Delivery_goods");
 	    if(VAT_Collected_DG != DG)
 	    {
@@ -100,57 +100,57 @@ public class DV_2390_e_filing
 	    }
 	
 	    type("txt_Delivercy1", DS1);
-	    Thread.sleep(500);	    
+	    sleepWait(500);	    
 	    String VAT_Collected_DS1= getValue("txt_Delivercy1");
 	    if(VAT_Collected_DS1 != DS1 )
 	    {
 	    	assertTrue(true);
 	    }
-	    Thread.sleep(500);
+	    sleepWait(500);
 	    type("txt_Delivercy2", DS2);
-	    Thread.sleep(500);
+	    sleepWait(500);
 	    String VAT_Collected_DS2= getValue("txt_Delivercy2");
 	    if(VAT_Collected_DS2 != DS2 )
 	    {
 	    	assertTrue(true);
 	    }
 	    type("txt_Delivery_goods_Itself", DGI);
-	    Thread.sleep(500);	    
+	    sleepWait(500);	    
 	    String VAT_Collected_DGI= getValue("txt_Delivery_goods_Itself");
 	    if(VAT_Collected_DGI != DGI )
 	    {
 	    	assertTrue(true);
 	    }
 	    type("txt_Delivery_Services_itself", DSI);
-	    Thread.sleep(500);
+	    sleepWait(500);
 	    String VAT_Collected_DSI= getValue("txt_Delivery_Services_itself");
 	    if(VAT_Collected_DSI != DSI )
 	    {
 	    	assertTrue(true);
 	    }
 	    type("txt_Operational", FPP);
-	    Thread.sleep(500);
+	    sleepWait(500);
 	    String VAT_Collected_FPP= getValue("txt_Operational");
 	    if(VAT_Collected_FPP != FPP )
 	    {
 	    	assertTrue(true);
 	    }
 	    type("txt_Export", Export);
-	    Thread.sleep(500);
+	    sleepWait(500);
 	    String VAT_Collected_Export= getValue("txt_Export");
 	    if(VAT_Collected_Export != Export )
 	    {
 	    	assertTrue(true);
 	    }
 	    type("txt_Exempt", Exempt);
-	    Thread.sleep(500);
+	    sleepWait(500);
 	    String VAT_Collected_Excempt= getValue("txt_Exempt");
 	    if(VAT_Collected_Excempt != Exempt )
 	    {
 	    	assertTrue(true);
 	    }
 	    type("txt_Non_taaxable", Nontaxable);
-	    Thread.sleep(500);
+	    sleepWait(500);
 	    String VAT_Collected_Nontaxable= getValue("txt_Non_taaxable");
 	    if(VAT_Collected_Nontaxable != Nontaxable )
 	    {
@@ -162,7 +162,7 @@ public class DV_2390_e_filing
 	public void user_check_value_for_Tax_Deductible_On(String AI, String AL, String GI, String GL, String RI, String RL, String OI, String OL) throws Throwable 
 	{
 		type("txt_Assest1", AI);
-	    Thread.sleep(500);
+	    sleepWait(500);
 	    String VAT_AI= getValue("txt_Assest1");
 	    if(VAT_AI != AI )
 	    {
@@ -170,7 +170,7 @@ public class DV_2390_e_filing
 	    }	    
 	    
 	    type("txt_Assest2", AL);
-	    Thread.sleep(500);
+	    sleepWait(500);
 	    String VAT_AL= getValue("txt_Assest2");
 	    if(VAT_AL != AL )
 	    {
@@ -178,7 +178,7 @@ public class DV_2390_e_filing
 	    }	    
 	    
 	   type("txt_Goods1", GI);
-	   Thread.sleep(500);
+	   sleepWait(500);
 	   String VAT_GI= getValue("txt_Goods1");
 	    if(VAT_GI != GI )
 	    {
@@ -186,7 +186,7 @@ public class DV_2390_e_filing
 	    }	   
 		
 	    type("txt_Goods2", GL);
-	    Thread.sleep(500);
+	    sleepWait(500);
 	    String VAT_GL= getValue("txt_Goods2");
 	    if(VAT_GL != GL )
 	    {
@@ -194,28 +194,28 @@ public class DV_2390_e_filing
 	    }	    
 	    
 	    type("txt_RawMateria1", RI);
-	    Thread.sleep(500);
+	    sleepWait(500);
 	    String VAT_RI= getValue("txt_RawMateria1");
 	    if(VAT_RI != RI )
 	    {
 	    	assertTrue(true);
 	    }	    
 	    type("txt_RawMateria2", RL);
-	    Thread.sleep(500);
+	    sleepWait(500);
 	    String VAT_RL= getValue("txt_RawMateria2");
 	    if(VAT_RL != RL )
 	    {
 	    	assertTrue(true);
 	    }    
 	    type("txt_OtherGoods1", OI);
-	    Thread.sleep(500);
+	    sleepWait(500);
 	    String VAT_OI= getValue("txt_OtherGoods1");
 	    if(VAT_OI != OI )
 	    {
 	    	assertTrue(true);
 	    }
 	    type("txt_OtherGoods2", OL);
-	    Thread.sleep(500);
+	    sleepWait(500);
 	    String VAT_OL= getValue("txt_OtherGoods2");
 	    if(VAT_OL != OL )
 	    {
@@ -227,7 +227,7 @@ public class DV_2390_e_filing
 	public void user_check_value_for_Adjustment(String VR, String SD, String VD, String PC) throws Throwable 
 	{
 		type("txt_VatReversal",VR);
-		Thread.sleep(500);
+		sleepWait(500);
 		String VAT_VR= getValue("txt_VatReversal");
 		if(VAT_VR != VR )
 		{
@@ -259,7 +259,7 @@ public class DV_2390_e_filing
 	public void user_check_value_for_Tax_Calculation(String VAT3Party) throws Throwable 
 	{
 		type("txt_VatThird",VAT3Party);
-		 String VAT_ThirdParty= getValue("txt_VatThird");
+		String VAT_ThirdParty= getValue("txt_VatThird");
 		if(VAT_ThirdParty !=VAT3Party)
 		{
 			assertTrue(true);
@@ -270,46 +270,46 @@ public class DV_2390_e_filing
 	public void user_entered_value_for_Operation_Performed(String DG, String DS1, String DS2, String DGI, String DSI, String FPP, String Export, String Exempt, String Nontaxable) throws Throwable 
 	{
 		type("txt_Delivery_goods", DG);
-	    Thread.sleep(500);
+	    sleepWait(500);
 	    type("txt_Delivercy1", DS1);
-	    Thread.sleep(500);
+	    sleepWait(500);
 	    type("txt_Delivercy2", DS2);
-	   Thread.sleep(500);
+	   sleepWait(500);
 		
 	    type("txt_Delivery_goods_Itself", DGI);
-	    Thread.sleep(500);
+	    sleepWait(500);
 	    type("txt_Delivery_Services_itself", DSI);
-	    Thread.sleep(500);
+	    sleepWait(500);
 	    type("txt_Operational", FPP);
-	    Thread.sleep(500);
+	    sleepWait(500);
 	    type("txt_Export", Export);
-	    Thread.sleep(500);
+	    sleepWait(500);
 	    type("txt_Exempt", Exempt);
-	    Thread.sleep(500);
+	    sleepWait(500);
 	    type("txt_Non_taaxable", Nontaxable);
-	    Thread.sleep(500);	    
+	    sleepWait(500);	    
 	}
 	
 	@And("^User entered value \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" for Tax Deductible On$")
 	public void user_entered_value_for_Tax_Deductible_On(String AI, String AL, String GI, String GL, String RI, String RL, String OI, String OL) throws Throwable 
 	{
 		type("txt_Assest1", AI);
-	    Thread.sleep(500);
+	    sleepWait(500);
 	    type("txt_Assest2", AL);
-	    Thread.sleep(500);
+	    sleepWait(500);
 	    type("txt_Goods1", GI);
-	   Thread.sleep(500);
-		Thread.sleep(1000);
+	   sleepWait(500);
+		sleepWait(1000);
 	    type("txt_Goods2", GL);
-	    Thread.sleep(500);
+	    sleepWait(500);
 	    type("txt_RawMateria1", RI);
-	    Thread.sleep(500);
+	    sleepWait(500);
 	    type("txt_RawMateria2", RL);
-	    Thread.sleep(500);
+	    sleepWait(500);
 	    type("txt_OtherGoods1", OI);
-	    Thread.sleep(500);
+	    sleepWait(500);
 	    type("txt_OtherGoods2", OL);
-	    Thread.sleep(500);
+	    sleepWait(500);
 	    
 	}
 
@@ -328,21 +328,17 @@ public class DV_2390_e_filing
 		type("txt_VatThird",VAT3Party);				
 	}
 
-	@And("^User click on browser and upload file$")
-	public void user_click_on_browser_and_upload_file() throws Throwable 
-	{
-		
-		
-	}
+
 	@And("^User click on browser and upload file \"([^\"]*)\"$")
 	public void user_click_on_browser_and_upload_file(String upload) throws Throwable 
 	{
-		//clickOn("btn_efile_saveButton","");
-		System.out.println("User will select file from browser");
-		Thread.sleep(1000);
-		wd.findElement(By.xpath("//input[@id='validatedCustomFile']")).click();
+	
+		
+		sleepWait(2000);
+		wd.findElement(By.xpath("(//*[@class='btn btn-primary'])[1]")).click();
 		UploadImage("",upload);
-		Thread.sleep(1000);
+		sleepWait(1000);
+	
 	}
 	@And("^User see uploaded file name in field$")
 	public void user_see_uploaded_file_name_in_field() throws Throwable 
@@ -356,7 +352,7 @@ public class DV_2390_e_filing
 	public void user_see_period_field(String period) throws Throwable 
 	{
 		String expectedMessage = period;
-		Thread.sleep(2000);
+		sleepWait(2000);
 		WebElement element = wd.findElement(By.xpath("//div[contains(text(),'Period:')]//following::div//input"));
 		JavascriptExecutor jse = (JavascriptExecutor)wd;
 		Object message = jse.executeScript("return arguments[0].value", element);
@@ -367,19 +363,34 @@ public class DV_2390_e_filing
 	@And("^User entered value \"([^\"]*)\" \"([^\"]*)\" for Delivery of services$")
 	public void user_entered_value_for_Delivery_of_services(String DS1, String DS2) throws Throwable 
 	{
-		 type("txt_Delivercy1", DS1);
-		    Thread.sleep(500);
+		    type("txt_Delivercy1", DS1);
+		    StoreDS1 = DS1;
+		    sleepWait(500);
+		    
 		    type("txt_Delivercy2", DS2);
-		   Thread.sleep(500);
-	   
+		    StoreDS2 = DS2;
+		    sleepWait(500);	   
+		    
 	}
+	
+	@And("^User check entered value for Delivery of services$")
+	public void user_check_entered_value_for_Delivery_of_services() throws Throwable 
+	{
+		sleepWait(1000);
+		String CheckDS1= getValue("txt_Delivercy1");
+		String CheckDS2= getValue("txt_Delivercy2");		
+		if(StoreDS1.equals(CheckDS1) && StoreDS2.equals(CheckDS2))
+		{
+			assertTrue(true);
+		}
+	}
+	
 
 	@And("^User see message \"([^\"]*)\"$")
 	public void user_see_message(String mess) throws Throwable 
 	{
 		if(wd.findElement(By.xpath("//span[contains(text(),'" + mess + "')]")).isDisplayed() )
-		{		
-			System.out.println("User see sales number for adjustement");
+		{					
 			assertTrue(true);
 		}		   
 	}
@@ -391,7 +402,7 @@ public class DV_2390_e_filing
 		  String VAT_Collected_DG= getValue("txt_Delivery_goods_disable");
 		  if(Float.parseFloat(VAT_Collected_DG)==((Float.parseFloat(DG))*16/100))
 		  {
-			  System.out.println("Pass");
+			  assertTrue(true);
 		  }
 		    
 		    type("txt_Delivercy1",DS1);
@@ -399,62 +410,62 @@ public class DV_2390_e_filing
 		    String VAT_Collected_DS = getValue("txt_Delivercy_disable");
 		    if(Float.parseFloat(VAT_Collected_DS)==((Float.parseFloat(DS2))*16/100))
 		    {
-		    	System.out.println("Pass");
+		    	assertTrue(true);
 		    }   
 		    type("txt_Delivery_goods_Itself",DGI);
 		    String VAT_Collected_DGI=getValue("txt_Delivery_goods_Itself_disable");
 		    if(Float.parseFloat(VAT_Collected_DGI)==((Float.parseFloat(DGI))*16/100))
 		    {
-		    	System.out.println("Pass");
+		    	assertTrue(true);
 		    }
 		    type("txt_Delivery_Services_itself",DSI);
 		    String VAT_Collected_DSI=getValue("txt_Delivery_Services_itself_disable");
 		    if(Float.parseFloat(VAT_Collected_DSI)==((Float.parseFloat(DSI))*16/100))
 		    {
-		    	System.out.println("Pass");
+		    	assertTrue(true);
 		    }
 		    type("txt_Operational",FPP);
 		    String VAT_Collected_FPP=getValue("txt_Operational_disable");
 		    if(Float.parseFloat(VAT_Collected_FPP)==((Float.parseFloat(FPP))*16/100))
 		    {
-		    	System.out.println("Pass");
+		    	assertTrue(true);
 		    }
 		    type("txt_Export",Export);
 		    type("txt_Exempt",Exempt);
 		    type("txt_Non_taaxable",Nontaxable);
 		    
-		    /*
+		    /**
 		     * global test FPP
 		     */
 		    String VAT_Float_FPP = getValue("txt_Operational_disable");
 		    Float VAT_CheckFloat_FPP= Float.parseFloat(VAT_Float_FPP);
 		    VAT_Store_FPP_Check = VAT_CheckFloat_FPP;
 		    
-		    /*
+		    /**
 		     *  Total for 16 % no 1+2+3+4+5 =9 
 		     */
 		    Float Total_VC = ((Float.parseFloat(DG))*16/100) + ((Float.parseFloat(DS2))*16/100) + ((Float.parseFloat(DGI))*16/100)+ ((Float.parseFloat(DSI))*16/100)+((Float.parseFloat(FPP))*16/100);		    
 		    String Total_VCT = getValue("txt_Total2_disable");
 		    if(Total_VC==Float.parseFloat(Total_VCT))
 		    {
-		    	System.out.println("pass");	
+		    	assertTrue(true);
 		    }
 		    
-		    /*
+		    /**
 		     * Declaring global test 
 		     */
 		    
 		    VAT_Store_Total_VC=Total_VC;
 		    
 		    
-		    /*
+		    /**
 		     * Total Taxable Turnover(FC)
 		     */
 		    Float Total_VC_FC = (Float.parseFloat(DG)) + (Float.parseFloat(DS2)) + (Float.parseFloat(DGI))+ (Float.parseFloat(DSI))+(Float.parseFloat(FPP))+(Float.parseFloat(Export))+(Float.parseFloat(Exempt))+(Float.parseFloat(Nontaxable));
 		    String Total_TT=getValue("txt_Total1_disable");
 		     if(Total_VC_FC==Float.parseFloat(Total_TT))
 		    {
-		    	System.out.println("pass");
+		    	 assertTrue(true);
 		    }
 	}
 	
@@ -472,7 +483,7 @@ public class DV_2390_e_filing
 	    String VAT_VD = getValue("txt_VatDeducted");
 	    String VAT_PC = getValue("txt_Recovery");
 	    
-	 //   Float.parseFloat(VAT_VRC);
+	 
 	    Float VAT_Float_VRC= Float.parseFloat(VAT_VRC);
 	    Float VAT_Float_SDC= Float.parseFloat(VAT_SD);
 	    Float VAT_Float_VDC= Float.parseFloat(VAT_VD);
@@ -502,14 +513,14 @@ public class DV_2390_e_filing
 	    {
 	    	if (NetVAT==Float.parseFloat(Total_NetVAT))
 	    	{
-	    		System.out.println("pass");
+	    		assertTrue(true);
 	    	}
 	    }
 	    else
 	    {
 	    	if(NetVAT==Float.parseFloat(Total_VATcredit))
 	    	{
-	    		System.out.println("pass");
+	    		assertTrue(true);
 	    	}
 	    }
 	    
@@ -518,25 +529,25 @@ public class DV_2390_e_filing
 	    	Float TotalForward = (Float.parseFloat(Total_VATcredit)) - (Float.parseFloat(Total_Refund))-(Float.parseFloat(Total_Procurement))-(Float.parseFloat(VAT3Party));
 	      	if (TotalForward==Float.parseFloat(Total_Forward))
 	      	{
-	      		System.out.println("pass");
+	      		assertTrue(true);
 	      	}
 	    }
 	    else
 	    {
 	    	if(Float.parseFloat(Total_Forward)==0)
 	    	{
-	    		System.out.println("pass");
+	    		assertTrue(true);
 	    	}  
 	    }
 	    if (Float.parseFloat(Total_Procurement)==VAT_Store_FPP_Check)
 	    {
-	    	System.out.println("pass");
+	    	assertTrue(true);
 	    }
 
 	    Float TotalPay = Float.parseFloat(Total_NetVAT) -Float.parseFloat(Total_VATcredit)+ Float.parseFloat(Total_Refund)+ Float.parseFloat(Total_Procurement)+Float.parseFloat(VAT3Party);
 	    if (TotalPay==Float.parseFloat(Total_Pay))
 	    {
-	    	System.out.println("Pass");
+	    	assertTrue(true);
 	    }
 	}	
 
@@ -549,7 +560,7 @@ public class DV_2390_e_filing
 		   String TotalAS = getValue("txt_Assest_disable");
 		   if(TotalA==Float.parseFloat(TotalAS))
 		   {
-			   System.out.println("pass");	
+			   assertTrue(true);	
 		   }
 		    type("txt_Goods1",GI);
 		    type("txt_Goods2",GL);
@@ -557,7 +568,7 @@ public class DV_2390_e_filing
 		    String TotalGS= getValue("txt_Goods_disable");
 		    if(TotalG==Float.parseFloat(TotalGS))
 		    {
-		    	  System.out.println("pass");	
+		    	  assertTrue(true);	
 		    }
 		    type("txt_RawMateria1",RI);
 		    type("txt_RawMateria2",RL);
@@ -566,7 +577,7 @@ public class DV_2390_e_filing
 		    String TotalRS= getValue("txt_RawMateria_disable");
 		    if (TotalR==Float.parseFloat(TotalRS))
 		    {
-		    	System.out.println("pass");
+		    	assertTrue(true);
 		    }
 		    
 		    type("txt_OtherGoods1",OI);
@@ -575,10 +586,10 @@ public class DV_2390_e_filing
 		    String TotalOS=getValue("txt_OtherGoods_disable");
 		    if(TotalO==Float.parseFloat(TotalOS))
 		    {
-		    	System.out.println("pass");
+		    	assertTrue(true);
 		    }
 
-		    /*
+		    /**
 		     * 14 Total deductible = 10+11+12+13 
 		     */
 		    Float TotalD = TotalA + TotalG + TotalR + TotalO;
@@ -586,10 +597,10 @@ public class DV_2390_e_filing
 		    
 		    if (TotalD==Float.parseFloat(TotalDS))
 		    {
-		    	System.out.println("pass");
+		    	assertTrue(true);
 		    }
 		    
-		    /*
+		    /**
 		     * storing global test 
 		     */
 		    
@@ -599,7 +610,7 @@ public class DV_2390_e_filing
 
 	@And("^User validate Amount of VAT Deductible$")
 	public void user_validate_Amount_of_VAT_Deductible() throws Throwable 
-	{    /*
+	{    /**
 	     * Amount of VAT Deductible = Total Deductible + Report of credit carry forward (If Any))
 	     */
 		
@@ -608,16 +619,10 @@ public class DV_2390_e_filing
 		
 	    Float Amount=Float.parseFloat(TotalVatDed)+Float.parseFloat(TotalCC);
 	    String TotalAVD = getValue("txt_AvatDectible_disable");
-	  /*  //Amount =400.0 instead of 400.00
-	    if (Amount==Amount)
-	    {
-	    	System.out.println("pass");
-	    }*/
-	    
-	  
+	
 	    if (Amount==Float.parseFloat(TotalAVD))
 	    {
-	    	System.out.println("pass");
+	    	assertTrue(true);
 	    }	    	    
 	}
 
@@ -626,7 +631,9 @@ public class DV_2390_e_filing
 	public void user_click_on_browse_button() throws Throwable 
 	{
 		//clickOn("btn_Browse_click", "");
-		wd.findElement(By.xpath("//input[@id='validatedCustomFile']")).click();
+		sleepWait(2000);
+		wd.findElement(By.xpath("(//*[@class='btn btn-primary'])[1]")).click();
+		//wd.findElement(By.xpath("//input[@id='validatedCustomFile']")).click();
 	}
 	
 	@And("^User select file format pdf \"([^\"]*)\" and see message \"([^\"]*)\"$")
@@ -635,9 +642,10 @@ public class DV_2390_e_filing
 		UploadImage("", pdf);
 		if(wd.findElement(By.xpath("//*[contains(text(),'" + Mess + "')]")).isDisplayed() )
 		{		
-			System.out.println("User see sales number for adjustement");
+			
 			assertTrue(true);
 		}	
+		sleepWait(1000);
 	}
 
 	@Given("^User select file format image \"([^\"]*)\" and see message \"([^\"]*)\"$")
@@ -646,9 +654,10 @@ public class DV_2390_e_filing
 		UploadImage("", imj);
 		if(wd.findElement(By.xpath("//*[contains(text(),'" + Mess + "')]")).isDisplayed() )
 		{		
-			System.out.println("User see sales number for adjustement");
+			
 			assertTrue(true);
 		}	
+		sleepWait(1000);
 	}
 
 	@Given("^User select file format word \"([^\"]*)\" and see message \"([^\"]*)\"$")
@@ -657,33 +666,36 @@ public class DV_2390_e_filing
 		UploadImage("", word);
 		if(wd.findElement(By.xpath("//*[contains(text(),'" + Mess + "')]")).isDisplayed() )
 		{		
-			System.out.println("User see sales number for adjustement");
+			
 			assertTrue(true);
-		}	
+		}
+		sleepWait(1000);
 	}
 
 	@Given("^User click on browse button and upload file more than two mp \"([^\"]*)\" and validate mess \"([^\"]*)\"$")
 	public void user_click_on_browse_button_and_upload_file_more_than_two_mp_and_validate_mess(String twoMB, String Mess) throws Throwable 
 	{
-		wd.findElement(By.xpath("//input[@id='validatedCustomFile']")).click();
+		wd.findElement(By.xpath("(//*[@class='btn btn-primary'])[1]")).click();
 		UploadImage("", twoMB);
 		if(wd.findElement(By.xpath("//*[contains(text(),'" + Mess + "')]")).isDisplayed() )
 		{		
-			System.out.println("User see sales number for adjustement");
+			
 			assertTrue(true);
 		}	
+		sleepWait(1000);
 	}
 
 	@Given("^User click on browse button and upload file less than two mp \"([^\"]*)\" and user see file name \"([^\"]*)\"$")
 	public void user_click_on_browse_button_and_upload_file_less_than_two_mp_and_user_see_file_name(String lessMB, String Mess) throws Throwable 
 	{
-		wd.findElement(By.xpath("//input[@id='validatedCustomFile']")).click();
+		wd.findElement(By.xpath("(//*[@class='btn btn-primary'])[1]")).click();
 		UploadImage("", lessMB);
 		if(wd.findElement(By.xpath("//*[contains(text(),'" + Mess + "')]")).isDisplayed() )
 		{		
-			System.out.println("User see sales number for adjustement");
+			
 			assertTrue(true);
 		}	
+		sleepWait(1000);
 	}	
 	
 	@And("^User click on cancel button and excel file gets removed and user see \"([^\"]*)\"$")
@@ -691,10 +703,10 @@ public class DV_2390_e_filing
 	{
 		
 		clickOn("btn_Browse_Cancel", "");
-		Thread.sleep(500);
+		sleepWait(500);
 		if(wd.findElement(By.xpath("//*[contains(text(),'" + Mess + "')]")).isDisplayed() )
 		{		
-			System.out.println("User see sales number for adjustement");
+			
 			assertTrue(true);
 		}	
 	}
@@ -702,9 +714,9 @@ public class DV_2390_e_filing
 	@And("^User click on Save draft button and check message \"([^\"]*)\"$")
 	public void user_click_on_Save_draft_button_and_check_message(String draft) throws Throwable 
 	{
-		Thread.sleep(1000);
+		sleepWait(1000);
 		clickOn("btn_efile_saveButton", "");
-		Thread.sleep(500);
+		sleepWait(2000);
 		if(wd.findElement(By.xpath("//*[contains(text(),'" + draft + "')]")).isDisplayed() )
 		{					
 			assertTrue(true);
@@ -720,19 +732,19 @@ public class DV_2390_e_filing
 	@And("^User see Authorized Signatory field is activated$")
 	public void user_see_Authorized_Signatory_field_is_activated() throws Throwable 
 	{
-		Thread.sleep(500);
+		sleepWait(500);
 		if(wd.findElement(By.xpath(obj.getProperty("drp_aut_efile_click"))).isEnabled());
 		 {
 			 assertTrue(true);
 		 }	   
 	}
 
-	@And("^User gain click on checkbox and validate field is deactivated$")
+	@And("^User again click on checkbox and validate field is deactivated$")
 	public void user_gain_click_on_checkbox_and_validate_field_is_deactivated() throws Throwable 
 	{
-		Thread.sleep(500);
+		sleepWait(500);
 		clickOn("checkBox_efile_click", "");
-		Thread.sleep(500);
+		sleepWait(500);
 		if(!wd.findElement(By.xpath(obj.getProperty("drp_aut_efile_click"))).isEnabled());
 		 {
 			 assertTrue(true);
@@ -742,53 +754,63 @@ public class DV_2390_e_filing
 	@And("^User again click on checkbox and click on Authorized Signatory field$")
 	public void user_again_click_on_checkbox_and_click_on_Authorized_Signatory_field() throws Throwable 
 	{
-		Thread.sleep(500);
+		sleepWait(1000);
 		clickOn("checkBox_efile_click", "");
-		Thread.sleep(500);
-		clickOn("drp_aut_efile_click", "");			   
+		sleepWait(500);
+		clickOn("drp_aut_efile_click", "");
+		sleepWait(1000);
+		clickOn("drp_select_efile_click1", "");
+		
+		sleepWait(1000);
+		String AuthorizedSignatory = elementText("drp_aut_efile_click");
+		
+		StoreAuthorizedSignatory = AuthorizedSignatory;			
+		
 	}
 
-	@And("^User see Authorized Signatory name \"([^\"]*)\"$")
-	public void user_see_Authorized_Signatory_name(String name) throws Throwable 
-	{
-		if(wd.findElement(By.xpath("//span[contains(text(),'" + name + "')]")).isDisplayed() )
-		{					
+	@And("^User see Authorized Signatory name$")
+	public void user_see_Authorized_Signatory_name() throws Throwable 
+	{				
+		String CheckAuthorizedSignatory = elementText("drp_aut_efile_click");		
+		if(CheckAuthorizedSignatory.equals(StoreAuthorizedSignatory))
+		{
 			assertTrue(true);
 		}
-		clickOn("drp_aut_efile_click", "");	   
 	}
 
 	@And("^User validate submit button is disable$")
 	public void user_validate_submit_button_is_disable() throws Throwable 
 	{
-		Thread.sleep(500);
+		sleepWait(1000);
+		clickOn("checkBox_efile_click", "");
+		sleepWait(1000);
 		if(!wd.findElement(By.xpath(obj.getProperty("btn_efile_submit"))).isEnabled());
 		 {
 			 assertTrue(true);
 		 }	   
 	}
 
-	@And("^User click on Authorized Signatory \"([^\"]*)\"$")
-	public void user_click_on_Authorized_Signatory(String value) throws Throwable 
+	@And("^User click on Authorized Signatory$")
+	public void user_click_on_Authorized_Signatory() throws Throwable 
 	{
-		Thread.sleep(500);
-		clickOn("drp_aut_efile_click", "");
-		Thread.sleep(1000);
-		clickOn(value, "");	   
+		sleepWait(500);
+		clickOn("checkBox_efile_click", "");
 	}
 
 	@And("^User validate submit button is activate$")
 	public void user_validate_submit_button_is_activate() throws Throwable 
 	{	   
+		sleepWait(500);
 		if(wd.findElement(By.xpath(obj.getProperty("btn_efile_submit"))).isEnabled());
 		 {
 			 assertTrue(true);
 		 }   
 	}
-
+// add ok button to click
 	@And("^User click on previous button and navigate to Vat e-filing page$")
 	public void user_click_on_previous_button_and_navigate_to_Vat_e_filing_page() throws Throwable 
 	{
+		sleepWait(1000);
 		clickOn("btn_efile_Previous", "");
 		if(wd.findElement(By.xpath(obj.getProperty("txt_e_file_landing_Screen"))).isDisplayed());
 		 {
@@ -814,7 +836,7 @@ public class DV_2390_e_filing
 	@And("^User validate Otp pop up window should appear$")
 	public void user_validate_Otp_pop_up_window_should_appear() throws Throwable 
 	{
-		Thread.sleep(500);
+		sleepWait(500);
 		if(wd.findElement(By.xpath(obj.getProperty("txt_efile_verificationCode"))).isDisplayed());
 		 {
 			 assertTrue(true);
@@ -825,7 +847,7 @@ public class DV_2390_e_filing
 	public void user_click_on_verify_button_and_validate_message(String mess) throws Throwable 
 	{
 		clickOn("btn_efile_Verify", "");
-		Thread.sleep(500);
+		sleepWait(500);
 		if(wd.findElement(By.xpath("(//div[contains(text(),'" + mess + "')])[2]")).isDisplayed() )
 		{					
 			assertTrue(true);
@@ -836,7 +858,7 @@ public class DV_2390_e_filing
 	public void user_enter_invalid_data_numbers_and_click_on_verify_and_see_mess(String num, String otp) throws Throwable 
 	{
 		type("txtbox_enter_otp", num);
-		Thread.sleep(500);
+		sleepWait(500);
 		clickOn("btn_efile_Verify", "");
 		if(wd.findElement(By.xpath("//div[contains(text(),'" + otp + "')]")).isDisplayed() )
 		{					
@@ -848,7 +870,7 @@ public class DV_2390_e_filing
 	public void user_enter_invalid_data_special_character_and_click_on_verify_and_see_mess(String special, String otp) throws Throwable 
 	{
 		type("txtbox_enter_otp", special);
-		Thread.sleep(500);
+		sleepWait(500);
 		clickOn("btn_efile_Verify", "");
 		if(wd.findElement(By.xpath("//div[contains(text(),'" + otp + "')]")).isDisplayed() )
 		{					
@@ -860,7 +882,7 @@ public class DV_2390_e_filing
 	public void user_enter_Alpha_numeric_and_click_on_verify_and_see_mess(String alpha, String otp) throws Throwable 
 	{
 		type("txtbox_enter_otp", alpha);
-		Thread.sleep(500);
+		sleepWait(500);
 		clickOn("btn_efile_Verify", "");
 		if(wd.findElement(By.xpath("//div[contains(text(),'" + otp + "')]")).isDisplayed() )
 		{					
@@ -871,21 +893,21 @@ public class DV_2390_e_filing
 	@And("^User click on close icon$")
 	public void user_click_on_close_icon() throws Throwable 
 	{
-		Thread.sleep(1000);
+		sleepWait(1000);
 		clickOn("btn_close_otp", "");
 	}
 
 	@And("^User again click on submit button$")
 	public void user_again_click_on_submit_button() throws Throwable 
 	{
-		Thread.sleep(1000);
+		sleepWait(1000);
 	   clickOn("btn_efile_submit", "");	   
 	}
 
 	@And("^User waits for more than two min and click on verify button and see message \"([^\"]*)\"$")
 	public void user_waits_for_more_than_two_min_and_click_on_verify_button_and_see_message(String mess) throws Throwable 
 	{
-		Thread.sleep(180000);
+		sleepWait(180000);
 		clickOn("btn_efile_Verify", "");
 		if(wd.findElement(By.xpath("//div[contains(text(),'" + mess + "')]")).isDisplayed() )
 		{					

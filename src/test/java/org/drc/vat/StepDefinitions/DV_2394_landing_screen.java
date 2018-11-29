@@ -1,15 +1,12 @@
 package org.drc.vat.StepDefinitions;
 
-import static org.drc.vat.appmanager.HelperBase.clickOn;
-import static org.drc.vat.appmanager.HelperBase.login;
-import static org.drc.vat.appmanager.HelperBase.obj;
-import static org.drc.vat.appmanager.HelperBase.type;
-import static org.drc.vat.appmanager.HelperBase.verifyDownload;
-import static org.drc.vat.appmanager.HelperBase.wd;
 import static org.testng.Assert.assertTrue;
-
+import static org.drc.vat.appmanager.HelperBase.*;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 
 import cucumber.api.java.en.And;
@@ -18,6 +15,30 @@ import cucumber.api.java.en.Then;
 
 public class DV_2394_landing_screen 
 {
+	
+	
+	public static String check_TL;
+	public String StoreMonth;
+	
+	@Then("^User logout$")
+	public void user_logout() throws Throwable 
+	{		
+			sleepWait(2000);
+			clickOn("btn_logout", "");
+			sleepWait(2000);
+			clickOn("link_click", "");
+			sleepWait(1000);			
+	}	
+	
+	
+	@And("^User click on SignIn button$")
+	public void user_click_on_SignIn_button() throws Throwable 
+	{
+		clickOn("btn_login", "");
+	}
+
+	
+	
 	@Given("^User is on Vat e-Filing Page \"([^\"]*)\" \"([^\"]*)\"$")
 	public void user_is_on_Vat_e_Filing_Page(String arg1, String arg2) throws Throwable
 	{
@@ -28,43 +49,86 @@ public class DV_2394_landing_screen
 	@And("^User click on Download Template$")
 	public void user_click_on_Download_Template() throws Throwable 
 	{
-		Thread.sleep(500);
+	   sleepWait(1000);
 	   clickOn("bDownloadTemplate", "");
-	   System.out.println("user click on download template button ");
+	   
+	   verifyDownload("e-filingScheduleTemplate.xlsx");	   
+	  
 	}
 	
 	@Then("^User verify download file$")
 	public void user_verify_download_file() throws Throwable 
 	{
-		Thread.sleep(1000);	
+		sleepWait(1000);	
 		  verifyDownload("Sales-and-Purchase-Transactions");  
-		  Thread.sleep(2000);
+		  sleepWait(2000);
 	}		
 	@And("^User click on Tab$")
 	public void user_click_on_Tab() throws Throwable 
-	{		
-		
-		Thread.sleep(1000);
-		clickOn("menu_vat-e-filing", "");
-		Thread.sleep(1000);
+	{				
+		sleepWait(5000);
+		clickOn("menu_vat-e-filing", "");		
+		sleepWait(1000);
 	}
+	
+	
+	@And("^clicks on e-filing to check$")
+	public void clicks_on_e_filing_to_check() throws Throwable 
+	{
+		sleepWait(2000);
+		for(int i =1;i<=12;i++)
+		{
+			String first_part = "(//div[@class='list-item-th text-left'])[";
+			String second_part ="]";
+		
+			String month = first_part+i+second_part;
+			wd.findElement(By.xpath(month)).click();
+			sleepWait(500);
+			
+			String first_preview ="(//button[text()='Preview'])[";
+			String second_preview="]";
+			
+			String preview = first_preview+i+second_preview;
+			sleepWait(500);
+			Boolean B;
+			try{
+			 B =(wd.findElement(By.xpath(preview)).isDisplayed());
+			}catch(NoSuchElementException ex){
+				B= false;
+			}
+			sleepWait(500);
+			if(B)
+			{
+					continue;
+			}
+			else
+			{														
+				break;
+			}
+		}
+		if(wd.findElement(By.xpath(obj.getProperty("btn_file"))).isEnabled() && !wd.findElement(By.xpath(obj.getProperty("btn_pay_check_disable"))).isEnabled() && !wd.findElement(By.xpath(obj.getProperty("btn_view_check_disable"))).isEnabled())
+		{
+			assertTrue(true);
+		}				
+		
+	}
+
+	
 	
 	@And("^User click on Finicial year dropdown \"([^\"]*)\"$")
 	public void user_click_on_Finicial_year_dropdown(String value) throws Throwable 
 	{
-		Thread.sleep(1000);
-		System.out.println("User click on e Filing Tab");		
-		clickOn("FinancialYear", "");
-		Thread.sleep(2000);
-		clickOn(value,"");
-	    System.out.println("user click on fincial year dropdown");
-	    Thread.sleep(1000);
+		sleepWait(1000);			
+		clickOn("drp_FinancialYear", "");
+		sleepWait(2000);
+		clickOn(value,"");	    
+	    sleepWait(1000);
 	}		
 
 	@And("^User see all month record from that year \"([^\"]*)\" to \"([^\"]*)\"$")
 	public void user_see_all_month_record_from_that_year_to(String TextJan, String TextDec) throws Throwable 
 	{
-		 Thread.sleep(1000);
+		 sleepWait(1000);
 		   WebElement we,we1;
 		   we=wd.findElement(By.xpath(obj.getProperty(TextJan)));
 		   we1=wd.findElement(By.xpath(obj.getProperty(TextDec)));
@@ -72,31 +136,35 @@ public class DV_2394_landing_screen
 		   {
 			   assertTrue(true);
 		   }
-		   Thread.sleep(2000);
+		   sleepWait(2000);
 	}
 	
-	@And("^User see important dates \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
-	public void user_see_important_dates(String txtDate1, String txtDate2, String txtDate3, String txtDate4, String txtDate5, String txtDate6) throws Throwable 
+	
+	@Given("^user see Total Liability$")
+	public void user_see_Total_Liability() throws Throwable 
 	{
-		 WebElement we1,we2,we3,we4,we5,we6;
-		   we1=wd.findElement(By.xpath(obj.getProperty(txtDate1)));
-		   we2=wd.findElement(By.xpath(obj.getProperty(txtDate2)));
-		   we3=wd.findElement(By.xpath(obj.getProperty(txtDate1)));
-		   we4=wd.findElement(By.xpath(obj.getProperty(txtDate2)));
-		   we5=wd.findElement(By.xpath(obj.getProperty(txtDate1)));
-		   we6=wd.findElement(By.xpath(obj.getProperty(txtDate2)));
-		   
-		   if(we1.isDisplayed() && we2.isDisplayed() && we3.isDisplayed() && we4.isDisplayed() && we5.isDisplayed() && we6.isDisplayed())
-		   {
-			   assertTrue(true);
-		   }
-		   Thread.sleep(2000);
+		String Total_Libality = elementText("txt_total_liability_efile");
+		check_TL = Total_Libality;
 	}
+
+	@Given("^User see Total Liability is not changed$")
+	public void user_see_Total_Liability_is_not_changed() throws Throwable 
+	{
+		String Total_Libality = elementText("txt_total_liability_efile");
+		String storeTL= Total_Libality;
+				
+		if(check_TL.equals(storeTL))
+		{
+			assertTrue(true);
+		}
+		
+	}
+	
 
 	@And("^User see File button is enabled for e-filing \"([^\"]*)\"$")
 	public void user_see_File_button_is_enabled_for_e_filing(String eJanC) throws Throwable 
 	{
-		 //WebElement we;
+		 
 		 if(wd.findElement(By.xpath(obj.getProperty(eJanC))).isEnabled());
 		 {
 			 assertTrue(true);
@@ -124,9 +192,9 @@ public class DV_2394_landing_screen
 	@And("^User click on file button \"([^\"]*)\" and navigate to e-declaration page$")
 	public void user_click_on_file_button_and_navigate_to_e_declaration_page(String value) throws Throwable 
 	{
-		Thread.sleep(500);
+		sleepWait(500);
 		clickOn(value,"");
-		Thread.sleep(500);
+		sleepWait(500);
 		if(wd.findElement(By.xpath(obj.getProperty("txt_eFiling"))).isEnabled());
 		 {
 			 assertTrue(true);
@@ -137,63 +205,48 @@ public class DV_2394_landing_screen
 	public void user_entered_value(String arg1, String arg2, String arg3, String arg4, String arg5, String arg6, String arg7, String arg8, String arg9) throws Throwable 
 	{
 	    type("txt_Delivery_goods", arg1);
-	    Thread.sleep(500);
+	    sleepWait(500);
 	    type("txt_Delivercy1", arg2);
-	    Thread.sleep(500);
+	    sleepWait(500);
 	    type("txt_Delivercy2", arg3);
-	   Thread.sleep(500);
-		Thread.sleep(1000);
+	   sleepWait(500);
+		sleepWait(1000);
 	    type("txt_Delivery_Itself", arg4);
-	    Thread.sleep(500);
+	    sleepWait(500);
 	    type("txt_Delivery_Services", arg5);
-	    Thread.sleep(500);
+	    sleepWait(500);
 	    type("txt_Operational", arg6);
-	    Thread.sleep(500);
+	    sleepWait(500);
 	    type("txt_Export", arg7);
-	    Thread.sleep(500);
+	    sleepWait(500);
 	    type("txt_Exempt", arg8);
+	    sleepWait(500);
+	    type("txt_Non_taaxable", arg9);
+	    sleepWait(500);
 	}
 	
 	@And("^User click on check box and click on submit button$")
 	public void user_click_on_check_box_and_click_on_submit_button() throws Throwable 
 	{
-	   Thread.sleep(1000);
+	   sleepWait(1000);
+	  
 	   clickOn("checkBox_efile_click", "");
-	   System.out.println("user click on check box");
-	   Thread.sleep(1000);
+
+	   sleepWait(1000);
 	   clickOn("drp_aut_efile_click", "");
-	   Thread.sleep(500);
+	   sleepWait(500);
 	   clickOn("drp_select_efile_click1", "");
-	   Thread.sleep(500);
+	   sleepWait(500);
 	   clickOn("btn_efile_submit", "");
-	   System.out.println("user click on Submit");
-	}
 
-	@And("^User see OTP and enter OTP$")
-	public void user_see_OTP_and_enter_OTP() throws Throwable 
-	{
-	    System.out.println("User see Enter your OTP ");
-	    Thread.sleep(10000);
+	   sleepWait(1000);
 	}
-
-	@And("^User click Verify button$")
-	public void user_click_Verify_button() throws Throwable 
-	{
-		Thread.sleep(10000);
-		clickOn("btn_efile_Verify", "");
-	}
-
-	@And("^User click on ok button$")
-	public void user_click_on_ok_button() throws Throwable 
-	{
-		Thread.sleep(500);
-		clickOn("btn_efile_OK", ""); 
-	}
+		
 
 	@And("^User is navigate to Tax Calculation page$")
 	public void user_is_navigate_to_Tax_Calculation_page() throws Throwable 
 	{
-		Thread.sleep(500);
+		sleepWait(500);
 		if(wd.findElement(By.xpath(obj.getProperty("txt_Tax_Page"))).isDisplayed());
 		 {
 			 assertTrue(true);
@@ -203,20 +256,112 @@ public class DV_2394_landing_screen
 	@And("^User click on Proceed button and navigate to PAyment of tax page$")
 	public void user_click_on_Proceed_button_and_navigate_to_PAyment_of_tax_page() throws Throwable 
 	{
-		Thread.sleep(1000);
+		sleepWait(1000);
 		clickOn("btn_efile_Proceed", "");
-		Thread.sleep(500);
+		sleepWait(1000);
 		if(wd.findElement(By.xpath(obj.getProperty("txt_PaymentMethod"))).isDisplayed());
 		 {
 			 assertTrue(true);
 		 }   
 	}
+	
+	
+	
+	@And("^clicks on e-filing on landing screen$")
+	public void clicks_on_e_filing_on_landing_screen() throws Throwable 
+	{
+		sleepWait(2000);
+		for(int i =1;i<=12;i++)
+		{
+			String first_part = "(//div[@class='list-item-th text-left'])[";
+			String second_part ="]";
+		
+			String month = first_part+i+second_part;
+			wd.findElement(By.xpath(month)).click();
+			sleepWait(500);
+			
+			String first_preview ="(//button[text()='Preview'])[";
+			String second_preview="]";
+			
+			String preview = first_preview+i+second_preview;
+			sleepWait(500);
+			Boolean B;
+			try{
+			 B =(wd.findElement(By.xpath(preview)).isDisplayed());
+			}catch(NoSuchElementException ex){
+				B= false;
+			}
+			sleepWait(500);
+			if(B)
+			{
+					continue;
+			}
+				else
+				{
+					 StoreMonth = month;															
+					clickOn("btn_file","");							
+					break;
+				}
+		}		
+	}
+
+	@And("^User click on Preview on landing screen$")
+	public void user_click_on_Preview_on_landing_screen() throws Throwable 
+	{
+
+		sleepWait(1000);							
+		wd.findElement(By.xpath(StoreMonth)).click();			
+		sleepWait(1000);			
+		String first_part = StoreMonth;
+		String second_part ="//following::button//following::button";				
+		String month = first_part+second_part;
+		sleepWait(1000);				
+		wd.findElement(By.xpath(month)).click();								
+		sleepWait(1000);
+		if(wd.findElement(By.xpath(obj.getProperty("txt_Check_Pre"))).isDisplayed());
+		 {
+			 assertTrue(true);
+		 }
+		 sleepWait(1000);		 
+		 
+	}
+	
+	
+	@And("^User see Preview button is display and pay button gets enable and user click on pay button$")
+	public void user_see_Preview_button_is_display_and_pay_button_gets_enable_and_user_click_on_pay_button() throws Throwable 
+	{
+				
+		sleepWait(1000);							
+		wd.findElement(By.xpath(StoreMonth)).click();			
+		sleepWait(1000);			
+		String first_part = StoreMonth;
+		String second_part ="//following::button//following::button";
+		String month = first_part+second_part;
+		sleepWait(1000);				
+		String third_part = month;
+		String forth_part = "//following::button";
+		
+		String StorePay = third_part+forth_part;
+		
+		if(wd.findElement(By.xpath(StorePay)).isEnabled())
+		{
+			wd.findElement(By.xpath(StorePay)).click();	
+			assertTrue(true);
+		}
+		
+	
+	}
+	
+	
+
+	
 
 	@And("^User click on cancel button on Payment of tax page and navaigate to e-filing page$")
 	public void user_click_on_cancel_button_on_Payment_of_tax_page_and_navaigate_to_e_filing_page() throws Throwable 
 	{
+		sleepWait(1000);
 		clickOn("btn_Payment_Cancel", "");
-	    Thread.sleep(500);
+	    sleepWait(1000);
 	    if(wd.findElement(By.xpath(obj.getProperty("txt_eFiling"))).isDisplayed());
 		 {
 			 assertTrue(true);
@@ -251,7 +396,7 @@ public class DV_2394_landing_screen
 	public void user_click_on_Preview_button_and_navigate_to_e_declaration_filled_data_page(String preview) throws Throwable 
 	{
 		clickOn(preview, "");
-		Thread.sleep(500);
+		sleepWait(500);
 		if(wd.findElement(By.xpath(obj.getProperty("txt_eFiling"))).isDisplayed());
 		 {
 			 assertTrue(true);
@@ -262,9 +407,9 @@ public class DV_2394_landing_screen
 	@And("^User click on Previous button and user navigate back to e-declaraton Vate-Filing Page$")
 	public void user_click_on_Previous_button_and_user_navigate_back_to_e_declaraton_Vate_Filing_Page() throws Throwable 
 	{
-		Thread.sleep(2000);
+		sleepWait(2000);
 		clickOn("btn_efile_Previous","");
-		Thread.sleep(500);
+		sleepWait(500);
 		if(wd.findElement(By.xpath(obj.getProperty("txt_efiingScreen"))).isDisplayed());
 		 {
 			 assertTrue(true);
@@ -275,14 +420,15 @@ public class DV_2394_landing_screen
 	public void user_click_on_Pay_button(String pay) throws Throwable 
 	{
 	    clickOn(pay, "");
-	    Thread.sleep(500);
+	    sleepWait(500);
 	}
 
 	@And("^User click on proceed button and navigate to Payment of tax page$")
 	public void user_click_on_proceed_button_and_navigate_to_Payment_of_tax_page() throws Throwable 
 	{
+		sleepWait(1000);
 	    clickOn("btn_efile_Proceed", "");
-	    Thread.sleep(500);
+	    sleepWait(1000);
 	    
 	}
 
@@ -290,9 +436,9 @@ public class DV_2394_landing_screen
 	public void user_click_on_radio_button_on_net_banking_and_click_on_select_bank_and_see_bank_name(String txt_BankName_Central) throws Throwable 
 	{
 	  clickOn("rad_NetBanking", "");
-	  Thread.sleep(500);
+	  sleepWait(500);
 	  clickOn("drp_SelectBank", "");
-	  Thread.sleep(500);
+	  sleepWait(500);
 	  if(wd.findElement(By.xpath(obj.getProperty(txt_BankName_Central))).isDisplayed());
 	  {
 			 assertTrue(true);
@@ -331,31 +477,35 @@ public class DV_2394_landing_screen
 	public void user_click_on_Pay_now_buttton_on_payment_of_tax_page() throws Throwable 
 	{
 		clickOn("rad_NetBanking", "");
-		Thread.sleep(1000);
+		sleepWait(1000);
 		clickOn("drp_SelectBank", "");
-		Thread.sleep(1000);
+		sleepWait(1000);
 		clickOn("txt_BankName_Central", "");
-		Thread.sleep(1000);	    
+		sleepWait(1000);	    
 	}
 
 	@And("^User navigate to selected bank page$")
 	public void user_navigate_to_selected_bank_page() throws Throwable 
 	{
-		Thread.sleep(5000);		
+		sleepWait(5000);		
 		wd.get("http://www.bcc.cd/");
 		String title=wd.getTitle();
 		System.out.println("Title is"+title);
 		Assert.assertTrue(title.contains("Banque Centrale du Congo"));
-		System.out.println("Page Verified");
+		
 	}
 
+	/** 
+	 * collpase and click on filing 
+	 */
+	
 	@And("^User click on collpase icon for filing \"([^\"]*)\"$")
 	public void user_click_on_collpase_icon_for_filing(String value) throws Throwable 
 	{
-		Thread.sleep(1000);
+		sleepWait(1000);
 		System.out.println("user click on collpase icon ");
 		clickOn(value, "");
-		Thread.sleep(500);
+		sleepWait(500);
 	}	
 	
 	
@@ -373,122 +523,127 @@ public class DV_2394_landing_screen
 	    
 	}
 
-	/*@And("^User click on over the counter and click on print button$")
-	public void user_click_on_over_the_counter_and_click_on_print_button() throws Throwable 
-	{
-	    
-	    clickOn("rad_OverTheCounter", "");
-	    Thread.sleep(500);
-	    clickOn("btn_Payment_Print", "");
-	}*/
+	
 
 	@And("^User click on over the counter$")
 	public void user_click_on_over_the_counter() throws Throwable 
 	{
-		Thread.sleep(500);
+		sleepWait(500);
 		clickOn("rad_OverTheCounter", "");
 	}
 
 	@And("^User see Tax Payment bill$")
 	public void user_see_Tax_Payment_bill() throws Throwable 
 	{
-		Thread.sleep(3000);
+		sleepWait(3000);
 		if(wd.findElement(By.xpath(obj.getProperty("btn_Payment_Print"))).isEnabled());
 		  {
 			  clickOn("btn_Payment_Print", "");  
 			  assertTrue(true);				 			  
 		  }	 	    
-		  Thread.sleep(1000);
+		  sleepWait(1000);
 	}
-/*
+	
+
+/**
+ *  For Payment 
+ *  	
+ */
+	
+	@Then("^cliccks on \"([^\"]*)\" and verify details$")
+	public void cliccks_on_and_verify_details(String Paymentoption) throws Throwable 
+	{
+	    sleepWait(4000);
+		if(Paymentoption.equalsIgnoreCase("Over the Counter"))
+		{
+			clickOn("rad_OverTheCounter","");
+		}
+		else
+		{
+			clickOn("rad_NetBanking","");
+		}
+	    
+	}
+
+	@Then("^Execute query for payment$")
+	public void execute_query_for_payment() throws Throwable 
+	{		
+		
+		sleepWait(3000);
+		  xls_file.xls();
+		  sleepWait(8000);
+	}
+	
+	
+	
+	
+/**
  * Important dates 
  */
 	
-	/*@Given("^User login to DRC VAT$")
-    public void user_login_to_DRC_VAT() throws Throwable 
-	{
-    login("franky03@mailinator.com", "franky@123");
-    clickOn("btn_login","");
-    Thread.sleep(1000);
-    
-    }*/
-
-   @Then("^User open E-filing page$")
-   public void user_open_E_filing_page() throws Throwable 
-   {
-	  Thread.sleep(1000);
-      clickOn("menu_vat-e-filing", "");
-      Thread.sleep(500);
-  
-   }
+	
    @Then("^User can see the e-filing screen$")
    public void user_can_see_the_e_filing_screen() throws Throwable 
    {
 
-    Thread.sleep(2000);
+    sleepWait(2000);
     WebElement we;
     we=wd.findElement(By.xpath("//h5[contains(text(),'VAT e-Filing')]"));
     if(we.isDisplayed())
     {
     	assertTrue(true);
-    	System.out.println("screen verified");
+    	
     }
-    Thread.sleep(2000);
+    sleepWait(2000);
     }
 
   @Then("^User verify the \"([^\"]*)\" \"([^\"]*)\"$")
    public void user_verify_the(String paymentdate1, String efiling1) throws Throwable 
   {
-    
-	  WebElement we,we1;
-	  we=wd.findElement(By.xpath(obj.getProperty("txt_efiling1")));
-	  we1=wd.findElement(By.xpath(obj.getProperty("txt_payment_date1")));
-	   if(we.isDisplayed() && we1.isDisplayed())
-	   {
-		   assertTrue(true);
-	   }          	  
+       
+	 if(wd.findElement(By.xpath(obj.getProperty(paymentdate1))).isDisplayed() && wd.findElement(By.xpath(obj.getProperty(efiling1))).isDisplayed() )
+  	{
+		 assertTrue(true);
+  	}
+	   
  }
  
 @Then("^user verify \"([^\"]*)\"$")
 public void user_verify(String efiling) throws Throwable 
 {
-	Thread.sleep(2000);
-	   WebElement we;
-	   we=wd.findElement(By.xpath(obj.getProperty(efiling)));
-	   if(we.isDisplayed())
-	   {
-		   assertTrue(true);
-	   }
-	   Thread.sleep(2000);
+	sleepWait(2000);
+	 if(wd.findElement(By.xpath(obj.getProperty(efiling))).isDisplayed() )
+	  	{
+			 assertTrue(true);
+	  	}	
+	
+	 
 }
 
 @Then("^user verify the \"([^\"]*)\"$")
 public void user_verify_the(String payment_date2 ) throws Throwable 
 {
-	Thread.sleep(2000);
-	   WebElement we;
-	   we=wd.findElement(By.xpath(obj.getProperty(payment_date2)));
-	   if(we.isDisplayed())
-	   {
-		   assertTrue(true);
-	   }
-	   Thread.sleep(2000);
+	sleepWait(2000);
+	   if(wd.findElement(By.xpath(obj.getProperty(payment_date2))).isDisplayed() )
+	  	{
+			 assertTrue(true);
+	  	}	
+	
+	 
   }
    
 @Then("^user can see the e-filing landing screen,verify \"([^\"]*)\" for payment$")
 public void user_can_see_the_e_filing_landing_screen_verify_for_payment(String payment_date2) throws Throwable 
    {
-	   Thread.sleep(2000);
-	   WebElement we;
-	   we=wd.findElement(By.xpath(obj.getProperty(payment_date2)));
-	   if(we.isDisplayed())
-	   {
-		   assertTrue(true);
-	   }
-	   Thread.sleep(2000);
+	   sleepWait(2000);	   
+	   if(wd.findElement(By.xpath(obj.getProperty(payment_date2))).isDisplayed() )
+	  	{
+			 assertTrue(true);
+	  	}	  
+	  
     } 
 	
-/*
+/**
  * Total Liability
  * 
  */
@@ -501,7 +656,7 @@ public void user_click_on_Pay_button_on_Total_Liability() throws Throwable
 @And("^User check current liability \"([^\"]*)\"$")
 public void user_check_current_liability(String totalLiability) throws Throwable 
 {
-	Thread.sleep(500);
+	sleepWait(500);
 	
 	if(wd.findElement(By.xpath("//h2[contains(text(),'" + totalLiability + "')]")).isDisplayed() )
 	{					
@@ -524,10 +679,12 @@ public void user_click_on_print_button_on_over_the_counter_page() throws Throwab
 @And("^User see pdf is open with print button$")
 public void user_see_pdf_is_open_with_print_button() throws Throwable 
 {
-	Thread.sleep(1000);
+	sleepWait(1000);
 	if(wd.findElement(By.xpath(obj.getProperty("btn_Print_Bill_Seen"))).isDisplayed());
 	  {
 			 assertTrue(true);
 	  }	 	
 }	
+
+
 }

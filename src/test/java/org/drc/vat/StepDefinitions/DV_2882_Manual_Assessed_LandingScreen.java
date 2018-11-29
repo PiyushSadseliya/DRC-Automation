@@ -30,30 +30,20 @@ public class DV_2882_Manual_Assessed_LandingScreen
 	
 	@Given("^User click on windows icon$")
 	public void user_click_on_windoews_icon() throws Throwable 
-	{
-		//Thread.sleep(2000);
+	{		
+		sleepWait(2000);
 		clickOn("btn_windowsClick", "");
-		//Thread.sleep(3000);
-		/*JavascriptExecutor js = (JavascriptExecutor) wd;
-		js.executeScript("return window.stop");
-		//Thread.sleep(3000);
-		Screen s=new Screen();
-		Pattern username_img = new Pattern("C:\\Users\\frankey.mehta\\Desktop\\DRCImages\\username.PNG");
-		Pattern password_img = new Pattern("C:\\Users\\frankey.mehta\\Desktop\\DRCImages\\password.PNG");
-		Pattern sign_img = new Pattern("C:\\Users\\frankey.mehta\\Desktop\\DRCImages\\signin.PNG");
-		s.wait(username_img, 10); 
-		s.type(username_img,"laxman.prajapati");
-		s.type(password_img,"admin");
-		s.click(sign_img);*/
+		sleepWait(2000);
+		
 	}
 
 	@And("^User enter username and password and click on login and see dashboard$")
 	public void user_enter_username_and_password_and_click_on_login_and_see_dashboard() throws Throwable 
 	{
-		System.out.println("Dashboard");
+		sleepWait(1000);
 		 clickOn("tile_vat","");
 		 wd.switchTo().window(wd.getWindowHandles().toArray()[1].toString());
-		 Thread.sleep(1000);
+		 sleepWait(1000);
 	}
 	
 	
@@ -663,7 +653,8 @@ public class DV_2882_Manual_Assessed_LandingScreen
 	@And("^User click on page \"([^\"]*)\" and check page\"([^\"]*)\" \"([^\"]*)\"$")
 	public void user_click_on_page_and_check_page(String value, String value2, String arg3) throws Throwable 
 	{
-		Thread.sleep(2000);
+		sleepWait(1000);
+		//Thread.sleep(2000);
 		try 
 		{
             obj.load(fis);
@@ -808,12 +799,7 @@ public class DV_2882_Manual_Assessed_LandingScreen
 		
 	}*/
 
-	@And("^User see Result$")
-	public void user_see_Result() throws Throwable 
-	{
-		System.out.println("Result Display");	
-	   
-	}
+	
 
 	@And("^User click on Last \"([^\"]*)\"$")
 	public void user_click_on_Last(String value) throws Throwable 

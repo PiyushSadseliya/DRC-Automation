@@ -3,8 +3,18 @@ import static org.drc.vat.appmanager.HelperBase.*;
 import static org.testng.Assert.assertTrue;
 
 import org.drc.vat.StepDefinitions.DV_2390_e_filing;
+import org.drc.vat.appmanager.Read_OTP;
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 
 import cucumber.api.java.en.And;
+import cucumber.api.java.en.Then;
+
+/** 
+ *  This file contains Download,Previous functionality and user is able to preview the e-filing  
+ */
+
+
 public class DV_2391_eFile_Preview 	
 {
 	public String VAT_Store_DG;
@@ -15,8 +25,7 @@ public class DV_2391_eFile_Preview
 	public String VAT_Store_FPP;
 	public String VAT_Store_Export;
 	public String VAT_Store_Exempt;
-	public String VAT_Store_Nontaxable;
-	
+	public String VAT_Store_Nontaxable;	
 	public String VAT_Store_AI;		
 	public String VAT_Store_AL;		
 	public String VAT_Store_GI;
@@ -24,51 +33,118 @@ public class DV_2391_eFile_Preview
 	public String VAT_Store_RI;
 	public String VAT_Store_RL;
 	public String VAT_Store_OI;
-	public String VAT_Store_OL;
-	
+	public String VAT_Store_OL;	
 	public String VAT_Store_VR;		
 	public String VAT_Store_SD;		
 	public String VAT_Store_VD;
-	public String VAT_Store_PC;
-	
-	public String VAT_Store_VAT3Party;
-	
-	
-			@And("^User click on file button \"([^\"]*)\" and navigate to vat e-filing page$")
-			public void user_click_on_file_button_and_navigate_to_vat_e_filing_page(String preview) throws Throwable 
-			{
-			   clickOn(preview, "");
-			   Thread.sleep(500);
-			}
+	public String VAT_Store_PC;	
+	public String VAT_Store_VAT3Party;	
+	public String StoreMonth;
 
 			@And("^User click on download button and user validate file should get downloaded$")
 			public void user_click_on_download_button_and_user_validate_file_should_get_downloaded() throws Throwable 
 			{
+				sleepWait(1000);
 				clickOn("btnDownloadEfile", "");
-				Thread.sleep(1000);
-				verifyDownload("EfilingDetails");
+				sleepWait(3000);				
+				verifyDownloadCheck("EfilingDetails");
+				sleepWait(1000);
    			}
+			
+			@Then("^clicks on e-filing to fill data$")
+			public void clicks_on_e_filing_to_fill_data() throws Throwable 
+			{
+				sleepWait(2000);
+				for(int i =1;i<=12;i++)
+				{
+					String first_part = "(//div[@class='list-item-th text-left'])[";
+					String second_part ="]";
+				
+					String month = first_part+i+second_part;
+					wd.findElement(By.xpath(month)).click();
+					sleepWait(500);
+					
+					String first_preview ="(//button[text()='Preview'])[";
+					String second_preview="]";
+					
+					String preview = first_preview+i+second_preview;
+					sleepWait(500);
+					Boolean B;
+					try{
+					 B =(wd.findElement(By.xpath(preview)).isDisplayed());
+					}catch(NoSuchElementException ex){
+						B= false;
+					}
+					sleepWait(500);
+					if(B)
+					{
+							continue;
+					}
+						else
+						{
+							 StoreMonth = month;															
+							clickOn("btn_file","");							
+							break;
+						}
+				}
+				//sleepWait(500);
+			}			
+			@And("^User click on Preview$")
+			public void user_click_on_Preview() throws Throwable 
+			{
+								 		
+				sleepWait(1000);							
+				wd.findElement(By.xpath(StoreMonth)).click();			
+				sleepWait(1000);			
+				String first_part = StoreMonth;
+				String second_part ="//following::button//following::button";				
+				String month = first_part+second_part;
+				sleepWait(1000);				
+				wd.findElement(By.xpath(month)).click();								
+				sleepWait(1000);
+				if(wd.findElement(By.xpath(obj.getProperty("txt_Check_Pre"))).isDisplayed());
+				 {
+					 assertTrue(true);
+				 }
+				 sleepWait(1000);
+			}
+			
+			@Then("^Enter OTP and click on verify button and click on Ok button$")
+			public void enter_OTP_and_click_on_verify_button_and_click_on_Ok_button() throws Throwable {
+			    
+			   Read_OTP RO = new Read_OTP();
+			   String OTP=RO.ReadOTP();
+			   sleepWait(1000);
+			   wd.findElement(By.xpath("//*[@placeholder='Enter your OTP']")).sendKeys(OTP);
+			   sleepWait(1000);
+			   wd.findElement(By.xpath("//*[text()='Verify']")).click();
+			   sleepWait(5000);
+			   wd.findElement(By.xpath("//*[@title='OK']")).click();
+			   sleepWait(2000);
+			   
+			}
+			
 			@And("^User entered value \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" for Operation Performed on preview$")
 			public void user_entered_value_for_Operation_Performed_on_preview(String DG, String DS1, String DS2, String DGI, String DSI, String FPP, String Export, String Exempt, String Nontaxable) throws Throwable 
 			{
 				type("txt_Delivery_goods", DG);
-			    Thread.sleep(500);
+			    sleepWait(500);
 			    type("txt_Delivercy1", DS1);	    
-			    Thread.sleep(500);
+			    sleepWait(500);
 			    type("txt_Delivercy2", DS2);
-			    Thread.sleep(500);
+			    sleepWait(500);
 			    type("txt_Delivery_goods_Itself", DGI);
-			    Thread.sleep(500);
+			    sleepWait(500);
 			    type("txt_Delivery_Services_itself", DSI);
-			    Thread.sleep(500);
+			    sleepWait(500);
 			    type("txt_Operational", FPP);
-			    Thread.sleep(500);
+			    sleepWait(500);
 			    type("txt_Export", Export);
-			    Thread.sleep(500);
+			    sleepWait(500);
 			    type("txt_Exempt", Exempt);
-			    Thread.sleep(500);
+			    sleepWait(500);
 			    type("txt_Non_taaxable", Nontaxable);
-			    Thread.sleep(500);
+			    sleepWait(500);
 
 			    VAT_Store_DG=DG;		
 				VAT_Store_DS1=DS1;		
@@ -86,29 +162,28 @@ public class DV_2391_eFile_Preview
 			public void user_entered_value_for_Tax_Deductible_On_preview(String AI, String AL, String GI, String GL, String RI, String RL, String OI, String OL) throws Throwable 
 			{
 				type("txt_Assest1", AI);
-			    Thread.sleep(500);
+			    sleepWait(500);
 			    			    
 			    type("txt_Assest2", AL);
-			    Thread.sleep(500);
+			    sleepWait(500);
 			    
 			   type("txt_Goods1", GI);
-			   Thread.sleep(500);
+			   sleepWait(500);
 				
 			    type("txt_Goods2", GL);
-			    Thread.sleep(500);
+			    sleepWait(500);
 			    
 			    type("txt_RawMateria1", RI);
-			    Thread.sleep(500);
+			    sleepWait(500);
 			    
 			    type("txt_RawMateria2", RL);
-			    Thread.sleep(500);
+			    sleepWait(500);
 			    
 			    type("txt_OtherGoods1", OI);
-			    Thread.sleep(500);
+			    sleepWait(500);
 			    
 			    type("txt_OtherGoods2", OL);
-			    Thread.sleep(500);
-			    
+			    sleepWait(500);			    
 			    
 			    VAT_Store_AI=AI;		
 				VAT_Store_AL=AL;		
@@ -124,16 +199,14 @@ public class DV_2391_eFile_Preview
 			public void user_entered_value_for_Adjustment_on_preview(String VR, String SD, String VD, String PC) throws Throwable 
 			{
 				type("txt_VatReversal",VR);
-				Thread.sleep(500);
+				sleepWait(500);
 			    type("txt_Supp",SD);
 			    type("txt_VatDeducted",VD);
-				type("txt_Recovery",PC);
-			    
+				type("txt_Recovery",PC);			   
 				VAT_Store_VR=VR;		
 				VAT_Store_SD=SD;		
 				VAT_Store_VD =VD;
 				VAT_Store_PC =PC;
-				
 			}
 			
 			@And("^User entered value \"([^\"]*)\" for Tax Calculation on preview$")
@@ -143,298 +216,141 @@ public class DV_2391_eFile_Preview
 				VAT_Store_VAT3Party =VAT3Party;
 			}
 			
-			
 			@And("^User validate Operations Performed Section$")
 			public void user_validate_Operations_Performed_Section() throws Throwable 
 			{
+				sleepWait(1000);
 				
-				if(VAT_Store_DG.equals("lbl_Delivery_goods"))
-			    {
-			    	System.out.println("Pass");
-			    }
-				if(VAT_Store_DS1.equals("lbl_Delivercy1"))
-			    {
-			    	System.out.println("Pass");
-			    }
+				String VAT_DG= getValue("lbl_Delivery_goods");				
+				if(VAT_Store_DG.equals(VAT_DG))
+				{
+					assertTrue(true);
+				}				
+			
 				
-				if(VAT_Store_DS2.equals("lbl_Delivercy2"))
-			    {
-			    	System.out.println("Pass");
-			    }
-			    
-				if(VAT_Store_DGI.equals("lbl_Delivery_goods_Itself"))
-			    {
-			    	System.out.println("Pass");
-			    }
-				
-				if(VAT_Store_DSI.equals("lbl_Delivery_Services_itself"))
-			    {
-			    	System.out.println("Pass");
-			    }
-				
-				if(VAT_Store_FPP.equals("lbl_Operational"))
-			    {
-			    	System.out.println("Pass");
-			    }
-				
-				if(VAT_Store_Export.equals("lbl_Export"))
-			    {
-			    	System.out.println("Pass");
-			    }
-				
-				if(VAT_Store_Exempt.equals("lbl_Exempt"))
-			    {
-			    	System.out.println("Pass");
-			    }
-				
-				if(VAT_Store_Nontaxable.equals("lbl_Non_taaxable"))
-			    {
-			    	System.out.println("Pass");
-			    }
-			}
+				String VAT_De1= getValue("lbl_Delivercy1");				
+				if(VAT_Store_DS1.equals(VAT_De1))
+				{
+					assertTrue(true);
+				}	
+							
+				String VAT_De= getValue("lbl_Delivercy2");				
+				if(VAT_Store_DS2.equals(VAT_De))
+				{
+					assertTrue(true);
+				}	
+						    
+			    String VAT_DGI= getValue("lbl_Delivery_goods_Itself");				
+				if(VAT_Store_DGI.equals(VAT_DGI))
+				{
+					assertTrue(true);
+				}	
+						
+				String VAT_DSI= getValue("lbl_Delivery_Services_itself");				
+				if(VAT_Store_DSI.equals(VAT_DSI))
+				{
+					assertTrue(true);
+				}	
+							
+				String VAT_Oper= getValue("lbl_Operational");				
+				if(VAT_Store_FPP.equals(VAT_Oper))
+				{
+					assertTrue(true);
+				}	
+							String VAT_Exp= getValue("lbl_Export");				
+				if(VAT_Store_Export.equals(VAT_Exp))
+				{
+					assertTrue(true);
+				}	
+							
+				String VAT_Exe= getValue("lbl_Exempt");				
+				if(VAT_Store_DG.equals(VAT_Exe))
+				{
+					assertTrue(true);
+				}	
+						
+				String VAT_NT= getValue("lbl_Non_taaxable");				
+				if(VAT_Store_Nontaxable.equals(VAT_NT))
+				{
+					assertTrue(true);
+				}	
+					}
 			@And("^User validate Tax Deductible On$")
 			public void user_validate_Tax_Deductible_On() throws Throwable 
 			{
-				if(VAT_Store_AI.equals("lbl_Assest1"))
-			    {
-			    	System.out.println("Pass");
-			    }
+				sleepWait(2000);
+				String VAT_Ass1= getValue("lbl_Assest1");								
+				if(VAT_Store_AI.equals(VAT_Ass1))
+				{
+					assertTrue(true);
+				}	
+									
+				String VAT_Ass2= getValue("lbl_Assest2");	
+				if(VAT_Store_AL.equals(VAT_Ass2))
+				{
+					assertTrue(true);
+				}					
 				
-				if(VAT_Store_AL.equals("lbl_Assest2"))
-			    {
-			    	System.out.println("Pass");
-			    }
+				String VAT_Go1= getValue("lbl_Goods1");	
+				if(VAT_Store_GI.equals(VAT_Go1))
+				{
+					assertTrue(true);
+				}								
 				
-				if(VAT_Store_GI.equals("lbl_Goods1"))
-			    {
-			    	System.out.println("Pass");
-			    }
+				String VAT_Go2= getValue("lbl_Goods2");	
+				if(VAT_Store_GL.equals(VAT_Go2))
+				{
+					assertTrue(true);
+				}								
 				
-				if(VAT_Store_GL.equals("lbl_Goods2"))
-			    {
-			    	System.out.println("Pass");
-			    }
+				String VAT_Raw= getValue("lbl_RawMateria1");	
+				if(VAT_Store_RI.equals(VAT_Raw))
+				{
+					assertTrue(true);
+				}				
 				
-				if(VAT_Store_RI.equals("lbl_RawMateria1"))
-			    {
-			    	System.out.println("Pass");
-			    }
+				String VAT_Raw2= getValue("lbl_RawMateria2");	
+				if(VAT_Store_RL.equals(VAT_Raw2))
+				{
+					assertTrue(true);
+				}								
 				
-				if(VAT_Store_RL.equals("lbl_RawMateria2"))
-			    {
-			    	System.out.println("Pass");
-			    }
+				String VAT_OG1= getValue("lbl_OtherGoods1");	
+				if(VAT_Store_OI.equals(VAT_OG1))
+				{
+					assertTrue(true);
+				}				
 				
-				if(VAT_Store_OI.equals("lbl_OtherGoods1"))
-			    {
-			    	System.out.println("Pass");
-			    }
+				String VAT_OG2= getValue("lbl_OtherGoods2");	
+				if(VAT_Store_OL.equals(VAT_OG2))
+				{
+					assertTrue(true);
+				}
 				
-				if(VAT_Store_OL.equals("lbl_OtherGoods2"))
-			    {
-			    	System.out.println("Pass");
-			    }
 			}
 			@And("^User validate Adjustment$")
 			public void user_validate_Adjustment() throws Throwable 
 			{				
-				if(VAT_Store_VR.equals("lbl_VatReversal"))
-			    {
-					 assertTrue(true);
-			    }			
-				if(VAT_Store_SD.equals("lbl_Supp"))
-			    {
-					 assertTrue(true);
-			    }				
-				if(VAT_Store_VD.equals("lbl_VatDeducted"))
-			    {
-					 assertTrue(true);
-			    }				
-				if(VAT_Store_PC.equals("lbl_Recovery"))
-			    {
-					 assertTrue(true);
-			    }
-			}
-			
-			/*@And("^User validate value \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" for Adjustment$")
-			public void user_validate_value_for_Adjustment(String VR, String SD, String VDM, String PC) throws Throwable 
-			{
-				if(elementText("lbl_VatReversal").equalsIgnoreCase(VR))
+				sleepWait(1000);
+				String VAT_Revercal= getValue("lbl_VatReversal");				
+				if(VAT_Store_VR.equals(VAT_Revercal))
 				{
-					System.out.println("Pass");
-				}			    
-			    if(elementText("lbl_Supp").equalsIgnoreCase(SD))
+					assertTrue(true);
+				}				
+				String VAT_Supp= getValue("lbl_Supp");				
+				if(VAT_Store_VR.equals(VAT_Supp))
 				{
-					System.out.println("Pass");
-				}
-			    if(elementText("lbl_VatDeducted").equalsIgnoreCase(VDM))
+					assertTrue(true);
+				}				
+				String VAT_Ded= getValue("lbl_VatDeducted");				
+				if(VAT_Store_VD.equals(VAT_Ded))
 				{
-					System.out.println("Pass");
-				}	
-			    if(elementText("lbl_Recovery").equalsIgnoreCase(PC))
+					assertTrue(true);
+				}				
+				String VAT_Rec= getValue("lbl_Recovery");				
+				if(VAT_Store_PC.equals(VAT_Rec))
 				{
-					System.out.println("Pass");
-				}	
-			}*/
-			
-			/*			@And("^User validate Operations Performed Section \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
-			public void user_validate_Operations_Performed_Section(String DG, String DS1, String DS2, String DGI, String DSI, String FPP, String Export, String Exempt, String Nontaxable) throws Throwable 
-			{
-				    if(elementText("lbl_Delivery_goods").equalsIgnoreCase(DG))
-					{
-						System.out.println("Pass");
-					}
-				    if(elementText("lbl_Delivery_goods_disable").equalsIgnoreCase(DG))
-					{
-						System.out.println("Pass");
-					}
-			}
-	*/		
-			
-		/*	
-			@And("^User validate Operations Performed Section \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
-			public void user_validate_Operations_Performed_Section(String DG, String DGV, String DS1, String DS2, String DSM, String DGI, String DGIV, String DSI, String DSIV, String FPP, String FPPV, String Export, String Exempt, String Nontaxable, String TOT, String TOTV) throws Throwable 
-			{
-				if(elementText("lbl_Delivery_goods").equals(DG))
-				{
-					System.out.println("Pass");
-				}
-				
-				if(elementText("lbl_Delivery_goods").equalsIgnoreCase(DG))
-				{
-					System.out.println("Pass");
-				}
-			    if(elementText("lbl_Delivery_goods_disable").equalsIgnoreCase(DGV))
-				{
-					System.out.println("Pass");
-				}
-			    if(elementText("lbl_Delivercy1").equalsIgnoreCase(DS1))
-				{
-					System.out.println("Pass");
-				}
-			    if(elementText("lbl_Delivercy2").equalsIgnoreCase(DS2))
-				{
-					System.out.println("Pass");
-				}
-			    if(elementText("lbl_Delivercy_disable").equalsIgnoreCase(DSM))
-				{
-					System.out.println("Pass");
-				}		    
-			    if(elementText("lbl_Delivery_goods_Itself").equalsIgnoreCase(DGI))
-				{
-					System.out.println("Pass");
-				}
-			    if(elementText("lbl_Delivery_goods_Itself_disable").equalsIgnoreCase(DGIV))
-				{
-					System.out.println("Pass");
-				}
-			    if(elementText("lbl_Delivery_Services_itself").equalsIgnoreCase(DSI))
-				{
-					System.out.println("Pass");
-				}
-			    if(elementText("lbl_Delivery_Services_itself_disable").equalsIgnoreCase(DSIV))
-				{
-					System.out.println("Pass");
-				}
-			    if(elementText("lbl_Operational").equalsIgnoreCase(FPP))
-				{
-					System.out.println("Pass");
-				}			    
-			    if(elementText("lbl_Operational_disable").equalsIgnoreCase(FPPV))
-				{
-					System.out.println("Pass");
-				}			    
-			    if(elementText("lbl_Export").equalsIgnoreCase(Export))
-				{
-					System.out.println("Pass");
-				}			    
-			    if(elementText("lbl_Exempt").equalsIgnoreCase(Exempt))
-				{
-					System.out.println("Pass");
-				}
-			    if(elementText("lbl_Non_taaxable").equalsIgnoreCase(Nontaxable))
-				{
-					System.out.println("Pass");
-				}
-				    if(elementText("lbl_Total1_disable").equalsIgnoreCase(TOT))
-				{
-					System.out.println("Pass");
-				}
-			    if(elementText("lbl_Total2_disable").equalsIgnoreCase(TOTV))
-				{
-					System.out.println("Pass");
-				}
-			}*/
-			
-			/*@And("^User validate \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" for Tax Deductible On$")
-			public void user_validate_for_Tax_Deductible_On(String AI, String AL, String AILV, String GI, String GL, String GILV, String RI, String RL, String RILV, String OI, String OL, String OILV, String TD, String RCC, String AVD) throws Throwable 
-			{
-			
-				if(elementText("lbl_Assest1").equalsIgnoreCase(AI))
-				{
-					System.out.println("Pass");
-				}
-			    if(elementText("lbl_Assest2").equalsIgnoreCase(AL))
-				{
-					System.out.println("Pass");
-				}
-			    if(elementText("lbl_Assest_disable").equalsIgnoreCase(AILV))
-				{
-					System.out.println("Pass");
-				}
-			    if(elementText("lbl_Goods1").equalsIgnoreCase(GI))
-				{
-					System.out.println("Pass");
-				}
-			    if(elementText("lbl_Goods2").equalsIgnoreCase(GL))
-				{
-					System.out.println("Pass");
-				}		    
-			    if(elementText("lbl_Goods_disable").equalsIgnoreCase(GILV))
-				{
-					System.out.println("Pass");
-				}
-			    if(elementText("lbl_RawMateria1").equalsIgnoreCase(RI))
-				{
-					System.out.println("Pass");
-				}
-			    if(elementText("lbl_RawMateria2").equalsIgnoreCase(RL))
-				{
-					System.out.println("Pass");
-				}
-			    if(elementText("lbl_RawMateria_disable").equalsIgnoreCase(RILV))
-				{
-					System.out.println("Pass");
-				}
-			    if(elementText("lbl_OtherGoods1").equalsIgnoreCase(OI))
-				{
-					System.out.println("Pass");
-				}			    
-			    if(elementText("lbl_OtherGoods2").equalsIgnoreCase(OL))
-				{
-					System.out.println("Pass");
-				}			    
-			    if(elementText("lbl_OtherGoods_disable").equalsIgnoreCase(OILV))
-				{
-					System.out.println("Pass");
-				}			    
-			    if(elementText("lbl_deducitable_diable").equalsIgnoreCase(TD))
-				{
-					System.out.println("Pass");
-				}
-			    if(elementText("lbl_RCarriedForward_disable").equalsIgnoreCase(RCC))
-				{
-					System.out.println("Pass");
-				}	
-			    if(elementText("lbl_AvatDectible_disable").equalsIgnoreCase(AVD))
-				{
-					System.out.println("Pass");
-				}	
-			}*/
-			
-			
-			
-			
-
-			
+					assertTrue(true);
+				}				
+			}			
 }

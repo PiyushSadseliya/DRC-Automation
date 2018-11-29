@@ -54,9 +54,9 @@ public class HelperBase {
     	 type("txtbox_password",password);
     }
         
-    private static void waitFor(String object) 
+    public static void waitFor(String object) 
     {
-        WebDriverWait wait = new WebDriverWait(wd, 60);
+        WebDriverWait wait = new WebDriverWait(wd, 5000);
         By locator = By.xpath(obj.getProperty(object));
         wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
@@ -74,6 +74,9 @@ public class HelperBase {
        
     }    
   
+    
+    
+    
     
     /*
      * Thread sleep method 

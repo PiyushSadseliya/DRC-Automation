@@ -21,11 +21,11 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-@CucumberOptions(features = {"classpath:features/DV_1377_ManageVatRegistration.feature"},
+@CucumberOptions(features = {"classpath:features/"},
        glue = "org.drc.vat.StepDefinitions",
         plugin = {"com.cucumber.listener.ExtentCucumberFormatter:",
                   "html:test-output/cucumber-report"}
-        			//tags={"@TC_01"}
+        		//tags={"@TC_01_Login_e-filing_landing_screen,@TC_02,@TC_002_ImportantDates"}
                  )
 
 public class TestRunner extends AbstractTestNGCucumberTests {
@@ -56,13 +56,49 @@ public class TestRunner extends AbstractTestNGCucumberTests {
         Reporter.setSystemInfo("user", System.getProperty("user.name"));
     }
 
-    @Before
+   /*@Before
     public void startScenario(Scenario scenario) throws IOException, AWTException, InterruptedException 
     {
     	//app.callurl();
     	//app.auth();   	
         logger.info("Start scenario: " + scenario.getName());
+    }*/  
+   
+    /*
+    *  For Auto it 
+    */       
+   /*@Before
+    public void startScenario(Scenario scenario) throws IOException, AWTException, InterruptedException 
+    {	
+    	if (scenario.getName().toLowerCase().contains("tax payer portal"))
+    	{
+    		app.callurl();    		
+    	}
+    	else
+    	{
+    		app.callinternalportal();
+    	}
+    	Thread.sleep(5000);
+    	logger.info("Start scenario: " + scenario.getName());
+    }*/
+    @Before
+    public void startScenario(Scenario scenario) throws IOException, AWTException, InterruptedException 
+    {	
+    	if (scenario.getName().toLowerCase().contains("internal portal"))    	{	    	
+    		app.callinternalportal();   
+    		}		
+    		
+
+    	else
+    	{
+    		app.callurl();
+    	}
+    	Thread.sleep(5000);
+    	logger.info("Start scenario: " + scenario.getName());
     }
+
+    
+    
 
 	@After
     public void endScenario(Scenario scenario) throws Exception {
