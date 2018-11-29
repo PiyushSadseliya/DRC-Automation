@@ -10,9 +10,12 @@ import static org.testng.Assert.assertEquals;
 import static org.drc.vat.appmanager.HelperBase.softAssert;
 import static org.drc.vat.appmanager.HelperBase.logout;
 import static org.drc.vat.appmanager.HelperBase.sleepWait;
+
+import java.util.List;
 import java.util.Set;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.asserts.SoftAssert;
 
 import static org.drc.vat.appmanager.HelperBase.clickOn;
@@ -20,13 +23,12 @@ import static org.drc.vat.appmanager.HelperBase.elementText;
 import static org.drc.vat.appmanager.HelperBase.type;
 public class ViewAllStatementofTransaction {
 	//SoftAssert sassert = new SoftAssert();
-	static Boolean login =true;
+	
 	@Given("^\"([^\"]*)\"\"([^\"]*)\"The User has logged in the DRC Tax Payer Portal with \"([^\"]*)\"\"([^\"]*)\"$")
 	public void the_User_has_logged_in_the_DRC_Tax_Payer_Portal_with(String arg1, String arg2, String arg3, String arg4) throws Throwable {
-		if(login) {
+	
 		login(arg3,arg4);
-		login=false;
-		}
+		
 
    
 	}
@@ -34,7 +36,7 @@ public class ViewAllStatementofTransaction {
 	@When("^User Clicks on the efiling menu$")
 	public void user_Clicks_on_the_efiling_menu() throws Throwable {
 		
-		sleepWait(2000);
+		sleepWait(4000);
 	     clickOn("nav_efiling","");	 
 	     sleepWait(2000);
 	     
@@ -51,7 +53,15 @@ public class ViewAllStatementofTransaction {
 
 	@Then("^Statement of Transaction should display \"([^\"]*)\"$")
 	public void statement_of_Transaction_should_display(String arg1) throws Throwable {
-		softAssert.assertEquals(  elementText("txt_norecfound",""), arg1);   
+		List <WebElement>noelement=wd.findElements(By.xpath("//h5[contains(text(),'Statement of Transaction')]/following::table//tbody//tr//td"));
+		if (noelement.size()<2) {
+			softAssert.assertEquals(elementText("txt_norecfound",""), arg1);  
+		}
+		
+		
+
+			
+		 
    
 	}
 	
@@ -129,7 +139,7 @@ public class ViewAllStatementofTransaction {
 	 assertEquals(wd.findElement(By.xpath("//tbody/tr["+arg1+"]/td[7]")).getText(),interest);
 	assertEquals(wd.findElement(By.xpath("//tbody/tr["+arg1+"]/td[8]")).getText(),penalty);
 assertEquals(wd.findElement(By.xpath("//tbody/tr["+arg1+"]/td[9]")).getText(),total);
-   System.out.println(wd.findElement(By.xpath("//tbody/tr["+arg1+"]/td[1]")).getText());
+/*   System.out.println(wd.findElement(By.xpath("//tbody/tr["+arg1+"]/td[1]")).getText());
    System.out.println(date);
    System.out.println(wd.findElement(By.xpath("//tbody/tr["+arg1+"]/td[2]")).getText());
    System.out.println(period+","+year);
@@ -146,7 +156,7 @@ assertEquals(wd.findElement(By.xpath("//tbody/tr["+arg1+"]/td[9]")).getText(),to
    System.out.println(wd.findElement(By.xpath("//tbody/tr["+arg1+"]/td[8]")).getText());
    System.out.println(penalty);
    System.out.println(wd.findElement(By.xpath("//tbody/tr["+arg1+"]/td[9]")).getText());
-   System.out.println(total);
+   System.out.println(total);*/
    //logout();
 	}
 

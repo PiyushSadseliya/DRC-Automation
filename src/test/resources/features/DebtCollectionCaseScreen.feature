@@ -2,7 +2,7 @@
 Feature: List of Debt Cases Assigned to the Collection Officer – Reassign
 
   @mtc6
-  Scenario Outline: Validate the Expected recovery and Percentage functionality.
+  Scenario Outline: Validate the Expected recovery and Percentage functionality internal portal.
     Given "<Test Case ID>""<Description>"DGI "<officer>""<uname>""<password>"should be logged in to the internal portal
     When clicked on Case Management Module must be on Case Management Module List of cases assigned to the officer should be displayed
     Then click on filter by dropdown CaseID"<caseid>"
@@ -15,10 +15,10 @@ Feature: List of Debt Cases Assigned to the Collection Officer – Reassign
 
     Examples: 
       | Test Case ID                               | Description                                                  | officername  | uname           | password | ageing5    | month5 | caseid          | fdate      | todate     | RecoverAmount | Rpercent | PerRec | RecAmount |
-      | DRC_ATC_AssignedDebt_TotalArrears_PopUp_01 | Validate the Expected recovery and Percentage functionality. | Jainik Patel | ketan.prajapati | admin    | 0-3 Months | amount | R18092000000006 | 2018-09-20 | 2018-09-20 |      48000384 |       60 |     60 |  48000384 |
+      | DRC_ATC_AssignedDebt_TotalArrears_PopUp_01 | Validate the Expected recovery and Percentage functionality. | Jainik Patel | ketan.prajapati | admin    | 0-3 Months | amount | R18112900000003 | 2018-09-20 | 2018-09-20 |      715664.23 |       60 |     60 |  715664.23 |
 
   @mtc5
-  Scenario Outline: Validate whether the tax officer is able to view the case created for one particular taxpayer whose debt needs to be collected or Validate Action Request Payment Agreement..
+  Scenario Outline: Validate whether the tax officer is able to view the case created for one particular taxpayer whose debt needs to be collected or Validate Action Request Payment Agreement internal portal.
     Given "<Test Case ID>""<Description>"DGI "<officer>""<uname>""<password>"should be logged in to the internal portal
     When clicked on Case Management Module must be on Case Management Module List of cases assigned to the officer should be displayed
     Then click on filter by dropdown CaseID"<caseid>"
@@ -44,7 +44,7 @@ Feature: List of Debt Cases Assigned to the Collection Officer – Reassign
       | DRC_ATC_AssignedDebt_TotalArrears_PopUp_02 | Validate whether the tax officer is able to view the case created for one particular taxpayer whose debt needs to be collected. Or Validate Action Request Payment Agreement. | Jainik Patel | ketan.prajapati | admin    | 0-3 Months | amount | R18092000000006 | 2018-09-20 | 2018-09-21 |      80000640 |      100 | Open   | Under Review | 80000640 |         0 | 80000640 |
 
   @mtc8
-  Scenario Outline: Validate actions payment requested.
+  Scenario Outline: Validate actions payment requested internal portal. 
     Given "<Test Case ID>""<Description>"DGI "<officer>""<uname>""<password>"should be logged in to the internal portal
     When clicked on Case Management Module must be on Case Management Module List of cases assigned to the officer should be displayed
     Then click on filter by dropdown CaseID"<caseid>"
@@ -67,10 +67,10 @@ Feature: List of Debt Cases Assigned to the Collection Officer – Reassign
 
     Examples: 
       | Test Case ID                               | Description                         | officername  | uname           | password | ageing5    | month5 | caseid          | fdate      | todate     | RecoverAmount | Rpercent | PerRec | RecAmount | path        |
-      | DRC_ATC_AssignedDebt_TotalArrears_PopUp_03 | Validate actions payment requested. | Jainik Patel | ketan.prajapati | admin    | 0-3 Months | amount | R18092000000006 | 2018-09-20 | 2018-09-20 |      48000384 |       60 |     60 |  48000384 | F:\\pic.png |
+      | DRC_ATC_AssignedDebt_TotalArrears_PopUp_03 | Validate actions payment requested. | Jainik Patel | ketan.prajapati | admin    | 0-3 Months | amount | R18092000000006 | 2018-09-20 | 2018-09-20 |      48000384 |       60 |     60 |  48000384 | Capture.PNG |
 
   @mtc8
-  Scenario Outline: Validate Amount field  under recovery amount.
+  Scenario Outline: Validate Amount field  under recovery amount internal portal.
     Given "<Test Case ID>""<Description>"DGI "<officer>""<uname>""<password>"should be logged in to the internal portal
     When clicked on Case Management Module must be on Case Management Module List of cases assigned to the officer should be displayed
     Then click on filter by dropdown CaseID"<caseid>"
@@ -92,5 +92,5 @@ Feature: List of Debt Cases Assigned to the Collection Officer – Reassign
     Then user should be on Case Management Page
 
     Examples: 
-      | Test Case ID                               | Description                                    | officername  | uname           | password | ageing5    | month5 | caseid          | fdate      | todate     | RecoverAmount | Rpercent | PerRec | RecAmount | path            | comment               |
-      | DRC_ATC_AssignedDebt_TotalArrears_PopUp_04 | Validate Amount field  under recovery amount.. | Jainik Patel | ketan.prajapati | admin    | 0-3 Months | amount | R18092000000006 | 2018-09-14 | 2018-09-14 |      48000384 |      100 |     60 |  48000384 | F:\\capture.jpg | Please pay the amount |
+      | Test Case ID                               | Description                                    | officername  | uname           | password | ageing5    | month5 | caseid          | fdate      | todate     | RecoverAmount | Rpercent | PerRec | RecAmount | path        | comment               |
+      | DRC_ATC_AssignedDebt_TotalArrears_PopUp_04 | Validate Amount field  under recovery amount.. | Jainik Patel | ketan.prajapati | admin    | 0-3 Months | amount | R18092000000006 | 2018-09-14 | 2018-09-14 |      48000384 |      100 |     60 |  48000384 | Capture.PNG | Please pay the amount |

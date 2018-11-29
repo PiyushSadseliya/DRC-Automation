@@ -20,7 +20,7 @@
 Feature: Total Due: To show total amount due at the start of the collection case with a pop up of Ageing of Arrears to allow user to view the age bracket/s and the amount targeted in the collection case for each age-bracket
 
   @mtc3 @ArrearsAmount
-  Scenario Outline: Validate whether the tax officer is able to view the case created for one particular taxpayer whose debt needs to be collected on Ageing Arrears Pop-up window.
+  Scenario Outline: Validate whether the tax officer is able to view the case created for one particular taxpayer whose debt needs to be collected on Ageing Arrears Pop-up window internal portal.
     Given "<Test Case ID>""<Description>"DGI "<officer>""<uname>""<password>"should be logged in to the internal portal
     When clicked on Case Management Module must be on Case Management Module List of cases assigned to the officer should be displayed
     Then click on filter by dropdown CaseID"<caseid>"
@@ -28,7 +28,6 @@ Feature: Total Due: To show total amount due at the start of the collection case
     Then Click on Total Due hyperlink
     Then Amount in ageing of arrears in twentyfour months and Above is amount "<month1>" thirteen to twentyfour months "<month2>" seven to twelve months"<month3>" four to six months"<month4>" zero to three months"<month5>" Total Debt(FC)"<total>"
 
-
     Examples: 
-      | Test Case ID                               | Description                                                                                                                                                     | officername  | uname           | password | ageing5    | month5    | caseid          | fdate      | todate     | ageing1             | month1 | ageing2      | month2 | ageing3     | month3 | ageing4    | month4 | total     |
-      | DRC_ATC_AssignedDebt_TotalArrears_PopUp_01 | Validate whether the tax officer is able to view the case created for one particular taxpayer whose debt needs to be collected on Ageing Arrears Pop-up window. | Urvish Patel | ketan.prajapati | admin    | 0-3 Months | 187199.52 | R18092000000009 | 2018-09-20 | 2018-09-20 | 24 Months and Above |      0 | 13-24 Months |      0 | 7-12 Months |      0 | 4-6 Months |      0 | 187199.52 |
+      | Test Case ID                               | Description                                                                                                                                                     | officername  | uname           | password | ageing5    | month5       | caseid          | fdate      | todate     | ageing1             | month1 | ageing2      | month2 | ageing3     | month3 | ageing4    | month4 | total     |
+      | DRC_ATC_AssignedDebt_TotalArrears_PopUp_01 | Validate whether the tax officer is able to view the case created for one particular taxpayer whose debt needs to be collected on Ageing Arrears Pop-up window. | Urvish Patel | ketan.prajapati | admin    | 0-3 Months | 1.192.773,72 | R18112900000003 | 2018-09-20 | 2018-09-20 | 24 Months and Above |      0 | 13-24 Months |      0 | 7-12 Months |      0 | 4-6 Months |      0 | 1.192.773,72|

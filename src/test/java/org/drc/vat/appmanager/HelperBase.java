@@ -19,6 +19,7 @@ import java.awt.Robot;
 import java.awt.Toolkit;
 
 import static org.drc.vat.appmanager.HelperBase.assertMsg;
+import static org.drc.vat.appmanager.HelperBase.clearCache;
 import static org.drc.vat.appmanager.HelperBase.clickOn;
 import static org.drc.vat.appmanager.HelperBase.elementText;
 import static org.drc.vat.appmanager.HelperBase.internalPortal;
@@ -53,6 +54,10 @@ public class HelperBase {
     private static String currentWindow=null;
     static int i=0;
     public static int no_window;
+    public static Boolean login=true;
+	public static String[] monthName = { "January", "February", "March", "April", "May", "June", "July",
+	        "August", "September", "October", "November", "December" };
+  
   public static SoftAssert softAssert = new SoftAssert();
     private static File dir = new File(
             System.getProperty("user.home") + "/Downloads");
@@ -77,6 +82,8 @@ public class HelperBase {
         By locator = By.xpath(obj.getProperty(object));
         wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
+
+
 
     public static void clickOn(String object, String data) {
     	
@@ -129,7 +136,23 @@ public class HelperBase {
             
         }
     }
+    public static void clearCache() throws InterruptedException, AWTException {
+     wd.get("chrome://settings/clearBrowserData");
 
+       
+     sleepWait(2000);
+        
+
+      //JavascriptExecutor js = (JavascriptExecutor)wd;
+      Robot rb = new Robot();
+      rb.keyPress(KeyEvent.VK_ENTER);
+      rb.keyRelease(KeyEvent.VK_ENTER);
+      sleepWait(8000);
+      
+      
+
+    }
+       
 
 
     public static String toastMessage() {
@@ -184,9 +207,9 @@ public class HelperBase {
       //  wait.until(ExpectedConditions.invisibilityOfElementLocated(
  //By.xpath("(//*[contains(@class,'toast-content')])[last()]")));
         clickOn("span", "[@class='fa fa-power-off']");
-        sleepWait(2000);
+        sleepWait(2500);
         clickOn("link_clickhere","");
-        sleepWait(1000);
+        sleepWait(2000);
 
     }
    
@@ -224,7 +247,8 @@ public class HelperBase {
     	
     }
     public static String elementText(String object,String data) {
-   	 try {
+   	 
+    	try {
          obj.load(fis);
      } catch (IOException e) {
          e.printStackTrace();
@@ -281,6 +305,16 @@ public class HelperBase {
 			
 		}
 		
+	}
+	public static void assessmentOfficer() throws InterruptedException, IOException, AWTException {
+		  clearCache();
+		 sleepWait(2000);
+		 wd.get("http://103.249.120.58:8044");
+		    sleepWait(5000);
+	   	Runtime.getRuntime().exec("F:\\DRC\\Automation\\drc_vat\\DRC_VAT\\autoitlaxman.exe");	        	
+	   	wd.findElement(By.xpath("//*[contains (@title,'Windows Authentication')]")).click();
+	       Thread.sleep(5000);
+	      
 	}
 	/*
 	*
@@ -366,40 +400,46 @@ robot.keyRelease(KeyEvent.VK_CONTROL);
  * @param Password
  */
 public static void login(String email,String password) throws InterruptedException {
-	List <WebElement> homepage=wd.findElements(By.xpath("//h2"));
-	System.out.println(i++);
-	if(homepage.size()>0) {
+	//List <WebElement> homepage=wd.findElements(By.xpath("//h2"));
+	//System.out.println(i++);
+/*	if(homepage.size()>0) {
+
 		if(!homepage.get(0).getText().equals("Welcome to e-Service Portal")) {
-			sleepWait(5000);
-			List <WebElement> logout =wd.findElements(By.xpath("//span[@class='fa fa-power-off']"));
-			if(logout.size()>0) {
-				logout.get(0).click();
-				
-			}
-			
-		}
-		if(wd.getCurrentUrl().contains("8066")) {
-			logout();
-		}
+			sleepWait(5000);			
+
 
 	}
-		
+
+	}else{
+		logout();
+	}*/
+
+		if (login) {
+			type("txtbox_username",email);
+			type("txtbox_password",password);
+			sleepWait(2000);
+			clickOn("btn_login","");
+			sleepWait(2000);
+			List <WebElement> vatTile=wd.findElements(By.xpath("//h3[contains(text(),'VAT')]"));
+			if(vatTile.size()>0) {
+				clickOn("tile_vat","");
+				sleepWait(2000);	
+				List <WebElement> sure =wd.findElements(By.xpath("//a[contains(text(),'Sure')]"));
+				if(sure.size()>0) {
+					sure.get(0).click();
+				}
+				login=false;
+			}
+			
+			
+			sleepWait(2000);
+			if(wd.getWindowHandles().size()>0) {
+			wd.switchTo().window(wd.getWindowHandles().toArray()[wd.getWindowHandles().size()-1].toString());
+			}
+			sleepWait(2000);
+
+		}
 	
-	type("txtbox_username",email);
-	type("txtbox_password",password);
-	sleepWait(2000);
-	clickOn("btn_login","");
-	sleepWait(2000);
-	clickOn("tile_vat","");
-	sleepWait(2000);	
-	List <WebElement> sure =wd.findElements(By.xpath("//a[contains(text(),'Sure')]"));
-	if(sure.size()>0) {
-		sure.get(0).click();
-	}
-	sleepWait(2000);
-	if(wd.getWindowHandles().size()>0) {
-	wd.switchTo().window(wd.getWindowHandles().toArray()[1].toString());
-	}
 
 
 	
@@ -754,6 +794,18 @@ public static long countDays(String dFormat,String Date1,String Date2) {
 }
 public static void sleepWait(long wait) throws InterruptedException {
 	Thread.sleep(wait);
+}
+public static String getAttribute(String attribue,String object,String data) {
+	
+	try {
+        obj.load(fis);
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+    By locator = By.xpath(obj.getProperty(object) + data);
+	return wd.findElement(locator).getAttribute(attribue);
+	
+	
 }
 
 

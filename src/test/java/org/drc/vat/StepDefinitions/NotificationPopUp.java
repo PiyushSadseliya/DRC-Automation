@@ -42,7 +42,7 @@ public class NotificationPopUp {
 
 	@Then("^Previous status must be\"([^\"]*)\"$")
 	public void previous_status_must_be(String arg1) throws Throwable {
-		WebElement dt=wd.findElement(By.xpath("//label[text()='Status : ']/following::input"));
+		WebElement dt=wd.findElement(By.xpath("//strong[contains(text(),'Status')]/following::input"));
 	    JavascriptExecutor jse = (JavascriptExecutor)wd;
 	   String status = jse.executeScript("return arguments[0].value", dt).toString();
 	   System.out.println(status);

@@ -2,11 +2,11 @@
 Feature: No. of Notification: Shows the notifications count. When clicked, pop-up appears, and the officer can view the notifications details
 
   @mtc2
-  Scenario Outline: Validate the collection officer sent the notification to Tax payer  for Payment Request.
+  Scenario Outline: Validate the collection officer sent the notification to Tax payer  for Payment Request internal portal.
     Given "<Test Case ID>""<Description>"DGI "<officer>""<uname>""<password>"should be logged in to the internal portal
     When clicked on Case Management Module must be on Case Management Module List of cases assigned to the officer should be displayed
     Then click on filter by dropdown CaseID"<caseid>"
-    Then Click on View in Manage Options    
+    Then Click on View in Manage Options
     Then Previous status must be"Under Review"
     Then Selects Action "Request Payment"
     Then click on Submit button
@@ -17,11 +17,11 @@ Feature: No. of Notification: Shows the notifications count. When clicked, pop-u
     Then no of notification should be 1 with "Request Payment" notification
 
     Examples: 
-      | Test Case ID                      | Description                                                                              | officername | uname           | password | ageing5    | month5 | caseid          | fdate      | todate     |
-      | DRC_ATC_AssignedDebt_Notification_01 | Validate the collection officer sent the notification to Tax payer  for Payment Request. |             | ketan.prajapati | admin    | 0-3 Months | amount | R18092000000006 | 2018-09-20 | 2018-09-20 |
+      | Test Case ID                         | Description                                                                              | officername | uname           | password | ageing5    | month5 | caseid          | fdate      | todate     |
+      | DRC_ATC_AssignedDebt_Notification_01 | Validate the collection officer sent the notification to Tax payer  for Payment Request. |             | ketan.prajapati | admin    | 0-3 Months | amount | R18112900000003 | 2018-09-20 | 2018-09-20 |
 
   @mtc3
-  Scenario Outline: Validate the system sent the notification to collection officer before deadline of payment.
+  Scenario Outline: Validate the system sent the notification to collection officer before deadline of payment internal portal.
     Given "<Test Case ID>""<Description>"DGI "<officer>""<uname>""<password>"should be logged in to the internal portal
     When clicked on Case Management Module must be on Case Management Module List of cases assigned to the officer should be displayed
     Then click on filter by dropdown CaseID"<caseid>"
@@ -33,11 +33,11 @@ Feature: No. of Notification: Shows the notifications count. When clicked, pop-u
     Then status should be "Payment Reminder Sent"
 
     Examples: 
-      | Test Case ID                      | Description                                                                                 | officername | uname           | password | ageing5    | month5 | caseid | fdate      | todate     |
-      | DRC_ATC_AssignedDebt_Notification_02 | Validate the system sent the notification to collection officer before deadline of payment. |             | ketan.prajapati | admin    | 0-3 Months | amount | R18092000000006       | 2018-09-19 | 2018-09-19 |
+      | Test Case ID                         | Description                                                                                 | officername | uname           | password | ageing5    | month5 | caseid          | fdate      | todate     |
+      | DRC_ATC_AssignedDebt_Notification_02 | Validate the system sent the notification to collection officer before deadline of payment. |             | ketan.prajapati | admin    | 0-3 Months | amount | R18112900000003 | 2018-09-19 | 2018-09-19 |
 
   @mtc6
-  Scenario Outline: Validate the collection officer sent the notification to Tax payer for Escalates the case to legal.
+  Scenario Outline: Validate the collection officer sent the notification to Tax payer for Escalates the case to legal internal portal.
     Given "<Test Case ID>""<Description>"DGI "<officer>""<uname>""<password>"should be logged in to the internal portal
     When clicked on Case Management Module must be on Case Management Module List of cases assigned to the officer should be displayed
     Then click on filter by dropdown CaseID"<caseid>"
@@ -60,11 +60,11 @@ Feature: No. of Notification: Shows the notifications count. When clicked, pop-u
     Then no of notification should be 2 with "Assign to Legal" notification
 
     Examples: 
-      | Test Case ID                      | Description                                                                                         | officername | uname           | password | ageing5    | month5 | caseid | fdate      | todate     | collectionofficer |
-      | DRC_ATC_AssignedDebt_Notification_03 | Validate the System  sent the notification to tax payer for Full payment not made till the deadline |             | ketan.prajapati | admin    | 0-3 Months | amount | R18092000000006       | 2018-09-19 | 2018-09-21 | Jainik            |
+      | Test Case ID                         | Description                                                                                         | officername | uname           | password | ageing5    | month5 | caseid          | fdate      | todate     | collectionofficer |
+      | DRC_ATC_AssignedDebt_Notification_03 | Validate the System  sent the notification to tax payer for Full payment not made till the deadline |             | ketan.prajapati | admin    | 0-3 Months | amount | R18112900000003 | 2018-09-19 | 2018-09-21 | Jainik            |
 
   @mtc8
-  Scenario Outline: Validate the collection officer sent the notification to tax officer for Request Write-Off
+  Scenario Outline: Validate the collection officer sent the notification to tax officer for Request Write-Off internal portal.
     Given "<Test Case ID>""<Description>"DGI "<officer>""<uname>""<password>"should be logged in to the internal portal
     When clicked on Case Management Module must be on Case Management Module List of cases assigned to the officer should be displayed
     Then click on filter by dropdown CaseID"<caseid>"
@@ -75,5 +75,5 @@ Feature: No. of Notification: Shows the notifications count. When clicked, pop-u
     Then status should be "Write-off Requested"
 
     Examples: 
-      | Test Case ID                      | Description                                                                                | officername | uname           | password | ageing5    | month5 | caseid | fdate      | todate     | collectionofficer |
-      | DRC_ATC_AssignedDebt_Notification_04 | Validate the collection officer sent the notification to tax officer for Request Write-Off |             | ketan.prajapati | admin    | 0-3 Months | amount | R18092000000006       | 2018-09-19 | 2018-09-21 | Jainik            |
+      | Test Case ID                         | Description                                                                                | officername | uname           | password | ageing5    | month5 | caseid          | fdate      | todate     | collectionofficer |
+      | DRC_ATC_AssignedDebt_Notification_04 | Validate the collection officer sent the notification to tax officer for Request Write-Off |             | ketan.prajapati | admin    | 0-3 Months | amount | R18112900000003 | 2018-09-19 | 2018-09-21 | Jainik            |

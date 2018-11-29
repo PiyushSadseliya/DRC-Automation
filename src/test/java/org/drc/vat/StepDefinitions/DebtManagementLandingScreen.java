@@ -14,6 +14,8 @@ import org.testng.asserts.SoftAssert;
 
 import static org.drc.vat.appmanager.HelperBase.wd;
 import static org.junit.Assert.assertArrayEquals;
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertNotEquals;
 
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
@@ -24,11 +26,23 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+/*
+ * If the user has not paid the vat amount the records are displayed in the Debt Landing Screen according to age brackets of
+ * 0-3 months 
+ * 4-6 Months
+ * 7-12 Months
+ * 13-24 Months
+ *24 Months and Above respectively
+ * the officer can save the debt on paarticular date to revisit and assigned the pending amount to the Collection Officer
+ * Then assigned amount would also be reflected
+ * He can filter based on the age brackets* 
+ * 
+ */
 
 public class DebtManagementLandingScreen {
-	SoftAssert sassert = new SoftAssert();
+
 	NumberFormat f =NumberFormat.getNumberInstance();
-	Float m,result;
+	double m,result;
 	String max;
 	SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-d");  
 
@@ -60,7 +74,7 @@ public class DebtManagementLandingScreen {
 	public void clicked_on_Debt_Management_Module_must_be_on_Debt_Management_Module() throws Throwable {	    
 		clickOn("nav_debt","");
 		sleepWait(2000);
-	    sassert.assertEquals(elementText("txt_heading",""), "Debt Management");
+	    assertEquals(elementText("txt_heading",""), "Debt Management");
 	//System.out.println(wd.findElement(By.xpath("//div[text()='Upto Date: ']/following::input")).isEnabled());
 	}
 
@@ -77,15 +91,17 @@ public class DebtManagementLandingScreen {
 	public void click_on_zero_to_three_months_Pending_amount_Link() throws Throwable {
 	    String pendingamount=elementText("txt_0to3months","/following::div");	
 		clickOn("txt_0to3months","/following::a");	    
-	    sassert.assertEquals(elementText("txt_heading",""), "Debt Management");
-	    sassert.assertEquals(elementText("txt_pending0to3months",""),pendingamount);
+	    assertEquals(elementText("txt_heading",""), "Debt Management");
+	    assertEquals(elementText("txt_pending0to3months",""),pendingamount);
 	    
 	}
 
 	@Then("^click on Previuos button on Debt Management pending amount list$")
 	public void click_on_Previuos_button_on_Debt_Management_pending_amount_list() throws Throwable {
+		sleepWait(1500);
 	    clickOn("btn_prev", "");
-	    sassert.assertEquals(elementText("txt_heading",""), "Debt Management"); 
+	    sleepWait(1500);
+	    assertEquals(elementText("txt_heading",""), "Debt Management"); 
 	}
 
 	@Then("^click on Save button on Debt Management Landing Screen an click on logout and again login to see last Saved Data$")
@@ -100,52 +116,52 @@ WebElement dt=wd.findElement(By.xpath("//input[@formcontrolname='toDate']"));
 	   String date = jse.executeScript("return arguments[0].value", dt).toString();
 	   System.out.println(date);
 	    //clickOn("btn_dsave","");
-	    sassert.assertEquals("","Records Saved Successfully");
+	    assertEquals("","Records Saved Successfully");
 	    sleepWait(6000);
-	    logout();	   
+	   // logout();	   
 	    clicked_on_Debt_Management_Module_must_be_on_Debt_Management_Module();
 
 	    List <WebElement> nelm = wd.findElements(By.tagName("td"));
 	    String []new_a=new String [nelm.size()];
 	    for(int i=0;i<nelm.size();i++) {	    
-	    	sassert.assertEquals(save_a[i], nelm.get(i).toString());
+	    	assertEquals(save_a[i], nelm.get(i).toString());
 	    }
-	    sassert.assertEquals(jse.executeScript("return arguments[0].value", dt).toString(),date);
+	    assertEquals(jse.executeScript("return arguments[0].value", dt).toString(),date);
 	    
 	}
 	@Then("^Age Brackets column shoul display as \"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"$")
 	public void age_Brackets_column_shoul_display_as(String arg1, String arg2, String arg3, String arg4, String arg5) throws Throwable {
 	    List <WebElement>ageElement = wd.findElements(By.xpath("//td[1]"));
-	    sassert.assertEquals(ageElement.get(0).getText(),arg1);
-	    sassert.assertEquals(ageElement.get(1).getText(),arg2);
-	    sassert.assertEquals(ageElement.get(2).getText(),arg3);
-	    sassert.assertEquals(ageElement.get(3).getText(),arg4);
-	    sassert.assertEquals(ageElement.get(4).getText(),arg5);
+	    assertEquals(ageElement.get(0).getText(),arg1);
+	    assertEquals(ageElement.get(1).getText(),arg2);
+	    assertEquals(ageElement.get(2).getText(),arg3);
+	    assertEquals(ageElement.get(3).getText(),arg4);
+	    assertEquals(ageElement.get(4).getText(),arg5);
 
 	    		
 	}
 
 	@Then("^Total Debt \\(FC\\) amount of Total \\(FC\\) column should be the sum of all amounts$")
 	public void total_Debt_FC_amount_of_Total_FC_column_should_be_the_sum_of_all_amounts() throws Throwable {
-		result=(float) 0;
+		result=(double) 0;
 		List <WebElement>ageElement = wd.findElements(By.xpath("//td[2]"));
 		 for(int i=0;i<ageElement.size();i++) {					
-			max= ageElement.get(i).getText();
+			max= ageElement.get(i).getText().replace(".", "").replace(",", ".");
 		 Number num = f.parse(max);		 
-          m = Float.parseFloat(num.toString());
+          m = Double.parseDouble(num.toString());
           result = result+m;
           }
 		 System.out.println(result);
 		 System.out.println(elementText("txt_totaldebttoatal",""));
-		 sassert.assertEquals(result.toString(), elementText("txt_totaldebttoatal",""));
+		 assertEquals(String.valueOf(result), elementText("txt_totaldebttoatal",""));
 	}
 
 	@Then("^Total Debt \\(FC\\) amount of Pending \\(FC\\) column should be the sum of all amounts$")
 	public void total_Debt_FC_amount_of_Pending_FC_column_should_be_the_sum_of_all_amounts() throws Throwable {
-		result=(float) 0;
+		result=(double) 0;
 		List <WebElement>ageElement = wd.findElements(By.xpath("//td[3]"));
 		 for(int i=0;i<ageElement.size();i++) {		
-			 max= ageElement.get(i).getText();
+			 max= ageElement.get(i).getText().replace(".", "").replace(",", ".");
 		 Number num = f.parse(max);	
 		 
           m = Float.parseFloat(num.toString());
@@ -155,21 +171,21 @@ WebElement dt=wd.findElement(By.xpath("//input[@formcontrolname='toDate']"));
           
           }
 		 //System.out.println(elementText("txt_totalpendingtotal",""));
-		 sassert.assertEquals(result.toString(), elementText("txt_totalpendingtotal",""));
+		 assertEquals(String.valueOf(result), elementText("txt_totalpendingtotal",""));
 	}
 
 	@Then("^Total Debt \\(FC\\) amount of Assigned \\(FC\\) column should be the sum of all amounts$")
 	public void total_Debt_FC_amount_of_Assigned_FC_column_should_be_the_sum_of_all_amounts() throws Throwable {
-		result=(float) 0;
+		result=(double) 0;
 		List <WebElement>ageElement = wd.findElements(By.xpath("//td[4]"));
 		 for(int i=0;i<ageElement.size();i++) {		 
-		 Number num = f.parse(ageElement.get(i).getText());		 
-          m = Float.parseFloat(ageElement.get(i).getText());
+		 Number num = f.parse(ageElement.get(i).getText().replace(".", "").replace(",", "."));		 
+          m = Float.parseFloat(ageElement.get(i).getText().replace(".", "").replace(",", "."));
           result = result+m;
           }
 		// System.out.println(result);
 		 //System.out.println(elementText("txt_totalassignedtotal",""));
-		 sassert.assertEquals(result.toString(), elementText("txt_totalassignedtotal",""));
+		 assertEquals(String.valueOf(result), elementText("txt_totalassignedtotal",""));
 	}
 	@Then("^select Todays date todays date should be displayed and select previous date \"([^\"]*)\"$")
 	public void select_Todays_date_todays_date_should_be_displayed_and_select_previous_date(String arg1) throws Throwable {
@@ -193,7 +209,7 @@ WebElement dt=wd.findElement(By.xpath("//input[@formcontrolname='toDate']"));
 		List <WebElement>pendElement = wd.findElements(By.xpath("//td[3]"));
 		for(int i=0;i<pendElement.size();i++) {
 			if(pendElement.get(i).getText().equals("0")) {
-				sassert.assertEquals(false,wd.findElement(By.xpath("//td[3]/following::a")).isEnabled(),"Link is enabled for no pending amount");
+				assertEquals(false,wd.findElement(By.xpath("//td[3]/following::a")).isEnabled(),"Link is enabled for no pending amount");
 			}
 			
 		}
@@ -204,7 +220,7 @@ WebElement dt=wd.findElement(By.xpath("//input[@formcontrolname='toDate']"));
 		List <WebElement>pendElement = wd.findElements(By.xpath("//td[3]"));
 		for(int i=0;i<pendElement.size();i++) {
 			if(pendElement.get(i).getText().equals("0")) {
-				sassert.assertEquals(wd.findElement(By.xpath("(//td[2])["+i+"+1]")).getText(),wd.findElement(By.xpath("(//td[4])["+i+"+1]")).getText(),"Total amount and pending amount is not same");
+				assertEquals(wd.findElement(By.xpath("(//td[2])["+i+"+1]")).getText(),wd.findElement(By.xpath("(//td[4])["+i+"+1]")).getText(),"Total amount and pending amount is not same");
 			}
 			
 		}
@@ -218,17 +234,18 @@ WebElement dt=wd.findElement(By.xpath("//input[@formcontrolname='toDate']"));
 			if(!elementText("txt_24monthsup","//following::a[1]").equals("0")) {
 				clickOn("txt_24monthsup","//following::a[1]");
 				List <WebElement> ele=wd.findElements(By.xpath("//tr"));
-				sassert.assertNotEquals(ele.size(), 0);
+				assertNotEquals(ele.size(), 0);
 				sleepWait(2000);
 				clickOn("btn_prev","");
-				sleepWait(2000);
+				sleepWait(2500);
 			}
 			if(!elementText("txt_24monthsup","//following::a[2]").equals("0")) {
 				clickOn("txt_24monthsup","//following::a[2]");
 				List <WebElement> ele=wd.findElements(By.xpath("//tr"));
-				sassert.assertNotEquals(ele.size(), 0);
+				assertNotEquals(ele.size(), 0);
 				sleepWait(3000);
 				clickOn("nav_debt","");
+				sleepWait(2500);
 			}
 			
 		}
@@ -236,7 +253,7 @@ WebElement dt=wd.findElement(By.xpath("//input[@formcontrolname='toDate']"));
 			if(!elementText("txt_13to24months","//following::a[1]").equals("0")) {
 				clickOn("txt_13to24months","//following::a[1]");
 				List <WebElement> ele=wd.findElements(By.xpath("//tr"));
-				sassert.assertNotEquals(ele.size(), 0);
+				assertNotEquals(ele.size(), 0);
 				sleepWait(3000);
 				clickOn("btn_prev","");
 				sleepWait(3000);
@@ -244,7 +261,7 @@ WebElement dt=wd.findElement(By.xpath("//input[@formcontrolname='toDate']"));
 			if(!elementText("txt_13to24months","//following::a[2]").equals("0")) {
 				clickOn("txt_13to24months","//following::a[2]");
 				List <WebElement> ele=wd.findElements(By.xpath("//tr"));
-				sassert.assertNotEquals(ele.size(), 0);
+				assertNotEquals(ele.size(), 0);
 				sleepWait(3000);
 				clickOn("nav_debt","");
 				sleepWait(3000);
@@ -256,7 +273,7 @@ WebElement dt=wd.findElement(By.xpath("//input[@formcontrolname='toDate']"));
 				clickOn("txt_7to12months","//following::a[1]");
 				sleepWait(3000);
 				List <WebElement> ele=wd.findElements(By.xpath("//tr"));
-				sassert.assertNotEquals(ele.size(), 0);
+				assertNotEquals(ele.size(), 0);
 				clickOn("btn_prev","");
 				sleepWait(3000);
 			}
@@ -264,10 +281,10 @@ WebElement dt=wd.findElement(By.xpath("//input[@formcontrolname='toDate']"));
 				clickOn("txt_7to12months","//following::a[2]");
 				sleepWait(3000);
 				List <WebElement> ele=wd.findElements(By.xpath("//tr"));
-				sassert.assertNotEquals(ele.size(), 0);
+				assertNotEquals(ele.size(), 0);
 				sleepWait(3000);
 				clickOn("nav_debt","");
-				sleepWait(1500);
+				sleepWait(2500);
 			}
 			
 		}
@@ -276,7 +293,7 @@ WebElement dt=wd.findElement(By.xpath("//input[@formcontrolname='toDate']"));
 				clickOn("txt_4to6months","//following::a[1]");
 				sleepWait(1500);
 				List <WebElement> ele=wd.findElements(By.xpath("//tr"));
-				sassert.assertNotEquals(ele.size(), 0);
+				assertNotEquals(ele.size(), 0);
 				sleepWait(1500);
 				clickOn("btn_prev","");
 				sleepWait(1500);
@@ -285,10 +302,11 @@ WebElement dt=wd.findElement(By.xpath("//input[@formcontrolname='toDate']"));
 				clickOn("txt_4to6months","//following::a[2]");
 				sleepWait(1500);
 				List <WebElement> ele=wd.findElements(By.xpath("//tr"));
-				sassert.assertNotEquals(ele.size(), 0);
+				sleepWait(2000);
+				assertNotEquals(ele.size(), 0);
 				sleepWait(1500);
 				clickOn("nav_debt","");
-				sleepWait(1500);
+				sleepWait(3000);
 			}
 			
 		}
@@ -297,17 +315,17 @@ WebElement dt=wd.findElement(By.xpath("//input[@formcontrolname='toDate']"));
 				clickOn("txt_0to3months","//following::a[1]");
 				sleepWait(3000);
 				List <WebElement> ele=wd.findElements(By.xpath("//tr"));
-				sassert.assertNotEquals(ele.size(), 0);
+				assertNotEquals(ele.size(), 0);
 				sleepWait(2000);
 				clickOn("btn_prev","");
-				sleepWait(2000);
+				sleepWait(3000);
 			}
 			if(!elementText("txt_0to3months","//following::a[2]").equals("0")) {
 				sleepWait(2000);
 				clickOn("txt_0to3months","//following::a[2]");
 				sleepWait(2000);
 				List <WebElement> ele=wd.findElements(By.xpath("//tr"));
-				sassert.assertNotEquals(ele.size(), 0);			
+				assertNotEquals(ele.size(), 0);			
 				sleepWait(2000);
 				clickOn("nav_debt","");
 				sleepWait(2000);
@@ -319,58 +337,58 @@ WebElement dt=wd.findElement(By.xpath("//input[@formcontrolname='toDate']"));
 	}
 	@Then("^Verify the amount displayed in pending \\(FC\\),assigned \\(FC\\) column of particular age bracket after user has raised objection and it has been assigned ofr debt collection\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"$")
 	public void verify_the_amount_displayed_in_pending_FC_assigned_FC_column_of_particular_age_bracket_after_user_has_raised_objection_and_it_has_been_assigned_ofr_debt_collection(String arg1, String arg2, String arg3, String arg4) throws Throwable {
-		if(arg1.equals("24 Months and Above")) {
-			sassert.assertEquals(elementText("txt_24monthsup","//following::a[1]"),arg2);
-			sassert.assertEquals(elementText("txt_24monthsup","//following::a[2]"),arg3);
+		if(arg1.equals("24 Months and Above")) {sleepWait(2000);
+			assertEquals(elementText("txt_24monthsup","//following::a[1]"),arg2);sleepWait(1000);
+			assertEquals(elementText("txt_24monthsup","//following::a[2]"),arg3);sleepWait(2000);
 			
 		}
-		if(arg1.equals("13-24 Months")) {
-			sassert.assertEquals(elementText("txt_13to24months","//following::a[1]"),arg2);
-			sassert.assertEquals(elementText("txt_13to24months","//following::a[2]"),arg3);
+		if(arg1.equals("13-24 Months")) {sleepWait(2000);
+			assertEquals(elementText("txt_13to24months","//following::a[1]"),arg2);sleepWait(1000);
+			assertEquals(elementText("txt_13to24months","//following::a[2]"),arg3);sleepWait(2000);
 			
 		}
-		if(arg1.equals("7-12 Months")) {
-			sassert.assertEquals(elementText("txt_7to12months","//following::a[1]"),arg2);
-			sassert.assertEquals(elementText("txt_7to12months","//following::a[2]"),arg3);
+		if(arg1.equals("7-12 Months")) {sleepWait(2000);
+			assertEquals(elementText("txt_7to12months","//following::a[1]"),arg2);sleepWait(1500);
+			assertEquals(elementText("txt_7to12months","//following::a[2]"),arg3);
 		}
-		if(arg1.equals("4-6 Months")) {
-			sassert.assertEquals(elementText("txt_4to6months","//following::a[1]"),arg2);
-					sassert.assertEquals(elementText("txt_4to6months","//following::a[2]"),arg3);
+		if(arg1.equals("4-6 Months")) {sleepWait(2000);
+			assertEquals(elementText("txt_4to6months","//following::a[1]"),arg2);sleepWait(1000);
+					assertEquals(elementText("txt_4to6months","//following::a[2]"),arg3);sleepWait(1500);
 			
 		}
-		if(arg1.equals("0-3 Months")) {
-			sassert.assertEquals(elementText("txt_0to3months","//following::a[1]"),arg2);
-			sassert.assertEquals(elementText("txt_0to3months","//following::a[2]"),arg3);
+		if(arg1.equals("0-3 Months")) {sleepWait(2000);
+			assertEquals(elementText("txt_0to3months","//following::a[1]"),arg2);
+			assertEquals(elementText("txt_0to3months","//following::a[2]"),arg3);
 			
 		}
 	}
 	@Then("^Assign all the pending amount to collection officer then pending amount should be zero$")
-	public void assign_all_the_pending_amount_to_collection_officer_then_pending_amount_should_be_zero() throws Throwable {
-		sassert.assertEquals(elementText("txt_24monthsup","//following::a[2]")!=null,true);
+	public void assign_all_the_pending_amount_to_collection_officer_then_pending_amount_should_be_zero() throws Throwable {sleepWait(2000);
+		assertEquals(elementText("txt_24monthsup","//following::a[2]")!=null,true);
 	}
 	@Then("^Assign the pending amount to the collection officer then partial amount assigned should be reflected in pending column\"([^\"]*)\"\"([^\"]*)\"$")
 	public void assign_the_pending_amount_to_the_collection_officer_then_partial_amount_assigned_should_be_reflected_in_pending_column(String arg1, String arg2) throws Throwable {
-		if(arg1.equals("24 Months and Above")) {
-			sassert.assertEquals(elementText("txt_24monthsup","//following::a[1]"),arg2);
+		if(arg1.equals("24 Months and Above")) {sleepWait(2000);
+			assertEquals(elementText("txt_24monthsup","//following::a[1]"),arg2);
 			
 			
 		}
-		if(arg1.equals("13-24 Months")) {
-			sassert.assertEquals(elementText("txt_13to24months","//following::a[1]"),arg2);
+		if(arg1.equals("13-24 Months")) {sleepWait(2000);
+			assertEquals(elementText("txt_13to24months","//following::a[1]"),arg2);
 			
 			
 		}
-		if(arg1.equals("7-12 Months")) {
-			sassert.assertEquals(elementText("txt_7to12months","//following::a[1]"),arg2);
+		if(arg1.equals("7-12 Months")) {sleepWait(2000);
+			assertEquals(elementText("txt_7to12months","//following::a[1]"),arg2);
 			
 		}
-		if(arg1.equals("4-6 Months")) {
-			sassert.assertEquals(elementText("txt_4to6months","//following::a[1]"),arg2);
+		if(arg1.equals("4-6 Months")) {sleepWait(2000);
+			assertEquals(elementText("txt_4to6months","//following::a[1]"),arg2);
 					
 			
 		}
-		if(arg1.equals("0-3 Months")) {
-			sassert.assertEquals(elementText("txt_0to3months","//following::a[1]"),arg2);
+		if(arg1.equals("0-3 Months")) {sleepWait(2000);
+			assertEquals(elementText("txt_0to3months","//following::a[1]"),arg2);
 			
 			
 		}
@@ -379,35 +397,35 @@ WebElement dt=wd.findElement(By.xpath("//input[@formcontrolname='toDate']"));
 	@Then("^Assign the pending amount to the collection officer then partial amount assigned should be reflected in assignned column\"([^\"]*)\"\"([^\"]*)\"$")
 	public void assign_the_pending_amount_to_the_collection_officer_then_partial_amount_assigned_should_be_reflected_in_assignned_column(String arg1, String arg2) throws Throwable {
 		if(arg1.equals("24 Months and Above")) {
-			
-			sassert.assertEquals(elementText("txt_24monthsup","//following::a[2]"),arg2);
+			sleepWait(2000);
+			assertEquals(elementText("txt_24monthsup","//following::a[2]"),arg2);
 			
 		}
 		if(arg1.equals("13-24 Months")) {
-			
-			sassert.assertEquals(elementText("txt_13to24months","//following::a[2]"),arg2);
+			sleepWait(2000);
+			assertEquals(elementText("txt_13to24months","//following::a[2]"),arg2);
 			
 		}
 		if(arg1.equals("7-12 Months")) {
-			
-			sassert.assertEquals(elementText("txt_7to12months","//following::a[2]"),arg2);
+			sleepWait(2000);
+			assertEquals(elementText("txt_7to12months","//following::a[2]"),arg2);
 		}
 		if(arg1.equals("4-6 Months")) {
-			
-					sassert.assertEquals(elementText("txt_4to6months","//following::a[2]"),arg2);
+			sleepWait(2000);
+					assertEquals(elementText("txt_4to6months","//following::a[2]"),arg2);
 			
 		}
 		if(arg1.equals("0-3 Months")) {
-			
-			sassert.assertEquals(elementText("txt_0to3months","//following::a[2]"),arg2);
-			
+			sleepWait(2000);
+			assertEquals(elementText("txt_0to3months","//following::a[2]"),arg2);
+			sleepWait(2000);
 		}
 	}
 	@Then("^Assign all the pending amount to collection officer for age bracket\"([^\"]*)\" then pending amount should be zero$")
 	public void assign_all_the_pending_amount_to_collection_officer_for_age_bracket_then_pending_amount_should_be_zero(String arg1) throws Throwable {
-		
-			sassert.assertEquals(elementText("txt_24monthsup","//following::a[1]"),"0");
-			
+		sleepWait(2000);
+			assertEquals(elementText("txt_24monthsup","//following::a[1]"),"0");
+			sleepWait(2000);
 			
 		
 

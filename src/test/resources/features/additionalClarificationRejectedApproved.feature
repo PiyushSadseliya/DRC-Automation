@@ -64,14 +64,14 @@ Feature: The user can see the status for the application of NITVA number whether
   # | TC_DRC_ATC_UserRegistration_Status_55 | testrejected1@o3enzyme.com | 12345678 || Y     | Natual Person       | Individual          |       |     | 08/02/2018 | Mining Duo |           |              | Mining       |     3 | 2018-07-01 | 2018-07-01        | Large Scale |    132456487897 | Dc Chambers | valsad | Bas-Uele  | Aketi |   134564 | 97789456321 | Y          | Test  | valsad | Valsd | Bas-Uele  | Ango  | 465489787 | test@gmail.com | 987654123 | Y      | CA     | Bosco | bosco@gmail.com | 9876543210 | y     | 34905734654 | Mining Duo | Advans Bank | Branch4 | Bank Account Proof | doc_desc9 |Capture.PNG | completed with the updation as per th e comment |
   # | TC_DRC_ATC_UserRegistration_Status_56 | testrejected1@o3enzyme.com | 12345678 | |Y     | Natual Person       | Individual          |       |     | 08/02/2018 | Mining Duo |           |              | Mining       |     3 | 2018-07-01 | 2018-07-01        | Large Scale |    132456487897 | Dc Chambers | valsad | Bas-Uele  | Aketi |   134564 | 97789456321 | Y          | Test  | valsad | Valsd | Bas-Uele  | Ango  | 465489787 | test@gmail.com | 987654123 | Y      | CA     | Bosco | bosco@gmail.com | 9876543210 | y     | 34905734654 | Mining Duo | Advans Bank | Branch4 | Bank Account Proof | doc_desc9 |Capture.PNG | completed with the updation as per th e comment |
   # | TC_DRC_ATC_UserRegistration_Status_57 | testrejected1@o3enzyme.com | 12345678 | |N     | Natual Person       | Individual          |       |     |            |            |           |              |              |       |            |                   |             |                 |             |        |           |       |          |             | N          |       |        |       |           |       |           |                |           | N      |        |       |                 |            | y     |             |            |             |         | Bank Account Proof | doc_desc9 |Capture.PNG | completed with the updation as per th e comment |
-  # @Approve
-  # Scenario Outline: The user can see the status as "Aprroved" for the application of NITVA number when the officer Approves the application
-  #  Given The DGI officer has approved for NITVA and The User is on Dashboard After Successfully login from taxpayer portal
-  #  Then User must see the application Status as Approved   on the Dashboard
-  #  And Views the NITVA Certificate
-  #   Examples:
-  # | Test Case ID                          |
-  #  | TC_DRC_ATC_UserRegistration_Status_58 |
+   @Approve
+   Scenario Outline: The user can see the status as Aprroved for the application of NITVA number when the officer Approves the application
+    Given The DGI officer has approved for NITVA and The User is on Dashboard After Successfully login from taxpayer portal
+    Then User must see the application Status as Approved   on the Dashboard
+    And Views the NITVA Certificate
+     Examples:
+   | Test Case ID                          |
+    | TC_DRC_ATC_UserRegistration_Status_58 |
   @comment&document
   Scenario Outline: The user can clear or delete the uploaded document
     Given the officer Ask for additional clarification in the form and The User is on Dashboard After Successfully login from taxpayer portal

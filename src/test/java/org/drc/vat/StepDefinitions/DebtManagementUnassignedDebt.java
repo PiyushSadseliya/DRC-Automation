@@ -7,7 +7,9 @@ import static org.drc.vat.appmanager.HelperBase.wd;
 import static org.drc.vat.appmanager.HelperBase.sleepWait;
 
 import java.math.BigInteger;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import static org.drc.vat.appmanager.HelperBase.clickOn;
@@ -17,14 +19,33 @@ import static org.drc.vat.appmanager.HelperBase.type;
 import org.apache.xmlbeans.impl.store.Saaj;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.asserts.SoftAssert;
-
+/*
+ * Based on the selection of the Pending Amount of age brackets the officer can 
+ * assign the pending VAT amount to be collected to the Collection officer
+ *  
+ * 
+ * 
+ */
 
 public class DebtManagementUnassignedDebt {
 	SoftAssert sassert = new SoftAssert();
 	String pendingamount;
 	@Given("^\"([^\"]*)\"\"([^\"]*)\"DGI \"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"should be logged in to the internal portal$")
 	public void dgi_should_be_logged_in_to_the_internal_portal(String arg1, String arg2, String arg3, String arg4, String arg5, String arg6) throws Throwable {
+    	ChromeOptions options = new ChromeOptions();
+    	options.setExperimentalOption("plugins.always_open_pdf_externally", true);
+    	
+    	ChromeOptions co = new ChromeOptions();
+    	Map<String,Object> prefs = new HashMap<>();
+    	prefs.put("plugins.always_open_pdf_externally", true);
+    	co.setExperimentalOption("prefs", prefs);
+    	
+
+         
+        wd = new ChromeDriver(co);
 
 		List <WebElement> vat =wd.findElements(By.xpath("//h3[contains(text(),'VAT')]"));
 		if(!wd.getCurrentUrl().contains("8068")) {
@@ -237,7 +258,7 @@ public class DebtManagementUnassignedDebt {
 	@Then("^Search by Nitva number\"([^\"]*)\" and Records should be displayed$")
 	public void search_by_Nitva_number_and_Records_should_be_displayed(String arg1) throws Throwable {
 		type("input_search_tpprofile",arg1);
-		clickOn("btn_search","");
+		clickOn("btn_searchage","");
 		List <WebElement> records = wd.findElements(By.xpath("//tbody/tr"));
 		sassert.assertEquals(records.size(), "1");
 		sassert.assertEquals(records.get(0).getText(), arg1);    
@@ -285,10 +306,10 @@ public class DebtManagementUnassignedDebt {
 	@Then("^Total amount of remaining age bracket should  be displayed in Others \\(FC\\) tile$")
 	public void total_amount_of_remaining_age_bracket_should_be_displayed_in_Others_FC_tile() throws Throwable {
 		List <WebElement> records = wd.findElements(By.xpath("//tbody/tr"));
-		String totalamt=elementText("div","[contains(text(),'Others(FC)')]/preceding-sibling::div");	  
-		long amount = 0;		  
+		String totalamt=elementText("div","[contains(text(),'Others(FC)')]/preceding-sibling::div").replace(".", "").replace(",", ".");	  
+		double amount = 0;		  
 		for(int i=0;i<records.size();i++) {
-			long l =new Long(wd.findElement(By.xpath("//tr["+i+"+1]/td[6]")).getText().replace(".", "").replace(",", "."));
+			Double l =new Double(wd.findElement(By.xpath("//tr["+i+"+1]/td[6]")).getText().replace(".", "").replace(",", "."));
 			amount = amount + l;    		  
 		}
 
@@ -296,12 +317,12 @@ public class DebtManagementUnassignedDebt {
 	}
 	@Then("^Total amount should  be displayed including respective \"([^\"]*)\"ageing bracket \\(FC\\)\\+ Other \\(FC\\)$")
 	public void total_amount_should_be_displayed_including_respective_ageing_bracket_FC_Other_FC(String arg1)throws Throwable {
-		int agebkamt=Integer.parseInt(elementText("div","[contains(text(),'Others(FC)')]/preceding-sibling::div"));	  
+		Double agebkamt=Double.parseDouble(elementText("div","[contains(text(),'Others(FC)')]/preceding-sibling::div").replace(".", "").replace(",", "."));	  
 		System.out.println(agebkamt);
-		int otheramt=Integer.parseInt(elementText("div","[contains(text(),'"+arg1+"')]/preceding-sibling::div").replace(".", "").replace(",", "."));	
+		Double otheramt=Double.parseDouble(elementText("div","[contains(text(),'"+arg1+"')]/preceding-sibling::div").replace(".", "").replace(",", "."));	
 		System.out.println(otheramt);
-		int l = agebkamt+otheramt;
-		sassert.assertEquals(elementText("div","//div[contains(text(),'Total(FC)')]/preceding-sibling::div"),String.valueOf(l));
+		Double l = agebkamt+otheramt;
+		sassert.assertEquals(elementText("div","[contains(text(),'Total')]/preceding-sibling::div"),String.valueOf(l));
 
 	}
 	@Then("^Selects \"([^\"]*)\" from debt age$")
@@ -329,7 +350,7 @@ public class DebtManagementUnassignedDebt {
 	}
 	@Then("^click on search button Records should be displayed in \"([^\"]*)\" as per From \"([^\"]*)\" value$")
 	public void click_on_search_button_Records_should_be_displayed_in_as_per_From_value(String agebkt, String from) throws Throwable {
-		clickOn("btn_search","");
+		clickOn("btn_searchage","");
 		sleepWait(2000);	  
 		if(agebkt.contains("months")) {
 			List <WebElement> months = wd.findElements(By.xpath("//tr/td[5]"));
@@ -450,36 +471,42 @@ public void user_enters_uses_first_records_in_the_to_filter_the_records_click_ag
 }
 @Then("^Click on Last button on debt pending it should be on last page$")
 public void click_on_Last_button_on_debt_pending_it_should_be_on_last_page() throws Throwable {
- if(wd.findElement(By.xpath("//button[contains(text(),'Last')]")).isEnabled()) {
-	 wd.findElement(By.xpath("//button[contains(text(),'Last')]")).click();
+ if(wd.findElement(By.xpath("//a[contains(text(),'Last')]")).isEnabled()) {
+	 wd.findElement(By.xpath("//a[contains(text(),'Last')]")).click();
+		sleepWait(1500);
  }
 }
 @Then("^click on First button it should be on First page of pending debt$")
 public void click_on_First_button_it_should_be_on_First_page_of_pending_debt() throws Throwable {
-	 if(wd.findElement(By.xpath("//button[contains(text(),'First')]")).isEnabled()) {
-		 wd.findElement(By.xpath("//button[contains(text(),'First')]")).click();
+	 if(wd.findElement(By.xpath("//a[contains(text(),'First')]")).isEnabled()) {
+		 wd.findElement(By.xpath("//a[contains(text(),'First')]")).click();
+			sleepWait(1500);
 	 }
 }
 @Then("^click on next button it should be second page of pendign debt$")
 public void click_on_next_button_it_should_be_second_page_of_pendign_debt() throws Throwable {
-	 if(wd.findElement(By.xpath("//span[@class='fa fa-caret-left']/parent::button")).isEnabled()) {
-		 wd.findElement(By.xpath("//span[@class='fa fa-caret-left']/parent::button")).click();	
-		 sassert.assertEquals(wd.findElement(By.xpath("//button[contains(text(),'2')]")).isEnabled(), true);
+	 if(wd.findElement(By.xpath("//span[@class='fa fa-caret-left']/parent::a")).isEnabled()) {
+		 wd.findElement(By.xpath("//span[@class='fa fa-caret-left']/parent::a")).click();	
+		sleepWait(1500);
+		 sassert.assertEquals(wd.findElement(By.xpath("//a[contains(text(),'2')]")).isEnabled(), true);
 }
 	 
 }@Then("^Click on previous button it should be First page of pending Debt$")
 public void click_on_previous_button_it_should_be_First_page_of_pending_Debt() throws Throwable {	
    
-    if(wd.findElement(By.xpath("//span[@class='fa fa-caret-left']/parent::button")).isEnabled()) {
+    if(wd.findElement(By.xpath("//span[@class='fa fa-caret-left']/parent::a")).isEnabled()) {
     	 clickOn("btn_prevpg_tprofile","");
+    	 sleepWait(1500);
     	 WebElement celemnet= wd.switchTo().activeElement();
     	 sassert.assertEquals(celemnet.getText(),"1");
+    		sleepWait(1500);
     }
     		}
 
 @Then("^user selects all the records for assigning all the records should be selected$")
 public void user_selects_all_the_records_for_assigning_all_the_records_should_be_selected()throws Throwable {
 clickOn("chkbx_select_all","");
+sleepWait(1500);
  List<WebElement> ele=wd.findElements(By.xpath("//td//input[@type='checkbox']"));
  for(int i=0;i<ele.size();i++) {
 	 sassert.assertEquals(ele.get(i).isSelected(),true);
@@ -512,6 +539,7 @@ public void user_selects_the_user_with_Nitva_and_assigns_to_officer_and_is_on_Ca
 	   sassert.assertEquals(elementText("txt_collectionofficer", ""), "Collection Officers");
 	   sleepWait(2000);
 	   clickOn("select_officer","");
+	   sleepWait(2000);
 	   clickOn("btn_save","");
 	   sleepWait(2000);
 	   sassert.assertEquals(elementText("txt_heading", ""), "Case Management");

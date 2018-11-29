@@ -5,6 +5,8 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import static org.drc.vat.appmanager.HelperBase.clickOn;
 import static org.drc.vat.appmanager.HelperBase.wd;
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertNotEquals;
 import static org.drc.vat.appmanager.HelperBase.elementText;
 import static org.drc.vat.appmanager.HelperBase.type;
 import static org.drc.vat.appmanager.HelperBase.pageSource;
@@ -19,14 +21,33 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.asserts.SoftAssert;
 
+/*
+ * 
+ * the officer assigns collection officer to collect the debt
+ * and can assign the officer accordingly  collect the debt
+ * 
+ */
 public class DebtManagementAssignedDebtList {
-	SoftAssert sassert = new SoftAssert();
+	
 	
 	@Given("^\"([^\"]*)\"\"([^\"]*)\"DGI \"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"should be logged in to the internal portal$")
 	public void dgi_should_be_logged_in_to_the_internal_portal(String arg1, String arg2, String arg3, String arg4, String arg5) throws Throwable {
 	  
 		
-		
+		List <WebElement> vat =wd.findElements(By.xpath("//h3[contains(text(),'VAT')]"));
+		if(!wd.getCurrentUrl().contains("8068")) {
+		if(vat.size()>0) {
+			vat.get(0).click();
+			sleepWait(3000);
+			List <WebElement> sure =wd.findElements(By.xpath("//a[contains(text(),'Sure')]"));
+			
+		}
+		sleepWait(3000);
+		if(wd.getWindowHandles().size()>0) {
+			wd.switchTo().window(wd.getWindowHandles().toArray()[1].toString());
+			}
+	}
+		  sleepWait(5000);
 		
 		
 		
@@ -60,9 +81,10 @@ public class DebtManagementAssignedDebtList {
 	}
 	@Then("^List of cases assgined to the officer should be displayed$")
 	public void list_of_cases_assgined_to_the_officer_should_be_displayed() throws Throwable {
-		sassert.assertEquals(elementText("txt_heading",""), "Case Management");
+		sleepWait(3000);
+		assertEquals(elementText("txt_heading",""), "Case Management");
 		List <WebElement> ele = wd.findElements(By.xpath("//tbody//tr"));
-		sassert.assertNotEquals(ele.size(), 0);	
+		assertNotEquals(ele.size(), 0);	
 
 	}
 	@Then("^click on filter by dropdown CaseID\"([^\"]*)\"$")
@@ -73,23 +95,25 @@ public class DebtManagementAssignedDebtList {
 		sleepWait(2000);
 		type("txtbx_typehere",arg1);
 		clickOn("btn_search_case","");
+		sleepWait(3000);
 	}
 	@Then("^Manage options should display wtih options\"([^\"]*)\"\"([^\"]*)\"$")
 	public void manage_options_should_display_wtih_options(String view, String reassign) throws Throwable {
 	    clickOn("btn_managecase","");
-	    sassert.assertEquals(elementText("href_viewCase",""),view);
-	    sassert.assertEquals(elementText("href_reAssignCase",""),reassign);  	    
+	    sleepWait(3000);
+	    assertEquals(elementText("href_viewCase",""),view);
+	    assertEquals(elementText("href_reAssignCase",""),reassign);  	    
 	    
 	}
 	@Then("^user selects \"([^\"]*)\" Debt collection case\"([^\"]*)\" page should be displayed of Case id\"([^\"]*)\"$")
 	public void user_selects_Debt_collection_case_page_should_be_displayed_of_Case_id(String arg1, String arg2, String arg3) throws Throwable {
 	  clickOn("href_viewCase","");
 	  sleepWait(2000);
-	  sassert.assertEquals(elementText("h5",""),arg2);
-	  sassert.assertEquals(elementText("txt_Caseid",""), arg3);
+	  assertEquals(elementText("h5",""),arg2);
+	  assertEquals(elementText("txt_Caseid",""), arg3);
 	  clickOn("debt_collection_prev","");
 	 sleepWait(2000);
-	 sassert.assertEquals(elementText("txt_heading",""), "Case Management");
+	 assertEquals(elementText("txt_heading",""), "Case Management");
 	  
 	  
 	}
@@ -98,21 +122,21 @@ public class DebtManagementAssignedDebtList {
 		 clickOn("href_reAssignCase","");
 		 sleepWait(2000);
 		 clickOn("btn_reassignViewof","");
-		 sleepWait(2000);
+		 sleepWait(4000);
 		 clickOn("span","[text()='"+officername+"']");
-		 sleepWait(2000);
+		 sleepWait(3000);
 		 clickOn("check_newassignof","");
 		 sleepWait(2000);
-		sassert.assertEquals(pageSource().contentEquals("Officer reassigned successfully"), true);
+		assertEquals(pageSource().contentEquals("Officer reassigned successfully"), true);
 		 
 	}
 	@When("^clicked on Case Management Module must be on Case Management Module List of cases assigned to the officer should be displayed$")
 	public void clicked_on_Case_Management_Module_must_be_on_Case_Management_Module_List_of_cases_assigned_to_the_officer_should_be_displayed() throws Throwable {
 	    clickOn("nav_href_caseManagement","");
 		sleepWait(3000);
-	    sassert.assertEquals(elementText("txt_heading",""), "Case Management");
+	    assertEquals(elementText("txt_heading",""), "Case Management");
 		List <WebElement> ele = wd.findElements(By.xpath("//tbody//tr"));
-		sassert.assertNotEquals(ele.size(), 0);	
+		assertNotEquals(ele.size(), 0);	
 	    
 	}
 	@Then("^user can filter by\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"$")
@@ -123,12 +147,12 @@ public class DebtManagementAssignedDebtList {
 		List <WebElement> ele = wd.findElements(By.xpath("//div[@role='option']"));
 		System.out.println(ele.size());
 		System.out.println(ele.get(0).getText());
-		sassert.assertEquals(ele.get(0).getText(),arg1);
-		sassert.assertEquals(ele.get(1).getText(),arg2);
-		sassert.assertEquals(ele.get(2).getText(),arg3);
-		sassert.assertEquals(ele.get(3).getText(),arg4);
-		sassert.assertEquals(ele.get(4).getText(),arg5);
-		sassert.assertEquals(ele.get(5).getText(),arg6);
+		assertEquals(ele.get(0).getText(),arg1);
+		assertEquals(ele.get(1).getText(),arg2);
+		assertEquals(ele.get(2).getText(),arg3);
+		assertEquals(ele.get(3).getText(),arg4);
+		assertEquals(ele.get(4).getText(),arg5);
+		assertEquals(ele.get(5).getText(),arg6);
 		
 
 	}
@@ -151,7 +175,7 @@ public class DebtManagementAssignedDebtList {
 	public void for_data_Message_should_be_displayed(String arg1, String arg2) throws Throwable {
 	  if(arg1.equals("invalid")) {
 		  System.out.println(elementText("h2", ""));
-		  sassert.assertEquals(elementText("h2",""),arg2);		  
+		  assertEquals(elementText("h2",""),arg2);		  
 	  }
 	}
 	@Then("^for valid records containing Case id should be \"([^\"]*)\" with creation date\"([^\"]*)\" \"([^\"]*)\"$")
@@ -159,9 +183,9 @@ public class DebtManagementAssignedDebtList {
 		System.out.println(elementText("td","[1]"));
 		System.out.println(elementText("td","[5]"));
 		System.out.println(elementText("td","[2]"));
-		sassert.assertEquals(elementText("td","[1]"),arg1);		  
-		sassert.assertEquals(elementText("td","[5]"),arg2);		  
-		sassert.assertEquals(elementText("td","[2]"),arg3);		  
+		assertEquals(elementText("td","[1]"),arg1);		  
+		assertEquals(elementText("td","[5]"),arg2);		  
+		assertEquals(elementText("td","[2]"),arg3);		  
 	}
 	@Then("^Select from date\"([^\"]*)\" and to date\"([^\"]*)\"$")
 	public void select_from_date_and_to_date(String arg1, String arg2) throws Throwable {
@@ -197,19 +221,19 @@ Date ncdate = sdf.parse(ndate);
 
 System.out.println(ncdate);
 System.out.println(ncdate.equals(date1));
-sassert.assertEquals(ncdate.equals(date1),true);
+assertEquals(ncdate.equals(date1),true);
 System.out.println(ncdate.after(date1));
-sassert.assertEquals(ncdate.after(date1),true);
+assertEquals(ncdate.after(date1),true);
 System.out.println(ncdate.equals(date2));
-sassert.assertEquals(ncdate.equals(date2),true);
+assertEquals(ncdate.equals(date2),true);
 System.out.println(ncdate.before(date2));
-sassert.assertEquals(ncdate.before(date2),true);
+assertEquals(ncdate.before(date2),true);
 //DAte Comparision Creation date to be done afterwards
 if(ncdate.equals(date1)||ncdate.after(date1))	{
-	sassert.assertEquals(true, true);
+	assertEquals(true, true);
 }
 if(ncdate.before(date2)||ncdate.equals(date2)) {
-	sassert.assertEquals(true, true);
+	assertEquals(true, true);
 }	 } 
 	 
 }
@@ -230,9 +254,9 @@ String  b = wd.findElement(By.xpath("//tbody/tr["+records.size()+"]/td[2]")).get
 //System.out.println(b);
 
 if(a.compareToIgnoreCase(b)<=0) {
-	sassert.assertEquals(true, true);
+	assertEquals(true, true);
 }else {
-	sassert.assertEquals(true, false,"Not in Ascending Order");
+	assertEquals(true, false,"Not in Ascending Order");
 }
 }
 @Then("^Click on \"([^\"]*)\" column it should be in descending order$")
@@ -244,9 +268,9 @@ public void click_on_column_it_should_be_in_descending_order(String col) throws 
 		String a = wd.findElement(By.xpath("//tbody/tr[1]/td[2]")).getText();
 		String  b = wd.findElement(By.xpath("//tbody/tr["+records.size()+"]/td[2]")).getText();	 
 		if(a.compareToIgnoreCase(b)>=0) {
-			sassert.assertEquals(true, true);
+			assertEquals(true, true);
 		}else{
-			sassert.assertEquals(true, false,"Not in Descending Order");
+			assertEquals(true, false,"Not in Descending Order");
 		}
 	}
 	if(col.equals("City")) {
@@ -255,9 +279,9 @@ public void click_on_column_it_should_be_in_descending_order(String col) throws 
 		String a = wd.findElement(By.xpath("//tbody/tr[1]/td[3]")).getText();
 		String  b = wd.findElement(By.xpath("//tbody/tr["+records.size()+"]/td[3]")).getText();	 
 		if(a.compareToIgnoreCase(b)>=0) {
-			sassert.assertEquals(true, true);
+			assertEquals(true, true);
 		}else{
-			sassert.assertEquals(true, false,"Not in Descending Order");
+			assertEquals(true, false,"Not in Descending Order");
 		}
 	}
 	if(col.equals("Ageing (Days)")) {
@@ -267,7 +291,7 @@ public void click_on_column_it_should_be_in_descending_order(String col) throws 
 		long b = new Long(wd.findElement(By.xpath("//tbody/tr["+records.size()+"]/td[6]")).getText());		    
 		System.out.println(a);
 		System.out.println(b);
-		sassert.assertEquals(true, desccomp(a, b));		
+		assertEquals(true, desccomp(a, b));		
 	}
 	if(col.equals("Tax Officer")) {
 		
@@ -275,9 +299,9 @@ public void click_on_column_it_should_be_in_descending_order(String col) throws 
 		String a = wd.findElement(By.xpath("//tbody/tr[1]/td[7]")).getText();
 		String  b = wd.findElement(By.xpath("//tbody/tr["+records.size()+"]/td[7]")).getText();	 
 		if(a.compareToIgnoreCase(b)>=0) {
-			sassert.assertEquals(true, true);
+			assertEquals(true, true);
 		}else{
-			sassert.assertEquals(true, false,"Not in Descending Order");
+			assertEquals(true, false,"Not in Descending Order");
 		}
 	}
 	if(col.equals("Status")) {
@@ -286,9 +310,9 @@ public void click_on_column_it_should_be_in_descending_order(String col) throws 
 		String a = wd.findElement(By.xpath("//tbody/tr[1]/td[8]")).getText();
 		String  b = wd.findElement(By.xpath("//tbody/tr["+records.size()+"]/td[8]")).getText();	 
 		if(a.compareToIgnoreCase(b)>=0) {
-			sassert.assertEquals(true, true);
+			assertEquals(true, true);
 		}else{
-			sassert.assertEquals(true, false,"Not in Descending Order");
+			assertEquals(true, false,"Not in Descending Order");
 		}
 	}
 	if(col.equals("Priority")) {
@@ -297,9 +321,9 @@ public void click_on_column_it_should_be_in_descending_order(String col) throws 
 		String a = wd.findElement(By.xpath("//tbody/tr[1]/td[9]")).getText();
 		String  b = wd.findElement(By.xpath("//tbody/tr["+records.size()+"]/td[9]")).getText();	 
 		if(a.compareToIgnoreCase(b)>=0) {
-			sassert.assertEquals(true, true);
+			assertEquals(true, true);
 		}else{
-			sassert.assertEquals(true, false,"Not in Descending Order");
+			assertEquals(true, false,"Not in Descending Order");
 		}
 	}
 	
@@ -317,20 +341,21 @@ private boolean desccomp(long a, long b) {
 }
 @Then("^Records contains details of displayed CaseId\"([^\"]*)\"CaseType\"([^\"]*)\"$")
 public void records_contains_details_of_displayed_CaseId_CaseType(String arg1, String arg2) throws Throwable {
-	sassert.assertEquals(wd.findElement(By.xpath("//tbody/tr[1]/td[1]")).getText(),arg1);
-	sassert.assertEquals(wd.findElement(By.xpath("//tbody/tr[1]/td[2]")).getText(),arg2);	
+	assertEquals(wd.findElement(By.xpath("//tbody/tr[1]/td[1]")).getText(),arg1);
+	assertEquals(wd.findElement(By.xpath("//tbody/tr[1]/td[2]")).getText(),arg2);	
 }
 @Then("^Click on \"([^\"]*)\" column it should be in ascending order$")
 public void click_on_column_it_should_be_in_ascending_order(String col) throws Throwable {
-	clickOn("slash","table//span[text()='"+col+"']");
+	clickOn("slash","table//span[text()='"+col+"']/following::span");
+	sleepWait(2000);
 	if(col.equals("Case Type")) {		
 		List <WebElement> records = wd.findElements(By.xpath("//tbody/tr"));
 		String a = wd.findElement(By.xpath("//tbody/tr[1]/td[2]")).getText();
 		String  b = wd.findElement(By.xpath("//tbody/tr["+records.size()+"]/td[2]")).getText();	 
 		if(a.compareToIgnoreCase(b)<=0) {
-			sassert.assertEquals(true, true);
+			assertEquals(true, true);
 		}else{
-			sassert.assertEquals(true, false,"Not in ascending Order");
+			assertEquals(true, false,"Not in ascending Order");
 		}
 	}
 	if(col.equals("City")) {		
@@ -338,9 +363,9 @@ public void click_on_column_it_should_be_in_ascending_order(String col) throws T
 		String a = wd.findElement(By.xpath("//tbody/tr[1]/td[3]")).getText();
 		String  b = wd.findElement(By.xpath("//tbody/tr["+records.size()+"]/td[3]")).getText();	 
 		if(a.compareToIgnoreCase(b)<=0) {
-			sassert.assertEquals(true, true);
+			assertEquals(true, true);
 		}else{
-			sassert.assertEquals(true, false,"Not in ascending Order");
+			assertEquals(true, false,"Not in ascending Order");
 		}
 	}
 	if(col.equals("Ageing (Days)")) {		
@@ -349,16 +374,16 @@ public void click_on_column_it_should_be_in_ascending_order(String col) throws T
 		System.out.println(a);
 		long b =new Long(wd.findElement(By.xpath("//tbody/tr["+records.size()+"]/td[6]")).getText());		   
 		System.out.println(b);
-		sassert.assertEquals(true, asccomp(a, b));
+		assertEquals(true, asccomp(a, b));
 	}
 	if(col.equals("Tax Office")) {		
 		List <WebElement> records = wd.findElements(By.xpath("//tbody/tr"));
 		String a = wd.findElement(By.xpath("//tbody/tr[1]/td[7]")).getText();
 		String  b = wd.findElement(By.xpath("//tbody/tr["+records.size()+"]/td[7]")).getText();	 
 		if(a.compareToIgnoreCase(b)<=0) {
-			sassert.assertEquals(true, true);
+			assertEquals(true, true);
 		}else{
-			sassert.assertEquals(true, false,"Not in ascending Order");
+			assertEquals(true, false,"Not in ascending Order");
 		}
 	}
 	if(col.equals("Status")) {		
@@ -366,9 +391,9 @@ public void click_on_column_it_should_be_in_ascending_order(String col) throws T
 		String a = wd.findElement(By.xpath("//tbody/tr[1]/td[8]")).getText();
 		String  b = wd.findElement(By.xpath("//tbody/tr["+records.size()+"]/td[8]")).getText();	 
 		if(a.compareToIgnoreCase(b)<=0) {
-			sassert.assertEquals(true, true);
+			assertEquals(true, true);
 		}else{
-			sassert.assertEquals(true, false,"Not in ascending Order");
+			assertEquals(true, false,"Not in ascending Order");
 		}
 	}
 	if(col.equals("Priority")) {		
@@ -376,9 +401,9 @@ public void click_on_column_it_should_be_in_ascending_order(String col) throws T
 		String a = wd.findElement(By.xpath("//tbody/tr[1]/td[9]")).getText();
 		String  b = wd.findElement(By.xpath("//tbody/tr["+records.size()+"]/td[9]")).getText();	 
 		if(a.compareToIgnoreCase(b)<=0) {
-			sassert.assertEquals(true, true);
+			assertEquals(true, true);
 		}else{
-			sassert.assertEquals(true, false,"Not in ascending Order");
+			assertEquals(true, false,"Not in ascending Order");
 		}
 	}
    
@@ -389,8 +414,8 @@ List <WebElement>records =wd.findElements(By.xpath("//tbody/tr"));
 for(int i=0;i<records.size();i++) {
 	String caseid=elementText("slash","tbody/tr/td["+i+"]");
 	if(caseid.equals(arg1)) {
-		sassert.assertEquals(elementText("slash","tbody/tr["+i+"]/td[5]"),arg2);
-		sassert.assertEquals(elementText("slash","tbody/tr["+i+"]/td[2]"),arg3);
+		assertEquals(elementText("slash","tbody/tr["+i+"]/td[5]"),arg2);
+		assertEquals(elementText("slash","tbody/tr["+i+"]/td[2]"),arg3);
 	}
 
 }

@@ -8,7 +8,10 @@ import static org.drc.vat.appmanager.HelperBase.type;
 import static org.drc.vat.appmanager.HelperBase.saveFile;
 import static org.testng.Assert.assertEquals;
 
+import java.awt.AWTException;
+import java.io.IOException;
 import java.text.NumberFormat;
+import java.util.Calendar;
 import java.util.Locale;
 
 import org.apache.pdfbox.pdmodel.PDDocument;
@@ -24,31 +27,43 @@ import static org.drc.vat.appmanager.HelperBase.getvalue;
 import static org.drc.vat.appmanager.HelperBase.getLatestFilefromDir;
 import static org.drc.vat.appmanager.HelperBase.wd;
 import static org.drc.vat.appmanager.HelperBase.sleepWait;
-
+import static org.drc.vat.appmanager.HelperBase.clearCache;
+import static org.drc.vat.appmanager.HelperBase.getAttribute;
+import static org.drc.vat.appmanager.HelperBase.assessmentOfficer;
+import static org.drc.vat.appmanager.HelperBase.monthName;
+/*
+ * 
+ * the Assessment office does the assessment of the tax payer  and can Raise Notice after assessing the VAT
+ * 
+ * 
+ */
 
 
 public class PaymentSummaryLiabilityCalculationPaymentDueManualAssessment {
+	
 	//esum Edeclare sum 
 	//asum Assessment Sum 
 	//Edeclare ,Assess EDeclaration and assess column records fetch
-	int esum=0,asum=0;
-	int Edeclare,Assess,addL;
+/*	int esum=0,asum=0;
+	int Edeclare,Assess,addL;*/
 	String tpname=null;
 
 	@Given("^The user has done the filing for the particular month$")
 	public void the_user_has_done_the_filing_for_the_particular_month() throws Throwable {
 	       
-	     sleepWait(10000);
+	     sleepWait(5000);
 	}
-
-	@When("^the assessemnt officer does the assessment for that particular month with \"([^\"]*)\" Updation for period\"([^\"]*)\"year\"([^\"]*)\"tpayer\"([^\"]*)\"$")
-	public void the_assessemnt_officer_does_the_assessment_for_that_particular_month_with_Updation_for_period_year_tpayer(String updation, String period, String year, String tpayer) throws Throwable {
-		tpname=tpayer;
+	private void manualAssessmenthome(String period,String tpayer) throws InterruptedException {
+		
+		Calendar cal = Calendar.getInstance();
+	    String month = monthName[cal.get(Calendar.MONTH)];
 	    clickOn("nav_manualAssessment","") ;
 	    sleepWait(2000);
-		clickOn("drp_manualAssessmnetPeriod","");  
+	    if(!month.equalsIgnoreCase(period))
+		{clickOn("drp_manualAssessmnetPeriod","");  		
 	     clickOn("span","[contains(text(),'"+period+"')]");
 	     sleepWait(2000);
+		}
 	     clickOn("drp_mafilterby","");
 	     clickOn("span","[contains(text(),'Tax Payer')]");
 	     type("input_masearch",tpayer);
@@ -56,9 +71,46 @@ public class PaymentSummaryLiabilityCalculationPaymentDueManualAssessment {
 	     clickOn("btn_search","");
 	     clickOn("AssesManage","");
 	     sleepWait(2000);
-	     clickOn("href_maassess","");
-	     
 	}
+
+	@When("^the assessemnt officer does the assessment for that particular month with \"([^\"]*)\" Updation for period\"([^\"]*)\"year\"([^\"]*)\"tpayer\"([^\"]*)\"$")
+	public void the_assessemnt_officer_does_the_assessment_for_that_particular_month_with_Updation_for_period_year_tpayer(String updation, String period, String year, String tpayer) throws Throwable {
+		
+		tpname=tpayer;		
+
+	     manualAssessmenthome(period,tpayer);
+	     
+	     if(!elementText("slash", "tr[1]//td[5]").equalsIgnoreCase("laxman")) {
+	    	 System.out.println("admin");
+		     clickOn("btn_reassignOassess", "");
+		     sleepWait(2000);
+		     clickOn("drpdwn_reassignO", "");
+		     sleepWait(2000);
+		     clickOn("slash","*[name()='ng-dropdown-panel']//*[contains(text(),'Laxman')]");
+		     sleepWait(2000);
+		     clickOn("slash", "tr[1]//td[7]//following::span");
+		    sleepWait(2000);
+		    assertEquals(elementText("slash", "tr[1]//td[5]").equalsIgnoreCase("laxman"),true );	 	 
+	    	
+	            
+	     }
+	    	 
+	    	 
+	    	 
+	    		else {
+	    			System.out.println("assessment");
+	    			assessmentOfficer();
+	    			manualAssessmenthome(period,tpayer);
+		    		 clickOn("href_maassess","");
+		    		 sleepWait(2000);
+		    	 }
+		     
+	    	 }
+
+	     
+	     
+	     
+	
 
 	@Then("^the officer is on the Payment Summary page for Liabilty Calculation and Payment Due$")
 	public void the_officer_is_on_the_Payment_Summary_page_for_Liabilty_Calculation_and_Payment_Due()  throws Throwable {
@@ -67,20 +119,23 @@ public class PaymentSummaryLiabilityCalculationPaymentDueManualAssessment {
 		assertEquals(elementText("element_nontxable",""),"8. Non-taxable transactions" );
 		 sleepWait(2000);   
 		clickOn("btn_maassessNext","");		
-		 sleepWait(2000);  
+		 sleepWait(3000);  
 		 assertEquals(elementText("h6",""),tpname);
+		 sleepWait(2000);  
 		assertEquals(elementText("element_amtvatdeductible",""),"16. Amount of VAT Deductible" );
 		 sleepWait(2000);   
-		clickOn("btn_maassessNext","");		 sleepWait(2000);   
+		clickOn("btn_maassessNext","");		 sleepWait(3000);   
 		 assertEquals(elementText("h6",""),tpname);
 		assertEquals(elementText("element_recoveryofdeduc",""),"18. Supplementary deductions");
-		 sleepWait(2000);   
-		clickOn("btn_maassessNext","");		
-		 assertEquals(elementText("h6",""),tpname);
 		sleepWait(2000);
-		clickOn("btn_maassessNext","");		
+		clickOn("btn_maassessNext","");	
+		 sleepWait(3000);  
 		 assertEquals(elementText("h6",""),tpname);
-		 sleepWait(2000);   
+		 sleepWait(2000);
+		clickOn("btn_maassessNext","");
+		 sleepWait(4000);  
+		 assertEquals(elementText("h6",""),tpname);
+		 sleepWait(3000);   
 		
 	       
 	     
@@ -88,10 +143,12 @@ public class PaymentSummaryLiabilityCalculationPaymentDueManualAssessment {
 
 	@Then("^user clicks on Prev button and it should be on Assessement Summary Tab$")
 	public void user_clicks_on_Prev_button_and_it_should_be_on_Assessement_Summary_Tab() throws Throwable {
-		clickOn("btn_maPrevioustab","");
-		
+
 		sleepWait(2000);
+		clickOn("btn_maPrevioustab","");		
+		sleepWait(4000);
 		 assertEquals(elementText("h6",""),tpname);
+		 sleepWait(2000);
 	       
 	     
 	}
@@ -104,7 +161,7 @@ public class PaymentSummaryLiabilityCalculationPaymentDueManualAssessment {
 		 assertEquals(elementText("h6",""),tpname);
 		assertEquals(elementText("element_pymtsummary",""),"Liability Calculation");
 		 assertEquals(elementText("h6",""),tpname);
-		
+		 sleepWait(2000);
 	       
 	     
 	}
@@ -115,7 +172,9 @@ public class PaymentSummaryLiabilityCalculationPaymentDueManualAssessment {
 		clickOn("btn_maassessNext","");		
 		sleepWait(3000);
 		 assertEquals(elementText("h6",""),tpname);
+		 sleepWait(2000);
 		assertEquals(elementText("element_pymtsummary",""),"Liability Calculation");
+		sleepWait(2000);
 	     type("txt_Aliabiltypenalty",arg1);  
 	     
 	}
@@ -322,7 +381,9 @@ sleepWait(5000);
 
 @Then("^the next button on manual assessemnt page should be disabled$")
 public void the_next_button_on_manual_assessemnt_page_should_be_disabled() throws Throwable {
-assertEquals(buttonEnabled("btn_maassessNext",""), false,"Next button not Disabled");
+	System.out.println(getAttribute("disabled","btn_maassessNext",""));
+assertEquals(getAttribute("disabled","btn_maassessNext",""), "true","Next button not Disabled");
+
 }
 
 @Then("^Total Additional Liability tile should be displayed as Total Assessed\\(FC\\) minus Total e-declaration\\(FC\\)\"([^\"]*)\"\"([^\"]*)\"$")

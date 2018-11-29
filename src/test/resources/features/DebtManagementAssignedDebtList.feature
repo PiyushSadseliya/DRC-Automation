@@ -25,7 +25,7 @@ Feature: DGI employee should be able to do following
   The system is able to generate the list of payments which are under dispute and not paid because of objection cases raised
 
   @mtc8 @ManageView @execute
-  Scenario Outline: Validate whether collection officer is able to view the case for the particular tax payer.
+  Scenario Outline: Validate whether collection officer is able to view the case for the particular tax payer internal portal .
     Given "<Test Case ID>""<Description>"DGI "<officername>""<uname>""<password>"should be logged in to the internal portal
     When clicked on Debt Management Module must be on Debt Management Module
     When Clicked on assigned amount for "<ageing>"
@@ -36,10 +36,10 @@ Feature: DGI employee should be able to do following
 
     Examples: 
       | Test Case ID                       | Description                                                                                | officername  | uname           | password | ageing     | caseid          | Moption1 | Moption2 |
-      | DRC_ATC_DebtManagement_Assigned_01 | Validate whether collection officer is able to view the case for the particular tax payer. | Urvish Patel | ketan.prajapati | admin    | 0-3 Months | R18092000000005 | View     | Reassign |
+      | DRC_ATC_DebtManagement_Assigned_01 | Validate whether collection officer is able to view the case for the particular tax payer. | Urvish Patel | ketan.prajapati | admin    | 0-3 Months | R18112900000003 | View     | Reassign |
 
   @mtc7 @ManageReassign @execute
-  Scenario Outline: Validate whether collection officer is able to reassign the tax officer.
+  Scenario Outline: Validate whether collection officer is able to reassign the tax office internal portal.
     Given "<Test Case ID>""<Description>"DGI "<officername>""<uname>""<password>"should be logged in to the internal portal
     When clicked on Debt Management Module must be on Debt Management Module
     When Clicked on assigned amount for "<ageing>"
@@ -50,20 +50,20 @@ Feature: DGI employee should be able to do following
 
     Examples: 
       | Test Case ID                       | Description                                                              | officername  | uname           | password | ageing     | caseid          | Moption1 | Moption2 | reassign     |
-      | DRC_ATC_DebtManagement_Assigned_02 | Validate whether collection officer is able to reassign the tax officer. | Urvish Patel | ketan.prajapati | admin    | 0-3 Months | R18092000000005 | View     | Reassign | Urvish Patel |
+      | DRC_ATC_DebtManagement_Assigned_02 | Validate whether collection officer is able to reassign the tax officer. | Urvish Patel | ketan.prajapati | admin    | 0-3 Months | R18112900000003 | View     | Reassign | Urvish Patel |
 
   @mtc9 @FilterBy @execute
-  Scenario Outline: Validate whether user is able to filter by using filter by option.
+  Scenario Outline: Validate whether user is able to filter by using filter by option internal portal.
     Given "<Test Case ID>""<Description>"DGI "<officername>""<uname>""<password>"should be logged in to the internal portal
     When clicked on Case Management Module must be on Case Management Module List of cases assigned to the officer should be displayed
     Then user can filter by"Case Type""Case Id""Priority""City""Officer Name""Status"
 
     Examples: 
       | Test Case ID                       | Description                                                        | officername  | uname           | password | ageing     | caseid          |
-      | DRC_ATC_DebtManagement_Assigned_03 | Validate whether user is able to filter by using filter by option. | Urvish Patel | ketan.prajapati | admin    | 0-3 Months | R18092000000005 |
+      | DRC_ATC_DebtManagement_Assigned_03 | Validate whether user is able to filter by using filter by option. | Urvish Patel | ketan.prajapati | admin    | 0-3 Months | R18112900000003 |
 
   @mtc10 @mtc11 @mtc12 @FilterBy @FilterValidation
-  Scenario Outline: Validate whether user is able to filter by using filter by option.
+  Scenario Outline: Validate whether user is able to filter by using filter by option internal portal.
     Given "<Test Case ID>""<Description>"DGI "<officername>""<uname>""<password>"should be logged in to the internal portal
     When clicked on Case Management Module must be on Case Management Module List of cases assigned to the officer should be displayed
     Then user filter using "<dp1>" and from"2018-09-20" to date"2018-09-20"
@@ -84,29 +84,32 @@ Feature: DGI employee should be able to do following
       | DRC_ATC_DebtManagement_Assigned_11 | Validate whether user is able to filter by using filter by option.(Status valid data)         | Urvish Patel | ketan.prajapati | admin    | 0-3 Months | Status       | Open              | valid   |                  |
       | DRC_ATC_DebtManagement_Assigned_12 | Validate whether user is able to filter by using filter by option.(Status invalid data)       | Urvish Patel | ketan.prajapati | admin    | 0-3 Months | Status       | paymentAgreeement | invalid | No records found |
 
-  @mtc12 @date 
-  Scenario Outline: Validate the functionality of Date picker From and To option.
-    Given "<Test Case ID>""<Description>"DGI "<officername>""<uname>""<password>"should be logged in to the internal portal
-    When clicked on Case Management Module must be on Case Management Module List of cases assigned to the officer should be displayed
-    Then Select from date"<fdate>" and to date"<todate>"
-    Then creation date should be between from date"<fdate>" and to date"<todate>"
-    Then Records contains Case id"<Case Id>" created date"<created date>""Debt Collection"
-    Examples: 
-      | Test Case ID                       | Description                                                   | officername  | uname           | password | ageing     | Case Id         | fdate      | todate     | created date |
-      | DRC_ATC_DebtManagement_Assigned_13 | Validate the functionality of Date picker From and To option. | Urvish Patel | ketan.prajapati | admin    | 0-3 Months | R18092000000005 | 2018-09-20 | 2018-09-20 | 09/20/18     |
+#Removed To and fro from every Screen 
+ 
+ 
+ # @mtc12 @date 
+  #Scenario Outline: Validate the functionality of Date picker From and To option internal portal.
+   # Given "<Test Case ID>""<Description>"DGI "<officername>""<uname>""<password>"should be logged in to the internal portal
+    #When clicked on Case Management Module must be on Case Management Module List of cases assigned to the officer should be displayed
+    #Then Select from date"<fdate>" and to date"<todate>"
+    #Then creation date should be between from date"<fdate>" and to date"<todate>"
+    #Then Records contains Case id"<Case Id>" created date"<created date>""Debt Collection"
+    #Examples: 
+     # | Test Case ID                       | Description                                                   | officername  | uname           | password | ageing     | Case Id         | fdate      | todate     | created date |
+      #| DRC_ATC_DebtManagement_Assigned_13 | Validate the functionality of Date picker From and To option. | Urvish Patel | ketan.prajapati | admin    | 0-3 Months | R18112900000003 | 2018-09-20 | 2018-09-20 | 09/20/18     |
 
   @mtc12 @futuredate @execute
-  Scenario Outline: Validate the functionality of Date picker From and To option.
+  Scenario Outline: Validate the functionality of Date picker From and To option internal portal.
     Given "<Test Case ID>""<Description>"DGI "<officer>""<uname>""<password>"should be logged in to the internal portal
     When clicked on Case Management Module must be on Case Management Module List of cases assigned to the officer should be displayed
     Then For future date in To Date it should be disabled"<fdate>""<todate>"
 
     Examples: 
       | Test Case ID                       | Description                                                                | officername  | uname           | password | ageing     | Case Id         | fdate      | todate     |
-      | DRC_ATC_DebtManagement_Assigned_14 | Validate the functionality of Date picker From and To option.(Future Date) | Urvish Patel | ketan.prajapati | admin    | 0-3 Months | R18092000000005 | 2018-09-14 | 2018-09-25 |
+      | DRC_ATC_DebtManagement_Assigned_14 | Validate the functionality of Date picker From and To option.(Future Date) | Urvish Patel | ketan.prajapati | admin    | 0-3 Months | R18112900000003 | 2018-09-14 | 2018-09-25 |
 
   @mtc13 @Sorting @execute
-  Scenario Outline: Validate whether user is able to filter data in sorting order.
+  Scenario Outline: Validate whether user is able to filter data in sorting order internal portal.
     Given "<Test Case ID>""<Description>"DGI "<officer>""<uname>""<password>"should be logged in to the internal portal
     When clicked on Case Management Module must be on Case Management Module List of cases assigned to the officer should be displayed
     Then Case Type should be in ascending Order
@@ -124,37 +127,37 @@ Feature: DGI employee should be able to do following
 
     Examples: 
       | Test Case ID                       | Description                                                    | officername  | uname           | password | ageing     | Case Id         | fdate      | todate     |
-      | DRC_ATC_DebtManagement_Assigned_13 | Validate whether user is able to filter data in sorting order. | Urvish Patel | ketan.prajapati | admin    | 0-3 Months | R18092000000005 | 2018-09-20 | 2018-09-20 |
+      | DRC_ATC_DebtManagement_Assigned_13 | Validate whether user is able to filter data in sorting order. | Urvish Patel | ketan.prajapati | admin    | 0-3 Months | R18112900000003 | 2018-09-20 | 2018-09-20 |
 
-  @mtc2 @execute
-  Scenario Outline: Validate the pending amount in debt management when e-filing is completed and payment is not done .
-    Given "<Test Case ID>""<Description>"DGI "<officername>""<uname>""<password>"should be logged in to the internal portal
-    When clicked on Case Management Module must be on Case Management Module List of cases assigned to the officer should be displayed
-    Then click on filter by dropdown CaseID"<caseid>"
-    Then Records contains details of displayed CaseId"<caseid>"CaseType"<ctype>"
+#  @mtc2 @execute
+ # Scenario Outline: Validate the pending amount in debt management when e-filing is completed and payment is not done internal portal.
+ #   Given "<Test Case ID>""<Description>"DGI "<officername>""<uname>""<password>"should be logged in to the internal portal
+ #   When clicked on Case Management Module must be on Case Management Module List of cases assigned to the officer should be displayed
+  #  Then click on filter by dropdown CaseID"<caseid>"
+  #  Then Records contains details of displayed CaseId"<caseid>"CaseType"<ctype>"
 
-    Examples: 
-      | Test Case ID                       | Description                                                                                         | officername  | uname           | password | ageing     | caseid          | fdate      | todate     | ctype           |
-      | DRC_ATC_DebtManagement_Assigned_14 | Validate the pending amount in debt management when e-filing is completed and payment is not done . | Urvish Patel | ketan.prajapati | admin    | 0-3 Months | R18092000000005 | 2018-09-20 | 2018-09-20 | Debt Collection |
+   # Examples: 
+   #   | Test Case ID                       | Description                                                                                         | officername  | uname           | password | ageing     | caseid          | fdate      | todate     | ctype           |
+     # | DRC_ATC_DebtManagement_Assigned_14 | Validate the pending amount in debt management when e-filing is completed and payment is not done . | Urvish Patel | ketan.prajapati | admin    | 0-3 Months | R18112900000003 | 2018-09-20 | 2018-09-20 | Debt Collection |
+#
+ # @mtc3
+  #Scenario Outline: Validate the assigned amount in debt management when the e-filing is completed, assessment is done for the particular period , objection is raised against the assessment and payment is not done for the particular period internal portal.
+  #  Given "<Test Case ID>""<Description>"DGI "<officername>""<uname>""<password>"should be logged in to the internal portal
+  #  When clicked on Case Management Module must be on Case Management Module List of cases assigned to the officer should be displayed
+   # Then click on filter by dropdown CaseID"<caseid>"
+   # Then Records contains details of displayed CaseId"<caseid>"CaseType"<ctype>"
 
-  @mtc3
-  Scenario Outline: Validate the assigned amount in debt management when the e-filing is completed, assessment is done for the particular period , objection is raised against the assessment and payment is not done for the particular period.
-    Given "<Test Case ID>""<Description>"DGI "<officername>""<uname>""<password>"should be logged in to the internal portal
-    When clicked on Case Management Module must be on Case Management Module List of cases assigned to the officer should be displayed
-    Then click on filter by dropdown CaseID"<caseid>"
-    Then Records contains details of displayed CaseId"<caseid>"CaseType"<ctype>"
+   # Examples: 
+   #   | Test Case ID                       | Description                                                                                                                                                                                                                  | officername  | uname           | password | ageing     | Case Id         | fdate      | todate     | ctype           |
+   #  | DRC_ATC_DebtManagement_Assigned_15 | Validate the assigned amount in debt management when the e-filing is completed, assessment is done for the particular period , objection is raised against the assessment and payment is not done for the particular period. | Urvish Patel | ketan.prajapati | admin    | 0-3 Months | R18112900000003 | 2018-09-14 | 2018-09-14 | Debt Collection |
 
-    Examples: 
-      | Test Case ID                       | Description                                                                                                                                                                                                                  | officername  | uname           | password | ageing     | Case Id         | fdate      | todate     | ctype           |
-      | DRC_ATC_DebtManagement_Assigned_15 | Validate the assigned amount in debt management when the e-filing is completed, assessment is done for the particular period , objection is raised against the assessment and payment is not done for the particular period. | Urvish Patel | ketan.prajapati | admin    | 0-3 Months | R18092000000005 | 2018-09-14 | 2018-09-14 | Debt Collection |
+#  @mtc4
+ # Scenario Outline: Validate the assigned amount on debt-management when e-filing is completed, payment is not done, re-assessment is completed  and Objection is raised internal portal.
+  #  Given "<Test Case ID>""<Description>"DGI "<officername>""<uname>""<password>"should be logged in to the internal portal
+   # When clicked on Case Management Module must be on Case Management Module List of cases assigned to the officer should be displayed
+    #Then click on filter by dropdown CaseID"<caseid>"
+    #Then Records contains details of displayed CaseId"<caseid>"CaseType"<ctype>"
 
-  @mtc4
-  Scenario Outline: Validate the assigned amount on debt-management when e-filing is completed, payment is not done, re-assessment is completed  and Objection is raised .
-    Given "<Test Case ID>""<Description>"DGI "<officername>""<uname>""<password>"should be logged in to the internal portal
-    When clicked on Case Management Module must be on Case Management Module List of cases assigned to the officer should be displayed
-    Then click on filter by dropdown CaseID"<caseid>"
-    Then Records contains details of displayed CaseId"<caseid>"CaseType"<ctype>"
-
-    Examples: 
-      | Test Case ID                       | Description                                                                                                                                            | officername  | uname           | password | ageing     | caseid          | fdate      | todate     | ctype           |
-      | DRC_ATC_DebtManagement_Assigned_16 | Validate the assigned amount on debt-management when e-filing is completed, payment is not done, re-assessment is completed  and Objection is raised . | Urvish Patel | ketan.prajapati | admin    | 0-3 Months | R18092000000005 | 2018-09-14 | 2018-09-14 | Debt Collection |
+   # Examples: 
+    #  | Test Case ID                       | Description                                                                                                                                            | officername  | uname           | password | ageing     | caseid          | fdate      | todate     | ctype           |
+     # | DRC_ATC_DebtManagement_Assigned_16 | Validate the assigned amount on debt-management when e-filing is completed, payment is not done, re-assessment is completed  and Objection is raised . | Urvish Patel | ketan.prajapati | admin    | 0-3 Months | R18112900000003 | 2018-09-14 | 2018-09-14 | Debt Collection |

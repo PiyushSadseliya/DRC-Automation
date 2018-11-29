@@ -9,6 +9,10 @@ import static org.drc.vat.appmanager.HelperBase.type;
 import static org.drc.vat.appmanager.HelperBase.validationMessage;
 import static org.testng.Assert.assertEquals;
 
+import java.util.Calendar;
+
+import static org.drc.vat.appmanager.HelperBase.monthName;
+
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;
 import org.openqa.selenium.By;
@@ -24,17 +28,22 @@ public class PaymentSummaryLiabilityCalculationPaymentDueManualReAssessment {
 	String Ryear=null;
 	@When("^the assessemnt officer does the Reassessment for that particular month with \"([^\"]*)\" Updation for period\"([^\"]*)\"year\"([^\"]*)\"tpayer\"([^\"]*)\"$")
 	public void the_assessemnt_officer_does_the_Reassessment_for_that_particular_month_with_Updation_for_period_year_tpayer(String arg1, String period, String year, String tpayer) throws Throwable {
-	   
+		sleepWait(2000);
 		clickOn("nav_manualAssessment","") ;
-	    sleepWait(2000);
+	    sleepWait(3000);
 	    clickOn("nav_AssessedList","");
-	   
+	    sleepWait(3000);
 	   Rperiod=period;
 	   Ryear=year;
 	    sleepWait(4000);
-		clickOn("drp_manualAssessmnetPeriod","");  
-	     clickOn("span","[contains(text(),'"+period+"')]");
-	     sleepWait(2000);
+	    Calendar cal = Calendar.getInstance();
+	    String month = monthName[cal.get(Calendar.MONTH)];
+	    if(!month.equalsIgnoreCase(period)) {
+			clickOn("drp_manualAssessmnetPeriod","");  
+		     clickOn("span","[contains(text(),'"+period+"')]");
+		     sleepWait(2000);
+	    }
+
 	     clickOn("drp_mafilterby","");
 	     clickOn("span","[contains(text(),'Tax Payer')]");
 	     type("input_masearch",tpayer);
@@ -72,8 +81,9 @@ public class PaymentSummaryLiabilityCalculationPaymentDueManualReAssessment {
 
 	@Then("^User click download button on Payment Summary page from ReAssessment message should be displayed as \"([^\"]*)\"$")
 	public void user_click_download_button_on_Payment_Summary_page_from_ReAssessment_message_should_be_displayed_as(String arg1) throws Throwable {
+		sleepWait(4000);
 		clickOn("btn_efilingschedule","");
-		sleepWait(1000);
+		sleepWait(2000);
 		assertEquals(validationMessage(), arg1);
 		clickOn("btn_maprev","");  
 	      

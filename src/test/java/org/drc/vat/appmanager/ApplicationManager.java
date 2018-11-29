@@ -113,8 +113,10 @@ public class ApplicationManager {
      public void callurl() throws AWTException, InterruptedException
         {
     	 System.out.println(wd.getCurrentUrl());
-        if(!wd.getCurrentUrl().contains("8042"))	{
+        if(!wd.getCurrentUrl().contains("8066"))	{
         wd.get(properties.getProperty("web.Url"));
+        }else {
+        	 wd.get("http://103.249.120.58:8066");
         }
         }
 
