@@ -24,8 +24,8 @@ public class DebtCollectionCaseScreen {
 	
 	@Then("^user should be on Debt Collection Case$")
 	public void user_should_be_on_Debt_Collection_Case() throws Throwable {
-		sleepWait(2000);
-		assertEquals(elementText("heading_debtcasescreen",""), "");
+		sleepWait(3000);
+		assertEquals(elementText("heading_debtcasescreen",""), "Debt Collection Case");
 		
 	}
 	@Then("^user verifies the Total Due HyperLink\"([^\"]*)\"$")
@@ -60,7 +60,7 @@ public class DebtCollectionCaseScreen {
 	}
 	@Then("^Status \"([^\"]*)\" should be displayed$")
 	public void status_should_be_displayed(String arg1) throws Throwable {
-		WebElement dt=wd.findElement(By.xpath("//label[text()='Status : ']/following-sibling::input"));
+		WebElement dt=wd.findElement(By.xpath("//strong[contains(text(),'Status')]/following::input"));
 	    JavascriptExecutor jse = (JavascriptExecutor)wd;
 	   String status = jse.executeScript("return arguments[0].value", dt).toString();
 	   System.out.println(status);
@@ -81,6 +81,7 @@ public class DebtCollectionCaseScreen {
 	    clickOn("btn_submit","");
 	    String txt=pageSource();
 	  // assertEquals(txt.contains("Case update successfully"), true);
+	    sleepWait(8000);
 	}
 	@Then("^click in Percentage Radio At Expected Recovery$")
 	public void click_in_Percentage_Radio_At_Expected_Recovery() throws Throwable {

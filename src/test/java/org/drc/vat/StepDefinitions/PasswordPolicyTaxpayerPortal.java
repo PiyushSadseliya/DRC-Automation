@@ -22,8 +22,7 @@ import cucumber.api.java.en.When;
 
 public class PasswordPolicyTaxpayerPortal {
 	@Given("^The user is on TaxPayer portal Registeration page for registration\"([^\"]*)\"|\"([^\"]*)\"$")
-	public void the_user_is_on_TaxPayer_portal_Registeration_page_for_registration(String arg1, String arg2) throws Throwable {
-	  wd.get("http://103.249.120.58:8066");
+	public void the_user_is_on_TaxPayer_portal_Registeration_page_for_registration(String arg1, String arg2) throws Throwable {	
 		clickOn("register_link","");
 	   Assert.assertEquals(elementText("h2", ""),"Register With Us");
 	   
@@ -31,11 +30,11 @@ public class PasswordPolicyTaxpayerPortal {
 
 	@When("^user Enters valid details in fields FullName\"([^\"]*)\"Email\"([^\"]*)\"MobileNumber\"([^\"]*)\"$")
 	public void user_Enters_valid_details_in_fields_FullName_Email_MobileNumber(String arg1, String arg2, String arg3) throws Throwable {
-Thread.sleep(2000);
+sleepWait(2000);
 		type("txtbx_fullname",arg1);
-		Thread.sleep(2000);
+		sleepWait(2000);
 		type("txtbx_email",arg2);
-		Thread.sleep(2000);
+		sleepWait(2000);
 		type("txtbx_phone",arg3);
 		
 		
@@ -45,9 +44,9 @@ Thread.sleep(2000);
 	@When("^user enters password\"([^\"]*)\"confirm\"([^\"]*)\"$")
 	public void user_enters_password_confirm(String arg1, String arg2) throws Throwable {
 		type("txtbx_password",arg1);
-		Thread.sleep(2000);
+		sleepWait(2000);
 		type("txtbx_cfpassword",arg2);     
-		Thread.sleep(2000);
+		sleepWait(2000);
 	    
 	}
 
@@ -60,11 +59,10 @@ Thread.sleep(2000);
 	}
 	@Given("^User should be on Change Password screen\"([^\"]*)\"|\"([^\"]*)\"$")
 	public void user_should_be_on_Change_Password_screen(String arg1, String arg2) throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-		wd.get("http://103.249.120.58:8063/account/Login");
-		Thread.sleep(2000);
-		login("reject@mailinator.com","reject@123");
-		Thread.sleep(3000);;
+	    // Write code here that turns the phrase above into concrete actions		
+		sleepWait(2000);
+		login("refac@mailinator.com","Test@123");
+		sleepWait(3000);;
 		clickOn("link_myaccount","");
 	}
 
@@ -72,7 +70,7 @@ Thread.sleep(2000);
 	public void password_Confirm_Password(String arg1, String arg2) throws Throwable {
 		type("txtbx_password",arg1);
 		
-		Thread.sleep(2000);
+		sleepWait(2000);
 		type("txtbx_cfpassword",arg2);    
 	}
 
@@ -88,7 +86,7 @@ Thread.sleep(2000);
 	             clickOn("btn_register","");   
 	      if(wd.getCurrentUrl().contains("/user-registration-success")) {
 	    	  Assert.assertEquals(false, true);
-	    	  Thread.sleep(2000);
+	    	  sleepWait(2000);
 	    	  wd.get("http://103.249.120.58:8066/user-registration");
 	      }
 	      
@@ -101,11 +99,11 @@ Thread.sleep(2000);
 	@Then("^password and confirm password should accept field length of upto twenty$")
 	public void password_and_confirm_password_should_accept_field_length_of_upto_twenty() throws Throwable {
 	               if(getvalue("txtbx_password","").length()>20) {
-	            	   Thread.sleep(2000);
+	            	   sleepWait(2000);
 	            	   Assert.assertEquals(false, true);
 	               }
 	               if(getvalue("txtbx_cfpassword","").length()>20) {
-	            	   Thread.sleep(2000);
+	            	   sleepWait(2000);
 	            	   Assert.assertEquals(false, true);
 	               }
 	      
@@ -114,7 +112,7 @@ Thread.sleep(2000);
 	@When("^Accepts privacy policy$")
 	public void accepts_privacy_policy() throws Throwable {
 	           clickOn("chkbx_agree","");  
-	           Thread.sleep(2000);
+	           sleepWait(2000);
 	          
 	      
 	}
@@ -134,13 +132,13 @@ Thread.sleep(2000);
 	@Given("^The user is on TaxPayer portal \"([^\"]*)\"|\"([^\"]*)\"$")
 	public void the_user_is_on_TaxPayer_portal(String arg1, String arg2) throws Throwable {
 	        wd.get("http://103.249.120.58:8066");        
-	        Thread.sleep(2000);
+	        sleepWait(2000);
 	}
 
 	@When("^user clicks on Forgot Password Link$")
 	public void user_clicks_on_Forgot_Password_Link() throws Throwable {
 	         clickOn("href_reset_taxpayerportal","");    
-	         Thread.sleep(2000);
+	         sleepWait(2000);
 	      
 	}
 
@@ -159,13 +157,13 @@ Thread.sleep(2000);
 	@Then("^Enters UnRegistered \"([^\"]*)\"$")
 	public void enters_UnRegistered(String arg1) throws Throwable {
 	              type("input_reset_email",arg1);  
-	              Thread.sleep(2000);
+	              sleepWait(2000);
 	      
 	}
 
 	@Then("^Clicks button Send OTP$")
 	public void clicks_button_Send_OTP() throws Throwable {
-		Thread.sleep(2000);
+		sleepWait(2000);
 	          clickOn("btn_reset_sendotp","");      
 	      
 	}
@@ -179,7 +177,7 @@ Thread.sleep(2000);
 	@Then("^Enters blank spaces in email\"([^\"]*)\"$")
 	public void enters_blank_spaces_in_email(String arg1) throws Throwable {
 		type("input_reset_email",arg1);    
-		Thread.sleep(2000); 
+		sleepWait(2000); 
 	}
 
 	@Then("^Enter Registered Email\"([^\"]*)\"$")
@@ -191,7 +189,7 @@ Thread.sleep(2000);
 	@Then("^Enter OTP After Three minutes$")
 	public void enter_OTP_After_Three_minutes() throws Throwable {
 	              System.out.println("Enter OTP of six digit"); 
-	      Thread.sleep(180000);
+	      sleepWait(180000);
 	}
 
 	@Then("^Enter OTP Received in the mail$")
@@ -513,13 +511,14 @@ Thread.sleep(2000);
 
 	@Then("^user should not be logged in to the application$")
 	public void user_should_not_be_logged_in_to_the_application() throws Throwable {
-	           Assert.assertEquals(elementText("","h2"), "Welcome to DRC Tax Portal");     
+	           Assert.assertEquals(elementText("h2",""), "Welcome to DRC Tax Portal");     
 	      
 	}
 
 	@Then("^user should be logged in to the application$")
 	public void user_should_be_logged_in_to_the_application() throws Throwable {
-		Assert.assertEquals(elementText("","h3"), "Dashboard");
+		sleepWait(5000);
+		Assert.assertEquals(elementText("h3",""), "Dashboard");
 		            
 	      
 	}

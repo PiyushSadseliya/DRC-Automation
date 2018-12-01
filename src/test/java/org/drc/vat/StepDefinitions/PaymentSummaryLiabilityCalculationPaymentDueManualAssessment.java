@@ -348,6 +348,7 @@ System.out.println(per);
 clickOn("btn_maRaiseNotice","");
 sleepWait(2000);
 saveFile();
+sleepWait(2000);
 PDDocument doc = PDDocument.load(getLatestFilefromDir());   
 PDFTextStripper pdfStripper = new PDFTextStripper();  
 String text = pdfStripper.getText(doc);  

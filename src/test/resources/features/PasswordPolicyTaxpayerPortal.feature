@@ -255,12 +255,12 @@ Feature: Password Policy for TaxPayer Portal
   @PWP_TC_10
   Scenario Outline: Validate the user enter valid user name and password with blank space between two words
     Given User should be on Login screen"<Test Case Id>"|"<Description>"
-    When Enter valid Email id "demo1@mailinator.com"
-    And Enter password"demo 1234"
+    When Enter valid Email id "refac@mailinator.com"
+    And Enter password"Test @12"
     And Click on sign in button
     Then user should not be logged in to the application
-    When Enter valid Email id "demo1@mailinator.com"
-    And Enter password"demo1234"
+    When Enter valid Email id "refac@mailinator.com"
+    And Enter password"Test@123"
     And Click on sign in button
     Then user should be logged in to the application
 

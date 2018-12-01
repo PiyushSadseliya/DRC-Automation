@@ -717,6 +717,7 @@ public static boolean elementDisplayed(String object,String data) {
 public static File getLatestFilefromDir(){
     
     File[] files = dir.listFiles();
+    System.out.println(files.length);
     if (files == null || files.length == 0) {
         return null;
     }
@@ -725,6 +726,7 @@ public static File getLatestFilefromDir(){
     for (int i = 1; i < files.length; i++) {
        if (lastModifiedFile.lastModified() < files[i].lastModified()) {
            lastModifiedFile = files[i];
+           System.out.println(lastModifiedFile.getName());
        }
     }
     return lastModifiedFile;

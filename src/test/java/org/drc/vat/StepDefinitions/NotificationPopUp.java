@@ -22,8 +22,8 @@ public class NotificationPopUp {
 
 	@Then("^status should be \"([^\"]*)\"$")
 	public void status_should_be(String arg1) throws Throwable {
-		System.out.println(elementText("slash", "td[8]"));
-		sassert.assertEquals(elementText("slash", "td[8]"),arg1);
+		System.out.println(elementText("slash", "td[10]"));
+		sassert.assertEquals(elementText("slash", "td[10]"),arg1);
 	       
 	}
 

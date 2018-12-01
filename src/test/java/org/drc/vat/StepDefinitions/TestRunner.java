@@ -28,10 +28,10 @@ import static org.drc.vat.appmanager.HelperBase.assertEnding;
 import static org.drc.vat.appmanager.HelperBase.clearCache;
 import static org.drc.vat.appmanager.HelperBase.assessmentOfficer;
 import static org.drc.vat.appmanager.HelperBase.sleepWait;
-@CucumberOptions(features = {"classpath:features/DebtCollectionCaseScreen.feature"},
+@CucumberOptions(features = {"classpath:features/"},
        glue = "org.drc.vat.StepDefinitions",
         plugin = {"com.cucumber.listener.ExtentCucumberFormatter:",
-                  "html:test-output/cucumber-report"},tags= {"@mtc6"}
+                  "html:test-output/cucumber-report"},tags= {"@LiablityCalculation"}
                   
 )
 public class TestRunner extends AbstractTestNGCucumberTests {

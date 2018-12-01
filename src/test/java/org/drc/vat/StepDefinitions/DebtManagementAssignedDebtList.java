@@ -90,7 +90,7 @@ public class DebtManagementAssignedDebtList {
 	@Then("^click on filter by dropdown CaseID\"([^\"]*)\"$")
 	public void click_on_filter_by_dropdown_CaseID(String arg1) throws Throwable {
 		clickOn("txt_filterby","/following::span");
-		sleepWait(2000);
+		sleepWait(1000);
 		clickOn("span","[text()='Case Id']");	
 		sleepWait(2000);
 		type("txtbx_typehere",arg1);
@@ -132,6 +132,7 @@ public class DebtManagementAssignedDebtList {
 	}
 	@When("^clicked on Case Management Module must be on Case Management Module List of cases assigned to the officer should be displayed$")
 	public void clicked_on_Case_Management_Module_must_be_on_Case_Management_Module_List_of_cases_assigned_to_the_officer_should_be_displayed() throws Throwable {
+		clickOn("href_dashboards", "");
 	    clickOn("nav_href_caseManagement","");
 		sleepWait(3000);
 	    assertEquals(elementText("txt_heading",""), "Case Management");

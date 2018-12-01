@@ -117,7 +117,7 @@ public class ApplicationManager {
         wd.get(properties.getProperty("web.Url"));
         }else {
         	 wd.get("http://103.249.120.58:8066");
-        }
+}
         }
 
 /*

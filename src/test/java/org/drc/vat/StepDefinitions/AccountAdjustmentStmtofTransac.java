@@ -225,7 +225,7 @@ if(Acaction.equalsIgnoreCase("Reverse")) {
 			
 			
 		}
-	//clickOn("span","[contains(text(),'"+arg1+"')]");
+	clickOn("span","[contains(text(),'"+arg1+"')]");
 		sleepWait(5000);
 		reason=arg1;
 		
@@ -352,22 +352,22 @@ if(Acaction.equalsIgnoreCase("Reverse")) {
 			String Tpenalty=null;
 			//Removing the .00 if its a Integer no. in Total VAT Liability
 			if(vat-Float.parseFloat(arg2)==0) {
-				vatT=String.format("%.0f", vat-Float.parseFloat(arg2));
-			}else {
+/*				vatT=String.format("%.0f", vat-Float.parseFloat(arg2));
+			}else {*/
 				vatT=String.format("%.2f", vat-Float.parseFloat(arg2));
 				
 			}
 			//Removing the .00 if its a Integer no. in Late Fee
 			if(vat-Float.parseFloat(arg3)==0) {
-				Tltfee=String.format("%.0f",ltfee- Float.parseFloat(arg3));	
-			}else {
+/*				Tltfee=String.format("%.0f",ltfee- Float.parseFloat(arg3));	
+			}else {*/
 				 Tltfee=String.format("%.2f",ltfee- Float.parseFloat(arg3));	
 				
 			}
 			//Removing the .00 if its a Integer no. in Total Penalty
 			if(vat-Float.parseFloat(arg3)==0) {
-				 Tpenalty=String.format("%.0f", penalty-Float.parseFloat(arg4));
-			}else {
+/*				 Tpenalty=String.format("%.0f", penalty-Float.parseFloat(arg4));
+			}else {*/
 				 Tpenalty=String.format("%.2f", penalty-Float.parseFloat(arg4));
 				
 			}
@@ -424,22 +424,22 @@ if(Acaction.equalsIgnoreCase("Reverse")) {
 			String Tpenalty=null;
 	
 			if(vat-Float.parseFloat(arg2)==0) {
-				vatT=String.format("%.0f", vat+Float.parseFloat(arg2));
-			}else {
+/*				vatT=String.format("%.0f", vat+Float.parseFloat(arg2));
+			}else {*/
 				vatT=String.format("%.2f", vat+Float.parseFloat(arg2));
 				
 			}
 			//Removing the .00 if its a Integer no. in Late Fee
 			if(vat-Float.parseFloat(arg2)==0) {
-				Tltfee=String.format("%.0f",ltfee+Float.parseFloat(arg3));	
-			}else {
+/*				Tltfee=String.format("%.0f",ltfee+Float.parseFloat(arg3));	
+			}else {*/
 				 Tltfee=String.format("%.2f",ltfee+Float.parseFloat(arg3));	
 				
 			}
 			//Removing the .00 if its a Integer no. in Total Penalty
 			if(vat-Float.parseFloat(arg2)==0) {
-				 Tpenalty=String.format("%.0f", penalty+Float.parseFloat(arg4));
-			}else {
+/*				 Tpenalty=String.format("%.0f", penalty+Float.parseFloat(arg4));
+			}else {*/
 				 Tpenalty=String.format("%.2f", penalty+Float.parseFloat(arg4));
 				
 			}
@@ -460,13 +460,19 @@ if(Acaction.equalsIgnoreCase("Reverse")) {
 		type("input_vat",arg1);
 		type("input_ltfee",arg2);
 		type("input_pen",arg3);
-		if((!arg1.equals("0"))||!(arg1.equals(elementText("txt_oldVatrec", "")))) {
+		System.out.println((!arg1.equals("0")));
+		System.out.println((!arg1.equals(elementText("txt_oldVatrec", ""))));
+		if((!arg1.equals("0"))||(!arg1.equals(elementText("txt_oldVatrec", "")))) {
 			assertEquals(elementText("txt_vatEmsg", ""), "Amount should be 0 or exact value");
 		}
-		if((!arg2.equals("0"))||!(arg1.equals(elementText("txt_oldltfeeRec", "")))) {
+		System.out.println((!arg2.equals("0")));
+		System.out.println(!arg1.equals(elementText("txt_oldltfeeRec", "")));
+		if((!arg2.equals("0"))||(!arg1.equals(elementText("txt_oldltfeeRec", "")))) {
 			assertEquals(elementText("txt_ltfeeEmsg", ""), "Amount should be 0 or exact value");
 		}
-		if((!arg3.equals("0"))||!(arg1.equals(elementText("txt_oldpenRec", "")))) {
+		System.out.println((!arg3.equals("0")));
+		System.out.println((!arg1.equals(elementText("txt_oldpenRec", ""))));
+		if((!arg3.equals("0"))||(!arg1.equals(elementText("txt_oldpenRec", "")))) {
 			assertEquals(elementText("txt_penEmsg", ""), "Amount should be 0 or exact value");
 		}
 
