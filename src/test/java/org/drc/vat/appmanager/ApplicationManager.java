@@ -1,7 +1,5 @@
 package org.drc.vat.appmanager;
 
-import static org.drc.vat.appmanager.HelperBase.clickOn;
-
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.Toolkit;
@@ -83,9 +81,7 @@ public class ApplicationManager {
 		return helperBase;
 	}
 
-	/*
-	 * Auto it
-	 */
+	
 	/**
 	 *  Ketan.prajapati internal portal
 	 */
@@ -98,27 +94,20 @@ public class ApplicationManager {
 			WebDriver wd = new ChromeDriver();
 			 wd.manage().window().maximize();
 			 wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-			// Thread.sleep(1000);
-			//clickOn("btn_windowsClick","");
 			wd.get("http://103.249.120.58:8044");
-			//clickOn("btn_windowsClick","");
 			Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\autoitsample.exe.exe");
-			//Runtime.getRuntime().exec("E:\\DRC Workspace\\DRC_VAT_New\\autoitsample.exe");
-			// Thread.sleep(5000);
 			wd.findElement(By.xpath(obj.getProperty("btn_windowsClick"))).click();
-			// clickOn("btn_windowsClick","");
-			Thread.sleep(5000);
+			Thread.sleep(1000);
 		}
 		else
 		{
 			if (!wd.getCurrentUrl().contains("8068")) 
 			{
-				Thread.sleep(5000);
+				Thread.sleep(1000);
 				wd.get("http://103.249.120.58:8044");
 				Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\autoitsample.exe");
-				//Runtime.getRuntime().exec("E:\\DRC Workspace\\DRC_VAT_New\\autoitsample.exe");
 				clickOn("btn_windowsClick", "");
-				Thread.sleep(5000);
+				Thread.sleep(1000);
 			}
 		}
 		
@@ -127,39 +116,26 @@ public class ApplicationManager {
 
 	public void callinternalportal_TaxOfficer() throws AWTException, InterruptedException, IOException 
 	{
-		/*if(wd.getCurrentUrl().contains("http://103.249.120.58:8068/fx-management/view"))
-		{
-				clickOn("btn_HistoricalFX", "");
-		}		*/
-		
 		if (wd.getCurrentUrl().contains("8068")) 
 		{
 			wd.close();
-			//Thread.sleep(1000);
+
 			WebDriver wd = new ChromeDriver();
 			wd.manage().window().maximize();
 			 wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-			// Thread.sleep(1000);
-			//clickOn("btn_windowsClick","");
 			wd.get("http://103.249.120.58:8044");
-			//clickOn("btn_windowsClick","");
 			Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\autoitsample.TaxOfficer.exe");
-			//Runtime.getRuntime().exec("E:\\DRC Workspace\\DRC_VAT_New\\autoitsample.TaxOfficer.exe");
-			// Thread.sleep(5000);
 			wd.findElement(By.xpath(obj.getProperty("btn_windowsClick"))).click();
-			// clickOn("btn_windowsClick","");
-			Thread.sleep(5000);
+			Thread.sleep(1000);
 		}
 		else
 		{
 			if (!wd.getCurrentUrl().contains("8068")) 
 			{
-				//Thread.sleep(5000);
 				wd.get("http://103.249.120.58:8044");
 				Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\autoitsample.TaxOfficer.exe");
-				//Runtime.getRuntime().exec("E:\\DRC Workspace\\DRC_VAT_New\\autoitsample.TaxOfficer.exe");
 				clickOn("btn_windowsClick", "");
-				Thread.sleep(5000);
+				Thread.sleep(1000);
 			}						
 		}
 	}
@@ -170,19 +146,11 @@ public class ApplicationManager {
 		if (wd.getCurrentUrl().contains("8068")) 
 		{		
 			Thread.sleep(1000);
-			WebDriver wd = new ChromeDriver();
-			// wd.manage().window().maximize();
-			// wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-			// Thread.sleep(1000);
-			//clickOn("btn_windowsClick","");
+			WebDriver wd = new ChromeDriver();			
 			wd.get("http://103.249.120.58:8044");
-			//clickOn("btn_windowsClick","");
-			Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\autoitsample.Supervisiour.exe");
-			//Runtime.getRuntime().exec("E:\\DRC Workspace\\DRC_VAT_New\\autoitsample.Supervisiour.exe");
-			// Thread.sleep(5000);
+			Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\autoitsample.Supervisiour.exe");			
 			wd.findElement(By.xpath(obj.getProperty("btn_windowsClick"))).click();
-			// clickOn("btn_windowsClick","");
-			Thread.sleep(5000);
+			Thread.sleep(1000);
 		}
 		else
 		{
@@ -190,18 +158,50 @@ public class ApplicationManager {
 			{
 				Thread.sleep(5000);
 				wd.get("http://103.249.120.58:8044");
-				Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\autoitsample.Supervisiour.exe");
-				//Runtime.getRuntime().exec("E:\\DRC Workspace\\DRC_VAT_New\\autoitsample.Supervisiour.exe");
+				Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\autoitsample.Supervisiour.exe");				
 				clickOn("btn_windowsClick", "");
-				Thread.sleep(5000);
+				Thread.sleep(1000);
 			}
 		}
 	}
-
+	
+	
+	public void callinternalportal_Assessment_Officer() throws AWTException, InterruptedException, IOException 
+	{	
+		if (wd.getCurrentUrl().contains("8068")) 
+		{		
+			Thread.sleep(1000);
+			WebDriver wd = new ChromeDriver();			
+			wd.get("http://103.249.120.58:8044");
+	       Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\autoitsample.LaxmanAOO.exe");			
+			wd.findElement(By.xpath(obj.getProperty("btn_windowsClick"))).click();
+			Thread.sleep(1000);
+		}
+		else
+		{
+			if (!wd.getCurrentUrl().contains("8068")) 
+			{
+				Thread.sleep(1000);
+				wd.get("http://103.249.120.58:8044");
+				 Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\autoitsample.LaxmanAOO.exe");				
+				clickOn("btn_windowsClick", "");
+				Thread.sleep(1000);
+			}
+		}
+	}
+	
+	
+	
 	public void callurl() throws AWTException, InterruptedException 
 	{
-
-		wd.get(properties.getProperty("web.Url"));
+		 if(wd.getCurrentUrl().contains("8066"))
+		 {
+			 sleepWait(500);			
+		 }
+		 else if(!wd.getCurrentUrl().contains("8042"))
+		 {
+			 wd.get(properties.getProperty("web.Url"));
+		 }
 	}
 
 	

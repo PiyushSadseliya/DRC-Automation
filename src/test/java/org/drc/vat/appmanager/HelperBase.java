@@ -174,7 +174,7 @@ public class HelperBase {
         
     /**
      *  
-     *  This cheeck extension for PDF, JPG ,PNG,JPEG    
+     *  This check extension for PDF, JPG ,PNG,JPEG    
      */
 	public static void verifyDownloadCheck(String data) 
     {     	
@@ -183,8 +183,7 @@ public class HelperBase {
         for (File file : files) 
         {
             if (file.getName().contains(data) == file.getName().toLowerCase().endsWith(".pdf") || file.getName().toLowerCase().endsWith(".jpg") || file.getName().toLowerCase().endsWith(".png") || file.getName().toLowerCase().endsWith(".jpeg")) 
-            {
-            	System.out.println(file);
+            {            	
             	assertTrue(true);
             }
             else

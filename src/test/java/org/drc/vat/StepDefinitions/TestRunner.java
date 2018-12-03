@@ -21,12 +21,20 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-@CucumberOptions(features = {"classpath:features/"},
+/*@CucumberOptions(features = {"classpath:features/7_0_FX_Management_TaxOfficer.feature","classpath:features/7_1_FX_Management_Supervisor.feature","classpath:features/7_2_TaxOfficer_Admin.feature"},
        glue = "org.drc.vat.StepDefinitions",
         plugin = {"com.cucumber.listener.ExtentCucumberFormatter:",
                   "html:test-output/cucumber-report"}
         		//tags={"@TC_01_Login_e-filing_landing_screen,@TC_02,@TC_002_ImportantDates"}
-                 )
+                 )*/
+
+@CucumberOptions(features = {"classpath:features/8_1_Internal_Portal_objection_appeal.feature"},
+glue = "org.drc.vat.StepDefinitions",
+ plugin = {"com.cucumber.listener.ExtentCucumberFormatter:",
+           "html:test-output/cucumber-report"},	
+ 		tags={"@TC_03_Priority"}
+          )
+
 
 public class TestRunner extends AbstractTestNGCucumberTests {
 
@@ -67,37 +75,46 @@ public class TestRunner extends AbstractTestNGCucumberTests {
     /*
     *  For Auto it 
     */       
-   /*@Before
+   @Before
     public void startScenario(Scenario scenario) throws IOException, AWTException, InterruptedException 
     {	
-    	if (scenario.getName().toLowerCase().contains("tax payer portal"))
-    	{
-    		app.callurl();    		
-    	}
-    	else
-    	{
-    		app.callinternalportal();
-    	}
-    	Thread.sleep(5000);
-    	logger.info("Start scenario: " + scenario.getName());
-    }*/
-    @Before
-    public void startScenario(Scenario scenario) throws IOException, AWTException, InterruptedException 
-    {	
-    	if (scenario.getName().toLowerCase().contains("internal portal"))    	{	    	
+	   /** 
+	    *  Login with Ketan.prajapati
+	    */
+	 	if (scenario.getName().toLowerCase().contains("internal portal"))    	
+	 	{	    	
     		app.callinternalportal();   
-    		}		
-    		
-
-    	else
+	 	}
+	 	/** 
+		  *  Login with rohit.patil
+		*/
+	 	else if(scenario.getName().toLowerCase().contains("fx taxofficer"))
+	 	{
+	 		app.callinternalportal_TaxOfficer();
+	 	}
+	 	/** 
+		  *  Login with pooja.parmar
+	    */
+	 	else if(scenario.getName().toLowerCase().contains("supervisor"))
+	 	{
+	 		app.callinternalportal_Supervisor();
+	 	}
+	 	else if(scenario.getName().toLowerCase().contains("laxman"))
+	 	{
+	 		app.callinternalportal_Assessment_Officer();
+	 	}
+	 	
+	 	/** 
+		  *  Login Tax Payer Portal
+	    */
+	 	else
     	{
     		app.callurl();
+    		
     	}
     	Thread.sleep(5000);
     	logger.info("Start scenario: " + scenario.getName());
     }
-
-    
     
 
 	@After
