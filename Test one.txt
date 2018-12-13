@@ -20,3 +20,7 @@ btn_HistoricalFX=//button[@title='Historical Fx Rates']
 btn_SearchFX=//span[@class="fa fa-search"]
 btn_PreviousFX=//button[@title='Previous']
 btn_LogoutFX=//span[@class="fa fa-power-off"]
+
+############ franky######
+message test 
+########################
