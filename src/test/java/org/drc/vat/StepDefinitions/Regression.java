@@ -155,8 +155,8 @@ public class Regression {
 	
 	@When("^User clicks on VAT Getting Started Guide CheckBox$")
 	public void user_clicks_on_VAT_Getting_Started_Guide_CheckBox() throws Throwable {
-		clickOn("tab_VAT","");
-		sleepWait(2000);
+		//clickOn("tab_VAT","");
+		//sleepWait(2000);
 		// clickOn("btn_sure","");
 		sleepWait(2000);
 		clickOn("chkbox_guide","");
@@ -170,8 +170,7 @@ public class Regression {
 		 sleepWait(2000);
 		 clickOn("tile_vat","");
 		 sleepWait(1000);
-		 clickOn("chkbox_guide","");
-		 sleepWait(1000);
+
 
 	}
 
@@ -179,6 +178,8 @@ public class Regression {
 	
 	@When("^Clicks on Register for Vat button$")
 	public void clicks_on_Register_for_Vat_button() throws Throwable {
+		 //clickOn("chkbox_guide","");
+		// sleepWait(1000);
 		sleepWait(2000);
 		clickOn("btn_registerforvat","");
 		sleepWait(3000); 

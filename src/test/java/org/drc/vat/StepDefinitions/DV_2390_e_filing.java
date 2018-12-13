@@ -73,7 +73,7 @@ public class DV_2390_e_filing
 	@And("^User Click on SignIn$")
 	public void user_Click_on_SignIn() throws Throwable 
 	{
-		sleepWait(1000);
+/*		sleepWait(1000);
 		clickOn("btn_login", "");		
 		 sleepWait(2000);
 		 clickOn("tile_vat","");
@@ -81,7 +81,7 @@ public class DV_2390_e_filing
 		 clickOn("a_sure","");
 		 sleepWait(2000);
 		// wd.switchTo().window(wd.getWindowHandles().toArray()[1].toString());
-		 sleepWait(1000);
+		 sleepWait(1000);*/
 	}
 	
 	@And("^User check value \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" for Operation Performed$")

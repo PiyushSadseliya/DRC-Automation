@@ -1,11 +1,11 @@
 Feature: Automation Regression TestSuite
 
   @SP_03
-  Scenario Outline: Regression TestSuite to validate all funactionality
+  Scenario Outline: User submits the form for vat approval
     Given User is on VAT Registration Dashboard
     When User Enter Data: "<email>" "<password>"
-    And User Click on SignIn for new user
-    #   When User clicks on VAT Getting Started Guide CheckBox
+   # And User Click on SignIn for new user
+     When User clicks on VAT Getting Started Guide CheckBox
     And Clicks on Register for Vat button
     And Clicks on Continue button of Instructions Page
     Then Selects Taxpayer Category "<Category>" , SubCategory "<SubCategory>"

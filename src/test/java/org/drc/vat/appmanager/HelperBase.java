@@ -485,8 +485,8 @@ public class HelperBase {
 	}*/
 
 		if (login) {
-			type("txtbox_username",Username);
-			type("txtbox_password","Test@123");
+			type("txtbox_username",email);
+			type("txtbox_password",password);
 			sleepWait(2000);
 			clickOn("btn_login","");
 			sleepWait(2000);
