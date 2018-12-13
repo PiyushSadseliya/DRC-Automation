@@ -22,5 +22,5 @@ btn_PreviousFX=//button[@title='Previous']
 btn_LogoutFX=//span[@class="fa fa-power-off"]
 
 ############ franky######
-message test 
+message test xyz
 ########################
