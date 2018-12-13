@@ -1,0 +1,7 @@
+txtBox_type_Currency=(//input[@formcontrolname="fxRate"])[1]
+txt_Currency_Name=//*[@class="d-flex flex-column pl-0 justify-content-center col-8"]//following::div
+txt_ApprovalRequired=//strong[contains(text(),'Approval Required')]
+
+txt_record_in_table=//*[@class="data-table"]
+
+test two
