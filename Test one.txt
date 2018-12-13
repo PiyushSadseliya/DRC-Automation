@@ -1,5 +1,9 @@
 txtBox_type_Currency=(//input[@formcontrolname="fxRate"])[1]
 txt_Currency_Name=//*[@class="d-flex flex-column pl-0 justify-content-center col-8"]//following::div
+SearchType=//input[@ng-reflect-model="Test 222"]
+
+
+txt_priority_sort_check=//tbody/tr[1]/td[1]/div
 ################################################################
 #################Login Tax Payer ###############################
 ################################################################
