@@ -16,15 +16,7 @@ public class ConnectDatabase {
 	{
 		Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");		
 	//Class.forName("com.mysql.jdbc.Driver");
-		Connection conn = DriverManager.getConnection("jdbc:sqlserver://103.249.120.58;user=DRC_DB_TEAM;password=DRC_DB_TEAM#786");
-		sta = conn.createStatement();	
-	}
-	
-	public static void DRCDB() throws SQLException, ClassNotFoundException
-	{
-		Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");		
-	//Class.forName("com.mysql.jdbc.Driver");
-		Connection conn = DriverManager.getConnection("jdbc:sqlserver://103.249.120.58;user=1Authority;password=1authority@123");
+		Connection conn = DriverManager.getConnection("jdbc:sqlserver://103.249.120.58;user=tester;password=tester@123");
 		sta = conn.createStatement();	
 	}
 	

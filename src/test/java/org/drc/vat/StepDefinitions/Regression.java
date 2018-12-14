@@ -8,6 +8,8 @@ import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Properties;
 import java.util.Set;
 
@@ -207,8 +209,8 @@ public class Regression {
 	
 	@Then("^Enters NIF number \"([^\"]*)\"  ,Full Name Of Business \"([^\"]*)\" , Number of COI \"([^\"]*)\" , Last Year Revenue \"([^\"]*)\"$")
 	public void enters_NIF_number_Full_Name_Of_Business_Number_of_COI_Last_Year_Revenue(String NIF, String BusinessName, String COI, String LRevenue) throws InterruptedException
-	{	   
-		type("txtbox_NIF",NIF);
+	{	    String times = new SimpleDateFormat("HHmmss").format(new Date());
+		type("txtbox_NIF",times.concat(NIF));
 		sleepWait(5000);
 		type("txtbox_businessname",BusinessName);
 		type("txtbox_coi",COI);
