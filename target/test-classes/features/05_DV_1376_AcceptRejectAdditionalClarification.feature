@@ -15,8 +15,8 @@ Feature: User is on Manage VAT Registration and user perform opertations
     And user click on download icon and uploaded file gets downloaded
 
     Examples: 
-      | TestcaseID                              | Description                                                                          | Filters        | Value        |
-      | Valid_Manage_VAT_Creation_Cerificate_01 | Validating file download, view certificate, download certificate and approval of VAT | Applicant Name | Approve User |
+      | TestcaseID                              | Description                                                                          | Filters        | Value         |
+      | Valid_Manage_VAT_Creation_Cerificate_01 | Validating file download, view certificate, download certificate and approval of VAT | Applicant Name | Approved User |
 
   @TC_07_ManageVATRegistration_DV-1376
   Scenario Outline: Validating file download, view certificate, download certificate and approval of VAT - internal portal
@@ -32,8 +32,8 @@ Feature: User is on Manage VAT Registration and user perform opertations
     Then user see the certificate and click on download
 
     Examples: 
-      | TestcaseID                              | Description                                                                | Filters        | Value        |
-      | Valid_Manage_VAT_Creation_Cerificate_01 | Validating file view certificate, download certificate and approval of VAT | Applicant Name | Approve User |
+      | TestcaseID                              | Description                                                                | Filters        | Value         |
+      | Valid_Manage_VAT_Creation_Cerificate_01 | Validating file view certificate, download certificate and approval of VAT | Applicant Name | Approved User |
 
   #TC_04   Note:  #1. Tax Officer should be logged out from the Internal Portal.
   #2. DGI Admin should be logged in to the Internal Portal Successfully.  Future Part
@@ -50,8 +50,8 @@ Feature: User is on Manage VAT Registration and user perform opertations
     And user click on Submit button
 
     Examples: 
-      | TestcaseID                          | Description                       | Filters        | Value       | Reason                                |
-      | Valid_Manage_VAT_Creation_Reject_01 | user click on reject with comment | Applicant Name | Reject User | You have not provided proper document |
+      | TestcaseID                          | Description                       | Filters        | Value         | Reason                                |
+      | Valid_Manage_VAT_Creation_Reject_01 | user click on reject with comment | Applicant Name | Rejected User | You have not provided proper document |
 
   #TC_06  Need to discuss integration part
   @TC_06_ManageVATRegistration_DV-1376
@@ -67,5 +67,5 @@ Feature: User is on Manage VAT Registration and user perform opertations
     And user click on on hold button
 
     Examples: 
-      | TestcaseID                                           | Description                          | Filters        | Value       | document                                        |
-      | Valid_Manage_VAT_Creation_AdditionalClarification_01 | user enter comment and click on hold | Applicant Name | OnHold User | Your Address is not matching with your passport |
+      | TestcaseID                                           | Description                          | Filters        | Value         | document                                        |
+      | Valid_Manage_VAT_Creation_AdditionalClarification_01 | user enter comment and click on hold | Applicant Name | OnHolded User | Your Address is not matching with your passport |

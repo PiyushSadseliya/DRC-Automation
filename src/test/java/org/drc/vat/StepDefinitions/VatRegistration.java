@@ -25,7 +25,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class Regression {
+public class VatRegistration {
 	String cwd = System. getProperty("user.dir");
 	public static Float Total_VC;
 	public static Float TotalD;

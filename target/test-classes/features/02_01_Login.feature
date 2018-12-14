@@ -9,7 +9,7 @@ Feature: Login Module
 
     Examples: 
       | TestcaseID                      | email                          | password |
-      | Valid_DRC_ATC_LoginTaxPortal_01 | automationuser1@mailinator.com | Test@123 |
+      | Valid_DRC_ATC_LoginTaxPortal_01 | approveduser@mailinator.com | Test@123 |
 
   @Run_InValid_Login
   Scenario Outline: DRC Tax Portal with InValid Data
