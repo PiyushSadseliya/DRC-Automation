@@ -72,23 +72,66 @@ public class ApplicationManager {
 	}
 
 	public void callurl() throws AWTException, InterruptedException {
+		if (wd.getCurrentUrl().contains("8066")) {
+			sleepWait(1000);
+		} else if (!wd.getCurrentUrl().contains("8042")) {
+			wd.get(properties.getProperty("web.Url"));
+		}
 
-		wd.get(properties.getProperty("web.Url"));
+		// wd.get(properties.getProperty("web.Url"));
 	}
 
 	public void callinternalportal() throws AWTException, InterruptedException, IOException {
-		if (wd.getCurrentUrl().contains(":90")) {
-			wd.get("http://103.249.120.58:8044");
-			Runtime.getRuntime()
-					.exec(System.getProperty("user.dir") + "\\src\\test\\resources\\authentication\\DRCAdmin.exe");
-			wd.findElement(By.xpath("//*[contains(@alt,'Windows Authentication')]")).click();
+		if (wd.getCurrentUrl().contains("8068")) {
+			/*
+			 * WebDriver wd = new ChromeDriver();
+			 * wd.manage().window().maximize();
+			 * wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+			 * wd.get("http://103.249.120.58:8044"); Runtime.getRuntime()
+			 * .exec(System.getProperty("user.dir") +
+			 * "\\src\\test\\resources\\authentication\\DRCAdmin.exe");
+			 * wd.findElement(By.
+			 * xpath("//*[contains(@alt,'Windows Authentication')]")).click();
+			 */
 			sleepWait(4000);
 		} else {
-			if (!wd.getCurrentUrl().contains(":90")) {
-				wd.get("http://103.249.120.58:8044");
+			if (!wd.getCurrentUrl().contains("8068")) {
+				/*
+				 * wd.get("http://103.249.120.58:8044"); Runtime.getRuntime()
+				 * .exec(System.getProperty("user.dir") +
+				 * "\\src\\test\\resources\\authentication\\DRCAdmin.exe");
+				 * wd.findElement(By.
+				 * xpath("//*[contains(@alt,'Windows Authentication')]")).click(
+				 * );
+				 */
+				sleepWait(4000);
+			}
+		}
+	}
+
+	public void callinternalportal_Admin() throws AWTException, InterruptedException, IOException {
+		if (wd.getCurrentUrl().contains("8068")) {
+			//wd.quit();
+			/*
+			 * WebDriver wd = new ChromeDriver();
+			 * wd.manage().window().maximize();
+			 * wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+			 * wd.get("http://103.249.120.58:8044"); Runtime.getRuntime()
+			 * .exec(System.getProperty("user.dir") +
+			 * "\\src\\test\\resources\\authentication\\DRCAdmin.exe");
+			 * wd.findElement(By.
+			 * xpath("//*[contains(@alt,'Windows Authentication')]")).click();
+			 */
+			sleepWait(4000);
+		} else {
+			if (!wd.getCurrentUrl().contains("8068")) {
+				//wd.quit();
+
+				/*wd.get("http://103.249.120.58:8044");
 				Runtime.getRuntime()
 						.exec(System.getProperty("user.dir") + "\\src\\test\\resources\\authentication\\DRCAdmin.exe");
-				wd.findElement(By.xpath("//*[contains(@alt,'Windows Authentication')]")).click();
+				wd.findElement(By.xpath("//*[contains(@alt,'Windows Authentication')]")).click();*/
+
 				sleepWait(4000);
 			}
 		}
@@ -96,17 +139,21 @@ public class ApplicationManager {
 
 	public void callinternalportal_Supervisor() throws AWTException, InterruptedException, IOException {
 
-		if (wd.getCurrentUrl().contains(":90")) {
-			wd.get("http://103.249.120.58:8044");
-			Runtime.getRuntime().exec(
-					System.getProperty("user.dir") + "\\src\\test\\resources\\authentication\\DRCSupervisiour.exe");
-			wd.findElement(By.xpath("//*[contains(@alt,'Windows Authentication')]")).click();
+		if (wd.getCurrentUrl().contains("8068")) {
+			//wd.quit();
+			/*
+			 * wd.get("http://103.249.120.58:8044"); Runtime.getRuntime()
+			 * .exec(System.getProperty("user.dir") +
+			 * "\\src\\test\\resources\\authentication\\DRCSupervisor.exe");
+			 * wd.findElement(By.
+			 * xpath("//*[contains(@alt,'Windows Authentication')]")).click();
+			 */
 			sleepWait(4000);
 		} else {
-			if (!wd.getCurrentUrl().contains(":90")) {
+			if (!wd.getCurrentUrl().contains("8068")) {
 				wd.get("http://103.249.120.58:8044");
 				Runtime.getRuntime().exec(
-						System.getProperty("user.dir") + "\\src\\test\\resources\\authentication\\DRCSupervisiour.exe");
+						System.getProperty("user.dir") + "\\src\\test\\resources\\authentication\\DRCSupervisor.exe");
 				wd.findElement(By.xpath("//*[contains(@alt,'Windows Authentication')]")).click();
 				sleepWait(4000);
 			}
@@ -115,14 +162,18 @@ public class ApplicationManager {
 
 	public void callinternalportal_Assessment_TaxOfficer() throws AWTException, InterruptedException, IOException {
 
-		if (wd.getCurrentUrl().contains(":90")) {
-			wd.get("http://103.249.120.58:8044");
-			Runtime.getRuntime().exec(System.getProperty("user.dir")
-					+ "\\src\\test\\resources\\authentication\\DRCAssessment_OfficerTax.exe");
-			wd.findElement(By.xpath("//*[contains(@alt,'Windows Authentication')]")).click();
+		if (wd.getCurrentUrl().contains("8068")) {
+			//wd.quit();
+			/*
+			 * wd.get("http://103.249.120.58:8044");
+			 * Runtime.getRuntime().exec(System.getProperty("user.dir") +
+			 * "\\src\\test\\resources\\authentication\\DRCAssessment_OfficerTax.exe"
+			 * ); wd.findElement(By.
+			 * xpath("//*[contains(@alt,'Windows Authentication')]")).click();
+			 */
 			sleepWait(4000);
 		} else {
-			if (!wd.getCurrentUrl().contains(":90")) {
+			if (!wd.getCurrentUrl().contains("8068")) {
 				wd.get("http://103.249.120.58:8044");
 				Runtime.getRuntime().exec(System.getProperty("user.dir")
 						+ "\\src\\test\\resources\\authentication\\DRCAssessment_OfficerTax.exe");
@@ -134,14 +185,17 @@ public class ApplicationManager {
 	}
 
 	public void callinternalportal_TaxOfficer() throws AWTException, InterruptedException, IOException {
-		if (wd.getCurrentUrl().contains(":90")) {
-			wd.get("http://103.249.120.58:8044");
-			Runtime.getRuntime()
-					.exec(System.getProperty("user.dir") + "\\src\\test\\resources\\authentication\\DRCTaxOfficer.exe");
-			wd.findElement(By.xpath("//*[contains(@alt,'Windows Authentication')]")).click();
+		if (wd.getCurrentUrl().contains("8068")) {
+			/*
+			 * wd.quit();wd.get("http://103.249.120.58:8044");
+			 * Runtime.getRuntime() .exec(System.getProperty("user.dir") +
+			 * "\\src\\test\\resources\\authentication\\DRCTaxOfficer.exe");
+			 * wd.findElement(By.
+			 * xpath("//*[contains(@alt,'Windows Authentication')]")).click();
+			 */
 			sleepWait(4000);
 		} else {
-			if (!wd.getCurrentUrl().contains(":90")) {
+			if (!wd.getCurrentUrl().contains("8068")) {
 				wd.get("http://103.249.120.58:8044");
 				Runtime.getRuntime().exec(
 						System.getProperty("user.dir") + "\\src\\test\\resources\\authentication\\DRCTaxOfficer.exe");

@@ -17,6 +17,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
+
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
@@ -26,9 +27,10 @@ import static org.drc.vat.appmanager.HelperBase.*;
 
 @CucumberOptions(features = {
 		"src/test/resources/features/End2EndTest.feature" }, glue = "org.drc.vat.StepDefinitions", plugin = {
-				"com.cucumber.listener.ExtentCucumberFormatter:", "html:test-output/cucumber-report" },
-		tags = { "@SP_03" })
-		//tags = { "@SP_12" })
+				"com.cucumber.listener.ExtentCucumberFormatter:",
+				"html:test-output/cucumber-report" }, 
+				//tags = { "@SP_7.1, @SP_7.2,  @SP_7.3" })
+tags = { "@SP_03, @SP_04, @SP_11, @SP_7.1, @SP_7.2, @SP_7.3" })
 
 public class TestRunner extends AbstractTestNGCucumberTests {
 
@@ -39,9 +41,9 @@ public class TestRunner extends AbstractTestNGCucumberTests {
 	public static ExtentTest SP_03_1;
 	public static final String projdir = System.getProperty("user.dir");
 
-	private static ApplicationManager app = new ApplicationManager((System.getProperty("browser", BrowserType.CHROME)));
+	public static ApplicationManager app = new ApplicationManager((System.getProperty("browser", BrowserType.CHROME)));
 
-	@BeforeSuite
+	@BeforeSuite(alwaysRun = true)
 	public void setUP_Mobilenop() throws IOException, AWTException {
 		app.initUrl();
 		ExtentProperties extentProperties = ExtentProperties.INSTANCE;
@@ -60,27 +62,44 @@ public class TestRunner extends AbstractTestNGCucumberTests {
 	@Before
 	public void startScenario(Scenario scenario) throws IOException, AWTException, InterruptedException {
 
-		if (scenario.getName().toLowerCase().contains("internal portal")) {
+		if (scenario.getName().toLowerCase().contains("internal-portal")) {
 			app.callinternalportal();
+
+		}
+		if (scenario.getName().toLowerCase().contains("tax-payer-portal")) {
+			app.callurl();
+
 		}
 
-		else if (scenario.getName().toLowerCase().contains("fx taxofficer")) {
+		else if (scenario.getName().toLowerCase().contains("fx-taxofficer")) {
 			app.callinternalportal_TaxOfficer();
+
 		}
 
-		else if (scenario.getName().toLowerCase().contains("supervisor")) {
+		else if (scenario.getName().toLowerCase().contains("fx-supervisor")) {
 			app.callinternalportal_Supervisor();
+
 		}
 
-		else if (scenario.getName().toLowerCase().contains("laxman")) {
+		else if (scenario.getName().toLowerCase().contains("fx-admin")) {
+			app.callinternalportal_Admin();
+
+		}
+
+		else if (scenario.getName().toLowerCase().contains("fx-taxofficerassesment ")) {
 			app.callinternalportal_Assessment_TaxOfficer();
 		}
+
+		/*
+		 * else if (scenario.getName().toLowerCase().contains("fx-admin")) {
+		 * app.callinternalportalAdmin(); }
+		 */
 
 		else {
 			app.callurl();
 
 		}
-		Thread.sleep(5000);
+		Thread.sleep(4000);
 		logger.info("Start scenario: " + scenario.getName());
 
 	}

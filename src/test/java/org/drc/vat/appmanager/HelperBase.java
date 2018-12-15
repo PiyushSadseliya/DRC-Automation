@@ -50,11 +50,10 @@ public class HelperBase {
 		By locator = By.xpath(obj.getProperty(object));
 		wait.until(ExpectedConditions.elementToBeClickable(locator));
 	}
-	
-	  public static void sleepWait(long wait) throws InterruptedException 
-	    {
-	        Thread.sleep(wait);
-	    }
+
+	public static void sleepWait(long wait) throws InterruptedException {
+		Thread.sleep(wait);
+	}
 
 	public static void clickOn(String object, String data) throws InterruptedException {
 		//
@@ -143,7 +142,7 @@ public class HelperBase {
 	}
 
 	public static void logout() throws Exception {
-		WebDriverWait wait = new WebDriverWait(wd, 10);
+		WebDriverWait wait = new WebDriverWait(wd, 60);
 		wait.until(ExpectedConditions
 				.invisibilityOfElementLocated(By.xpath("(//*[contains(@class,'toast-content')])[last()]")));
 		clickOn("span", "[@class='fa fa-power-off']");

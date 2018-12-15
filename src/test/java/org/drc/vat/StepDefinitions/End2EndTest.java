@@ -1,14 +1,21 @@
 package org.drc.vat.StepDefinitions;
 
 import static org.drc.vat.appmanager.HelperBase.*;
+import static org.testng.Assert.assertTrue;
+
 import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.BrowserType;
 import org.drc.vat.appmanager.*;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -16,6 +23,12 @@ import cucumber.api.java.en.When;
 
 public class End2EndTest {
 	String cwd = System.getProperty("user.dir");
+	public static final String dir = System.getProperty("user.dir");
+	public static ApplicationManager app = new ApplicationManager((System.getProperty("browser", BrowserType.CHROME)));
+	public String BaseCurr;
+	public String BaseCurrName;
+	public String BaseCurrCheck;
+	public String StoreCurrency;
 	public static Float Total_VC;
 	public static Float TotalD;
 	public static Float VDC;
@@ -44,7 +57,7 @@ public class End2EndTest {
 	public void establish_a_connection_and_enter_in_registration_table(String User) throws Throwable {
 		ConnectDatabase CD = new ConnectDatabase();
 		CD.opendb();
-		String user = "DECLARE @a int = (select count(*)+1 from [1AuthoritySTS].dbo.aspnetusers where email like 'regressionfrankey%')"
+		String user = "DECLARE @a int = (select count(*)+1 from [1AuthoritySTS].dbo.aspnetusers where email like 'smokesuite%')"
 				+ "INSERT INTO [1AuthoritySTS].[dbo].[AspNetUsers]            "
 				+ "         (Id,                                                "
 				+ "         [AccessFailedCount]                                 "
@@ -68,21 +81,21 @@ public class End2EndTest {
 				+ "         (NEWID(),                                           "
 				+ "         0                                                   "
 				+ "         ,NEWID()                                            "
-				+ "         ,CONCAT('regressionfrankey',@a,'@mailinator.com')              "
+				+ "         ,CONCAT('smokesuite',@a,'@mailinator.com')              "
 				+ "         ,1                                                  "
 				+ "         ,0                                                  "
 				+ "         ,NULL                                               "
-				+ "         ,CONCAT('regressionfrankey',@a,'@MAILINATOR.COM')              "
-				+ "         ,CONCAT('regressionfrankey',@a,'@MAILINATOR.COM')              "
+				+ "         ,CONCAT('smokesuite',@a,'@MAILINATOR.COM')              "
+				+ "         ,CONCAT('smokesuite',@a,'@MAILINATOR.COM')              "
 				+ "         ,'AQAAAAEAACcQAAAAEM/wSgVN/nG79PYxp2X4xCzrtdQcsTEYE911sxUm9sniuJtbzybplBD6TYP+BnxhDg=='  "
 				+ "         ,'+919999999999'                                                                         "
 				+ "         ,1                                                                                       "
 				+ "          , NEWID()                                                                               "
 				+ "          ,0                                                                                      "
 				+ "          ,'TaxPortal'                                                                            "
-				+ "          ,CONCAT('regressionfrankey',@a,'@MAILINATOR.COM')                                                  "
+				+ "          ,CONCAT('smokesuite',@a,'@MAILINATOR.COM')                                                  "
 				+ "          ,CURRENT_TIMESTAMP                                                                      "
-				+ "          ,CONCAT('regressionfrankey',@a)) ";
+				+ "          ,CONCAT('smokesuite',@a)) ";
 
 		CD.sta.executeUpdate(user);
 	}
@@ -93,15 +106,15 @@ public class End2EndTest {
 		ConnectDatabase CD = new ConnectDatabase();
 		CD.opendb();
 
-		String Reguser = "DECLARE @a int = (select count(*) from [1AuthoritySTS].dbo.aspnetusers where email like 'regressionfrankey%')"
+		String Reguser = "DECLARE @a int = (select count(*) from [1AuthoritySTS].dbo.aspnetusers where email like 'smokesuite%')"
 				+ "declare  @emailvalue Nvarchar(500) "
 				+ "Set @emailvalue = (select ID from  [1AuthoritySTS].[dbo].[AspNetUsers] "
-				+ "where Email = CONCAT('regressionfrankey',@a,'@mailinator.com'))               "
+				+ "where Email = CONCAT('smokesuite',@a,'@mailinator.com'))               "
 				+ "insert into [DRC-QA].[Ref].[RegisteredUsers] values                             "
 				+ "  (@emailvalue                                                          "
 				+ "  ,1                                                                   "
-				+ "  ,Concat ('regressionfrankey',@a)                                               "
-				+ "  ,CONCAT('regressionfrankey',@a,'@mailinator.com')                              "
+				+ "  ,Concat ('smokesuite',@a)                                               "
+				+ "  ,CONCAT('smokesuite',@a,'@mailinator.com')                              "
 				+ "  ,CURRENT_TIMESTAMP                                                   "
 				+ "  ,NULL                                                                "
 				+ "  ,CURRENT_TIMESTAMP                                                   "
@@ -127,7 +140,7 @@ public class End2EndTest {
 	public void establish_a_connection_with_data_base_and_execute_query_to_create_user() throws Throwable {
 		ConnectDatabase CD = new ConnectDatabase();
 		CD.opendb();
-		String user = "DECLARE @a int = (select count(*)+1 from [1AuthoritySTS].dbo.aspnetusers where email like 'regressionfrankey%')"
+		String user = "DECLARE @a int = (select count(*)+1 from [1AuthoritySTS].dbo.aspnetusers where email like 'smokesuite%')"
 				+ "INSERT INTO [1AuthoritySTS].[dbo].[AspNetUsers]            "
 				+ "         (Id,                                                "
 				+ "         [AccessFailedCount]                                 "
@@ -151,21 +164,21 @@ public class End2EndTest {
 				+ "         (NEWID(),                                           "
 				+ "         0                                                   "
 				+ "         ,NEWID()                                            "
-				+ "         ,CONCAT('regressionfrankey',@a,'@mailinator.com')              "
+				+ "         ,CONCAT('smokesuite',@a,'@mailinator.com')              "
 				+ "         ,1                                                  "
 				+ "         ,0                                                  "
 				+ "         ,NULL                                               "
-				+ "         ,CONCAT('regressionfrankey',@a,'@MAILINATOR.COM')              "
-				+ "         ,CONCAT('regressionfrankey',@a,'@MAILINATOR.COM')              "
+				+ "         ,CONCAT('smokesuite',@a,'@MAILINATOR.COM')              "
+				+ "         ,CONCAT('smokesuite',@a,'@MAILINATOR.COM')              "
 				+ "         ,'AQAAAAEAACcQAAAAEM/wSgVN/nG79PYxp2X4xCzrtdQcsTEYE911sxUm9sniuJtbzybplBD6TYP+BnxhDg=='  "
 				+ "         ,'+919999999999'                                                                         "
 				+ "         ,1                                                                                       "
 				+ "          , NEWID()                                                                               "
 				+ "          ,0                                                                                      "
 				+ "          ,'TaxPortal'                                                                            "
-				+ "          ,CONCAT('regressionfrankey',@a,'@MAILINATOR.COM')                                                  "
+				+ "          ,CONCAT('smokesuite',@a,'@MAILINATOR.COM')                                                  "
 				+ "          ,CURRENT_TIMESTAMP                                                                      "
-				+ "          ,CONCAT('regressionfrankey',@a)) ";
+				+ "          ,CONCAT('smokesuite',@a)) ";
 
 		CD.sta.executeUpdate(user);
 	}
@@ -175,15 +188,15 @@ public class End2EndTest {
 		ConnectDatabase CD = new ConnectDatabase();
 		CD.opendb();
 
-		String Reguser = "DECLARE @a int = (select count(*) from [1AuthoritySTS].dbo.aspnetusers where email like 'regressionfrankey%')"
+		String Reguser = "DECLARE @a int = (select count(*) from [1AuthoritySTS].dbo.aspnetusers where email like 'smokesuite%')"
 				+ "declare  @emailvalue Nvarchar(500) "
 				+ "Set @emailvalue = (select ID from  [1AuthoritySTS].[dbo].[AspNetUsers] "
-				+ "where Email = CONCAT('regressionfrankey',@a,'@mailinator.com'))               "
+				+ "where Email = CONCAT('smokesuite',@a,'@mailinator.com'))               "
 				+ "insert into [DRC-QA].[Ref].[RegisteredUsers] values                             "
 				+ "  (@emailvalue                                                          "
 				+ "  ,1                                                                   "
-				+ "  ,Concat ('regressionfrankey',@a)                                               "
-				+ "  ,CONCAT('regressionfrankey',@a,'@mailinator.com')                              "
+				+ "  ,Concat ('smokesuite',@a)                                               "
+				+ "  ,CONCAT('smokesuite',@a,'@mailinator.com')                              "
 				+ "  ,CURRENT_TIMESTAMP                                                   "
 				+ "  ,NULL                                                                "
 				+ "  ,CURRENT_TIMESTAMP                                                   "
@@ -199,10 +212,10 @@ public class End2EndTest {
 		ConnectDatabase CD = new ConnectDatabase();
 		CD.opendb();
 
-		String roles = "declare @i int = (select count(*) from [1AuthoritySTS].dbo.aspnetusers where email like 'regressionfrankey%')"
+		String roles = "declare @i int = (select count(*) from [1AuthoritySTS].dbo.aspnetusers where email like 'smokesuite%')"
 				+ " declare  @emailvalue Nvarchar(500)"
 				+ " set @emailvalue = (select ID from  [1AuthoritySTS].[dbo].[AspNetUsers] "
-				+ " where Email = CONCAT('regressionfrankey',@i,'@mailinator.com'))"
+				+ " where Email = CONCAT('smokesuite',@i,'@mailinator.com'))"
 				+ " insert into [1AuthoritySTS].[dbo].[AspNetUserRoles] ([UserId],[RoleId]) VALUES  (@emailvalue,'B828372F-B0AD-40DF-B8BB-5C6E11A8682E')";
 
 		System.out.println("test");
@@ -216,8 +229,8 @@ public class End2EndTest {
 		CD.opendb();
 
 		String username = "with temp as"
-				+ "(select count(*) as 'a' from [1AuthoritySTS].dbo.aspnetusers where email like'regressionfrankey%' and UserClient='TaxPortal' and EmailConfirmed=1)"
-				+ "select CONCAT('regressionfrankey',a,'@mailinator.com') as 'username' from temp";
+				+ "(select count(*) as 'a' from [1AuthoritySTS].dbo.aspnetusers where email like'smokesuite%' and UserClient='TaxPortal' and EmailConfirmed=1)"
+				+ "select CONCAT('smokesuite',a,'@mailinator.com') as 'username' from temp";
 
 		ResultSet rs = CD.sta.executeQuery(username);
 		System.out.println(rs);
@@ -287,7 +300,6 @@ public class End2EndTest {
 	@Then("^Enters NIF Registration Date \"([^\"]*)\" , Date of Incorporation \"([^\"]*)\" , Type Of Business \"([^\"]*)\"$")
 	public void enters_NIF_Registration_Date_Date_of_Incorporation_Type_Of_Business(String NIFDate, String IncorpDate,
 			String BusinessType) throws Throwable {
-
 		clickOn("dt_nifregdate", "");
 		datePicker(NIFDate);
 		clickOn("dt_incorp", "");
@@ -482,33 +494,49 @@ public class End2EndTest {
 
 	@Then("^click on Ok button on alert page$")
 	public void click_on_Ok_button_on_alert_page() throws Throwable {
-		sleepWait(3000);
+		sleepWait(5000);
 		clickOn("btn_ok", "");
 		System.out.println("Press OK");
 	}
 
 	@Then("^Click on Logout on Dashboard$")
 	public void click_on_Logout_on_Dashboard() throws Throwable {
-		sleepWait(2000);
-		clickOn("btn_logout", "");
+		// sleepWait(7000);
+		// clickOn("btn_logout", "");
+		logout();
+		System.out.println("tax payer portal logout");
+
 	}
 
 	@Then("^User login in Internal portal$")
 	public void user_login_in_Internal_portal() throws Throwable {
 		System.out.println("Internal_portal");
+		System.setProperty("webdriver.chrome.driver", dir + "//chromedriver.exe");
+		wd = new ChromeDriver();
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("incognito");
+		wd.manage().window().maximize();
+		wd.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		wd.navigate().to("http://103.249.120.58:8044");
+		Runtime.getRuntime()
+				.exec(System.getProperty("user.dir") + "\\src\\test\\resources\\authentication\\DRCAdmin.exe");
+		wd.findElement(By.xpath("//*[contains(@alt,'Windows Authentication')]")).click();
+		// wd.findElement(By.xpath(obj.getProperty("tab_FxManPage"))).click();
+
 		sleepWait(6000);
 
 	}
 
 	@Then("^click on Manage Vat Registartion$")
 	public void click_on_Manage_Vat_Registartion() throws Throwable {
-		// sleepWait(3000);
-		clickOn("tab_manageregistartion", "");
 		sleepWait(3000);
+		clickOn("tab_manageregistartion", "");
+
 	}
 
 	@Then("^select \"([^\"]*)\" option and \"([^\"]*)\"$")
 	public void select_option_and(String Filter, String Searchelement) throws Throwable {
+		sleepWait(3000);
 		clickOn("drp_filter", "");
 		clickOn("span", "[contains(text(),'" + Filter + "')]");
 		type("txt_search", NITVA);
@@ -520,8 +548,9 @@ public class End2EndTest {
 
 		// sleepWait(2000);
 		clickOn("drp_manage", "");
-		sleepWait(3000);
+		sleepWait(5000);
 		clickOn("drp_review", "");
+		sleepWait(2000);
 	}
 
 	@Then("^Redirect to confirmation page and click on \"([^\"]*)\"$")
@@ -539,26 +568,25 @@ public class End2EndTest {
 	public void clicks_on_Close_Button() throws Throwable {
 		String NitvaNo = elementText("textNITVA");
 		System.out.println(NitvaNo);
-		Thread.sleep(3000);
+		sleepWait(3000);
 		clickOn("btn_closed", "");
-		/*
-		 * JavascriptExecutor js = (JavascriptExecutor) wd;
-		 * js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
-		 * clickOn("btn_download", ""); sleepWait(4000); saveFile();
-		 */
+		sleepWait(2000);
 	}
 
 	@Then("^clicks on logout in internal portal$")
 	public void clicks_on_logout_in_internal_portal() throws Throwable {
-		sleepWait(4000);
+		sleepWait(3000);
 		logout();
+		System.out.println("logout in internal portal");
+
+		// wd.quit();
 	}
 
 	@Given("^User is on Tax Payer Portal$")
 	public void user_is_on_Tax_Payer_Portal() throws Throwable {
 
 		type("txtbox_username", Username);
-		// type("txtbox_username", "regressionfrankey6@mailinator.com");
+		// type("txtbox_username", "smokesuite6@mailinator.com");
 		sleepWait(3000);
 		type("txtbox_password", "Test@123");
 		sleepWait(3000);
@@ -589,7 +617,7 @@ public class End2EndTest {
 				+ "values ((select VuUserId from [DRC-QA].Vat.VuUsers"
 				+ "  where RegisteredUserId in (select RegisteredUserId from [DRC-QA].ref.RegisteredUsers"
 				+ "  where Email='" + Username + "')),(select YEAR(GETDATE())),@month,"
-				// + " where Email='regressionfrankey6@mailinator.com')),(select
+				// + " where Email='smokesuite6@mailinator.com')),(select
 				// YEAR(GETDATE())),@month,"
 				+ "(select DATEADD(mm,@month,'2018/01/20')),0.00,0.00,"
 				+ "(select DATEADD(mm,@month,'2018/01/15')),GETDATE())";
@@ -625,13 +653,13 @@ public class End2EndTest {
 			String second_part = "]";
 			String month = first_part + i + second_part;
 			wd.findElement(By.xpath(month)).click();
-			sleepWait(3000);
+			sleepWait(2000);
 
 			String first_preview = "(//button[text()='Preview'])[";
 			String second_preview = "]";
 
 			String preview = first_preview + i + second_preview;
-			sleepWait(3000);
+			sleepWait(2000);
 			Boolean B;
 			try {
 				B = (wd.findElement(By.xpath(preview)).isDisplayed());
@@ -646,7 +674,7 @@ public class End2EndTest {
 				break;
 			}
 		}
-		sleepWait(4000);
+		sleepWait(3000);
 
 	}
 
@@ -878,15 +906,7 @@ public class End2EndTest {
 		clickOn("btn_esubmit", "");
 		sleepWait(2000);
 		clickOn("btn_yes", "");
-		sleepWait(6000);
-		/*
-		 * Set<String> handles = wd.getWindowHandles(); String currentHandle =
-		 * wd.getWindowHandle(); sleepWait(3000); for (String handle : handles)
-		 * {
-		 * 
-		 * if (!handle.equals(currentHandle)) { wd.switchTo().window(handle); }
-		 * }
-		 */
+		sleepWait(4000);
 	}
 
 	@Then("^Enter OTP and click on verify button and click on Ok button$")
@@ -948,8 +968,8 @@ public class End2EndTest {
 		sleepWait(3000);
 		clickOn("btn_proceed", "");
 		sleepWait(2000);
-		//clickOn("btn_offset", "");
-		//sleepWait(2000);
+		// clickOn("btn_offset", "");
+		// sleepWait(2000);
 	}
 
 	@Then("^cliccks on \"([^\"]*)\" and verify details$")
@@ -970,6 +990,287 @@ public class End2EndTest {
 		xls_file.xls();
 		sleepWait(8000);
 		System.out.println("Execute query for payment");
+
+	}
+
+	@Given("^User login in Internal portal-TaxOfficer$")
+	public void user_login_in_Internal_portal_TaxOfficer() throws Throwable {
+		System.out.println("Internal portal-TaxOfficer");
+		// System.setProperty("webdriver.chrome.driver", dir +
+		// "//chromedriver.exe");
+		wd = new ChromeDriver();
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("incognito");
+		wd.manage().window().maximize();
+		wd.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		wd.navigate().to("http://103.249.120.58:8044");
+		Runtime.getRuntime()
+				.exec(System.getProperty("user.dir") + "\\src\\test\\resources\\authentication\\DRCAdmin.exe");
+		wd.findElement(By.xpath("//*[contains(@alt,'Windows Authentication')]")).click();
+		wd.findElement(By.xpath(obj.getProperty("tab_FxManPage"))).click();
+		sleepWait(3000);
+
+	}
+
+	@When("^click on FX Management tab$")
+	public void click_on_FX_Management_tab() throws Throwable {
+		clickOn("tab_FxManPage", "");
+		sleepWait(3000);
+
+	}
+
+	@Then("^verify the Base currency on the FX management is Congolese France and its value is one$")
+	public void verify_the_Base_currency_on_the_FX_management_is_Congolese_France_and_its_value_is_one()
+			throws Throwable {
+		BaseCurr = elementText("txt_BaseCurrency_1");
+		BaseCurrName = elementText("txt_BaseCurrency_Name");
+		if (BaseCurr.contains("1") && BaseCurrName.contains("Congolese Franc(FC)")) {
+			assertTrue(true);
+		}
+
+	}
+
+	@Then("^click on update button and pop up appear$")
+	public void click_on_update_button_and_pop_up_appear() throws Throwable {
+		sleepWait(3000);
+		JavascriptExecutor js = (JavascriptExecutor) wd;
+		js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+		clickOn("btn_UpdateFX", "");
+		sleepWait(3000);
+		/*
+		 * if (wd.findElement(By.xpath(obj.getProperty("txt_Update_popup"))).
+		 * isDisplayed()) { assertTrue(true); }
+		 */
+
+	}
+
+	@Then("^verify the pop up and see base currency is (\\d+)$")
+	public void verify_the_pop_up_and_see_base_currency_is(int arg1) throws Throwable {
+		if (BaseCurr.contains("1") && BaseCurrName.contains("Congolese Franc(FC)")) {
+			assertTrue(true);
+		}
+
+	}
+
+	@Then("^enter currency for \"([^\"]*)\"$")
+	public void enter_currency_for(String value) throws Throwable {
+		sleepWait(2000);
+		type("txtBox_type_Currency", value);
+
+	}
+
+	@Then("^click on save button on pop up on officer$")
+	public void click_on_save_button_on_pop_up_on_officer() throws Throwable {
+		sleepWait(1000);
+		clickOn("btn_SaveFX", "");
+
+	}
+
+	@Then("^click on Historical FX Rates button$")
+	public void click_on_Historical_FX_Rates_button() throws Throwable {
+		sleepWait(2000);
+		clickOn("btn_HistoricalFX", "");
+		sleepWait(2000);
+
+	}
+
+	@Then("^click on Previous button and again navigate to FX management dashboard$")
+	public void click_on_Previous_button_and_again_navigate_to_FX_management_dashboard() throws Throwable {
+		sleepWait(2000);
+		clickOn("btn_PreviousFX", "");
+		sleepWait(2000);
+		if (wd.findElement(By.xpath(obj.getProperty("txt_FxManPage"))).isDisplayed()) {
+			assertTrue(true);
+		}
+
+	}
+
+	@Then("^click on logout button fx taxofficer$")
+	public void click_on_logout_button_fx_taxofficer() throws Throwable {
+		// clickOn("btn_LogoutFX", "");
+		logout();
+		System.out.println("logout button fx taxofficer");
+		// wd.quit();
+	}
+
+	@When("^click on FX tab supervisor$")
+	public void click_on_FX_tab_supervisor() throws Throwable {
+		System.out.println("Internal portal-supervisor");
+		// System.setProperty("webdriver.chrome.driver", dir +
+		// "//chromedriver.exe");
+		wd = new ChromeDriver();
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("incognito");
+		wd.manage().window().maximize();
+		wd.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		wd.navigate().to("http://103.249.120.58:8044");
+		Runtime.getRuntime()
+				.exec(System.getProperty("user.dir") + "\\src\\test\\resources\\authentication\\DRCSupervisor.exe");
+		wd.findElement(By.xpath("//*[contains(@alt,'Windows Authentication')]")).click();
+		wd.findElement(By.xpath(obj.getProperty("tab_FxManPage"))).click();
+		// clickOn("tab_FxManPage", "");
+		sleepWait(2000);
+
+	}
+
+	@Then("^verify the base_currency of Congolese France and its value is one$")
+	public void verify_the_base_currency_of_Congolese_France_and_its_value_is_one() throws Throwable {
+		BaseCurr = elementText("txt_BaseCurrency_1");
+		BaseCurrName = elementText("txt_BaseCurrency_Name");
+		if (BaseCurr.contains("1") && BaseCurrName.contains("Congolese Franc(FC)")) {
+			assertTrue(true);
+		}
+
+	}
+
+	@Then("^click on approve button$")
+	public void click_on_approve_button() throws Throwable {
+		wd.findElement(By.xpath(obj.getProperty("btn_ApproveFX"))).click();
+		// clickOn("btn_ApproveFX", "");
+		sleepWait(2000);
+
+	}
+
+	@Then("^click on historical_fx_rates button$")
+	public void click_on_historical_fx_rates_button() throws Throwable {
+		sleepWait(2000);
+		wd.findElement(By.xpath(obj.getProperty("btn_HistoricalFX"))).click();
+		// clickOn("btn_HistoricalFX", "");
+
+	}
+
+	@Then("^click on prev button and return navigate to dashboard$")
+	public void click_on_prev_button_and_return_navigate_to_dashboard() throws Throwable {
+		sleepWait(2000);
+		wd.findElement(By.xpath(obj.getProperty("btn_PreviousFX"))).click();
+		// clickOn("btn_PreviousFX", "");
+		sleepWait(2000);
+
+	}
+
+	@Then("^click on logout button in fx-supervisor$")
+	public void click_on_logout_button_in_fx_supervisor() throws Throwable {
+		logout();
+		System.out.println("logout button in fx-supervisor");
+
+	}
+
+	@Given("^admin is on FX Management \"([^\"]*)\" \"([^\"]*)\"$")
+	public void admin_is_on_FX_Management(String value, String value1) throws Throwable {
+
+		System.out.println(value);
+		System.out.println(value1);
+
+	}
+
+	@When("^admin click on FX tab$")
+	public void admin_click_on_FX_tab() throws Throwable {
+		System.out.println("Internal portal-Admin");
+		wd = new ChromeDriver();
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("incognito");
+		wd.manage().window().maximize();
+		wd.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		wd.navigate().to("http://103.249.120.58:8044");
+		Runtime.getRuntime()
+				.exec(System.getProperty("user.dir") + "\\src\\test\\resources\\authentication\\DRCAdmin.exe");
+		wd.findElement(By.xpath("//*[contains(@alt,'Windows Authentication')]")).click();
+		wd.findElement(By.xpath(obj.getProperty("tab_FxManPage"))).click();
+		// clickOn("tab_FxManPage", "");
+		sleepWait(2000);
+
+	}
+
+	@Then("^verify the admin base_currency of Congolese France and its value is one$")
+	public void verify_the_admin_base_currency_of_Congolese_France_and_its_value_is_one() throws Throwable {
+		BaseCurr = elementText("txt_BaseCurrency_1");
+		BaseCurrName = elementText("txt_BaseCurrency_Name");
+
+		if (BaseCurr.contains("1") && BaseCurrName.contains("Congolese Franc(FC)")) {
+			assertTrue(true);
+		}
+
+	}
+
+	@Then("^click on currency and select \"([^\"]*)\"$")
+	public void click_on_currency_and_select(String value) throws Throwable {
+		wd.findElement(By.xpath(obj.getProperty("drp_SelectOptionFX"))).click();
+		// clickOn("drp_SelectOptionFX", "");
+		sleepWait(2000);
+		wd.findElement(By.xpath(obj.getProperty(value))).click();
+		// clickOn(value, "");
+
+	}
+
+	@Then("^click on List of currencies and select currency$")
+	public void click_on_List_of_currencies_and_select_currency() throws Throwable {
+		sleepWait(1000);
+		wd.findElement(By.xpath(obj.getProperty("drp_select_LOC"))).click();
+		// clickOn("drp_select_LOC", "");
+		sleepWait(1000);
+		wd.findElement(By.xpath(obj.getProperty("drp_select_LOC_first"))).click();
+		// clickOn("drp_select_LOC_first", "");
+
+	}
+
+	@Then("^click on Save button and see message \"([^\"]*)\"$")
+	public void click_on_Save_button_and_see_message(String value) throws Throwable {
+		wd.findElement(By.xpath(obj.getProperty("btn_SaveFX"))).click();
+		// clickOn("btn_SaveFX", "");
+		sleepWait(2000);
+	}
+
+	@Then("^click on admin Update button$")
+	public void click_on_admin_Update_button() throws Throwable {
+		sleepWait(2000);
+		wd.findElement(By.xpath(obj.getProperty("btn_UpdateFX"))).click();
+
+	}
+
+	@Then("^enter admin currency for \"([^\"]*)\"$")
+	public void enter_admin_currency_for(String value) throws Throwable {
+		// wd.findElement(By.xpath(obj.getProperty("txtBox_type_Currency"))).sendKeys(value);
+		sleepWait(2000);
+		type("txtBox_type_Currency", value);
+
+	}
+
+	@Then("^admin click on save button on pop up$")
+	public void admin_click_on_save_button_on_pop_up() throws Throwable {
+		sleepWait(1000);
+		wd.findElement(By.xpath(obj.getProperty("btn_SaveFxPopUP"))).click();
+		// clickOn("btn_SaveFX", "");
+	}
+
+	@Then("^click on admin approve button$")
+	public void click_on_admin_approve_button() throws Throwable {
+		sleepWait(2000);
+		wd.findElement(By.xpath(obj.getProperty("btn_ApproveFX"))).click();
+
+	}
+
+	@Then("^click on admin historical_fx_rates button$")
+	public void click_on_admin_historical_fx_rates_button() throws Throwable {
+		sleepWait(2000);
+		wd.findElement(By.xpath(obj.getProperty("btn_HistoricalFX"))).click();
+
+	}
+
+	@Then("^click on admin prev button and return navigate to dashboard$")
+	public void click_on_admin_prev_button_and_return_navigate_to_dashboard() throws Throwable {
+		sleepWait(2000);
+		wd.findElement(By.xpath(obj.getProperty("btn_PreviousFX"))).click();
+		// clickOn("btn_PreviousFX", "");
+		sleepWait(2000);
+
+	}
+
+	@Then("^click on admin logout button in fx-supervisor$")
+	public void click_on_admin_logout_button_in_fx_supervisor() throws Throwable {
+		sleepWait(2000);
+		logout();
+		System.out.println("admin logout button");
+		wd.quit();
 
 	}
 

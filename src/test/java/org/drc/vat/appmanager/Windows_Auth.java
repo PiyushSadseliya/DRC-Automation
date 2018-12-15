@@ -14,11 +14,11 @@ public class Windows_Auth {
 	static FileInputStream fs;
 	public static void main(String[] args) throws IOException, InterruptedException, AWTException {
 		System.setProperty("webdriver.chrome.driver", dir + "//chromedriver.exe");
-		fs = new FileInputStream(System.getProperty("user.dir") + "src\\test\\resources\\authentication\\DRCAdmin.exe");
+		fs = new FileInputStream(System.getProperty("user.dir") + "src\\test\\resources\\authentication\\DRCTaxOfficer.exe");
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
-		//driver.get("http://103.249.120.58:8044");
-		Runtime.getRuntime().exec(System.getProperty("user.dir") +"src\\test\\resources\\authentication\\DRCAdmin.exe");
+		driver.get("http://103.249.120.58:8044");
+		Runtime.getRuntime().exec(System.getProperty("user.dir") +"src\\test\\resources\\authentication\\DRCTaxOfficer.exe");
 		driver.findElement(By.xpath("//*[contains(@alt,'Windows Authentication')]")).click();
 		Thread.sleep(2000);
 		//driver.close();
