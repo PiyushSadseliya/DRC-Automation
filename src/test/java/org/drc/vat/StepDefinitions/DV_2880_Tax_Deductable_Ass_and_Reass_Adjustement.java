@@ -160,8 +160,7 @@ public class DV_2880_Tax_Deductable_Ass_and_Reass_Adjustement
 		 if(Validate==Check_Add_Lib)
 		 {
 			 assertTrue(true);
-		 }
-	  
+		 }	  
 	}
 
 	@And("^User see by default Total Assessed and Total e Declaration value are same$")

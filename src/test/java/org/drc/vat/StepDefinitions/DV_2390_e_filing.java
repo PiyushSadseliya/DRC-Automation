@@ -603,8 +603,7 @@ public class DV_2390_e_filing
 		     * storing global test 
 		     */
 		    
-		    VAT_Store_TotalD=TotalD;		    
-		
+		    VAT_Store_TotalD=TotalD;		    		
 	}
 
 	@And("^User validate Amount of VAT Deductible$")
