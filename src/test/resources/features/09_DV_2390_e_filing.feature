@@ -1,8 +1,6 @@
 Feature: E-filing -> Filing -> Declaration with verification and confirmation of e-declaration
 
-  Background: 
-    And User Enter email " approveduser@mailinator.com " and  password "Test@123"
-   And User Click on SignIn
+
   @TC_02_DV_2390_Declaration_with_verification
   Scenario Outline: Validate whether the tax payer is able to e-file
     Given User is on Vat e-Filing Page "<TestcaseID>" "<Description>"
