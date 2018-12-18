@@ -126,7 +126,7 @@ public class DV_2391_eFile_Preview
 			
 			@And("^User entered value \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" for Operation Performed on preview$")
 			public void user_entered_value_for_Operation_Performed_on_preview(String DG, String DS1, String DS2, String DGI, String DSI, String FPP, String Export, String Exempt, String Nontaxable) throws Throwable 
-			{
+			{sleepWait(200);
 				type("txt_Delivery_goods", DG);
 			    sleepWait(500);
 			    type("txt_Delivercy1", DS1);	    

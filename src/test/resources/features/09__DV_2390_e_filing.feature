@@ -1,15 +1,8 @@
 Feature: E-filing -> Filing -> Declaration with verification and confirmation of e-declaration
 
-  @TC_01_Login_DV_2390_Declaration_with_verification
-  Scenario Outline: DRC Tax Portal Login
-    Given User Login "<TestcaseID>" "<Description>"
-    And User Enter email "<email>" and  password "<password>"
-    And User Click on SignIn
-
-    Examples: 
-      | TestcaseID       | Description          | email                  | password   |
-      | e-file_Login_001 | Login into tax payer | at3test@mailinator.com | franky@123 |
-
+  Background: 
+    And User Enter email " approveduser@mailinator.com " and  password "Test@123"
+   And User Click on SignIn
   @TC_02_DV_2390_Declaration_with_verification
   Scenario Outline: Validate whether the tax payer is able to e-file
     Given User is on Vat e-Filing Page "<TestcaseID>" "<Description>"
@@ -22,12 +15,12 @@ Feature: E-filing -> Filing -> Declaration with verification and confirmation of
     And User click on browser and upload file "<uploadFile>"
     And User see uploaded file name in field
     And User click on check box and click on submit button
-    And Enter OTP and click on verify button and click on Ok button
+   # And Enter OTP and click on verify button and click on Ok button
     And User is navigate to Tax Calculation page
 
     Examples: 
       | TestcaseID                  | Description                                           |     1 |    2 |  2.1 |   3 |   4 |   5 |   6 |   7 |   8 |  10 | 10.1 |  11 | 11.1 |  12 | 12.1 |  13 | 13.1 |  17 |  18 |  19 |  20 |    26 | uploadFile                                                            |
-      | Declaration_Verification_02 | validate tax payer is able to e-file and period field | 10000 | 7000 | 5000 | 500 | 500 | 500 | 500 | 500 | 500 | 500 |  500 | 500 |  500 | 500 |  500 | 500 |  500 | 500 | 500 | 500 | 500 | 10000 | C:\\Users\\frankey.mehta\\Desktop\\Officers List With Tax Center.xlsx |
+      | Declaration_Verification_02 | validate tax payer is able to e-file and period field | 10000 | 7000 | 5000 | 500 | 500 | 500 | 500 | 500 | 500 | 500 |  500 | 500 |  500 | 500 |  500 | 500 |  500 | 500 | 500 | 500 | 500 | 10000 |DRC Test Data.xlsx |
 
   # negative in all fields last
   @TC_03_DV_2390_Declaration_with_verification
@@ -42,8 +35,8 @@ Feature: E-filing -> Filing -> Declaration with verification and confirmation of
 
     Examples: 
       | TestcaseID                    | Description              |      1 |     2 |   2.1 |    3 |    4 |    5 |    6 |    7 |    8 |   10 | 10.1 |   11 | 11.1 |   12 | 12.1 |   13 | 13.1 |   17 |   18 |  19 |  20 |    26 | Period      | uploadFile                                                            |
-      | Declaration_Verification_03_1 | Validate the text fields | -10000 | -7000 | -5000 | -500 | -500 | -500 | -500 | -500 | -500 | -500 | -500 | -500 | -500 | -500 | -500 | -500 | -500 | -500 | -500 | 500 | 500 | 10000 | March, 2018 | C:\\Users\\frankey.mehta\\Desktop\\Officers List With Tax Center.xlsx |
-      | Declaration_Verification_03_2 | Validate the text fields | A0b00  | b000  | c000  | d00  | e00  | s00  | h00  | a00  | sd0  | j00  | f00  | h00  | h00  | a00  | h00  | h00  | h00  | gh00 | h00  | g00 | f00 | h000  | March, 2018 | C:\\Users\\frankey.mehta\\Desktop\\Officers List With Tax Center.xlsx |
+      | Declaration_Verification_03_1 | Validate the text fields | -10000 | -7000 | -5000 | -500 | -500 | -500 | -500 | -500 | -500 | -500 | -500 | -500 | -500 | -500 | -500 | -500 | -500 | -500 | -500 | 500 | 500 | 10000 | March, 2018 | DRC Test Data.xlsx |
+      | Declaration_Verification_03_2 | Validate the text fields | A0b00  | b000  | c000  | d00  | e00  | s00  | h00  | a00  | sd0  | j00  | f00  | h00  | h00  | a00  | h00  | h00  | h00  | gh00 | h00  | g00 | f00 | h000  | March, 2018 | DRC Test Data.xlsx |
 
   @TC_04_DV_2390_Declaration_with_verification
   Scenario Outline: Validate the Period field.
@@ -129,7 +122,7 @@ Feature: E-filing -> Filing -> Declaration with verification and confirmation of
 
     Examples: 
       | TestcaseID                  | Description                   | Mess                                  | mbMess                          | name                               | removed          | pdf                                                | imj                                             | word                                              | mb                                                   | lessMB                                                                |
-      | Declaration_Verification_21 | validate Upload functionality | Selected file format is not supported | File size must be less than 2MB | Officers List With Tax Center.xlsx | No file selected | C:\\Users\\frankey.mehta\\Desktop\\certificate.pdf | C:\\Users\\frankey.mehta\\Desktop\\test img.PNG | C:\\Users\\frankey.mehta\\Desktop\\test word.docx | C:\\Users\\frankey.mehta\\Desktop\\SampleXLSFile.xls | C:\\Users\\frankey.mehta\\Desktop\\Officers List With Tax Center.xlsx |
+      | Declaration_Verification_21 | validate Upload functionality | Selected file format is not supported | File size must be less than 2MB | Officers List With Tax Center.xlsx | No file selected | C:\\Users\\frankey.mehta\\Desktop\\certificate.pdf | C:\\Users\\frankey.mehta\\Desktop\\test img.PNG | C:\\Users\\frankey.mehta\\Desktop\\test word.docx | C:\\Users\\frankey.mehta\\Desktop\\SampleXLSFile.xls | DRC Test Data.xlsx |
 
   @TC_24_DV_2390_Declaration_with_verification
   Scenario Outline: Validate the Save Draft button functionality.
@@ -150,7 +143,7 @@ Feature: E-filing -> Filing -> Declaration with verification and confirmation of
 
     Examples: 
       | TestcaseID                  | Description                        | saveDraft                                 |     1 |    2 |  2.1 |   3 |   4 |   5 |   6 |   7 |   8 |  10 | 10.1 |  11 | 11.1 |  12 | 12.1 |  13 | 13.1 |  17 |  18 |  19 |  20 |    26 | uploadFile                                                            |
-      | Declaration_Verification_24 | validate Save Draft  functionality | e-Filing declaration drafted successfully | 10000 | 7000 | 5000 | 500 | 500 | 500 | 500 | 500 | 500 | 500 |  500 | 500 |  500 | 500 |  500 | 500 |  500 | 500 | 500 | 500 | 500 | 10000 | C:\\Users\\frankey.mehta\\Desktop\\Officers List With Tax Center.xlsx |
+      | Declaration_Verification_24 | validate Save Draft  functionality | e-Filing declaration drafted successfully | 10000 | 7000 | 5000 | 500 | 500 | 500 | 500 | 500 | 500 | 500 |  500 | 500 |  500 | 500 |  500 | 500 |  500 | 500 | 500 | 500 | 500 | 10000 | DRC Test Data.xlsx |
 
   @TC_22_23_25_26_27_DV_2390_Declaration_with_verification
   Scenario Outline: Validate the check box functionality , authorized Signatory ,Previous button , Submit button functionality
@@ -199,4 +192,4 @@ Feature: E-filing -> Filing -> Declaration with verification and confirmation of
 
 #    Examples: 
 #      | TestcaseID                              | Description         | uploadFile                                                            |
-#      | Declaration_Verification_22_23_25_26_27 | validate resent otp | C:\\Users\\frankey.mehta\\Desktop\\Officers List With Tax Center.xlsx |
+#      | Declaration_Verification_22_23_25_26_27 | validate resent otp | DRC Test Data.xlsx |

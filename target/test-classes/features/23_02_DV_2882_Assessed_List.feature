@@ -1,13 +1,9 @@
 Feature: User is on Assessed List Landing Screen
 
-  @TC_01
-  Scenario: Validate the Manual Assessment dashboard page All clicking compoment
-    Given User is on Assessment Page 
-    And User click on windows icon
-    And User enter username and password and click on login and see dashboard
+
 
   @TC_02
-  Scenario Outline: Validate Tax Officer is able to View Notice
+  Scenario Outline: Validate Tax Officer is able to View Notice internal portal
     Given User is on Assessment Page "<TestcaseID>" "<Description>"
     And User click on Assessment Tab
     And User click on Assessed List

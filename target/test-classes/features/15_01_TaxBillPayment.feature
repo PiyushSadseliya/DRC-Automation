@@ -35,8 +35,8 @@ Feature: Tax Bill Payment   | NetBanking and Over the counter
     Then Verifies Details of Beneficiary BeneficiaryName"<benfname>"account number"<acno>"Bank name"<bname>"Branch Code"<bcode>"Amount"<amount>"
 
     Examples: 
-      | Test Case ID              | Description                                                                 | uname                | password | date1       | period  | nitva             | emailid              | mobile          | name     | add  | peri     | vatamount | interest | penalty | ltfee | total  | tamountwords                        | benfname | acno           | bname               | bcode       | amount | duedate    |
-      | DRC_ATC_TaxBillPayment_01 | Vaildate the Tax Bill Payment for particular month done by Over the counter | refac@mailinator.com | Test@123 | 26-Sep-2018 | January | 20181127030648745 | refac@mailinator.com | 435345345435435 | Test Ref | Test | Jan-2018 |    800,00 |     0,00 |    0,00 |  0,00 | 800,00 | Eight Hundred Franc Congolais Only. | DGI      | 18042600001632 | Central Bank Of Drc | RBISOGSTPMT | 800,00 | 20-02-2018 |
+      | Test Case ID              | Description                                                                 | uname                       | password | date1       | period  | nitva             | emailid                     | mobile          | name     | add  | peri     | vatamount | interest | penalty | ltfee | total  | tamountwords                        | benfname | acno           | bname               | bcode       | amount | duedate    |
+      | DRC_ATC_TaxBillPayment_01 | Vaildate the Tax Bill Payment for particular month done by Over the counter | approveduser@mailinator.com | Test@123 | 26-Sep-2018 | January | 20181215035842812 | approveduser@mailinator.com | 435345345435435 | Test Ref | Test | Jan-2018 |    800,00 |     0,00 |    0,00 |  0,00 | 800,00 | Eight Hundred Franc Congolais Only. | DGI      | 18042600001632 | Central Bank Of Drc | RBISOGSTPMT | 800,00 | 20-02-2018 |
 
   @netbank
   Scenario Outline: Vaildate the Tax Bill Payment for particular month done by Netbanking
@@ -51,8 +51,8 @@ Feature: Tax Bill Payment   | NetBanking and Over the counter
     Then user is on VAT e-Filing page"VAT e-Filing"
 
     Examples: 
-      | Test Case ID              | Description                                                           | uname                | password | period  |
-      | DRC_ATC_TaxBillPayment_02 | Vaildate the Tax Bill Payment for particular month done by Netbanking | refac@mailinator.com | Test@123 | January |
+      | Test Case ID              | Description                                                           | uname                       | password | period  |
+      | DRC_ATC_TaxBillPayment_02 | Vaildate the Tax Bill Payment for particular month done by Netbanking | approveduser@mailinator.com | Test@123 | January |
 
   @tc20_21
   Scenario Outline: Vaildate the Print and Cancel Button functionality on Tax Bill Payment Page
@@ -69,8 +69,8 @@ Feature: Tax Bill Payment   | NetBanking and Over the counter
     Then user is on VAT e-Filing page"VAT e-Filing"
 
     Examples: 
-      | Test Case ID              | Description                                                                 | uname                | password | date1       | period  |
-      | DRC_ATC_TaxBillPayment_03 | Vaildate the Print and Cancel Button functionality on Tax Bill Payment Page | refac@mailinator.com | Test@123 | 26-Sep-2018 | January |
+      | Test Case ID              | Description                                                                 | uname                       | password | date1       | period  |
+      | DRC_ATC_TaxBillPayment_03 | Vaildate the Print and Cancel Button functionality on Tax Bill Payment Page | approveduser@mailinator.com | Test@123 | 26-Sep-2018 | January |
 
   @c19_13__17_5
   Scenario Outline: Vaildate the Tax Bill Payment when user pays from Total Liability Pay button
@@ -95,5 +95,5 @@ Feature: Tax Bill Payment   | NetBanking and Over the counter
     Then Verifies Details of Beneficiary BeneficiaryName"<benfname>"account number"<acno>"Bank name"<bname>"Branch Code"<bcode>"Amount"<amount>"
 
     Examples: 
-      | Test Case ID              | Description                                                                  | uname                | password | date1       | period  | nitva             | emailid              | mobile          | name     | add  | period1  | vatamount1 | interest1 | penalty1 | ltfee1 | total1 | period2  | vatamount2 | interest2 | penalty2 | ltfee2 | total2 | period3  | vatamount3 | interest3 | penalty3 | ltfee3 | total3 | period4  | vatamount4 | interest4 | penalty4 | ltfee4 | total4 | period5  | vatamount5 | interest5 | penalty5 | ltfee5 | total5 | period6  | vatamount6 | interest6 | penalty6 | ltfee6 | total6 | period7  | vatamount7 | interest7 | penalty7 | ltfee7 | total7 | benfname | acno           | bname               | bcode       | amount   |
-      | DRC_ATC_TaxBillPayment_04 | Vaildate the Tax Bill Payment when user pays from Total Liability Pay button | refac@mailinator.com | Test@123 | 26-Sep-2018 | Jan-Sep | 20181127030648745 | refac@mailinator.com | 435345345435435 | Test Ref | Test | Jan-2018 |       0,00 |      0,00 |     0,00 |   0,00 | 800,00 | Feb-2018 |        320 |         0 |        0 |      0 |    320 | Mar-2018 |     800,00 |      0,00 |     0,00 |   0,00 | 800,00 | Apr-2018 |     800,00 |      0,00 |        0 |      0 |    800 | May-2018 |     800,00 |      0,00 |     0,00 |   0,00 | 800,00 | May-2018 |     800,00 |      0,00 |     0,00 |   0,00 | 800,00 | May-2018 |        800 |         0 |        0 |      0 |    800 | DGI      | 18042600001632 | Central Bank Of Drc | RBISOGSTPMT | 4.000,00 |
+      | Test Case ID              | Description                                                                  | uname                       | password | date1       | period  | nitva             | emailid                     | mobile          | name     | add  | period1  | vatamount1 | interest1 | penalty1 | ltfee1 | total1 | period2  | vatamount2 | interest2 | penalty2 | ltfee2 | total2 | period3  | vatamount3 | interest3 | penalty3 | ltfee3 | total3 | period4  | vatamount4 | interest4 | penalty4 | ltfee4 | total4 | period5  | vatamount5 | interest5 | penalty5 | ltfee5 | total5 | period6  | vatamount6 | interest6 | penalty6 | ltfee6 | total6 | period7  | vatamount7 | interest7 | penalty7 | ltfee7 | total7 | benfname | acno           | bname               | bcode       | amount   |
+      | DRC_ATC_TaxBillPayment_04 | Vaildate the Tax Bill Payment when user pays from Total Liability Pay button | approveduser@mailinator.com | Test@123 | 26-Sep-2018 | Jan-Sep | 20181127030648745 | approveduser@mailinator.com | 435345345435435 | Test Ref | Test | Jan-2018 |       0,00 |      0,00 |     0,00 |   0,00 | 800,00 | Feb-2018 |        320 |         0 |        0 |      0 |    320 | Mar-2018 |     800,00 |      0,00 |     0,00 |   0,00 | 800,00 | Apr-2018 |     800,00 |      0,00 |        0 |      0 |    800 | May-2018 |     800,00 |      0,00 |     0,00 |   0,00 | 800,00 | May-2018 |     800,00 |      0,00 |     0,00 |   0,00 | 800,00 | May-2018 |        800 |         0 |        0 |      0 |    800 | DGI      | 18042600001632 | Central Bank Of Drc | RBISOGSTPMT | 4.000,00 |

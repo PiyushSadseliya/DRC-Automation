@@ -30,15 +30,14 @@ import static org.drc.vat.appmanager.HelperBase.assessmentOfficer;
 import static org.drc.vat.appmanager.HelperBase.sleepWait;
 
 @CucumberOptions(features = {
-		"classpath:features/01_userRegistration.feature","classpath:features/02_01_Login.feature",
-		"classpath:features/03_uploadDocuments.feature","classpath:features/03_VATRegistration.feature",
-	"classpath:features/04_DV_1377_ManageVatRegistration.feature","classpath:features/05_DV_1376_AcceptRejectAdditionalClarification.feature",
-		"classpath:features/07_UserRegistrationStatus.feature"
+	"classpath:features/",
 	
+		
 		},
 glue = "org.drc.vat.StepDefinitions",
 plugin = {"com.cucumber.listener.ExtentCucumberFormatter:",
-"html:test-output/cucumber-report"}
+"html:test-output/cucumber-report"},tags= {"@TC_07_08_09_14_15_17_18_19_20_DV_2390_Declaration_with_verification"}
+
 		)
 
 
@@ -65,7 +64,8 @@ public class TestRunner extends AbstractTestNGCucumberTests {
 		Reporter.loadXMLConfig("src/test/resources/extent-config.xml");
 		Reporter.setSystemInfo("user", System.getProperty("user.name"));
 	}
-	/*    @Before
+	/*    @BeforeF:\DRC-Automation\src\test\resources\docs\DRC Test Data.xlsx
+	 * 
     public void startScenario(Scenario scenario) throws IOException 
     {
     	//app.callurl();

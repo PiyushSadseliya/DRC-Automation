@@ -9,7 +9,7 @@ Feature: User is on Tax Calculation
 
     Examples: 
       | TestcaseID       | Description          | email                  | password   |
-      | e-file_Login_001 | Login into tax payer | at3test@mailinator.com | franky@123 |
+      | e-file_Login_001 | Login into tax payer | approveduser@mailinator.com | Test@123 |
 
   @TC_02_12
   Scenario Outline: Validate proceed button functionality
@@ -25,7 +25,7 @@ Feature: User is on Tax Calculation
 
     Examples: 
       | TestcaseID    | Description                                   | uploadFile                                                            |
-      | Tax_Cal_02,12 | validate proceed functionality and see offset | C:\\Users\\frankey.mehta\\Desktop\\Officers List With Tax Center.xlsx |
+      | Tax_Cal_02,12 | validate proceed functionality and see offset | DRC Test Data.xlsx |
 
   @TC_03
   Scenario Outline: Validate the Period field.

@@ -2,7 +2,7 @@ Feature: User is on Manual Assessement Landing Screen
 
   #@TC_01 UI Part
   @TC_01
-  Scenario: Validate the Manual Assessment dashboard page All clicking compoment
+  Scenario: Validate the Manual Assessment dashboard page All clicking compoment internal portal
     Given User is on Assessment Page 
     And User click on windows icon
     And User enter username and password and click on login and see dashboard
