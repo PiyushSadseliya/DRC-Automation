@@ -2,7 +2,7 @@
 Feature: The user can see the status for the application of NITVA number whether it is Approved,Rejected or needs additional clarification
 
   @Approve
-  Scenario Outline: The user can see the status as Aprroved for the application of NITVA number when the officer Approves the application
+  Scenario Outline: The user can see the status as Approved for the application of NITVA number when the officer Approves the application
     Given The DGI officer has approved for NITVA and The User is on Dashboard After Successfully login from taxpayer portal"<username>" "<password>""<Test Case ID>" "<Description>"
     Then User must see the application Status as Approved   on the Dashboard
 

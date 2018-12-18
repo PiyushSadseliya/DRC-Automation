@@ -1,14 +1,19 @@
 Feature: User is on e-filing landing screen
 
+#  Background: 
+ #   And User Enter email " approveduser@mailinator.com " and  password "Test@123"
+  #  And User Click on SignIn
+
+
   @TC_01_Login_e-filing_landing_screen
   Scenario Outline: DRC Tax Portal Login
-    Given User Login "<TestcaseID>" "<Description>"
+     Given User Login "<TestcaseID>" "<Description>"
     And User Enter email "<email>" and  password "<password>"
     And User Click on SignIn
 
     Examples: 
-      | TestcaseID         | Description          | email                     | password   |
-      | Landing_Screen_001 | Login into tax payer | autotest11@mailinator.com | franky@123 |
+      | TestcaseID         | Description          | email                       | password |
+      | Landing_Screen_001 | Login into tax payer | approveduser@mailinator.com | Test@123 |
 
   @TC_02
   Scenario Outline: Validate the Download templates button functionality
@@ -16,13 +21,11 @@ Feature: User is on e-filing landing screen
     And User click on Tab
     And User click on Download Template
     Then User verify download file
-    
 
     Examples: 
       | TestcaseID        | Description       |
       | Landing_Screen_02 | download template |
 
- 
   #@TC_03 help
   #Validate the Helpdesk (?) icon functionality.
   @TC_04_e-filing_landing_screen
@@ -47,8 +50,9 @@ Feature: User is on e-filing landing screen
     And clicks on e-filing to check
 
     Examples: 
-      | TestcaseID        | Description                   |Filters       |
-      | Landing_Screen_05 | validate status functionality |drp_Year2017 |
+      | TestcaseID        | Description                   | Filters      |
+      | Landing_Screen_05 | validate status functionality | drp_Year2018 |
+
   @TC_06_07_e-filing_landing_screen
   Scenario Outline: Validate the File button Functionality whether user can e-declare for the particular month and Preview button functionality
     Given User is on Vat e-Filing Page "<TestcaseID>" "<Description>"
@@ -85,7 +89,7 @@ Feature: User is on e-filing landing screen
     And User click on previous button and navigate to Vat e-filing page
     And User see Preview button is display and pay button gets enable and user click on pay button
     And User click on proceed button and navigate to Payment of tax page
-     And cliccks on "<Payment Option>" and verify details
+    And cliccks on "<Payment Option>" and verify details
     And Execute query for payment
 
     Examples: 

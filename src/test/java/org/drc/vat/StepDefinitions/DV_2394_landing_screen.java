@@ -51,7 +51,7 @@ public class DV_2394_landing_screen
 	{
 	   sleepWait(1000);
 	   clickOn("bDownloadTemplate", "");
-	   
+	   saveFile();
 	   verifyDownload("e-filingScheduleTemplate.xlsx");	   
 	  
 	}

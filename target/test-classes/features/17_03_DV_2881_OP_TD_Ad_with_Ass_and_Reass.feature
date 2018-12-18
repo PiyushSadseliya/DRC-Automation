@@ -1,13 +1,13 @@
 Feature: User is on Operation Performed Page Manual Assessement
 
-  @TC_01_Manual_2881
-  Scenario: Validate the Manual Assessment dashboard page All clicking compoment
-    Given User is on Assessment Page
-    And User click on windows icon
-    And User enter username and password and click on login and see dashboard
+  #@TC_01_Manual_2881
+#  Scenario: Validate the Manual Assessment dashboard page All clicking compoment 
+ #   Given User is on Assessment Page
+  #  And User click on windows icon
+  #  And User enter username and password and click on login and see dashboard
 
   @TC_02_03_Manual_2881
-  Scenario Outline: Validate the NITVA field,Period field
+  Scenario Outline: Validate the NITVA field,Period field internal portal
     Given User is on Manual Assessment "<TestcaseID>" "<Description>"
     And User click on Assessment Tab
     And User click on drop down "<Period>" for Manual Assessment

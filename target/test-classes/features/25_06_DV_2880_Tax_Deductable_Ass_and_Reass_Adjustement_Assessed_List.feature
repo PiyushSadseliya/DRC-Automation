@@ -1,13 +1,9 @@
 Feature: User is on Tax Deductible Page Assessed List
 
-  @TC_01
-  Scenario: Validate the Manual Assessment dashboard page All clicking compoment
-    Given User is on Assessment Page "<TestcaseID>" "<Description>"
-    And User click on windows icon
-    And User enter username and password and click on login and see dashboard
+
 
   @TC_02_03
-  Scenario Outline: Validate the NITVA field,Period field
+  Scenario Outline: Validate the NITVA field,Period field internal portal
     Given User is on Tax Deductible "<TestcaseID>" "<Description>"
     And User click on Assessment Tab
     And User click on Assessed List

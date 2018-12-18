@@ -22,8 +22,9 @@ public class DV_2389_calculation_with_offset
 	public void user_click_on_browser_and_upload_file_for_tax_calculation(String upload) throws Throwable 
 	{
 		sleepWait(1000);			
-		wd.findElement(By.xpath("(//*[@class=\"btn btn-primary\"])[1]")).click();			
+		wd.findElement(By.xpath("//label[@for='validatedCustomFile']")).click();			
 		UploadImage("",upload);
+		sleepWait(2000);		
 	}
 
 	

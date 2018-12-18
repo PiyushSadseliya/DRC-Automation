@@ -1,16 +1,5 @@
 Feature: User is on e file landing screen and click on Preview button
 
-  @TC_01_Login_VAT_e-Filing_Preview
-  Scenario Outline: DRC Tax Portal Login
-    Given User Login "<TestcaseID>" "<Description>"
-    And User Enter email "<email>" and  password "<password>"
-    And User Click on SignIn
-   
-
-    Examples: 
-      | TestcaseID               | Description          | email                               | password   |
-      | e-file_Preview_Login_001 | Login into tax payer | frankyautomationtest@mailinator.com | franky@123 |
-
   @TC_02_03_04_05_06_07_VAT_e-Filing_Preview
   Scenario Outline: User verify Operations Performed Section ,Tax Deductible , Adjustment along with Download,preview  functionality
     Given User is on Vat e-Filing Page "<TestcaseID>" "<Description>"

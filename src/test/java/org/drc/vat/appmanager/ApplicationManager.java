@@ -116,7 +116,8 @@ public class ApplicationManager {
 			wd.manage().window().maximize();
 			wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 			wd.get("http://103.249.120.58:8044");
-			Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\QA_Internal_Portal_Login\\autoitsample.exe");			
+			Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\src\\test\\resources\\authusers\\autoitsample.exe");			
+
 			wd.findElement(By.xpath(obj.getProperty("btn_windowsClick"))).click();
 			Thread.sleep(1000);
 		}
@@ -126,7 +127,9 @@ public class ApplicationManager {
 			{
 				Thread.sleep(1000);
 				wd.get("http://103.249.120.58:8044");
-				Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\QA_Internal_Portal_Login\\autoitsample.exe");
+
+				Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\src\\test\\resources\\authusers\\autoitsample.exe");
+
 				clickOn("btn_windowsClick", "");			
 				Thread.sleep(1000);
 			}
@@ -145,7 +148,9 @@ public class ApplicationManager {
 			wd.manage().window().maximize();
 			wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 			wd.get("http://103.249.120.58:8044");
-			Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\QA_Internal_Portal_Login\\autoitsample.rohit.exe");
+
+			Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\src\\test\\resources\\authusers\\autoitlaxman.exe");
+
 			wd.findElement(By.xpath(obj.getProperty("btn_windowsClick"))).click();
 			Thread.sleep(1000);
 		}
@@ -154,7 +159,9 @@ public class ApplicationManager {
 			if (!wd.getCurrentUrl().contains("8068"))
 			{
 				wd.get("http://103.249.120.58:8044");
-				Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\QA_Internal_Portal_Login\\autoitsample.rohit.exe");
+
+				Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\src\\test\\resources\\authusers\\autoitlaxman.exe");
+
 				clickOn("btn_windowsClick", "");
 				Thread.sleep(1000);
 			}						
@@ -174,7 +181,7 @@ public class ApplicationManager {
 			wd.manage().window().maximize();
 			wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);									
 			wd.get("http://103.249.120.58:8044");
-			Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\QA_Internal_Portal_Login\\autoitsample.Supervisiour.exe");			
+			Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\src\\test\\resources\\authusers\\autoitlaxman.exe");	
 			wd.findElement(By.xpath(obj.getProperty("btn_windowsClick"))).click();
 			Thread.sleep(1000);
 		}
@@ -184,7 +191,9 @@ public class ApplicationManager {
 			{
 				Thread.sleep(5000);
 				wd.get("http://103.249.120.58:8044");
-				Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\QA_Internal_Portal_Login\\autoitsample.Supervisiour.exe");				
+
+				Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\src\\test\\resources\\authusers\\autoitlaxman.exe");				
+
 				clickOn("btn_windowsClick", "");
 				Thread.sleep(1000);
 			}
@@ -203,7 +212,9 @@ public class ApplicationManager {
 			wd.manage().window().maximize();
 			wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 			wd.get("http://103.249.120.58:8044");
-			Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\QA_Internal_Portal_Login\\autoitlaxman.exe");			
+
+			Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\src\\test\\resources\\authusers\\autoitlaxman.exe");			
+
 			wd.findElement(By.xpath(obj.getProperty("btn_windowsClick"))).click();
 			Thread.sleep(1000);
 		}
@@ -213,7 +224,9 @@ public class ApplicationManager {
 			{
 				Thread.sleep(1000);
 				wd.get("http://103.249.120.58:8044");
-				Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\QA_Internal_Portal_Login\\autoitlaxman.exe");				
+
+				Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\src\\test\\resources\\authusers\\autoitlaxman.exe");				
+
 				clickOn("btn_windowsClick", "");
 				Thread.sleep(1000);
 			}

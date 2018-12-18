@@ -30,10 +30,16 @@ import static org.drc.vat.appmanager.HelperBase.assessmentOfficer;
 import static org.drc.vat.appmanager.HelperBase.sleepWait;
 
 
-@CucumberOptions(features = {"classpath:features/45_FX_Management_TaxOfficer.feature"},
+@CucumberOptions(features = {
+	"classpath:features/",
+	
+		
+		},
 glue = "org.drc.vat.StepDefinitions",
 plugin = {"com.cucumber.listener.ExtentCucumberFormatter:",
-"html:test-output/cucumber-report"},tags={"@TC_03"}
+"html:test-output/cucumber-report"},tags= {"@TC_07_08_09_14_15_17_18_19_20_DV_2390_Declaration_with_verification"}
+
+
 		)
 
 
@@ -60,8 +66,11 @@ public class TestRunner extends AbstractTestNGCucumberTests {
 		Reporter.loadXMLConfig("src/test/resources/extent-config.xml");
 		Reporter.setSystemInfo("user", System.getProperty("user.name"));
 	}
+
+
 	
 	/*    @Before
+>>>>>>> 0386ed11181368c9560741a152e2132a38c8a71d
     public void startScenario(Scenario scenario) throws IOException 
     {
     	//app.callurl();
