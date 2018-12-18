@@ -68,8 +68,7 @@ public class DV_2063_FX_Management_TaxOfficer
 	public void user_verify_the_Base_currency_on_the_FX_management_is_Congolese_France_and_its_value_is() throws Throwable 
 	{
 		BaseCurr =elementText("txt_BaseCurrency_1");
-		BaseCurrName =elementText("txt_BaseCurrency_Name");
-		
+		BaseCurrName =elementText("txt_BaseCurrency_Name");	
 		if(BaseCurr.contains("1") && BaseCurrName.contains("Congolese Franc(FC)"))
 		{
 			assertTrue(true);
@@ -130,6 +129,7 @@ public class DV_2063_FX_Management_TaxOfficer
 	@And("^User click on cancel button on fx management$")
 	public void user_click_on_cancel_button_on_fx_management() throws Throwable 
 	{
+		sleepWait(1000);
 		clickOn("btn_CancelFX", "");
 		sleepWait(1000);
 		
@@ -176,19 +176,21 @@ public class DV_2063_FX_Management_TaxOfficer
 	@And("^User see previously currency entered value on fx management$")
 	public void user_see_previously_currency_entered_value_on_fx_management() throws Throwable 
 	{		
-		BaseCurrCheck =elementText("txtBox_type_Currency");
-		
+		sleepWait(1000);
+		//BaseCurrCheck =elementText("txtBox_type_Currency");
+		BaseCurrCheck =getvalue("txtBox_type_Currency", "");
 	}
 
 	@And("^User check previously enter currency value on fx management officer$")
 	public void user_check_previously_enter_currency_value() throws Throwable 
 	{
-	   sleepWait(2000);
-	   String curr = elementText("txtBox_type_Currency");	   
-	   if(BaseCurrCheck==curr)
+	   sleepWait(2000);		  
+	   String curr =getvalue("txtBox_type_Currency", "");
+	   if(BaseCurrCheck.equals(curr))
 	   {
 		   assertTrue(true);
 	   }
+	   
 	}
 
 	
@@ -220,9 +222,8 @@ public class DV_2063_FX_Management_TaxOfficer
 	
 	@And("^User see New Conversion Rate column is display$")
 	public void user_see_New_Conversion_Rate_column_is_display() throws Throwable 
-	{
-					
-		sleepWait(1000);
+	{					
+		sleepWait(5000);
 		if(wd.findElement(By.xpath(obj.getProperty("txt_ApprovalRequired"))).isDisplayed())
 		{
 			assertTrue(true);
@@ -430,10 +431,9 @@ public class DV_2063_FX_Management_TaxOfficer
 	@Then("^User logout fx$")
 	public void user_logout() throws Throwable 
 	{
-		sleepWait(5000);
+		sleepWait(7000);
 		clickOn("btn_LogoutFX", "");
-		//sleepWait(7000);
-	    
+		//sleepWait(7000);	    
 	}
 
 	/**
@@ -442,45 +442,60 @@ public class DV_2063_FX_Management_TaxOfficer
 	@Then("^User enter credencial for DGI Supervisor and verify New Updated rates notification on their FX management landing page$")
 	public void user_enter_credencial_for_DGI_Supervisor_and_verify_New_Updated_rates_notification_on_their_FX_management_landing_page() throws Throwable 
 	{
-		WebDriver wd = new ChromeDriver();
+		/**
+		 *  new add
+		 */
+		wd.quit();		
+		
+		//WebDriver wd = new ChromeDriver();
+		wd = new ChromeDriver();
+		
+		
 		wd.manage().window().maximize();		
 		sleepWait(1000);	
 		wd.navigate().to("http://103.249.120.58:8044");		
-		Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\autoitsample.Supervisiour.exe");
+		Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\QA_Internal_Portal_Login\\autoitsample.Supervisiour.exe");
 		wd.findElement(By.xpath(obj.getProperty("btn_windowsClick"))).click();
 		sleepWait(5000);			
 		wd.findElement(By.xpath(obj.getProperty("txt_FxManagement"))).click();
 		//clickOn("txt_FxManagement", "");				 
-		sleepWait(1000);
+		sleepWait(3000);
 		if(wd.findElement(By.xpath(obj.getProperty("txt_ApprovalRequired"))).isDisplayed())
 		{
 			assertTrue(true);
 		}	
 		wd.findElement(By.xpath(obj.getProperty("btn_LogoutFX"))).click();				
-		wd.close();
+		//wd.close();
 	}
 
 	@Then("^User enter credencial for DGI Admin and verify New Updated rates notification on their FX management landing page$")
 	public void user_enter_credencial_for_DGI_Admin_and_verify_New_Updated_rates_notification_on_their_FX_management_landing_page() throws Throwable 
 	{	
-		WebDriver wd = new ChromeDriver();
+		/**
+		 * add quit 
+		 */
+		wd.quit();		
+		
+		//WebDriver wd = new ChromeDriver();
+		wd = new ChromeDriver();
+		
 		wd.manage().window().maximize();		
 		sleepWait(1000);	
 		wd.navigate().to("http://103.249.120.58:8044");		
-		Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\autoitsample.exe");
+		Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\QA_Internal_Portal_Login\\autoitsample.exe");
 		wd.findElement(By.xpath(obj.getProperty("btn_windowsClick"))).click();
 		sleepWait(5000);		
 		wd.findElement(By.xpath(obj.getProperty("txt_FxManagement"))).click();
 		//clickOn("txt_FxManagement", "");				 
-		sleepWait(1000);
+		sleepWait(3000);
 		if(wd.findElement(By.xpath(obj.getProperty("txt_ApprovalRequired"))).isDisplayed())
 		{
 			assertTrue(true);
 		}
 		wd.findElement(By.xpath(obj.getProperty("btn_ApproveFX"))).click();
 		sleepWait(7000);
-		wd.findElement(By.xpath(obj.getProperty("btn_LogoutFX"))).click();
-		
+//		wd.findElement(By.xpath(obj.getProperty("btn_LogoutFX"))).click();
+//		sleepWait(1000);
 	}
 
 	@And("^User enter currency \"([^\"]*)\" for field$")
@@ -502,14 +517,19 @@ public class DV_2063_FX_Management_TaxOfficer
 	@And("^User log in with DGI Admin credencial and update the currency$")
 	public void user_log_in_with_DGI_Admin_credencial() throws Throwable 
 	{
+		/**
+		 *  add quit
+		 */
+		wd.quit();
+		
 		sleepWait(2000);
 		WebDriver wd = new ChromeDriver();
 		wd.manage().window().maximize();		
 		sleepWait(1000);	
 		wd.navigate().to("http://103.249.120.58:8044");		
-		Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\autoitsample.exe");
+		Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\QA_Internal_Portal_Login\\autoitsample.exe");
 		wd.findElement(By.xpath(obj.getProperty("btn_windowsClick"))).click();
-		sleepWait(1000);
+		sleepWait(3000);
 		wd.findElement(By.xpath(obj.getProperty("txt_FxManagement"))).click();						
 		sleepWait(1000);				
 		wd.findElement(By.xpath(obj.getProperty("btn_UpdateFX"))).click();		
@@ -537,28 +557,60 @@ public class DV_2063_FX_Management_TaxOfficer
 	@And("^User log in with officer credencial and verify currency rate$")
 	public void user_log_in_with_officer_credencial() throws Throwable 
 	{
+		/**
+		 *  qiut
+		 */
+		wd.quit();
 		
-		WebDriver wd = new ChromeDriver();
+		//WebDriver wd = new ChromeDriver();
+		wd = new ChromeDriver();
 		wd.manage().window().maximize();		
 		sleepWait(1000);	
 		wd.navigate().to("http://103.249.120.58:8044");		
-		Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\autoitsample.TaxOfficer.exe");
+		Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\QA_Internal_Portal_Login\\autoitsample.rohit.exe");
 		wd.findElement(By.xpath(obj.getProperty("btn_windowsClick"))).click();
 		sleepWait(5000);
 		wd.findElement(By.xpath(obj.getProperty("txt_FxManagement"))).click();
 		//clickOn("txt_FxManagement", "");				 
-		sleepWait(1000);
-		String CurrencyAR= wd.findElement(By.xpath(obj.getProperty("txt_new_curr_Check"))).getAttribute("value");
-		if(StoreCurrency==CurrencyAR)
+		sleepWait(1000);		
+		
+		
+		String CurrencyAR =elementText("txt_new_curr_Check", "");
+		String	FC1 = CurrencyAR.replace("." ,"");		
+		String FC2 = FC1.replace("," ,".");
+		
+		
+		
+		if(StoreCurrency.equals(FC2))
 		{
 			assertTrue(true);
 		}
 		sleepWait(1000);
-		
-		
 	}
 	
+	@And("^User log in with supervisiour and click on approve$")
+	public void user_log_in_with_supervisiour_and_click_on_approve() throws Throwable 
+	{
+		/**
+		 * add quit
+		 */
+		wd.quit();
+		
+		wd = new ChromeDriver();
+		wd.manage().window().maximize();		
+		sleepWait(1000);	
+		wd.navigate().to("http://103.249.120.58:8044");		
+		Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\QA_Internal_Portal_Login\\autoitsample.Supervisiour.exe");
+		wd.findElement(By.xpath(obj.getProperty("btn_windowsClick"))).click();
+		sleepWait(5000);
+		wd.findElement(By.xpath(obj.getProperty("txt_FxManagement"))).click();						
+		sleepWait(1000);
+		wd.findElement(By.xpath(obj.getProperty("btn_ApproveFX"))).click();	
+		sleepWait(1000);
+	}
 
+	
+	
 	
 	@And("^User verify already added currencies \"([^\"]*)\" on FX management module$")
 	public void user_verify_already_added_currencies_on_FX_management_module(String value) throws Throwable 
@@ -641,7 +693,128 @@ public class DV_2063_FX_Management_TaxOfficer
 		if(wd.findElement(By.xpath("(//*[contains(text(),'" + value + "')])")).isDisplayed() )
 		{					
 			assertTrue(true);
-		}	
-	    
+		}		    
 	}
+	
+	
+	@And("^User type \"([^\"]*)\" and see \"([^\"]*)\"$")
+	public void user_type_and_see(String data, String check) throws Throwable 
+	{
+		
+		type("txtBox_type_Currency", data);
+		
+		String check1 = getvalue("txtBox_type_Currency", ""); 
+		
+		
+		if(!data.equals(check1))
+		{
+			assertTrue(true);
+		}
+	}
+
+	@And("^User type \"([^\"]*)\" and see message \"([^\"]*)\"$")
+	public void user_type_and_see_message(String arg1, String mess) throws Throwable 
+	{
+		type("txtBox_type_Currency", arg1);	
+		sleepWait(1000);
+		if(wd.findElement(By.xpath("(//*[contains(text(),'" + mess + "')])")).isDisplayed() )
+		{					
+			assertTrue(true);
+		}
+	}
+	
+	/**
+	 *  for demo 
+	 */
+	
+	@And("^User enter credencial for DGI Supervisor and verify New Updated rates notification on their FX management landing page demo$")
+	public void user_enter_credencial_for_DGI_Supervisor_and_verify_New_Updated_rates_notification_on_their_FX_management_landing_page_demo() throws Throwable 
+	{
+		wd.quit();		
+		WebDriver wd = new ChromeDriver();
+		wd.manage().window().maximize();		
+		sleepWait(1000);	
+		wd.navigate().to("http://103.249.120.58:8046");		
+		Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\Demo_Internal_Roles_Login\\Pooja_Internal.exe");
+		wd.findElement(By.xpath(obj.getProperty("btn_windowsClick"))).click();
+		sleepWait(5000);			
+		wd.findElement(By.xpath(obj.getProperty("txt_FxManagement"))).click();
+		//clickOn("txt_FxManagement", "");				 
+		sleepWait(3000);
+		if(wd.findElement(By.xpath(obj.getProperty("txt_ApprovalRequired"))).isDisplayed())
+		{
+			assertTrue(true);
+		}	
+		wd.findElement(By.xpath(obj.getProperty("btn_LogoutFX"))).click();				
+		//wd.close();
+	}
+
+	/**
+	 *  for demo 
+	 */
+	
+	@And("^User enter credencial for DGI Admin and verify New Updated rates notification on their FX management landing page demo$")
+	public void user_enter_credencial_for_DGI_Admin_and_verify_New_Updated_rates_notification_on_their_FX_management_landing_page_demo() throws Throwable 
+	{
+		wd.quit();		
+		WebDriver wd = new ChromeDriver();
+		wd.manage().window().maximize();		
+		sleepWait(1000);	
+		wd.navigate().to("http://103.249.120.58:8046");		
+		Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\Demo_Internal_Roles_Login\\Ketan_Internal.exe");
+		wd.findElement(By.xpath(obj.getProperty("btn_windowsClick"))).click();
+		sleepWait(5000);		
+		wd.findElement(By.xpath(obj.getProperty("txt_FxManagement"))).click();
+		//clickOn("txt_FxManagement", "");				 
+		sleepWait(3000);
+		if(wd.findElement(By.xpath(obj.getProperty("txt_ApprovalRequired"))).isDisplayed())
+		{
+			assertTrue(true);
+		}
+		wd.findElement(By.xpath(obj.getProperty("btn_ApproveFX"))).click();
+		sleepWait(7000);
+	}
+
+	@And("^User verify new currency rates on tax officer$")
+	public void user_verify_new_currency_rates_on_tax_officer() throws Throwable 
+	{
+		sleepWait(3000);
+		if(wd.findElement(By.xpath(obj.getProperty("txt_ApprovalRequired"))).isDisplayed())
+		{
+			assertTrue(true);
+		}	
+	}
+
+	@And("^User verify new currency rates on admin$")
+	public void user_verify_new_currency_rates_on_admin() throws Throwable 
+	{
+		sleepWait(3000);
+		if(wd.findElement(By.xpath(obj.getProperty("txt_ApprovalRequired"))).isDisplayed())
+		{
+			assertTrue(true);
+		}
+		sleepWait(1000);
+		wd.findElement(By.xpath(obj.getProperty("btn_ApproveFX"))).click();
+		sleepWait(3000);
+		//wd.close();
+	}
+
+	@And("^User enter credencial for admin$")
+	public void user_enter_credencial_for_DGI_Officer_and_update_the_currency_for_admin() throws Throwable 
+	{
+		
+		
+		
+		//wd.close();		
+		wd = new ChromeDriver();		
+		wd.manage().window().maximize();		
+		sleepWait(1000);	
+		wd.navigate().to("http://103.249.120.58:8044");		
+		Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\QA_Internal_Portal_Login\\autoitsample.exe");
+		wd.findElement(By.xpath(obj.getProperty("btn_windowsClick"))).click();
+		sleepWait(1000);			
+		//wd.findElement(By.xpath(obj.getProperty("txt_FxManagement"))).click();
+	}
+	
+	
 }

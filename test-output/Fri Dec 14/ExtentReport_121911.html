@@ -1,0 +1,1564 @@
+
+<!DOCTYPE html>
+<html>
+
+
+<head>
+	<meta charset='utf-8' /> 
+	<meta name='description' content='' />
+	<meta name='robots' content='noodp, noydir' />
+	<meta name='viewport' content='width=device-width, initial-scale=1' />
+	<meta id="timeStampFormat" name="timeStampFormat" content='MMM d, yyyy hh:mm:ss a'/>
+	
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css' />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+		<link href='https://cdn.rawgit.com/anshooarora/extentreports-java/b4a58fcfd1e137bd9287244035a7c80d3d73b3af/dist/css/extent.css' type='text/css' rel='stylesheet' />
+	
+	<title>ExtentReports</title>
+
+	<style type='text/css'>
+	</style>
+</head>
+
+	<body class='extent standard default hide-overflow bdd-report'>
+		<div id='theme-selector' alt='Click to toggle theme. To enable by default, use theme configuration.' title='Click to toggle theme. To enable by default, use theme configuration.'>
+			<span><i class='material-icons'>desktop_windows</i></span>
+		</div>
+
+<nav>
+	<div class="nav-wrapper">
+		<a href="#!" class="brand-logo blue darken-3">Extent</a>
+
+		<!-- slideout menu -->
+		<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
+			<li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
+						<li class='waves-effect'><a href='#!' view='category-view' onclick="configureView(1)"><i class='material-icons'>label_outline</i></a></li>
+			<li class='waves-effect'><a href='#!' view='exception-view' onclick="configureView(2)"><i class='material-icons'>bug_report</i></a></li>
+			<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></i></a></li>
+		</ul>
+
+		<!-- report name -->
+		<span class='report-name'>ExtentReports</span>
+		
+		<!-- report headline -->
+		<span class='report-headline'></span>
+
+		<!-- nav-right -->
+		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
+			<li>
+                <a href='#!'>
+                    <span class='label suite-start-time blue darken-3'>Dec 14, 2018 12:19:16 PM</span>
+				</a>
+			</li>
+			<li>
+                <a href='#!'>
+                    <span class='label blue darken-3'>3.1.5</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+
+		<!-- container -->
+		<div class='container'>
+
+<div id='test-view' class='view'>
+				
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- test toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button tests-toggle' data-activates='tests-toggle' data-constrainwidth='true' data-beloworigin='true' data-hover='true' href='#'>
+					<i class='material-icons'>warning</i> Status
+				</a>
+				<ul id='tests-toggle' class='dropdown-content'>
+											<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
+						<li status='fail'><a href='#!'>Fail <i class='material-icons red-text'>cancel</i></a></li>
+						<li status='skip'><a href='#!'>Skip <i class='material-icons cyan-text'>redo</i></a></li>
+					<li class='divider'></li>
+					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
+				</ul>
+			</div>
+			<!-- test toggle -->
+
+			<!-- category toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button category-toggle' data-activates='category-toggle' data-constrainwidth='false' data-beloworigin='true' data-hover='true' href='#'>
+					<i class='material-icons'>local_offer</i> Category
+				</a>
+				<ul id='category-toggle' class='dropdown-content'>
+					<li><a href='#'>@TC_03</a></li>
+					<li><a href='#'>@TC_14</a></li>
+					<li><a href='#'>@TC_07</a></li>
+					<li><a href='#'>@TC_08</a></li>
+					<li><a href='#'>@TC_09</a></li>
+					<li><a href='#'>@TC_10</a></li>
+					<li><a href='#'>@TC_04_06_11_12</a></li>
+					<li><a href='#'>@TC_16</a></li>
+					<li><a href='#'>@TC_13</a></li>
+					<li class='divider'></li>
+					<li class='clear'><a href='#!' clear='true'>Clear Filters</a></li>
+				</ul>
+			</div>
+			<!-- category toggle -->
+
+			<!-- clear filters -->
+			<div class='chip transparent hide'>
+				<a class='' id='clear-filters' alt='Clear Filters' title='Clear Filters'>
+					<i class='material-icons'>close</i> Clear
+				</a>
+			</div>
+			<!-- clear filters -->
+
+			<!-- enable dashboard -->
+			<div id='toggle-test-view-charts' class='chip transparent'>
+				<a class='pink-text' id='enable-dashboard' alt='Enable Dashboard' title='Enable Dashboard'>
+					<i class='material-icons'>track_changes</i> Dashboard
+				</a>
+			</div>
+			<!-- enable dashboard -->
+
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+					<i class='material-icons'>search</i> Search
+				</a>
+
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+				
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+
+
+<div id='test-view-charts' class='subview-full'>
+	<div id='charts-row' class='row nm-v nm-h'>
+		<div class='col s12 m4 l4 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Features</div>
+				<div class='chart-box'>
+					<canvas id='parent-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='0%'><span class='strong'>0</span> feature(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='100%'>1</span> feature(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+				</div>
+			</div>
+		</div>
+		
+		<div class='col s12 m4 l4 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Scenarios</div>
+				<div class='chart-box'>
+					<canvas id='child-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='78.571%'><span class='strong'>11</span> scenario(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='7.143%'>1</span> scenario(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='14.286%'>2</span> others
+				</div>
+			</div>
+		</div>
+		
+		<div class='col s12 m4 l4 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Steps</div>
+				<div class='chart-box'>
+					<canvas id='grandchild-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='83.333%'><span class='strong'>80</span> step(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='1.042%'>1</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='15.625%'>15</span> others
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+	<div class='subview-left left'>
+		
+		<div class='view-summary'>
+			<h5>Features</h5>
+			<ul id='test-collection' class='test-collection'>
+				
+				
+				<li class='test displayed active has-leaf fail' status='fail' bdd='true' test-id='1'>
+					<div class='test-heading'>
+						<span class='test-name'>User is on FX Management Page Tax Officer</span>
+						<span class='test-time'>Dec 14, 2018 12:19:16 PM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='scenariooutline node' test-id='2' status='pass'>
+	<span class='duration right label'>0h 1m 0s+243ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Validate the Base currency on all the pages of FX management module -fx taxofficer</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='3' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@TC_03</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Validate the Base currency on all the pages of FX management module -fx taxofficer</span>
+			
+				<ul class='steps'>
+					<li test-id='4' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given User is on FX Management "FX_Management_Officer_03" "Verify Base Currency"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='5' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User see FX Management</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='6' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on FX Management tab</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='7' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User verify the Base currency on the FX management is Congolese France and its value is one</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='8' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on update button</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='9' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User see pop up and see base currency is 1</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='10' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on cancel button on pop up</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='11' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on Historical FX Rates button and verify the base currency</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="E:\DRC Merge Regreation\DRC-Automation\test-output\Fri Dec 14\screenshots\Validate the Base currency on all the pages of FX management module -fx taxofficer_121916.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='12' status='pass'>
+	<span class='duration right label'>0h 0m 9s+959ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Validate the Target Currencies column data</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='13' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@TC_14</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Validate the Target Currencies column data</span>
+			
+				<ul class='steps'>
+					<li test-id='14' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given User is on FX Management "FX_Management_Officer_14" "Verify Target Currencies column"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='15' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on Dashboard</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='16' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on FX Management tab</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='17' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User verify already added currencies "INR - Indian Rupee" on FX management module</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='18' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on update button and check currencies "INR - Indian Rupee" on Update Currency Rate popup window</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='19' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on cancel button on pop up</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="E:\DRC Merge Regreation\DRC-Automation\test-output\Fri Dec 14\screenshots\Validate the Target Currencies column data_122017.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='20' status='pass'>
+	<span class='duration right label'>0h 0m 13s+159ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Validate the Historical FX Rates button functionality</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='21' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@TC_07</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Validate the Historical FX Rates button functionality</span>
+			
+				<ul class='steps'>
+					<li test-id='22' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given User is on FX Management "FX_Management_Officer_07" "Verify Historical FX Rates button functionality"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='23' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on Dashboard</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='24' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on FX Management tab</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='25' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User Click on Historical fx rates button</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='26' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User check in FX management list</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="E:\DRC Merge Regreation\DRC-Automation\test-output\Fri Dec 14\screenshots\Validate the Historical FX Rates button functionality_122027.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='27' status='pass'>
+	<span class='duration right label'>0h 0m 31s+406ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Validate the from and to date search functionality on the FX management page with historic data</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='28' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@TC_08</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Validate the from and to date search functionality on the FX management page with historic data</span>
+			
+				<ul class='steps'>
+					<li test-id='29' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given User is on FX Management "FX_Management_Officer_08" "Verify date functionality"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='30' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on Dashboard</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='31' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on FX Management tab</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='32' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User Click on Historical FX Rates button</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='33' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User verify the by default date displaying in the From date and To date "12/08/2018" "12/14/2018"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='34' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User Select Todays date "14" in From and check selected date</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='35' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And USer Select todays days "14" in To and check selected date</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='36' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on search icon and today date should display "12/14/2018"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='37' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User select date which the currency record are not present in From "1"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='38' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User select date which the currency record are not present in To "1"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='39' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on search icon</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='40' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User see message no record found for date</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="E:\DRC Merge Regreation\DRC-Automation\test-output\Fri Dec 14\screenshots\Validate the from and to date search functionality on the FX management page with historic data_122041.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='41' status='pass'>
+	<span class='duration right label'>0h 1m 20s+855ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Validate the Pagination on the FX management page with historic data</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='42' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@TC_09</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Validate the Pagination on the FX management page with historic data</span>
+			
+				<ul class='steps'>
+					<li test-id='43' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given User is on FX Management "FX_Management_Officer_09_1" "validating last and right"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='44' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on Dashboard</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='45' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on FX Management tab</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='46' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User Click on Historical FX Rates button</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='47' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on page "lbl_AssLast" and check page"lbl_AssestRight" "last and right"</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="E:\DRC Merge Regreation\DRC-Automation\test-output\Fri Dec 14\screenshots\Validate the Pagination on the FX management page with historic data_122113.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+		<li test-id='48' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@TC_09</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Validate the Pagination on the FX management page with historic data</span>
+			
+				<ul class='steps'>
+					<li test-id='49' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given User is on FX Management "FX_Management_Officer_09_2" "validating last and left"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='50' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on Dashboard</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='51' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on FX Management tab</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='52' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User Click on Historical FX Rates button</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='53' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on page "lbl_AssLast" and check page"lbl_AssestLeft" "last and left"</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="E:\DRC Merge Regreation\DRC-Automation\test-output\Fri Dec 14\screenshots\Validate the Pagination on the FX management page with historic data_122127.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+		<li test-id='54' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@TC_09</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Validate the Pagination on the FX management page with historic data</span>
+			
+				<ul class='steps'>
+					<li test-id='55' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given User is on FX Management "FX_Management_Officer_09_3" "validating right and left"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='56' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on Dashboard</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='57' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on FX Management tab</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='58' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User Click on Historical FX Rates button</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='59' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on page "lbl_AssestRight" and check page"lbl_AssestLeft" "right and left"</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="E:\DRC Merge Regreation\DRC-Automation\test-output\Fri Dec 14\screenshots\Validate the Pagination on the FX management page with historic data_122141.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+		<li test-id='60' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@TC_09</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Validate the Pagination on the FX management page with historic data</span>
+			
+				<ul class='steps'>
+					<li test-id='61' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given User is on FX Management "FX_Management_Officer_09_4" "validating right and first"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='62' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on Dashboard</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='63' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on FX Management tab</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='64' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User Click on Historical FX Rates button</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='65' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on page "lbl_AssestRight" and check page"lbl_AssFirst" "right and first"</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="E:\DRC Merge Regreation\DRC-Automation\test-output\Fri Dec 14\screenshots\Validate the Pagination on the FX management page with historic data_122155.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+		<li test-id='66' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@TC_09</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Validate the Pagination on the FX management page with historic data</span>
+			
+				<ul class='steps'>
+					<li test-id='67' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given User is on FX Management "FX_Management_Officer_09_5" "validating first and left"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='68' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on Dashboard</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='69' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on FX Management tab</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='70' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User Click on Historical FX Rates button</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='71' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on page "lbl_AssFirst" and check page"lbl_AssestLeft" "first and left"</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="E:\DRC Merge Regreation\DRC-Automation\test-output\Fri Dec 14\screenshots\Validate the Pagination on the FX management page with historic data_122209.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+		<li test-id='72' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@TC_09</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Validate the Pagination on the FX management page with historic data</span>
+			
+				<ul class='steps'>
+					<li test-id='73' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given User is on FX Management "FX_Management_Officer_09_6" "validating first and first"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='74' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on Dashboard</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='75' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on FX Management tab</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='76' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User Click on Historical FX Rates button</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='77' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on page "lbl_AssFirst" and check page"lbl_AssFirst" "first and first"</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="E:\DRC Merge Regreation\DRC-Automation\test-output\Fri Dec 14\screenshots\Validate the Pagination on the FX management page with historic data_122222.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='78' status='pass'>
+	<span class='duration right label'>0h 0m 13s+326ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Validate the previous button functionality on Historical FX Rates page</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='79' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@TC_10</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Validate the previous button functionality on Historical FX Rates page</span>
+			
+				<ul class='steps'>
+					<li test-id='80' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given User is on FX Management "FX_Management_Officer_10" "Verify previous button functionality"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='81' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on Dashboard</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='82' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on FX Management tab</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='83' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User Click on Historical FX Rates button</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='84' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on Previous button and again navigate to FX management dashboard</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="E:\DRC Merge Regreation\DRC-Automation\test-output\Fri Dec 14\screenshots\Validate the previous button functionality on Historical FX Rates page_122235.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='85' status='fail'>
+	<span class='duration right label'>0h 1m 32s+462ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Validate the Update and Cancel currency functionality on Update currency rate popup and New conversion rate and Approved rate column data</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='86' class='node scenario fail' status='fail'>
+			<div class='category-list'>
+				<span class='category label white-text'>@TC_04_06_11_12</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Validate the Update and Cancel currency functionality on Update currency rate popup and New conversion rate and Approved rate column data</span>
+			
+				<ul class='steps'>
+					<li test-id='87' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given User is on FX Management "FX_Management_Officer_04_06_11_12" "Verify update Currency and cancel"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='88' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on Dashboard</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='89' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on FX Management tab</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='90' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on Update button and pop up appear</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='91' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User enter currency for "100"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='92' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User see previously currency entered value on fx management</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='93' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on cancel button on fx management</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='94' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on Update button and pop up appear</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='95' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User check previously enter currency value on fx management officer</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='96' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on save button on pop up on officer</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='97' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User see message for fx management officer "FX currency rate updated successfully"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='98' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User see New Conversion Rate column is display</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='99' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then User logout fx</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='100' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User enter credencial for DGI Supervisor and verify New Updated rates notification on their FX management landing page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='101' class='node and fail' status='fail'><b>And</b>
+						<span class="bdd-step-name">And User enter credencial for DGI Admin and verify New Updated rates notification on their FX management landing page</span>
+							<div class='pre'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//strong[contains(text(),'Approval Required')]"}
+  (Session info: chrome=71.0.3578.98)
+  (Driver info: chromedriver=2.43.600210 (68dcf5eebde37173d4027fa8635e332711d2874a),platform=Windows NT 10.0.17134 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.11.0', revision: 'e59cfb3', time: '2018-03-11T20:26:55.152Z'
+System info: host: '1R-23', ip: '172.16.3.23', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_171'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.43.600210 (68dcf5eebde371..., userDataDir: C:\Users\FRANKE~1.MEH\AppDa...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:54402}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 71.0.3578.98, webStorageEnabled: true}
+Session ID: 394cf294323842f25ad3a62727c0d45a
+*** Element info: {Using=xpath, value=//strong[contains(text(),'Approval Required')]}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:214)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:166)
+	at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:80)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:44)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:319)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:421)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:311)
+	at org.drc.vat.StepDefinitions.DV_2063_FX_Management_TaxOfficer.user_enter_credencial_for_DGI_Admin_and_verify_New_Updated_rates_notification_on_their_FX_management_landing_page(DV_2063_FX_Management_TaxOfficer.java:485)
+	at ?.And User enter credencial for DGI Admin and verify New Updated rates notification on their FX management landing page(features/45_FX_Management_TaxOfficer.feature:124)
+</pre></div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='102' status='skip'>
+	<span class='duration right label'>0h 0m 0s+19ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Validate the log out functionality on FX Management landing and Historical FX Rates page</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='103' class='node scenario skip' status='skip'>
+			<div class='category-list'>
+				<span class='category label white-text'>@TC_16</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Validate the log out functionality on FX Management landing and Historical FX Rates page</span>
+			
+				<ul class='steps'>
+					<li test-id='104' class='node given skip' status='skip'><b>Given</b>
+						<span class="bdd-step-name">Given User is on FX Management "FX_Management_Officer_16" "Verify Log out functionality"</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='105' class='node and skip' status='skip'><b>And</b>
+						<span class="bdd-step-name">And User click on Dashboard</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='106' class='node and skip' status='skip'><b>And</b>
+						<span class="bdd-step-name">And User click on FX Management tab</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='107' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then User logout fx</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='108' class='node and skip' status='skip'><b>And</b>
+						<span class="bdd-step-name">And User again log in</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='109' class='node and skip' status='skip'><b>And</b>
+						<span class="bdd-step-name">And User click on FX Management tab</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='110' class='node and skip' status='skip'><b>And</b>
+						<span class="bdd-step-name">And User Click on Historical FX Rates button</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='111' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then User logout and verify</span>
+							<div class='pre'>skipped</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='112' status='skip'>
+	<span class='duration right label'>0h 0m 0s+12ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Validate the New Conversion Rate(approval rate) data when Admin has updated currency rates -fx taxofficer</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='113' class='node scenario skip' status='skip'>
+			<div class='category-list'>
+				<span class='category label white-text'>@TC_13</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Validate the New Conversion Rate(approval rate) data when Admin has updated currency rates -fx taxofficer</span>
+			
+				<ul class='steps'>
+					<li test-id='114' class='node given skip' status='skip'><b>Given</b>
+						<span class="bdd-step-name">Given User is on FX Management "FX_Management_Officer_13" "Verify New Conversion Rate(approval rate)"</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='115' class='node and skip' status='skip'><b>And</b>
+						<span class="bdd-step-name">And User click on Dashboard</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='116' class='node and skip' status='skip'><b>And</b>
+						<span class="bdd-step-name">And User click on FX Management tab</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='117' class='node and skip' status='skip'><b>And</b>
+						<span class="bdd-step-name">And User logout fx</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='118' class='node and skip' status='skip'><b>And</b>
+						<span class="bdd-step-name">And User log in with DGI Admin credencial and update the currency</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='119' class='node and skip' status='skip'><b>And</b>
+						<span class="bdd-step-name">And User log in with officer credencial and verify currency rate</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='120' class='node and skip' status='skip'><b>And</b>
+						<span class="bdd-step-name">And User log in with supervisiour and click on approve</span>
+							<div class='pre'>skipped</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- subview left -->
+
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='test-name'></h5>
+
+			<div id='step-filters' class="right">
+				<span class="blue-text" status="info" alt="info" title="info"><i class="material-icons">info_outline</i></span>
+				<span class="green-text" status="pass" alt="pass" title="pass"><i class="material-icons">check_circle</i></span>
+				<span class="red-text" status="fail" alt="fail" title="fail"><i class="material-icons">cancel</i></span>
+				<span class="red-text text-darken-4" status="fatal" alt="fatal" title="fatal"><i class="material-icons">cancel</i></span>
+				<span class="pink-text text-lighten-1" status="error" alt="error" title="error"><i class="material-icons">error</i></span>
+				<span class="orange-text" alt="warning" status="warning" title="warning"><i class="material-icons">warning</i></span>
+				<span class="teal-text" status="skip" alt="skip" title="skip"><i class="material-icons">redo</i></span>
+				<span status="clear" alt="Clear filters" title="Clear filters"><i class="material-icons">clear</i></span>
+			</div>
+		</div>
+	</div>
+	<!-- subview right -->
+
+</div>
+<!-- test view -->
+<div id='category-view' class='view hide'>
+
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+					<i class='material-icons'>search</i> Search
+				</a>
+				
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+				
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+
+	<div class='subview-left left'>
+		
+		<div class='view-summary'>
+			<h5>Categories</h3>
+			<ul id='category-collection' class='category-collection'>
+				
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@TC_03</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Dec 14, 2018 12:19:16 PM</td>
+										<td class='linked' test-id='3'>User is on FX Management Page Tax Officer.Validate the Base currency on all the pages of FX management module -fx taxofficer.Validate the Base currency on all the pages of FX management module -fx taxofficer</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@TC_14</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Dec 14, 2018 12:20:17 PM</td>
+										<td class='linked' test-id='13'>User is on FX Management Page Tax Officer.Validate the Target Currencies column data.Validate the Target Currencies column data</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@TC_07</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Dec 14, 2018 12:20:27 PM</td>
+										<td class='linked' test-id='21'>User is on FX Management Page Tax Officer.Validate the Historical FX Rates button functionality.Validate the Historical FX Rates button functionality</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@TC_08</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Dec 14, 2018 12:20:41 PM</td>
+										<td class='linked' test-id='28'>User is on FX Management Page Tax Officer.Validate the from and to date search functionality on the FX management page with historic data.Validate the from and to date search functionality on the FX management page with historic data</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@TC_09</span>
+						<span class='category-status right'>
+							<span class='label pass'>6</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 6</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Dec 14, 2018 12:21:13 PM</td>
+										<td class='linked' test-id='42'>User is on FX Management Page Tax Officer.Validate the Pagination on the FX management page with historic data.Validate the Pagination on the FX management page with historic data</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Dec 14, 2018 12:21:27 PM</td>
+										<td class='linked' test-id='48'>User is on FX Management Page Tax Officer.Validate the Pagination on the FX management page with historic data.Validate the Pagination on the FX management page with historic data</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Dec 14, 2018 12:21:41 PM</td>
+										<td class='linked' test-id='54'>User is on FX Management Page Tax Officer.Validate the Pagination on the FX management page with historic data.Validate the Pagination on the FX management page with historic data</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Dec 14, 2018 12:21:55 PM</td>
+										<td class='linked' test-id='60'>User is on FX Management Page Tax Officer.Validate the Pagination on the FX management page with historic data.Validate the Pagination on the FX management page with historic data</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Dec 14, 2018 12:22:09 PM</td>
+										<td class='linked' test-id='66'>User is on FX Management Page Tax Officer.Validate the Pagination on the FX management page with historic data.Validate the Pagination on the FX management page with historic data</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Dec 14, 2018 12:22:22 PM</td>
+										<td class='linked' test-id='72'>User is on FX Management Page Tax Officer.Validate the Pagination on the FX management page with historic data.Validate the Pagination on the FX management page with historic data</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@TC_10</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Dec 14, 2018 12:22:35 PM</td>
+										<td class='linked' test-id='79'>User is on FX Management Page Tax Officer.Validate the previous button functionality on Historical FX Rates page.Validate the previous button functionality on Historical FX Rates page</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@TC_04_06_11_12</span>
+						<span class='category-status right'>
+							<span class='label fail'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							
+							<span class='label red lighten-1 white-text'>Failed: 1</span>
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Dec 14, 2018 12:22:49 PM</td>
+										<td class='linked' test-id='86'>User is on FX Management Page Tax Officer.Validate the Update and Cancel currency functionality on Update currency rate popup and New conversion rate and Approved rate column data.Validate the Update and Cancel currency functionality on Update currency rate popup and New conversion rate and Approved rate column data</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@TC_16</span>
+						<span class='category-status right'>
+							<span class='label others'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							
+							
+							<span class='label yellow darken-2 white-text'>Others: 1</span>
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Dec 14, 2018 12:24:21 PM</td>
+										<td class='linked' test-id='103'>User is on FX Management Page Tax Officer.Validate the log out functionality on FX Management landing and Historical FX Rates page.Validate the log out functionality on FX Management landing and Historical FX Rates page</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@TC_13</span>
+						<span class='category-status right'>
+							<span class='label others'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							
+							
+							<span class='label yellow darken-2 white-text'>Others: 1</span>
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Dec 14, 2018 12:24:21 PM</td>
+										<td class='linked' test-id='113'>User is on FX Management Page Tax Officer.Validate the New Conversion Rate(approval rate) data when Admin has updated currency rates -fx taxofficer.Validate the New Conversion Rate(approval rate) data when Admin has updated currency rates -fx taxofficer</td>
+										<td><span class='test-status skip'>skip</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+
+			</ul>
+		</div>
+	</div>
+
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='category-name'></h5>
+		</div>
+	</div>
+</div>
+<!-- category view -->
+<div id='exception-view' class='view hide'>
+
+    <section id='controls'>
+        <div class='controls grey lighten-4'>
+            <!-- search -->
+            <div class='chip transparent' alt='Search Tests' title='Search Tests'>
+                <a href="#" class='search-div'>
+                    <i class='material-icons'>search</i> Search
+                </a>
+
+                <div class='input-field left hide'>
+                    <input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+                </div>
+
+            </div>
+            <!-- search -->
+        </div>
+    </section>
+
+    <div class='subview-left left'>
+
+        <div class='view-summary'>
+            <h5>Exceptions</h3>
+                <ul id='exception-collection' class='exception-collection'>
+
+                        <li class='exception displayed active'>
+                            <div class='exception-heading'>
+                                <span class='exception-name'>org.openqa.selenium.NoSuchElementException</span>
+                                <span class='exception-count right'><span class='label red lighten-1 white-text'>1</span></span>
+                            </div>
+                            <div class='exception-content hide'>
+                                <div class='exception-tests'>
+                                    <table class='bordered table-results'>
+                                        <thead>
+                                        <tr>
+                                            <th>Timestamp</th>
+                                            <th>TestName</th>
+                                            <th>Status</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                                    <tr>
+                                                        <td>Dec 14, 2018 12:23:54 PM</td>
+                                                        <td class='linked' test-id='101'>User is on FX Management Page Tax Officer.Validate the Update and Cancel currency functionality on Update currency rate popup and New conversion rate and Approved rate column data.Validate the Update and Cancel currency functionality on Update currency rate popup and New conversion rate and Approved rate column data.And User enter credencial for DGI Admin and verify New Updated rates notification on their FX management landing page</td>
+                                                        <td><pre><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//strong[contains(text(),'Approval Required')]"}
+  (Session info: chrome=71.0.3578.98)
+  (Driver info: chromedriver=2.43.600210 (68dcf5eebde37173d4027fa8635e332711d2874a),platform=Windows NT 10.0.17134 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.11.0', revision: 'e59cfb3', time: '2018-03-11T20:26:55.152Z'
+System info: host: '1R-23', ip: '172.16.3.23', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_171'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.43.600210 (68dcf5eebde371..., userDataDir: C:\Users\FRANKE~1.MEH\AppDa...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:54402}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 71.0.3578.98, webStorageEnabled: true}
+Session ID: 394cf294323842f25ad3a62727c0d45a
+*** Element info: {Using=xpath, value=//strong[contains(text(),'Approval Required')]}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:214)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:166)
+	at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:80)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:44)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:319)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:421)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:311)
+	at org.drc.vat.StepDefinitions.DV_2063_FX_Management_TaxOfficer.user_enter_credencial_for_DGI_Admin_and_verify_New_Updated_rates_notification_on_their_FX_management_landing_page(DV_2063_FX_Management_TaxOfficer.java:485)
+	at ?.And User enter credencial for DGI Admin and verify New Updated rates notification on their FX management landing page(features/45_FX_Management_TaxOfficer.feature:124)
+</pre></pre></td>
+                                                    </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </li>
+                </ul>
+        </div>
+    </div>
+
+    <div class='subview-right left'>
+        <div class='view-summary'>
+            <h5 class='exception-name'></h5>
+        </div>
+    </div>
+</div>
+<!-- exception view -->
+<div id='dashboard-view' class='view hide'>
+	<div class='card-panel transparent np-v'>
+		<h5>Dashboard</h5>
+
+		<div class='row'>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Features
+					<div class='panel-lead'>1</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Scenarios
+					<div class='panel-lead'>14</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Steps
+					<div class='panel-lead'>96</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Start
+					<div class='panel-lead'>Dec 14, 2018 12:19:16 PM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+			 		End
+			 		<div class='panel-lead'>Dec 14, 2018 12:24:21 PM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Time Taken
+					<div class='panel-lead'>0h 5m 5s+410ms</div>
+				</div>
+			</div>
+			<div class='col s6'>
+				<div class='card-panel dashboard-categories'>
+					<span class='right label cyan white-text'>Categories</span><p>&nbsp;</p>
+					
+					<table>
+						<tr>
+							<th>Name</th>
+							<th>Passed</th>
+							<th>Failed</th>
+							<th>Others</th>
+							<th>Passed %</th>
+						</tr>
+						<tr>
+							<td>@TC_03</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>@TC_14</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>@TC_07</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>@TC_08</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>@TC_09</td>
+							<td>6</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>@TC_10</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>@TC_04_06_11_12</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>
+									0%
+							</td>
+						</tr>
+						<tr>
+							<td>@TC_16</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>
+									0%
+							</td>
+						</tr>
+						<tr>
+							<td>@TC_13</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>
+									0%
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- dashboard view -->
+<!-- testrunner-logs view -->
+		</div>
+		<!-- container -->
+
+		<script>
+			var statusGroup = {
+				passParent: 0,
+				failParent: 1,
+				fatalParent: 0,
+				errorParent: 0,
+				warningParent: 0,
+				skipParent: 0,
+				exceptionsParent: 1,
+				
+				passChild: 11,
+				failChild: 1,
+				fatalChild: 0,
+				errorChild: 0,
+				warningChild: 0,
+				skipChild: 2,
+				infoChild: 0,
+				exceptionsChild: 3,
+				
+				passGrandChild: 80,
+				failGrandChild: 1,
+				fatalGrandChild: 0,
+				errorGrandChild: 0,
+				warningGrandChild: 0,
+				skipGrandChild: 15,
+				infoGrandChild: 0,
+				exceptionsGrandChild: 16,
+			};
+		</script>
+		
+			<script src='https://cdn.rawgit.com/anshooarora/extentreports-java/fca20fb7653aade98810546ab96a2a4360e3e712/dist/js/extent.js' type='text/javascript'></script>
+		
+		
+ 		<script type='text/javascript'>
+ 		</script>
+	</body>
+	
+</html>

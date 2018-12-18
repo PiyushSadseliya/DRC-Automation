@@ -29,10 +29,10 @@ import static org.drc.vat.appmanager.HelperBase.clearCache;
 import static org.drc.vat.appmanager.HelperBase.assessmentOfficer;
 import static org.drc.vat.appmanager.HelperBase.sleepWait;
 
-@CucumberOptions(features = {"classpath:features/01_userRegistration.feature"},
+@CucumberOptions(features = {"classpath:features/45_FX_Management_TaxOfficer.feature","classpath:features/46_FX_Management_Supervisor.feature"},
 glue = "org.drc.vat.StepDefinitions",
 plugin = {"com.cucumber.listener.ExtentCucumberFormatter:",
-"html:test-output/cucumber-report"}
+"html:test-output/cucumber-report"}//,tags={"@TC_12_04,@TC_09"}
 		)
 
 public class TestRunner extends AbstractTestNGCucumberTests {
@@ -58,6 +58,7 @@ public class TestRunner extends AbstractTestNGCucumberTests {
 		Reporter.loadXMLConfig("src/test/resources/extent-config.xml");
 		Reporter.setSystemInfo("user", System.getProperty("user.name"));
 	}
+	
 	/*    @Before
     public void startScenario(Scenario scenario) throws IOException 
     {
@@ -142,7 +143,36 @@ public class TestRunner extends AbstractTestNGCucumberTests {
 		else if(scenario.getName().toLowerCase().contains("laxman"))
 		{
 			app.callinternalportal_Assessment_Officer();
-		}		 	
+		}		 
+		
+		/**
+		 *  For Demo login 
+		 */
+		/** 
+		 *  Login with Ketan.prajapati demo
+		 */
+		else if (scenario.getName().toLowerCase().contains("admin demo"))    	
+		{	    	
+			 app.callinternalportal_ketan_demo();
+		}
+		/** 
+			    Login with rohit.patil demo
+		 */
+		else if(scenario.getName().toLowerCase().contains("taxofficer demo"))
+		{
+			app.callinternalportal_TaxOfficer_demo();
+		}
+		/** 
+			    Login with pooja.parmar demo
+		 */
+		else if(scenario.getName().toLowerCase().contains("supervisor demo"))
+		{
+			app.callinternalportal_Supervisor_demo();
+		}
+		else if(scenario.getName().toLowerCase().contains("laxman demo"))
+		{
+			app.callinternalportal_Assessment_Officer_laxman_demo();
+		}		 			
 		else
 		{
 			app.callurl();	    		
@@ -150,7 +180,7 @@ public class TestRunner extends AbstractTestNGCucumberTests {
 		Thread.sleep(5000);
 		logger.info("Start scenario: " + scenario.getName());
 	}	
-
+	
 	@After
 	public void endScenario(Scenario scenario) throws Exception {
 		String screenshot = scenario.getName();
