@@ -67,13 +67,14 @@ public class DV_2390_e_filing
 	@And("^User Enter email \"([^\"]*)\" and  password \"([^\"]*)\"$")
 	public void user_Enter_email_and_password(String email, String pwd) throws Throwable 
 	{
-		 type("txtbox_username",email);		
-		 type("txtbox_password",pwd);
+/*		 type("txtbox_username",email);		
+		 type("txtbox_password",pwd);*/
+		login(email, pwd);
 	}
 	@And("^User Click on SignIn$")
 	public void user_Click_on_SignIn() throws Throwable 
 	{
-		sleepWait(1000);
+/*		sleepWait(1000);
 		clickOn("btn_login", "");		
 		 sleepWait(2000);
 		 clickOn("tile_vat","");
@@ -81,7 +82,7 @@ public class DV_2390_e_filing
 		 clickOn("a_sure","");
 		 sleepWait(2000);
 		// wd.switchTo().window(wd.getWindowHandles().toArray()[1].toString());
-		 sleepWait(1000);
+		 sleepWait(1000);*/
 	}
 	
 	@And("^User check value \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" for Operation Performed$")

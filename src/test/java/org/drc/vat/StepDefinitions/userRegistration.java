@@ -51,7 +51,9 @@ public class userRegistration {
 	boolean novalidationMessage = false;
 	String email=null;
 	String verificationMsg="Your account has been verified";
+	public static String EmailUsername;
 	public static String Username;
+	public static String EmailCapsUsername;
 
 	@Given("^User is on Welcome to DRC Tax Portal page\"([^\"]*)\" \"([^\"]*)\"$")
 	public void user_is_on_Welcome_to_DRC_Tax_Portal_page(String arg1, String arg2) throws Throwable {
@@ -65,12 +67,16 @@ public class userRegistration {
 		assertEquals(elementText("h2",""), "Welcome to e-Service Portal");
 	}
 	// Data base connection for 1authority table
-	@When("^Establish a connection with data base and execute query to create user\\.$")
-	public void establish_a_connection_with_data_base_and_execute_query_to_create_user() throws Throwable {
+	@When("^Establish a connection with data base and execute query to create user\"([^\"]*)\"\\.$")
+	public void establish_a_connection_with_data_base_and_execute_query_to_create_user(String UserName) throws Throwable {
+		Username=UserName;
+		EmailUsername=UserName.replace(" ", "");
+		EmailCapsUsername=UserName.replace(" ", "").toUpperCase();
+		
 		ConnectDatabase CD = new ConnectDatabase();
 		CD.opendb();		
-		String user =  "DECLARE @a int = (select count(*)+1 from [1AuthoritySTS].dbo.aspnetusers where email like 'AutomationUser%')"                                                           
-				+"INSERT INTO [1AuthoritySTS].[dbo].[AspNetUsers]            "    
+		String user = // "DECLARE @a int = (select count(*)+1 from [1AuthoritySTS].dbo.aspnetusers where email like 'AutomationUser%')"                                                           
+				"INSERT INTO [1AuthoritySTS].[dbo].[AspNetUsers]            "    
 				+"         (Id,                                                "
 				+"         [AccessFailedCount]                                 "
 				+"         ,[ConcurrencyStamp]                                 "
@@ -93,21 +99,26 @@ public class userRegistration {
 				+"         (NEWID(),                                           "
 				+"         0                                                   "
 				+"         ,NEWID()                                            "
-				+"         ,CONCAT('AutomationUser',@a,'@mailinator.com')              "
+				+"         ,CONCAT('"+EmailUsername+"','@mailinator.com')              "
+				//+",'"+UserName+"'"
 				+"         ,1                                                  "
 				+"         ,0                                                  "
 				+"         ,NULL                                               "
-				+"         ,CONCAT('AutomationUser',@a,'@MAILINATOR.COM')              "
-				+"         ,CONCAT('AutomationUser',@a,'@MAILINATOR.COM')              "
+/*				+"         ,CONCAT('AutomationUser',@a,'@MAILINATOR.COM')              "
+				+"         ,CONCAT('AutomationUser',@a,'@MAILINATOR.COM')              "*/
+				+"        ,CONCAT('"+EmailCapsUsername+"','@MAILINATOR.COM')              "
+				+"         ,CONCAT('"+EmailCapsUsername+"','@MAILINATOR.COM')              "
 				+"         ,'AQAAAAEAACcQAAAAEM/wSgVN/nG79PYxp2X4xCzrtdQcsTEYE911sxUm9sniuJtbzybplBD6TYP+BnxhDg=='  "
 				+"         ,'+919999999999'                                                                         "
 				+"         ,1                                                                                       "
 				+"          , NEWID()                                                                               "
 				+"          ,0                                                                                      "
 				+"          ,'TaxPortal'                                                                            "
-				+"          ,CONCAT('AutomationUser',@a,'@MAILINATOR.COM')                                                  "
+			//	+"          ,CONCAT('AutomationUser',@a,'@MAILINATOR.COM')                                                  "
+			+"          ,CONCAT('"+EmailCapsUsername+"','@MAILINATOR.COM')                                                  "
 				+"          ,CURRENT_TIMESTAMP                                                                      "
-				+"          ,CONCAT('AutomationUser',@a)) ";   
+				//+"          ,CONCAT('AutomationUser',@a)) ";   
+		+"          ,'"+UserName+"') ";   
 		
 		CD.sta.executeUpdate(user);
 	}
@@ -115,17 +126,18 @@ public class userRegistration {
 	@When("^Update data in another table based on created user$")
 	public void update_data_in_another_table_based_on_created_user() throws Throwable {
 		ConnectDatabase CD = new ConnectDatabase();
-		CD.DRCDB();
+		CD.opendb();		
 		
-		String Reguser = "DECLARE @a int = (select count(*) from [1AuthoritySTS].dbo.aspnetusers where email like 'AutomationUser%')"
-				+"declare  @emailvalue Nvarchar(500) "
+		String Reguser = //"DECLARE @a int = (select count(*) from [1AuthoritySTS].dbo.aspnetusers where email like 'AutomationUser%')"
+				//+
+				"declare  @emailvalue Nvarchar(500) "
 				+"Set @emailvalue = (select ID from  [1AuthoritySTS].[dbo].[AspNetUsers] "
-				+"where Email = CONCAT('AutomationUser',@a,'@mailinator.com'))               "
+				+"where Email = CONCAT('"+EmailUsername+"','@mailinator.com'))               "
 				+"insert into [DRC-QA].[Ref].[RegisteredUsers] values                             "
 				+"  (@emailvalue                                                          "
 				+"  ,1                                                                   "
-				+"  ,Concat ('AutomationUser',@a)                                               "
-				+"  ,CONCAT('AutomationUser',@a,'@mailinator.com')                              "
+				+"  ,'"+Username+"'"                                      
+				+"  ,CONCAT('"+EmailUsername+"','@MAILINATOR.COM')                              "
 				+"  ,CURRENT_TIMESTAMP                                                   "
 				+"  ,NULL                                                                "
 				+"  ,CURRENT_TIMESTAMP                                                   "
@@ -142,42 +154,14 @@ public class userRegistration {
 			ConnectDatabase CD = new ConnectDatabase();
 			CD.opendb();
 			
-			String Reguser = "DECLARE @a int = (select count(*) from [1AuthoritySTS].dbo.aspnetusers where email like 'AutomationUser%')"
-					+"declare  @emailvalue Nvarchar(500) "
-					+"Set @emailvalue = (select ID from  [1AuthoritySTS].[dbo].[AspNetUsers] "
-					+"where Email = CONCAT('AutomationUser',@a,'@mailinator.com'))               "
-					+"insert into [DRC-QA].[Ref].[RegisteredUsers] values                             "
-					+"  (@emailvalue                                                          "
-					+"  ,1                                                                   "
-					+"  ,Concat ('AutomationUser',@a)                                               "
-					+"  ,CONCAT('AutomationUser',@a,'@mailinator.com')                              "
-					+"  ,CURRENT_TIMESTAMP                                                   "
-					+"  ,NULL                                                                "
-					+"  ,CURRENT_TIMESTAMP                                                   "
-					+"  ,NUll                                                                "
-					+"  ,null                                                                "
-					+"  ) ";
-			
-			CD.sta.executeUpdate(Reguser);
-			String username = "with temp as"
-					+"(select count(*) as 'a' from [1AuthoritySTS].dbo.aspnetusers where email like'AutomationUser%' and UserClient='TaxPortal' and EmailConfirmed=1)"
-					+"select CONCAT('AutomationUser',a,'@mailinator.com') as 'username' from temp";
+			String roles =//"declare @i int = (select count(*) from [1AuthoritySTS].dbo.aspnetusers where email like 'dfdj%')"
+					  " declare  @emailvalue Nvarchar(500)"
+					  +" set @emailvalue = (select ID from  [1AuthoritySTS].[dbo].[AspNetUsers] "
+					  +" where Email = CONCAT('"+EmailUsername+"','@mailinator.com'))"      
+					  +" insert into [1AuthoritySTS].[dbo].[AspNetUserRoles] ([UserId],[RoleId]) VALUES  (@emailvalue,'B828372F-B0AD-40DF-B8BB-5C6E11A8682E')";
 						
-						ResultSet rs = CD.sta.executeQuery(username);
-						System.out.println(rs);
-						while(rs.next())
-						{
-						 Username = (rs.getString("username")).trim();
-						 
-			/*		         System.out.println(Username);
-						
-							type("txtbox_username",Username);
-							Thread.sleep(2000);
-							type("txtbox_password","Test@123");
-							Thread.sleep(2000);
-							clickOn("btn_login","");	*/   
-						}
-
+					//	System.out.println("test");
+						CD.sta.executeUpdate(roles);
 		
 	}
 

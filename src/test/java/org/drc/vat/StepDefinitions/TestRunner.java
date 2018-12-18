@@ -29,11 +29,13 @@ import static org.drc.vat.appmanager.HelperBase.clearCache;
 import static org.drc.vat.appmanager.HelperBase.assessmentOfficer;
 import static org.drc.vat.appmanager.HelperBase.sleepWait;
 
-@CucumberOptions(features = {"classpath:features/45_FX_Management_TaxOfficer.feature","classpath:features/46_FX_Management_Supervisor.feature"},
+
+@CucumberOptions(features = {"classpath:features/45_FX_Management_TaxOfficer.feature"},
 glue = "org.drc.vat.StepDefinitions",
 plugin = {"com.cucumber.listener.ExtentCucumberFormatter:",
-"html:test-output/cucumber-report"}//,tags={"@TC_12_04,@TC_09"}
+"html:test-output/cucumber-report"},tags={"@TC_03"}
 		)
+
 
 public class TestRunner extends AbstractTestNGCucumberTests {
 	private Logger logger = LoggerFactory.getLogger(TestRunner.class);
