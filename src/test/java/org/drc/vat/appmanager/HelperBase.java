@@ -60,14 +60,15 @@ public class HelperBase {
 			"August", "September", "October", "November", "December" };
 
 	public static SoftAssert softAssert = new SoftAssert();
-	private static File dir = new File(
-			System.getProperty("user.home") + "/Downloads");
+
 
 	HelperBase(WebDriver wd) {
 		HelperBase.wd = wd;
 	}
 	private static String cwd=System.getProperty("user.dir");
 	public static String filedoc=cwd+"\\src\\test\\resources\\docs\\";
+	private static File dir = new File(
+			System.getProperty("user.home") + "/Downloads");
 
 	static {
 		try {
@@ -84,7 +85,7 @@ public class HelperBase {
 		wait.until(ExpectedConditions.elementToBeClickable(locator));
 	}
 
-	public static void clickOn(String object, String data) {    	
+	public static void clickOn(String object, String data) {   	
 		WebDriverWait wait = new WebDriverWait(wd, 60);
 		try {
 			obj.load(fis);
@@ -156,8 +157,8 @@ public class HelperBase {
 	}
 
 	public static void saveFile() throws AWTException {
-		Arrays.stream(Objects.requireNonNull(
-				new File(String.valueOf(dir)).listFiles())).forEach(File::delete);
+		//Arrays.stream(Objects.requireNonNull(
+				//new File(String.valueOf(dir)).listFiles())).forEach(File::delete);
 		Robot robot = new Robot();
 		robot.delay(1000);
 		robot.keyPress(KeyEvent.VK_ALT);
@@ -494,7 +495,7 @@ public class HelperBase {
 			if(vatTile.size()>0) {
 				clickOn("tile_vat","");
 				sleepWait(2000);	
-				List <WebElement> sure =wd.findElements(By.xpath("//a[contains(text(),'Sure')]"));
+				List <WebElement> sure =wd.findElements(By.xpath("//a[contains(text(),'Yes')]"));
 				if(sure.size()>0) {
 					sure.get(0).click();
 				}

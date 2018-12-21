@@ -68,7 +68,7 @@ public class PaymentSummaryLiabilityCalculationPaymentDueManualAssessment {
 	     clickOn("span","[contains(text(),'Tax Payer')]");
 	     type("input_masearch",tpayer);
 	     sleepWait(2000);
-	     clickOn("btn_search","");
+	     clickOn("btn_Asearch","");
 	     clickOn("AssesManage","");
 	     sleepWait(2000);
 	}
@@ -79,32 +79,8 @@ public class PaymentSummaryLiabilityCalculationPaymentDueManualAssessment {
 		tpname=tpayer;		
 
 	     manualAssessmenthome(period,tpayer);
-	     
-	     if(!elementText("slash", "tr[1]//td[5]").equalsIgnoreCase("laxman")) {
-	    	 System.out.println("admin");
-		     clickOn("btn_reassignOassess", "");
-		     sleepWait(2000);
-		     clickOn("drpdwn_reassignO", "");
-		     sleepWait(2000);
-		     clickOn("slash","*[name()='ng-dropdown-panel']//*[contains(text(),'Laxman')]");
-		     sleepWait(2000);
-		     clickOn("slash", "tr[1]//td[7]//following::span");
-		    sleepWait(2000);
-		    assertEquals(elementText("slash", "tr[1]//td[5]").equalsIgnoreCase("laxman"),true );	 	 
-	    	
-	            
-	     }
-	    	 
-	    	 
-	    	 
-	    		else {
-	    			System.out.println("assessment");
-	    			assessmentOfficer();
-	    			manualAssessmenthome(period,tpayer);
-		    		 clickOn("href_maassess","");
-		    		 sleepWait(2000);
-		    	 }
-		     
+	     clickOn("href_maassess","");
+		 sleepWait(2000);		     
 	    	 }
 
 	     
@@ -380,12 +356,7 @@ sleepWait(5000);
 
 }
 
-@Then("^the next button on manual assessemnt page should be disabled$")
-public void the_next_button_on_manual_assessemnt_page_should_be_disabled() throws Throwable {
-	System.out.println(getAttribute("disabled","btn_maassessNext",""));
-assertEquals(getAttribute("disabled","btn_maassessNext",""), "true","Next button not Disabled");
 
-}
 
 @Then("^Total Additional Liability tile should be displayed as Total Assessed\\(FC\\) minus Total e-declaration\\(FC\\)\"([^\"]*)\"\"([^\"]*)\"$")
 public void total_Additional_Liability_tile_should_be_displayed_as_Total_Assessed_FC_minus_Total_e_declaration_FC(String arg1, String arg2) throws Throwable {

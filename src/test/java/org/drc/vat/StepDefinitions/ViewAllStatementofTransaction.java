@@ -23,12 +23,15 @@ import static org.drc.vat.appmanager.HelperBase.elementText;
 import static org.drc.vat.appmanager.HelperBase.type;
 public class ViewAllStatementofTransaction {
 	//SoftAssert sassert = new SoftAssert();
-	
+
 	@Given("^\"([^\"]*)\"\"([^\"]*)\"The User has logged in the DRC Tax Payer Portal with \"([^\"]*)\"\"([^\"]*)\"$")
 	public void the_User_has_logged_in_the_DRC_Tax_Payer_Portal_with(String arg1, String arg2, String arg3, String arg4) throws Throwable {
+		if(login) {
 	
 		login(arg3,arg4);
-		
+		login=false;
+		}		
+		System.out.println(login);
 
    
 	}
@@ -128,7 +131,7 @@ public class ViewAllStatementofTransaction {
 	}
 
 	@Then("^Statemnt of Transaction should show the details of Date\"([^\"]*)\"\"([^\"]*)\"Period\"([^\"]*)\"\"([^\"]*)\"Particular\"([^\"]*)\"OpeningBalance\"([^\"]*)\"Liability Amount\"([^\"]*)\"Late Fee\"([^\"]*)\"Interest \"([^\"]*)\"Penalty\"([^\"]*)\"Total\"([^\"]*)\"$")
-	public void statemnt_of_Transaction_should_show_the_details_of_Date_Period_Particular_OpeningBalance_Liability_Amount_Late_Fee_Interest_Penalty_Total(String arg1, String date, String period, String year, String particular, String OpeningBal, String vamount, String ltfee, String interest, String penalty, String total) throws Throwable {
+	public void statemnt_of_Transaction_should_show_the_details_of_Date_Period_Particular_OpeningBalance_Liability_Amount_Late_Fee_Interest_Penalty_Total(int arg1, String date, String period, String year, String particular, String OpeningBal, String vamount, String ltfee, String interest, String penalty, String total) throws Throwable {
 	 
 		assertEquals(wd.findElement(By.xpath("//tbody/tr["+arg1+"]/td[1]")).getText(),date);
 	assertEquals(wd.findElement(By.xpath("//tbody/tr["+arg1+"]/td[2]")).getText(),period+", "+year);

@@ -10,6 +10,8 @@ import static org.drc.vat.appmanager.HelperBase.softAssert;
 import static org.drc.vat.appmanager.HelperBase.wd;
 import static org.testng.Assert.assertEquals;
 
+import java.text.SimpleDateFormat;
+
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;
 
@@ -35,54 +37,57 @@ public class PaymentReceipt {
 	@When("^User clicks on view button from pay column for month\"([^\"]*)\"$")
 	public void user_clicks_on_view_button_from_pay_column_for_month(String arg1) throws Throwable {
 		
+		clickOn("h6","//div[contains(text(),'"+arg1+"')]");
+		SimpleDateFormat format = new SimpleDateFormat("dd-MMM-yyyy");
+		int monthNumber = format.parse("01-" + arg1 + "-" + "2018").getMonth();
 
+	
 		if(arg1.equalsIgnoreCase("january")) {
-			clickOn("Ebtn_jan", "");
 			clickOn("Vbtn_jan", "");
+			
 			
 		}
 		if(arg1.equalsIgnoreCase("february")) {
-			clickOn("Ebtn_feb", "");
+		
 			clickOn("Vbtn_feb", "");
 		}
 		if(arg1.equalsIgnoreCase("march")) {
-			clickOn("Ebtn_mar", "");
+		
 			clickOn("Vbtn_mar", "");
 		}
 		if(arg1.equalsIgnoreCase("april")) {
-			clickOn("Ebtn_apr", "");
+			
 			clickOn("Vbtn_apr", "");
 		}
 		if(arg1.equalsIgnoreCase("may")) {
-			clickOn("Ebtn_may", "");
+			
 			clickOn("Vbtn_may", "");
 		}
 		if(arg1.equalsIgnoreCase("june")) {
-			clickOn("Ebtn_june", "");
-			clickOn("Vbtn_june", "");
+						clickOn("Vbtn_june", "");
 		}
 		if(arg1.equalsIgnoreCase("july")) {
-			clickOn("Ebtn_jul", "");
+			
 			clickOn("Vbtn_jul", "");
 		}
 		if(arg1.equalsIgnoreCase("august")) {
-			clickOn("Ebtn_aug", "");
+		
 			clickOn("Vbtn_aug", "");
 		}
 		if(arg1.equalsIgnoreCase("september")) {
-			clickOn("Ebtn_sep", "");
+			
 			clickOn("Vbtn_sep", "");
 		}
 		if(arg1.equalsIgnoreCase("october")) {
-			clickOn("Ebtn_oct", "");
+		
 			clickOn("Vbtn_oct", "");
 		}
 		if(arg1.equalsIgnoreCase("november")) {
-			clickOn("Ebtn_nov", "");
+			
 			clickOn("Vbtn_nov", "");
 		}
 		if(arg1.equalsIgnoreCase("december")) {
-			clickOn("Ebtn_dec", "");
+			
 			clickOn("Vbtn_dec", "");
 		
 		}
@@ -99,25 +104,28 @@ public class PaymentReceipt {
 		clickOn("pymtreceipt_btn_view", "");
 		sleepWait(5000);
 		saveFile();
-		sleepWait(10000);
+		sleepWait(5000);
 		PDDocument firstDocument = new PDDocument();	 
 		PDFTextStripper pdfStripper = new PDFTextStripper();  
 		String text = pdfStripper.getText(firstDocument.load(getLatestFilefromDir())); 
 		System.out.println(text);
 		sleepWait(3000);
-		assertEquals(text.contains(bankname), true);
-		assertEquals(text.contains(name), true);
-		assertEquals(text.contains(nitva), true);
-		assertEquals(text.contains(email), true);
-		assertEquals(text.contains(mobile), true);
-		assertEquals(text.contains(address), true);
-		assertEquals(text.contains(words), true);
-		assertEquals(text.contains(period), true);
-		assertEquals(text.contains(vat), true);
-		assertEquals(text.contains(intere), true);
-		assertEquals(text.contains(penalty), true);
-		assertEquals(text.contains(ltfee), true);
-		assertEquals(text.contains(totalamt), true);
+		assertEquals(toLower(text).contains(toLower(bankname)), true);
+		assertEquals(toLower(text).contains(toLower(name)), true);
+		assertEquals(toLower(text).contains(toLower(nitva)), true);
+		assertEquals(toLower(text).contains(toLower(email)), true);
+		assertEquals(toLower(text).contains(toLower(mobile)), true);
+	//	assertEquals(toLower(text).contains(toLower(address)), true);
+		assertEquals(toLower(text).contains(toLower(words)), true);
+		assertEquals(toLower(text).contains(toLower(period)), true);
+		assertEquals(toLower(text).contains(toLower(vat)), true);
+		assertEquals(toLower(text).contains(toLower(intere)), true);
+		assertEquals(toLower(text).contains(toLower(penalty)), true);
+		assertEquals(toLower(text).contains(toLower(ltfee)), true);
+		assertEquals(toLower(text).contains(toLower(totalamt)), true);
+	}
+	String toLower(String txt) {
+		return txt.toLowerCase();
 	}
 
 
