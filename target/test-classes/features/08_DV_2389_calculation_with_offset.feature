@@ -6,14 +6,14 @@ Feature: User is on Tax Calculation
     And User Enter email "<email>" and  password "<password>"
     And User Click on SignIn
 
-
     Examples: 
-      | TestcaseID       | Description          | email                  | password   |
-      | e-file_Login_001 | Login into tax payer | approveduser@mailinator.com | Test@123 |
+      | TestcaseID       | Description          | email                          | password  |
+      | e-file_Login_001 | Login into tax payer | testarun1112291@mailinator.com | Admin@123 |
 
   @TC_02_12
   Scenario Outline: Validate proceed button functionality
     Given User is on Vat e-Filing Page "<TestcaseID>" "<Description>"
+    And User click on Dashboard
     And User click on Tab
     And clicks on e-filing to fill data
     And User click on browser and upload file "<uploadFile>" for tax calculation
@@ -24,24 +24,27 @@ Feature: User is on Tax Calculation
     And User see pop up for offset successful
 
     Examples: 
-      | TestcaseID    | Description                                   | uploadFile                                                            |
+      | TestcaseID    | Description                                   | uploadFile         |
       | Tax_Cal_02,12 | validate proceed functionality and see offset | DRC Test Data.xlsx |
 
   @TC_03
   Scenario Outline: Validate the Period field.
     Given User is on Vat e-Filing Page "<TestcaseID>" "<Description>"
+    And User click on Dashboard
     And User click on Tab
     And User click on collpase icon for filing "<month>"
     And User click on file button "<file>" and navigate to e-declaration page
-    And User verify period "<period>" for Tax Calculation   
+    And User verify period "<period>" for Tax Calculation
 
     Examples: 
-      | TestcaseID | Description               | month | file  |period         |
-      | Tax_Cal_03 | Validate the Period field | eDec  | eDecC |December, 2018 |
+      | TestcaseID | Description               | month | file  | period         |
+      | Tax_Cal_03 | Validate the Period field | eDec  | eDecC | December, 2018 |
 
-  @TC_04_05_07_08_09_10_11
+
+ @TC_04_05_07_08_09_10_11
   Scenario Outline: Validate Tax calculation values are displayed
     Given User is on Vat e-Filing Page "<TestcaseID>" "<Description>"
+    And User click on Dashboard
     And User click on Tab
     And clicks on e-filing to fill data
     And User entered value "<1>" "<2>" "<2.1>" "<3>" "<4>" "<5>" "<6>" "<7>" "<8>" for Operation Performed  on calculation

@@ -79,13 +79,17 @@ public class HelperBase {
 		}
 	}
 
-	private static void waitFor(String object) {
+	public static void waitFor(String object)
+	{
 		WebDriverWait wait = new WebDriverWait(wd, 30);
 		By locator = By.xpath(obj.getProperty(object));
 		wait.until(ExpectedConditions.elementToBeClickable(locator));
 	}
 
+
 	public static void clickOn(String object, String data) {   	
+
+
 		WebDriverWait wait = new WebDriverWait(wd, 60);
 		try {
 			obj.load(fis);
@@ -137,13 +141,10 @@ public class HelperBase {
 
 		}
 	}
-	public static void clearCache() throws InterruptedException, AWTException {
+	public static void clearCache() throws InterruptedException, AWTException 
+	{
 		wd.get("chrome://settings/clearBrowserData");
-
-
 		sleepWait(2000);
-
-
 		//JavascriptExecutor js = (JavascriptExecutor)wd;
 		Robot rb = new Robot();
 		rb.keyPress(KeyEvent.VK_ENTER);
