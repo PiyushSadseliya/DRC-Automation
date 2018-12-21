@@ -1,9 +1,6 @@
 package org.drc.vat.StepDefinitions;
 
 import static org.testng.Assert.assertTrue;
-
-import java.util.List;
-
 import static org.drc.vat.appmanager.HelperBase.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -37,14 +34,9 @@ public class DV_2394_landing_screen
 		clickOn("btn_login", "");
 	}	
 
-	@And("^User is on Vat e-Filing Page \"([^\"]*)\" \"([^\"]*)\"$")
+	@Given("^User is on Vat e-Filing Page \"([^\"]*)\" \"([^\"]*)\"$")
 	public void user_is_on_Vat_e_Filing_Page(String arg1, String arg2) throws Throwable
 	{
-		sleepWait(2000);
-		clickOn("tile_vat","");
-		sleepWait(2000);
-		clickOn("a_sure","");	
-		
 		System.out.println(arg1);
 		System.out.println(arg2);    
 	}
@@ -54,7 +46,9 @@ public class DV_2394_landing_screen
 	{
 		sleepWait(1000);
 		clickOn("bDownloadTemplate", "");
-		verifyDownload("e-filingScheduleTemplate.xlsx");
+
+		verifyDownload("e-filingScheduleTemplate.xlsx");	   
+
 	}
 
 	@Then("^User verify download file$")
@@ -67,9 +61,20 @@ public class DV_2394_landing_screen
 	@And("^User click on Tab$")
 	public void user_click_on_Tab() throws Throwable 
 	{
-		sleepWait(5000);
-		clickOn("menu_vat-e-filing", "");		
-		sleepWait(1000);		
+		if (wd.findElement(By.xpath("//h3[contains(text(),'VAT')]")).isDisplayed()) {
+			clickOn("tile_vat", "");
+			sleepWait(2000);
+			clickOn("a_sure", "");
+			sleepWait(5000);
+			clickOn("menu_vat-e-filing", "");		
+			sleepWait(1000);
+		}
+
+		else {
+			sleepWait(5000);
+			clickOn("menu_vat-e-filing", "");		
+			sleepWait(1000);
+		}
 	}
 
 
@@ -239,8 +244,8 @@ public class DV_2394_landing_screen
 		clickOn("drp_select_efile_click1", "");
 		sleepWait(500);
 		clickOn("btn_efile_submit", "");
-		sleepWait(3000);
-		clickOn("btn_efilling", "");
+
+		sleepWait(1000);
 	}
 
 
