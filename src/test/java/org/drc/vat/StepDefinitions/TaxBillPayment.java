@@ -31,7 +31,7 @@ public class TaxBillPayment {
 
 @Given("^\"([^\"]*)\"\"([^\"]*)\"The User has logged in the DRC Tax Payer Portal with \"([^\"]*)\"\"([^\"]*)\" and has declared for the month of\"([^\"]*)\"$")
 public void the_User_has_logged_in_the_DRC_Tax_Payer_Portal_with_and_has_declared_for_the_month_of(String arg1, String arg2, String arg3, String arg4, String arg5) throws Throwable {
-login(arg3, arg4);
+//login(arg3, arg4);
 	
 }
 
@@ -252,7 +252,7 @@ public void verifies_the_liability_details_records_Period_VAT_Interest_Penalty_L
 
 @Then("^does the paymnet\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"$")
 public void does_the_paymnet(String acno, String branchname, String edate, String periodDate)throws Throwable {
-	xls(acno,branchname,edate,periodDate);
+	//xls(acno,branchname,edate,periodDate);
 	
 
 }

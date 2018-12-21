@@ -30,16 +30,20 @@ import static org.drc.vat.appmanager.HelperBase.assessmentOfficer;
 import static org.drc.vat.appmanager.HelperBase.sleepWait;
 
 
-@CucumberOptions(features = {"classpath:features/08_DV_2389_calculation_with_offset.feature"
-		,"classpath:features/09_DV_2390_e_filing.feature"
-		,"classpath:features/10_DV_2391_eFile_Preview.feature"
-		,"classpath:features/11_1_DV_2394_Landing_Screen.feature"},
+@CucumberOptions(features = {"classpath:features/01_userRegistration.feature"
+		,"classpath:features/02_01_Login.feature"
+		,"classpath:features/03_uploadDocuments.feature"
+		,"classpath:features/03_VATRegistration.feature"
+		,"classpath:features/04_DV_1377_ManageVatRegistration.feature"
+		,"classpath:features/05_DV_1376_AcceptRejectAdditionalClarification.feature"
+		,"classpath:features/07_UserRegistrationStatus.feature"	
+		},
 
 
 							
 glue = "org.drc.vat.StepDefinitions",
 plugin = {"com.cucumber.listener.ExtentCucumberFormatter:","html:test-output/cucumber-report"}
-//tags= {"@TC_01_Login,@TC_04_e-filing_landing_screen"}
+
 
 		)
 

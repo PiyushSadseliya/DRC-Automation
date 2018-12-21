@@ -26,12 +26,7 @@ public class ViewAllStatementofTransaction {
 
 	@Given("^\"([^\"]*)\"\"([^\"]*)\"The User has logged in the DRC Tax Payer Portal with \"([^\"]*)\"\"([^\"]*)\"$")
 	public void the_User_has_logged_in_the_DRC_Tax_Payer_Portal_with(String arg1, String arg2, String arg3, String arg4) throws Throwable {
-		if(login) {
-	
-		login(arg3,arg4);
-		login=false;
-		}		
-		System.out.println(login);
+
 
    
 	}

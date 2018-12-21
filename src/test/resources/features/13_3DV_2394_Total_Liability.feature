@@ -1,15 +1,15 @@
 Feature: User is on e filing and see Total Liability
 
 
-  @TC_01_Login
-  Scenario Outline: DRC Tax Portal Login
-    Given User is on Vat e-Filing Page "<TestcaseID>" "<Description>"
-    When User Enter Data: "<email>" "<password>"
-    And User click on SignIn button
+  #@TC_01_Login
+  #Scenario Outline: DRC Tax Portal Login
+   # Given User is on Vat e-Filing Page "<TestcaseID>" "<Description>"
+    #When User Enter Data: "<email>" "<password>"
+    #And User click on SignIn button
 
-    Examples: 
-      | TestcaseID               | Description          | email                       | password |
-      | Total_Liability_Login_01 | Login into tax payer | approveduser@mailinator.com | Test@123 |
+    #Examples: 
+     # | TestcaseID               | Description          | email                       | password |
+     # | Total_Liability_Login_01 | Login into tax payer | approveduser@mailinator.com | Test@123 |
 
 
   @TC_02
