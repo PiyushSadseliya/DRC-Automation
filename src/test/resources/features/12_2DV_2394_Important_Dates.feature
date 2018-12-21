@@ -9,7 +9,7 @@ Feature: Use is on e-Filing page and see Important Dates
 
     Examples: 
       | TestcaseID         | Description          | email                      | password   |
-      | Landing_Screen_001 | Login into tax payer | approveduser@mailinator.com | Test@123 |
+      | Landing_Screen_001 | Login into tax payer | autotest007@mailinator.com | franky@123 |
 
   @TC_002_ImportantDates
   Scenario Outline: Validate the functionality of important Dates.
@@ -22,10 +22,20 @@ Feature: Use is on e-Filing page and see Important Dates
       | TestcaseID                 | Description                         | payment_date      | e-filing     |
       | VAT_e-filing_Imp_Dates_002 | User see important date for january | txt_payment_date1 | txt_efiling1 | 
 
+  @TC_002_ImportantDates
+  Scenario Outline: Validate the functionality of important Dates.
+  
+    Given User is on Vat e-Filing Page "<TestcaseID>" "<Description>"
+    And User click on Tab
+    And User can see the e-filing screen
+    Then User verify the "<payment_date>" "<e-filing>"
 
+    Examples: 
+      | TestcaseID                 | Description                         | payment_date      | e-filing     |
+      | VAT_e-filing_Imp_Dates_002 | User see important date for january | txt_payment_date1 | txt_efiling1 |
 
   @TS_003_ImportantDates
-  Scenario Outline: Validate the user is able to view the due date of e-filing for that particular month in important dates section when user is missing his due date for e-filling.
+  Scenario Outline: Validate the user is able to view the due date of  e-filing for that particular month in important dates section when user is missing his due date for e-filling.
     Given User is on Vat e-Filing Page "<TestcaseID>" "<Description>"
     And User click on Tab
     Then user verify "<due_date_of_e-filing>"

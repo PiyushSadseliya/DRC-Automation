@@ -6,7 +6,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class Read_OTP {
+public class Read_OTP 
+{
+
 	public static final String dir = System.getProperty("user.dir");
 	public static String ReadOTP() throws IOException, InterruptedException 
 	{
@@ -19,10 +21,12 @@ public class Read_OTP {
         driver.get("https://www.mailinator.com/v3/#/#inboxpane");
        Thread.sleep(3000);
         driver.findElement(By.xpath("//*[@id='inbox_field']")).sendKeys("testarun1112291");
+
         driver.findElement(By.xpath("//*[text()='Go!']")).click();
         Thread.sleep(5000);
         driver.findElement(By.xpath("//*[contains(text(),'testernew123456@gmail.com')]")).click();
         Thread.sleep(2000);
+
         driver.switchTo().frame(driver.findElement(By.id("msg_body")));
         Thread.sleep(2000);
         String S = driver.findElement(By.xpath("/html/body")).getText();
@@ -34,8 +38,9 @@ public class Read_OTP {
         
         //String SP = S.substring(S.lastIndexOf(':')+2, S.length());        
         return SP;
+
     
-        
+
         
 	}
 

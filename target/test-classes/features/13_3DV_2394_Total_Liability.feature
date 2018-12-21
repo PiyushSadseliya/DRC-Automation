@@ -1,5 +1,6 @@
 Feature: User is on e filing and see Total Liability
 
+
   @TC_01_Login
   Scenario Outline: DRC Tax Portal Login
     Given User is on Vat e-Filing Page "<TestcaseID>" "<Description>"
@@ -10,11 +11,13 @@ Feature: User is on e filing and see Total Liability
       | TestcaseID               | Description          | email                       | password |
       | Total_Liability_Login_01 | Login into tax payer | approveduser@mailinator.com | Test@123 |
 
+
   @TC_02
   Scenario Outline: Validate that if user changes the Financial year from drop down the total liability amount does not change.
     Given User is on Vat e-Filing Page "<TestcaseID>" "<Description>"
     And User click on Tab
     And user see Total Liability
+
     And User click on Finicial year dropdown "<Filters>"
     And User see Total Liability is not changed
 
