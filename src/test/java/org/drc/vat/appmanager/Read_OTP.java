@@ -7,30 +7,35 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class Read_OTP {
-
-	public static String ReadOTP() throws IOException, InterruptedException {
-		//System.setProperty("webdriver.chrome.driver", "D:\\DRC_Automation\\DRC-Automation-git\\DRC-Automation-develop-5e7fa7cde7bb4b3537a4b2c6dc3cf11a41792c36\\chromedriver.exe");
-System.setProperty("webdriver.chrome.driver", "E:\\DRC Workspace\\DRC_VAT_New\\chromedriver.exe");
-        WebDriver driver = new ChromeDriver();
-       // driver.get("http://103.249.120.58:8044");
+	public static final String dir = System.getProperty("user.dir");
+	public static String ReadOTP() throws IOException, InterruptedException 
+	{
+	
+			
+		System.setProperty("webdriver.chrome.driver", dir + "//chromedriver.exe");
+		
+		//System.setProperty("webdriver.chrome.driver", "E:\\DRC Merge Regreation\\DRC-Automation\\chromedriver.exe");
+        WebDriver driver = new ChromeDriver();       
         driver.get("https://www.mailinator.com/v3/#/#inboxpane");
-        driver.findElement(By.xpath("//*[@id='inbox_field']")).sendKeys("autotest11");
+       Thread.sleep(3000);
+        driver.findElement(By.xpath("//*[@id='inbox_field']")).sendKeys("testarun1112291");
         driver.findElement(By.xpath("//*[text()='Go!']")).click();
-        Thread.sleep(2000);
+        Thread.sleep(5000);
         driver.findElement(By.xpath("//*[contains(text(),'testernew123456@gmail.com')]")).click();
-        //driver.switchTo().frame("msg_body");
+        Thread.sleep(2000);
         driver.switchTo().frame(driver.findElement(By.id("msg_body")));
         Thread.sleep(2000);
         String S = driver.findElement(By.xpath("/html/body")).getText();
         
-        String SP = S.substring(S.lastIndexOf(':')+2, S.length());
-      //  System.out.print(SP);
-        return SP;	
-        //driver.quit();
-        //driver.switchTo().defaultContent();
-       // Runtime.getRuntime().exec("D:\\DRC_Automation\\DRC-Automation-git\\DRC-Automation-develop-5e7fa7cde7bb4b3537a4b2c6dc3cf11a41792c36\\test1.exe");        
-      
-     //   driver.get("http://www.engprod-charter.net/");
+        int stringindex = S.indexOf("is: ");
+		int stringlength = "is: ".length();		
+		
+		String SP = S.substring(stringindex + stringlength, stringindex + stringlength + 6);
+        
+        //String SP = S.substring(S.lastIndexOf(':')+2, S.length());        
+        return SP;
+    
+        
         
 	}
 

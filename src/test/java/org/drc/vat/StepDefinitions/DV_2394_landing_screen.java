@@ -40,11 +40,10 @@ public class DV_2394_landing_screen
 	@And("^User is on Vat e-Filing Page \"([^\"]*)\" \"([^\"]*)\"$")
 	public void user_is_on_Vat_e_Filing_Page(String arg1, String arg2) throws Throwable
 	{
-		sleepWait(2000);
+		/*sleepWait(2000);
 		clickOn("tile_vat","");
 		sleepWait(2000);
-		clickOn("a_sure","");	
-		
+		clickOn("a_sure","");	*/		
 		System.out.println(arg1);
 		System.out.println(arg2);    
 	}
@@ -53,6 +52,8 @@ public class DV_2394_landing_screen
 	public void user_click_on_Download_Template() throws Throwable 
 	{
 		sleepWait(1000);
+		
+		
 		clickOn("bDownloadTemplate", "");
 		verifyDownload("e-filingScheduleTemplate.xlsx");
 	}
@@ -69,13 +70,18 @@ public class DV_2394_landing_screen
 	{
 		sleepWait(5000);
 		clickOn("menu_vat-e-filing", "");		
-		sleepWait(1000);		
+		sleepWait(10000);		
 	}
 
 
 	@And("^clicks on e-filing to check$")
 	public void clicks_on_e_filing_to_check() throws Throwable 
 	{
+
+		
+		
+		sleepWait(10000);
+		
 		sleepWait(2000);
 		for(int i =1;i<=12;i++)
 		{
@@ -129,6 +135,8 @@ public class DV_2394_landing_screen
 	@And("^User see all month record from that year \"([^\"]*)\" to \"([^\"]*)\"$")
 	public void user_see_all_month_record_from_that_year_to(String TextJan, String TextDec) throws Throwable 
 	{
+		sleepWait(10000);
+		
 		sleepWait(1000);
 		WebElement we,we1;
 		we=wd.findElement(By.xpath(obj.getProperty(TextJan)));
@@ -482,7 +490,10 @@ public class DV_2394_landing_screen
 		clickOn("drp_SelectBank", "");
 		sleepWait(1000);
 		clickOn("txt_BankName_Central", "");
-		sleepWait(1000);	    
+		sleepWait(1000);
+		
+		
+		
 	}
 
 	@And("^User navigate to selected bank page$")
@@ -532,7 +543,7 @@ public class DV_2394_landing_screen
 		sleepWait(500);
 		clickOn("rad_OverTheCounter", "");
 	}
-
+ 
 	@And("^User see Tax Payment bill$")
 	public void user_see_Tax_Payment_bill() throws Throwable 
 	{
@@ -687,5 +698,19 @@ public class DV_2394_landing_screen
 		}	 	
 	}	
 
+	@And("^User click on Yes button$")
+	public void user_click_on_Yes_button() throws Throwable 
+	{
+		sleepWait(1000);
+		clickOn("btn_efilling", "");
+		
+	}
+	
+	@And("^User click on close icon on pop up$")
+	public void user_click_on_close_icon_on_pop_up() throws Throwable 
+	{
+		clickOn("btn_close_otp", "");
+	}
 
+	
 }

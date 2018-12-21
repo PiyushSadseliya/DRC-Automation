@@ -30,13 +30,22 @@ import static org.drc.vat.appmanager.HelperBase.assessmentOfficer;
 import static org.drc.vat.appmanager.HelperBase.sleepWait;
 
 
-@CucumberOptions(features = {"classpath:features/"},
-glue = "org.drc.vat.StepDefinitions",
-plugin = {"com.cucumber.listener.ExtentCucumberFormatter:","html:test-output/cucumber-report"},
-tags= {"@TC_02_DV_2390_Declaration_with_verification"}
+@CucumberOptions(features = {"classpath:features/08_DV_2389_calculation_with_offset.feature"
+		,"classpath:features/09_DV_2390_e_filing.feature"
+		,"classpath:features/10_DV_2391_eFile_Preview.feature"
+		,"classpath:features/11_1_DV_2394_Landing_Screen.feature"},
 
+
+							
+glue = "org.drc.vat.StepDefinitions",
+plugin = {"com.cucumber.listener.ExtentCucumberFormatter:","html:test-output/cucumber-report"}
+//tags= {"@TC_01_Login,@TC_04_e-filing_landing_screen"}
 
 		)
+
+
+//{"classpath:features/08_DV_2389_calculation_with_offset.feature","classpath:features/09_DV_2390_e_filing.feature"
+//	,"classpath:features/10_DV_2391_eFile_Preview.feature","classpath:features/11_1_DV_2394_Landing_Screen.feature"},
 
 
 public class TestRunner extends AbstractTestNGCucumberTests {
@@ -108,6 +117,7 @@ public class TestRunner extends AbstractTestNGCucumberTests {
 		{
 			app.callinternalportal_TaxOfficer_demo();
 		}
+		
 		/** 
 			    Login with pooja.parmar demo
 		 */
