@@ -10,10 +10,10 @@ Feature: User Registration for the steps involved in creating a user account for
 
     Examples: 
       | Test Case ID                  | Description              | username      |
-      | DRC_ATC_Valid_Registration_01 | Register with valid data | Approved User |
-      | DRC_ATC_Valid_Registration_02 | Register with valid data | OnHolded User |
-      | DRC_ATC_Valid_Registration_03 | Register with valid data | Rejected User |
-      | DRC_ATC_Valid_Registration_04 | Register with valid data | Rejected User |
+      | DRC_ATC_Valid_Registration_01 | Register with valid data | Approvedd User |
+      | DRC_ATC_Valid_Registration_02 | Register with valid data | OnHoldedd User |
+      | DRC_ATC_Valid_Registration_03 | Register with valid data | Rejectedd User |
+     # | DRC_ATC_Valid_Registration_04 | Register with valid data | Rejected User |
 
   #| DRC_ATC_Valid_Registration_01 | Register with valid data | Rejecteud User |
   @Invalid_Registration @mtc3 @mtc4 @mtc5 @mtc6 @mtc8 @mtc9

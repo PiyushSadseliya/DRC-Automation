@@ -491,7 +491,7 @@ public class HelperBase {
 			type("txtbox_password",password);
 			sleepWait(2000);
 			clickOn("btn_login","");
-			sleepWait(2000);
+			sleepWait(3000);
 			List <WebElement> vatTile=wd.findElements(By.xpath("//h3[contains(text(),'VAT')]"));
 			if(vatTile.size()>0) {
 				clickOn("tile_vat","");
@@ -508,7 +508,7 @@ public class HelperBase {
 			if(wd.getWindowHandles().size()>0) {
 				wd.switchTo().window(wd.getWindowHandles().toArray()[wd.getWindowHandles().size()-1].toString());
 			}
-			sleepWait(2000);
+			sleepWait(3000);
 
 		}
 

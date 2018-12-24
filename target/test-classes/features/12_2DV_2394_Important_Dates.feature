@@ -1,15 +1,15 @@
 Feature: Use is on e-Filing page and see Important Dates
 
-  @TC_01
-  Scenario Outline: DRC Tax Portal Login
-    Given User Login "<TestcaseID>" "<Description>"
-    And User Enter email "<email>" and  password "<password>"
-    And User click on SignIn button 
+ # @TC_01
+  #Scenario Outline: DRC Tax Portal Login
+   # Given User Login "<TestcaseID>" "<Description>"
+    #And User Enter email "<email>" and  password "<password>"
+    #And User click on SignIn button 
 
 
-    Examples: 
-      | TestcaseID         | Description          | email                      | password   |
-      | Landing_Screen_001 | Login into tax payer | autotest007@mailinator.com | franky@123 |
+    #Examples: 
+     # | TestcaseID         | Description          | email                      | password   |
+      #| Landing_Screen_001 | Login into tax payer | autotest007@mailinator.com | franky@123 |
 
   @TC_002_ImportantDates
   Scenario Outline: Validate the functionality of important Dates.
