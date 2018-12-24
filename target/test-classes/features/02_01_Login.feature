@@ -8,8 +8,8 @@ Feature: Login Module
     And User logout
 
     Examples: 
-      | TestcaseID                      | email                          | password |
-      | Valid_DRC_ATC_LoginTaxPortal_01 | approveduser@mailinator.com | Test@123 |
+      | TestcaseID                      | email                    | password |
+      | Valid_DRC_ATC_LoginTaxPortal_01 | approvedd@mailinator.com | Test@123 |
 
   @Run_InValid_Login
   Scenario Outline: DRC Tax Portal with InValid Data
