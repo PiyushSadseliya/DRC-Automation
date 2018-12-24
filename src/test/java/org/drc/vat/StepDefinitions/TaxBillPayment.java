@@ -252,7 +252,7 @@ public void verifies_the_liability_details_records_Period_VAT_Interest_Penalty_L
 
 @Then("^does the paymnet\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"$")
 public void does_the_paymnet(String acno, String branchname, String edate, String periodDate)throws Throwable {
-	xls(acno,branchname,edate,periodDate);
+//	xls(acno,branchname,edate,periodDate);
 	
 
 }
