@@ -15,7 +15,7 @@ public class DV_2879_ManAssess_AsseList_Adjustement
 {
 	public static Float Total_Ass;
 	public static Float Total_e_dec;
-	public String Store_NITVA;
+	public String Store_NITVA;	
 	public static Float T_A_Total_Assessed;	
 	public static Float VAT_Store_VRC;
 	public static Float VAT_Store_SDC;
@@ -35,8 +35,7 @@ public class DV_2879_ManAssess_AsseList_Adjustement
 	public void user_see_NITVA_number_is_selected() throws Throwable
 	{
 		String NITVA_no = wd.findElement(By.xpath(obj.getProperty("txt_NITVA_Manual_Get"))).getText();
-		Store_NITVA = NITVA_no;
-	  
+		Store_NITVA = NITVA_no;	  
 	}
 
 	

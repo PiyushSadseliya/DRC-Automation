@@ -30,19 +30,18 @@ import static org.drc.vat.appmanager.HelperBase.assessmentOfficer;
 import static org.drc.vat.appmanager.HelperBase.sleepWait;
 
 
+<<<<<<< HEAD
 
 @CucumberOptions(features = {"classpath:features/"},
 	
+=======
+@CucumberOptions(features = {"classpath:features/20_09_DV_2878_Assessment_Summary_Manual.feature"},
+>>>>>>> 41c06e0ff6378a7e9dc4ce3f584930bf623071f0
 glue = "org.drc.vat.StepDefinitions",
-plugin = {"com.cucumber.listener.ExtentCucumberFormatter:","html:test-output/cucumber-report"}
-
-		)
-
-
-//{"classpath:features/08_DV_2389_calculation_with_offset.feature","classpath:features/09_DV_2390_e_filing.feature"
-//	,"classpath:features/10_DV_2391_eFile_Preview.feature","classpath:features/11_1_DV_2394_Landing_Screen.feature"},
-
-
+plugin = {"com.cucumber.listener.ExtentCucumberFormatter:",
+"html:test-output/cucumber-report"}
+//tags= {"@TC_07"}
+)
 
 public class TestRunner extends AbstractTestNGCucumberTests {
 	private Logger logger = LoggerFactory.getLogger(TestRunner.class);
