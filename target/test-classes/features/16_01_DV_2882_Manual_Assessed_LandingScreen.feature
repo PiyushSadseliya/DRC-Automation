@@ -1,5 +1,4 @@
 Feature: User is on Manual Assessement Landing Screen
-
   
 @TC_02
   Scenario Outline: Validate the Manual Assessment dashboard page All clicking compoment
