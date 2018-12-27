@@ -30,14 +30,14 @@ import static org.drc.vat.appmanager.HelperBase.assessmentOfficer;
 import static org.drc.vat.appmanager.HelperBase.sleepWait;
 
 
-@CucumberOptions(features = {"classpath:features/15_01_TaxBillPayment.feature"
+@CucumberOptions(features = {"classpath:features/22_PaymentSummaryLiabilityCalculationPaymentDueManualAssessment.feature"
 
 		},
 
 
 							
 glue = "org.drc.vat.StepDefinitions",
-plugin = {"com.cucumber.listener.ExtentCucumberFormatter:","html:test-output/cucumber-report"},tags= {"@tc18_13__17_4_5"}
+plugin = {"com.cucumber.listener.ExtentCucumberFormatter:","html:test-output/cucumber-report"}
 
 
 		)

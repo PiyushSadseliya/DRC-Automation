@@ -35,7 +35,7 @@ Feature: User is on Assessment Summary Manual Assessement
     And User click on Transaction Received button
 
     Examples: 
-      | TestcaseID                     | Description                                                              | Period        | nitva             | mess                                   | FNF            |
+      | TestcaseID            | Description                                                              | Period        | nitva             | mess                                   | FNF            |
       | Mal_AS_05_06_19_18_16 | Validate Total Assessed amount is same and check Additionality Liability | txt_PeriodJan | 20181026010609039 | No Modification made for e-declaration | File not found |
 
   # Happy path
@@ -105,7 +105,7 @@ Feature: User is on Assessment Summary Manual Assessement
     And User see remark is selected in Adjustment
 
     Examples: 
-      | TestcaseID              | Description                 | Period        | nitva             |  1 | 10 | 10.1 | 17 | SaveMess           | selectedRemark                    | SR             | selected                          |
+      | TestcaseID                  | Description                 | Period        | nitva             |  1 | 10 | 10.1 | 17 | SaveMess           | selectedRemark                    | SR             | selected                          |
       | Mal_AS_14_08_09_10_11_12_13 | validate prev functionality | txt_PeriodMar | 20181015054058149 | 10 | 10 |   10 |  1 | Saved Successfully | Verified through EFD transactions | Select remarks | Verified through EFD transactions |
 
   @TC_15
