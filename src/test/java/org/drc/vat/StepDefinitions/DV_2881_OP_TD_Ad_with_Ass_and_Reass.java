@@ -20,32 +20,42 @@ public class DV_2881_OP_TD_Ad_with_Ass_and_Reass
 	public static Float Total_Reassed;
 
 	
+	
+	@And("^User click on FilterBy and click on TaxPayer$")
+	public void user_click_on_FilterBy_and_click_on_TaxPayer() throws Throwable 
+	{
+		
+		sleepWait(1000);
+		clickOn("drp_FilterBy", "");
+		sleepWait(500);
+		clickOn("txt_TaxPayer", "");
+		
+	}
+	
+	
 	@And("^User entered value \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" for Operation Performed and calculate$")
 	public void user_entered_value_for_Operation_Performed_and_calculate(String DG, String DS1, String DS2, String DGI, String DSI, String FPP, String Export, String Exempt, String Nontaxable) throws Throwable 
 	{
 		  type("txt_Delivery_goods",DG);		 		    
 		  String VAT_Collected_DG= getValue("txt_Delivery_goods_disable1");
+		  
 		  if(Float.parseFloat(VAT_Collected_DG)==((Float.parseFloat(DG))*16/100))
 		  {
 			  assertTrue(true);
 		  }		    
 		   
 		  	type("txt_Delivercy11",DS1);
-		  //	type("txt_Delivercy22",DS2);
-		  	 /*
-		     * store 
-		     */
-		    int Ass_Adj = wd.findElement(By.xpath(obj.getProperty("txt_AssessementAdjustement"))).getAttribute("value").length(); 		   
-		    int ReAss_Adj = wd.findElement(By.xpath(obj.getProperty("txtReassessmentAdjustement"))).getAttribute("value").length();
-		    //List<WebElement> elementName = wd.findElements(By.xpath(Ass_Adj)); 		    		
-		    if(Ass_Adj==21)
-		    {
-		    	type("txt_Delivercy22",DS2);		    	
-		    }
-		    else if(ReAss_Adj==23)
-		    {
-		    	type("txt_Delivercy22_Reass",DS2);	
-		    }			  			  	
+		  	type("txt_Delivercy22",DS2);
+		  	 		  			  	
+		  	/*if(!wd.findElement(By.xpath(obj.getProperty("txt_AssessementAdjustement"))).isDisplayed())
+		  	{
+		  		type("txt_Delivercy22_Reass",DS2);
+		  	}
+		  	else if(wd.findElement(By.xpath(obj.getProperty("txt_AssessementAdjustement"))).isDisplayed())
+		  	{
+		  		type("txt_Delivercy22",DS2);
+		  	}*/		  					  	
+		  	
 		  	String VAT_Collected_DS = getValue("txt_Delivercy_disable1");
 		    if(Float.parseFloat(VAT_Collected_DS)==((Float.parseFloat(DS2))*16/100))
 		    {
@@ -55,6 +65,7 @@ public class DV_2881_OP_TD_Ad_with_Ass_and_Reass
 		    String VAT_Collected_DGI=getValue("txt_Delivery_goods_Itself_disable1");
 		    if(Float.parseFloat(VAT_Collected_DGI)==((Float.parseFloat(DGI))*16/100))
 		    {
+		    	
 		    	assertTrue(true);
 		    }
 		    type("txt_Delivery_Services_itself1",DSI);
@@ -97,18 +108,7 @@ public class DV_2881_OP_TD_Ad_with_Ass_and_Reass
 	@And("^User again make changes \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" for Operation Performed$")
 	public void user_again_make_changes_for_Operation_Performed(String DG, String DS1, String DS2, String DGI, String DSI, String FPP, String Export, String Exempt, String Nontaxable) throws Throwable 
 	{
-	/*	wd.findElement(By.xpath(obj.getProperty("txt_Delivery_goods"))).sendKeys("12");
-		Thread.sleep(1000);
-		wd.findElement(By.xpath(obj.getProperty("txt_Delivercy11"))).sendKeys("!@$@#$@#");		
-		Thread.sleep(1000);
-		wd.findElement(By.xpath(obj.getProperty("txt_Delivery_goods"))).sendKeys("##$%");
-		Thread.sleep(1000);
-		wd.findElement(By.xpath(obj.getProperty("txt_Delivery_goods"))).sendKeys("ASSA");*/
 
-	//	wd.findElement(By.xpath(obj.getProperty("txt_Delivery_goods"))).clear();
-//		type_without_clear("txt_Delivery_goods", DG);
-//		type_without_clear("txt_Delivercy11", DG);		
-//		type_without_clear("txt_Delivercy22", DG);
 		
 		type("txt_Delivery_goods", DG);
 		type("txt_Delivercy11", DS1);
@@ -135,9 +135,9 @@ public class DV_2881_OP_TD_Ad_with_Ass_and_Reass
 	@And("^User click on next button and navigate to Tax deductible tab$")
 	public void user_click_on_next_button_and_navigate_to_Tax_deductible_tab() throws Throwable 
 	{
-		Thread.sleep(500);
+		sleepWait(500);
 		clickOn("btn_NEXT", "");
-		Thread.sleep(1000);		
+		sleepWait(1000);		
 		if(wd.findElement(By.xpath(obj.getProperty("txt_Tax_Deductible_Page"))).isDisplayed())
 		{
 			assertTrue(true);
@@ -155,10 +155,15 @@ public class DV_2881_OP_TD_Ad_with_Ass_and_Reass
 		 Float Check_VATCollected= Float.parseFloat(ch_VATCollected);
 		 
 		 
-		 if(Store_TaxTurnOver==Check_TaxTurnOver && Store_VATCollected==Check_VATCollected)
+		 if(Store_TaxTurnOver.equals(Check_TaxTurnOver) && Store_VATCollected.equals(Check_VATCollected))
 		 {
 			 assertTrue(true);
 		 }
+		 
+		/* if(Store_TaxTurnOver==Check_TaxTurnOver && Store_VATCollected==Check_VATCollected)
+		 {
+			 assertTrue(true);
+		 }*/
 	   
 	}
 
@@ -168,44 +173,58 @@ public class DV_2881_OP_TD_Ad_with_Ass_and_Reass
 	 
 		
 		//wd.findElement(By.xpath(obj.getProperty("txt_Delivery_goods"))).clear();
-		Thread.sleep(1000);		
+		sleepWait(1000);		
 		wd.findElement(By.xpath(obj.getProperty("txt_Delivery_goods"))).sendKeys(Keys.chord(Keys.CONTROL,"a",Keys.DELETE));
-		Thread.sleep(2000);
+		sleepWait(1000);
 		wd.findElement(By.xpath(obj.getProperty("txt_Delivercy11"))).sendKeys(Keys.chord(Keys.CONTROL,"a",Keys.DELETE));
-		Thread.sleep(2000);
+		sleepWait(1000);
 		wd.findElement(By.xpath(obj.getProperty("txt_Delivercy22"))).sendKeys(Keys.chord(Keys.CONTROL,"a",Keys.DELETE));
-		Thread.sleep(2000);
+		sleepWait(1000);
 		wd.findElement(By.xpath(obj.getProperty("txt_Delivery_goods_Itself1"))).sendKeys(Keys.chord(Keys.CONTROL,"a",Keys.DELETE));
-		Thread.sleep(2000);
+		sleepWait(1000);
 		wd.findElement(By.xpath(obj.getProperty("txt_Delivery_Services_itself1"))).sendKeys(Keys.chord(Keys.CONTROL,"a",Keys.DELETE));
-		Thread.sleep(2000);
+		sleepWait(1000);
 		wd.findElement(By.xpath(obj.getProperty("txt_Operational1"))).sendKeys(Keys.chord(Keys.CONTROL,"a",Keys.DELETE));
-		Thread.sleep(2000);
+		sleepWait(1000);
 		wd.findElement(By.xpath(obj.getProperty("txt_Export1"))).sendKeys(Keys.chord(Keys.CONTROL,"a",Keys.DELETE));
-		Thread.sleep(2000);
+		sleepWait(1000);
 		wd.findElement(By.xpath(obj.getProperty("txt_Exempt1"))).sendKeys(Keys.chord(Keys.CONTROL,"a",Keys.DELETE));
-		Thread.sleep(2000);
+		sleepWait(1000);
 		wd.findElement(By.xpath(obj.getProperty("txt_Non_taaxable1"))).sendKeys(Keys.chord(Keys.CONTROL,"a",Keys.DELETE));
-		Thread.sleep(2000);
+		sleepWait(1000);
 		
 	}
 
 	@And("^User see save button is disable$")
 	public void user_see_submit_button_is_disable() throws Throwable 
 	{		
-		Thread.sleep(1000);
+		sleepWait(1000);
 		if(!wd.findElement(By.xpath(obj.getProperty("btn_Save"))).isEnabled())
 		{
 			assertTrue(true);
 		}	   	   
 	}
+	
+	
+	@And("^User clear field and see next button is disable$")
+	public void user_clear_field_and_see_next_button_is_disable() throws Throwable 
+	{
+		sleepWait(500);
+		wd.findElement(By.xpath(obj.getProperty("txt_Non_taaxable1"))).sendKeys(Keys.chord(Keys.CONTROL,"a",Keys.DELETE));
+		sleepWait(500);
+		
+		if(!wd.findElement(By.xpath(obj.getProperty("btn_NEXT"))).isEnabled())
+		{
+			assertTrue(true);
+		}
+	}
 
 	@And("^User click on Delivery of goods and validate navigation$")
 	public void user_click_on_Delivery_of_goods_and_validate_navigation() throws Throwable
 	{
-		Thread.sleep(1000);
+		sleepWait(1000);
 		clickOn("btn_eye_DOG", "");
-		Thread.sleep(500);
+		sleepWait(500);
 		if(wd.findElement(By.xpath(obj.getProperty("txt_check_del_of_goods"))).isDisplayed())
 		{
 			assertTrue(true);
@@ -216,7 +235,7 @@ public class DV_2881_OP_TD_Ad_with_Ass_and_Reass
 	public void user_click_on_Delivery_of_Services_and_validate_navigation() throws Throwable 
 	{
 		clickOn("btn_eye_DOS", "");
-		Thread.sleep(500);
+		sleepWait(500);
 		if(wd.findElement(By.xpath(obj.getProperty("txt_check_del_of_service"))).isDisplayed())
 		{
 			assertTrue(true);
@@ -227,7 +246,7 @@ public class DV_2881_OP_TD_Ad_with_Ass_and_Reass
 	public void user_click_on_Exports_and_related_transactions_and_validate_navigation() throws Throwable 
 	{
 		clickOn("btn_eye_Export", "");
-		Thread.sleep(500);
+		sleepWait(500);
 		if(wd.findElement(By.xpath(obj.getProperty("txt_check_export"))).isDisplayed())
 		{
 			assertTrue(true);
@@ -238,7 +257,7 @@ public class DV_2881_OP_TD_Ad_with_Ass_and_Reass
 	public void user_click_on_Exempt_transactions_and_validate_navigation() throws Throwable 
 	{
 		clickOn("btn_eye_Exempt", "");
-		Thread.sleep(500);
+		sleepWait(500);
 		if(wd.findElement(By.xpath(obj.getProperty("txt_check_exempt"))).isDisplayed())
 		{
 			assertTrue(true);
@@ -250,7 +269,7 @@ public class DV_2881_OP_TD_Ad_with_Ass_and_Reass
 	public void user_click_on_Non_taxable_transactions_and_validate_navigation() throws Throwable
 	{
 		clickOn("btn_eye_NT", "");
-		Thread.sleep(500);
+		sleepWait(500);
 		if(wd.findElement(By.xpath(obj.getProperty("txt_check_Non_Taxable"))).isDisplayed())
 		{
 			assertTrue(true);
@@ -260,7 +279,7 @@ public class DV_2881_OP_TD_Ad_with_Ass_and_Reass
 	@And("^User validate difference amount on operation performed$")
 	public void user_validate_difference_amount_on_operation_performed() throws Throwable 
 	{
-		Thread.sleep(2000);
+		sleepWait(2000);
 		double sum = 0.0f;		
 		List<WebElement> elementName =  wd.findElements(By.xpath("//section/div[2]/table/tbody/tr[1]/td[3]/div"));
 		for(int i = 1; i<=5;i++)
@@ -275,7 +294,7 @@ public class DV_2881_OP_TD_Ad_with_Ass_and_Reass
 		   sum = sum + result1;
 		}		
 		double Total_TaxableTurnover = sum;		
-		Thread.sleep(500);
+		sleepWait(500);
 		double sum2 = 0.0f;
 		List<WebElement> elementName2 =  wd.findElements(By.xpath("//table/tbody/tr[6]/td[3]/div"));
 		for(int i = 6; i<=10;i++)
@@ -320,7 +339,7 @@ public class DV_2881_OP_TD_Ad_with_Ass_and_Reass
 	@And("^User verify total amount for taxable turnover$")
 	public void user_verify_total_amount_for_taxable_turnover() throws Throwable 
 	{	   
-		Thread.sleep(2000);
+		sleepWait(2000);
 		double sum = 0.0f;		
 		List<WebElement> elementName =  wd.findElements(By.xpath("//section/div[2]/table/tbody/tr[1]/td[3]/div"));
 		for(int i = 1; i<=5;i++)
@@ -368,7 +387,7 @@ public class DV_2881_OP_TD_Ad_with_Ass_and_Reass
 	@And("^User verify the total amount for VAT collected$")
 	public void user_verify_the_total_amount_for_VAT_collected() throws Throwable 
 	{
-		Thread.sleep(2000);
+		sleepWait(2000);
 		String DOG = elementText("txt_dog_vat1");
 	    String Remove_FC1 = DOG.replace("." ,"");	
 	    Remove_FC1 = Remove_FC1.replace("," ,".");		    		    	 
@@ -413,9 +432,9 @@ public class DV_2881_OP_TD_Ad_with_Ass_and_Reass
 	@And("^User click on next button and navigate to Tax deductible page$")
 	public void user_click_on_next_button_and_navigate_to_Tax_deductible_page() throws Throwable
 	{
-		Thread.sleep(1000);
+		sleepWait(1000);
 		clickOn("btn_NEXT", "");
-		Thread.sleep(1000);
+		sleepWait(1000);
 		if(wd.findElement(By.xpath(obj.getProperty("txt_Tax_Deductible_Page"))).isDisplayed())
 		{
 			assertTrue(true);
@@ -425,9 +444,9 @@ public class DV_2881_OP_TD_Ad_with_Ass_and_Reass
 	@And("^User click on prev and navigate to operation tap and prev button is disable$")
 	public void user_click_on_prev_and_navigate_to_operation_tap_and_prev_button_is_disable() throws Throwable
 	{
-		Thread.sleep(1000);
+		sleepWait(1000);
 		clickOn("btn_Prev", "");
-		Thread.sleep(1000);
+		sleepWait(1000);
 		if(wd.findElement(By.xpath(obj.getProperty("txt_AS_OP"))).isDisplayed())
 		{
 			assertTrue(true);
@@ -437,9 +456,9 @@ public class DV_2881_OP_TD_Ad_with_Ass_and_Reass
 	@And("^User click on previous button and navigate to manual assessement landing screen$")
 	public void user_click_on_previous_button_and_navigate_to_manual_assessement_landing_screen() throws Throwable 
 	{
-		Thread.sleep(1000);
+		sleepWait(1000);
 		clickOn("btn_Prev_m", "");
-		Thread.sleep(1000);
+		sleepWait(1000);
 		if(wd.findElement(By.xpath(obj.getProperty("txt_check_Landing_Man"))).isDisplayed())
 		{
 			assertTrue(true);
@@ -450,27 +469,27 @@ public class DV_2881_OP_TD_Ad_with_Ass_and_Reass
 	@And("^User click on Transaction received button and verify$")
 	public void user_click_on_Transaction_received_button_and_verify() throws Throwable 
 	{
-		Thread.sleep(1000);
+		sleepWait(1000);
 	   clickOn("btn_TransactionReceived", "");
-	   Thread.sleep(1000);
+	   sleepWait(1000);
 	   verifyDownload("TransactionReceived.xslx");	   
 	}
 
 	@And("^User click on e-filing schedule button and validate$")
 	public void user_click_on_e_filing_schedule_button_and_validate() throws Throwable 
 	{
-		Thread.sleep(1000);
+		sleepWait(1000);
 		clickOn("btn_eFile_Schedule", "");
-		 Thread.sleep(1000);
+		 sleepWait(1000);
 		 verifyDownload("e-Filing Schedule.xslx");
-		 Thread.sleep(3000);
+		 sleepWait(3000);
 	   
 	}
 
 	@And("^User calculate Total Additional liability for assessed list$")
 	public void user_calculate_Total_Additional_liability_for_assessed_list() throws Throwable 
 	{
-		Thread.sleep(2000);	
+		sleepWait(2000);	
 		String Total_Assessed = elementText("txt_TotalAssessed");		 
 		String Remov_FC = Total_Assessed.replaceAll("[A-Z]", "");	
 	    String Remove_FC = Remov_FC.replace("." ,"");	
@@ -507,8 +526,7 @@ public class DV_2881_OP_TD_Ad_with_Ass_and_Reass
 	public void user_entered_value_for_Operation_Performed_negative_scenario(String DG, String DS1, String DS2, String DGI, String DSI, String FPP, String Export, String Exempt, String Nontaxable) throws Throwable 
 	{
 		type_without_clear("txt_Delivery_goods", DG);
-		String VAT_Collected_DG= getValue("txt_Delivery_goods");
-		System.out.println(VAT_Collected_DG);
+		String VAT_Collected_DG= getValue("txt_Delivery_goods");		
 		if(DG!=VAT_Collected_DG)
 		{
 			assertTrue(true);
@@ -814,25 +832,25 @@ public class DV_2881_OP_TD_Ad_with_Ass_and_Reass
 		public void user_clear_all_fields_assesased_list() throws Throwable 
 		{
 
-			Thread.sleep(1000);		
+			sleepWait(1000);		
 			wd.findElement(By.xpath(obj.getProperty("txt_Delivery_goods"))).sendKeys(Keys.chord(Keys.CONTROL,"a",Keys.DELETE));
-			Thread.sleep(2000);
+			sleepWait(2000);
 			wd.findElement(By.xpath(obj.getProperty("txt_Delivercy11"))).sendKeys(Keys.chord(Keys.CONTROL,"a",Keys.DELETE));
-			Thread.sleep(2000);
+			sleepWait(2000);
 			wd.findElement(By.xpath(obj.getProperty("txt_Delivercy22_Reass"))).sendKeys(Keys.chord(Keys.CONTROL,"a",Keys.DELETE));
-			Thread.sleep(2000);
+			sleepWait(2000);
 			wd.findElement(By.xpath(obj.getProperty("txt_Delivery_goods_Itself1"))).sendKeys(Keys.chord(Keys.CONTROL,"a",Keys.DELETE));
-			Thread.sleep(2000);
+			sleepWait(2000);
 			wd.findElement(By.xpath(obj.getProperty("txt_Delivery_Services_itself1"))).sendKeys(Keys.chord(Keys.CONTROL,"a",Keys.DELETE));
-			Thread.sleep(2000);
+			sleepWait(2000);
 			wd.findElement(By.xpath(obj.getProperty("txt_Operational1"))).sendKeys(Keys.chord(Keys.CONTROL,"a",Keys.DELETE));
-			Thread.sleep(2000);
+			sleepWait(2000);
 			wd.findElement(By.xpath(obj.getProperty("txt_Export1"))).sendKeys(Keys.chord(Keys.CONTROL,"a",Keys.DELETE));
-			Thread.sleep(2000);
+			sleepWait(2000);
 			wd.findElement(By.xpath(obj.getProperty("txt_Exempt1"))).sendKeys(Keys.chord(Keys.CONTROL,"a",Keys.DELETE));
-			Thread.sleep(2000);
+			sleepWait(2000);
 			wd.findElement(By.xpath(obj.getProperty("txt_Non_taaxable1"))).sendKeys(Keys.chord(Keys.CONTROL,"a",Keys.DELETE));
-			Thread.sleep(2000);
+			sleepWait(2000);
 			
 		}
 

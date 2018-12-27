@@ -61,7 +61,7 @@ Feature: User is on Operation Performed Page Assessed List
       | Ass_OP_11_12 | Validate Total Additional liability and amount calculate | txt_PeriodJan | 20181026120648410 |
 
   @TC_09_21_AssessedList_2881
-  Scenario Outline: Validate the Edit button functionality and Save button functionality
+  Scenario Outline: Validate the Edit button functionality and Save button functionality  -internal portal
     Given User is on Assessment Page "<TestcaseID>" "<Description>"
     And User click on Assessment Tab
     And User click on Assessed List
@@ -83,7 +83,7 @@ Feature: User is on Operation Performed Page Assessed List
 
     Examples: 
       | TestcaseID   | Description                                 | Period        | nitva             |     1 |    2 |  2.1 |   3 |   4 |   5 |   6 |   7 |   8 | SaveMess           |   01 |   02 | 02.1 |   03 |   04 |   05 |   06 |   07 |   08 |
-      | Ass_OP_09_21 | Validate edit and save button functionality | txt_PeriodJan | 20181026120648410 | 10000 | 7000 | 5000 | 500 | 500 | 500 | 500 | 500 | 500 | Saved Successfully | 1000 | 1000 | 1000 | 1000 | 1000 | 1000 | 1000 | 1000 | 1000 |
+      | Ass_OP_09_21 | Validate edit and save button functionality | txt_PeriodJan | 20181211043333824 | 10000 | 7000 | 5000 | 500 | 500 | 500 | 500 | 500 | 500 | Saved Successfully | 1000 | 1000 | 1000 | 1000 | 1000 | 1000 | 1000 | 1000 | 1000 |
 
   @TC_14_15_16_17_18_20_AssessedList_2881
   Scenario Outline: Validate total row under Other e-declaration table , total amount for taxable turnover,next and prev,previous,transaction received button and e-filing schedule button

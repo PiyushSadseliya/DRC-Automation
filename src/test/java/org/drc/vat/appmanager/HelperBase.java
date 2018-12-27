@@ -81,7 +81,7 @@ public class HelperBase {
 
 	public static void waitFor(String object)
 	{
-		WebDriverWait wait = new WebDriverWait(wd, 30);
+		WebDriverWait wait = new WebDriverWait(wd, 60);
 		By locator = By.xpath(obj.getProperty(object));
 		wait.until(ExpectedConditions.elementToBeClickable(locator));
 	}
@@ -840,7 +840,8 @@ public class HelperBase {
 	 * @param driverelement
 	 * @return
 	 */
-	public static WebElement FluetWait(final WebElement driverelement) {
+	public static WebElement FluetWait(final WebElement driverelement) 
+	{
 		Wait<WebDriver> wait = new FluentWait<WebDriver>(wd).withTimeout(30, TimeUnit.SECONDS)
 				.pollingEvery(5, TimeUnit.SECONDS).ignoring(NoSuchElementException.class);
 		seleniumElement = wait.until(new Function<WebDriver, WebElement>()	{
