@@ -25,7 +25,7 @@ Feature: User is on Manual Assessement Landing Screen
       | Manual_Assessment_02 | validating all clickable compoment | txt_PeriodJan | txt_AssYear18 | txt_AsestFilterNitva | 20181212113956105 | drp_AssestChangedOfficerRitesh | txt_AssestFilterAssestOfficer | Laxman      |
 
   @TC_03
-  Scenario Outline: Validate whether user can reassign the assessment officer whose status is Pending and in progress. - internal portal
+  Scenario Outline: Validate whether user can reassign the assessment officer whose status is Pending and in progress.
     Given User is on Assessment Page "<TestcaseID>" "<Description>"
     And User click on Dashboard
     And User click on Assessment Tab
@@ -43,7 +43,7 @@ Feature: User is on Manual Assessement Landing Screen
     Examples: 
       | TestcaseID             | Description                                      | Period        | Filter                 | FilterStatus   | check       | manageStatus             | selectOfficer                  | OfficerTwo                     | validationMessage                          |
       | Manual_Assessment_03_1 | Validating officer changed in pending status     | txt_PeriodApr | txt_AssestFilterStatus | txt_Pending    | Pending     | txt_AssestManageReassign | drp_AssestChangedOfficerRitesh | drp_AssestChangedOfficerRitesh | Assessment officer reassigned successfully |
- #     | Manual_Assessment_03_2 | Validating officer changed in In Progress status | txt_PeriodJan | txt_AssestFilterStatus | txt_InProgress | In Progress | txt_AssestManageReassign | drp_AssestChangedOfficerRitesh | drp_AssestChangedOfficerRitesh | Assessment officer reassigned successfully |
+      | Manual_Assessment_03_2 | Validating officer changed in In Progress status | txt_PeriodJan | txt_AssestFilterStatus | txt_InProgress | In Progress | txt_AssestManageReassign | drp_AssestChangedOfficerRitesh | drp_AssestChangedOfficerRitesh | Assessment officer reassigned successfully |
 
   @TC_05
   Scenario Outline: Validate whether User can select future month and year from the period drop down list.
@@ -74,7 +74,7 @@ Feature: User is on Manual Assessement Landing Screen
 
     Examples: 
       | TestcaseID           | Description                                                  | Period        | year          | Filter               | data              | NITVA             | AgainFilter          | niftvaData | again        | type                         | BType                   | businessType |
-      | Manual_Assessment_06 | Validating user is able filter by nitva no and business type | txt_PeriodJan | txt_AssYear17 | txt_AsestFilterNitva | 20181211071940797 | 20181211071940797 | txt_AsestFilterNitva | 0000526000 | drp_FilterBy | txt_AssestFilterBusinessType | txt_BusinessTypeTrading | Trading      |
+      | Manual_Assessment_06 | Validating user is able filter by nitva no and business type | txt_PeriodJan | txt_AssYear17 | txt_AsestFilterNitva | 20181211062210697 | 20181211062210697 | txt_AsestFilterNitva | 0000526000 | drp_FilterBy | txt_AssestFilterBusinessType | txt_BusinessTypeTrading | Trading      |
 
   @TC_07_Name_of_Applicant_TAX_Payer
   Scenario Outline: Validate whether User is able to filter by Name of Applicant

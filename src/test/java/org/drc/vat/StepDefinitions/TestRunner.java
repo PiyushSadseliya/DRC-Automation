@@ -31,17 +31,21 @@ import static org.drc.vat.appmanager.HelperBase.sleepWait;
 
 
 
-@CucumberOptions(features = {"classpath:features/20_09_DV_2878_Assessment_Summary_Manual.feature"},
+@CucumberOptions(features = {"classpath:features/16_01_DV_2882_Manual_Assessed_LandingScreen.feature",
+							"classpath:features/17_03_DV_2881_OP_TD_Ad_with_Ass_and_Reass.feature",
+							"classpath:features/18_05_DV_2880_Tax_Deductable_Ass_and_Reass_Adjustement.feature",
+							"classpath:features/19_07_DV_2879_ManAssess_AsseList_Adjustement.feature"},
+							
+							
 
 glue = "org.drc.vat.StepDefinitions",
 
 plugin = {"com.cucumber.listener.ExtentCucumberFormatter:","html:test-output/cucumber-report"}
-,tags= {"@TC_03"}
+//tags= {"@TC_02,@TC_03"}
 		)
 
 
-//{"classpath:features/08_DV_2389_calculation_with_offset.feature","classpath:features/09_DV_2390_e_filing.feature"
-//	,"classpath:features/10_DV_2391_eFile_Preview.feature","classpath:features/11_1_DV_2394_Landing_Screen.feature"},
+
 
 
 public class TestRunner extends AbstractTestNGCucumberTests {
