@@ -31,10 +31,10 @@ import static org.drc.vat.appmanager.HelperBase.sleepWait;
 
 
 @CucumberOptions(features = {"classpath:features/20_09_DV_2878_Assessment_Summary_Manual.feature"},
-glue = "org.drc.vat.StepDefinitions",
-plugin = {"com.cucumber.listener.ExtentCucumberFormatter:",
-"html:test-output/cucumber-report"}
-//tags= {"@TC_07"}
+	glue = "org.drc.vat.StepDefinitions",
+	plugin = {"com.cucumber.listener.ExtentCucumberFormatter:",
+	"html:test-output/cucumber-report"}
+	//tags= {"@TC_15"}
 )
 
 public class TestRunner extends AbstractTestNGCucumberTests {
