@@ -12,15 +12,15 @@ Feature: User is on e filing and see Total Liability
        | Total_Liability_Login_01 | Login into tax payer | autotest11@mailinator.com | franky@123 |
 =======
 
-  @TC_01_Login
-  Scenario Outline: DRC Tax Portal Login
-    Given User is on Vat e-Filing Page "<TestcaseID>" "<Description>"
-    When User Enter Data: "<email>" "<password>"
-    And User click on SignIn button
+  #@TC_01_Login
+  #Scenario Outline: DRC Tax Portal Login
+   # Given User is on Vat e-Filing Page "<TestcaseID>" "<Description>"
+    #When User Enter Data: "<email>" "<password>"
+    #And User click on SignIn button
 
-    Examples: 
-      | TestcaseID               | Description          | email                       | password |
-      | Total_Liability_Login_01 | Login into tax payer | approveduser@mailinator.com | Test@123 |
+    #Examples: 
+     # | TestcaseID               | Description          | email                       | password |
+     # | Total_Liability_Login_01 | Login into tax payer | approveduser@mailinator.com | Test@123 |
 
 
 >>>>>>> 5ec7ffa67aa11559e58b7418e473197438a5b1c7
@@ -44,14 +44,14 @@ Feature: User is on e filing and see Total Liability
       | TestcaseID         | Description               | Filters  |
       | Total_Liability_02 | validate liability amount | Year2018 |
 
-  @TC_04
-  Scenario Outline: Validate whether Total Liability amount displayed is reflected Zero when user completes the payment process for outstanding amount which is displayed at Total liability section at dash board.
-    Given User is on Vat e-Filing Page "<TestcaseID>" "<Description>"
-    And User click on Tab
-    #  And User check current liability "<liability>"
-    And User click on Pay button on Total Liability
-    And User click on over the counter on payment method
-    And User see Tax Payment bill
+ # @TC_04
+  #Scenario Outline: Validate whether Total Liability amount displayed is reflected Zero when user completes the payment process for outstanding amount which is displayed at Total liability section at dash board.
+   # Given User is on Vat e-Filing Page "<TestcaseID>" "<Description>"
+    #And User click on Tab
+    ##  And User check current liability "<liability>"
+    #And User click on Pay button on Total Liability
+    #And User click on over the counter on payment method
+    #And User see Tax Payment bill
 
     #And User click on print button on over the counter page
     #And User see pdf is open with print button
@@ -59,9 +59,9 @@ Feature: User is on e filing and see Total Liability
     # And User click on Pay now buttton on payment of tax page
     # And User navigate to selected bank page
     # if payment done than amount will be zero
-    Examples: 
-      | TestcaseID         | Description               | Filters  | liability |
-      | Total_Liability_04 | validate liability amount | Year2018 | 4.963,2   |
+    #Examples: 
+     # | TestcaseID         | Description               | Filters  | liability |
+      #| Total_Liability_04 | validate liability amount | Year2018 | 4.963,2   |
 
   @TC_03
   Scenario Outline: Validate whether Total Liability amount displayed is reflected Zero when user completes the payment process for outstanding amount which is displayed at Total liability section at dash board.

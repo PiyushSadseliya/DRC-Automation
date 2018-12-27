@@ -8,12 +8,17 @@ Feature: User is on Tax Calculation
 
     Examples: 
 <<<<<<< HEAD
+<<<<<<< HEAD
       | TestcaseID       | Description          | email                        | password |
       | e-file_Login_001 | Login into tax payer | testarun11222@mailinator.com | Arun123  |
 =======
       | TestcaseID       | Description          | email                          | password  |
       | e-file_Login_001 | Login into tax payer | testarun1112291@mailinator.com | Admin@123 |
 >>>>>>> 5ec7ffa67aa11559e58b7418e473197438a5b1c7
+=======
+      | TestcaseID       | Description          | email                        | password  |
+      | e-file_Login_001 | Login into tax payer | approvedduser@mailinator.com | Admin@123 |
+>>>>>>> 1ef7e7399f86fbd94c90c540b2c0c848eead04e5
 
   @TC_02_12
   Scenario Outline: Validate proceed button functionality
@@ -49,8 +54,7 @@ Feature: User is on Tax Calculation
       | TestcaseID | Description               | month | file  | period         |
       | Tax_Cal_03 | Validate the Period field | eDec  | eDecC | December, 2018 |
 
-
- @TC_04_05_07_08_09_10_11
+  @TC_04_05_07_08_09_10_11
   Scenario Outline: Validate Tax calculation values are displayed
     Given User is on Vat e-Filing Page "<TestcaseID>" "<Description>"
     And User click on Dashboard

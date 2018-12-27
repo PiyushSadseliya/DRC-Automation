@@ -30,12 +30,15 @@ import static org.drc.vat.appmanager.HelperBase.assessmentOfficer;
 import static org.drc.vat.appmanager.HelperBase.sleepWait;
 
 
-
-
 @CucumberOptions(features = {"classpath:features/16_01_DV_2882_Manual_Assessed_LandingScreen.feature"},
 glue = "org.drc.vat.StepDefinitions",
+
 plugin = {"com.cucumber.listener.ExtentCucumberFormatter:",
 "html:test-output/cucumber-report"}
+=======
+plugin = {"com.cucumber.listener.ExtentCucumberFormatter:","html:test-output/cucumber-report"},tags= {"@tc18_13__17_4_5"}
+
+
 		)
 
 
