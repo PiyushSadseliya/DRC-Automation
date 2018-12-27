@@ -7,18 +7,8 @@ Feature: User is on Tax Calculation
     And User Click on SignIn
 
     Examples: 
-<<<<<<< HEAD
-<<<<<<< HEAD
-      | TestcaseID       | Description          | email                        | password |
-      | e-file_Login_001 | Login into tax payer | testarun11222@mailinator.com | Arun123  |
-=======
-      | TestcaseID       | Description          | email                          | password  |
-      | e-file_Login_001 | Login into tax payer | testarun1112291@mailinator.com | Admin@123 |
->>>>>>> 5ec7ffa67aa11559e58b7418e473197438a5b1c7
-=======
       | TestcaseID       | Description          | email                        | password  |
       | e-file_Login_001 | Login into tax payer | approvedduser@mailinator.com | Admin@123 |
->>>>>>> 1ef7e7399f86fbd94c90c540b2c0c848eead04e5
 
   @TC_02_12
   Scenario Outline: Validate proceed button functionality
@@ -34,10 +24,6 @@ Feature: User is on Tax Calculation
     And User see pop up for offset successful
 
     Examples: 
-<<<<<<< HEAD
-      | TestcaseID    | Description                                   | uploadFile                         |
-      | Tax_Cal_02,12 | validate proceed functionality and see offset | Officers List With Tax Center.xlsx |
-=======
       | TestcaseID    | Description                                   | uploadFile         |
       | Tax_Cal_02,12 | validate proceed functionality and see offset | DRC Test Data.xlsx |
 
@@ -73,4 +59,3 @@ Feature: User is on Tax Calculation
     Examples: 
       | TestcaseID                   | Description                                   |   1 |   2 | 2.1 |   3 |   4 |   5 |   6 |   7 |   8 | 10 | 10.1 | 11 | 11.1 | 12 | 12.1 | 13 | 13.1 | 17 | 18 | 19 | 20 | 26 |
       | Tax_Cal_04_05_07_08_09_10_11 | validate Tax calculation values are displayed | 500 | 500 | 500 | 500 | 500 | 500 | 500 | 500 | 500 | 10 |   10 | 10 |   10 | 10 |   10 | 10 |   10 | 10 | 10 | 10 | 10 | 10 |
->>>>>>> 5ec7ffa67aa11559e58b7418e473197438a5b1c7

@@ -45,23 +45,21 @@ public class DV_2880_Tax_Deductable_Ass_and_Reass_Adjustement
 		clickOn(value, "");
 	}
 	
-	@And("^User click on FilterBy and click on NITVA$")
-	public void user_click_on_FilterBy_and_click_on_NITVA() throws Throwable 
+	@And("^User click on FilterBy and click on TaxPayer$")
+	public void user_click_on_FilterBy_and_click_on_TaxPayer() throws Throwable 
 	{
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		clickOn("drp_FilterBy", "");
 		Thread.sleep(500);
-		clickOn("drp_NITVA", "");
-	  
+		clickOn("txt_TaxPayer", "");	  
 	}
 
 	@And("^User type \"([^\"]*)\" and click on search button$")
-	public void user_type_and_click_on_search_button(String nitva) throws Throwable 
+	public void user_type_and_click_on_search_button(String taxpayer) throws Throwable 
 	{
-		type("txtbox_TypeHere", nitva);
+		type("txtbox_TypeHere", taxpayer);
 		Thread.sleep(500);
-		clickOn("btn_TypeHere_click", "");	
-	  
+		clickOn("btn_TypeHere_click", "");
 	}
 
 	@And("^User see that period field month and year is selected$")
@@ -81,19 +79,16 @@ public class DV_2880_Tax_Deductable_Ass_and_Reass_Adjustement
 		//check=Check_month.concat(Check_year);
 		 check=Check_month+","+Check_year;
 		  System.out.println(check);
-		//check.concat(check);
-	  
+		//check.concat(check);	  
 	}
 
 	@And("^User click on manage and click on assess$")
 	public void user_click_on_manage_and_click_on_assess() throws Throwable 
 	{
-		Thread.sleep(500);
-		
+		Thread.sleep(500);		
 		clickOn("drp_AssestManage", "");
 		Thread.sleep(500);
-		clickOn("txt_AssestManageAssess", "");
-	  
+		clickOn("txt_AssestManageAssess", "");	  
 	}
 
 	@And("^User navigate to Tax Deductible$")
@@ -113,7 +108,7 @@ public class DV_2880_Tax_Deductable_Ass_and_Reass_Adjustement
 	public void validate_NITVA_no(String nitva) throws Throwable 
 	{
 		Thread.sleep(500);
-		if(wd.findElement(By.xpath("//div[contains(text(),'" + nitva + "')]")).isDisplayed() )
+		if(wd.findElement(By.xpath("//div[contains(text(),'" + nitva + "')]")).isDisplayed())
 		{					
 			assertTrue(true);
 		}		  
@@ -160,7 +155,8 @@ public class DV_2880_Tax_Deductable_Ass_and_Reass_Adjustement
 		 if(Validate==Check_Add_Lib)
 		 {
 			 assertTrue(true);
-		 }	  
+		 }
+	  
 	}
 
 	@And("^User see by default Total Assessed and Total e Declaration value are same$")
