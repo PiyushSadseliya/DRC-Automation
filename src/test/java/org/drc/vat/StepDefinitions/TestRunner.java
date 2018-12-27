@@ -35,7 +35,7 @@ import static org.drc.vat.appmanager.HelperBase.sleepWait;
 	
 glue = "org.drc.vat.StepDefinitions",
 plugin = {"com.cucumber.listener.ExtentCucumberFormatter:","html:test-output/cucumber-report"}
-
+,tags= {"@TC_03"}
 		)
 
 

@@ -25,7 +25,7 @@ Feature: User is on Manual Assessement Landing Screen
       | Manual_Assessment_02 | validating all clickable compoment | txt_PeriodJan | txt_AssYear18 | txt_AsestFilterNitva | 20181212113956105 | drp_AssestChangedOfficerRitesh | txt_AssestFilterAssestOfficer | Laxman      |
 
   @TC_03
-  Scenario Outline: Validate whether user can reassign the assessment officer whose status is Pending and in progress.
+  Scenario Outline: Validate whether user can reassign the assessment officer whose status is Pending and in progress. - internal portal
     Given User is on Assessment Page "<TestcaseID>" "<Description>"
     And User click on Dashboard
     And User click on Assessment Tab
@@ -189,7 +189,7 @@ Feature: User is on Manual Assessement Landing Screen
   @TC_10
   Scenario Outline: Validate whether User is able to navigate to particular page and filter the data according
     Given User is on Assessment Page "<TestcaseID>" "<Description>"
-    And User click on Dashboard
+    And User click on Dashboard	
     And User click on Assessment Tab
     And User click on Assessed List
     And User click on Assessment Tab
