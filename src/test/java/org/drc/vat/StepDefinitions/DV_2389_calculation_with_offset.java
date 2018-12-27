@@ -109,6 +109,7 @@ public class DV_2389_calculation_with_offset
 	@And("^User entered value \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" for Operation Performed  on calculation$")
 	public void user_entered_value_for_Operation_Performed_on_calculation(String DG, String DS1, String DS2, String DGI, String DSI, String FPP, String Export, String Exempt, String Nontaxable) throws Throwable 
 	{
+		sleepWait(500);
 		type("txt_Delivery_goods", DG);
 	    sleepWait(500);
 	    type("txt_Delivercy1", DS1);

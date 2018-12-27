@@ -64,6 +64,10 @@ public class DV_2390_e_filing
 		System.out.println(arg2);		
 	}	
 	
+	
+	
+
+	
 	@And("^User Enter email \"([^\"]*)\" and  password \"([^\"]*)\"$")
 	public void user_Enter_email_and_password(String email, String pwd) throws Throwable 
 	{
@@ -88,6 +92,8 @@ public class DV_2390_e_filing
 	@And("^User check value \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" for Operation Performed$")
 	public void user_check_value_for_Operation_Performed(String DG, String DS1, String DS2, String DGI, String DSI, String FPP, String Export, String Exempt, String Nontaxable) throws Throwable 
 	{
+		sleepWait(1000);
+		
 		type("txt_Delivery_goods", DG);
 	    sleepWait(1000);
 	    String VAT_Collected_DG= getValue("txt_Delivery_goods");
@@ -553,6 +559,11 @@ public class DV_2390_e_filing
 	@And("^Enter data in Deduction \"([^\"]*)\" ,\"([^\"]*)\", \"([^\"]*)\" ,\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\" ,\"([^\"]*)\" ,\"([^\"]*)\" and validate total value for Amount of VAT Deductible$")
 	public void enter_data_in_Deduction_and_validate_total_value_for_Amount_of_VAT_Deductible(String AI, String AL, String GI, String GL, String RI, String RL, String OI, String OL) throws Throwable 
 	{
+	
+		sleepWait(10000);
+		
+		sleepWait(1000);
+		
 		   type("txt_Assest1",AI);
 		   type("txt_Assest2",AL);
 		   Float TotalA= Float.parseFloat(AI)+Float.parseFloat(AL);
@@ -630,7 +641,8 @@ public class DV_2390_e_filing
 	{
 		//clickOn("btn_Browse_click", "");
 		sleepWait(2000);
-		wd.findElement(By.xpath("(//*[@class='btn btn-primary'])[1]")).click();
+		wd.findElement(By.xpath("//label[@for='validatedCustomFile']")).click();
+		//wd.findElement(By.xpath("(//*[@class='btn btn-primary'])[1]")).click();
 		//wd.findElement(By.xpath("//input[@id='validatedCustomFile']")).click();
 	}
 	
@@ -673,7 +685,10 @@ public class DV_2390_e_filing
 	@Given("^User click on browse button and upload file more than two mp \"([^\"]*)\" and validate mess \"([^\"]*)\"$")
 	public void user_click_on_browse_button_and_upload_file_more_than_two_mp_and_validate_mess(String twoMB, String Mess) throws Throwable 
 	{
-		wd.findElement(By.xpath("(//*[@class='btn btn-primary'])[1]")).click();
+	    sleepWait(1000);
+		wd.findElement(By.xpath("//label[@for='validatedCustomFile']")).click();
+		
+		//wd.findElement(By.xpath("(//*[@class='btn btn-primary'])[1]")).click();
 		UploadImage("", twoMB);
 		if(wd.findElement(By.xpath("//*[contains(text(),'" + Mess + "')]")).isDisplayed() )
 		{		
@@ -686,7 +701,10 @@ public class DV_2390_e_filing
 	@Given("^User click on browse button and upload file less than two mp \"([^\"]*)\" and user see file name \"([^\"]*)\"$")
 	public void user_click_on_browse_button_and_upload_file_less_than_two_mp_and_user_see_file_name(String lessMB, String Mess) throws Throwable 
 	{
-		wd.findElement(By.xpath("(//*[@class='btn btn-primary'])[1]")).click();
+		sleepWait(1000);
+		
+		wd.findElement(By.xpath("//label[@for='validatedCustomFile']")).click();
+		//wd.findElement(By.xpath("(//*[@class='btn btn-primary'])[1]")).click();
 		UploadImage("", lessMB);
 		if(wd.findElement(By.xpath("//*[contains(text(),'" + Mess + "')]")).isDisplayed() )
 		{		
@@ -699,7 +717,7 @@ public class DV_2390_e_filing
 	@And("^User click on cancel button and excel file gets removed and user see \"([^\"]*)\"$")
 	public void user_click_on_cancel_button_and_excel_file_gets_removed_and_user_see(String Mess) throws Throwable 
 	{
-		
+		sleepWait(2000);
 		clickOn("btn_Browse_Cancel", "");
 		sleepWait(1000);
 		if(wd.findElement(By.xpath("//*[contains(text(),'" + Mess + "')]")).isDisplayed() )
@@ -834,7 +852,7 @@ public class DV_2390_e_filing
 	@And("^User validate Otp pop up window should appear$")
 	public void user_validate_Otp_pop_up_window_should_appear() throws Throwable 
 	{
-		sleepWait(1000);
+		sleepWait(7000);
 		if(wd.findElement(By.xpath(obj.getProperty("txt_efile_verificationCode"))).isDisplayed());
 		 {
 			 assertTrue(true);
@@ -845,7 +863,7 @@ public class DV_2390_e_filing
 	public void user_click_on_verify_button_and_validate_message(String mess) throws Throwable 
 	{
 		clickOn("btn_efile_Verify", "");
-		sleepWait(1000);
+		sleepWait(5000);
 		if(wd.findElement(By.xpath("(//div[contains(text(),'" + mess + "')])[2]")).isDisplayed() )
 		{					
 			assertTrue(true);
@@ -855,9 +873,11 @@ public class DV_2390_e_filing
 	@And("^User enter invalid data numbers \"([^\"]*)\" and click on verify and see mess \"([^\"]*)\"$")
 	public void user_enter_invalid_data_numbers_and_click_on_verify_and_see_mess(String num, String otp) throws Throwable 
 	{
-		type("txtbox_enter_otp", num);
 		sleepWait(1000);
+		type("txtbox_enter_otp", num);
+		sleepWait(5000);
 		clickOn("btn_efile_Verify", "");
+		sleepWait(1000);
 		if(wd.findElement(By.xpath("//div[contains(text(),'" + otp + "')]")).isDisplayed() )
 		{					
 			assertTrue(true);
@@ -867,9 +887,11 @@ public class DV_2390_e_filing
 	@And("^User enter invalid data special character \"([^\"]*)\" and click on verify and see mess \"([^\"]*)\"$")
 	public void user_enter_invalid_data_special_character_and_click_on_verify_and_see_mess(String special, String otp) throws Throwable 
 	{
-		type("txtbox_enter_otp", special);
 		sleepWait(1000);
+		type("txtbox_enter_otp", special);
+		sleepWait(5000);
 		clickOn("btn_efile_Verify", "");
+		sleepWait(1000);
 		if(wd.findElement(By.xpath("//div[contains(text(),'" + otp + "')]")).isDisplayed() )
 		{					
 			assertTrue(true);
@@ -879,9 +901,11 @@ public class DV_2390_e_filing
 	@And("^User enter Alpha numeric \"([^\"]*)\" and click on verify and see mess \"([^\"]*)\"$")
 	public void user_enter_Alpha_numeric_and_click_on_verify_and_see_mess(String alpha, String otp) throws Throwable 
 	{
-		type("txtbox_enter_otp", alpha);
 		sleepWait(1000);
+		type("txtbox_enter_otp", alpha);
+		sleepWait(5000);
 		clickOn("btn_efile_Verify", "");
+		sleepWait(1000);
 		if(wd.findElement(By.xpath("//div[contains(text(),'" + otp + "')]")).isDisplayed() )
 		{					
 			assertTrue(true);

@@ -177,7 +177,7 @@ public class DV_2882_Manual_Assessed_LandingScreen
 	public void user_click_on_FilterBy_and_type_and_click_on_search_button(String officer, String officerName) throws Throwable 
 	{
 		Thread.sleep(1000);
-		 clickOn("drp_FilterBy", "");
+	  	 clickOn("drp_FilterBy", "");
 		  Thread.sleep(1000);
 		  clickOn(officer, "");
 		  Thread.sleep(1000);
@@ -190,7 +190,7 @@ public class DV_2882_Manual_Assessed_LandingScreen
 		  if(we.isEnabled())
 		  {			
 			assertTrue(true);
-		  }		  
+		  }		 
 	}	
 
 

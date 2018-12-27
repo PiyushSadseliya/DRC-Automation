@@ -10,7 +10,8 @@ import static org.drc.vat.appmanager.HelperBase.elementDisplayed;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertNotEquals;
-
+import static org.drc.vat.appmanager.xls_file.xls;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -25,22 +26,24 @@ import cucumber.api.java.en.Then;
  */
 public class TaxBillPayment {
 
+
 	
 
 @Given("^\"([^\"]*)\"\"([^\"]*)\"The User has logged in the DRC Tax Payer Portal with \"([^\"]*)\"\"([^\"]*)\" and has declared for the month of\"([^\"]*)\"$")
 public void the_User_has_logged_in_the_DRC_Tax_Payer_Portal_with_and_has_declared_for_the_month_of(String arg1, String arg2, String arg3, String arg4, String arg5) throws Throwable {
-
-	login(arg3,arg4);
+login(arg3, arg4);
 	
 }
 
-@Then("^clicks on pay button of period\"([^\"]*)\"$")
-public void clicks_on_pay_button_of_period(String arg1) throws Throwable {
+@Then("^clicks on pay button of period\"([^\"]*)\"\"([^\"]*)\"$")
+public void clicks_on_pay_button_of_period(String month, String year)  throws Throwable {
 	sleepWait(1000);
-	clickOn("h6","//div[contains(text(),'"+arg1+"')]");
-	if(arg1.equals("January")) {
-   	 clickOn("div","[@id='collapseOne0']//button[@title='Pay']");
-    }
+	clickOn("h6","//div[contains(text(),'"+month+"')]");
+	SimpleDateFormat format = new SimpleDateFormat("dd-MMM-yyyy");
+	int monthNumber = format.parse("01-" + month + "-" + year).getMonth();
+
+   	 clickOn("div","[@id='collapseOne"+monthNumber+"']//button[@title='Pay']");
+
        
 }
 
@@ -101,7 +104,7 @@ public void verifies_the_Detaisl_of_TaxPayer_NITVA_emailid_mobile_no_name_Addres
 	//System.out.println(elementText("txt_name","")+arg4);
 	 assertEquals(elementText("txt_add",""),arg5);
 	//System.out.println(elementText("txt_add","")+arg5);
-	 assertEquals(elementText("txt_duedate",""),arg6);
+///	 assertEquals(elementText("txt_duedate",""),arg6);
 	//System.out.println(elementText("txt_duedate","")+arg6);
 	
 }
@@ -140,9 +143,9 @@ public void verifies_Beneficiary_Bank_Details_BeneficiaryName_account_number_Ban
 
 @Then("^Verifies Paid Bill Information \"([^\"]*)\" TaxPayerName\"([^\"]*)\"Amount\"([^\"]*)\"$")
 public void verifies_Paid_Bill_Information_TaxPayerName_Amount(String arg1, String arg2, String arg3) throws Throwable {
-	 assertEquals(elementText("txt_Benfname",""),arg1);
-	 assertEquals(elementText("txt_Benfacno",""),arg2);
-	 assertEquals(elementText("txt_Benfbankname",""),arg3);
+	 assertEquals(elementText("txt_nitvapaidbill",""),arg1);
+	 assertEquals(elementText("txt_txpayernamepaidbill",""),arg2);
+
        
 }
 
@@ -152,7 +155,7 @@ public void verifies_Details_of_Beneficiary_BeneficiaryName_account_number_Bank_
 	 assertEquals(elementText("txt_DBenfacno",""),elementText("txt_Benfacno",""));
 	 assertEquals(elementText("txt_DBenfbankname",""),elementText("txt_Benfbankname",""));
 	 assertEquals(elementText("txt_DBenfbranchcode",""),elementText("txt_Benfbranchcode",""));
-	 assertEquals(elementText("txt_DBenfTotal",""),arg4);
+
 	
        
 }
@@ -233,6 +236,7 @@ public void verifies_the_Details_of_TaxPayer_NITVA_emailid_mobile_no_name_Addres
        
 }
 
+
 @Then("^Verifies the liability details records\"([^\"]*)\" Period\"([^\"]*)\"VAT\"([^\"]*)\"Interest\"([^\"]*)\"Penalty\"([^\"]*)\"LateFee\"([^\"]*)\"TotalAmount\"([^\"]*)\"$")
 public void verifies_the_liability_details_records_Period_VAT_Interest_Penalty_LateFee_TotalAmount(String arg1, String arg2, String arg3, String arg4, String arg5, String arg6, String arg7) throws Throwable {
    
@@ -244,6 +248,14 @@ public void verifies_the_liability_details_records_Period_VAT_Interest_Penalty_L
 	 assertEquals(elementText("tbody_liabiltiytable","//tr["+arg1+"]/td[5]"),arg6);
 	 assertEquals(elementText("tbody_liabiltiytable","//tr["+arg1+"]/td[6]"),arg7);
 	
+}
+
+@Then("^does the paymnet\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"$")
+public void does_the_paymnet(String acno, String branchname, String edate, String periodDate)throws Throwable
+{
+	xls(acno,branchname,edate,periodDate);
+	
+
 }
 
 

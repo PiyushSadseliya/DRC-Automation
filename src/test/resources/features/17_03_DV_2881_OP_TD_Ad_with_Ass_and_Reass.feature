@@ -131,7 +131,7 @@ Feature: User is on Operation Performed Page Manual Assessement
     And User entered value "<1>" "<2>" "<2.1>" "<3>" "<4>" "<5>" "<6>" "<7>" "<8>" for Operation Performed negative scenario
     
     Examples: 
-      | TestcaseID  | Description                 | Period       | nitva             |    1 |    2 |  2.1 |    3 |    4 |    5 |    6 |    7 |    8 | 
+      | TestcaseID  | Description                 | Period        | nitva             |    1 |    2 |  2.1 |    3 |    4 |    5 |    6 |    7 |    8 | 
       | Mal_OP_NS_1 | Validate special chatracter | txt_PeriodFeb | 20181016025450411 | @!@$ | @!@$ | @!@$ | @!@$ | @!@$ | @!@$ | @!@$ | @!@$ | @!@$ | 
       | Mal_OP_NS_2 | Validate alpha numeric      | txt_PeriodFeb | 20181016011333143 | A12  | B123 | C465 | D234 | E234 | F123 | G123 | H123 | I123 | 
 
