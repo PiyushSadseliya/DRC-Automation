@@ -2,6 +2,7 @@ Feature: User is on Manual Assessement Landing Screen
 
   @TC_02
   Scenario Outline: Validate the Manual Assessment dashboard page All clicking compoment - internal portal
+
     Given User is on Assessment Page "<TestcaseID>" "<Description>"
     And User click on Assessment Tab
     And User see manual assessment and assessament list tab

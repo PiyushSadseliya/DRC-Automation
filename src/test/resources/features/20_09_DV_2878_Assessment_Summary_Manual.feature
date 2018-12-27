@@ -112,3 +112,140 @@ Feature: User is on Assessment Summary Manual Assessement
     Examples: 
       | TestcaseID                  | Description                 | Period        | TaxPayer   |  1 | 10 | 10.1 | 17 | SaveMess           | selectedRemark                    | SR             | selected                          |
       | Mal_AS_14_08_09_10_11_12_13 | validate prev functionality | txt_PeriodMar | Arun111224 | 10 | 10 |   10 |  1 | Saved Successfully | Verified through EFD transactions | Select remarks | Verified through EFD transactions |
+
+  @TC_15
+  Scenario Outline: Validate the Previous button functionality
+    Given User is on Manual Assessment "<TestcaseID>" "<Description>"
+    And User click on Assessment Tab
+    And User click on drop down "<Period>" for Manual Assessment
+    And User click on FilterBy and click on TaxPayer
+    And User type "<TaxPayer>" and click on search button
+    And User click on manage and click on assess
+    And User click on previous button and navigate to Manual Assessment landing screen
+    And User click on drop down "<Period>" for Manual Assessment
+    And User click on FilterBy and click on TaxPayer
+    And User type "<TaxPayer>" and click on search button
+    And User click on manage and click on assess
+    And User click on edit button
+    And User enter value "<1>" for Operation Performed in Assessment Adjustment
+    And User click on next button
+    And User click on edit button
+    And User entered value "<10>" "<10.1>" on Tax Deductible in Assessment Adjustment
+    And User click on next button
+    And User click on edit button
+    And User entered value "<17>" on Adjustment in Assessment Adjustment
+    And User click on next button
+    And User is on Assessment Summary and see Opeartion performed ,Tax Deductible and Adjustment record list
+    And User select remark for Opeartion performed
+    And User select remark for Tax Deductible
+    And User select remark for Adjustment
+    And User click on Save button and validate save message "<SaveMess>"
+    And User click on previous button and navigate to Manual Assessment landing screen
+    And User click on drop down "<Period>" for Manual Assessment
+    And User click on FilterBy and click on TaxPayer
+    And User type "<TaxPayer>" and click on search button
+    And User click on manage and click on assess
+    And User click on next button and navigate to Assessment Summary page
+    And User see remark is selected in Opeartion performed
+    And User see remark is selected in Tax Deductible
+    And User see remark is selected in Adjustment
+
+    Examples: 
+      | TestcaseID | Description                     | Period        | TaxPayer   |  1 | 10 | 10.1 | 17 | SaveMess           | selectedRemark                    | SR             | selected                          |
+      | Mal_AS_15  | validate previous functionality | txt_PeriodJun | Arun111224 | 10 | 10 |   10 |  1 | Saved Successfully | Verified through EFD transactions | Select remarks | Verified through EFD transactions |
+
+  @TC_17
+  Scenario Outline: Validate e-filing schedule button functionality when tax payer uploaded file at the time of e-declaration.
+    Given User is on Manual Assessment "<TestcaseID>" "<Description>"
+    And User click on Assessment Tab
+    And User click on drop down "<Period>" for Manual Assessment
+    And User click on FilterBy and click on TaxPayer
+    And User type "<TaxPayer>" and click on search button
+    And User click on manage and click on assess
+    And User click on e-Filing Scedule on Manual Assessment and validate
+
+    Examples: 
+      | TestcaseID | Description                                                       | Period        | TaxPayer   |
+      | Mal_AS_17  | validate download functionality when user upload file on tax paye | txt_PeriodJan | Arun111224 |
+
+  @TC_24
+  Scenario Outline: Validate that the Total Additional Liability(FC) amount should be zero when Total e-Declaration(FC)  amount should  be same as Total Assessed(FC) amount.
+    Given User is on Manual Assessment "<TestcaseID>" "<Description>"
+    And User click on Assessment Tab
+    And User click on drop down "<Period>" for Manual Assessment
+    And User click on FilterBy and click on TaxPayer
+    And User type "<TaxPayer>" and click on search button
+    And User click on manage and click on assess
+    And User see Total e-Declaration amount and Total Assessed amount
+    And User click on next button and navigate to Assessment Summary page
+    And User see Total e-Declaration amount and Total Assessed amount is same on previous screen
+    And User validate total additionality liability
+
+    Examples: 
+      | TestcaseID | Description    | Period        | TaxPayer   |
+      | Mal_AS_24  | amount is same | txt_PeriodJan | Arun111224 |
+
+  @TC_25_26
+  Scenario Outline: Validate that the Total Additional Liability(FC) amount should be more than zero when Total e-Declaration(FC)  amount is less than Total Assessed(FC) amount.
+    Given User is on Manual Assessment "<TestcaseID>" "<Description>"
+    And User click on Assessment Tab
+    And User click on drop down "<Period>" for Manual Assessment
+    And User click on FilterBy and click on TaxPayer
+    And User type "<TaxPayer>" and click on search button
+    And User click on manage and click on assess
+    And User see Total e-Declaration amount and Total Assessed amount
+    And User click on edit button
+    And User click on Save button and validate save message "<SaveMess>"
+    And User enter value "<1>" for Operation Performed in Assessment Adjustment
+    And User click on next button
+    And User click on edit button
+    And User entered value "<10>" "<10.1>" on Tax Deductible in Assessment Adjustment
+    And User click on next button
+    And User click on edit button
+    And User entered value "<17>" on Adjustment in Assessment Adjustment
+    And User click on next button
+    And User see Total Additional Liability value is greater than zero
+    And User clicik on previous button on Assessment Summary
+    And User click on drop down "<Period>" for Manual Assessment
+    And User click on FilterBy and click on TaxPayer
+    And User type "<TaxPayer>" and click on search button
+    And User click on manage and click on assess
+    And User see Total e-Declaration amount and Total Assessed amount
+    And User click on edit button
+    And User again enter value less amount "<again1>" for Operation Performed in Assessment Adjustment
+    And User click on next button
+    And User click on edit button
+    And User again enter value less amount "<again10>" "<again10.1>" on Tax Deductible in Assessment Adjustment
+    And User click on next button
+    And User click on edit button
+    And User again enter value less amount "<again17>" on Adjustment in Assessment Adjustment
+    And User see Total Additional Liability value is less than zero
+
+    Examples: 
+      | TestcaseID   | Description                                                              | Period        | TaxPayer   | SaveMess           |      1 | 10 | 10.1 | 17 | again1 | again10 | again10.1 | again17 |
+      | Mal_AS_25_26 | validate additionality liablility with more than zero and less than zero | txt_PeriodJan | Arun111224 | Saved Successfully | 500000 |  1 |    0 | 10 |    400 |       5 |         5 |      10 |
+
+  @TC_27
+  Scenario Outline: Validate that the Assessment Summary tab records should get auto populated with only those records whose changes made in assessment adjustment table for Operations Performed, Tax Deductible and Adjustment tab.
+    Given User is on Manual Assessment "<TestcaseID>" "<Description>"
+    And User click on Assessment Tab
+    And User click on drop down "<Period>" for Manual Assessment
+    And User click on FilterBy and click on TaxPayer
+    And User type "<TaxPayer>" and click on search button
+    And User click on manage and click on assess
+    And User click on edit button
+    And User enter value in Delivery of goods "<1>" for Operation Performed in Assessment Adjustment
+    And User click on next button
+    And User click on edit button
+    And User entered value in Assets "<10>" "<10.1>" on Tax Deductible in Assessment Adjustment
+    And User click on next button
+    And User click on edit button
+    And User entered value in VAT Reversal "<17>" on Adjustment in Assessment Adjustment
+    And User click on next button
+    And User see Opeartion performed tab and validate entered value
+    And User see Tax Deductible tab and validate entered value
+    And User see Adjustment tab and validate entered value
+
+    Examples: 
+      | TestcaseID | Description                                            | Period        | TaxPayer   |   1 | 10 | 10.1 | 17 |
+      | Mal_AS_27  | validate tabs auto populated in assessment adjustement | txt_PeriodJan | Arun111224 | 500 |  5 |    5 | 10 |

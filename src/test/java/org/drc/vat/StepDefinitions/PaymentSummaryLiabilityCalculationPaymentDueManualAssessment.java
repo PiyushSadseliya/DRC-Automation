@@ -10,6 +10,7 @@ import static org.testng.Assert.assertEquals;
 
 import java.awt.AWTException;
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Calendar;
 import java.util.Locale;
@@ -58,7 +59,7 @@ public class PaymentSummaryLiabilityCalculationPaymentDueManualAssessment {
 		Calendar cal = Calendar.getInstance();
 	    String month = monthName[cal.get(Calendar.MONTH)];
 	    clickOn("nav_manualAssessment","") ;
-	    sleepWait(2000);
+	    sleepWait(5000);
 	    if(!month.equalsIgnoreCase(period))
 		{clickOn("drp_manualAssessmnetPeriod","");  		
 	     clickOn("span","[contains(text(),'"+period+"')]");
@@ -234,16 +235,29 @@ System.out.println(esum);
 	public void calculates_the_Additional_Liability_column() throws Throwable {
 		//net vat to be paid
 		String pen=null;
-		  assertEquals(elementText("txt_ALliabiltynetvatpaid",""), "0,00");
-	       assertEquals(elementText("txt_ALliabiltycredit",""), "0,00");	       
-	       assertEquals(elementText("txt_ALliabiltycreditrefundreq",""), "0,00");
-	       assertEquals(elementText("txt_ALliabiltyvcreditfwd",""), "0,00");
-		
-			  assertEquals(elementText("txt_ALliabiltyvpublicprocu",""), "0,00");
-		       assertEquals(elementText("txt_ALliabiltyTpartyac",""), "0,00");	       
+		//Net VAT to be paid
+		Double netLiabilvatpaitd=frenchtoDouble(elementText("txt_Aliabiltynetvatpaid",""))-frenchtoDouble(elementText("txt_Eliabiltynetvatpaid",""));
+		  assertEquals(elementText("txt_ALliabiltynetvatpaid",""), appendfrenchsys(tofrench(netLiabilvatpaitd)));
+		  //VAT Credit
+		  Double aLiabilcredit=frenchtoDouble(elementText("txt_Aliabiltycredit",""))-frenchtoDouble(elementText("txt_Eliabiltycredit",""));
+	       assertEquals(elementText("txt_ALliabiltycredit",""),appendfrenchsys(tofrench(aLiabilcredit)));	       
+	       //Refund of VAT credit requested
+	       Double alvatcreditRef=frenchtoDouble(elementText("txt_Aliabiltycreditrefundreq",""))-frenchtoDouble(elementText("txt_Eliabiltyvcreditrefundreq",""));
+	       assertEquals(elementText("txt_ALliabiltycreditrefundreq",""), appendfrenchsys(tofrench(alvatcreditRef)));
+	       //VAT Credit carried forward
+	       Double alvatcreditfwd=frenchtoDouble(elementText("txt_Aliabiltyvcreditfwd",""))-frenchtoDouble(elementText("txt_Eliabiltyvcreditfwd",""));
+	       assertEquals(elementText("txt_ALliabiltyvcreditfwd",""),appendfrenchsys(tofrench(alvatcreditfwd)));
+	       //VAT on externally financed public procurement
+	       Double alpublicproc=frenchtoDouble(elementText("txt_Aliabiltyvpublicprocu",""))-frenchtoDouble(elementText("txt_Eliabiltyvpublicprocu",""));
+			  assertEquals(elementText("txt_ALliabiltyvpublicprocu",""), appendfrenchsys(tofrench(alpublicproc)));
+			  //VAT for third party account
+			  Double althirdparty=frenchtoDouble(elementText("txt_AliabiltyTpartyac",""))-frenchtoDouble(elementText("txt_EliabiltyTpartyac",""));
+		       assertEquals(elementText("txt_ALliabiltyTpartyac",""),appendfrenchsys(tofrench( althirdparty)));	       
+		       //Interest
 		       assertEquals(elementText("txt_Aliabiltyint",""), elementText("txt_ALliabiltyint",""));
+		       //Late Fees
 		       assertEquals(elementText("txt_Aliabiltyltfee",""), elementText("txt_ALliabiltyltfee",""));
-		       
+		       //Penalty
 		       if(!NumberFormat.getInstance(Locale.GERMAN).format(Double.parseDouble(wd.findElement(By.xpath("//tr[9]//div[contains(text(),'Penalty')]//following::input")).getAttribute("value"))).toString().contains(",")) {
 		    	   pen=NumberFormat.getInstance(Locale.GERMAN).format(Double.parseDouble(wd.findElement(By.xpath("//tr[9]//div[contains(text(),'Penalty')]//following::input")).getAttribute("value")))+",00";
 		       }else {
@@ -251,11 +265,15 @@ System.out.println(esum);
 		       }
 		       assertEquals(elementText("txt_ALliabiltypenalty",""),pen);
 		       
-		     
+		       //Amount to pay
+		       Double alamttopay=frenchtoDouble(elementText("txt_Aliabiltyamttopay",""))-frenchtoDouble(elementText("txt_Eliabiltyamttopay",""));
+		       assertEquals(elementText("txt_ALliabiltyamttopay",""),appendfrenchsys(tofrench(alamttopay )));
 		       
-		       
-		       assertEquals(elementText("txt_ALliabiltyamttopay",""), elementText("txt_ALliabiltyamttopay",""));
-		       System.out.println("1");
+		       Double alnetamttopay=frenchtoDouble(elementText("txt_ALliabiltynetvatpaid",""))-frenchtoDouble(elementText("txt_ALliabiltycredit",""))+frenchtoDouble(elementText("txt_ALliabiltycreditrefundreq",""))
+		       +frenchtoDouble(elementText("txt_ALliabiltyvpublicprocu",""))+frenchtoDouble(elementText("txt_ALliabiltyTpartyac",""))+frenchtoDouble(elementText("txt_ALliabiltyint",""))+frenchtoDouble(elementText("txt_ALliabiltypenalty",""))
+		       +frenchtoDouble(elementText("txt_ALliabiltyltfee",""));
+		       assertEquals(elementText("txt_ALliabiltyamttopay",""),appendfrenchsys(tofrench(alnetamttopay )));
+		   
 
 	}
 
@@ -264,23 +282,21 @@ System.out.println(esum);
 
 		//assertEquals(elementText("txt_ApymtdueVatLiab", ""), elementText("txt_NPpymtdueVatLiab", ""));
 		assertEquals(elementText("txt_Apymtdueint", ""), elementText("txt_ALliabiltyint", ""));
-		System.out.println("1");
+	
 		assertEquals(elementText("txt_Apymtdueltfee", ""), elementText("txt_ALliabiltyltfee", ""));
-		System.out.println("2");
+	
 		assertEquals(elementText("txt_Apymtduepenalty", ""), elementText("txt_ALliabiltypenalty", ""));
-		System.out.println("3");
-		assertEquals(elementText("txt_Apymtdueamttopay", ""), elementText("txt_Aliabiltyamttopay", ""));
-		System.out.println("4");
 		
+		assertEquals(elementText("txt_Apymtdueamttopay", ""), elementText("txt_Aliabiltyamttopay", ""));		
 		
 		assertEquals(elementText("txt_ApymtdueVatLiab", ""), elementText("txt_NPpymtdueVatLiab", ""));
-		System.out.println("5");
+
 		assertEquals(elementText("txt_Apymtdueint", ""), elementText("txt_NPpymtdueint", ""));
-		System.out.println("6");
+		
 		assertEquals(elementText("txt_Apymtdueltfee", ""), elementText("txt_NPpymtdueltfee", ""));
-		System.out.println("7");
+	
 		assertEquals(elementText("txt_Apymtduepenalty", ""), elementText("txt_NPpymtduepenalty", ""));
-		System.out.println("8");
+	
 		assertEquals(elementText("txt_Apymtdueamttopay", ""), elementText("txt_NPpymtdueamttopay", ""));
 	 
 	}
@@ -297,9 +313,9 @@ sleepWait(2000);
 }
 @Then("^user clicks on Raise notice button and Notice is generated as per the Liability Calculation Table and Payment Due Table$")
 public void user_clicks_on_Raise_notice_button_and_Notice_is_generated_as_per_the_Liability_Calculation_Table_and_Payment_Due_Table() throws Throwable {
-	String per ="Period : "+getvalue("txt_Aperiod","").replace(",", "-");
+	String per =getvalue("txt_Aperiod","").replace(",", "-");
 System.out.println(per);
-	String nitva="NITVA No:"+elementText("txt_Anitva","");
+	String nitva=elementText("txt_Anitva","");
 	System.out.println(nitva);
 	String Lvat=elementText("txt_Lvat","");
 	System.out.println(Lvat);
@@ -321,7 +337,7 @@ System.out.println(per);
 			String Ppen=elementText("txt_Ppena","");System.out.println(Ppen);
 			String Pamt=elementText("txt_Pamounttopay","");System.out.println(Pamt);
 
-clickOn("btn_maRaiseNotice","");
+//clickOn("btn_maRaiseNotice","");
 sleepWait(2000);
 saveFile();
 sleepWait(2000);
@@ -358,19 +374,29 @@ sleepWait(5000);
 
 
 
-@Then("^Total Additional Liability tile should be displayed as Total Assessed\\(FC\\) minus Total e-declaration\\(FC\\)\"([^\"]*)\"\"([^\"]*)\"$")
-public void total_Additional_Liability_tile_should_be_displayed_as_Total_Assessed_FC_minus_Total_e_declaration_FC(String arg1, String arg2) throws Throwable {
+@Then("^Total Additional Liability tile should be displayed as Total Assessed\\(FC\\) minus Total e-declaration\\(FC\\)\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"$")
+public void total_Additional_Liability_tile_should_be_displayed_as_Total_Assessed_FC_minus_Total_e_declaration_FC(String arg1, String arg2, String arg3)throws Throwable {
 	//NumberFormat nf= NumberFormat.getNumberInstance(Locale.ENGLISH);
-	String TotaladdLiab=elementText("txt_totalAltile","");
-	System.out.println(TotaladdLiab.substring(3));
+	String TotaladdLiab=elementText("txt_totalAltile","");	
+	System.out.println(frenchToIndian(TotaladdLiab.substring(3)));
+	
 	String Toatledeclared=elementText("txt_totalEtile","");System.out.println(Toatledeclared.substring(3));
 	String TotalAssessed=elementText("txt_totalAtile","");System.out.println(TotalAssessed.substring(3));
 	//double TA=nf.parse(TotalAssessed).doubleValue()-nf.parse(TotaladdLiab).doubleValue();
 	//assertEquals(TotalAssessed,NumberFormat.getInstance(Locale.GERMAN).format(TA),"");
+	Double al=Double.parseDouble(frenchToIndian(TotalAssessed.substring(3)))-Double.parseDouble(frenchToIndian(Toatledeclared.substring(3)));
+	
+	NumberFormat nf=NumberFormat.getNumberInstance(Locale.ITALY);
+
+	System.out.println(	nf.format(al));
+assertEquals(nf.format(al), TotaladdLiab.substring(3));	
+	
+	
 	assertEquals(Toatledeclared.substring(3), elementText("txt_Eliabiltyamttopay",""));
 	assertEquals(TotalAssessed.substring(3), elementText("txt_Aliabiltyamttopay",""));
 	assertEquals(TotaladdLiab.substring(3), elementText("txt_ALliabiltyamttopay",""));
 	
+	assertEquals(elementText("txt_ALliabiltyltfee",""), arg3);
 	//String Linterest=elementText("txt_Aliabiltyint","");
 
 
@@ -395,14 +421,42 @@ public void total_Additional_Liability_tile_should_be_displayed_as_Total_Assesse
 	
 
 }
-/*String coverse(String text) {	
+/*
+ * 
+ * To convert the text contain
+ * 
+ */
+private String frenchToIndian(String text) {	
 
 	return text.replace(".", "").replace(",", ".");
 	
-}*/
+}
+private double frenchtoDouble(String text) {
+	return Double.parseDouble(frenchToIndian(text));
+}
+/*
+ * To convert the number to french System
+ * 
+ * 
+ */
+private String  tofrench(Double d)
+{
+	NumberFormat nf=NumberFormat.getNumberInstance(Locale.ITALY);
 
-
-
+	return nf.format(d);
+}
+/*
+ * to append comma if the douoble value dont contains decimal places
+ * 
+ * 
+ */
+private String appendfrenchsys(String frenchNo) {
+	String frenchnum;
+	if(!frenchNo.contains(",")) {
+		frenchNo=frenchNo+",00";
+	}
+	return frenchNo;
+}
 
 
 }

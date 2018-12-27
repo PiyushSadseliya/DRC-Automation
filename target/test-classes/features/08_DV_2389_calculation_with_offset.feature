@@ -1,7 +1,7 @@
 Feature: User is on Tax Calculation
 
   @TC_01_Login
-  Scenario Outline: DRC Tax Portal Login
+  Scenario Outline: DRC Tax Portal Login 
     Given User Login "<TestcaseID>" "<Description>"
     And User Enter email "<email>" and  password "<password>"
     And User Click on SignIn
