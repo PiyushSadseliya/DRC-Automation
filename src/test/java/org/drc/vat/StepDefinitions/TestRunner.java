@@ -31,7 +31,7 @@ import static org.drc.vat.appmanager.HelperBase.sleepWait;
 
 
 
-@CucumberOptions(features = {"classpath:features/22_PaymentSummaryLiabilityCalculationPaymentDueManualAssessment.feature"},
+@CucumberOptions(features = {"classpath:features/"},
 	
 glue = "org.drc.vat.StepDefinitions",
 plugin = {"com.cucumber.listener.ExtentCucumberFormatter:","html:test-output/cucumber-report"}
