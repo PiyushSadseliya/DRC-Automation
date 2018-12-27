@@ -30,6 +30,7 @@ import static org.drc.vat.appmanager.HelperBase.assessmentOfficer;
 import static org.drc.vat.appmanager.HelperBase.sleepWait;
 
 
+
 /*@CucumberOptions(features = {"classpath:features/19_07_DV_2879_ManAssess_AsseList_Adjustement.feature"},
 
 */
@@ -37,18 +38,19 @@ import static org.drc.vat.appmanager.HelperBase.sleepWait;
 @CucumberOptions(features = {"classpath:features/17_03_DV_2881_OP_TD_Ad_with_Ass_and_Reass.feature"
 		,"classpath:features/18_05_DV_2880_Tax_Deductable_Ass_and_Reass_Adjustement.feature"
 		,"classpath:features/19_07_DV_2879_ManAssess_AsseList_Adjustement.feature"},
-
-
-							
+						
 glue = "org.drc.vat.StepDefinitions",
 plugin = {"com.cucumber.listener.ExtentCucumberFormatter:","html:test-output/cucumber-report"}
 //tags= {"@TC_Negative_Scenario_field_length_Manual_2879,@TC_Negative_Scenario_Manual_2879"}
+
+
 
 		)
 
 
 //{"classpath:features/08_DV_2389_calculation_with_offset.feature","classpath:features/09_DV_2390_e_filing.feature"
 //	,"classpath:features/10_DV_2391_eFile_Preview.feature","classpath:features/11_1_DV_2394_Landing_Screen.feature"},
+
 
 
 public class TestRunner extends AbstractTestNGCucumberTests {
