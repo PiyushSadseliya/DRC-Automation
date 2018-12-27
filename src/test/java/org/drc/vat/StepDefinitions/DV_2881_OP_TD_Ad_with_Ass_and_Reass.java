@@ -12,26 +12,20 @@ import org.openqa.selenium.WebElement;
 import cucumber.api.java.en.And;
 
 public class DV_2881_OP_TD_Ad_with_Ass_and_Reass 
-{
-	
+{	
 	public static Float Store_TaxTurnOver;
 	public static Float Store_VATCollected;
 	public static Float Total_Assed;
 	public static Float Total_Reassed;
-
-	
 	
 	@And("^User click on FilterBy and click on TaxPayer$")
 	public void user_click_on_FilterBy_and_click_on_TaxPayer() throws Throwable 
-	{
-		
+	{		
 		sleepWait(1000);
 		clickOn("drp_FilterBy", "");
 		sleepWait(500);
-		clickOn("txt_TaxPayer", "");
-		
-	}
-	
+		clickOn("txt_TaxPayer", "");		
+	}	
 	
 	@And("^User entered value \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" for Operation Performed and calculate$")
 	public void user_entered_value_for_Operation_Performed_and_calculate(String DG, String DS1, String DS2, String DGI, String DSI, String FPP, String Export, String Exempt, String Nontaxable) throws Throwable 

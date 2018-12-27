@@ -31,9 +31,10 @@ import static org.drc.vat.appmanager.HelperBase.sleepWait;
 
 
 
-@CucumberOptions(features = {"classpath:features/16_01_DV_2882_Manual_Assessed_LandingScreen.feature"},
-	
+@CucumberOptions(features = {"classpath:features/20_09_DV_2878_Assessment_Summary_Manual.feature"},
+
 glue = "org.drc.vat.StepDefinitions",
+
 plugin = {"com.cucumber.listener.ExtentCucumberFormatter:","html:test-output/cucumber-report"}
 ,tags= {"@TC_03"}
 		)
@@ -41,7 +42,6 @@ plugin = {"com.cucumber.listener.ExtentCucumberFormatter:","html:test-output/cuc
 
 //{"classpath:features/08_DV_2389_calculation_with_offset.feature","classpath:features/09_DV_2390_e_filing.feature"
 //	,"classpath:features/10_DV_2391_eFile_Preview.feature","classpath:features/11_1_DV_2394_Landing_Screen.feature"},
-
 
 
 public class TestRunner extends AbstractTestNGCucumberTests {

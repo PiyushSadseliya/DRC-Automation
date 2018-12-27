@@ -43,7 +43,7 @@ Feature: User is on Manual Assessement Landing Screen
     Examples: 
       | TestcaseID             | Description                                      | Period        | Filter                 | FilterStatus   | check       | manageStatus             | selectOfficer                  | OfficerTwo                     | validationMessage                          |
       | Manual_Assessment_03_1 | Validating officer changed in pending status     | txt_PeriodApr | txt_AssestFilterStatus | txt_Pending    | Pending     | txt_AssestManageReassign | drp_AssestChangedOfficerRitesh | drp_AssestChangedOfficerRitesh | Assessment officer reassigned successfully |
-      | Manual_Assessment_03_2 | Validating officer changed in In Progress status | txt_PeriodJan | txt_AssestFilterStatus | txt_InProgress | In Progress | txt_AssestManageReassign | drp_AssestChangedOfficerRitesh | drp_AssestChangedOfficerRitesh | Assessment officer reassigned successfully |
+ #     | Manual_Assessment_03_2 | Validating officer changed in In Progress status | txt_PeriodJan | txt_AssestFilterStatus | txt_InProgress | In Progress | txt_AssestManageReassign | drp_AssestChangedOfficerRitesh | drp_AssestChangedOfficerRitesh | Assessment officer reassigned successfully |
 
   @TC_05
   Scenario Outline: Validate whether User can select future month and year from the period drop down list.
