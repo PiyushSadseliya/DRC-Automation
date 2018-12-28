@@ -30,8 +30,6 @@ import static org.drc.vat.appmanager.HelperBase.assessmentOfficer;
 import static org.drc.vat.appmanager.HelperBase.sleepWait;
 
 
-/*@CucumberOptions(features = {"classpath:features/22_PaymentSummaryLiabilityCalculationPaymentDueManualAssessment.feature"},*/
-		
 
 
 @CucumberOptions(features = {"classpath:features/16_01_DV_2882_Manual_Assessed_LandingScreen.feature",
@@ -40,12 +38,9 @@ import static org.drc.vat.appmanager.HelperBase.sleepWait;
 							"classpath:features/19_07_DV_2879_ManAssess_AsseList_Adjustement.feature",
 							"classpath:features/20_09_DV_2878_Assessment_Summary_Manual.feature",
 							"classpath:features/22_PaymentSummaryLiabilityCalculationPaymentDueManualAssessment.feature"},
-							
 
 glue = "org.drc.vat.StepDefinitions",
-
 plugin = {"com.cucumber.listener.ExtentCucumberFormatter:","html:test-output/cucumber-report"}
-//tags= {"@tc17"}
 		)
 
 
