@@ -29,16 +29,11 @@ import static org.drc.vat.appmanager.HelperBase.clearCache;
 import static org.drc.vat.appmanager.HelperBase.assessmentOfficer;
 import static org.drc.vat.appmanager.HelperBase.sleepWait;
 
-
-@CucumberOptions(features = {"classpath:features/20_09_DV_2878_Assessment_Summary_Manual.feature"},
-
-
+@CucumberOptions(features = {"classpath:features/03_VATRegistration.feature"},
 	glue = "org.drc.vat.StepDefinitions",
 	plugin = {"com.cucumber.listener.ExtentCucumberFormatter:",
 	"html:test-output/cucumber-report"}
-	//tags= {"@TC_15"}
-
-
+	//tags= {"@Valid_Registration"}
 )
 
 public class TestRunner extends AbstractTestNGCucumberTests {

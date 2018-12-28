@@ -1,7 +1,5 @@
 Feature: User is on Assessed List Landing Screen
 
-
-
   @TC_02
   Scenario Outline: Validate Tax Officer is able to View Notice internal portal
     Given User is on Assessment Page "<TestcaseID>" "<Description>"
