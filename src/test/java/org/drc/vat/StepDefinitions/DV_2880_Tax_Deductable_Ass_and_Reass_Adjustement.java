@@ -40,7 +40,7 @@ public class DV_2880_Tax_Deductable_Ass_and_Reass_Adjustement
 	@And("^User click on drop down \"([^\"]*)\" for Manual Assessment$")
 	public void user_click_on_drop_down_for_Manual_Assessment(String value) throws Throwable 
 	{
-		sleepWait(2000);
+		sleepWait(3000);
 		clickOn("drp_month", "");
 		sleepWait(500);
 		clickOn(value, "");
@@ -373,6 +373,7 @@ public class DV_2880_Tax_Deductable_Ass_and_Reass_Adjustement
 	{
 		sleepWait(1000);
 		clickOn("btn_NEXT", "");	  
+		sleepWait(1000);
 	}
 
 	@And("^User click on previous button and click on edit button$")
