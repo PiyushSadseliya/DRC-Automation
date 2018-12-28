@@ -30,17 +30,14 @@ import static org.drc.vat.appmanager.HelperBase.assessmentOfficer;
 import static org.drc.vat.appmanager.HelperBase.sleepWait;
 
 
-<<<<<<< HEAD
 
-@CucumberOptions(features = {"classpath:features/"},
-	
-=======
-@CucumberOptions(features = {"classpath:features/20_09_DV_2878_Assessment_Summary_Manual.feature"},
->>>>>>> 41c06e0ff6378a7e9dc4ce3f584930bf623071f0
+
+@CucumberOptions(features = {"classpath:features/22_PaymentSummaryLiabilityCalculationPaymentDueManualAssessment.feature"},	
+
 glue = "org.drc.vat.StepDefinitions",
 plugin = {"com.cucumber.listener.ExtentCucumberFormatter:",
-"html:test-output/cucumber-report"}
-//tags= {"@TC_07"}
+"html:test-output/cucumber-report"},tags= {"@RaiseNotice"}
+
 )
 
 public class TestRunner extends AbstractTestNGCucumberTests {
