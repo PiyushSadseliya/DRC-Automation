@@ -31,12 +31,13 @@ import static org.drc.vat.appmanager.HelperBase.sleepWait;
 
 
 
+@CucumberOptions(features = {"classpath:features/"},
 
-@CucumberOptions(features = {"classpath:features/22_PaymentSummaryLiabilityCalculationPaymentDueManualAssessment.feature"},	
 
-glue = "org.drc.vat.StepDefinitions",
-plugin = {"com.cucumber.listener.ExtentCucumberFormatter:",
-"html:test-output/cucumber-report"},tags= {"@RaiseNotice"}
+	glue = "org.drc.vat.StepDefinitions",
+	plugin = {"com.cucumber.listener.ExtentCucumberFormatter:",
+	"html:test-output/cucumber-report"}
+
 
 )
 

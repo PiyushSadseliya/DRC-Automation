@@ -686,10 +686,10 @@ public class DV_2878_Assessment_Summary_Manual
 		Thread.sleep(500);	
 		we3=wd.findElement(By.xpath(obj.getProperty("txt_Remark_VerifyEFD_check_TD_3")));
 		Thread.sleep(500);					
-		/*if(we1.isDisplayed() && we2.isDisplayed() && we3.isDisplayed());
+		if(we1.isDisplayed() && we2.isDisplayed() && we3.isDisplayed());
 		{
 			assertTrue(true);
-		}*/	
+		}	
 	}
 
 	@And("^User see remark is selected in Adjustment$")
@@ -828,8 +828,6 @@ public class DV_2878_Assessment_Summary_Manual
 	@And("^User see Tax Deductible tab and validate entered value$")
 	public void user_see_Tax_Deductible_tab_and_validate_entered_value() throws Throwable 
 	{
-
-
 		String check_Assert =elementText("txt_check_Assert");
 		//String FC1 = check_Assert.replaceAll("[A-Z]", "");	
 		String	FC2 = check_Assert.replace("." ,"");		
