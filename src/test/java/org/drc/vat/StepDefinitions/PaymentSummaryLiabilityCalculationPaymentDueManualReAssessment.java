@@ -9,7 +9,9 @@ import static org.drc.vat.appmanager.HelperBase.type;
 import static org.drc.vat.appmanager.HelperBase.validationMessage;
 import static org.testng.Assert.assertEquals;
 
+import java.text.NumberFormat;
 import java.util.Calendar;
+import java.util.Locale;
 
 import static org.drc.vat.appmanager.HelperBase.monthName;
 
@@ -48,7 +50,7 @@ public class PaymentSummaryLiabilityCalculationPaymentDueManualReAssessment {
 	     clickOn("span","[contains(text(),'Tax Payer')]");
 	     type("input_masearch",tpayer);
 	     sleepWait(2000);
-	     clickOn("btn_search","");
+	     clickOn("btn_Asearch","");
 	     clickOn("AssesManage","");
 	     sleepWait(2000);
 	     clickOn("href_maRassess","");
@@ -160,7 +162,7 @@ public class PaymentSummaryLiabilityCalculationPaymentDueManualReAssessment {
 	}
 	@Then("^Total Additional Liability tile should be displayed on ReAssessment as Total Assessed\\(FC\\) minus Total ReAssessed\\(FC\\)\"([^\"]*)\"$")
 	public void total_Additional_Liability_tile_should_be_displayed_on_ReAssessment_as_Total_Assessed_FC_minus_Total_ReAssessed_FC(String edeclaredAmt)throws Throwable {
-		System.out.println(elementText("txt_totalEtile","").substring(3));
+/*		System.out.println(elementText("txt_totalEtile","").substring(3));
 		System.out.println(elementText("txt_totalEtile","").substring(3));
 		System.out.println(elementText("txt_totalAtile","").substring(3));
 		System.out.println(elementText("txt_Aliabiltyamttopay",""));
@@ -168,19 +170,31 @@ public class PaymentSummaryLiabilityCalculationPaymentDueManualReAssessment {
 		System.out.println(elementText("txt_ReAliabiltyamttopay",""));
 		System.out.println(elementText("txt_totalAltile","").substring(3));
 		System.out.println(elementText("txt_ReALliabiltyamttopay",""));
+		*/
+		String TotaladdLiab=elementText("txt_totalAltile","");	
+		String ToatlAssessed=elementText("txt_totalAtile","");
+		String TotalReAssessed=elementText("txt_totalReAltile","");
+		//double TA=nf.parse(TotalAssessed).doubleValue()-nf.parse(TotaladdLiab).doubleValue();
+		//assertEquals(TotalAssessed,NumberFormat.getInstance(Locale.GERMAN).format(TA),"");
+		Double al=Double.parseDouble(frenchToIndian(TotalReAssessed.substring(3)))-Double.parseDouble(frenchToIndian(ToatlAssessed.substring(3)));
+		
+		NumberFormat nf=NumberFormat.getNumberInstance(Locale.ITALY);
+
+		System.out.println(	nf.format(al));
+	assertEquals(nf.format(al), TotaladdLiab.substring(3));	
 		
 		assertEquals(elementText("txt_totalEtile","").substring(3), edeclaredAmt);		
 		
-		assertEquals(elementText("txt_totalAtile","").substring(3),elementText("txt_Aliabiltyamttopay","") );		
-		assertEquals(elementText("txt_totalReAltile","").substring(3),elementText("txt_ReAliabiltyamttopay","") );
-		assertEquals(elementText("txt_totalAltile","").substring(3),elementText("txt_ReALliabiltyamttopay","") );
+		assertEquals(ToatlAssessed.substring(3),elementText("txt_Aliabiltyamttopay","") );		
+		assertEquals(TotalReAssessed.substring(3),elementText("txt_ReAliabiltyamttopay","") );
+		assertEquals(TotaladdLiab.substring(3),elementText("txt_ReALliabiltyamttopay","") );
 		
 	      
 	}
 
 	@Then("^Calculates the Additional Liability column for ReAssessment$")
 	public void calculates_the_Additional_Liability_column_for_ReAssessment() throws Throwable {
-		System.out.println(elementText("txt_ReALliabiltynetvatpaid",""));
+/*		System.out.println(elementText("txt_ReALliabiltynetvatpaid",""));
 		System.out.println(elementText("txt_ReALliabiltycredit",""));
 		System.out.println(elementText("txt_ReALliabiltycreditrefundreq",""));
 		System.out.println(elementText("txt_ReALliabiltyvcreditfwd",""));
@@ -190,20 +204,50 @@ public class PaymentSummaryLiabilityCalculationPaymentDueManualReAssessment {
 		System.out.println(elementText("txt_ReALliabiltyint",""));
 		System.out.println(elementText("txt_ReALliabiltyltfee",""));
 		System.out.println(elementText("txt_ReALliabiltypenalty",""));
-		
+		*/
 	
-		
-		assertEquals(elementText("txt_ReALliabiltynetvatpaid",""), "0,00");
-		assertEquals(elementText("txt_ReALliabiltycredit",""), "0,00");
-		assertEquals(elementText("txt_ReALliabiltycreditrefundreq",""), "0,00");
-		assertEquals(elementText("txt_ReALliabiltyvcreditfwd",""), "0,00");		
-		assertEquals(elementText("txt_ReALliabiltyvpublicprocu",""), "0,00");
-		assertEquals(elementText("txt_ReALliabiltyTpartyac",""), "0,00");
-		//assertEquals(elementText("txt_ReALliabiltyint",""), "0,00");
+		//Net VAT to be paid
+				Double netLiabilvatpaitd=frenchtoDouble(elementText("txt_ReAliabiltynetvatpaid",""))-frenchtoDouble(elementText("txt_Aliabiltynetvatpaid",""));
+				  assertEquals(elementText("txt_ReALliabiltynetvatpaid",""), appendfrenchsys(tofrench(netLiabilvatpaitd)));
+				  //VAT Credit
+				  Double aLiabilcredit=frenchtoDouble(elementText("txt_ReAliabiltycredit",""))-frenchtoDouble(elementText("txt_Aliabiltycredit",""));
+			       assertEquals(elementText("txt_ReALliabiltycredit",""),appendfrenchsys(tofrench(aLiabilcredit)));	       
+			       //Refund of VAT credit requested
+			       Double alvatcreditRef=frenchtoDouble(elementText("txt_ReAliabiltycreditrefundreq",""))-frenchtoDouble(elementText("txt_Aliabiltycreditrefundreq",""));
+			       assertEquals(elementText("txt_ReALliabiltycreditrefundreq",""), appendfrenchsys(tofrench(alvatcreditRef)));
+			       //VAT Credit carried forward
+			       Double alvatcreditfwd=frenchtoDouble(elementText("txt_ReAliabiltyvcreditfwd",""))-frenchtoDouble(elementText("txt_Aliabiltyvcreditfwd",""));
+			       assertEquals(elementText("txt_ReALliabiltyvcreditfwd",""),appendfrenchsys(tofrench(alvatcreditfwd)));
+			       //VAT on externally financed public procurement
+			       Double alpublicproc=frenchtoDouble(elementText("txt_Aliabiltyvpublicprocu",""))-frenchtoDouble(elementText("txt_Aliabiltyvpublicprocu",""));
+					  assertEquals(elementText("txt_ReALliabiltyvpublicprocu",""), appendfrenchsys(tofrench(alpublicproc)));
+					  //VAT for third party account
+					  Double althirdparty=frenchtoDouble(elementText("txt_ReAliabiltyTpartyac",""))-frenchtoDouble(elementText("txt_AliabiltyTpartyac",""));
+				       assertEquals(elementText("txt_ReALliabiltyTpartyac",""),appendfrenchsys(tofrench( althirdparty)));	       
+				       //Interest
+				       Double alinterest=frenchtoDouble(elementText("txt_ReAliabiltyint",""))-frenchtoDouble(elementText("txt_Aliabiltyint",""));
+				       assertEquals(elementText("txt_ReALliabiltyint",""),appendfrenchsys(tofrench(alinterest)));
+				       //Late Fees
+				       Double ltfee=frenchtoDouble(elementText("txt_ReAliabiltyltfee",""))-frenchtoDouble(elementText("txt_Aliabiltyltfee",""));
+				       assertEquals(elementText("txt_ReALliabiltyltfee",""), appendfrenchsys(tofrench(ltfee)));
+				       //Penalty
+				       Double penalty=Double.parseDouble(getvalue("txt_ReAliabiltypenalty",""))-frenchtoDouble(elementText("txt_RAliabiltypenalty",""));
+				       assertEquals(elementText("txt_ReALliabiltyltfee",""), appendfrenchsys(tofrench(penalty)));
+				       //Amount to pay
+				       Double alamttopay=frenchtoDouble(elementText("txt_ReAliabiltyamttopay",""))-frenchtoDouble(elementText("txt_Aliabiltyamttopay",""));
+				       assertEquals(elementText("txt_ReALliabiltyamttopay",""),appendfrenchsys(tofrench(alamttopay )));
+				       
+				       Double alnetamttopay=frenchtoDouble(elementText("txt_ReALliabiltynetvatpaid",""))-
+				    		   frenchtoDouble(elementText("txt_ReALliabiltycredit",""))+
+				    		   frenchtoDouble(elementText("txt_ReALliabiltycreditrefundreq",""))
+				       +frenchtoDouble(elementText("txt_ReALliabiltyltfee",""))+
+				       frenchtoDouble(elementText("txt_ReALliabiltyTpartyac",""))+
+				       frenchtoDouble(elementText("txt_ReALliabiltyint",""))+
+				       frenchtoDouble(elementText("txt_ReALliabiltypenalty",""))
+				       +frenchtoDouble(elementText("txt_ALliabiltyltfee",""));
+				       assertEquals(elementText("txt_ReALliabiltyamttopay",""),appendfrenchsys(tofrench(alnetamttopay )));
+		  
 
-		assertEquals(elementText("txt_ReALliabiltyltfee",""), "0,00");		
-		assertEquals(elementText("txt_ReALliabiltypenalty",""), "0,00");
-	//	assertEquals(elementText("txt_ReAliabiltyamttopay",""), "0,00");
 	
 		
 	      
@@ -266,6 +310,42 @@ public class PaymentSummaryLiabilityCalculationPaymentDueManualReAssessment {
 		sleepWait(3000);
 		assertEquals(elementText("element_pymtsummary",""),"Liability Calculation");
 	      
+	}
+	/*
+	 * 
+	 * To convert the text contain
+	 * 
+	 */
+	private String frenchToIndian(String text) {	
+
+		return text.replace(".", "").replace(",", ".");
+		
+	}
+	private double frenchtoDouble(String text) {
+		return Double.parseDouble(frenchToIndian(text));
+	}
+	/*
+	 * To convert the number to french System
+	 * 
+	 * 
+	 */
+	private String  tofrench(Double d)
+	{
+		NumberFormat nf=NumberFormat.getNumberInstance(Locale.ITALY);
+
+		return nf.format(d);
+	}
+	/*
+	 * to append comma if the douoble value dont contains decimal places
+	 * 
+	 * 
+	 */
+	private String appendfrenchsys(String frenchNo) {
+		String frenchnum;
+		if(!frenchNo.contains(",")) {
+			frenchNo=frenchNo+",00";
+		}
+		return frenchNo;
 	}
 	
 
