@@ -161,34 +161,7 @@ public class DV_2881_OP_TD_Ad_with_Ass_and_Reass
 	   
 	}
 
-	@And("^User clear all fields$")
-	public void user_clear_all_fields() throws Throwable
-	{
-	 
-		
-		//wd.findElement(By.xpath(obj.getProperty("txt_Delivery_goods"))).clear();
-		sleepWait(1000);		
-		wd.findElement(By.xpath(obj.getProperty("txt_Delivery_goods"))).sendKeys(Keys.chord(Keys.CONTROL,"a",Keys.DELETE));
-		sleepWait(1000);
-		wd.findElement(By.xpath(obj.getProperty("txt_Delivercy11"))).sendKeys(Keys.chord(Keys.CONTROL,"a",Keys.DELETE));
-		sleepWait(1000);
-		wd.findElement(By.xpath(obj.getProperty("txt_Delivercy22"))).sendKeys(Keys.chord(Keys.CONTROL,"a",Keys.DELETE));
-		sleepWait(1000);
-		wd.findElement(By.xpath(obj.getProperty("txt_Delivery_goods_Itself1"))).sendKeys(Keys.chord(Keys.CONTROL,"a",Keys.DELETE));
-		sleepWait(1000);
-		wd.findElement(By.xpath(obj.getProperty("txt_Delivery_Services_itself1"))).sendKeys(Keys.chord(Keys.CONTROL,"a",Keys.DELETE));
-		sleepWait(1000);
-		wd.findElement(By.xpath(obj.getProperty("txt_Operational1"))).sendKeys(Keys.chord(Keys.CONTROL,"a",Keys.DELETE));
-		sleepWait(1000);
-		wd.findElement(By.xpath(obj.getProperty("txt_Export1"))).sendKeys(Keys.chord(Keys.CONTROL,"a",Keys.DELETE));
-		sleepWait(1000);
-		wd.findElement(By.xpath(obj.getProperty("txt_Exempt1"))).sendKeys(Keys.chord(Keys.CONTROL,"a",Keys.DELETE));
-		sleepWait(1000);
-		wd.findElement(By.xpath(obj.getProperty("txt_Non_taaxable1"))).sendKeys(Keys.chord(Keys.CONTROL,"a",Keys.DELETE));
-		sleepWait(1000);
-		
-	}
-
+	
 	@And("^User see save button is disable$")
 	public void user_see_submit_button_is_disable() throws Throwable 
 	{		
@@ -310,7 +283,7 @@ public class DV_2881_OP_TD_Ad_with_Ass_and_Reass
 	    String Remove_FC = Difference_TT.replace("." ,"");	
 	    Remove_FC = Remove_FC.replace("," ,".");		    		    	 
 	    Float ch_result = Float.parseFloat(Remove_FC);
-		
+	    
 	    if(calulation==ch_result)
 	    {
 	    	assertTrue(true);
@@ -346,7 +319,7 @@ public class DV_2881_OP_TD_Ad_with_Ass_and_Reass
 		   Remove_FC = Remove_FC.replace("," ,".");		    		    	 
 		   Float  result1 = Float.parseFloat(Remove_FC);
 		   sum = sum + result1;
-		}		
+		}	
 		double Total_TaxableTurnover = sum;
 		
 		double sum1 = 0.0f;		
@@ -505,7 +478,7 @@ public class DV_2881_OP_TD_Ad_with_Ass_and_Reass
 		 String FC3 = FC2.replace("," ,".");
 		 Float 	Check_Add_Lib = Float.parseFloat(FC3);	 
 		 
-		 if(Validate==Check_Add_Lib)
+		 if(Validate.equals(Check_Add_Lib))
 		 {
 			 assertTrue(true);
 		 }
@@ -633,19 +606,18 @@ public class DV_2881_OP_TD_Ad_with_Ass_and_Reass
 			  assertTrue(true);
 		  }		    
 		   
-		  	type("txt_Delivercy11",DS1);		    
-		  //	type("txt_Delivercy22_Reass",DS2);	
+		  	type("txt_Delivercy11",DS1);		   
+		 
+		  	//type("txt_Delivercy22_Reass",DS2);	
 		    
 		  	String reAss= elementText("txtReassessmentAdjustement");
 		  	int ReAss_Adj = reAss.length();
 		    if(ReAss_Adj==23)
 		    {
-		    	type("txt_Delivercy22_Reass",DS2);	
+		    	assertTrue(true);
+		    	type("txt_Delivercy22_Reass",DS2);		    	
 		    }
-		    else
-		    {
-		    	type("txt_Delivercy22_Reass",DS2);
-		    }
+		    
 		  	
 		  	
 		  	
@@ -821,6 +793,33 @@ public class DV_2881_OP_TD_Ad_with_Ass_and_Reass
 	}
 	
 	
+	@And("^User clear all fields$")
+	public void user_clear_all_fields() throws Throwable
+	{
+	 	
+		//wd.findElement(By.xpath(obj.getProperty("txt_Delivery_goods"))).clear();
+		sleepWait(1000);		
+		wd.findElement(By.xpath(obj.getProperty("txt_Delivery_goods"))).sendKeys(Keys.chord(Keys.CONTROL,"a",Keys.DELETE));
+		sleepWait(1000);
+		wd.findElement(By.xpath(obj.getProperty("txt_Delivercy11"))).sendKeys(Keys.chord(Keys.CONTROL,"a",Keys.DELETE));
+		sleepWait(1000);
+		wd.findElement(By.xpath(obj.getProperty("txt_Delivercy22"))).sendKeys(Keys.chord(Keys.CONTROL,"a",Keys.DELETE));
+		sleepWait(1000);
+		wd.findElement(By.xpath(obj.getProperty("txt_Delivery_goods_Itself1"))).sendKeys(Keys.chord(Keys.CONTROL,"a",Keys.DELETE));
+		sleepWait(1000);
+		wd.findElement(By.xpath(obj.getProperty("txt_Delivery_Services_itself1"))).sendKeys(Keys.chord(Keys.CONTROL,"a",Keys.DELETE));
+		sleepWait(1000);
+		wd.findElement(By.xpath(obj.getProperty("txt_Operational1"))).sendKeys(Keys.chord(Keys.CONTROL,"a",Keys.DELETE));
+		sleepWait(1000);
+		wd.findElement(By.xpath(obj.getProperty("txt_Export1"))).sendKeys(Keys.chord(Keys.CONTROL,"a",Keys.DELETE));
+		sleepWait(1000);
+		wd.findElement(By.xpath(obj.getProperty("txt_Exempt1"))).sendKeys(Keys.chord(Keys.CONTROL,"a",Keys.DELETE));
+		sleepWait(1000);
+		wd.findElement(By.xpath(obj.getProperty("txt_Non_taaxable1"))).sendKeys(Keys.chord(Keys.CONTROL,"a",Keys.DELETE));
+		sleepWait(1000);
+		
+	}
+
 
 		@And("^User clear all fields assesased list$")
 		public void user_clear_all_fields_assesased_list() throws Throwable 

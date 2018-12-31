@@ -18,8 +18,7 @@ public class DV_2880_Tax_Deductable_Ass_and_Reass_Adjustement_Assessed_List
 	public static Float Total_tranc;
 	public static Float TA_AVD;
 	public static Float Store_TA_AVD;
-	public static Float Store_Validate;
-	
+	public static Float Store_Validate;	
 	public static Float Total_Ass;
 	public static Float Check_Add_Lib;
 	
@@ -43,95 +42,6 @@ public class DV_2880_Tax_Deductable_Ass_and_Reass_Adjustement_Assessed_List
 		Thread.sleep(500);
 		clickOn("drp_ReAssess", "");
 		Thread.sleep(1000);
-	}
-
-	
-	
-	@And("^User Check the amount displayed in Total Assessed tile and Total Reassessed tile$")
-	public void user_Check_the_amount_displayed_in_Total_Assessed_tile_and_Total_Reassessed_tile() throws Throwable 
-	{
-		 
-		Thread.sleep(500);		
-		String Total_Assessed = elementText("txt_TotalAssessed");		 
-		String Remov_FC = Total_Assessed.replaceAll("[A-Z]", "");	
-	    String Remove_FC = Remov_FC.replace("." ,"");	
-	    Remove_FC = Remove_FC.replace("," ,".");		    		    	 
-	    Total_Assed = Float.parseFloat(Remove_FC);			
-		
-		
-	    String Total_Ress =elementText("txt_Total_Reassessed");		 
-		 String Remov_FC1 = Total_Ress.replaceAll("[A-Z]", "");	
-		 String	Remove_FC2 = Remov_FC1.replace("." ,"");		
-		 Remove_FC2 = Remove_FC2.replace("," ,".");
-		 Total_Reassed = Float.parseFloat(Remove_FC2);		 	
-		
-		 Float Validate =  Total_Assed - Total_Reassed;
-		 Store_Validate =Validate;
-		 
-		 
-		 if(Total_Assed ==Total_Reassed)
-		 {
-			assertTrue(true);
-		 } 
-		 
-		 
-		/*String Total_Assessed = getValue("txt_TotalAssessed");
-		 Float T_A= Float.parseFloat(Total_Assessed);		 
-		 Total_Assed=T_A; 		 
-		 
-		 String Total_Ress = getValue("txt_Total_Reassessed");
-		 Float Tol_e_dec= Float.parseFloat(Total_Ress);
-		 Total_Reassed =Tol_e_dec;		 		
-		 
-		 //Float Validate =  Total_Assed - Total_Reassed;
-		 //String Total_Add_Lib = getValue("txt_Total_Additionality_Liability");
-		 
-		 if(Total_Assed ==Total_Reassed)
-		 {
-			assertTrue(true);
-		 }*/
-		 
-		 
-		 
-		 
-		 
-	}
-	/*@And("^User Check the amount displayed in Total Assessed tile$")
-	public void user_Check_the_amount_displayed_in_Total_Assessed_tile() throws Throwable 
-	{
-	}*/
-
-	/*@And("^User Check the amount displayed in Total Reassessed tile$")
-	public void user_Check_the_amount_displayed_in_Total_Reassessed_tile() throws Throwable
-	{
-	}*/
-
-	@And("^User Check the amount displayed in Total Additional liability tile$")
-	public void user_Check_the_amount_displayed_in_Total_Additional_liability_tile() throws Throwable
-	{
-		
-		 String Total_Add_Lib =elementText("txt_Total_Additionality_Liability");
-		 String FC1 = Total_Add_Lib.replaceAll("[A-Z]", "");	
-		 String	FC2 = FC1.replace("." ,"");		
-		 String FC3 = FC2.replace("," ,".");
-		 System.out.println(FC3);		 
-		 Check_Add_Lib =Float.parseFloat(FC3);		 
-		
-		if(Store_Validate==Check_Add_Lib)
-		{
-			assertTrue(true);
-		}
-		
-		/*
-		 String Total_Additional_Liability = getValue("txt_Total_Add_Lib");
-		 Float Tot_Aadd_Lib= Float.parseFloat(Total_Additional_Liability);	
-		 
-		 Float check_T_A_L= Total_Reassed-Total_Assed;
-		 if(Tot_Aadd_Lib==check_T_A_L)
-		 {
-			 assertTrue(true);
-		 }*/
-	    
 	}
 
 	@And("^User entered value \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" on Assessed List Tax Deductible and calculate Total Reassessed amount$")
@@ -215,7 +125,7 @@ public class DV_2880_Tax_Deductable_Ass_and_Reass_Adjustement_Assessed_List
 		String TotalAS = getValue("txtBox_Total_I_E_10");
 		if(TotalA==Float.parseFloat(TotalAS))
 		{
-		   System.out.println(TotalAS);	
+			assertTrue(true);
 		 }
 		   
 		type("txtBox_Goods_import", GI);
@@ -224,7 +134,7 @@ public class DV_2880_Tax_Deductable_Ass_and_Reass_Adjustement_Assessed_List
 		String TotalGS= getValue("txtBox_Total_I_E_11");
 		if(TotalG==Float.parseFloat(TotalGS))
 		{
-		 	  System.out.println(TotalGS);	
+			assertTrue(true);	
 		}		
 		
 		type("txtBox_Raw_Material_import", RI);		
@@ -233,7 +143,7 @@ public class DV_2880_Tax_Deductable_Ass_and_Reass_Adjustement_Assessed_List
 	    String TotalRS= getValue("txtBox_Total_I_E_12");
 	    if (TotalR==Float.parseFloat(TotalRS))
 	    {
-	    	System.out.println(TotalRS);
+	    	assertTrue(true);
 	    }
 		
 		
@@ -243,7 +153,7 @@ public class DV_2880_Tax_Deductable_Ass_and_Reass_Adjustement_Assessed_List
 	    String TotalOS=getValue("txtBox_Total_I_E_13");
 	    if(TotalO==Float.parseFloat(TotalOS))
 	    {
-	    	System.out.println(TotalOS);
+	    	assertTrue(true);
 	    }
 	    
 	    /*
@@ -254,7 +164,7 @@ public class DV_2880_Tax_Deductable_Ass_and_Reass_Adjustement_Assessed_List
 	    
 	    if (TotalD==Float.parseFloat(TotalDS))
 	    {
-	    	System.out.println("pass");
+	    	assertTrue(true);
 	    }
 	    
 	    /*
@@ -270,7 +180,7 @@ public class DV_2880_Tax_Deductable_Ass_and_Reass_Adjustement_Assessed_List
 	     
 	    if (Amount==Float.parseFloat(TotalAVD))
 	    {
-	    	System.out.println("pass");
+	    	assertTrue(true);
 	    }
 	    
 	}
@@ -446,7 +356,34 @@ public class DV_2880_Tax_Deductable_Ass_and_Reass_Adjustement_Assessed_List
 		String Remov_FC = Total_Assessed.replaceAll("[A-Z]", "");	
 	    String Remove_FC = Remov_FC.replace("." ,"");	
 	    Remove_FC = Remove_FC.replace("," ,".");		    		    	 
-	    Total_Ass = Float.parseFloat(Remove_FC);			
+	    Total_Ass = Float.parseFloat(Remove_FC);					
+		
+	    String Total_Ress =elementText("txt_Total_Reassessed");		 
+		 String Remov_FC1 = Total_Ress.replaceAll("[A-Z]", "");	
+		 String	Remove_FC2 = Remov_FC1.replace("." ,"");		
+		 Remove_FC2 = Remove_FC2.replace("," ,".");
+		 Total_Reassed = Float.parseFloat(Remove_FC2);		 			 
+		 
+		 if(Total_Ass.equals(Total_Reassed))
+		 {
+			assertTrue(true);
+		 }
+		 
+		 Float Validate =  Total_Ass - Total_Reassed;
+		 Store_Validate =Validate;		 
+		 
+	}
+	
+	@And("^User Check the amount displayed in Total Assessed tile and Total Reassessed tile$")
+	public void user_Check_the_amount_displayed_in_Total_Assessed_tile_and_Total_Reassessed_tile() throws Throwable 
+	{
+		 
+		Thread.sleep(500);		
+		String Total_Assessed = elementText("txt_TotalAssessed");		 
+		String Remov_FC = Total_Assessed.replaceAll("[A-Z]", "");	
+	    String Remove_FC = Remov_FC.replace("." ,"");	
+	    Remove_FC = Remove_FC.replace("," ,".");		    		    	 
+	    Total_Assed = Float.parseFloat(Remove_FC);			
 		
 		
 	    String Total_Ress =elementText("txt_Total_Reassessed");		 
@@ -454,13 +391,31 @@ public class DV_2880_Tax_Deductable_Ass_and_Reass_Adjustement_Assessed_List
 		 String	Remove_FC2 = Remov_FC1.replace("." ,"");		
 		 Remove_FC2 = Remove_FC2.replace("," ,".");
 		 Total_Reassed = Float.parseFloat(Remove_FC2);		 	
+		
+		 Float Validate =  Total_Assed - Total_Reassed;
+		 Store_Validate =Validate;		 
 		 
-		 if(Total_Assed ==Total_Reassed)
+		 if(Total_Assed.equals(Total_Reassed))
 		 {
 			assertTrue(true);
-		 } 
+		 } 		
+		 
 	}
 	
-	
-	
+	@And("^User Check the amount displayed in Total Additional liability tile$")
+	public void user_Check_the_amount_displayed_in_Total_Additional_liability_tile() throws Throwable
+	{		
+		 String Total_Add_Lib =elementText("txt_Total_Additionality_Liability");
+		 String FC1 = Total_Add_Lib.replaceAll("[A-Z]", "");	
+		 String	FC2 = FC1.replace("." ,"");		
+		 String FC3 = FC2.replace("," ,".");
+		 System.out.println(FC3);		 
+		 Check_Add_Lib =Float.parseFloat(FC3);		 
+		
+		 if(Store_Validate.equals(Check_Add_Lib))
+		{
+			assertTrue(true);
+		}		 		   
+	}
+
 }
