@@ -31,10 +31,11 @@ import static org.drc.vat.appmanager.HelperBase.sleepWait;
 
 
 
-@CucumberOptions(features = {"classpath:features/01_userRegistration.feature"
-		,"classpath:features/02_01_Login.feature"
-		,"classpath:features/03_uploadDocuments.feature"
-		,"classpath:features/03_VATRegistration.feature"
+@CucumberOptions(features = {
+		//"classpath:features/01_userRegistration.feature"
+		//,"classpath:features/02_01_Login.feature"
+		//,"classpath:features/03_uploadDocuments.feature"
+		"classpath:features/03_VATRegistration.feature"
 		,"classpath:features/04_DV_1377_ManageVatRegistration.feature"
 		,"classpath:features/05_DV_1376_AcceptRejectAdditionalClarification.feature"
 		,"classpath:features/07_UserRegistrationStatus.feature"}
@@ -43,7 +44,7 @@ import static org.drc.vat.appmanager.HelperBase.sleepWait;
 
 							
 glue = "org.drc.vat.StepDefinitions",
-plugin = {"com.cucumber.listener.ExtentCucumberFormatter:","html:test-output/cucumber-report"},tags= {"@tc18_13__17_4_5"}
+plugin = {"com.cucumber.listener.ExtentCucumberFormatter:","html:test-output/cucumber-report"}
 
 
 		)
