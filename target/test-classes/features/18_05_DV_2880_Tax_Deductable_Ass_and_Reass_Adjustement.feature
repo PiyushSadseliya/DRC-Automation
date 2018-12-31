@@ -1,7 +1,7 @@
 Feature: User is on Tax Deductible Page Manual Assessement
 
   @TC_02_03
-  Scenario Outline: Validate the NITVA field,Period field 
+  Scenario Outline: Validate the NITVA field,Period field
     Given User is on Manual Assessment "<TestcaseID>" "<Description>"
     And User click on Dashboard
     And User click on Assessment Tab
@@ -134,7 +134,7 @@ Feature: User is on Tax Deductible Page Manual Assessement
       | Tax_Dec_16_18_20 | validate view icon in transaction received table and Total of Difference field | txt_PeriodJan | Arun111223 |
 
   @TC_Negative_Scenario_Manual_2880
-  Scenario Outline: Validate Negative Scenario for all fields  
+  Scenario Outline: Validate Negative Scenario for all fields
     Given User is on Tax Deductible "<TestcaseID>" "<Description>"
     And User click on Assessment Tab
     And User click on drop down "<Period>" for Manual Assessment

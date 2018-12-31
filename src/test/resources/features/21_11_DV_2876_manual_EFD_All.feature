@@ -28,7 +28,7 @@ Feature: User is on Manual Assessement EFD ALL
     And User click on manage and click on assess
     And User click on Delivery of goods
     And User calculate Total Quantity on Delivery of Goods
-   And User calculate Total Gross Amount on Delivery of Goods
+    And User calculate Total Gross Amount on Delivery of Goods
     And User calculate Total Vat Amount on Delivery of Goods
     And User calculate Total Net Amount on Delivery of Goods
     And User click on previous button and navigate to Operations Performed page
@@ -45,16 +45,15 @@ Feature: User is on Manual Assessement EFD ALL
     And User type "<nitva>" and click on search button
     And User click on manage and click on assess
     And User click on Delivery of goods
-   And User click on page "<ClickPage>" and check page"<CheckPage>" "<option>"
+    And User click on page "<ClickPage>" and check page"<CheckPage>" "<option>"
     And User see Result
-  
       | TestcaseID   | Description                | Period        | ClickPage        | CheckPage        | nitva             | option          |
       | Mal_EFD_18_1 | validating last and right  | txt_PeriodJan | lbl_AssLast      | lbl_AssestRight  | 20181015014013724 | last and right  |
       | Mal_EFD_18_2 | validating last and left   | txt_PeriodJan | lbl_AssLast      | lbl_AssestLeft   | 20181015014013724 | last and left   |
       | Mal_EFD_18_3 | validating right and left  | txt_PeriodJan | lbl_AssestRight  | lbl_AssestLeft   | 20181015014013724 | right and left  |
       | Mal_EFD_18_4 | validating right and first | txt_PeriodJan | lbl_AssestRight  | lbl_lbl_AssFirst | 20181015014013724 | right and first |
-      |Mal_EFD_18_5  | validating first and left  | txt_PeriodJan | lbl_lbl_AssFirst | lbl_AssestLeft   | 20181015014013724 | first and left  |
-      |Mal_EFD_18_6  | validating first and first | txt_PeriodJan | lbl_lbl_AssFirst | lbl_lbl_AssFirst | 20181015014013724 | first and first |
+      | Mal_EFD_18_5 | validating first and left  | txt_PeriodJan | lbl_lbl_AssFirst | lbl_AssestLeft   | 20181015014013724 | first and left  |
+      | Mal_EFD_18_6 | validating first and first | txt_PeriodJan | lbl_lbl_AssFirst | lbl_lbl_AssFirst | 20181015014013724 | first and first |
 
   ##################----------Delivery of Services--------------##############
   @TC_02_03_Mal_EFD_DOS
@@ -104,7 +103,6 @@ Feature: User is on Manual Assessement EFD ALL
     And User click on Delivery of Services
     And User click on page "<ClickPage>" and check page"<CheckPage>" "<option>"
     And User see Result
-   
       | TestcaseID       | Description                | Period        | ClickPage        | CheckPage        | nitva             | option          |
       | Mal_EFD_DOS_18_1 | validating last and right  | txt_PeriodJan | lbl_AssLast      | lbl_AssestRight  | 20181015014013724 | last and right  |
       | Mal_EFD_DOS_18_2 | validating last and left   | txt_PeriodJan | lbl_AssLast      | lbl_AssestLeft   | 20181015014013724 | last and left   |
@@ -112,7 +110,6 @@ Feature: User is on Manual Assessement EFD ALL
       | Mal_EFD_DOS_18_4 | validating right and first | txt_PeriodJan | lbl_AssestRight  | lbl_lbl_AssFirst | 20181015014013724 | right and first |
       | Mal_EFD_DOS_18_5 | validating first and left  | txt_PeriodJan | lbl_lbl_AssFirst | lbl_AssestLeft   | 20181015014013724 | first and left  |
       | Mal_EFD_DOS_18_6 | validating first and first | txt_PeriodJan | lbl_AssFirst     | lbl_AssFirst     | 20181015014013724 | first and first |
-
 
   ##################----------EXPORT--------------##############
   @TC_02_03
@@ -162,18 +159,14 @@ Feature: User is on Manual Assessement EFD ALL
     And User click on Exports and related transactions
     And User click on page "<ClickPage>" and check page"<CheckPage>" "<option>"
 
-  
- Examples: 
+    Examples: 
       | TestcaseID   | Description                | Period        | ClickPage        | CheckPage        | nitva             | option          |
-      |Mal_Exp_17_1  | validating last and right  | txt_PeriodJan | lbl_AssLast      | lbl_AssestRight  | 20181015014013724 | last and right  |
-      |Mal_Exp_17_2  | validating last and left   | txt_PeriodJan | lbl_AssLast      | lbl_AssestLeft   | 20181015014013724 | last and left   |
-      |Mal_Exp_17_3  | validating right and left  | txt_PeriodJan | lbl_AssestRight  | lbl_AssestLeft   | 20181015014013724 | right and left  |
-      |Mal_Exp_17_4  | validating right and first | txt_PeriodJan | lbl_AssestRight  | lbl_lbl_AssFirst | 20181015014013724 | right and first |
-      |Mal_Exp_17_5  | validating first and left  | txt_PeriodJan | lbl_lbl_AssFirst | lbl_AssestLeft   | 20181015014013724 | first and left  |
-      |Mal_Exp_17_6  | validating first and first | txt_PeriodJan | lbl_AssFirst     | lbl_AssFirst     | 20181015014013724 | first and first |
-
-
-
+      | Mal_Exp_17_1 | validating last and right  | txt_PeriodJan | lbl_AssLast      | lbl_AssestRight  | 20181015014013724 | last and right  |
+      | Mal_Exp_17_2 | validating last and left   | txt_PeriodJan | lbl_AssLast      | lbl_AssestLeft   | 20181015014013724 | last and left   |
+      | Mal_Exp_17_3 | validating right and left  | txt_PeriodJan | lbl_AssestRight  | lbl_AssestLeft   | 20181015014013724 | right and left  |
+      | Mal_Exp_17_4 | validating right and first | txt_PeriodJan | lbl_AssestRight  | lbl_lbl_AssFirst | 20181015014013724 | right and first |
+      | Mal_Exp_17_5 | validating first and left  | txt_PeriodJan | lbl_lbl_AssFirst | lbl_AssestLeft   | 20181015014013724 | first and left  |
+      | Mal_Exp_17_6 | validating first and first | txt_PeriodJan | lbl_AssFirst     | lbl_AssFirst     | 20181015014013724 | first and first |
 
   ########---------------EXEMPT---------------###########
   @TC_02_03
@@ -222,9 +215,8 @@ Feature: User is on Manual Assessement EFD ALL
     And User click on manage and click on assess
     And User click on Exempt transactions
     And User click on page "<ClickPage>" and check page"<CheckPage>" "<option>"
-  
-  
- Examples: 
+
+    Examples: 
       | TestcaseID      | Description                | Period        | ClickPage        | CheckPage        | nitva             | option          |
       | Mal_Exempt_18_1 | validating last and right  | txt_PeriodJan | lbl_AssLast      | lbl_AssestRight  | 20181015014013724 | last and right  |
       | Mal_Exempt_18_2 | validating last and left   | txt_PeriodJan | lbl_AssLast      | lbl_AssestLeft   | 20181015014013724 | last and left   |
@@ -232,8 +224,6 @@ Feature: User is on Manual Assessement EFD ALL
       | Mal_Exempt_18_4 | validating right and first | txt_PeriodJan | lbl_AssestRight  | lbl_lbl_AssFirst | 20181015014013724 | right and first |
       | Mal_Exempt_18_5 | validating first and left  | txt_PeriodJan | lbl_lbl_AssFirst | lbl_AssestLeft   | 20181015014013724 | first and left  |
       | Mal_Exempt_18_6 | validating first and first | txt_PeriodJan | lbl_AssFirst     | lbl_AssFirst     | 20181015014013724 | first and first |
-
-
 
   ##################-------------Non-taxable transactions---------------#################
   @TC_02_03_Mal_NT
@@ -282,9 +272,8 @@ Feature: User is on Manual Assessement EFD ALL
     And User click on manage and click on assess
     And User click on Non-taxable transactions
     And User click on page "<ClickPage>" and check page"<CheckPage>" "<option>"
-  
- 
- Examples: 
+
+    Examples: 
       | TestcaseID  | Description                | Period        | ClickPage        | CheckPage        | nitva             | option          |
       | Mal_NT_18_1 | validating last and right  | txt_PeriodJan | lbl_AssLast      | lbl_AssestRight  | 20181015014013724 | last and right  |
       | Mal_NT_18_2 | validating last and left   | txt_PeriodJan | lbl_AssLast      | lbl_AssestLeft   | 20181015014013724 | last and left   |
@@ -292,9 +281,6 @@ Feature: User is on Manual Assessement EFD ALL
       | Mal_NT_18_4 | validating right and first | txt_PeriodJan | lbl_AssestRight  | lbl_lbl_AssFirst | 20181015014013724 | right and first |
       | Mal_NT_18_5 | validating first and left  | txt_PeriodJan | lbl_lbl_AssFirst | lbl_AssestLeft   | 20181015014013724 | first and left  |
       | Mal_NT_18_6 | validating first and first | txt_PeriodJan | lbl_AssFirst     | lbl_AssFirst     | 20181015014013724 | first and first |
-
-
-
 
   ##################-----------Total deductible------------------###############
   @TC_02_03_Mal_TD
@@ -337,7 +323,7 @@ Feature: User is on Manual Assessement EFD ALL
       | Mal_TD_04_05_06_07_17 | validate calculation | txt_PeriodFeb | 20181015014013724 |
 
   @TC_18
-    Scenario Outline: Validate the Pagination functionality on Total deductible
+  Scenario Outline: Validate the Pagination functionality on Total deductible
     Given User is on Manual Assessment "<TestcaseID>" "<Description>"
     And User click on Assessment Tab
     And User click on drop down "<Period>" for Manual Assessment
@@ -347,8 +333,7 @@ Feature: User is on Manual Assessement EFD ALL
     And User click on Total deductible
     And User click on page "<ClickPage>" and check page"<CheckPage>" "<option>"
 
-   
- Examples: 
+    Examples: 
       | TestcaseID  | Description                | Period        | ClickPage        | CheckPage        | nitva             | option          |
       | Mal_TD_18_1 | validating last and right  | txt_PeriodJan | lbl_AssLast      | lbl_AssestRight  | 20181015014013724 | last and right  |
       | Mal_TD_18_2 | validating last and left   | txt_PeriodJan | lbl_AssLast      | lbl_AssestLeft   | 20181015014013724 | last and left   |
@@ -356,7 +341,6 @@ Feature: User is on Manual Assessement EFD ALL
       | Mal_TD_18_4 | validating right and first | txt_PeriodJan | lbl_AssestRight  | lbl_lbl_AssFirst | 20181015014013724 | right and first |
       | Mal_TD_18_5 | validating first and left  | txt_PeriodJan | lbl_lbl_AssFirst | lbl_AssestLeft   | 20181015014013724 | first and left  |
       | Mal_TD_18_6 | validating first and first | txt_PeriodJan | lbl_AssFirst     | lbl_AssFirst     | 20181015014013724 | first and first |
-
 
   ############----------------Supplementary deductions------------##############
   @TC_02_03_Mal_SD
@@ -397,7 +381,7 @@ Feature: User is on Manual Assessement EFD ALL
     And User click on previous button and navigate to Adjustment Page
 
     Examples: 
-      | TestcaseID         | Description           | Period        | nitva             |
+      | TestcaseID            | Description           | Period        | nitva             |
       | Mal_SD_04_05_06_07_19 | validate csalculation | txt_PeriodFeb | 20181015014013724 |
 
   @TC_20
@@ -411,9 +395,8 @@ Feature: User is on Manual Assessement EFD ALL
     And User click on next button
     And User click on Supplementary deductions
     And User click on page "<ClickPage>" and check page"<CheckPage>" "<option>"
- 
-  
- Examples: 
+
+    Examples: 
       | TestcaseID  | Description                | Period        | ClickPage        | CheckPage        | nitva             | option          |
       | Mal_SD_20_1 | validating last and right  | txt_PeriodJan | lbl_AssLast      | lbl_AssestRight  | 20181015014013724 | last and right  |
       | Mal_SD_20_2 | validating last and left   | txt_PeriodJan | lbl_AssLast      | lbl_AssestLeft   | 20181015014013724 | last and left   |
@@ -422,9 +405,6 @@ Feature: User is on Manual Assessement EFD ALL
       | Mal_SD_20_5 | validating first and left  | txt_PeriodJan | lbl_lbl_AssFirst | lbl_AssestLeft   | 20181015014013724 | first and left  |
       | Mal_SD_20_6 | validating first and first | txt_PeriodJan | lbl_AssFirst     | lbl_AssFirst     | 20181015014013724 | first and first |
 
-
-
- 
   ############----------------Mining------------##############
   @TC_02_03_Mal_Min
   Scenario Outline: Validate the NITVA field,Period field
@@ -479,8 +459,7 @@ Feature: User is on Manual Assessement EFD ALL
     And User click on VAT deducted by mining companies at source
     And User click on page "<ClickPage>" and check page"<CheckPage>" "<option>"
 
-
- Examples: 
+    Examples: 
       | TestcaseID   | Description                | Period        | ClickPage        | CheckPage        | nitva             | option          |
       | Mal_Min_19_1 | validating last and right  | txt_PeriodJan | lbl_AssLast      | lbl_AssestRight  | 20181015014013724 | last and right  |
       | Mal_Min_19_2 | validating last and left   | txt_PeriodJan | lbl_AssLast      | lbl_AssestLeft   | 20181015014013724 | last and left   |
@@ -488,4 +467,3 @@ Feature: User is on Manual Assessement EFD ALL
       | Mal_Min_19_4 | validating right and first | txt_PeriodJan | lbl_AssestRight  | lbl_lbl_AssFirst | 20181015014013724 | right and first |
       | Mal_Min_19_5 | validating first and left  | txt_PeriodJan | lbl_lbl_AssFirst | lbl_AssestLeft   | 20181015014013724 | first and left  |
       | Mal_Min_19_6 | validating first and first | txt_PeriodJan | lbl_AssFirst     | lbl_AssFirst     | 20181015014013724 | first and first |
-

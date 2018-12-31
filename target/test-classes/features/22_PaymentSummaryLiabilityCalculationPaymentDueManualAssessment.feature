@@ -47,7 +47,7 @@ Feature: Manual Assessment- Payment summary for Liability Calculation and Paymen
 
     Examples: 
       | Test Case ID          | Description                                                                                                                                   | uname            | password | period | year | msg                | penamt | efiledamount | NITVA             | tpayer     |
-      | DRC_ATC_Assessment_03 | Validate the download functionality of  e-filing schedule Button when e-file schedule file is not uploaded by tax payer from tax payer portal | laxman.prajapati | admin    | March  | 2018 | Saved Successfully | 500000 |       800,00 | 20181127030648745 | Arun111223 |
+      | DRC_ATC_Assessment_03 | Validate the download functionality of  e-filing schedule Button when e-file schedule file is not uploaded by tax payer from tax payer portal | laxman.prajapati | admin    | March  | 2018 | Saved Successfully | 50000 |       800,00 | 20181127030648745 | Arun111223 |
 
   @RaiseNotice
   Scenario Outline: Validate the tax assessment officer is able to raise notice for a particular period for no updation in manual assessment when efiling and pymt not done
@@ -58,4 +58,4 @@ Feature: Manual Assessment- Payment summary for Liability Calculation and Paymen
 
     Examples: 
       | Test Case ID          | Description                                                                                                                                             | uname            | password | period   | year | penamt | efiledamount | NITVA | tpayer        |
-      | DRC_ATC_Assessment_04 | Validate the tax assessment officer is able to raise notice for a particular period for no updation in manual assessment when efiling and pymt not done | laxman.prajapati | admin    | November | 2018 | 500000 |         0,00 |       | Approved User |
+      | DRC_ATC_Assessment_04 | Validate the tax assessment officer is able to raise notice for a particular period for no updation in manual assessment when efiling and pymt not done | laxman.prajapati | admin    | November | 2018 | 50000 |         0,00 |       | Approved User |

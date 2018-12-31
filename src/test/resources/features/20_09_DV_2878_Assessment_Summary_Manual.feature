@@ -1,7 +1,7 @@
 Feature: User is on Assessment Summary Manual Assessement
 
   @TC_02_03
-  Scenario Outline: Validate the NITVA field,Period field 
+  Scenario Outline: Validate the NITVA field,Period field
     Given User is on Manual Assessment "<TestcaseID>" "<Description>"
     And User click on Assessment Tab
     And User click on drop down "<Period>" for Manual Assessment
@@ -40,7 +40,7 @@ Feature: User is on Assessment Summary Manual Assessement
 
   # Happy path
   @TC_07
-  Scenario Outline: Validate that the Assessment Summary tab record should get saved successfully through Save and Next button operation 
+  Scenario Outline: Validate that the Assessment Summary tab record should get saved successfully through Save and Next button operation
     Given User is on Manual Assessment "<TestcaseID>" "<Description>"
     And User click on Assessment Tab
     And User click on drop down "<Period>" for Manual Assessment
@@ -109,7 +109,7 @@ Feature: User is on Assessment Summary Manual Assessement
       | Mal_AS_14_08_09_10_11_12_13 | validate prev functionality | txt_PeriodJan | Arun111223 | 10 | 10 |   10 |  1 | Saved Successfully | Verified through EFD transactions | Select remarks | Verified through EFD transactions |
 
   @TC_15
-  Scenario Outline: Validate the Previous button functionality 
+  Scenario Outline: Validate the Previous button functionality
     Given User is on Manual Assessment "<TestcaseID>" "<Description>"
     And User click on Assessment Tab
     And User click on drop down "<Period>" for Manual Assessment
@@ -181,7 +181,7 @@ Feature: User is on Assessment Summary Manual Assessement
       | Mal_AS_24  | amount is same | txt_PeriodJan | Arun111223 |
 
   @TC_25_26
-  Scenario Outline: Validate that the Total Additional Liability(FC) amount should be more than zero when Total e-Declaration(FC)  amount is less than Total Assessed(FC) amount 
+  Scenario Outline: Validate that the Total Additional Liability(FC) amount should be more than zero when Total e-Declaration(FC)  amount is less than Total Assessed(FC) amount
     Given User is on Manual Assessment "<TestcaseID>" "<Description>"
     And User click on Assessment Tab
     And User click on drop down "<Period>" for Manual Assessment
@@ -221,7 +221,7 @@ Feature: User is on Assessment Summary Manual Assessement
       | Mal_AS_25_26 | validate additionality liablility with more than zero and less than zero | txt_PeriodJan | Arun111223 | Saved Successfully | 500000 |  1 |    0 | 10 |    400 |       5 |         5 |      10 |
 
   @TC_27
-  Scenario Outline: Validate that the Assessment Summary tab records should get auto populated with only those records whose changes made in assessment adjustment table for Operations Performed, Tax Deductible and Adjustment tab 
+  Scenario Outline: Validate that the Assessment Summary tab records should get auto populated with only those records whose changes made in assessment adjustment table for Operations Performed, Tax Deductible and Adjustment tab
     Given User is on Manual Assessment "<TestcaseID>" "<Description>"
     And User click on Assessment Tab
     And User click on drop down "<Period>" for Manual Assessment
