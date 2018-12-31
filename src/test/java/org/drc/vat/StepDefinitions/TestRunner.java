@@ -1,4 +1,5 @@
 package org.drc.vat.StepDefinitions;
+
 import com.cucumber.listener.ExtentProperties;
 import com.cucumber.listener.Reporter;
 import cucumber.api.CucumberOptions;
@@ -30,16 +31,14 @@ import static org.drc.vat.appmanager.HelperBase.assessmentOfficer;
 import static org.drc.vat.appmanager.HelperBase.sleepWait;
 
 
-
 @CucumberOptions(features = {
-		//"classpath:features/01_userRegistration.feature"
-		//,"classpath:features/02_01_Login.feature"
-		//,"classpath:features/03_uploadDocuments.feature"
+		"classpath:features/01_userRegistration.feature"
+		,"classpath:features/02_01_Login.feature"
+		,"classpath:features/03_uploadDocuments.feature",
 		"classpath:features/03_VATRegistration.feature"
 		,"classpath:features/04_DV_1377_ManageVatRegistration.feature"
 		,"classpath:features/05_DV_1376_AcceptRejectAdditionalClarification.feature"
-		,"classpath:features/07_UserRegistrationStatus.feature"}
-,
+		,"classpath:features/07_UserRegistrationStatus.feature"},
 
 
 							
@@ -50,108 +49,92 @@ plugin = {"com.cucumber.listener.ExtentCucumberFormatter:","html:test-output/cuc
 		)
 
 
-//{"classpath:features/08_DV_2389_calculation_with_offset.feature","classpath:features/09_DV_2390_e_filing.feature"
-//	,"classpath:features/10_DV_2391_eFile_Preview.feature","classpath:features/11_1_DV_2394_Landing_Screen.feature"},
 
 
 public class TestRunner extends AbstractTestNGCucumberTests {
 	private Logger logger = LoggerFactory.getLogger(TestRunner.class);
-	private String outputDir = "test-output/" + new Date().toString().substring(0,10);
-	private static boolean clearbrowsedata=false;
+	private String outputDir = "test-output/" + new Date().toString().substring(0, 10);
+	private static boolean clearbrowsedata = false;
 	private String timestamp = new SimpleDateFormat("_HHmmss").format(new Date());
-	private static ApplicationManager app =
-	new ApplicationManager((System.getProperty("browser", BrowserType.CHROME)));
-	
+	private static ApplicationManager app = new ApplicationManager((System.getProperty("browser", BrowserType.CHROME)));
+
 	@BeforeSuite
-	public void setUP_Mobilenop() throws IOException, AWTException
-	{
+	public void setUP_Mobilenop() throws IOException, AWTException {
 		app.initUrl();
 		ExtentProperties extentProperties = ExtentProperties.INSTANCE;
-		extentProperties.setReportPath(outputDir + "/ExtentReport" + timestamp + ".html");
+		extentProperties.setReportPath(outputDir + "/RegressionSuite_ExtentReport" + timestamp + ".html");
 	}
+
 	@AfterSuite(alwaysRun = true)
 	public void tearDown() throws IOException {
-		app.stop();        
+		app.stop();
 		Reporter.loadXMLConfig("src/test/resources/extent-config.xml");
 		Reporter.setSystemInfo("user", System.getProperty("user.name"));
 	}
 
-
 	@Before
-	public void startScenario(Scenario scenario) throws IOException, AWTException, InterruptedException 
-	{	
-		/** 
-		 *  Login with Ketan.prajapati
+	public void startScenario(Scenario scenario) throws IOException, AWTException, InterruptedException {
+		/**
+		 * Login with Ketan.prajapati
 		 */
-		if (scenario.getName().toLowerCase().contains("internal portal"))    	
-		{	    	
-			app.callinternalportal();   
+		if (scenario.getName().toLowerCase().contains("internal portal")) {
+			app.callinternalportal();
 		}
-		/** 
-			    Login with rohit.patil
+		/**
+		 * Login with rohit.patil
 		 */
-		else if(scenario.getName().toLowerCase().contains("fx taxofficer"))
-		{
+		else if (scenario.getName().toLowerCase().contains("fx taxofficer")) {
 			app.callinternalportal_TaxOfficer();
 		}
-		/** 
-			    Login with pooja.parmar
-		 */
-		else if(scenario.getName().toLowerCase().contains("supervisor"))
-		{
-			app.callinternalportal_Supervisor();
-		}
-		else if(scenario.getName().toLowerCase().contains("laxman"))
-		{
-			app.callinternalportal_Assessment_Officer();
-		}		 
-		
 		/**
-		 *  For Demo login 
+		 * Login with pooja.parmar
 		 */
-		/** 
-		 *  Login with Ketan.prajapati demo
-		 */
-		else if (scenario.getName().toLowerCase().contains("admin demo"))    	
-		{	    	
-			 app.callinternalportal_ketan_demo();
+		else if (scenario.getName().toLowerCase().contains("supervisor")) {
+			app.callinternalportal_Supervisor();
+		} else if (scenario.getName().toLowerCase().contains("laxman")) {
+			app.callinternalportal_Assessment_Officer();
 		}
-		/** 
-			    Login with rohit.patil demo
+
+		/**
+		 * For Demo login
 		 */
-		else if(scenario.getName().toLowerCase().contains("taxofficer demo"))
-		{
+		/**
+		 * Login with Ketan.prajapati demo
+		 */
+		else if (scenario.getName().toLowerCase().contains("admin demo")) {
+			app.callinternalportal_ketan_demo();
+		}
+		/**
+		 * Login with rohit.patil demo
+		 */
+		else if (scenario.getName().toLowerCase().contains("taxofficer demo")) {
 			app.callinternalportal_TaxOfficer_demo();
 		}
-		
-		/** 
-			    Login with pooja.parmar demo
+
+		/**
+		 * Login with pooja.parmar demo
 		 */
-		else if(scenario.getName().toLowerCase().contains("supervisor demo"))
-		{
+		else if (scenario.getName().toLowerCase().contains("supervisor demo")) {
 			app.callinternalportal_Supervisor_demo();
-		}
-		else if(scenario.getName().toLowerCase().contains("laxman demo"))
-		{
+		} else if (scenario.getName().toLowerCase().contains("laxman demo")) {
 			app.callinternalportal_Assessment_Officer_laxman_demo();
-		}		 			
-		else
-		{
-			app.callurl();	    		
+		} else {
+			app.callurl();
 		}
 		Thread.sleep(5000);
 		logger.info("Start scenario: " + scenario.getName());
-	}	
-	
+	}
+
 	@After
 	public void endScenario(Scenario scenario) throws Exception {
 		String screenshot = scenario.getName();
 		File src = app.takeScreenshotAsFile();
-		File dest = new File(System.getProperty("user.dir") + "/" + outputDir + "/screenshots/" + screenshot + timestamp + ".png");
+		File dest = new File(
+				System.getProperty("user.dir") + "/" + outputDir + "/screenshots/" + screenshot + timestamp + ".png");
 		FileUtils.copyFile(src, dest);
 		Reporter.addScreenCaptureFromPath(dest.toString());
 		scenario.embed(app.takeScreenshot(), "image/png");
-		//  logout();  
+		// logout();
 		// assertEnding();
 		logger.info("Stop scenario: " + scenario.getName());
 	}

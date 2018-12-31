@@ -12,7 +12,11 @@
         <methods>
           <include name="tearDown"/>
           <include name="setUpClass"/>
+<<<<<<< HEAD
           <include name="feature" invocation-numbers="1 2 3"/>
+=======
+          <include name="feature" invocation-numbers="0"/>
+>>>>>>> 9e8abdc1e63ebbda6c1d9520f09745bf9232d436
           <include name="setUP_Mobilenop"/>
           <include name="tearDownClass"/>
         </methods>

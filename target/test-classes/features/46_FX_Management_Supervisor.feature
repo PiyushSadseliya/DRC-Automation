@@ -1,9 +1,9 @@
 Feature: User is on FX Management Page DGI Supervisor
 
-@TC_09
+  @TC_09
   Scenario Outline: Validate the Base currency on all the pages of FX management module -supervisor
     Given User is on FX Management "<TestcaseID>" "<Description>"
-    And User click on Dashboard             
+    And User click on Dashboard
     And User click on FX Management tab
     And User verify the Base currency on the FX management is Congolese France and its value is one for supervisor
     And User click on Historical FX Rates button and verify the base currency
@@ -12,11 +12,10 @@ Feature: User is on FX Management Page DGI Supervisor
       | TestcaseID                   | Description          |
       | FX_Management_Supervisior_09 | Verify Base Currency |
 
-
-# on hold profile picture
+  # on hold profile picture
   @TC_05_name_and_profile
-  Scenario Outline: Validate the Name and profile picture displayed  on all the screens 
-    Given User is on FX Management "<TestcaseID>" "<Description>"    
+  Scenario Outline: Validate the Name and profile picture displayed  on all the screens
+    Given User is on FX Management "<TestcaseID>" "<Description>"
     And User click on Dashboard
     And User see FX Management
     And User click on FX Management tab
@@ -28,9 +27,8 @@ Feature: User is on FX Management Page DGI Supervisor
       | TestcaseID                   | Description             | name  |
       | FX_Management_Supervisior_05 | Verify Name and profile | pooja |
 
-        
   @TC_08
-  Scenario Outline: Validate the Historical FX Rates button functionality  
+  Scenario Outline: Validate the Historical FX Rates button functionality
     Given User is on FX Management "<TestcaseID>" "<Description>"
     And User click on Dashboard
     And User click on FX Management tab
@@ -41,7 +39,6 @@ Feature: User is on FX Management Page DGI Supervisor
       | TestcaseID                   | Description                                     |
       | FX_Management_Supervisior_08 | Verify Historical FX Rates button functionality |
 
-  
   @TC_10
   Scenario Outline: Validate the from and to date search functionality on the FX management page with historic data
     Given User is on FX Management "<TestcaseID>" "<Description>"
@@ -92,44 +89,44 @@ Feature: User is on FX Management Page DGI Supervisor
       | FX_Management_Supervisior_12 | Verify previous button functionality |
 
   @TC_13
-  Scenario Outline: Validate the Target Currencies column data 
+  Scenario Outline: Validate the Target Currencies column data
     Given User is on FX Management "<TestcaseID>" "<Description>"
     And User click on Dashboard
     And User click on FX Management tab
     And User verify already added currencies "<verifyCurrency>" on FX management module
 
     Examples: 
-      | TestcaseID                   | Description                     | verifyCurrency     | 
+      | TestcaseID                   | Description                     | verifyCurrency     |
       | FX_Management_Supervisior_13 | Verify Target Currencies column | INR - Indian Rupee |
 
-
- @TC_14_15_06
-  Scenario Outline: Validate the Approved rate column data and Supervisior approve currency rate if DGI Officer has update the currency  
+  @TC_14_15_06
+  Scenario Outline: Validate the Approved rate column data and Supervisior approve currency rate if DGI Officer has update the currency
     Given User is on FX Management "<TestcaseID>" "<Description>"
-    And User click on Dashboard    
+    And User click on Dashboard
     And User click on FX Management tab
     And User enter credencial for DGI Officer and update the currency
-    #And User enter credencial for DGI Supervisior and approve the currency 
+    #And User enter credencial for DGI Supervisior and approve the currency
     And User enter credencial for DGI Supervisior and approve the currency and see mess "<mess>"
 
     Examples: 
-      | TestcaseID                         | Description                                           |mess                                             |
-      | FX_Management_Supervisior_14_15_06 | Verify Approved rate column data and approve currency |New currency rates has been approved successfully|
-      
-   @TC_06
+      | TestcaseID                         | Description                                           | mess                                              |
+      | FX_Management_Supervisior_14_15_06 | Verify Approved rate column data and approve currency | New currency rates has been approved successfully |
+
+  @TC_06
   Scenario Outline: Validate the Approve button functionality
     Given User is on FX Management "<TestcaseID>" "<Description>"
     And User click on Dashboard
     And User click on FX Management tab
-   Then User logout fx	
-   And User enter credencial for DGI Officer and update the currency
-   And User enter credencial for DGI Supervisor and verify New Updated rates notification and click on approve and verify message "<mess>"
+    Then User logout fx
+    And User enter credencial for DGI Officer and update the currency
+    And User enter credencial for DGI Supervisor and verify New Updated rates notification and click on approve and verify message "<mess>"
+
     Examples: 
       | TestcaseID                   | Description                         | mess                                              |
       | FX_Management_Supervisior_06 | Verify Approve button functionality | New currency rates has been approved successfully |
 
   @TC_07
-  Scenario Outline: Validate the Reject button functionality 
+  Scenario Outline: Validate the Reject button functionality
     Given User is on FX Management "<TestcaseID>" "<Description>"
     And User click on Dashboard
     And User click on FX Management tab
@@ -147,12 +144,10 @@ Feature: User is on FX Management Page DGI Supervisor
     And User click on FX Management tab
     Then User logout fx
     And User again log in
-   And User click on FX Management tab
+    And User click on FX Management tab
     And User Click on Historical FX Rates button
     Then User logout and verify
 
     Examples: 
       | TestcaseID                   | Description                  |
       | FX_Management_Supervisior_04 | Verify Log out functionality |
-      
-      

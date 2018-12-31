@@ -55,11 +55,19 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
+<<<<<<< HEAD
 <td>Tests passed/Failed/Skipped:</td><td>1/3/0</td>
 </tr><tr>
 <td>Started on:</td><td>Mon Dec 24 16:16:59 IST 2018</td>
 </tr>
 <tr><td>Total time:</td><td>286 seconds (286053 ms)</td>
+=======
+<td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
+</tr><tr>
+<td>Started on:</td><td>Fri Dec 28 18:36:23 IST 2018</td>
+</tr>
+<tr><td>Total time:</td><td>273 seconds (273828 ms)</td>
+>>>>>>> 9e8abdc1e63ebbda6c1d9520f09745bf9232d436
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,6 +83,7 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
+<<<<<<< HEAD
 <td title='org.drc.vat.StepDefinitions.TestRunner.feature()'><b>feature</b><br>Test class: org.drc.vat.StepDefinitions.TestRunner<br>Test method: Runs Cucumber Feature<br>Parameters: User is on Manage VAT Registration</td>
 <td><div><pre>cucumber.runtime.CucumberException: org.openqa.selenium.NoSuchSessionException: invalid session id
   (Driver info: chromedriver=2.43.600210 (68dcf5eebde37173d4027fa8635e332711d2874a),platform=Windows NT 10.0.17134 x86_64) (WARNING: The server did not provide any stacktrace information)
@@ -84,6 +93,10 @@ System info: host: &apos;CS74-PC&apos;, ip: &apos;172.16.3.111&apos;, os.name: &
 Driver info: org.openqa.selenium.chrome.ChromeDriver
 Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.43.600210 (68dcf5eebde371..., userDataDir: C:\Users\admin\AppData\Loca...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:65530}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 71.0.3578.98, webStorageEnabled: true}
 Session ID: 05dfe3ec6fa3d2434775fcd4c0ae0c67
+=======
+<td title='org.drc.vat.StepDefinitions.TestRunner.feature()'><b>feature</b><br>Test class: org.drc.vat.StepDefinitions.TestRunner<br>Test method: Runs Cucumber Feature<br>Parameters: Manual ReAssessment- Payment summary for Liability Calculation and Payment due and Raise notice</td>
+<td><div><pre>cucumber.runtime.CucumberException: java.lang.AssertionError: expected [No e-filing schedule has been uploaded] but found [File not found]
+>>>>>>> 9e8abdc1e63ebbda6c1d9520f09745bf9232d436
 	at cucumber.api.testng.TestNGCucumberRunner.runCucumber(TestNGCucumberRunner.java:69)
 	at cucumber.api.testng.AbstractTestNGCucumberTests.feature(AbstractTestNGCucumberTests.java:21)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -110,6 +123,7 @@ Session ID: 05dfe3ec6fa3d2434775fcd4c0ae0c67
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+<<<<<<< HEAD
 Caused by: org.openqa.selenium.NoSuchSessionException: invalid session id
   (Driver info: chromedriver=2.43.600210 (68dcf5eebde37173d4027fa8635e332711d2874a),platform=Windows NT 10.0.17134 x86_64) (WARNING: The server did not provide any stacktrace information)
 Command duration or timeout: 0 milliseconds
@@ -143,6 +157,19 @@ System info: host: &apos;CS74-PC&apos;, ip: &apos;172.16.3.111&apos;, os.name: &
 Driver info: org.openqa.selenium.chrome.ChromeDriver
 Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.43.600210 (68dcf5eebde371..., userDataDir: C:\Users\admin\AppData\Loca...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:65530}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 71.0.3578.98, webStorageEnabled: true}
 Session ID: 05dfe3ec6fa3d2434775fcd4c0ae0c67
+=======
+Caused by: java.lang.AssertionError: expected [No e-filing schedule has been uploaded] but found [File not found]
+	at org.testng.Assert.fail(Assert.java:94)
+	at org.testng.Assert.failNotEquals(Assert.java:513)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:135)
+	at org.testng.Assert.assertEquals(Assert.java:116)
+	at org.testng.Assert.assertEquals(Assert.java:190)
+	at org.testng.Assert.assertEquals(Assert.java:200)
+	at org.drc.vat.StepDefinitions.PaymentSummaryLiabilityCalculationPaymentDueManualReAssessment.user_click_download_button_on_Payment_Summary_page_from_ReAssessment_message_should_be_displayed_as(PaymentSummaryLiabilityCalculationPaymentDueManualReAssessment.java:90)
+	at ?.Then User click download button on Payment Summary page from ReAssessment message should be displayed as &quot;No e-filing schedule has been uploaded&quot;(features/29_PaymentSummaryLiabilityCalculationPaymentDueManualReAssessment.feature:9)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1465126864", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1465126864'><pre>cucumber.runtime.CucumberException: java.lang.AssertionError: expected [No e-filing schedule has been uploaded] but found [File not found]
+>>>>>>> 9e8abdc1e63ebbda6c1d9520f09745bf9232d436
 	at cucumber.api.testng.TestNGCucumberRunner.runCucumber(TestNGCucumberRunner.java:69)
 	at cucumber.api.testng.AbstractTestNGCucumberTests.feature(AbstractTestNGCucumberTests.java:21)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -169,6 +196,7 @@ Session ID: 05dfe3ec6fa3d2434775fcd4c0ae0c67
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+<<<<<<< HEAD
 Caused by: org.openqa.selenium.NoSuchSessionException: invalid session id
   (Driver info: chromedriver=2.43.600210 (68dcf5eebde37173d4027fa8635e332711d2874a),platform=Windows NT 10.0.17134 x86_64) (WARNING: The server did not provide any stacktrace information)
 Command duration or timeout: 0 milliseconds
@@ -509,6 +537,20 @@ Session ID: 05dfe3ec6fa3d2434775fcd4c0ae0c67
 <td></td>
 <td>183</td>
 <td>org.drc.vat.StepDefinitions.TestRunner@6acdbdf5</td></tr>
+=======
+Caused by: java.lang.AssertionError: expected [No e-filing schedule has been uploaded] but found [File not found]
+	at org.testng.Assert.fail(Assert.java:94)
+	at org.testng.Assert.failNotEquals(Assert.java:513)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:135)
+	at org.testng.Assert.assertEquals(Assert.java:116)
+	at org.testng.Assert.assertEquals(Assert.java:190)
+	at org.testng.Assert.assertEquals(Assert.java:200)
+	at org.drc.vat.StepDefinitions.PaymentSummaryLiabilityCalculationPaymentDueManualReAssessment.user_click_download_button_on_Payment_Summary_page_from_ReAssessment_message_should_be_displayed_as(PaymentSummaryLiabilityCalculationPaymentDueManualReAssessment.java:90)
+	at ?.Then User click download button on Payment Summary page from ReAssessment message should be displayed as &quot;No e-filing schedule has been uploaded&quot;(features/29_PaymentSummaryLiabilityCalculationPaymentDueManualReAssessment.feature:9)
+</pre></div></td>
+<td>273</td>
+<td>org.drc.vat.StepDefinitions.TestRunner@1877ab81</td></tr>
+>>>>>>> 9e8abdc1e63ebbda6c1d9520f09745bf9232d436
 </table><p>
 </body>
 </html>

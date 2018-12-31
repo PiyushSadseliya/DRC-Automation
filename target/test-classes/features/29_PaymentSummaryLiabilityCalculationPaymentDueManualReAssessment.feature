@@ -2,18 +2,18 @@
 Feature: Manual ReAssessment- Payment summary for Liability Calculation and Payment due and Raise notice
 
   @tc3419 @555
-  Scenario Outline: Validate the download functionality of e-filing schedule Button when e-file schedule file is not uploaded by tax payer from tax payer portal from internal portal reassessment
+  Scenario Outline: Validate the download functionality of e-filing schedule Button when e-file schedule file is not uploaded by from internal portal from reassessment
     Given The user has done the filing for the particular month
     When the assessemnt officer does the Reassessment for that particular month with "no" Updation for period"<period>"year"<year>"tpayer"<tpayer>"
     Then the officer is on the Payment Summary page for Liabilty Calculation and Payment Due for ReAssessment for period"<period>"year"<year>"tpayer"<tpayer>"
     Then User click download button on Payment Summary page from ReAssessment message should be displayed as "No e-filing schedule has been uploaded"
 
     Examples: 
-      | Test Case ID            | Description                                                                                                                                   | uname            | password | period   | year | msg                | penamt | efiledamount | NITVA             | nif       | nvat | tpayer   |
-      | DRC_ATC_ReAssessment_01 | Validate the download functionality of  e-filing schedule Button when e-file schedule file is not uploaded by tax payer from tax payer portal | laxman.prajapati | admin    | November | 2018 | Saved Successfully | 500000 |          800 | 20181127030648745 | TestRefac | nvat | Test Ref |
+      | Test Case ID            | Description                                                                                                                                   | uname            | password | period   | year | msg                | penamt | efiledamount | NITVA             | nif       | nvat | tpayer        |
+      | DRC_ATC_ReAssessment_01 | Validate the download functionality of  e-filing schedule Button when e-file schedule file is not uploaded by tax payer from tax payer portal | laxman.prajapati | admin    | December | 2018 | Saved Successfully | 500000 |          800 | 20181127030648745 | TestRefac | nvat | Approved User |
 
   @345678212324 @555
-  Scenario Outline: Validate the Save,Previous button,Total Tiles,Additionality Liability column for No updation in manual assessment when efiling and pymt not done from internal portal reassessment
+  Scenario Outline: Validate the Save,Previous button,Total Tiles,Additionality Liability column for No updation in manual assessment when efiling and pymt not done from reassessment
     Given The user has done the filing for the particular month
     When the assessemnt officer does the Reassessment for that particular month with "no" Updation for period"<period>"year"<year>"tpayer"<tpayer>"
     Then the officer is on the Payment Summary page for Liabilty Calculation and Payment Due for ReAssessment for period"<period>"year"<year>"tpayer"<tpayer>"
@@ -28,11 +28,11 @@ Feature: Manual ReAssessment- Payment summary for Liability Calculation and Paym
     Then Calculates the Net Payable column of Paymnent Due table for ReAssessment
 
     Examples: 
-      | Test Case ID            | Description                                                                                          | uname            | password | period   | year | msg                | penamt | efiledamount | NITVA             | nif       | msg                | tpayer   |
-      | DRC_ATC_ReAssessment_03 | Validate the Save,Previous button,prev button,next button Total Tiles,Additionality Liability column | laxman.prajapati | admin    | November | 2018 | Saved Successfully | 500000 |       800,00 | 20181127030648745 | TestRefac | Saved Successfully | Test Ref |
+      | Test Case ID            | Description                                                                                          | uname            | password | period   | year | msg                | penamt | efiledamount | NITVA             | nif       | msg                | tpayer        |
+      | DRC_ATC_ReAssessment_03 | Validate the Save,Previous button,prev button,next button Total Tiles,Additionality Liability column | laxman.prajapati | admin    | December | 2018 | Saved Successfully | 500000 |       800,00 | 20181127030648745 | TestRefac | Saved Successfully | Approved User |
 
   @tc342022 @555
-  Scenario Outline: Validate the prev button,next button for no updation in manual assessment when efiling and pymt not done from internal portal reassessment
+  Scenario Outline: Validate the prev button,next button for no updation in manual assessment when efiling and pymt not done from  reassessment
     Given The user has done the filing for the particular month
     When the assessemnt officer does the Reassessment for that particular month with "no" Updation for period"<period>"year"<year>"tpayer"<tpayer>"
     Then the officer is on the Payment Summary page for Liabilty Calculation and Payment Due for ReAssessment for period"<period>"year"<year>"tpayer"<tpayer>"
@@ -40,16 +40,17 @@ Feature: Manual ReAssessment- Payment summary for Liability Calculation and Paym
     Then user click on Next button on ReAsssessmnet Summary Tab and it should be on Payment Summary tab
 
     Examples: 
-      | Test Case ID            | Description                                                                                              | uname            | password | period   | year | penamt | efiledamount | NITVA             | nif       | tpayer   |
-      | DRC_ATC_ReAssessment_04 | Validate the prev button,next button for no updation in manual assessment when efiling and pymt not done | laxman.prajapati | admin    | November | 2018 | 500000 |       800,00 | 20181127030648745 | TestRefac | Test Ref |
+      | Test Case ID            | Description                                                                                              | uname            | password | period   | year | penamt | efiledamount | NITVA             | nif       | tpayer        |
+      | DRC_ATC_ReAssessment_04 | Validate the prev button,next button for no updation in manual assessment when efiling and pymt not done | laxman.prajapati | admin    | December | 2018 | 500000 |       800,00 | 20181127030648745 | TestRefac | Approved User |
 
   @ReAssessmentRaiseNotice @234525
-  Scenario Outline: Validate the tax assessment officer is able to raise notice for a particular period for no updation in manual assessment when efiling and pymt not done from internal portal
+  Scenario Outline: Validate the tax assessment officer is able to raise notice for a particular period for no updation in manual assessment when efiling and pymt not done
     Given The user has done the filing for the particular month
     When the assessemnt officer does the Reassessment for that particular month with "no" Updation for period"<period>"year"<year>"tpayer"<tpayer>"
     Then the officer is on the Payment Summary page for Liabilty Calculation and Payment Due for ReAssessment for period"<period>"year"<year>"tpayer"<tpayer>"
     Then user click Raise Notice button on Payment Summary page from ReAssessment module and Notice is generated as per the Liability Calculation Table and Payment Due Table
+    Then After raise notice the records status is changed to "Re-Assessed" for period"<period>"year"<year>"tpayer"<tpayer>"
 
     Examples: 
-      | Test Case ID            | Description                                                                                                                                             | uname            | password | period   | year | msg                | penamt | efiledamount | NITVA             | nif       | nvat | tpayer   |
-      | DRC_ATC_ReAssessment_02 | Validate the tax assessment officer is able to raise notice for a particular period for no updation in manual assessment when efiling and pymt not done | ritesh.prajapati | admin    | November | 2018 | Saved Successfully | 500000 |       800,00 | 20181127030648745 | TestRefac | nvat | Test Ref |
+      | Test Case ID            | Description                                                                                                                                             | uname            | password | period   | year | msg                | penamt | efiledamount | NITVA             | nif       | nvat | tpayer        |
+      | DRC_ATC_ReAssessment_02 | Validate the tax assessment officer is able to raise notice for a particular period for no updation in manual assessment when efiling and pymt not done | ritesh.prajapati | admin    | December | 2018 | Saved Successfully | 500000 |       800,00 | 20181127030648745 | TestRefac | nvat | Approved User |
