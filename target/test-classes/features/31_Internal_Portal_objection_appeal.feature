@@ -11,7 +11,7 @@ Feature: User is on internal Portal for objection and appeal
       | TestcaseID   | Description                            | filter       | CaseType               | QaResult             |
       | CaseType_3_1 | Verify date filteration functionalityt | drp_CaseType | drp_ObjectionAndAppeal | Objection and appeal |
       | CaseType_3_2 | Verify date filteration functionalityt | drp_CaseType | drp_Debt               | Debt Collection      |
-      #    | CaseType_3_3 | Verify date filteration functionalityt | drp_CaseType | drp_PA                 | Payment Agreement    |
+ #    | CaseType_3_3 | Verify date filteration functionalityt | drp_CaseType | drp_PA                 | Payment Agreement    |
       | CaseType_3_4 | Verify date filteration functionalityt | drp_CaseType | drp_Audit              | Audit                |
 
   @TC_03_Status

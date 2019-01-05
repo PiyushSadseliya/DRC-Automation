@@ -30,21 +30,21 @@ import static org.drc.vat.appmanager.HelperBase.assessmentOfficer;
 import static org.drc.vat.appmanager.HelperBase.sleepWait;
 
 
-@CucumberOptions(features = {"classpath:features/25_06_DV_2880_Tax_Deductable_Ass_and_Reass_Adjustement_Assessed_List.feature"},
+@CucumberOptions(features = {"classpath:features/29_PaymentSummaryLiabilityCalculationPaymentDueManualReAssessment.feature"},
+						
 
 
 
-
-/*@CucumberOptions(features = {"classpath:features/16_01_DV_2882_Manual_Assessed_LandingScreen.feature",
-							"classpath:features/17_03_DV_2881_OP_TD_Ad_with_Ass_and_Reass.feature",
-							"classpath:features/18_05_DV_2880_Tax_Deductable_Ass_and_Reass_Adjustement.feature",
-							"classpath:features/19_07_DV_2879_ManAssess_AsseList_Adjustement.feature",
-							"classpath:features/20_09_DV_2878_Assessment_Summary_Manual.feature",
-							"classpath:features/22_PaymentSummaryLiabilityCalculationPaymentDueManualAssessment.feature"},
+/*@CucumberOptions(features = {"classpath:features/23_02_DV_2882_Assessed_List.feature",
+							"classpath:features/24_04_DV_2881_OP_TD_Ad_with_Ass_and_Reass_AssessedList.feature",
+							"classpath:features/25_06_DV_2880_Tax_Deductable_Ass_and_Reass_Adjustement_Assessed_List.feature",
+							"classpath:features/26_08_DV_2879_Assessed.feature",
+							"classpath:features/27_10_DV_2878_Assessment_Summary_Assessed.feature",
+							"classpath:features/29_PaymentSummaryLiabilityCalculationPaymentDueManualReAssessment.feature"},
 */
 glue = "org.drc.vat.StepDefinitions",
 plugin = {"com.cucumber.listener.ExtentCucumberFormatter:","html:test-output/cucumber-report"}
-//,tags= {"@TC_05_06_07_AssessedList_2880"}
+//,tags= {"@345678212324_555_AssessedList_2875_2877"}
 		)
 
 

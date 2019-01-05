@@ -56,7 +56,7 @@ public class DV_2876_manual_EFD_All
 
 	@And("^User calculate Total Gross Amount on Delivery of Goods$")
 	public void user_calculate_Total_Gross_Amount_on_Delivery_of_Goods() throws Throwable 
-	{
+	{ 
 		Thread.sleep(500);
 		double sum = 0.0f;
 		List<WebElement> elementName =  wd.findElements(By.xpath("//tr/td[10]/div"));

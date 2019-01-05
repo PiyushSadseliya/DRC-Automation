@@ -24,6 +24,7 @@ public class DV_2882_Manual_Assessed_LandingScreen
 	public void user_click_on_Dashboard() throws Throwable 
 	{
 		clickOn("txt_dashboard", "");
+		sleepWait(200);
 	}
 
 
@@ -108,7 +109,7 @@ public class DV_2882_Manual_Assessed_LandingScreen
 		Thread.sleep(1000);
 		clickOn("drp_year", "");
 		Thread.sleep(500);
-		clickOn(year, "");
+		clickOn(year, ""); 
 	}
 
 	@And("^User click on FilterBy \"([^\"]*)\"$")

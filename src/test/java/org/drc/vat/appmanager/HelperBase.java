@@ -56,9 +56,13 @@ public class HelperBase {
 	static int i=0;
 	public static int no_window;
 	public static Boolean login=true;
-	public static String[] monthName = { "January", "February", "March", "April", "May", "June", "July",
-			"August", "September", "October", "November", "December" };
-
+	public static String[] monthName = 
+		{ "January", "February", "March", "April", "May", "June", "July",
+		  "August", "September", "October", "November", "December" };
+	
+	public static String[] yearName = {"2019","2018","2017"};			
+	
+	
 	public static SoftAssert softAssert = new SoftAssert();
 
 
@@ -644,11 +648,17 @@ public class HelperBase {
 		try
 		{
 			String d,m,y;
-			d=date.substring(8,10);;
+			d=date.substring(8,10);
 			m=date.substring(5,7);
 			y=date.substring(0,4);
-			clickOn("span","[contains(text(),'2018')]");
-			clickOn("span","[contains(text(),'" +y+"')]");
+			clickOn("span","[contains(text(),'2019')]");
+			//clickOn("span","[contains(text(),'" +y+"')]");			
+			
+			
+			wd.findElement(By.xpath("(//span[contains(text(),'" +y + "')])[2]")).click();
+			
+			
+					
 			//clickOn("span","[contains(text(),'June')]");
 			sleepWait(2000);
 			if(m.equals("01"))

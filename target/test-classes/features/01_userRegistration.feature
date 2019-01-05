@@ -9,11 +9,12 @@ Feature: User Registration for the steps involved in creating a user account for
     And Update data in roles table
 
     Examples: 
-      | Test Case ID                  | Description              | username      |
-      | DRC_ATC_Valid_Registration_01 | Register with valid data | Approvedd User |
-      | DRC_ATC_Valid_Registration_02 | Register with valid data | OnHoldedd User |
-      | DRC_ATC_Valid_Registration_03 | Register with valid data | Rejectedd User |
-     # | DRC_ATC_Valid_Registration_04 | Register with valid data | Rejected User |
+       | Test Case ID                  | Description              | username       |
+       | DRC_ATC_Valid_Registration_01 | Register with valid data | AutoTest Reass |
+ #     | DRC_ATC_Valid_Registration_01 | Register with valid data | Approvedd User |
+ #     | DRC_ATC_Valid_Registration_02 | Register with valid data | OnHoldedd User |
+ #     | DRC_ATC_Valid_Registration_03 | Register with valid data | Rejectedd User |
+ #     | DRC_ATC_Valid_Registration_04 | Register with valid data | Rejected User |
 
   #| DRC_ATC_Valid_Registration_01 | Register with valid data | Rejecteud User |
   @Invalid_Registration @mtc3 @mtc4 @mtc5 @mtc6 @mtc8 @mtc9
@@ -29,7 +30,7 @@ Feature: User Registration for the steps involved in creating a user account for
     Examples: 
       | Test Case ID                    | Description                                         | Name                                                                                                                                                                     | Email                                                                                                                                                   | Password   | Confirm Password | Mobile Number               | Validation Messages                           |
       | DRC_ATC_Invalid_Registration_01 | Full name field is blank                            |                                                                                                                                                                          | abhi@o3enzyme.com                                                                                                                                       | abq@12345  | abq@12345        |               8989898989898 | Full Name is required                         |
-      #| DRC_ATC_Invalid_Registration_02 | Full Name field length greater than size limit(fileds is trimmied) | GaVEkuggQyLviyqmHBwSxFRMvcCyCnxeYzsVrkrXVDblclicks o oJVlnRyjxnEaanGJuKIDVmGbmQllVNgmExbvkcwPwJGuqvJZJARfsJPNWLzHMudpfJChTSfKZiHjwzbkbuMuzfWgjWstKOWeEAqXzLwdIwzBYjYxnefAddkIxsNNmPZaxNKMxvEmhPMPrHHexwdSpzLoYuid | abhi@o3enzyme.com                                                                                                                                       | abq@12345             | abq@12345             |               8989898989898 |                                               |
+     #| DRC_ATC_Invalid_Registration_02 | Full Name field length greater than size limit(fileds is trimmied) | GaVEkuggQyLviyqmHBwSxFRMvcCyCnxeYzsVrkrXVDblclicks o oJVlnRyjxnEaanGJuKIDVmGbmQllVNgmExbvkcwPwJGuqvJZJARfsJPNWLzHMudpfJChTSfKZiHjwzbkbuMuzfWgjWstKOWeEAqXzLwdIwzBYjYxnefAddkIxsNNmPZaxNKMxvEmhPMPrHHexwdSpzLoYuid | abhi@o3enzyme.com                                                                                                                                       | abq@12345             | abq@12345             |               8989898989898 |                                               |
       | DRC_ATC_Invalid_Registration_03 | Full Name field with special characters and spaces  | sdfhsdhfh@34343545dsfsdfsdfsdfsdfsdfsdfuzfWgjWstKOWeEAqXzLwdIwz                                            BYjYxnefAddkIxsNNmPZaxNKMxvEmhPMPrHHexwdSpzLoYuidVlPJhxTffNnh | abhi@o3enzyme.com                                                                                                                                       | abq@12345  | abq@12345        |               8989898989898 | Enter valid Full Name                         |
       | DRC_ATC_Invalid_Registration_04 | Full name field with minimum characters             | A a                                                                                                                                                                      | abhi@o3enzyme.com                                                                                                                                       | abq@12345  | abq@12345        |               8989898989898 | Enter valid Full Name                         |
       | DRC_ATC_Invalid_Registration_05 | Email field is empty                                | Abhi Jo                                                                                                                                                                  |                                                                                                                                                         | abq@12345  | abq@12345        |               8989898989898 | Email is required                             |

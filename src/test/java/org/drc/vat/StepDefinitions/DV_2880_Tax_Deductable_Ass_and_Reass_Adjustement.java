@@ -527,7 +527,7 @@ public class DV_2880_Tax_Deductable_Ass_and_Reass_Adjustement
 	{
 		sleepWait(1000);
 		clickOn("btn_NEXT", "");
-		sleepWait(500);		
+		sleepWait(1000);		
 		if(wd.findElement(By.xpath(obj.getProperty("txt_Adjustement_check"))).isDisplayed());
 		 {
 			 assertTrue(true);

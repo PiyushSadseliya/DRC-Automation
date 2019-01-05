@@ -27,9 +27,9 @@ public class DV_2880_Tax_Deductable_Ass_and_Reass_Adjustement_Assessed_List
 	@And("^User click on drop down \"([^\"]*)\" for Assessed List$")
 	public void user_click_on_drop_down_for_Assessed_List(String period) throws Throwable 
 	{
-	  Thread.sleep(1000);
+	  sleepWait(2000);
 	  clickOn("drp_month", "");
-	  Thread.sleep(500);
+	  sleepWait(500);
 	  clickOn(period, "");
 	    
 	}
@@ -37,11 +37,11 @@ public class DV_2880_Tax_Deductable_Ass_and_Reass_Adjustement_Assessed_List
 	@And("^User click on manage and click on Reassess$")
 	public void user_click_on_manage_and_click_on_Reassess() throws Throwable 
 	{	
-		Thread.sleep(500);  
+		sleepWait(500);  
 		clickOn("drp_AssestManage", "");
-		Thread.sleep(500);
+		sleepWait(500);
 		clickOn("drp_ReAssess", "");
-		Thread.sleep(1000);
+		sleepWait(1000);
 	}
 
 	@And("^User entered value \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" on Assessed List Tax Deductible and calculate Total Reassessed amount$")
@@ -69,7 +69,7 @@ public class DV_2880_Tax_Deductable_Ass_and_Reass_Adjustement_Assessed_List
 		Store_TA_AVD = TA_AVD;*/
 		
 				 
-		Thread.sleep(500);		
+		sleepWait(500);		
 		String Total_Assessed = elementText("txt_TotalAssessed");		 
 		String Remov_FC = Total_Assessed.replaceAll("[A-Z]", "");	
 	    String Remove_FC = Remov_FC.replace("." ,"");	
@@ -92,9 +92,9 @@ public class DV_2880_Tax_Deductable_Ass_and_Reass_Adjustement_Assessed_List
 	@And("^User click on next button and validate Total Reassessed$")
 	public void user_click_on_next_button_and_validate_Total_Reassessed() throws Throwable 
 	{
-		Thread.sleep(1000);
+		sleepWait(1000);
 		clickOn("btn_NEXT", "");
-		Thread.sleep(3000);
+		sleepWait(3000);
 		
 	//	String TotalReassessed_Check= getValue("txt_Total_Reassessed");
 		
@@ -188,9 +188,9 @@ public class DV_2880_Tax_Deductable_Ass_and_Reass_Adjustement_Assessed_List
 	@And("^User click on next button and navigate to Adjustment tab$")
 	public void user_click_on_next_button_and_navigate_to_Adjustment_tab() throws Throwable 
 	{
-		Thread.sleep(1000);
+		sleepWait(1000);
 		clickOn("btn_NEXT", "");
-		Thread.sleep(500);
+		sleepWait(500);
 		if(wd.findElement(By.xpath(obj.getProperty("txt_checkAdjustement_page"))).isDisplayed());
 		{
 		  assertTrue(true);
@@ -200,7 +200,7 @@ public class DV_2880_Tax_Deductable_Ass_and_Reass_Adjustement_Assessed_List
 	@And("^User see Reassessment Adjustmen and see all field are editable$")
 	public void user_see_Reassessment_Adjustmen_and_see_all_field_are_editable() throws Throwable 
 	{
-		Thread.sleep(500);
+		sleepWait(500);
 		 if(wd.findElement(By.xpath(obj.getProperty("txtReassessmentAdjustement"))).isDisplayed());
 		 {
 			 assertTrue(true);
@@ -238,7 +238,7 @@ public class DV_2880_Tax_Deductable_Ass_and_Reass_Adjustement_Assessed_List
 	public void user_click_on_view_icon_on_transaction_received_and_navigate_to_Assessed_List_Total_Deduction_page() throws Throwable 
 	{
 	  clickOn("btn_eye_Transaction_received", "");
-	  Thread.sleep(500);
+	  sleepWait(500);
 	  if(wd.findElement(By.xpath(obj.getProperty("txt_Total_Deduction_page"))).isDisplayed());
 		 {
 			 assertTrue(true);
@@ -249,13 +249,17 @@ public class DV_2880_Tax_Deductable_Ass_and_Reass_Adjustement_Assessed_List
 	@And("^User click on previous button on Assessed List$")
 	public void user_click_on_previous_button_on_Assessed_List() throws Throwable
 	{
+		sleepWait(1000);
 	  clickOn("btn_Previous_M", "");
+	  sleepWait(1000);
 	    
 	}
 
 	@And("^User Validate the amount in Total of Difference field$")
 	public void user_Validate_the_amount_in_Total_of_Difference_field() throws Throwable 
 	{
+		
+		sleepWait(1000);
 		String e_dec_total = elementText("txt_e_Dec_TD_Total_FC");		 
 		String Remov_FC = e_dec_total.replaceAll("[A-Z]", "");	
 	    String Remove_FC = Remov_FC.replace("." ,"");	
@@ -308,7 +312,7 @@ public class DV_2880_Tax_Deductable_Ass_and_Reass_Adjustement_Assessed_List
 	public void user_click_on_e_Filing_Scedule_on_Assessed_List_and_validate() throws Throwable 
 	{
 		clickOn("btn_eFile_Schedule", "");
-		Thread.sleep(1000);
+		sleepWait(1000);
 		verifyDownload("Schedule");
 	    
 	}
@@ -318,16 +322,16 @@ public class DV_2880_Tax_Deductable_Ass_and_Reass_Adjustement_Assessed_List
 	{
 		clickOn("btn_TransactionReceived", "");
 		verifyDownload("TransactionReceived");
-		
+		sleepWait(1000);
 	    
 	}
 
 	@And("^User click on e-Filing Scedule when file is not upload by tax payer and user see \"([^\"]*)\" on Assessed List$")
 	public void user_click_on_e_Filing_Scedule_when_file_is_not_upload_by_tax_payer_and_user_see_on_Assessed_List(String mess) throws Throwable 
 	{
-		Thread.sleep(1000);
+		sleepWait(1000);
 		clickOn("btn_eFile_Schedule", "");
-		Thread.sleep(300);
+		sleepWait(300);
 		if(wd.findElement(By.xpath("//div[contains(text(),'" + mess + "')]")).isDisplayed() )
 		{					
 			assertTrue(true);
@@ -338,9 +342,9 @@ public class DV_2880_Tax_Deductable_Ass_and_Reass_Adjustement_Assessed_List
 	@And("^User click on Previous button and navigate to Assessed List Page$")
 	public void user_click_on_Previous_button_and_navigate_to_Assessed_List_Page() throws Throwable
 	{
-	  Thread.sleep(1000);
+	  sleepWait(1000);
 	  clickOn("btn_Prev_m", "");
-	  Thread.sleep(500);
+	  sleepWait(500);
 	  if(wd.findElement(By.xpath(obj.getProperty("txt_check_Landing_Man"))).isDisplayed());
 	  {
 			 assertTrue(true);
@@ -351,7 +355,7 @@ public class DV_2880_Tax_Deductable_Ass_and_Reass_Adjustement_Assessed_List
 	@And("^User Check the amount displayed in Total Assessed tile and Total Reassessed tile on assessement list$")
 	public void user_Check_the_amount_displayed_in_Total_Assessed_tile_and_Total_Reassessed_tile_on_assessement_list() throws Throwable 
 	{
-		Thread.sleep(500);		
+		sleepWait(500);		
 		String Total_Assessed = elementText("txt_TotalAssessed");		 
 		String Remov_FC = Total_Assessed.replaceAll("[A-Z]", "");	
 	    String Remove_FC = Remov_FC.replace("." ,"");	
@@ -378,7 +382,7 @@ public class DV_2880_Tax_Deductable_Ass_and_Reass_Adjustement_Assessed_List
 	public void user_Check_the_amount_displayed_in_Total_Assessed_tile_and_Total_Reassessed_tile() throws Throwable 
 	{
 		 
-		Thread.sleep(500);		
+		sleepWait(500);		
 		String Total_Assessed = elementText("txt_TotalAssessed");		 
 		String Remov_FC = Total_Assessed.replaceAll("[A-Z]", "");	
 	    String Remove_FC = Remov_FC.replace("." ,"");	

@@ -55,6 +55,6 @@ Feature: Manual Assessment- Payment summary for Liability Calculation and Paymen
     Then user clicks on Raise notice button and Notice is generated as per the Liability Calculation Table and Payment Due Table
 
     Examples: 
-      | Test Case ID          | Description                                                                                                                                             | uname            | password | period   | year | penamt | efiledamount | NITVA | tpayer        |
+      | Test Case ID          | Description                                                                                                                                             | uname            | password | period   | year | penamt | efiledamount | NITVA | tpayer     |
       | DRC_ATC_Assessment_04 | Validate the tax assessment officer is able to raise notice for a particular period for no updation in manual assessment when efiling and pymt not done | laxman.prajapati | admin    | January  | 2018 | 500000 |         0,00 |       | Arun111223 |
 			| DRC_ATC_Assessment_05 | Validate the tax assessment officer is able to raise notice for a particular period for no updation in manual assessment when efiling and pymt not done | laxman.prajapati | admin    | March    | 2018 | 500000 |         0,00 |       | Arun111223 |

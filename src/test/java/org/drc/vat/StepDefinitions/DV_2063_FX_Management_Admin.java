@@ -21,7 +21,7 @@ public class DV_2063_FX_Management_Admin
 			assertTrue(true);
 		}
 	}
-	
+
 	
 	@And("^User click on currency and select \"([^\"]*)\"$")
 	public void user_click_on_currency_and_select(String value) throws Throwable 
