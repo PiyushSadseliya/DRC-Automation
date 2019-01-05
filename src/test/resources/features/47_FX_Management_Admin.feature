@@ -76,7 +76,7 @@ Feature: User is on FX Management Page DGI Admin
       | TestcaseID                | Description                  | SelectOption       | SelectOption1      | mess                            | messRemoved                   |
       | FX_Management_Admin_06_07 | Verify Log out functionality | txt_AddNewCurrency | txt_RemoveCurrency | New currency added successfully | Currency removed successfully |
 
-   @TC_13
+  @TC_13
   Scenario Outline: Validate the Historical FX Rates button functionality
     Given User is on FX Management "<TestcaseID>" "<Description>"
     And User click on Dashboard
@@ -161,7 +161,7 @@ Feature: User is on FX Management Page DGI Admin
     Examples: 
       | TestcaseID                | Description                | mess                                              |
       | FX_Management_Admin_19_20 | Verify New conversion rate | New currency rates has been approved successfully |
- 
+
   @TC_12_04
   Scenario Outline: Validate the Reject button and logout functionality
     Given User is on FX Management "<TestcaseID>" "<Description>"
@@ -202,18 +202,6 @@ Feature: User is on FX Management Page DGI Admin
     Examples: 
       | TestcaseID             | Description                                        | data | mess                                  |
       | FX_Management_Admin_09 | Verify Update currency functionality functionality |   50 | FX currency rate updated successfully |
-
-#  @TC_04
-#  Scenario Outline: Validate the log out functionality  on FX Management landing and Historical FX Rates page
-#    Given User is on FX Management "<TestcaseID>" "<Description>"
-#    And User click on Dashboard
-#    And User click on FX Management tab
-#    Then User logout fx
-#    And User again log in
-#    And User click on FX Management tab
-#    And User Click on Historical FX Rates button
-#   Then User logout and verify
-
 #    Examples: 
 #      | TestcaseID             | Description                  |
 #      | FX_Management_Admin_04 | Verify Log out functionality |

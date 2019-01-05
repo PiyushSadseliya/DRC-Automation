@@ -18,7 +18,7 @@ Feature: Upload Documents after all process are completed till the Banks details
     Then Clicks on Continue.
 
     Examples: 
-      | Test Case ID                  | Description                                                                                                              | POA         | POA path    | A/C Proof | a/c path    | LOAuth    | LOAuthpath  | Revenue   | Revpath     | uname                    | pwd    |
+      | Test Case ID                  | Description                                                                                                              | POA         | POA path    | A/C Proof | a/c path    | LOAuth    | LOAuthpath  | Revenue   | Revpath     | uname                        | pwd    |
       | DRC_ATC_Valid_Required_doc_01 | Tax payer Category as  Natural Person and  Tax payer Sub Category as Individual user wants to upload the document (.png) | doc_desc1_1 | Capture.png | doc_desc3 | Capture.png | doc_desc5 | Capture.png | doc_desc4 | Capture.png | approvedduser@mailinator.com | 123456 |
 
   #  | DRC_ATC_Valid_Required_doc_02 | Tax payer Category as  Natural Person and  Tax payer Sub Category as Individual user wants to upload the document (.jpg)  | doc_desc1_1 | capture.jpg  | doc_desc3 | capture.jpg  | doc_desc5 | capture.jpg  | doc_desc4 | capture.jpg  | approvedduser@mailinator.com  | Test@123 |
@@ -49,7 +49,7 @@ Feature: Upload Documents after all process are completed till the Banks details
     Then Clicks on Continue.
 
     Examples: 
-      | Test Case ID            | Description                                                                                                            | POA        | POA path     | A/C Proof  | a/c path     | INCcerti   | incpath      | LOAuth     | LOAuthpath   | Establish  | Estbpath     | Revenue    | Revpath      | uname                    | pwd      |
+      | Test Case ID            | Description                                                                                                            | POA        | POA path     | A/C Proof  | a/c path     | INCcerti   | incpath      | LOAuth     | LOAuthpath   | Establish  | Estbpath     | Revenue    | Revpath      | uname                        | pwd      |
       # | DRC_ATC_Required_doc_09 | Tax payer Category as Legal Entity and  Tax payer Sub Category as Governement Entity user wants to upload the document | doc_desc23 | Capture.png  | doc_desc25 | Capture.PNG  | doc_desc22 | Capture.PNG  | doc_desc27 | Capture.PNG  | doc_desc21 | Capture.PNG  | doc_desc26 | Capture.PNG  | approvedduser@mailinator.com  | Test@123 |
       #| DRC_ATC_Required_doc_10 | Tax payer Category as Legal Entity and  Tax payer Sub Category as Governement Entity user wants to upload the document | doc_desc23 | capture.jpg  | doc_desc25 | capture.jpg  | doc_desc22 | capture.jpg  | doc_desc27 | capture.jpg  | doc_desc21 | capture.jpg  | doc_desc26 | capture.jpg  | approvedduser@mailinator.com  | Test@123 |
       | DRC_ATC_Required_doc_11 | Tax payer Category as Legal Entity and  Tax payer Sub Category as Governement Entity user wants to upload the document | doc_desc23 | capture.jpeg | doc_desc25 | capture.jpeg | doc_desc22 | capture.jpeg | doc_desc27 | capture.jpeg | doc_desc21 | capture.jpeg | doc_desc26 | capture.jpeg | approvedduser@mailinator.com | Test@123 |
@@ -77,7 +77,7 @@ Feature: Upload Documents after all process are completed till the Banks details
     Then Clicks on Continue.
 
     Examples: 
-      | Test Case ID            | Description                                                                                                                       | POA       | POA path     | A/C Proof | a/c path     | INCcerti  | incpath      | LOAuth     | LOAuthpath   | LLP        | llpPath      | Revenue    | Revpath      | uname                    | pwd      |
+      | Test Case ID            | Description                                                                                                                       | POA       | POA path     | A/C Proof | a/c path     | INCcerti  | incpath      | LOAuth     | LOAuthpath   | LLP        | llpPath      | Revenue    | Revpath      | uname                        | pwd      |
       #| DRC_ATC_Required_doc_16 | Tax payer Category as Legal Entity and  Tax payer Sub Category as Incorporated Body and is  LLP user wants to upload the document | doc_desc7 | capture.png  | doc_desc9 | capture.png  | doc_desc6 | capture.png  | doc_desc11 | capture.png  | doc_desc12 | capture.png  | doc_desc10 | capture.png  | approvedduser@mailinator.com  | Test@123 |
       # | DRC_ATC_Required_doc_17 | Tax payer Category as Legal Entity and  Tax payer Sub Category as Incorporated Body and is  LLP user wants to upload the document | doc_desc7 | capture.jpg  | doc_desc9 | capture.jpg  | doc_desc6 | capture.jpg  | doc_desc11 | capture.jpg  | doc_desc12 | capture.jpg  | doc_desc10 | capture.jpg  | approvedduser@mailinator.com  | Test@123 |
       # | DRC_ATC_Required_doc_18 | Tax payer Category as Legal Entity and  Tax payer Sub Category as Incorporated Body and is  LLP user wants to upload the document | doc_desc7 | capture.jpeg | doc_desc9 | capture.jpeg | doc_desc6 | capture.jpeg | doc_desc11 | capture.jpeg | doc_desc12 | capture.jpeg | doc_desc10 | capture.jpeg | approvedduser@mailinator.com  | Test@123 |
@@ -105,7 +105,7 @@ Feature: Upload Documents after all process are completed till the Banks details
     Then Clicks on Continue.
 
     Examples: 
-      | Test Case ID            | Description                                                                                                                          | POA       | POA path     | A/C Proof | a/c path     | INCcerti  | incpath      | LOAuth     | LOAuthpath   | Revenue    | Revpath      | uname                    | pwd      |
+      | Test Case ID            | Description                                                                                                                          | POA       | POA path     | A/C Proof | a/c path     | INCcerti  | incpath      | LOAuth     | LOAuthpath   | Revenue    | Revpath      | uname                        | pwd      |
       #| DRC_ATC_Required_doc_23 | Tax payer Category as Legal Entity and  Tax payer Sub Category as Incorporated Body and is not LLP user wants to upload the document | doc_desc7 | capture.png  | doc_desc9 | capture.png  | doc_desc6 | capture.png  | doc_desc11 | capture.png  | doc_desc10 | capture.png  | approvedduser@mailinator.com  | Test@123 |
       #    | DRC_ATC_Required_doc_24 | Tax payer Category as Legal Entity and  Tax payer Sub Category as Incorporated Body and is not LLP user wants to upload the document | doc_desc7 | capture.jpg  | doc_desc9 | capture.jpg  | doc_desc6 | capture.jpg  | doc_desc11 | capture.jpg  | doc_desc10 | capture.jpg  | approvedduser@mailinator.com  | Test@123 |
       | DRC_ATC_Required_doc_25 | Tax payer Category as Legal Entity and  Tax payer Sub Category as Incorporated Body and is not LLP user wants to upload the document | doc_desc7 | capture.jpeg | doc_desc9 | capture.jpeg | doc_desc6 | capture.jpeg | doc_desc11 | capture.jpeg | doc_desc10 | capture.jpeg | approvedduser@mailinator.com | Test@123 |
@@ -135,7 +135,7 @@ Feature: Upload Documents after all process are completed till the Banks details
     Then Clicks on Continue.
 
     Examples: 
-      | Test Case ID            | Description                                                                                                                         | POA        | POA path    | A/C Proof  | a/c path    | INCcerti   | incpath     | LOAuth     | LOAuthpath  | AssoReg    | Assoregpath | LLP        | llpPath     | Revenue    | Revpath     | uname                    | pwd      |
+      | Test Case ID            | Description                                                                                                                         | POA        | POA path    | A/C Proof  | a/c path    | INCcerti   | incpath     | LOAuth     | LOAuthpath  | AssoReg    | Assoregpath | LLP        | llpPath     | Revenue    | Revpath     | uname                        | pwd      |
       | DRC_ATC_Required_doc_30 | Tax payer Category as Legal Entity and  Tax payer Sub Category as Other Non Corporates and is LLP user wants to upload the document | doc_desc14 | capture.png | doc_desc16 | capture.png | doc_desc13 | capture.png | doc_desc18 | capture.png | doc_desc19 | capture.png | doc_desc20 | capture.png | doc_desc17 | capture.png | approvedduser@mailinator.com | Test@123 |
 
   #  | DRC_ATC_Required_doc_31 | Tax payer Category as Legal Entity and  Tax payer Sub Category as Other Non Corporates and is LLP user wants to upload the document | doc_desc14 | capture.jpg  | doc_desc16 | capture.jpg  | doc_desc13 | capture.jpg  | doc_desc18 | capture.jpg  | doc_desc19 | capture.jpg  | doc_desc20 | capture.jpg  | doc_desc17 | capture.jpg  | approvedduser@mailinator.com  | Test@123 |
@@ -164,7 +164,7 @@ Feature: Upload Documents after all process are completed till the Banks details
     Then Clicks on Continue.
 
     Examples: 
-      | Test Case ID            | Description                                                                                                                                  | POA        | POA path    | A/C Proof  | a/c path    | INCcerti   | incpath     | LOAuth     | LOAuthpath  | AssoReg    | Assoregpath | Revenue    | Revpath     | uname                    | pwd      |
+      | Test Case ID            | Description                                                                                                                                  | POA        | POA path    | A/C Proof  | a/c path    | INCcerti   | incpath     | LOAuth     | LOAuthpath  | AssoReg    | Assoregpath | Revenue    | Revpath     | uname                        | pwd      |
       | DRC_ATC_Required_doc_37 | Tax payer Category as Legal Entity and  Tax payer Sub Category as Other Non Corporates and is not LLP user user wants to upload the document | doc_desc14 | Capture.png | doc_desc16 | capture.png | doc_desc13 | capture.png | doc_desc18 | capture.png | doc_desc19 | capture.png | doc_desc17 | capture.png | approvedduser@mailinator.com | Test@123 |
 
   #  | DRC_ATC_Required_doc_38 | Tax payer Category as Legal Entity and  Tax payer Sub Category as Other Non Corporates and is not LLP user user wants to upload the document | doc_desc14 | capture.jpg  | doc_desc16 | capture.jpg  | doc_desc13 | capture.jpg  | doc_desc18 | capture.jpg  | doc_desc19 | capture.jpg  | doc_desc17 | capture.jpg  | approvedduser@mailinator.com  | Test@123 |
@@ -203,7 +203,7 @@ Feature: Upload Documents after all process are completed till the Banks details
     Then Logouts
 
     Examples: 
-      | Test Case ID            | Description                                                                                         | Category       | SubCategory       | Llp | arg1          | arg2       | arg3   | arg4   | arg5       | arg6        | arg7          | arg8         | arg9          | uname                    | pwd      |
+      | Test Case ID            | Description                                                                                         | Category       | SubCategory       | Llp | arg1          | arg2       | arg3   | arg4   | arg5       | arg6        | arg7          | arg8         | arg9          | uname                        | pwd      |
       | DRC_ATC_Required_doc_45 | User is on Required Documents page and wants to redirect to Bank Details page.(Individual)          | Natural Person | Individual        |     | 4843758943798 | 2018-06-10 | Newman | Mining | 2018-06-10 | Small Scale | 8965741235698 |              |               | approvedduser@mailinator.com | Test@123 |
       | DRC_ATC_Required_doc_46 | User is on Required Documents page and wants to redirect to Bank Details page.(Government Entity  ) | Legal Entity   | Government Entity |     | 4843758943798 | 2018-06-10 | Newman |      3 | 2018-08-22 | Mining      | 2018-08-22    | Medium Scale | 8965741235698 | approvedduser@mailinator.com | Test@123 |
       # | DRC_ATC_Required_doc_47 | User is on Required Documents page and wants to redirect to Bank Details page.( Incorporated Bodies Y)   | Legal Entity   | Incorporated Bodies  | Yes | 4843758943798 | 2018-06-10 | Newman |      3 | 2018-06-10 | Mining      | 2018-06-10    | Medium Scale | 8965741235698 | approvedduser@mailinator.com  | Test@123 |
