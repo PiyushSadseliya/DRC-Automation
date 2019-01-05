@@ -4,7 +4,7 @@ Feature: User is on Assessed List Landing Screen
   Scenario Outline: Validate Assessed status
     Given User is on Assessment Page "<TestcaseID>" "<Description>"
     And User click on Dashboard
-    And User click on pin
+#   And User click on pin
     And User click on Assessment Tab
     And User click on Assessed List
     And User click on drop down "<Period>" for Assessed List

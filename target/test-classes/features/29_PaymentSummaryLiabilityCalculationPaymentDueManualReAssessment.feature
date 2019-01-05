@@ -2,7 +2,7 @@
 Feature: Manual ReAssessment- Payment summary for Liability Calculation and Payment due and Raise notice
 
   @tc3419_555_AssessedList_2875_2877
-  Scenario Outline: Validate the download functionality of e-filing schedule Button when e-file schedule file is not uploaded by from reassessment 
+  Scenario Outline: Validate the download functionality of e-filing schedule Button when e-file schedule file is not uploaded by from reassessment
     Given The user has done the filing for the particular month
     When the assessemnt officer does the Reassessment for that particular month with "no" Updation for period"<period>"year"<year>"tpayer"<tpayer>"
     Then the officer is on the Payment Summary page for Liabilty Calculation and Payment Due for ReAssessment for period"<period>"year"<year>"tpayer"<tpayer>"
@@ -12,7 +12,7 @@ Feature: Manual ReAssessment- Payment summary for Liability Calculation and Paym
       | Test Case ID            | Description                                                                                                                                   | uname            | password | period  | year | msg                | penamt | efiledamount | NITVA             | nif       | nvat | tpayer         |
       | DRC_ATC_ReAssessment_01 | Validate the download functionality of  e-filing schedule Button when e-file schedule file is not uploaded by tax payer from tax payer portal | laxman.prajapati | admin    | January | 2019 | Saved Successfully | 500000 |          800 | 20181127030648745 | TestRefac | nvat | AutoTest Reass |
 
-  @345678212324_555_AssessedList_2875_2877 
+  @345678212324_555_AssessedList_2875_2877
   Scenario Outline: Validate the Save,Previous button,Total Tiles,Additionality Liability column for No updation in manual assessment when efiling and pymt not done from reassessment
     Given The user has done the filing for the particular month
     When the assessemnt officer does the Reassessment for that particular month with "no" Updation for period"<period>"year"<year>"tpayer"<tpayer>"

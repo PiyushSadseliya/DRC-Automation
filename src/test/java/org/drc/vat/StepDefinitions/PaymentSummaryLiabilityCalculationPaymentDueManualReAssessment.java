@@ -47,7 +47,8 @@ public class PaymentSummaryLiabilityCalculationPaymentDueManualReAssessment {
 			clickOn("drp_manualAssessmnetPeriod", "");
 			clickOn("span", "[contains(text(),'" + period + "')]");
 			sleepWait(2000);
-		}
+		} 
+
 		sleepWait(500);
 		clickOn("drp_year", "");
 		sleepWait(500);
@@ -56,38 +57,45 @@ public class PaymentSummaryLiabilityCalculationPaymentDueManualReAssessment {
 		
 		clickOn("drp_mafilterby", "");
 		sleepWait(500);
+
+
+
 		clickOn("span", "[contains(text(),'Tax Payer')]");
 		type("input_masearch", tpayer);
 		sleepWait(2000);
 		clickOn("btn_Asearch", "");
+
 		clickOn("drp_AssestManage", "");
 		sleepWait(2000);
 		clickOn("href_maRassess", "");
 		txpayer = tpayer; 
+
 
 	}
 
 	@Then("^the officer is on the Payment Summary page for Liabilty Calculation and Payment Due for ReAssessment for period\"([^\"]*)\"year\"([^\"]*)\"tpayer\"([^\"]*)\"$")
 	public void the_officer_is_on_the_Payment_Summary_page_for_Liabilty_Calculation_and_Payment_Due_for_ReAssessment_for_period_year_tpayer(
 			String arg1, String arg2, String arg3) throws Throwable {
+
 		sleepWait(2000);
-		//assertEquals(elementText("h6", ""), txpayer);
+		assertEquals(elementText("h6", ""), txpayer);
 		assertEquals(elementText("element_nontxable", ""), "8. Non-taxable transactions");
 		clickOn("btn_maassessNext", "");
 		sleepWait(2000);
-		//assertEquals(elementText("h6", ""), txpayer);
+		assertEquals(elementText("h6", ""), txpayer);
 		assertEquals(elementText("element_amtvatdeductible", ""), "16. Amount of VAT Deductible");
 		clickOn("btn_maassessNext", "");
 		sleepWait(2000);
-		//assertEquals(elementText("h6", ""), txpayer);
+		assertEquals(elementText("h6", ""), txpayer);
 		assertEquals(elementText("element_recoveryofdeduc", ""), "18. Supplementary deductions");
 		clickOn("btn_maassessNext", "");
 		sleepWait(2000);
-		//assertEquals(elementText("h6", ""), txpayer);
+		assertEquals(elementText("h6", ""), txpayer);
 		sleepWait(2000);
 		clickOn("btn_maassessNext", "");
 		sleepWait(2000);
-		//assertEquals(elementText("h6", ""), txpayer);
+		assertEquals(elementText("h6", ""), txpayer);
+
 
 	}
 
@@ -100,21 +108,22 @@ public class PaymentSummaryLiabilityCalculationPaymentDueManualReAssessment {
 		
 		//assertEquals(validationMessage(), arg1);
 		
-		
 		if(wd.findElement(By.xpath("//*[contains(text(),'" + arg1 + "')]")).isDisplayed() )
 		{					
 			assertTrue(true);
-		}
-		
+		}		
+
 		clickOn("btn_maprev", "");
 
 	}
 
 	@Then("^user click Raise Notice button on Payment Summary page from ReAssessment module and Notice is generated as per the Liability Calculation Table and Payment Due Table$")
+
 	public void user_click_Raise_Notice_button_on_Payment_Summary_page_from_ReAssessment_module_and_Notice_is_generated_as_per_the_Liability_Calculation_Table_and_Payment_Due_Table() throws Throwable 
 	{
 		//String per = "Period: " + Rperiod.substring(0, 3) + "-" + Ryear;
 		String per = Rperiod.substring(0, 3);
+
 		System.out.println(per);
 		String nitva = elementText("txt_Anitva", "");
 		System.out.println(nitva);
@@ -218,6 +227,7 @@ public class PaymentSummaryLiabilityCalculationPaymentDueManualReAssessment {
 		assertEquals(text.contains(frenchToIndian(Lltfee[4])), true,
 				"Liabilty Calculation Additional Liability(FC) Late Fees");
 
+
 		assertEquals(text.contains(frenchToIndian(Lamtpay[1])), true,
 				"Liabilty Calculation e-Declaration(FC) Amount to pay");
 		assertEquals(text.contains(frenchToIndian(Lamtpay[2])), true,
@@ -234,6 +244,7 @@ public class PaymentSummaryLiabilityCalculationPaymentDueManualReAssessment {
 		assertEquals(text.contains(frenchToIndian(Pint[1])), true, "Payment Due Reassessed(FC)  Interest");
 		assertEquals(text.contains(frenchToIndian(Pint[2])), true, "Payment Due Paid Interest");
 		assertEquals(text.contains(frenchToIndian(Pint[3])), true, "Payment Due Net Payable(FC) Interest");
+
 
 		assertEquals(text.contains(frenchToIndian(Pltfee[1])), true, "Payment Due Reassessed(FC)  Late Fees");
 		assertEquals(text.contains(frenchToIndian(Pltfee[2])), true, "Payment Due Paid Late Fees");
@@ -253,7 +264,9 @@ public class PaymentSummaryLiabilityCalculationPaymentDueManualReAssessment {
 	public void enter_the_penalty_amount_in_ReAssessment_Liability(String arg1) throws Throwable {
 		clickOn("btn_maassessNext", "");
 		sleepWait(3000);
-	//	assertEquals(elementText("h6", ""), txpayer);
+
+		assertEquals(elementText("h6", ""), txpayer);
+
 		type("txt_Aliabiltypenalty", arg1);
 
 	}
@@ -262,6 +275,7 @@ public class PaymentSummaryLiabilityCalculationPaymentDueManualReAssessment {
 	public void click_on_Save_button_on_Payment_Summary_page_and_message_is_displayed(String arg1) throws Throwable {
 		clickOn("btn_maSAve", "");
 		sleepWait(2000);
+
 		//	assertEquals(validationMessage(), arg1);
 		if(wd.findElement(By.xpath("//*[contains(text(),'" + arg1 + "')]")).isDisplayed() )
 		{					
@@ -278,6 +292,7 @@ public class PaymentSummaryLiabilityCalculationPaymentDueManualReAssessment {
 		sleepWait(2000);
 	//	assertEquals(elementText("h6", ""), "Period :");
 		
+
 	}
 
 	@Then("^Total Additional Liability tile should be displayed on ReAssessment as Total Assessed\\(FC\\) minus Total ReAssessed\\(FC\\)\"([^\"]*)\"$")
@@ -293,9 +308,11 @@ public class PaymentSummaryLiabilityCalculationPaymentDueManualReAssessment {
 		 * System.out.println(elementText("txt_totalAltile","").substring(3));
 		 * System.out.println(elementText("txt_ReALliabiltyamttopay",""));
 		 */
+
 		
 		sleepWait(5000);
 		
+
 		String TotaladdLiab = elementText("txt_totalAltile", "");
 		String ToatlAssessed = elementText("txt_totalAtile", "");
 		System.out.println(ToatlAssessed);
@@ -310,9 +327,11 @@ public class PaymentSummaryLiabilityCalculationPaymentDueManualReAssessment {
 		NumberFormat nf = NumberFormat.getNumberInstance(Locale.ITALY);
 
 		System.out.println(nf.format(al));
+
      	assertEquals(nf.format(al), TotaladdLiab.substring(3));
 
 		//assertEquals(elementText("txt_totalEtile", "").substring(3), edeclaredAmt);
+
 
 		assertEquals(ToatlAssessed.substring(3), elementText("txt_Aliabiltyamttopay", ""));
 		assertEquals(TotalReAssessed.substring(3), elementText("txt_ReAliabiltyamttopay", ""));
@@ -322,7 +341,8 @@ public class PaymentSummaryLiabilityCalculationPaymentDueManualReAssessment {
 
 	@Then("^Calculates the Additional Liability column for ReAssessment$")
 	public void calculates_the_Additional_Liability_column_for_ReAssessment() throws Throwable {
-	
+
+
 
 		// Net VAT to be paid
 		Double netLiabilvatpaitd = frenchtoDouble(elementText("txt_ReAliabiltynetvatpaid", ""))
@@ -341,7 +361,9 @@ public class PaymentSummaryLiabilityCalculationPaymentDueManualReAssessment {
 				- frenchtoDouble(elementText("txt_Aliabiltyvcreditfwd", ""));
 		assertEquals(elementText("txt_ReALliabiltyvcreditfwd", ""), appendfrenchsys(tofrench(alvatcreditfwd)));
 		// VAT on externally financed public procurement
+
 		Double alpublicproc = frenchtoDouble(elementText("txt_ALliabiltyvpublicprocu", ""))
+
 				- frenchtoDouble(elementText("txt_Aliabiltyvpublicprocu", ""));
 		assertEquals(elementText("txt_ReALliabiltyvpublicprocu", ""), appendfrenchsys(tofrench(alpublicproc)));
 		// VAT for third party account
@@ -366,6 +388,7 @@ public class PaymentSummaryLiabilityCalculationPaymentDueManualReAssessment {
 		assertEquals(elementText("txt_ReALliabiltyamttopay", ""), appendfrenchsys(tofrench(alamttopay)));
 
 		Double alnetamttopay = frenchtoDouble(elementText("txt_ReALliabiltynetvatpaid", ""))
+
 				//- frenchtoDouble(elementText("txt_ReALliabiltycredit", ""))
 			//	+ frenchtoDouble(elementText("txt_ReALliabiltycreditrefundreq", ""))
 				+ frenchtoDouble(elementText("txt_ReALliabiltyvpublicprocu", ""))
@@ -374,6 +397,7 @@ public class PaymentSummaryLiabilityCalculationPaymentDueManualReAssessment {
 				+ frenchtoDouble(elementText("txt_ReALliabiltypenalty", ""))
 				+ frenchtoDouble(elementText("txt_ReALliabiltyltfee", ""));
 		
+
 		assertEquals(elementText("txt_ReALliabiltyamttopay", ""), appendfrenchsys(tofrench(alnetamttopay)));
 
 	}
@@ -414,6 +438,7 @@ public class PaymentSummaryLiabilityCalculationPaymentDueManualReAssessment {
 
 	@Then("^After raise notice the records status is changed to \"([^\"]*)\" for period\"([^\"]*)\"year\"([^\"]*)\"tpayer\"([^\"]*)\"$")
 	public void after_raise_notice_the_records_status_is_changed_to_for_period_year_tpayer(String status, String period,
+
 			String year, String tpayer) throws Throwable 
 	{
  
@@ -447,6 +472,7 @@ public class PaymentSummaryLiabilityCalculationPaymentDueManualReAssessment {
 		sleepWait(2000);
 		clickOn("btn_Asearch", "");
 		sleepWait(3000);
+
 		assertEquals(elementText("txt_assesedStatus", ""), status);
 	}
 

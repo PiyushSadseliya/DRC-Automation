@@ -211,11 +211,9 @@ Feature: User is on Manual Assessement Landing Screen
     Examples: 
       | TestcaseID           | Description                                  | Period        | Last        | Filter               | data              | nitvaNO           | Year          |
       | Manual_Assessment_10 | validate navigation and filter functionality | txt_PeriodJan | lbl_AssLast | txt_AsestFilterNitva | 20181211062210697 | 20181211062210697 | txt_AssYear17 |
-      
-      
-      
-   # this scenario is of feature file 20    
-   @TC_05_06_19_18_16
+
+  # this scenario is of feature file 20
+  @TC_05_06_19_18_16
   Scenario Outline: Validate that the Total Assessed(FC) tile amount when no any changes made in  assessment adjustment table for Operations Performed, Tax Deductible and Adjustment tab.
     Given User is on Manual Assessment "<TestcaseID>" "<Description>"
     And User click on Assessment Tab
@@ -235,17 +233,3 @@ Feature: User is on Manual Assessement Landing Screen
     Examples: 
       | TestcaseID            | Description                                                              | Period        | TaxPayer   | mess                                   | FNF            | Year            |
       | Mal_AS_05_06_19_18_16 | Validate Total Assessed amount is same and check Additionality Liability | txt_PeriodMar | Arun111223 | No Modification made for e-declaration | File not found | txt_2019_Period |
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
