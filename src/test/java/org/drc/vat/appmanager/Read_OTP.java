@@ -11,9 +11,7 @@ public class Read_OTP
 
 	public static final String dir = System.getProperty("user.dir");
 	public static String ReadOTP() throws IOException, InterruptedException 
-	{
-	
-			
+	{		
 		System.setProperty("webdriver.chrome.driver", dir + "//chromedriver.exe");
 		
 		//System.setProperty("webdriver.chrome.driver", "E:\\DRC Merge Regreation\\DRC-Automation\\chromedriver.exe");

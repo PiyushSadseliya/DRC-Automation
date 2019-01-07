@@ -116,8 +116,7 @@ public class ApplicationManager {
 			wd.manage().window().maximize();
 			wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 			wd.get("http://103.249.120.58:8044");
-			Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\src\\test\\resources\\authusers\\autoitsample.exe");			
-
+			Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\src\\test\\resources\\authusers\\autoitsample.exe");
 			wd.findElement(By.xpath(obj.getProperty("btn_windowsClick"))).click();
 			Thread.sleep(1000);
 		}
@@ -238,7 +237,7 @@ public class ApplicationManager {
 	{
 		if(wd.getCurrentUrl().contains("90"))
 		{
-			sleepWait(500);			
+			sleepWait(500);
 		}		
 		else if(wd.getCurrentUrl().contains("8066"))
 		{

@@ -4,6 +4,7 @@ Feature: User is on Manual Assessement Landing Screen
   Scenario Outline: Validate the Manual Assessment dashboard page All clicking compoment - internal portal
 
     Given User is on Assessment Page "<TestcaseID>" "<Description>"
+    And User click on Dashboard
     And User click on Assessment Tab
     And User see manual assessment and assessament list tab
     And User click on manual assessment
@@ -26,6 +27,7 @@ Feature: User is on Manual Assessement Landing Screen
   @TC_03
   Scenario Outline: Validate whether user can reassign the assessment officer whose status is Pending and in progress.
     Given User is on Assessment Page "<TestcaseID>" "<Description>"
+    And User click on Dashboard
     And User click on Assessment Tab
     And User click on drop down "<Period>"
     And User click on FilterBy "<Filter>" dropdown and click on Status
@@ -46,6 +48,7 @@ Feature: User is on Manual Assessement Landing Screen
   @TC_05
   Scenario Outline: Validate whether User can select future month and year from the period drop down list.
     Given User is on Assessment Page "<TestcaseID>" "<Description>"
+    And User click on Dashboard
     And User click on Assessment Tab
     And User click on drop down Period and select "<Period>"
     And User click on year and select "<year>"
@@ -58,6 +61,7 @@ Feature: User is on Manual Assessement Landing Screen
   @TC_06
   Scenario Outline: Validate whether User is able to filter data using filter by and type here option.
     Given User is on Assessment Page "<TestcaseID>" "<Description>"
+    And User click on Dashboard
     And User click on Assessment Tab
     And User click on drop down "<Period>"
     #And User click on year and select "<year>"
@@ -70,11 +74,12 @@ Feature: User is on Manual Assessement Landing Screen
 
     Examples: 
       | TestcaseID           | Description                                                  | Period        | year          | Filter               | data              | NITVA             | AgainFilter          | niftvaData | again        | type                         | BType                   | businessType |
-      | Manual_Assessment_06 | Validating user is able filter by nitva no and business type | txt_PeriodJan | txt_AssYear17 | txt_AsestFilterNitva | 20181211071940797 | 20181211071940797 | txt_AsestFilterNitva | 0000526000 | drp_FilterBy | txt_AssestFilterBusinessType | txt_BusinessTypeTrading | Trading      |
+      | Manual_Assessment_06 | Validating user is able filter by nitva no and business type | txt_PeriodJan | txt_AssYear17 | txt_AsestFilterNitva | 20181211062210697 | 20181211062210697 | txt_AsestFilterNitva | 0000526000 | drp_FilterBy | txt_AssestFilterBusinessType | txt_BusinessTypeTrading | Trading      |
 
   @TC_07_Name_of_Applicant_TAX_Payer
   Scenario Outline: Validate whether User is able to filter by Name of Applicant
     Given User is on Assessment Page "<TestcaseID>" "<Description>"
+    And User click on Dashboard
     And User click on Assessment Tab
     And User click on drop down "<Period>"
     And User selects value from Assessment filter drop down "<Filters>"
@@ -90,13 +95,14 @@ Feature: User is on Manual Assessement Landing Screen
   @TC_07_NITVA
   Scenario Outline: Validate whether User is able to filter by NITVA
     Given User is on Assessment Page "<TestcaseID>" "<Description>"
+    And User click on Dashboard
     And User click on Assessment Tab
     And User click on drop down "<Period>"
     And User selects value from Assessment filter drop down "<Filters>"
     And User enters data for Assessment in type here text box "<Value>"
     #And User check for valid data for NITVA "<Value>"
     #And User again enter data in type here "<data>" for invalid data
-    And User see message no record found
+    And User see message no record found 
 
     Examples: 
       | TestcaseID             | Description              | Period        | Filters              | Value             | data      |
@@ -153,6 +159,7 @@ Feature: User is on Manual Assessement Landing Screen
   @TC_07_Status
   Scenario Outline: Validate whether User is able to filter by Status
     Given User is on Assessment Page "<TestcaseID>" "<Description>"
+    And User click on Dashboard
     And User click on Assessment Tab
     And User click on drop down "<Period>"
     And User selects value from Assessment filter drop down "<Filters>"
@@ -182,6 +189,7 @@ Feature: User is on Manual Assessement Landing Screen
   @TC_10
   Scenario Outline: Validate whether User is able to navigate to particular page and filter the data according
     Given User is on Assessment Page "<TestcaseID>" "<Description>"
+    And User click on Dashboard	
     And User click on Assessment Tab
     And User click on Assessed List
     And User click on Assessment Tab

@@ -89,10 +89,16 @@ public class DV_2878_Assessment_Summary_Manual
 		Remove_FC = Remove_FC.replace("," ,".");		
 		Float check_ta = Float.parseFloat(Remove_FC);
 
-		if(Total_Ass==check_ta)
+		
+		if(Total_Ass.equals(check_ta))
 		{
 			assertTrue(true);
 		}
+		
+		/*if(Total_Ass==check_ta)
+		{
+			assertTrue(true);
+		}*/
 	}
 
 	@And("^User validate Total Additional Liability on Assessment Summary page$")
@@ -210,17 +216,39 @@ public class DV_2878_Assessment_Summary_Manual
 	@And("^User select remark for Opeartion performed$")
 	public void user_select_remark_for_Opeartion_performed() throws Throwable 
 	{
-		sleepWait(3000);
-		
+		sleepWait(3000);		
 		clickOn("txtBox_OP_1", "");
-		Thread.sleep(1000);
-				
+		Thread.sleep(1000);				
 		clickOn("txt_Remark_VerifyEFD", "");
 		Thread.sleep(1000);
-		/*clickOn("txtBox_OP_2", "");
+		clickOn("txtBox_OP_2", "");
 		Thread.sleep(1000);
 		clickOn("txt_Remark_VerifyEFD", "");
-		Thread.sleep(1000);*/
+		Thread.sleep(1000);
+		clickOn("txtBox_OP_3", "");
+		Thread.sleep(1000);
+		clickOn("txt_Remark_VerifyEFD", "");
+		Thread.sleep(1000);
+		clickOn("txtBox_OP_4", "");
+		Thread.sleep(1000);
+		clickOn("txt_Remark_VerifyEFD", "");
+		Thread.sleep(1000);
+		clickOn("txtBox_OP_5", "");
+		Thread.sleep(1000);
+		clickOn("txt_Remark_VerifyEFD", "");
+		Thread.sleep(1000);
+		clickOn("txtBox_OP_6", "");
+		Thread.sleep(1000);
+		clickOn("txt_Remark_VerifyEFD", "");
+		Thread.sleep(1000);
+		clickOn("txtBox_OP_7", "");
+		Thread.sleep(1000);
+		clickOn("txt_Remark_VerifyEFD", "");
+		Thread.sleep(1000);
+		clickOn("txtBox_OP_8", "");
+		Thread.sleep(1000);
+		clickOn("txt_Remark_VerifyEFD", "");
+		Thread.sleep(1000);
 	}
 
 	@And("^User select remark for Tax Deductible$")
@@ -249,13 +277,26 @@ public class DV_2878_Assessment_Summary_Manual
 		Thread.sleep(1000);
 		clickOn("txt_Remark_VerifyEFD", "");
 		Thread.sleep(1000);
+		clickOn("txtBox_Ad_2", "");
+		Thread.sleep(1000);
+		clickOn("txt_Remark_VerifyEFD", "");
+		Thread.sleep(1000);
+		clickOn("txtBox_Ad_3", "");
+		Thread.sleep(1000);
+		clickOn("txt_Remark_VerifyEFD", "");
+		Thread.sleep(1000);
+		clickOn("txtBox_Ad_4", "");
+		Thread.sleep(1000);
+		clickOn("txt_Remark_VerifyEFD", "");
+		Thread.sleep(1000);
 
 	}
 
 	@And("^User navigate to Payment Summary page$")
 	public void user_navigate_to_Payment_Summary_page() throws Throwable
 	{
-		Thread.sleep(1000);
+		
+		Thread.sleep(5000);		
 		if(wd.findElement(By.xpath(obj.getProperty("txt_check_PaymentSummary"))).isDisplayed());
 		{
 			assertTrue(true);
@@ -493,10 +534,16 @@ public class DV_2878_Assessment_Summary_Manual
 		System.out.println(FC3);		 
 		Float Check_Add_Lib_1 =Float.parseFloat(FC3);	
 
-		if(Validate==Check_Add_Lib_1)
+		
+		if(Validate.equals(Check_Add_Lib_1))
 		{
-			System.out.println("pass");
+			assertTrue(true);
 		}
+		
+		/*if(Validate==Check_Add_Lib_1)
+		{
+			assertTrue(true);
+		}*/
 		/*String Total_Add_Lib = getValue("txt_Total_Additionality_Liability");
 		//String Total_Add_Lib = wd.findElement(By.xpath(obj.getProperty("txt_Total_Additionality_Liability"))).getText();
 		if(Validate==Float.parseFloat(Total_Add_Lib))
@@ -736,10 +783,16 @@ public class DV_2878_Assessment_Summary_Manual
 		Remove_FC = Remove_FC.replace("," ,".");		    		    	 
 		Float Check_ReAss = Float.parseFloat(Remove_FC);
 
-		if(Check_ReAss==Check_Store_Re_TA)
+		
+		if(Check_ReAss.equals(Check_Store_Re_TA))
 		{
 			assertTrue(true);
 		}
+		
+		/*if(Check_ReAss==Check_Store_Re_TA)
+		{
+			assertTrue(true);
+		}*/
 	}
 
 	@And("^User see Total Assessed amount amount and Total Reassessed$")
@@ -800,10 +853,15 @@ public class DV_2878_Assessment_Summary_Manual
 		String FC3 = FC2.replace("," ,".");		 		 
 		Float Check_Add_Lib_1 =Float.parseFloat(FC3);	
 
-		if(Validate==Check_Add_Lib_1)
+		if(Validate.equals(Check_Add_Lib_1))
 		{
 			assertTrue(true);
 		}
+		
+		/*if(Validate==Check_Add_Lib_1)
+		{
+			assertTrue(true);
+		}*/
 	}	
 
 	@And("^User see Opeartion performed tab and validate entered value$")
@@ -819,10 +877,17 @@ public class DV_2878_Assessment_Summary_Manual
 		Float Check_DOG =Float.parseFloat(FC3);	
 		//Store_DOG = Float.parseFloat(check_DOG);
 
-		if(Store_Delivery_goods==Check_DOG)
+		
+		if(Store_Delivery_goods.equals(Check_DOG))
 		{
 			assertTrue(true);
 		}
+		
+		
+		/*if(Store_Delivery_goods==Check_DOG)
+		{
+			assertTrue(true);
+		}*/
 	}
 
 	@And("^User see Tax Deductible tab and validate entered value$")
@@ -835,10 +900,15 @@ public class DV_2878_Assessment_Summary_Manual
 		System.out.println(FC3);		 
 		Float Check_TD =Float.parseFloat(FC3);	
 
-		if(Store_Toatal_AI_AL==Check_TD)
+		
+		if(Store_Toatal_AI_AL.equals(Check_TD))
 		{
 			assertTrue(true);
-		}		
+		}	
+		/*if(Store_Toatal_AI_AL==Check_TD)
+		{
+			assertTrue(true);
+		}	*/	
 	}
 
 	@And("^User see Adjustment tab and validate entered value$")
@@ -853,10 +923,16 @@ public class DV_2878_Assessment_Summary_Manual
 		System.out.println(FC3);		 
 		Float Check_Rev =Float.parseFloat(FC3);			
 
-		if(Store_Vat_rev==Check_Rev)
+		
+		if(Store_Vat_rev.equals(Check_Rev))
 		{
 			assertTrue(true);
 		}
+		
+		/*if(Store_Vat_rev==Check_Rev)
+		{
+			assertTrue(true);
+		}*/
 	}
 
 
@@ -887,11 +963,15 @@ public class DV_2878_Assessment_Summary_Manual
 		System.out.println(FC3);		 
 		Float Check_Add_Lib =Float.parseFloat(FC3);		 
 
-
-		if(Validate ==Check_Add_Lib)
+		if(Validate.equals(Check_Add_Lib))
 		{
 			assertTrue(true);
-		} 		 		
+		}
+		
+		/*if(Validate ==Check_Add_Lib)
+		{
+			assertTrue(true);
+		}*/ 		 		
 	}
 
 	@And("^User click on previous button and navigate to Assessed List page$")

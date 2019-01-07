@@ -1,983 +1,1458 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("features/03_VATRegistration.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("features/30_TaxPayer_Portal_objection_appeal.feature");
 formatter.feature({
   "line": 1,
-  "name": "VAT Registration",
+  "name": "User is on Tax Payer portal Objection and Appeal",
   "description": "",
-  "id": "vat-registration",
+  "id": "user-is-on-tax-payer-portal-objection-and-appeal",
   "keyword": "Feature"
 });
 formatter.scenarioOutline({
-  "line": 4,
-  "name": "User submits the form for vat approval",
+  "comments": [
+    {
+      "line": 3,
+      "value": "# 8 will cover in end to end"
+    }
+  ],
+  "line": 5,
+  "name": "Verify view preview download navigation name and barcode",
   "description": "",
-  "id": "vat-registration;user-submits-the-form-for-vat-approval",
+  "id": "user-is-on-tax-payer-portal-objection-and-appeal;verify-view-preview-download-navigation-name-and-barcode",
   "type": "scenario_outline",
   "keyword": "Scenario Outline",
   "tags": [
     {
-      "line": 3,
-      "name": "@SP_03"
+      "line": 4,
+      "name": "@DV_2253_TaxPayer_Portal_objection_appeal_TC_04_06_07_08_11_12_13"
     }
   ]
 });
 formatter.step({
-  "line": 5,
-  "name": "User is on VAT Registration Dashboard",
-  "keyword": "Given "
-});
-formatter.step({
   "line": 6,
-  "name": "User Enter Data: \"\u003cemail\u003e\" \"\u003cpassword\u003e\"",
-  "keyword": "When "
+  "name": "User Enter email \"\u003cemail\u003e\" and  password \"\u003cpassword\u003e\"",
+  "keyword": "Given "
 });
 formatter.step({
   "comments": [
     {
       "line": 7,
-      "value": "# And User Click on SignIn for new user"
+      "value": "#And User click on Dashboard and click on VAT e-filling button"
     }
   ],
   "line": 8,
-  "name": "User clicks on VAT Getting Started Guide CheckBox",
-  "keyword": "When "
+  "name": "User is on Tax Payer portal Objection and Appeal and click on VAT e-Filing Tab \"\u003cTestcaseID\u003e\" \"\u003cDescription\u003e\"",
+  "keyword": "And "
 });
 formatter.step({
   "line": 9,
-  "name": "Clicks on Register for Vat button",
+  "name": "User click on collapse for the month \"\u003cmonth\u003e\"",
   "keyword": "And "
 });
 formatter.step({
   "line": 10,
-  "name": "Clicks on Continue button of Instructions Page",
+  "name": "User click on view for month \"\u003cclick\u003e\"",
   "keyword": "And "
 });
 formatter.step({
   "line": 11,
-  "name": "Selects Taxpayer Category \"\u003cCategory\u003e\" , SubCategory \"\u003cSubCategory\u003e\"",
-  "keyword": "Then "
+  "name": "User see pop up appear for Notice",
+  "keyword": "And "
 });
 formatter.step({
   "line": 12,
-  "name": "Enters NIF number \"\u003cNif\u003e\"  ,Full Name Of Business \"\u003cFName Business\u003e\" , Number of COI \"\u003cCOI\u003e\" , Last Year Revenue \"\u003cRevenue\u003e\"",
+  "name": "User see document type \"\u003cdocument\u003e\"",
   "keyword": "And "
 });
 formatter.step({
   "line": 13,
-  "name": "Enters NIF Registration Date \"\u003cNif Registration Date\u003e\" , Date of Incorporation \"\u003cIncorporation Date\u003e\" , Type Of Business \"\u003cBusiness Type\u003e\"",
+  "name": "User click on view on notice popup",
   "keyword": "And "
 });
 formatter.step({
   "line": 14,
-  "name": "Enters Business Start Date \"\u003cStart Date\u003e\" , Company Size \"\u003cCompany Size\u003e\"",
+  "name": "User see name on notice",
   "keyword": "And "
 });
 formatter.step({
   "line": 15,
-  "name": "Enters Address Details \"\u003cAddressLine1\u003e\" , \"\u003cAddressLine2\u003e\" , \"\u003cProvince\u003e\" ,\"\u003cCity\u003e\" ,\"\u003cZipCode\u003e\",\"\u003cMobileNumber\u003e\"",
+  "name": "User see barcode and ref id is same",
   "keyword": "And "
 });
 formatter.step({
   "line": 16,
-  "name": "Enters Business details \"\u003cBName\u003e\",\"\u003cBAddressLine1\u003e\" , \"\u003cBAddressLine2\u003e\" , \"\u003cBProvince\u003e\" ,\"\u003cBCity\u003e\" ,\"\u003cBZipCode\u003e\",\"\u003cBEmail\u003e\",\"\u003cBMobileNumber\u003e\"",
+  "name": "User click on download button on notice page",
   "keyword": "And "
 });
 formatter.step({
   "line": 17,
-  "name": "select Authorization signature \"\u003cOption\u003e\" with Job Title \"\u003cJob Title\u003e\" , Full Name \"\u003cFName\u003e\" Email \"\u003cAEmail\u003e\" , Mobile Number \"\u003cMobile\u003e\"",
+  "name": "User click on previous button and navigate to VAT e-Filing",
   "keyword": "And "
 });
 formatter.step({
   "line": 18,
-  "name": "Clicks on Save Draft Button",
+  "name": "User click on collapse for the month \"\u003cmonth\u003e\"",
   "keyword": "And "
 });
 formatter.step({
   "line": 19,
-  "name": "Clicks on VAT Registration Page Continue Button",
+  "name": "User click on view for month \"\u003cclick\u003e\"",
   "keyword": "And "
 });
 formatter.step({
   "line": 20,
-  "name": "Enters Bank Details with Account Number \"\u003cAccount Number\u003e\" , Account Holder Name \"\u003cAccount Holder Name\u003e\" ,Bank Name \"\u003cBank Name\u003e\" ,Branch \"\u003cBranch\u003e\"",
+  "name": "User click on view on notice popup",
   "keyword": "And "
 });
 formatter.step({
   "line": 21,
-  "name": "Clicks on Bank details Continue Button",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 22,
-  "name": "select Address Proof of Registered Place of Business for \"\u003cA1Document Description\u003e\" , \"\u003cA1Status\u003e\"",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 23,
-  "name": "select Bank Account Proof for \"\u003cA2Document Description\u003e\" , \"\u003cA2Status\u003e\"",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 24,
-  "name": "Select Certificate of Incorporation for \"\u003cA3Document Description\u003e\" , \"\u003cA3Status\u003e\"",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 25,
-  "name": "select Law or Degree of Establishment for \"\u003cA4Document Description\u003e\" , \"\u003cA4Status\u003e\"",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 26,
-  "name": "select Letter of Authorization/Board Resolution for Authorized Signatory – Download Template for \"\u003cA5Document Description\u003e\" , \"\u003cA5Status\u003e\"",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 27,
-  "name": "select Proof of Last Year Revenue for \"\u003cA6Document Description\u003e\" , \"\u003cA6Status\u003e\"",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 28,
-  "name": "Clicks on document required Continue Button",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 29,
-  "name": "clicks on Acknowledgement checkbox and continue button",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 30,
-  "name": "click on Ok button on alert page",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 31,
-  "name": "Click on Logout on Dashboard",
+  "name": "User click on pay button and navigate to Payment Method",
   "keyword": "And "
 });
 formatter.examples({
-  "line": 33,
+  "line": 23,
   "name": "",
   "description": "",
-  "id": "vat-registration;user-submits-the-form-for-vat-approval;",
+  "id": "user-is-on-tax-payer-portal-objection-and-appeal;verify-view-preview-download-navigation-name-and-barcode;",
   "rows": [
     {
       "cells": [
-        "TestCase_Id",
+        "TestcaseID",
         "Description",
         "email",
         "password",
-        "Category",
-        "SubCategory",
-        "Nif",
-        "Nif Registration Date",
-        "FName Business",
-        "COI",
-        "Incorporation Date",
-        "Business Type",
-        "Start Date",
-        "Company Size",
-        "Revenue",
-        "AddressLine1",
-        "AddressLine2",
-        "Province",
-        "City",
-        "ZipCode",
-        "MobileNumber",
-        "BName",
-        "BAddressLine1",
-        "BAddressLine2",
-        "BProvince",
-        "BCity",
-        "BZipCode",
-        "BEmail",
-        "BMobileNumber",
-        "Option",
-        "Job Title",
-        "FName",
-        "AEmail",
-        "Mobile",
-        "Account Number",
-        "Account Holder Name",
-        "Bank Name",
-        "Branch",
-        "A1Document Description",
-        "A1Status",
-        "A2Document Description",
-        "A2Status",
-        "A3Document Description",
-        "A3Status",
-        "A4Document Description",
-        "A4Status",
-        "A5Document Description",
-        "A5Status",
-        "A6Document Description",
-        "A6Status",
-        "Filter",
-        "Manage",
-        "DeOption",
-        "SDomestic1",
-        "SExport1",
-        "SAdjustment1",
-        "SDomestic2",
-        "SExport2",
-        "SAdjustment2",
-        "PDomestic1",
-        "PImport1",
-        "PAdjustment1",
-        "PDomestic2",
-        "PImport2",
-        "PAdjustment2",
-        "Efile",
-        "Authorized Signatory"
+        "month",
+        "click",
+        "document"
       ],
-      "line": 34,
-      "id": "vat-registration;user-submits-the-form-for-vat-approval;;1"
+      "line": 24,
+      "id": "user-is-on-tax-payer-portal-objection-and-appeal;verify-view-preview-download-navigation-name-and-barcode;;1"
     },
     {
-      "comments": [
-        {
-          "line": 35,
-          "value": "#| TC_End2End_01 | Registartion Process | approvedduser@mailinator.com | Test@123 | Legal Entity | Government Entity | 121210ABCDFE00100581 | 2018-08-22            | Approvedd User | ABC09ABC09AGC09 | 2018-08-25         | Mining        | 2018-08-22 | Large Scale  | 75000000 | Dharamdas Chamber | Near Axis Bank | Bas-Uele | Aketi |  444604 |   1234567890 | Business 1 | Dharamdas Chamber | Near Axis Bank | Bas-Uele  | Aketi |   444604 | abc@mailinator.com |    7896541023 | Yes    | Business Analysit | John  | john@mailinator.com | 7412508963 | 00112233440017 | Approvedd User      | Advans Bank | Branch4 | doc_desc23             | capture.png | doc_desc25             | capture.png | doc_desc22             | capture.png | doc_desc21             | capture.png | doc_desc27             | capture.png | doc_desc26             | capture.png | Name of Business/Applicant | Review | Approve  |        100 |      100 |          100 |         10 |       10 |           10 |        100 |      100 |          100 |         10 |       10 |           10 | \\\\src\\\\test\\\\resources\\\\Scenario.xlsx | bindi                |"
-        },
-        {
-          "line": 36,
-          "value": "#| TC_End2End_02 | Registartion Process | onholdedduser@mailinator.com | Test@123 | Legal Entity | Government Entity | 121210ABCDFE00100582 | 2018-08-22            | OnHoldedd User | ABC09ABC09AGC09 | 2018-08-25         | Mining        | 2018-08-22 | Large Scale  | 75000000 | Dharamdas Chamber | Near Axis Bank | Bas-Uele | Aketi |  444604 |   1234567890 | Business 1 | Dharamdas Chamber | Near Axis Bank | Bas-Uele  | Aketi |   444604 | abc@mailinator.com |    7896541023 | Yes    | Business Analysit | John  | john@mailinator.com | 7412508963 | 00112233440027 | OnHoldedd User      | Advans Bank | Branch4 | doc_desc23             | capture.png | doc_desc25             | capture.png | doc_desc22             | capture.png | doc_desc21             | capture.png | doc_desc27             | capture.png | doc_desc26             | capture.png | Name of Business/Applicant | Review | Approve  |        100 |      100 |          100 |         10 |       10 |           10 |        100 |      100 |          100 |         10 |       10 |           10 | \\\\src\\\\test\\\\resources\\\\Scenario.xlsx | bindi                |"
-        },
-        {
-          "line": 37,
-          "value": "#| TC_End2End_03 | Registartion Process | rejectedduser@mailinator.com | Test@123 | Legal Entity | Government Entity | 121210ABCDFE00100583 | 2018-08-22            | Rejectedd User | ABC09ABC09AGC09 | 2018-08-25         | Mining        | 2018-08-22 | Large Scale  | 75000000 | Dharamdas Chamber | Near Axis Bank | Bas-Uele | Aketi |  444604 |   1234567890 | Business 1 | Dharamdas Chamber | Near Axis Bank | Bas-Uele  | Aketi |   444604 | abc@mailinator.com |    7896541023 | Yes    | Business Analysit | John  | john@mailinator.com | 7412508963 | 00112233440037 | Rejectedd User      | Advans Bank | Branch4 | doc_desc23             | capture.png | doc_desc25             | capture.png | doc_desc22             | capture.png | doc_desc21             | capture.png | doc_desc27             | capture.png | doc_desc26             | capture.png | Name of Business/Applicant | Review | Approve  |        100 |      100 |          100 |         10 |       10 |           10 |        100 |      100 |          100 |         10 |       10 |           10 | \\\\src\\\\test\\\\resources\\\\Scenario.xlsx | bindi                |"
-        }
-      ],
       "cells": [
-        "TC_End2End_03",
-        "Registartion Process",
-        "arunkumar@mailinator.com",
-        "Test@123",
-        "Legal Entity",
-        "Government Entity",
-        "121210ABCDFE00100583",
-        "2018-08-22",
-        "Arun Patil22",
-        "ABC09ABC09AGC09",
-        "2018-08-25",
-        "Mining",
-        "2018-08-22",
-        "Large Scale",
-        "75000000",
-        "Dharamdas Chamber",
-        "Near Axis Bank",
-        "Bas-Uele",
-        "Aketi",
-        "444604",
-        "1234567890",
-        "Business 1",
-        "Dharamdas Chamber",
-        "Near Axis Bank",
-        "Bas-Uele",
-        "Aketi",
-        "444604",
-        "abc@mailinator.com",
-        "7896541023",
-        "Yes",
-        "Business Analysit",
-        "John",
-        "john@mailinator.com",
-        "7412508963",
-        "00112233440037",
-        "Arun Patil22",
-        "Advans Bank",
-        "Branch4",
-        "doc_desc23",
-        "capture.png",
-        "doc_desc25",
-        "capture.png",
-        "doc_desc22",
-        "capture.png",
-        "doc_desc21",
-        "capture.png",
-        "doc_desc27",
-        "capture.png",
-        "doc_desc26",
-        "capture.png",
-        "Name of Business/Applicant",
-        "Review",
-        "Approve",
-        "100",
-        "100",
-        "100",
-        "10",
-        "10",
-        "10",
-        "100",
-        "100",
-        "100",
-        "10",
-        "10",
-        "10",
-        "\\src\\test\\resources\\Scenario.xlsx",
-        "bindi"
+        "Objection_Appeal_Tax_Payer_04_06_07_08_11_12_13",
+        "Verify raise notice for objection",
+        "arunkumar1@mailinator.com",
+        "Arun123",
+        "eJan",
+        "btn_Jan_View",
+        "Assessment"
       ],
-      "line": 38,
-      "id": "vat-registration;user-submits-the-form-for-vat-approval;;2"
+      "line": 25,
+      "id": "user-is-on-tax-payer-portal-objection-and-appeal;verify-view-preview-download-navigation-name-and-barcode;;2"
     }
   ],
   "keyword": "Examples"
 });
 formatter.before({
-  "duration": 10292616832,
+  "duration": 13260221194,
   "status": "passed"
 });
 formatter.scenario({
-  "comments": [
-    {
-      "line": 35,
-      "value": "#| TC_End2End_01 | Registartion Process | approvedduser@mailinator.com | Test@123 | Legal Entity | Government Entity | 121210ABCDFE00100581 | 2018-08-22            | Approvedd User | ABC09ABC09AGC09 | 2018-08-25         | Mining        | 2018-08-22 | Large Scale  | 75000000 | Dharamdas Chamber | Near Axis Bank | Bas-Uele | Aketi |  444604 |   1234567890 | Business 1 | Dharamdas Chamber | Near Axis Bank | Bas-Uele  | Aketi |   444604 | abc@mailinator.com |    7896541023 | Yes    | Business Analysit | John  | john@mailinator.com | 7412508963 | 00112233440017 | Approvedd User      | Advans Bank | Branch4 | doc_desc23             | capture.png | doc_desc25             | capture.png | doc_desc22             | capture.png | doc_desc21             | capture.png | doc_desc27             | capture.png | doc_desc26             | capture.png | Name of Business/Applicant | Review | Approve  |        100 |      100 |          100 |         10 |       10 |           10 |        100 |      100 |          100 |         10 |       10 |           10 | \\\\src\\\\test\\\\resources\\\\Scenario.xlsx | bindi                |"
-    },
-    {
-      "line": 36,
-      "value": "#| TC_End2End_02 | Registartion Process | onholdedduser@mailinator.com | Test@123 | Legal Entity | Government Entity | 121210ABCDFE00100582 | 2018-08-22            | OnHoldedd User | ABC09ABC09AGC09 | 2018-08-25         | Mining        | 2018-08-22 | Large Scale  | 75000000 | Dharamdas Chamber | Near Axis Bank | Bas-Uele | Aketi |  444604 |   1234567890 | Business 1 | Dharamdas Chamber | Near Axis Bank | Bas-Uele  | Aketi |   444604 | abc@mailinator.com |    7896541023 | Yes    | Business Analysit | John  | john@mailinator.com | 7412508963 | 00112233440027 | OnHoldedd User      | Advans Bank | Branch4 | doc_desc23             | capture.png | doc_desc25             | capture.png | doc_desc22             | capture.png | doc_desc21             | capture.png | doc_desc27             | capture.png | doc_desc26             | capture.png | Name of Business/Applicant | Review | Approve  |        100 |      100 |          100 |         10 |       10 |           10 |        100 |      100 |          100 |         10 |       10 |           10 | \\\\src\\\\test\\\\resources\\\\Scenario.xlsx | bindi                |"
-    },
-    {
-      "line": 37,
-      "value": "#| TC_End2End_03 | Registartion Process | rejectedduser@mailinator.com | Test@123 | Legal Entity | Government Entity | 121210ABCDFE00100583 | 2018-08-22            | Rejectedd User | ABC09ABC09AGC09 | 2018-08-25         | Mining        | 2018-08-22 | Large Scale  | 75000000 | Dharamdas Chamber | Near Axis Bank | Bas-Uele | Aketi |  444604 |   1234567890 | Business 1 | Dharamdas Chamber | Near Axis Bank | Bas-Uele  | Aketi |   444604 | abc@mailinator.com |    7896541023 | Yes    | Business Analysit | John  | john@mailinator.com | 7412508963 | 00112233440037 | Rejectedd User      | Advans Bank | Branch4 | doc_desc23             | capture.png | doc_desc25             | capture.png | doc_desc22             | capture.png | doc_desc21             | capture.png | doc_desc27             | capture.png | doc_desc26             | capture.png | Name of Business/Applicant | Review | Approve  |        100 |      100 |          100 |         10 |       10 |           10 |        100 |      100 |          100 |         10 |       10 |           10 | \\\\src\\\\test\\\\resources\\\\Scenario.xlsx | bindi                |"
-    }
-  ],
-  "line": 38,
-  "name": "User submits the form for vat approval",
+  "line": 25,
+  "name": "Verify view preview download navigation name and barcode",
   "description": "",
-  "id": "vat-registration;user-submits-the-form-for-vat-approval;;2",
+  "id": "user-is-on-tax-payer-portal-objection-and-appeal;verify-view-preview-download-navigation-name-and-barcode;;2",
   "type": "scenario",
   "keyword": "Scenario Outline",
   "tags": [
     {
-      "line": 3,
-      "name": "@SP_03"
+      "line": 4,
+      "name": "@DV_2253_TaxPayer_Portal_objection_appeal_TC_04_06_07_08_11_12_13"
     }
   ]
 });
 formatter.step({
-  "line": 5,
-  "name": "User is on VAT Registration Dashboard",
-  "keyword": "Given "
-});
-formatter.step({
   "line": 6,
-  "name": "User Enter Data: \"arunkumar@mailinator.com\" \"Test@123\"",
+  "name": "User Enter email \"arunkumar1@mailinator.com\" and  password \"Arun123\"",
   "matchedColumns": [
     2,
     3
   ],
-  "keyword": "When "
+  "keyword": "Given "
 });
 formatter.step({
   "comments": [
     {
       "line": 7,
-      "value": "# And User Click on SignIn for new user"
+      "value": "#And User click on Dashboard and click on VAT e-filling button"
     }
   ],
   "line": 8,
-  "name": "User clicks on VAT Getting Started Guide CheckBox",
-  "keyword": "When "
+  "name": "User is on Tax Payer portal Objection and Appeal and click on VAT e-Filing Tab \"Objection_Appeal_Tax_Payer_04_06_07_08_11_12_13\" \"Verify raise notice for objection\"",
+  "matchedColumns": [
+    0,
+    1
+  ],
+  "keyword": "And "
 });
 formatter.step({
   "line": 9,
-  "name": "Clicks on Register for Vat button",
+  "name": "User click on collapse for the month \"eJan\"",
+  "matchedColumns": [
+    4
+  ],
   "keyword": "And "
 });
 formatter.step({
   "line": 10,
-  "name": "Clicks on Continue button of Instructions Page",
+  "name": "User click on view for month \"btn_Jan_View\"",
+  "matchedColumns": [
+    5
+  ],
   "keyword": "And "
 });
 formatter.step({
   "line": 11,
-  "name": "Selects Taxpayer Category \"Legal Entity\" , SubCategory \"Government Entity\"",
-  "matchedColumns": [
-    4,
-    5
-  ],
-  "keyword": "Then "
+  "name": "User see pop up appear for Notice",
+  "keyword": "And "
 });
 formatter.step({
   "line": 12,
-  "name": "Enters NIF number \"121210ABCDFE00100583\"  ,Full Name Of Business \"Arun Patil22\" , Number of COI \"ABC09ABC09AGC09\" , Last Year Revenue \"75000000\"",
+  "name": "User see document type \"Assessment\"",
   "matchedColumns": [
-    6,
-    8,
-    9,
-    14
+    6
   ],
   "keyword": "And "
 });
 formatter.step({
   "line": 13,
-  "name": "Enters NIF Registration Date \"2018-08-22\" , Date of Incorporation \"2018-08-25\" , Type Of Business \"Mining\"",
+  "name": "User click on view on notice popup",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 14,
+  "name": "User see name on notice",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 15,
+  "name": "User see barcode and ref id is same",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 16,
+  "name": "User click on download button on notice page",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 17,
+  "name": "User click on previous button and navigate to VAT e-Filing",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 18,
+  "name": "User click on collapse for the month \"eJan\"",
+  "matchedColumns": [
+    4
+  ],
+  "keyword": "And "
+});
+formatter.step({
+  "line": 19,
+  "name": "User click on view for month \"btn_Jan_View\"",
+  "matchedColumns": [
+    5
+  ],
+  "keyword": "And "
+});
+formatter.step({
+  "line": 20,
+  "name": "User click on view on notice popup",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 21,
+  "name": "User click on pay button and navigate to Payment Method",
+  "keyword": "And "
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "arunkumar1@mailinator.com",
+      "offset": 18
+    },
+    {
+      "val": "Arun123",
+      "offset": 60
+    }
+  ],
+  "location": "DV_2390_e_filing.user_Enter_email_and_password(String,String)"
+});
+formatter.result({
+  "duration": 18296911430,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "Objection_Appeal_Tax_Payer_04_06_07_08_11_12_13",
+      "offset": 80
+    },
+    {
+      "val": "Verify raise notice for objection",
+      "offset": 130
+    }
+  ],
+  "location": "DV_2253_TaxPayer_Portal_objection_appeal.user_is_on_Tax_Payer_portal_Objection_and_Appeal_and_click_on_VAT_e_Filing_Tab(String,String)"
+});
+formatter.result({
+  "duration": 1864765827,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "eJan",
+      "offset": 38
+    }
+  ],
+  "location": "DV_2253_TaxPayer_Portal_objection_appeal.user_click_on_collapse_for_the_month(String)"
+});
+formatter.result({
+  "duration": 2099326284,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "btn_Jan_View",
+      "offset": 30
+    }
+  ],
+  "location": "DV_2253_TaxPayer_Portal_objection_appeal.user_click_on_view_for_month(String)"
+});
+formatter.result({
+  "duration": 711814829,
+  "status": "passed"
+});
+formatter.match({
+  "location": "DV_2253_TaxPayer_Portal_objection_appeal.user_see_pop_up_appear_for_Notice()"
+});
+formatter.result({
+  "duration": 1056677452,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "Assessment",
+      "offset": 24
+    }
+  ],
+  "location": "DV_2253_TaxPayer_Portal_objection_appeal.user_see_document_type(String)"
+});
+formatter.result({
+  "duration": 1068675445,
+  "status": "passed"
+});
+formatter.match({
+  "location": "DV_2253_TaxPayer_Portal_objection_appeal.user_click_on_view_on_notice_popup()"
+});
+formatter.result({
+  "duration": 1446970918,
+  "status": "passed"
+});
+formatter.match({
+  "location": "DV_2253_TaxPayer_Portal_objection_appeal.user_see_reference_id_and_name_on_notice()"
+});
+formatter.result({
+  "duration": 1159979278,
+  "status": "passed"
+});
+formatter.match({
+  "location": "DV_2253_TaxPayer_Portal_objection_appeal.user_see_barcode_and_ref_id_is_same()"
+});
+formatter.result({
+  "duration": 236258814,
+  "status": "passed"
+});
+formatter.match({
+  "location": "DV_2253_TaxPayer_Portal_objection_appeal.user_click_on_download_button_on_notice_page()"
+});
+formatter.result({
+  "duration": 66151255285,
+  "status": "passed"
+});
+formatter.match({
+  "location": "DV_2253_TaxPayer_Portal_objection_appeal.user_click_on_previous_button_and_navigate_to_VAT_e_Filing()"
+});
+formatter.result({
+  "duration": 449329663,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "eJan",
+      "offset": 38
+    }
+  ],
+  "location": "DV_2253_TaxPayer_Portal_objection_appeal.user_click_on_collapse_for_the_month(String)"
+});
+formatter.result({
+  "duration": 2217489295,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "btn_Jan_View",
+      "offset": 30
+    }
+  ],
+  "location": "DV_2253_TaxPayer_Portal_objection_appeal.user_click_on_view_for_month(String)"
+});
+formatter.result({
+  "duration": 537767285,
+  "status": "passed"
+});
+formatter.match({
+  "location": "DV_2253_TaxPayer_Portal_objection_appeal.user_click_on_view_on_notice_popup()"
+});
+formatter.result({
+  "duration": 1320480373,
+  "status": "passed"
+});
+formatter.match({
+  "location": "DV_2253_TaxPayer_Portal_objection_appeal.user_click_on_pay_button_and_navigate_to_Payment_Method()"
+});
+formatter.result({
+  "duration": 2686063095,
+  "status": "passed"
+});
+formatter.embedding("image/png", "embedded0.png");
+formatter.after({
+  "duration": 1110214945,
+  "status": "passed"
+});
+formatter.scenarioOutline({
+  "comments": [
+    {
+      "line": 28,
+      "value": "#16 bug 2968"
+    }
+  ],
+  "line": 30,
+  "name": "Validate title ,period and object type",
+  "description": "",
+  "id": "user-is-on-tax-payer-portal-objection-and-appeal;validate-title-,period-and-object-type",
+  "type": "scenario_outline",
+  "keyword": "Scenario Outline",
+  "tags": [
+    {
+      "line": 29,
+      "name": "@DV_2253_TaxPayer_Portal_objection_appeal_TC_16_18_19"
+    }
+  ]
+});
+formatter.step({
+  "line": 31,
+  "name": "User is on Tax Payer portal Objection and Appeal and click on VAT e-Filing Tab \"\u003cTestcaseID\u003e\" \"\u003cDescription\u003e\"",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 32,
+  "name": "User click on Dashboard and click on VAT e-filling button",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 33,
+  "name": "User click on collapse for the month \"\u003cmonth\u003e\"",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 34,
+  "name": "User click on view for month \"\u003cclick\u003e\"",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 35,
+  "name": "User click on view on notice popup",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 36,
+  "name": "User see period on notice",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 37,
+  "name": "User click on Object on notice page",
+  "keyword": "And "
+});
+formatter.step({
+  "comments": [
+    {
+      "line": 38,
+      "value": "# And User verify the period field on objection page"
+    }
+  ],
+  "line": 39,
+  "name": "User click on Objection Type and select \"\u003clist\u003e\"",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 40,
+  "name": "User verify selected objection type \"\u003cverify\u003e\"",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 41,
+  "name": "User enter data \"\u003cdata\u003e\" in title for objection page",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 42,
+  "name": "User click on submit button on notice page and see message \"\u003cmessage\u003e\"",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 43,
+  "name": "User again enter data \"\u003cdata1\u003e\" in title for objection page",
+  "keyword": "And "
+});
+formatter.examples({
+  "line": 45,
+  "name": "",
+  "description": "",
+  "id": "user-is-on-tax-payer-portal-objection-and-appeal;validate-title-,period-and-object-type;",
+  "rows": [
+    {
+      "cells": [
+        "TestcaseID",
+        "Description",
+        "month",
+        "click",
+        "list",
+        "verify",
+        "message",
+        "data",
+        "data1"
+      ],
+      "line": 46,
+      "id": "user-is-on-tax-payer-portal-objection-and-appeal;validate-title-,period-and-object-type;;1"
+    },
+    {
+      "cells": [
+        "Objection_Appeal_Tax_Payer_16_18_19",
+        "Verify raise notice for objection",
+        "eMar",
+        "btn_Mar_View",
+        "drp_Objection_Assesment",
+        "Assessment",
+        "Title field is required.",
+        "abc",
+        "objection is incorrect"
+      ],
+      "line": 47,
+      "id": "user-is-on-tax-payer-portal-objection-and-appeal;validate-title-,period-and-object-type;;2"
+    }
+  ],
+  "keyword": "Examples"
+});
+formatter.before({
+  "duration": 5525316195,
+  "status": "passed"
+});
+formatter.scenario({
+  "line": 47,
+  "name": "Validate title ,period and object type",
+  "description": "",
+  "id": "user-is-on-tax-payer-portal-objection-and-appeal;validate-title-,period-and-object-type;;2",
+  "type": "scenario",
+  "keyword": "Scenario Outline",
+  "tags": [
+    {
+      "line": 29,
+      "name": "@DV_2253_TaxPayer_Portal_objection_appeal_TC_16_18_19"
+    }
+  ]
+});
+formatter.step({
+  "line": 31,
+  "name": "User is on Tax Payer portal Objection and Appeal and click on VAT e-Filing Tab \"Objection_Appeal_Tax_Payer_16_18_19\" \"Verify raise notice for objection\"",
+  "matchedColumns": [
+    0,
+    1
+  ],
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 32,
+  "name": "User click on Dashboard and click on VAT e-filling button",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 33,
+  "name": "User click on collapse for the month \"eMar\"",
+  "matchedColumns": [
+    2
+  ],
+  "keyword": "And "
+});
+formatter.step({
+  "line": 34,
+  "name": "User click on view for month \"btn_Mar_View\"",
+  "matchedColumns": [
+    3
+  ],
+  "keyword": "And "
+});
+formatter.step({
+  "line": 35,
+  "name": "User click on view on notice popup",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 36,
+  "name": "User see period on notice",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 37,
+  "name": "User click on Object on notice page",
+  "keyword": "And "
+});
+formatter.step({
+  "comments": [
+    {
+      "line": 38,
+      "value": "# And User verify the period field on objection page"
+    }
+  ],
+  "line": 39,
+  "name": "User click on Objection Type and select \"drp_Objection_Assesment\"",
+  "matchedColumns": [
+    4
+  ],
+  "keyword": "And "
+});
+formatter.step({
+  "line": 40,
+  "name": "User verify selected objection type \"Assessment\"",
+  "matchedColumns": [
+    5
+  ],
+  "keyword": "And "
+});
+formatter.step({
+  "line": 41,
+  "name": "User enter data \"abc\" in title for objection page",
+  "matchedColumns": [
+    7
+  ],
+  "keyword": "And "
+});
+formatter.step({
+  "line": 42,
+  "name": "User click on submit button on notice page and see message \"Title field is required.\"",
+  "matchedColumns": [
+    6
+  ],
+  "keyword": "And "
+});
+formatter.step({
+  "line": 43,
+  "name": "User again enter data \"objection is incorrect\" in title for objection page",
+  "matchedColumns": [
+    8
+  ],
+  "keyword": "And "
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "Objection_Appeal_Tax_Payer_16_18_19",
+      "offset": 80
+    },
+    {
+      "val": "Verify raise notice for objection",
+      "offset": 118
+    }
+  ],
+  "location": "DV_2253_TaxPayer_Portal_objection_appeal.user_is_on_Tax_Payer_portal_Objection_and_Appeal_and_click_on_VAT_e_Filing_Tab(String,String)"
+});
+formatter.result({
+  "duration": 1959505264,
+  "status": "passed"
+});
+formatter.match({
+  "location": "DV_2253_TaxPayer_Portal_objection_appeal.user_click_on_Dashboard_and_click_on_VAT_e_filling_button()"
+});
+formatter.result({
+  "duration": 2287960889,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "eMar",
+      "offset": 38
+    }
+  ],
+  "location": "DV_2253_TaxPayer_Portal_objection_appeal.user_click_on_collapse_for_the_month(String)"
+});
+formatter.result({
+  "duration": 1617779956,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "btn_Mar_View",
+      "offset": 30
+    }
+  ],
+  "location": "DV_2253_TaxPayer_Portal_objection_appeal.user_click_on_view_for_month(String)"
+});
+formatter.result({
+  "duration": 530253813,
+  "status": "passed"
+});
+formatter.match({
+  "location": "DV_2253_TaxPayer_Portal_objection_appeal.user_click_on_view_on_notice_popup()"
+});
+formatter.result({
+  "duration": 1351540131,
+  "status": "passed"
+});
+formatter.match({
+  "location": "DV_2253_TaxPayer_Portal_objection_appeal.user_see_period_on_notice()"
+});
+formatter.result({
+  "duration": 1117576251,
+  "status": "passed"
+});
+formatter.match({
+  "location": "DV_2253_TaxPayer_Portal_objection_appeal.user_click_on_Object_on_notice_page()"
+});
+formatter.result({
+  "duration": 10142215257,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "drp_Objection_Assesment",
+      "offset": 41
+    }
+  ],
+  "location": "DV_2253_TaxPayer_Portal_objection_appeal.user_click_on_Objection_Type_and_select(String)"
+});
+formatter.result({
+  "duration": 12070785364,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "Assessment",
+      "offset": 37
+    }
+  ],
+  "location": "DV_2253_TaxPayer_Portal_objection_appeal.user_verify_selected_objection_type(String)"
+});
+formatter.result({
+  "duration": 1037952865,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "abc",
+      "offset": 17
+    }
+  ],
+  "location": "DV_2253_TaxPayer_Portal_objection_appeal.user_enter_data_in_title_for_objection_page(String)"
+});
+formatter.result({
+  "duration": 3375692058,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "Title field is required.",
+      "offset": 60
+    }
+  ],
+  "location": "DV_2253_TaxPayer_Portal_objection_appeal.user_click_on_submit_button_on_notice_page_and_see_message(String)"
+});
+formatter.result({
+  "duration": 1175708520,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "objection is incorrect",
+      "offset": 23
+    }
+  ],
+  "location": "DV_2253_TaxPayer_Portal_objection_appeal.user_again_enter_data_in_title_for_objection_page(String)"
+});
+formatter.result({
+  "duration": 1879201478,
+  "status": "passed"
+});
+formatter.embedding("image/png", "embedded1.png");
+formatter.after({
+  "duration": 817348910,
+  "status": "passed"
+});
+formatter.scenarioOutline({
+  "line": 50,
+  "name": "Validate the Description field FileUpload",
+  "description": "",
+  "id": "user-is-on-tax-payer-portal-objection-and-appeal;validate-the-description-field-fileupload",
+  "type": "scenario_outline",
+  "keyword": "Scenario Outline",
+  "tags": [
+    {
+      "line": 49,
+      "name": "@DV_2253_TaxPayer_Portal_objection_appeal_TC_20_21_22"
+    }
+  ]
+});
+formatter.step({
+  "line": 51,
+  "name": "User is on Tax Payer portal Objection and Appeal and click on VAT e-Filing Tab \"\u003cTestcaseID\u003e\" \"\u003cDescription\u003e\"",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 52,
+  "name": "User click on collapse for the month \"\u003cmonth\u003e\"",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 53,
+  "name": "User click on view for month \"\u003cclick\u003e\"",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 54,
+  "name": "User click on view on notice popup",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 55,
+  "name": "User click on Object on notice page",
+  "keyword": "And "
+});
+formatter.step({
+  "comments": [
+    {
+      "line": 56,
+      "value": "# And User click on description field"
+    }
+  ],
+  "line": 57,
+  "name": "User enter number \"\u003cnumber\u003e\" and check",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 58,
+  "name": "User enter alphabets \"\u003calphabets\u003e\" and check",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 59,
+  "name": "User enter special character \"\u003cspecial\u003e\" aned checks",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 60,
+  "name": "User select file format zip \"\u003czip\u003e\" and see message \"\u003czipMess\u003e\" on objection page",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 61,
+  "name": "User click on browse button and upload file more than two mp \"\u003cBigFile\u003e\" and validate mess \"\u003cBigMess\u003e\" on objection page",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 62,
+  "name": "User click on browser and upload file \"\u003cuploadFile\u003e\" on objection page",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 63,
+  "name": "User click on Cancel and navigate to notice page",
+  "keyword": "And "
+});
+formatter.examples({
+  "line": 65,
+  "name": "",
+  "description": "",
+  "id": "user-is-on-tax-payer-portal-objection-and-appeal;validate-the-description-field-fileupload;",
+  "rows": [
+    {
+      "cells": [
+        "TestcaseID",
+        "Description",
+        "month",
+        "click",
+        "number",
+        "alphabets",
+        "special",
+        "zip",
+        "zipMess",
+        "BigFile",
+        "BigMess",
+        "uploadFile"
+      ],
+      "line": 66,
+      "id": "user-is-on-tax-payer-portal-objection-and-appeal;validate-the-description-field-fileupload;;1"
+    },
+    {
+      "cells": [
+        "Objection_Appeal_Tax_Payer_20_21_22",
+        "Verify Description",
+        "eMar",
+        "btn_Mar_View",
+        "25375123761547615",
+        "Notice raise by you is incorrect",
+        "-$%^%$^@$^%",
+        "src.zip",
+        "File format not found",
+        "Big File.xlsx",
+        "File size must be less than 2MB",
+        "Officers List With Tax Center.xlsx"
+      ],
+      "line": 67,
+      "id": "user-is-on-tax-payer-portal-objection-and-appeal;validate-the-description-field-fileupload;;2"
+    }
+  ],
+  "keyword": "Examples"
+});
+formatter.before({
+  "duration": 5694259609,
+  "status": "passed"
+});
+formatter.scenario({
+  "line": 67,
+  "name": "Validate the Description field FileUpload",
+  "description": "",
+  "id": "user-is-on-tax-payer-portal-objection-and-appeal;validate-the-description-field-fileupload;;2",
+  "type": "scenario",
+  "keyword": "Scenario Outline",
+  "tags": [
+    {
+      "line": 49,
+      "name": "@DV_2253_TaxPayer_Portal_objection_appeal_TC_20_21_22"
+    }
+  ]
+});
+formatter.step({
+  "line": 51,
+  "name": "User is on Tax Payer portal Objection and Appeal and click on VAT e-Filing Tab \"Objection_Appeal_Tax_Payer_20_21_22\" \"Verify Description\"",
+  "matchedColumns": [
+    0,
+    1
+  ],
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 52,
+  "name": "User click on collapse for the month \"eMar\"",
+  "matchedColumns": [
+    2
+  ],
+  "keyword": "And "
+});
+formatter.step({
+  "line": 53,
+  "name": "User click on view for month \"btn_Mar_View\"",
+  "matchedColumns": [
+    3
+  ],
+  "keyword": "And "
+});
+formatter.step({
+  "line": 54,
+  "name": "User click on view on notice popup",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 55,
+  "name": "User click on Object on notice page",
+  "keyword": "And "
+});
+formatter.step({
+  "comments": [
+    {
+      "line": 56,
+      "value": "# And User click on description field"
+    }
+  ],
+  "line": 57,
+  "name": "User enter number \"25375123761547615\" and check",
+  "matchedColumns": [
+    4
+  ],
+  "keyword": "And "
+});
+formatter.step({
+  "line": 58,
+  "name": "User enter alphabets \"Notice raise by you is incorrect\" and check",
+  "matchedColumns": [
+    5
+  ],
+  "keyword": "And "
+});
+formatter.step({
+  "line": 59,
+  "name": "User enter special character \"-$%^%$^@$^%\" aned checks",
+  "matchedColumns": [
+    6
+  ],
+  "keyword": "And "
+});
+formatter.step({
+  "line": 60,
+  "name": "User select file format zip \"src.zip\" and see message \"File format not found\" on objection page",
   "matchedColumns": [
     7,
-    10,
+    8
+  ],
+  "keyword": "And "
+});
+formatter.step({
+  "line": 61,
+  "name": "User click on browse button and upload file more than two mp \"Big File.xlsx\" and validate mess \"File size must be less than 2MB\" on objection page",
+  "matchedColumns": [
+    9,
+    10
+  ],
+  "keyword": "And "
+});
+formatter.step({
+  "line": 62,
+  "name": "User click on browser and upload file \"Officers List With Tax Center.xlsx\" on objection page",
+  "matchedColumns": [
     11
   ],
   "keyword": "And "
 });
 formatter.step({
-  "line": 14,
-  "name": "Enters Business Start Date \"2018-08-22\" , Company Size \"Large Scale\"",
-  "matchedColumns": [
-    12,
-    13
-  ],
+  "line": 63,
+  "name": "User click on Cancel and navigate to notice page",
   "keyword": "And "
-});
-formatter.step({
-  "line": 15,
-  "name": "Enters Address Details \"Dharamdas Chamber\" , \"Near Axis Bank\" , \"Bas-Uele\" ,\"Aketi\" ,\"444604\",\"1234567890\"",
-  "matchedColumns": [
-    16,
-    17,
-    18,
-    19,
-    20,
-    15
-  ],
-  "keyword": "And "
-});
-formatter.step({
-  "line": 16,
-  "name": "Enters Business details \"Business 1\",\"Dharamdas Chamber\" , \"Near Axis Bank\" , \"Bas-Uele\" ,\"Aketi\" ,\"444604\",\"abc@mailinator.com\",\"7896541023\"",
-  "matchedColumns": [
-    21,
-    22,
-    23,
-    24,
-    25,
-    26,
-    27,
-    28
-  ],
-  "keyword": "And "
-});
-formatter.step({
-  "line": 17,
-  "name": "select Authorization signature \"Yes\" with Job Title \"Business Analysit\" , Full Name \"John\" Email \"john@mailinator.com\" , Mobile Number \"7412508963\"",
-  "matchedColumns": [
-    32,
-    33,
-    29,
-    30,
-    31
-  ],
-  "keyword": "And "
-});
-formatter.step({
-  "line": 18,
-  "name": "Clicks on Save Draft Button",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 19,
-  "name": "Clicks on VAT Registration Page Continue Button",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 20,
-  "name": "Enters Bank Details with Account Number \"00112233440037\" , Account Holder Name \"Arun Patil22\" ,Bank Name \"Advans Bank\" ,Branch \"Branch4\"",
-  "matchedColumns": [
-    34,
-    35,
-    36,
-    37
-  ],
-  "keyword": "And "
-});
-formatter.step({
-  "line": 21,
-  "name": "Clicks on Bank details Continue Button",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 22,
-  "name": "select Address Proof of Registered Place of Business for \"doc_desc23\" , \"capture.png\"",
-  "matchedColumns": [
-    38,
-    39
-  ],
-  "keyword": "And "
-});
-formatter.step({
-  "line": 23,
-  "name": "select Bank Account Proof for \"doc_desc25\" , \"capture.png\"",
-  "matchedColumns": [
-    40,
-    41
-  ],
-  "keyword": "And "
-});
-formatter.step({
-  "line": 24,
-  "name": "Select Certificate of Incorporation for \"doc_desc22\" , \"capture.png\"",
-  "matchedColumns": [
-    42,
-    43
-  ],
-  "keyword": "And "
-});
-formatter.step({
-  "line": 25,
-  "name": "select Law or Degree of Establishment for \"doc_desc21\" , \"capture.png\"",
-  "matchedColumns": [
-    44,
-    45
-  ],
-  "keyword": "And "
-});
-formatter.step({
-  "line": 26,
-  "name": "select Letter of Authorization/Board Resolution for Authorized Signatory – Download Template for \"doc_desc27\" , \"capture.png\"",
-  "matchedColumns": [
-    46,
-    47
-  ],
-  "keyword": "And "
-});
-formatter.step({
-  "line": 27,
-  "name": "select Proof of Last Year Revenue for \"doc_desc26\" , \"capture.png\"",
-  "matchedColumns": [
-    48,
-    49
-  ],
-  "keyword": "And "
-});
-formatter.step({
-  "line": 28,
-  "name": "Clicks on document required Continue Button",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 29,
-  "name": "clicks on Acknowledgement checkbox and continue button",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 30,
-  "name": "click on Ok button on alert page",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 31,
-  "name": "Click on Logout on Dashboard",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "VatRegistration.user_is_on_VAT_Registration_Dashboard()"
-});
-formatter.result({
-  "duration": 1125683279,
-  "status": "passed"
 });
 formatter.match({
   "arguments": [
     {
-      "val": "arunkumar@mailinator.com",
-      "offset": 18
-    },
-    {
-      "val": "Test@123",
-      "offset": 45
-    }
-  ],
-  "location": "Login.i_Enter_Data(String,String)"
-});
-formatter.result({
-  "duration": 15861125575,
-  "status": "passed"
-});
-formatter.match({
-  "location": "VatRegistration.user_clicks_on_VAT_Getting_Started_Guide_CheckBox()"
-});
-formatter.result({
-  "duration": 5187575870,
-  "status": "passed"
-});
-formatter.match({
-  "location": "VatRegistration.clicks_on_Register_for_Vat_button()"
-});
-formatter.result({
-  "duration": 5365316905,
-  "status": "passed"
-});
-formatter.match({
-  "location": "VatRegistration.clicks_on_Continue_button_of_Instructions_Page()"
-});
-formatter.result({
-  "duration": 6332486295,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "Legal Entity",
-      "offset": 27
-    },
-    {
-      "val": "Government Entity",
-      "offset": 56
-    }
-  ],
-  "location": "VatRegistration.selects_Taxpayer_Category_SubCategory(String,String)"
-});
-formatter.result({
-  "duration": 2795913674,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "121210ABCDFE00100583",
-      "offset": 19
-    },
-    {
-      "val": "Arun Patil22",
-      "offset": 66
-    },
-    {
-      "val": "ABC09ABC09AGC09",
-      "offset": 97
-    },
-    {
-      "val": "75000000",
-      "offset": 135
-    }
-  ],
-  "location": "VatRegistration.enters_NIF_number_Full_Name_Of_Business_Number_of_COI_Last_Year_Revenue(String,String,String,String)"
-});
-formatter.result({
-  "duration": 8179314035,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "2018-08-22",
-      "offset": 30
-    },
-    {
-      "val": "2018-08-25",
-      "offset": 67
-    },
-    {
-      "val": "Mining",
-      "offset": 99
-    }
-  ],
-  "location": "VatRegistration.enters_NIF_Registration_Date_Date_of_Incorporation_Type_Of_Business(String,String,String)"
-});
-formatter.result({
-  "duration": 14057413355,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "2018-08-22",
-      "offset": 28
-    },
-    {
-      "val": "Large Scale",
-      "offset": 56
-    }
-  ],
-  "location": "VatRegistration.enters_Business_Start_Date_Company_Size_Last_Year_Revenue(String,String)"
-});
-formatter.result({
-  "duration": 5165604470,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "Dharamdas Chamber",
-      "offset": 24
-    },
-    {
-      "val": "Near Axis Bank",
-      "offset": 46
-    },
-    {
-      "val": "Bas-Uele",
-      "offset": 65
-    },
-    {
-      "val": "Aketi",
-      "offset": 77
-    },
-    {
-      "val": "444604",
-      "offset": 86
-    },
-    {
-      "val": "1234567890",
-      "offset": 95
-    }
-  ],
-  "location": "VatRegistration.enters_Address_Details(String,String,String,String,String,String)"
-});
-formatter.result({
-  "duration": 8920660555,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "Business 1",
-      "offset": 25
-    },
-    {
-      "val": "Dharamdas Chamber",
-      "offset": 38
-    },
-    {
-      "val": "Near Axis Bank",
-      "offset": 60
-    },
-    {
-      "val": "Bas-Uele",
-      "offset": 79
-    },
-    {
-      "val": "Aketi",
-      "offset": 91
-    },
-    {
-      "val": "444604",
-      "offset": 100
-    },
-    {
-      "val": "abc@mailinator.com",
-      "offset": 109
-    },
-    {
-      "val": "7896541023",
-      "offset": 130
-    }
-  ],
-  "location": "VatRegistration.enters_Business_details(String,String,String,String,String,String,String,String)"
-});
-formatter.result({
-  "duration": 8785564198,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "Yes",
-      "offset": 32
-    },
-    {
-      "val": "Business Analysit",
-      "offset": 53
-    },
-    {
-      "val": "John",
-      "offset": 85
-    },
-    {
-      "val": "john@mailinator.com",
-      "offset": 98
-    },
-    {
-      "val": "7412508963",
-      "offset": 136
-    }
-  ],
-  "location": "VatRegistration.select_Authorization_signature_with_Job_Title_Full_Name_Email_Mobile_Number(String,String,String,String,String)"
-});
-formatter.result({
-  "duration": 5437364897,
-  "status": "passed"
-});
-formatter.match({
-  "location": "VatRegistration.clicks_on_Save_Draft_Button()"
-});
-formatter.result({
-  "duration": 60790,
-  "status": "passed"
-});
-formatter.match({
-  "location": "VatRegistration.clicks_on_VAT_Registration_Page_Continue_Button()"
-});
-formatter.result({
-  "duration": 179355191,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "00112233440037",
-      "offset": 41
-    },
-    {
-      "val": "Arun Patil22",
+      "val": "Objection_Appeal_Tax_Payer_20_21_22",
       "offset": 80
     },
     {
-      "val": "Advans Bank",
-      "offset": 106
-    },
-    {
-      "val": "Branch4",
-      "offset": 128
+      "val": "Verify Description",
+      "offset": 118
     }
   ],
-  "location": "VatRegistration.enters_Bank_Details_with_Account_Number_Account_Holder_Name_Bank_Name_Branch(String,String,String,String)"
+  "location": "DV_2253_TaxPayer_Portal_objection_appeal.user_is_on_Tax_Payer_portal_Objection_and_Appeal_and_click_on_VAT_e_Filing_Tab(String,String)"
 });
 formatter.result({
-  "duration": 4167559582,
-  "status": "passed"
-});
-formatter.match({
-  "location": "VatRegistration.clicks_on_Bank_details_Continue_Button()"
-});
-formatter.result({
-  "duration": 181536472,
+  "duration": 1911082473,
   "status": "passed"
 });
 formatter.match({
   "arguments": [
     {
-      "val": "doc_desc23",
-      "offset": 58
-    },
-    {
-      "val": "capture.png",
-      "offset": 73
+      "val": "eMar",
+      "offset": 38
     }
   ],
-  "location": "VatRegistration.select_Address_Proof_of_Registered_Place_of_Business_for(String,String)"
+  "location": "DV_2253_TaxPayer_Portal_objection_appeal.user_click_on_collapse_for_the_month(String)"
 });
 formatter.result({
-  "duration": 8980554612,
+  "duration": 1543987543,
   "status": "passed"
 });
 formatter.match({
   "arguments": [
     {
-      "val": "doc_desc25",
-      "offset": 31
-    },
-    {
-      "val": "capture.png",
-      "offset": 46
+      "val": "btn_Mar_View",
+      "offset": 30
     }
   ],
-  "location": "VatRegistration.select_Bank_Account_Proof_for(String,String)"
+  "location": "DV_2253_TaxPayer_Portal_objection_appeal.user_click_on_view_for_month(String)"
 });
 formatter.result({
-  "duration": 6475916605,
+  "duration": 896485973,
+  "status": "passed"
+});
+formatter.match({
+  "location": "DV_2253_TaxPayer_Portal_objection_appeal.user_click_on_view_on_notice_popup()"
+});
+formatter.result({
+  "duration": 1227860293,
+  "status": "passed"
+});
+formatter.match({
+  "location": "DV_2253_TaxPayer_Portal_objection_appeal.user_click_on_Object_on_notice_page()"
+});
+formatter.result({
+  "duration": 15306409842,
   "status": "passed"
 });
 formatter.match({
   "arguments": [
     {
-      "val": "doc_desc22",
-      "offset": 41
-    },
-    {
-      "val": "capture.png",
-      "offset": 56
+      "val": "25375123761547615",
+      "offset": 19
     }
   ],
-  "location": "VatRegistration.select_Certificate_of_Incorporation_for(String,String)"
+  "location": "DV_2253_TaxPayer_Portal_objection_appeal.user_enter_number_and_check(String)"
 });
 formatter.result({
-  "duration": 6509109314,
+  "duration": 2450197342,
   "status": "passed"
 });
 formatter.match({
   "arguments": [
     {
-      "val": "doc_desc21",
-      "offset": 43
-    },
-    {
-      "val": "capture.png",
-      "offset": 58
+      "val": "Notice raise by you is incorrect",
+      "offset": 22
     }
   ],
-  "location": "VatRegistration.select_Law_or_Degree_of_Establishment_for(String,String)"
+  "location": "DV_2253_TaxPayer_Portal_objection_appeal.user_enter_alphabets_and_check(String)"
 });
 formatter.result({
-  "duration": 6923379133,
+  "duration": 1738056662,
   "status": "passed"
 });
 formatter.match({
   "arguments": [
     {
-      "val": "doc_desc27",
-      "offset": 98
-    },
-    {
-      "val": "capture.png",
-      "offset": 113
+      "val": "-$%^%$^@$^%",
+      "offset": 30
     }
   ],
-  "location": "VatRegistration.select_Letter_of_Authorization_Board_Resolution_for_Authorized_Signatory_Download_Template_for(String,String)"
+  "location": "DV_2253_TaxPayer_Portal_objection_appeal.user_enter_special_character_aned_checks(String)"
 });
 formatter.result({
-  "duration": 6599135416,
+  "duration": 1586664693,
   "status": "passed"
 });
 formatter.match({
   "arguments": [
     {
-      "val": "doc_desc26",
+      "val": "src.zip",
+      "offset": 29
+    },
+    {
+      "val": "File format not found",
+      "offset": 55
+    }
+  ],
+  "location": "DV_2253_TaxPayer_Portal_objection_appeal.user_select_file_format_zip_and_see_message_on_objection_page(String,String)"
+});
+formatter.result({
+  "duration": 52604530661,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "Big File.xlsx",
+      "offset": 62
+    },
+    {
+      "val": "File size must be less than 2MB",
+      "offset": 96
+    }
+  ],
+  "location": "DV_2253_TaxPayer_Portal_objection_appeal.user_click_on_browse_button_and_upload_file_more_than_two_mp_and_validate_mess_on_objection_page(String,String)"
+});
+formatter.result({
+  "duration": 7392287846,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "Officers List With Tax Center.xlsx",
       "offset": 39
-    },
-    {
-      "val": "capture.png",
-      "offset": 54
     }
   ],
-  "location": "VatRegistration.select_Proof_of_Last_Year_Revenue_for(String,String)"
+  "location": "DV_2253_TaxPayer_Portal_objection_appeal.user_click_on_browser_and_upload_file_on_objection_page(String)"
 });
 formatter.result({
-  "duration": 6576693552,
+  "duration": 6359374923,
   "status": "passed"
 });
 formatter.match({
-  "location": "VatRegistration.clicks_on_document_required_Continue_Button()"
+  "location": "DV_2253_TaxPayer_Portal_objection_appeal.user_click_on_Cancel_and_navigate_to_notice_page()"
 });
 formatter.result({
-  "duration": 2338668796,
+  "duration": 1554835426,
   "status": "passed"
 });
-formatter.match({
-  "location": "VatRegistration.clicks_on_Acknowledgement_checkbox_and_continue_button()"
-});
-formatter.result({
-  "duration": 16575882131,
-  "status": "passed"
-});
-formatter.match({
-  "location": "VatRegistration.click_on_Ok_button_on_alert_page()"
-});
-formatter.result({
-  "duration": 13472314111,
-  "status": "passed"
-});
-formatter.match({
-  "location": "VatRegistration.click_on_Logout_on_Dashboard()"
-});
-formatter.result({
-  "duration": 6403648861,
-  "status": "passed"
-});
-formatter.embedding("image/png", "embedded0.png");
+formatter.embedding("image/png", "embedded2.png");
 formatter.after({
-  "duration": 1357275576,
+  "duration": 944760751,
+  "status": "passed"
+});
+formatter.scenarioOutline({
+  "line": 70,
+  "name": "validate submit",
+  "description": "",
+  "id": "user-is-on-tax-payer-portal-objection-and-appeal;validate-submit",
+  "type": "scenario_outline",
+  "keyword": "Scenario Outline",
+  "tags": [
+    {
+      "line": 69,
+      "name": "@DV_2253_TaxPayer_Portal_objection_appeal_TC_02_14_23_24"
+    }
+  ]
+});
+formatter.step({
+  "line": 71,
+  "name": "User is on Tax Payer portal Objection and Appeal and click on VAT e-Filing Tab \"\u003cTestcaseID\u003e\" \"\u003cDescription\u003e\"",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 72,
+  "name": "User click on collapse for the month \"\u003cmonth\u003e\"",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 73,
+  "name": "User click on view for month \"\u003cclick\u003e\"",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 74,
+  "name": "User click on view on notice popup",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 75,
+  "name": "User see period on notice",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 76,
+  "name": "User click on Object on notice page",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 77,
+  "name": "User click on Objection Type and select \"\u003clist\u003e\"",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 78,
+  "name": "User enter description \"\u003cdescription\u003e\"",
+  "keyword": "And "
+});
+formatter.examples({
+  "comments": [
+    {
+      "line": 80,
+      "value": "# And User click on submit button on notice page"
+    }
+  ],
+  "line": 81,
+  "name": "",
+  "description": "",
+  "id": "user-is-on-tax-payer-portal-objection-and-appeal;validate-submit;",
+  "rows": [
+    {
+      "cells": [
+        "TestcaseID",
+        "Description",
+        "month",
+        "click",
+        "list",
+        "description"
+      ],
+      "line": 82,
+      "id": "user-is-on-tax-payer-portal-objection-and-appeal;validate-submit;;1"
+    },
+    {
+      "cells": [
+        "Objection_Appeal_Tax_Payer_02_14_23_24",
+        "Verify raise notice for objection",
+        "eMar",
+        "btn_Mar_View",
+        "drp_Objection_Assesment",
+        "Notice raise by you is incorrect"
+      ],
+      "line": 83,
+      "id": "user-is-on-tax-payer-portal-objection-and-appeal;validate-submit;;2"
+    }
+  ],
+  "keyword": "Examples"
+});
+formatter.before({
+  "duration": 5535404764,
+  "status": "passed"
+});
+formatter.scenario({
+  "line": 83,
+  "name": "validate submit",
+  "description": "",
+  "id": "user-is-on-tax-payer-portal-objection-and-appeal;validate-submit;;2",
+  "type": "scenario",
+  "keyword": "Scenario Outline",
+  "tags": [
+    {
+      "line": 69,
+      "name": "@DV_2253_TaxPayer_Portal_objection_appeal_TC_02_14_23_24"
+    }
+  ]
+});
+formatter.step({
+  "line": 71,
+  "name": "User is on Tax Payer portal Objection and Appeal and click on VAT e-Filing Tab \"Objection_Appeal_Tax_Payer_02_14_23_24\" \"Verify raise notice for objection\"",
+  "matchedColumns": [
+    0,
+    1
+  ],
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 72,
+  "name": "User click on collapse for the month \"eMar\"",
+  "matchedColumns": [
+    2
+  ],
+  "keyword": "And "
+});
+formatter.step({
+  "line": 73,
+  "name": "User click on view for month \"btn_Mar_View\"",
+  "matchedColumns": [
+    3
+  ],
+  "keyword": "And "
+});
+formatter.step({
+  "line": 74,
+  "name": "User click on view on notice popup",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 75,
+  "name": "User see period on notice",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 76,
+  "name": "User click on Object on notice page",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 77,
+  "name": "User click on Objection Type and select \"drp_Objection_Assesment\"",
+  "matchedColumns": [
+    4
+  ],
+  "keyword": "And "
+});
+formatter.step({
+  "line": 78,
+  "name": "User enter description \"Notice raise by you is incorrect\"",
+  "matchedColumns": [
+    5
+  ],
+  "keyword": "And "
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "Objection_Appeal_Tax_Payer_02_14_23_24",
+      "offset": 80
+    },
+    {
+      "val": "Verify raise notice for objection",
+      "offset": 121
+    }
+  ],
+  "location": "DV_2253_TaxPayer_Portal_objection_appeal.user_is_on_Tax_Payer_portal_Objection_and_Appeal_and_click_on_VAT_e_Filing_Tab(String,String)"
+});
+formatter.result({
+  "duration": 1694739135,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "eMar",
+      "offset": 38
+    }
+  ],
+  "location": "DV_2253_TaxPayer_Portal_objection_appeal.user_click_on_collapse_for_the_month(String)"
+});
+formatter.result({
+  "duration": 2040375798,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "btn_Mar_View",
+      "offset": 30
+    }
+  ],
+  "location": "DV_2253_TaxPayer_Portal_objection_appeal.user_click_on_view_for_month(String)"
+});
+formatter.result({
+  "duration": 512725023,
+  "status": "passed"
+});
+formatter.match({
+  "location": "DV_2253_TaxPayer_Portal_objection_appeal.user_click_on_view_on_notice_popup()"
+});
+formatter.result({
+  "duration": 1255786891,
+  "status": "passed"
+});
+formatter.match({
+  "location": "DV_2253_TaxPayer_Portal_objection_appeal.user_see_period_on_notice()"
+});
+formatter.result({
+  "duration": 1285559856,
+  "status": "passed"
+});
+formatter.match({
+  "location": "DV_2253_TaxPayer_Portal_objection_appeal.user_click_on_Object_on_notice_page()"
+});
+formatter.result({
+  "duration": 14814196114,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "drp_Objection_Assesment",
+      "offset": 41
+    }
+  ],
+  "location": "DV_2253_TaxPayer_Portal_objection_appeal.user_click_on_Objection_Type_and_select(String)"
+});
+formatter.result({
+  "duration": 4944179656,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "Notice raise by you is incorrect",
+      "offset": 24
+    }
+  ],
+  "location": "DV_2253_TaxPayer_Portal_objection_appeal.user_enter_description(String)"
+});
+formatter.result({
+  "duration": 2101310468,
+  "status": "passed"
+});
+formatter.embedding("image/png", "embedded3.png");
+formatter.after({
+  "duration": 933021024,
   "status": "passed"
 });
 });

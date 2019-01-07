@@ -29,11 +29,11 @@ import static org.drc.vat.appmanager.HelperBase.clearCache;
 import static org.drc.vat.appmanager.HelperBase.assessmentOfficer;
 import static org.drc.vat.appmanager.HelperBase.sleepWait;
 
-@CucumberOptions(features = {"classpath:features/03_VATRegistration.feature"},
+@CucumberOptions(features = {"classpath:features/30_TaxPayer_Portal_objection_appeal.feature"},
 	glue = "org.drc.vat.StepDefinitions",
 	plugin = {"com.cucumber.listener.ExtentCucumberFormatter:",
 	"html:test-output/cucumber-report"}
-	//tags= {"@Valid_Registration"}
+	//tags={"@DV_2253_TaxPayer_Portal_objection_appeal_TC_04_06_07_08_11_12_13"}
 )
 
 public class TestRunner extends AbstractTestNGCucumberTests {
@@ -57,7 +57,6 @@ public class TestRunner extends AbstractTestNGCucumberTests {
 		Reporter.loadXMLConfig("src/test/resources/extent-config.xml");
 		Reporter.setSystemInfo("user", System.getProperty("user.name"));
 	}
-
 
 	@Before
 	public void startScenario(Scenario scenario) throws IOException, AWTException, InterruptedException 

@@ -1,7 +1,7 @@
 Feature: User is on Operation Performed Page Manual Assessement
 
   @TC_02_03_Manual_2881
-  Scenario Outline: Validate the NITVA field,Period field -internal portal
+  Scenario Outline: Validate the NITVA field,Period field 
     Given User is on Manual Assessment "<TestcaseID>" "<Description>"
     And User click on Dashboard
     And User click on Assessment Tab

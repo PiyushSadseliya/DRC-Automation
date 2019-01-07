@@ -125,7 +125,7 @@ public class DV_2882_Manual_Assessed_LandingScreen
 	{
 		Thread.sleep(500);
 		type("txtbox_TypeHere",typeValue);	
-		Thread.sleep(500);
+		Thread.sleep(1000);
 	}
 
 	@And("^User click on search button and check data \"([^\"]*)\"$")
@@ -286,13 +286,13 @@ public class DV_2882_Manual_Assessed_LandingScreen
 	@And("^User again click on drop down officer \"([^\"]*)\" and click on right tick$")
 	public void user_again_click_on_drop_down_officer_and_click_on_right_tick(String value) throws Throwable 
 	{
-		Thread.sleep(500);
+		Thread.sleep(1000);
 		clickOn("txt_AssestManageReassign", "");
-		Thread.sleep(500);
+		Thread.sleep(1000);
 		clickOn("drp_AssessOfficerChangedDropdown", "");
-		Thread.sleep(500);
+		Thread.sleep(1000);
 		clickOn(value, "");
-		Thread.sleep(500);
+		Thread.sleep(1000);
 		clickOn("btn_AssseOfficerRight", "");
 	}
 

@@ -64,16 +64,12 @@ public class DV_2390_e_filing
 		System.out.println(arg2);		
 	}	
 	
-	
-	
-
-	
 	@And("^User Enter email \"([^\"]*)\" and  password \"([^\"]*)\"$")
 	public void user_Enter_email_and_password(String email, String pwd) throws Throwable 
 	{
 /*		 type("txtbox_username",email);		
 		 type("txtbox_password",pwd);*/
-		login(email, pwd);
+		 login(email, pwd);
 	}
 	@And("^User Click on SignIn$")
 	public void user_Click_on_SignIn() throws Throwable 
@@ -334,9 +330,7 @@ public class DV_2390_e_filing
 
 	@And("^User click on browser and upload file \"([^\"]*)\"$")
 	public void user_click_on_browser_and_upload_file(String upload) throws Throwable 
-	{
-	
-		
+	{	
 		sleepWait(2000);
 		wd.findElement(By.xpath("//label[@for='validatedCustomFile']")).click();
 		UploadImage("",upload);

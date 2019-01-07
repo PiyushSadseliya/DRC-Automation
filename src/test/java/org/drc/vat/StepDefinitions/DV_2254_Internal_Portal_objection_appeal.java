@@ -12,10 +12,20 @@ import cucumber.api.java.en.And;
 
 public class DV_2254_Internal_Portal_objection_appeal 
 {
+	@And("^User click on Dashboard and click on pin button$")
+	public void user_click_on_Dashboard_and_click_on_pin_button() throws Throwable {
+	    clickOn("txt_dashboard", "");
+	    sleepWait(200);
+	    clickOn("label_pin", "");	    
+	}
+	
 	@And("^User click on case management$")
 	public void user_click_on_case_management() throws Throwable
 	{
-	   clickOn("txt_CaseManagement", "");
+		wd.findElement(By.xpath("//label[@class=\"ng-tns-c2-1\"]")).click();
+		sleepWait(1000);
+		clickOn("txt_CaseManagement", "");
+		sleepWait(1000);
 	}
 
 	@And("^User click on filter by on case management and click on \"([^\"]*)\"$")
@@ -31,18 +41,23 @@ public class DV_2254_Internal_Portal_objection_appeal
 	public void user_user_click_on_case_type_and_click_on_search_button_search_result_on_case_management(String value, String mess) throws Throwable 
 	{
 		sleepWait(1000);
-	   clickOn("drp_CaseType_2", "");
-	   sleepWait(1000);
-	   clickOn(value, "");
-	   sleepWait(1000);
-	   clickOn("btn_SearchFX", "");
-	   sleepWait(1000);	   
-	   
-	   if(wd.findElement(By.xpath("//table//div[contains(text(),'"+ mess +"')]")).isDisplayed()  || wd.findElement(By.xpath(obj.getProperty("txt_NRF_CM"))).isDisplayed())
-	   {		   
-		   assertTrue(true);
-	   }
-	   
+		clickOn("drp_CaseType_2", "");
+		sleepWait(1000);
+		clickOn(value, "");
+		sleepWait(1000);
+		clickOn("btn_SearchFX", "");
+		sleepWait(1000);
+		if(wd.findElement(By.xpath("//table//div[contains(text(),'"+ mess +"')]")).isDisplayed()  || wd.findElement(By.xpath(obj.getProperty("txt_NRF_CM"))).isDisplayed())
+		{		   
+			assertTrue(true);
+		}
+	}
+	
+	@And("^User type status \"([^\"]*)\"$")
+	public void user_type_status(String status) throws Throwable {
+		type("TypeHere",status);
+		sleepWait(500);
+		clickOn("btn_SearchFX", "");
 	}
 
 	@And("^User type status \"([^\"]*)\" and verify \"([^\"]*)\"$")
@@ -51,11 +66,11 @@ public class DV_2254_Internal_Portal_objection_appeal
 		type("TypeHere",status);
 		sleepWait(500);
 		clickOn("btn_SearchFX", "");
-		
-		 if(wd.findElement(By.xpath("//table//div[contains(text(),'"+ verify +"')]")).isDisplayed())
-		 {
-			 assertTrue(true);
-		 }		   
+
+		if(wd.findElement(By.xpath("(//*[contains(text(),'"+ verify +"')])[1]")).isDisplayed())
+		{
+			assertTrue(true);
+		}		   
 	}
 
 	@And("^User Type id \"([^\"]*)\"$")
@@ -67,8 +82,8 @@ public class DV_2254_Internal_Portal_objection_appeal
 	@And("^User click on search button$")
 	public void user_click_on_search_button() throws Throwable 
 	{
-		 clickOn("btn_SearchFX", "");
-	   
+		clickOn("btn_SearchFX", "");
+
 	}
 
 	@And("^User click on manage drop down and click on view$")
@@ -78,7 +93,7 @@ public class DV_2254_Internal_Portal_objection_appeal
 		clickOn("drp_ManageDropdown","");			
 		sleepWait(1000);
 		clickOn("drp_view_click", "");
-	   
+		sleepWait(3000);
 	}
 
 	@And("^User click on priority$")
@@ -86,23 +101,25 @@ public class DV_2254_Internal_Portal_objection_appeal
 	{
 		WebElement element1 = wd.findElement(By.id("iframe"));		
 		wd.switchTo().frame(element1);
-	   
+		clickOn("drp_Priority_click", "");
 	}
 
 	@And("^User select priority \"([^\"]*)\"$")
 	public void user_select_priority(String pir) throws Throwable
-	{
-	   clickOn("drp_Priority_click", "");
-	   sleepWait(1000);
-	   clickOn(pir, "");
-	   
+	{		
+		sleepWait(1000);
+		clickOn(pir, "");
 	}
 
 	@And("^User click on submit button$")
 	public void user_click_on_submit_button() throws Throwable
 	{
-	   clickOn("btn_Obj_Submit", "");
-	   
+		clickOn("btn_Obj_Submit", "");
+		{
+			assertTrue(true);
+		}
+		
+		sleepWait(1500);
 	}
 
 	@And("^User see validation message for changing priority \"([^\"]*)\"$")
@@ -113,9 +130,9 @@ public class DV_2254_Internal_Portal_objection_appeal
 			assertTrue(true);
 		}	
 	}
-	
-	
-	
+
+
+
 	@And("^User click on select action$")
 	public void user_click_on_select_action() throws Throwable 
 	{
@@ -132,38 +149,39 @@ public class DV_2254_Internal_Portal_objection_appeal
 	public void user_click_on_Transaction_Detail_button() throws Throwable
 	{
 		clickOn("btn_TransactionDetails", "");
+		sleepWait(2000);
 	}
 
 	@And("^User navigate to Statement of transaction page$")
 	public void user_navigate_to_Statement_of_transaction_page() throws Throwable 
 	{
-		 if(wd.findElement(By.xpath(obj.getProperty("txt_NoticePage"))).isDisplayed())
-		 {
-				assertTrue(true);
-		 }
+		if(wd.findElement(By.xpath(obj.getProperty("txt_NoticePage"))).isDisplayed())
+		{
+			assertTrue(true);
+		}
 	}
 
 	@And("^User click on previous button on objection page$")
 	public void user_click_on_previous_button_on_objection_page() throws Throwable 
 	{
-	    clickOn("btn_previousInternal", "");
+		sleepWait(3000);		
+		clickOn("btn_previousInternal", "");
 	}
 
 	@And("^User navigate to Case Management list page$")
 	public void user_navigate_to_Case_Management_list_page() throws Throwable
 	{
-		 if(wd.findElement(By.xpath(obj.getProperty("txt_NoticePage"))).isDisplayed())
-		 {
-				assertTrue(true);
-		 }
+		sleepWait(1000);
+		if(wd.findElement(By.xpath(obj.getProperty("txt_NoticePage"))).isDisplayed())
+		{
+			assertTrue(true);
+		}
 	}
 
 	@And("^User click on cancel button on objection page$")
 	public void user_click_on_cancel_button_on_objection_page() throws Throwable 
 	{
+		sleepWait(1000);
 		clickOn("btn_Obj_Cancel", "");
 	}
-
-
-
 }

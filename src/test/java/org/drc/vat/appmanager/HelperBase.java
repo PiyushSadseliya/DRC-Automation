@@ -159,7 +159,7 @@ public class HelperBase {
 
 	public static void saveFile() throws AWTException {
 		//Arrays.stream(Objects.requireNonNull(
-				//new File(String.valueOf(dir)).listFiles())).forEach(File::delete);
+		//new File(String.valueOf(dir)).listFiles())).forEach(File::delete);
 		Robot robot = new Robot();
 		robot.delay(1000);
 		robot.keyPress(KeyEvent.VK_ALT);
@@ -198,6 +198,22 @@ public class HelperBase {
 				assertTrue(false);
 			}
 		}
+		
+		/*File[] files = dir.listFiles();
+		assert files != null;
+		//for (File file : files) 
+		for (int i = 0; i < files.length; i++) 
+		{
+			if (files[i].getName().contains(data) == files[i].getName().toLowerCase().endsWith(".pdf") || files[i].getName().toLowerCase().endsWith(".jpg") || files[i].getName().toLowerCase().endsWith(".png") || files[i].getName().toLowerCase().endsWith(".jpeg")) 
+			{  
+				System.out.println(files[i]);
+				assertTrue(true);
+			}
+			else
+			{
+				assertTrue(false);
+			}
+		}*/		
 	}
 
 	/*
@@ -397,13 +413,13 @@ public class HelperBase {
 			sleepWait(5000);
 
 		}
-		 for (String handles : wd.getWindowHandles()) {
-			    if(!wd.switchTo().window(handles).getWindowHandle().equals(handle)) {
-			    	wd.close();
-			    	
-			    }
-			 
-			    }
+		for (String handles : wd.getWindowHandles()) {
+			if(!wd.switchTo().window(handles).getWindowHandle().equals(handle)) {
+				wd.close();
+
+			}
+
+		}
 		System.out.println(view.size());
 		if(view.size()==data) {
 			System.out.println("All Documents viewed");
@@ -475,13 +491,9 @@ public class HelperBase {
 		//List <WebElement> homepage=wd.findElements(By.xpath("//h2"));
 		//System.out.println(i++);
 		/*	if(homepage.size()>0) {
-
 		if(!homepage.get(0).getText().equals("Welcome to e-Service Portal")) {
-			sleepWait(5000);			
-
-
+			sleepWait(5000);
 	}
-
 	}else{
 		logout();
 	}*/
@@ -503,22 +515,15 @@ public class HelperBase {
 				//	login=false;
 			}
 
-
 			sleepWait(2000);
 			if(wd.getWindowHandles().size()>0) {
 				wd.switchTo().window(wd.getWindowHandles().toArray()[wd.getWindowHandles().size()-1].toString());
 			}
 			sleepWait(3000);
-
 		}
-
-
-
-
 	}
 	public static void bodymessage(String object) throws InterruptedException
 	{
-
 		try 
 		{
 			obj.load(fis);   
@@ -870,6 +875,7 @@ public class HelperBase {
 	public static void sleepWait(long wait) throws InterruptedException {
 		Thread.sleep(wait);
 	}
+
 	public static String getAttribute(String attribue,String object,String data) {
 
 		try {
@@ -879,9 +885,5 @@ public class HelperBase {
 		}
 		By locator = By.xpath(obj.getProperty(object) + data);
 		return wd.findElement(locator).getAttribute(attribue);
-
-
 	}
-
-
 }

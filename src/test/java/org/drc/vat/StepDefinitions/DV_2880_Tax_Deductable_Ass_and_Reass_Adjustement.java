@@ -373,6 +373,7 @@ public class DV_2880_Tax_Deductable_Ass_and_Reass_Adjustement
 	{
 		sleepWait(1000);
 		clickOn("btn_NEXT", "");	  
+		sleepWait(1000);
 	}
 
 	@And("^User click on previous button and click on edit button$")
