@@ -3,6 +3,12 @@ package org.drc.vat.StepDefinitions;
 import cucumber.api.java.en.And;
 import static org.drc.vat.appmanager.HelperBase.*;
 import static org.testng.Assert.assertTrue;
+import static org.drc.vat.appmanager.HelperBase.yearName;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -14,7 +20,7 @@ public class DV_2882_Assessed_List
 {
 	public String Referance_ChecK;
 	public String NITVA_ChecK;
-
+	public String Status_ChecK;
 
 	@And("^User see referance id and nitva$")
 	public void user_see_referance_id_and_nitva() throws Throwable 
@@ -143,7 +149,6 @@ public class DV_2882_Assessed_List
 		//clickOn("btn_OperationPerformed_Previous", "");		
 	}
 
-
 	@And("^User click on filter and select referance id$")
 	public void user_click_on_filter_and_select_referance_id() throws Throwable 
 	{
@@ -159,7 +164,6 @@ public class DV_2882_Assessed_List
 		Thread.sleep(1000);
 		type("txtbox_TypeHere", Referance_ChecK);		  
 		clickOn("btn_TypeHere_click", "");
-
 	}
 
 	@And("^User see referance id which is entered$")
@@ -343,11 +347,15 @@ public class DV_2882_Assessed_List
 	public void user_see_the_status_is_changed_to(String status) throws Throwable
 	{
 		Thread.sleep(500);
-		if(wd.findElement(By.xpath("//span[contains(text(),'" + status + "')]")).isDisplayed() )
+		if(wd.findElement(By.xpath("(//tbody//td)[5]//*[contains(text(),'" + status + "')]")).isDisplayed() )
 		{					
 			assertTrue(true);
-		}	
+		}
 
+		/*if(wd.findElement(By.xpath("//span[contains(text(),'" + status + "')]")).isDisplayed() )
+		{					
+			assertTrue(true);
+		}	*/
 	}
 
 	@And("^User click on period \"([^\"]*)\" and click on filter by \"([^\"]*)\" status and select assessed status$")
@@ -399,21 +407,50 @@ public class DV_2882_Assessed_List
 	}
 
 	@And("^User see the current month \"([^\"]*)\" and year \"([^\"]*)\" is shown$")
-	public void user_see_the_current_month_and_year_is_shown(String arg1, String arg2) throws Throwable 
+	public void user_see_the_current_month_and_year_is_shown(String month, String year) throws Throwable 
 	{
 		Thread.sleep(1000);
-		clickOn("drp_month", "");
+		clickOn("drp_month", "");		
 		Thread.sleep(500);
 		clickOn("txt_PeriodJan", "");
 		/*	Thread.sleep(500);
 		clickOn("drp_year", "");
 		Thread.sleep(500);
 		clickOn("txt_AssYear18", "");*/
-		
+
 		if(wd.findElement(By.xpath(obj.getProperty("txt_PeriodJan_selected"))).isDisplayed() && wd.findElement(By.xpath(obj.getProperty("txt_AssYear18_check"))).isDisplayed())
 		{					
 			assertTrue(true);
 		}
+		
+		Thread.sleep(500);				
+		clickOn(month, "");		
+		String ch_month = elementText("drp_month");		
+		clickOn("drp_year", "");	
+		sleepWait(1000);		
+		clickOn(year, "");		 
+		String ch_year = elementText("drp_year");				
+
+		Calendar cal = Calendar.getInstance();
+		String month_check = monthName[cal.get(Calendar.MONTH)];
+
+		DateFormat dateFormat = new SimpleDateFormat("yyyy");
+		Date date = new Date();		
+		String date1= dateFormat.format(date);		 
+		System.out.println(date1);
+		sleepWait(500);
+
+
+		if(ch_month.equals(month_check) && ch_year.equals(date1))
+		{
+			assertTrue(true);
+		}
+
+		/*if (!month_check.equalsIgnoreCase(period)) {
+			clickOn("drp_manualAssessmnetPeriod", "");
+			clickOn("span", "[contains(text(),'" + period + "')]");
+			sleepWait(2000);
+		}*/
 	}
 
 	@And("^User click on year and see no future year is display$")
@@ -587,5 +624,33 @@ public class DV_2882_Assessed_List
 			assertTrue(true);
 		}		   
 	}
+
+
+	@And("^User see status on assessed list$")
+	public void user_see_status_on_assessed_list() throws Throwable 
+	{
+		String Assessed_Nitva= wd.findElement(By.xpath(obj.getProperty("txt_NITVA_no"))).getText();
+		NITVA_ChecK=Assessed_Nitva;
+
+		String Assessed_List_Status= wd.findElement(By.xpath(obj.getProperty("txt_AssessedList_Status"))).getText();
+		Status_ChecK=Assessed_List_Status;
+		sleepWait(500);
+	}
+
+	@And("^User Select filter and verify status$")
+	public void user_Select_filter_and_verify_status() throws Throwable 
+	{
+		Thread.sleep(1000);
+		clickOn("drp_FilterBy", "");
+		Thread.sleep(500);
+		clickOn("drp_NITVA", "");
+
+		Thread.sleep(1000);
+		type("txtbox_TypeHere", NITVA_ChecK);		  
+		clickOn("btn_TypeHere_click", "");
+	}
+
+
+
 
 }

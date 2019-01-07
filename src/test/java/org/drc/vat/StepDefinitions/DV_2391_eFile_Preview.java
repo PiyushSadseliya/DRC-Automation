@@ -54,12 +54,10 @@ public class DV_2391_eFile_Preview
 			
 			@Then("^clicks on e-filing to fill data$")
 			public void clicks_on_e_filing_to_fill_data() throws Throwable 
-			{
-				
+			{				
 				
 				sleepWait(10000);
-				
-				
+			 	
 				for(int i =1;i<=12;i++)
 				{
 					String first_part = "(//div[@class='list-item-th text-left'])[";

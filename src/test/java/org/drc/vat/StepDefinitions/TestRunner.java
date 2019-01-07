@@ -1,4 +1,5 @@
 package org.drc.vat.StepDefinitions;
+
 import com.cucumber.listener.ExtentProperties;
 import com.cucumber.listener.Reporter;
 import cucumber.api.CucumberOptions;
@@ -33,107 +34,95 @@ import static org.drc.vat.appmanager.HelperBase.sleepWait;
 	glue = "org.drc.vat.StepDefinitions",
 	plugin = {"com.cucumber.listener.ExtentCucumberFormatter:",
 	"html:test-output/cucumber-report"}
-	//tags={"@DV_2253_TaxPayer_Portal_objection_appeal_TC_04_06_07_08_11_12_13"}
+	//,tags={"@DV_2253_TaxPayer_Portal_objection_appeal_TC_04_06_07_08_11_12_13"}
 )
 
 public class TestRunner extends AbstractTestNGCucumberTests {
 	private Logger logger = LoggerFactory.getLogger(TestRunner.class);
-	private String outputDir = "test-output/" + new Date().toString().substring(0,10);
-	private static boolean clearbrowsedata=false;
+	private String outputDir = "test-output/" + new Date().toString().substring(0, 10);
+	private static boolean clearbrowsedata = false;
 	private String timestamp = new SimpleDateFormat("_HHmmss").format(new Date());
-	private static ApplicationManager app =
-	new ApplicationManager((System.getProperty("browser", BrowserType.CHROME)));
-	
+	private static ApplicationManager app = new ApplicationManager((System.getProperty("browser", BrowserType.CHROME)));
+
 	@BeforeSuite
-	public void setUP_Mobilenop() throws IOException, AWTException
-	{
+	public void setUP_Mobilenop() throws IOException, AWTException {
 		app.initUrl();
 		ExtentProperties extentProperties = ExtentProperties.INSTANCE;
 		extentProperties.setReportPath(outputDir + "/ExtentReport" + timestamp + ".html");
 	}
+
 	@AfterSuite(alwaysRun = true)
 	public void tearDown() throws IOException {
-		app.stop();        
+		app.stop();
 		Reporter.loadXMLConfig("src/test/resources/extent-config.xml");
 		Reporter.setSystemInfo("user", System.getProperty("user.name"));
 	}
 
 	@Before
-	public void startScenario(Scenario scenario) throws IOException, AWTException, InterruptedException 
-	{	
-		/** 
-		 *  Login with Ketan.prajapati
+	public void startScenario(Scenario scenario) throws IOException, AWTException, InterruptedException {
+		/**
+		 * Login with Ketan.prajapati
 		 */
-		if (scenario.getName().toLowerCase().contains("internal portal"))    	
-		{	    	
-			app.callinternalportal();   
+		if (scenario.getName().toLowerCase().contains("internal portal")) {
+			app.callinternalportal();
 		}
-		/** 
-			    Login with rohit.patil
+		/**
+		 * Login with rohit.patil
 		 */
-		else if(scenario.getName().toLowerCase().contains("fx taxofficer"))
-		{
+		else if (scenario.getName().toLowerCase().contains("fx taxofficer")) {
 			app.callinternalportal_TaxOfficer();
 		}
-		/** 
-			    Login with pooja.parmar
-		 */
-		else if(scenario.getName().toLowerCase().contains("supervisor"))
-		{
-			app.callinternalportal_Supervisor();
-		}
-		else if(scenario.getName().toLowerCase().contains("laxman"))
-		{
-			app.callinternalportal_Assessment_Officer();
-		}		 
-		
 		/**
-		 *  For Demo login 
+		 * Login with pooja.parmar
 		 */
-		/** 
-		 *  Login with Ketan.prajapati demo
-		 */
-		else if (scenario.getName().toLowerCase().contains("admin demo"))    	
-		{	    	
-			 app.callinternalportal_ketan_demo();
+		else if (scenario.getName().toLowerCase().contains("supervisor")) {
+			app.callinternalportal_Supervisor();
+		} else if (scenario.getName().toLowerCase().contains("laxman")) {
+			app.callinternalportal_Assessment_Officer();
 		}
-		/** 
-			    Login with rohit.patil demo
+
+		/**
+		 * For Demo login
 		 */
-		else if(scenario.getName().toLowerCase().contains("taxofficer demo"))
-		{
+		/**
+		 * Login with Ketan.prajapati demo
+		 */
+		else if (scenario.getName().toLowerCase().contains("admin demo")) {
+			app.callinternalportal_ketan_demo();
+		}
+		/**
+		 * Login with rohit.patil demo
+		 */
+		else if (scenario.getName().toLowerCase().contains("taxofficer demo")) {
 			app.callinternalportal_TaxOfficer_demo();
 		}
-		
-		/** 
-			    Login with pooja.parmar demo
+
+		/**
+		 * Login with pooja.parmar demo
 		 */
-		else if(scenario.getName().toLowerCase().contains("supervisor demo"))
-		{
+		else if (scenario.getName().toLowerCase().contains("supervisor demo")) {
 			app.callinternalportal_Supervisor_demo();
-		}
-		else if(scenario.getName().toLowerCase().contains("laxman demo"))
-		{
+		} else if (scenario.getName().toLowerCase().contains("laxman demo")) {
 			app.callinternalportal_Assessment_Officer_laxman_demo();
-		}		 			
-		else
-		{
-			app.callurl();	    		
+		} else {
+			app.callurl();
 		}
 		Thread.sleep(5000);
 		logger.info("Start scenario: " + scenario.getName());
-	}	
-	
+	}
+
 	@After
 	public void endScenario(Scenario scenario) throws Exception {
+		
 		String screenshot = scenario.getName();
 		File src = app.takeScreenshotAsFile();
-		File dest = new File(System.getProperty("user.dir") + "/" + outputDir + "/screenshots/" + screenshot + timestamp + ".png");
+		File dest = new File(
+				System.getProperty("user.dir") + "/" + outputDir + "/screenshots/" + screenshot + timestamp + ".png");
 		FileUtils.copyFile(src, dest);
 		Reporter.addScreenCaptureFromPath(dest.toString());
 		scenario.embed(app.takeScreenshot(), "image/png");
-		//  logout();  
-		// assertEnding();
+		// logout();
+		
 		logger.info("Stop scenario: " + scenario.getName());
 	}
 }

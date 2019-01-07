@@ -10,7 +10,8 @@ import static org.drc.vat.appmanager.HelperBase.logout;
 import static org.drc.vat.appmanager.HelperBase.sleepWait;
 import org.testng.asserts.SoftAssert;
 
-
+import static org.drc.vat.appmanager.HelperBase.waitUntilElementFound;
+import static org.drc.vat.appmanager.HelperBase.pageSource;
 
 import static org.drc.vat.appmanager.HelperBase.wd;
 import static org.junit.Assert.assertArrayEquals;
@@ -22,6 +23,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -89,8 +91,10 @@ public class DebtManagementLandingScreen {
 
 	@Then("^click on zero to three months Pending amount Link$")
 	public void click_on_zero_to_three_months_Pending_amount_Link() throws Throwable {
-	    String pendingamount=elementText("txt_0to3months","/following::div");	
-		clickOn("txt_0to3months","/following::a");	    
+	    String pendingamount=elementText("txt_0to3months","/following::td[2]");	
+		clickOn("txt_0to3months","/following::a");	 
+		//waitUntilElementFound("vchkbx_selectall", "");
+		sleepWait(3000);
 	    assertEquals(elementText("txt_heading",""), "Debt Management");
 	    assertEquals(elementText("txt_pending0to3months",""),pendingamount);
 	    
@@ -115,8 +119,9 @@ WebElement dt=wd.findElement(By.xpath("//input[@formcontrolname='toDate']"));
 	    JavascriptExecutor jse = (JavascriptExecutor)wd;
 	   String date = jse.executeScript("return arguments[0].value", dt).toString();
 	   System.out.println(date);
-	    //clickOn("btn_dsave","");
-	    assertEquals("","Records Saved Successfully");
+	    clickOn("btn_dsave","");
+	    sleepWait(1000);
+	    assertEquals(elementText("txt_toaster",""),"Records Saved Successfully");
 	    sleepWait(6000);
 	   // logout();	   
 	    clicked_on_Debt_Management_Module_must_be_on_Debt_Management_Module();
@@ -147,45 +152,46 @@ WebElement dt=wd.findElement(By.xpath("//input[@formcontrolname='toDate']"));
 		List <WebElement>ageElement = wd.findElements(By.xpath("//td[2]"));
 		 for(int i=0;i<ageElement.size();i++) {					
 			max= ageElement.get(i).getText().replace(".", "").replace(",", ".");
-		 Number num = f.parse(max);		 
-          m = Double.parseDouble(num.toString());
+		// Number num = f.parse(max);		 
+          m = Double.parseDouble(max);
           result = result+m;
           }
-		 System.out.println(result);
+		 System.out.println(appendfrenchsys(tofrench(result)));
 		 System.out.println(elementText("txt_totaldebttoatal",""));
-		 assertEquals(String.valueOf(result), elementText("txt_totaldebttoatal",""));
+		 assertEquals(appendfrenchsys(tofrench(result)), elementText("txt_totaldebttoatal",""));
 	}
 
 	@Then("^Total Debt \\(FC\\) amount of Pending \\(FC\\) column should be the sum of all amounts$")
 	public void total_Debt_FC_amount_of_Pending_FC_column_should_be_the_sum_of_all_amounts() throws Throwable {
-		result=(double) 0;
+		result= 0;
 		List <WebElement>ageElement = wd.findElements(By.xpath("//td[3]"));
 		 for(int i=0;i<ageElement.size();i++) {		
 			 max= ageElement.get(i).getText().replace(".", "").replace(",", ".");
-		 Number num = f.parse(max);	
+		// Number num = f.parse(max);	
 		 
-          m = Float.parseFloat(num.toString());
+          m = Double.parseDouble(max);
          //System.out.println(m);
           result = result+m;
-          //System.out.println(result);
+          System.out.println(result);
           
           }
-		 //System.out.println(elementText("txt_totalpendingtotal",""));
-		 assertEquals(String.valueOf(result), elementText("txt_totalpendingtotal",""));
+		 System.out.println(elementText("txt_totalpendingtotal",""));
+		 System.out.println(appendfrenchsys(tofrench(result)));
+		 assertEquals(appendfrenchsys(tofrench(result)), elementText("txt_totalpendingtotal",""));
 	}
 
 	@Then("^Total Debt \\(FC\\) amount of Assigned \\(FC\\) column should be the sum of all amounts$")
 	public void total_Debt_FC_amount_of_Assigned_FC_column_should_be_the_sum_of_all_amounts() throws Throwable {
-		result=(double) 0;
+		result=0;
 		List <WebElement>ageElement = wd.findElements(By.xpath("//td[4]"));
 		 for(int i=0;i<ageElement.size();i++) {		 
 		 Number num = f.parse(ageElement.get(i).getText().replace(".", "").replace(",", "."));		 
-          m = Float.parseFloat(ageElement.get(i).getText().replace(".", "").replace(",", "."));
+          m = Double.parseDouble(ageElement.get(i).getText().replace(".", "").replace(",", "."));
           result = result+m;
           }
 		// System.out.println(result);
 		 //System.out.println(elementText("txt_totalassignedtotal",""));
-		 assertEquals(String.valueOf(result), elementText("txt_totalassignedtotal",""));
+		 assertEquals(appendfrenchsys(tofrench(result)), elementText("txt_totalassignedtotal",""));
 	}
 	@Then("^select Todays date todays date should be displayed and select previous date \"([^\"]*)\"$")
 	public void select_Todays_date_todays_date_should_be_displayed_and_select_previous_date(String arg1) throws Throwable {
@@ -202,10 +208,12 @@ WebElement dt=wd.findElement(By.xpath("//input[@formcontrolname='toDate']"));
 	public void select_future_date_it_should_be_disabled() throws Throwable {
 		Calendar cal = Calendar.getInstance();	
 		cal.add(Calendar.DATE, 7);
+		 clickOn("btn_uptodate", "");		
 		datePicker(formatter.format(cal.getTime()));
+		  System.out.println(formatter.format(cal.getTime()));  
 	}
-	@Then("^if there is no pending amount displayed amount shoul be  (\\d+) with disabled hyperlink$")
-	public void if_there_is_no_pending_amount_displayed_amount_shoul_be_with_disabled_hyperlink(int arg1) throws Throwable {
+	@Then("^if there is no pending amount displayed amount should be  (\\d+) with disabled hyperlink$")
+	public void if_there_is_no_pending_amount_displayed_amount_should_be_with_disabled_hyperlink(int arg1) throws Throwable {
 		List <WebElement>pendElement = wd.findElements(By.xpath("//td[3]"));
 		for(int i=0;i<pendElement.size();i++) {
 			if(pendElement.get(i).getText().equals("0")) {
@@ -231,7 +239,7 @@ WebElement dt=wd.findElement(By.xpath("//input[@formcontrolname='toDate']"));
 	public void click_on_the_hyper_link_amount_under_pending_FC_column_for_age_bracket(String arg1) throws Throwable {
 
 		if(arg1.equals("24 Months and Above")) {
-			if(!elementText("txt_24monthsup","//following::a[1]").equals("0")) {
+			if(!elementText("txt_24monthsup","//following::a[1]").equals("0,00")) {
 				clickOn("txt_24monthsup","//following::a[1]");
 				List <WebElement> ele=wd.findElements(By.xpath("//tr"));
 				assertNotEquals(ele.size(), 0);
@@ -239,7 +247,7 @@ WebElement dt=wd.findElement(By.xpath("//input[@formcontrolname='toDate']"));
 				clickOn("btn_prev","");
 				sleepWait(2500);
 			}
-			if(!elementText("txt_24monthsup","//following::a[2]").equals("0")) {
+			if(!elementText("txt_24monthsup","//following::a[2]").equals("0,00")) {
 				clickOn("txt_24monthsup","//following::a[2]");
 				List <WebElement> ele=wd.findElements(By.xpath("//tr"));
 				assertNotEquals(ele.size(), 0);
@@ -250,7 +258,7 @@ WebElement dt=wd.findElement(By.xpath("//input[@formcontrolname='toDate']"));
 			
 		}
 		if(arg1.equals("13-24 Months")) {
-			if(!elementText("txt_13to24months","//following::a[1]").equals("0")) {
+			if(!elementText("txt_13to24months","//following::a[1]").equals("0,00")) {
 				clickOn("txt_13to24months","//following::a[1]");
 				List <WebElement> ele=wd.findElements(By.xpath("//tr"));
 				assertNotEquals(ele.size(), 0);
@@ -258,7 +266,7 @@ WebElement dt=wd.findElement(By.xpath("//input[@formcontrolname='toDate']"));
 				clickOn("btn_prev","");
 				sleepWait(3000);
 			}
-			if(!elementText("txt_13to24months","//following::a[2]").equals("0")) {
+			if(!elementText("txt_13to24months","//following::a[2]").equals("0,00")) {
 				clickOn("txt_13to24months","//following::a[2]");
 				List <WebElement> ele=wd.findElements(By.xpath("//tr"));
 				assertNotEquals(ele.size(), 0);
@@ -269,7 +277,7 @@ WebElement dt=wd.findElement(By.xpath("//input[@formcontrolname='toDate']"));
 			
 		}
 		if(arg1.equals("7-12 Months")) {
-			if(!elementText("txt_7to12months","//following::a[1]").equals("0")) {
+			if(!elementText("txt_7to12months","//following::a[1]").equals("0,00")) {
 				clickOn("txt_7to12months","//following::a[1]");
 				sleepWait(3000);
 				List <WebElement> ele=wd.findElements(By.xpath("//tr"));
@@ -277,7 +285,7 @@ WebElement dt=wd.findElement(By.xpath("//input[@formcontrolname='toDate']"));
 				clickOn("btn_prev","");
 				sleepWait(3000);
 			}
-			if(!elementText("txt_7to12months","//following::a[2]").equals("0")) {
+			if(!elementText("txt_7to12months","//following::a[2]").equals("0,00")) {
 				clickOn("txt_7to12months","//following::a[2]");
 				sleepWait(3000);
 				List <WebElement> ele=wd.findElements(By.xpath("//tr"));
@@ -289,7 +297,7 @@ WebElement dt=wd.findElement(By.xpath("//input[@formcontrolname='toDate']"));
 			
 		}
 		if(arg1.equals("4-6 Months")) {
-			if(!elementText("txt_4to6months","//following::a[1]").equals("0")) {
+			if(!elementText("txt_4to6months","//following::a[1]").equals("0,00")) {
 				clickOn("txt_4to6months","//following::a[1]");
 				sleepWait(1500);
 				List <WebElement> ele=wd.findElements(By.xpath("//tr"));
@@ -298,7 +306,7 @@ WebElement dt=wd.findElement(By.xpath("//input[@formcontrolname='toDate']"));
 				clickOn("btn_prev","");
 				sleepWait(1500);
 			}
-			if(!elementText("txt_4to6months","//following::a[2]").equals("0")) {
+			if(!elementText("txt_4to6months","//following::a[2]").equals("0,00")) {
 				clickOn("txt_4to6months","//following::a[2]");
 				sleepWait(1500);
 				List <WebElement> ele=wd.findElements(By.xpath("//tr"));
@@ -311,7 +319,7 @@ WebElement dt=wd.findElement(By.xpath("//input[@formcontrolname='toDate']"));
 			
 		}
 		if(arg1.equals("0-3 Months")) {
-			if(!elementText("txt_0to3months","//following::a[1]").equals("0")) {
+			if(!elementText("txt_0to3months","//following::a[1]").equals("0,00")) {
 				clickOn("txt_0to3months","//following::a[1]");
 				sleepWait(3000);
 				List <WebElement> ele=wd.findElements(By.xpath("//tr"));
@@ -320,7 +328,7 @@ WebElement dt=wd.findElement(By.xpath("//input[@formcontrolname='toDate']"));
 				clickOn("btn_prev","");
 				sleepWait(3000);
 			}
-			if(!elementText("txt_0to3months","//following::a[2]").equals("0")) {
+			if(!elementText("txt_0to3months","//following::a[2]").equals("0,00")) {
 				sleepWait(2000);
 				clickOn("txt_0to3months","//following::a[2]");
 				sleepWait(2000);
@@ -429,6 +437,36 @@ WebElement dt=wd.findElement(By.xpath("//input[@formcontrolname='toDate']"));
 			
 		
 
+	}
+	/*
+	 * To convert the number to french System
+	 * 
+	 * 
+	 */
+	private String tofrench(Double d) {
+		NumberFormat nf = NumberFormat.getNumberInstance(Locale.ITALY);
+
+		return nf.format(d);
+	}
+
+	/*
+	 * to append comma if the douoble value dont contains decimal places
+	 * 
+	 * 
+	 */
+	private String appendfrenchsys(String frenchNo) {
+		
+	System.out.println(frenchNo);
+		if (!frenchNo.contains(",")) {
+			
+			frenchNo = frenchNo + ",00";
+		}
+		if (frenchNo.endsWith(",0")) {
+			
+			frenchNo = frenchNo + "0";
+		}
+		
+		return frenchNo;
 	}
 
 

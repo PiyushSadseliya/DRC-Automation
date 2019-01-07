@@ -39,278 +39,286 @@ import static org.drc.vat.appmanager.HelperBase.monthName;
  * 
  */
 
-
 public class PaymentSummaryLiabilityCalculationPaymentDueManualAssessment {
-	
-	//esum Edeclare sum 
-	//asum Assessment Sum 
-	//Edeclare ,Assess EDeclaration and assess column records fetch
-/*	int esum=0,asum=0;
-	int Edeclare,Assess,addL;*/
-	String tpname=null;
+
+	// esum Edeclare sum
+	// asum Assessment Sum
+	// Edeclare ,Assess EDeclaration and assess column records fetch
+	/*
+	 * int esum=0,asum=0; int Edeclare,Assess,addL;
+	 */
+	String tpname = null;
 
 	@Given("^The user has done the filing for the particular month$")
 	public void the_user_has_done_the_filing_for_the_particular_month() throws Throwable {
-	       
-	     sleepWait(5000);
+
+		sleepWait(5000);
 	}
-	private void manualAssessmenthome(String period,String tpayer) throws InterruptedException {
-		
+
+	private void manualAssessmenthome(String period, String tpayer) throws InterruptedException {
+
 		Calendar cal = Calendar.getInstance();
-	    String month = monthName[cal.get(Calendar.MONTH)];
-	    clickOn("nav_manualAssessment","") ;
-	    sleepWait(5000);
-	    if(!month.equalsIgnoreCase(period))
-		{clickOn("drp_manualAssessmnetPeriod","");  		
-	     clickOn("span","[contains(text(),'"+period+"')]");
-	     sleepWait(2000);
+		String month = monthName[cal.get(Calendar.MONTH)];
+		clickOn("nav_manualAssessment", "");
+		sleepWait(5000);
+		if (!month.equalsIgnoreCase(period)) {
+			clickOn("drp_manualAssessmnetPeriod", "");
+			clickOn("span", "[contains(text(),'" + period + "')]");
+			sleepWait(2000);
 		}
-	     clickOn("drp_mafilterby","");
-	     clickOn("span","[contains(text(),'Tax Payer')]");
-	     type("input_masearch",tpayer);
-	     sleepWait(2000);
-	     clickOn("btn_Asearch","");
-	     clickOn("AssesManage","");
-	     sleepWait(2000);
+		clickOn("drp_mafilterby", "");
+		clickOn("span", "[contains(text(),'Tax Payer')]");
+		type("input_masearch", tpayer);
+		sleepWait(2000);
+		clickOn("btn_Asearch", "");
+		clickOn("AssesManage", "");
+		sleepWait(2000);
 	}
 
 	@When("^the assessemnt officer does the assessment for that particular month with \"([^\"]*)\" Updation for period\"([^\"]*)\"year\"([^\"]*)\"tpayer\"([^\"]*)\"$")
-	public void the_assessemnt_officer_does_the_assessment_for_that_particular_month_with_Updation_for_period_year_tpayer(String updation, String period, String year, String tpayer) throws Throwable {
-		
-		tpname=tpayer;		
+	public void the_assessemnt_officer_does_the_assessment_for_that_particular_month_with_Updation_for_period_year_tpayer(
+			String updation, String period, String year, String tpayer) throws Throwable {
 
-	     manualAssessmenthome(period,tpayer);
-	     clickOn("href_maassess","");
-		 sleepWait(2000);		     
-	    	 }
+		tpname = tpayer;
 
-	     
-	     
-	     
-	
+		manualAssessmenthome(period, tpayer);
+		clickOn("href_maassess", "");
+		sleepWait(2000);
+	}
 
 	@Then("^the officer is on the Payment Summary page for Liabilty Calculation and Payment Due$")
-	public void the_officer_is_on_the_Payment_Summary_page_for_Liabilty_Calculation_and_Payment_Due()  throws Throwable {
-	    sleepWait(2000);   
-	    assertEquals(elementText("h6",""),tpname);
-		assertEquals(elementText("element_nontxable",""),"8. Non-taxable transactions" );
-		 sleepWait(2000);   
-		clickOn("btn_maassessNext","");		
-		 sleepWait(3000);  
-		 assertEquals(elementText("h6",""),tpname);
-		 sleepWait(2000);  
-		assertEquals(elementText("element_amtvatdeductible",""),"16. Amount of VAT Deductible" );
-		 sleepWait(2000);   
-		clickOn("btn_maassessNext","");		 sleepWait(3000);   
-		 assertEquals(elementText("h6",""),tpname);
-		assertEquals(elementText("element_recoveryofdeduc",""),"18. Supplementary deductions");
+	public void the_officer_is_on_the_Payment_Summary_page_for_Liabilty_Calculation_and_Payment_Due() throws Throwable {
 		sleepWait(2000);
-		clickOn("btn_maassessNext","");	
-		 sleepWait(3000);  
-		 assertEquals(elementText("h6",""),tpname);
-		 sleepWait(2000);
-		clickOn("btn_maassessNext","");
-		 sleepWait(4000);  
-		 assertEquals(elementText("h6",""),tpname);
-		 sleepWait(3000);   
-		
-	       
-	     
+		assertEquals(elementText("h6", ""), tpname);
+		assertEquals(elementText("element_nontxable", ""), "8. Non-taxable transactions");
+		sleepWait(2000);
+		clickOn("btn_maassessNext", "");
+		sleepWait(3000);
+		assertEquals(elementText("h6", ""), tpname);
+		sleepWait(2000);
+		assertEquals(elementText("element_amtvatdeductible", ""), "16. Amount of VAT Deductible");
+		sleepWait(2000);
+		clickOn("btn_maassessNext", "");
+		sleepWait(3000);
+		assertEquals(elementText("h6", ""), tpname);
+		assertEquals(elementText("element_recoveryofdeduc", ""), "18. Supplementary deductions");
+		sleepWait(2000);
+		clickOn("btn_maassessNext", "");
+		sleepWait(3000);
+		assertEquals(elementText("h6", ""), tpname);
+		sleepWait(2000);
+		clickOn("btn_maassessNext", "");
+		sleepWait(4000);
+		assertEquals(elementText("h6", ""), tpname);
+		sleepWait(3000);
+
 	}
 
 	@Then("^user clicks on Prev button and it should be on Assessement Summary Tab$")
 	public void user_clicks_on_Prev_button_and_it_should_be_on_Assessement_Summary_Tab() throws Throwable {
 
 		sleepWait(2000);
-		clickOn("btn_maPrevioustab","");		
+		clickOn("btn_maPrevioustab", "");
 		sleepWait(4000);
-		 assertEquals(elementText("h6",""),tpname);
-		 sleepWait(2000);
-	       
-	     
+		assertEquals(elementText("h6", ""), tpname);
+		sleepWait(2000);
+
 	}
 
 	@Then("^user click on Next button on Asssessmnet Summary Tab and it should be on Payment Summary tab$")
-	public void user_click_on_Next_button_on_Asssessmnet_Summary_Tab_and_it_should_be_on_Payment_Summary_tab() throws Throwable {
+	public void user_click_on_Next_button_on_Asssessmnet_Summary_Tab_and_it_should_be_on_Payment_Summary_tab()
+			throws Throwable {
 		sleepWait(2000);
-		clickOn("btn_maassessNext","");		
+		clickOn("btn_maassessNext", "");
 		sleepWait(3000);
-		 assertEquals(elementText("h6",""),tpname);
-		assertEquals(elementText("element_pymtsummary",""),"Liability Calculation");
-		 assertEquals(elementText("h6",""),tpname);
-		 sleepWait(2000);
-	       
-	     
+		assertEquals(elementText("h6", ""), tpname);
+		assertEquals(elementText("element_pymtsummary", ""), "Liability Calculation");
+		assertEquals(elementText("h6", ""), tpname);
+		sleepWait(2000);
+
 	}
 
 	@Then("^enter the penalty amount\"([^\"]*)\"$")
 	public void enter_the_penalty_amount(String arg1) throws Throwable {
 		sleepWait(2000);
-		clickOn("btn_maassessNext","");		
+		clickOn("btn_maassessNext", "");
 		sleepWait(3000);
-		 assertEquals(elementText("h6",""),tpname);
-		 sleepWait(2000);
-		assertEquals(elementText("element_pymtsummary",""),"Liability Calculation");
+		assertEquals(elementText("h6", ""), tpname);
 		sleepWait(2000);
-	     type("txt_Aliabiltypenalty",arg1);  
-	     
+		assertEquals(elementText("element_pymtsummary", ""), "Liability Calculation");
+		sleepWait(2000);
+		type("txt_Aliabiltypenalty", arg1);
+
 	}
 
-/*	@Then("^Calculates the Additional Liability column$")
-	public void calculates_the_Additional_Liability_column() throws Throwable {
-		String EremovedDot,EremovedComma,AremovedDot,AremovedComma;
-     for(int i=0;i<=8;i++) {
-	    	 String edeclararion=wd.findElement(By.xpath("//tr["+i+"]/td[2]")).getText();
-	    	 String assessment=wd.findElement(By.xpath("//tr["+i+"]/td[3")).getText();
-	    	 
-	    	 System.out.println(edeclararion);
-	    	 System.out.println(assessment);
-	    	 
-    	 if(edeclararion.contains(".")||edeclararion.contains(".")||assessment.contains(",")||assessment.contains(",")) {
-	    		  EremovedDot=edeclararion.replace(".", "");
-	    		  EremovedComma=EremovedDot.replace(",", ".");
-	    		  AremovedDot=assessment.replace(".", "");
-	    		  AremovedComma=AremovedDot.replace(",", ".");
-	    		 
-	    		 
-	    	 }else {
-	    		 EremovedComma=edeclararion;
-	    				 AremovedComma=assessment;
-	    		 
-	    		 
-	    	 }
-	    	 Edeclare=Integer.parseInt(edeclararion);
-	    	 System.out.println(Edeclare);
-	    	 Assess=Integer.parseInt(assessment);
-	    	 System.out.println(Assess);
-	    	 esum = esum+Edeclare;
-System.out.println(esum);
-	    	 asum=asum+Assess; 
-	    	 System.out.println(asum);
-	    	 //Additional Liability Calculation
-	    	 String addlL=wd.findElement(By.xpath("//tr["+i+"]/td[4")).getText();
-	    	 addL=Assess-Edeclare;
-	    	 
-	    	 elementText(Integer.toString(addL),addlL);
-	    	 
-	    	 
-	    
-	       }
-	       String edeclararionpenalty=wd.findElement(By.xpath("//tr[9]/td[2]")).getText();
-	    	 String assessmentpenalty=wd.findElement(By.xpath("//tr[9]/td[3")).getText();
-	     
-	}*/
-
-
+	/*
+	 * @Then("^Calculates the Additional Liability column$") public void
+	 * calculates_the_Additional_Liability_column() throws Throwable { String
+	 * EremovedDot,EremovedComma,AremovedDot,AremovedComma; for(int i=0;i<=8;i++) {
+	 * String edeclararion=wd.findElement(By.xpath("//tr["+i+"]/td[2]")).getText();
+	 * String assessment=wd.findElement(By.xpath("//tr["+i+"]/td[3")).getText();
+	 * 
+	 * System.out.println(edeclararion); System.out.println(assessment);
+	 * 
+	 * if(edeclararion.contains(".")||edeclararion.contains(".")||assessment.
+	 * contains(",")||assessment.contains(",")) {
+	 * EremovedDot=edeclararion.replace(".", "");
+	 * EremovedComma=EremovedDot.replace(",", ".");
+	 * AremovedDot=assessment.replace(".", "");
+	 * AremovedComma=AremovedDot.replace(",", ".");
+	 * 
+	 * 
+	 * }else { EremovedComma=edeclararion; AremovedComma=assessment;
+	 * 
+	 * 
+	 * } Edeclare=Integer.parseInt(edeclararion); System.out.println(Edeclare);
+	 * Assess=Integer.parseInt(assessment); System.out.println(Assess); esum =
+	 * esum+Edeclare; System.out.println(esum); asum=asum+Assess;
+	 * System.out.println(asum); //Additional Liability Calculation String
+	 * addlL=wd.findElement(By.xpath("//tr["+i+"]/td[4")).getText();
+	 * addL=Assess-Edeclare;
+	 * 
+	 * elementText(Integer.toString(addL),addlL);
+	 * 
+	 * 
+	 * 
+	 * } String
+	 * edeclararionpenalty=wd.findElement(By.xpath("//tr[9]/td[2]")).getText();
+	 * String assessmentpenalty=wd.findElement(By.xpath("//tr[9]/td[3")).getText();
+	 * 
+	 * }
+	 */
 
 	@Then("^Checks the amount to pay in Liability Calculation$")
 	public void checks_the_amount_to_pay_in_Liability_Calculation() throws Throwable {
-	       assertEquals(elementText("txt_Apymtdueint",""), elementText("txt_Aliabiltyint",""));
-	       assertEquals(elementText("txt_Apymtdueltfee",""), elementText("txt_Aliabiltyltfee",""));	       
-	       assertEquals(elementText("txt_Apymtduepenalty",""), elementText("txt_Aliabiltypenalty",""));
-	       assertEquals(elementText("txt_Apymtdueamttopay",""), elementText("txt_Aliabiltyamttopay",""));
-	       
-	     
+		assertEquals(elementText("txt_Apymtdueint", ""), elementText("txt_Aliabiltyint", ""));
+		assertEquals(elementText("txt_Apymtdueltfee", ""), elementText("txt_Aliabiltyltfee", ""));
+		assertEquals(elementText("txt_Apymtduepenalty", ""), elementText("txt_Aliabiltypenalty", ""));
+		assertEquals(elementText("txt_Apymtdueamttopay", ""), elementText("txt_Aliabiltyamttopay", ""));
+
 	}
 
 	@Then("^Clicks on Save button on Payment Summary page and message is displayed\"([^\"]*)\"$")
 	public void clicks_on_Save_button_on_Payment_Summary_page_and_message_is_displayed(String arg1) throws Throwable {
-	       clickOn("btn_maSAve","");
-	     sleepWait(2000);
-	     assertEquals(validationMessage(),arg1);	}
-
-	@Then("^click on Previous Button on Payment Summary page and user is on Manual Assessment Landing Screen$")
-	public void click_on_Previous_Button_on_Payment_Summary_page_and_user_is_on_Manual_Assessment_Landing_Screen() throws Throwable {
-	     clickOn("btn_maprev","");  
-	     sleepWait(5000);
-	     assertEquals( wd.findElement(By.xpath("//h6")).getText(),"Period :");
-	     
+		clickOn("btn_maSAve", "");
+		sleepWait(2000);
+		assertEquals(validationMessage(), arg1);
 	}
 
-	
+	@Then("^click on Previous Button on Payment Summary page and user is on Manual Assessment Landing Screen$")
+	public void click_on_Previous_Button_on_Payment_Summary_page_and_user_is_on_Manual_Assessment_Landing_Screen()
+			throws Throwable {
+		clickOn("btn_maprev", "");
+		sleepWait(5000);
+		assertEquals(wd.findElement(By.xpath("//h6")).getText(), "Period :");
 
-
+	}
 
 	@Then("^Calculates the Additional Liability column$")
 	public void calculates_the_Additional_Liability_column() throws Throwable {
-		//net vat to be paid
-		String pen=null;
-		//Net VAT to be paid
-		Double netLiabilvatpaitd=frenchtoDouble(elementText("txt_Aliabiltynetvatpaid",""))-frenchtoDouble(elementText("txt_Eliabiltynetvatpaid",""));
-		  assertEquals(elementText("txt_ALliabiltynetvatpaid",""), appendfrenchsys(tofrench(netLiabilvatpaitd)));
-		  //VAT Credit
-		  Double aLiabilcredit=frenchtoDouble(elementText("txt_Aliabiltycredit",""))-frenchtoDouble(elementText("txt_Eliabiltycredit",""));
-	       assertEquals(elementText("txt_ALliabiltycredit",""),appendfrenchsys(tofrench(aLiabilcredit)));	       
-	       //Refund of VAT credit requested
-	       Double alvatcreditRef=frenchtoDouble(elementText("txt_Aliabiltycreditrefundreq",""))-frenchtoDouble(elementText("txt_Eliabiltyvcreditrefundreq",""));
-	       assertEquals(elementText("txt_ALliabiltycreditrefundreq",""), appendfrenchsys(tofrench(alvatcreditRef)));
-	       //VAT Credit carried forward
-	       Double alvatcreditfwd=frenchtoDouble(elementText("txt_Aliabiltyvcreditfwd",""))-frenchtoDouble(elementText("txt_Eliabiltyvcreditfwd",""));
-	       assertEquals(elementText("txt_ALliabiltyvcreditfwd",""),appendfrenchsys(tofrench(alvatcreditfwd)));
-	       //VAT on externally financed public procurement
-	       Double alpublicproc=frenchtoDouble(elementText("txt_Aliabiltyvpublicprocu",""))-frenchtoDouble(elementText("txt_Eliabiltyvpublicprocu",""));
-			  assertEquals(elementText("txt_ALliabiltyvpublicprocu",""), appendfrenchsys(tofrench(alpublicproc)));
-			  //VAT for third party account
-			  Double althirdparty=frenchtoDouble(elementText("txt_AliabiltyTpartyac",""))-frenchtoDouble(elementText("txt_EliabiltyTpartyac",""));
-		       assertEquals(elementText("txt_ALliabiltyTpartyac",""),appendfrenchsys(tofrench( althirdparty)));	       
-		       //Interest
-		       assertEquals(elementText("txt_Aliabiltyint",""), elementText("txt_ALliabiltyint",""));
-		       //Late Fees
-		       assertEquals(elementText("txt_Aliabiltyltfee",""), elementText("txt_ALliabiltyltfee",""));
-		       //Penalty
-		       if(!NumberFormat.getInstance(Locale.GERMAN).format(Double.parseDouble(wd.findElement(By.xpath("//tr[9]//div[contains(text(),'Penalty')]//following::input")).getAttribute("value"))).toString().contains(",")) {
-		    	   pen=NumberFormat.getInstance(Locale.GERMAN).format(Double.parseDouble(wd.findElement(By.xpath("//tr[9]//div[contains(text(),'Penalty')]//following::input")).getAttribute("value")))+",00";
-		       }else {
-		    	   pen=NumberFormat.getInstance(Locale.GERMAN).format(Double.parseDouble(wd.findElement(By.xpath("//tr[9]//div[contains(text(),'Penalty')]//following::input")).getAttribute("value"))).toString();
-		       }
-		       assertEquals(elementText("txt_ALliabiltypenalty",""),pen);
-		       
-		       //Amount to pay
-		       Double alamttopay=frenchtoDouble(elementText("txt_Aliabiltyamttopay",""))-frenchtoDouble(elementText("txt_Eliabiltyamttopay",""));
-		       assertEquals(elementText("txt_ALliabiltyamttopay",""),appendfrenchsys(tofrench(alamttopay )));
-		       
-		       Double alnetamttopay=frenchtoDouble(elementText("txt_ALliabiltynetvatpaid",""))-frenchtoDouble(elementText("txt_ALliabiltycredit",""))+frenchtoDouble(elementText("txt_ALliabiltycreditrefundreq",""))
-		       +frenchtoDouble(elementText("txt_ALliabiltyvpublicprocu",""))+frenchtoDouble(elementText("txt_ALliabiltyTpartyac",""))+frenchtoDouble(elementText("txt_ALliabiltyint",""))+frenchtoDouble(elementText("txt_ALliabiltypenalty",""))
-		       +frenchtoDouble(elementText("txt_ALliabiltyltfee",""));
-		       assertEquals(elementText("txt_ALliabiltyamttopay",""),appendfrenchsys(tofrench(alnetamttopay )));
-		   
+		// net vat to be paid
+		String pen = null;
+		// Net VAT to be paid
+		Double netLiabilvatpaitd = frenchtoDouble(elementText("txt_Aliabiltynetvatpaid", ""))
+				- frenchtoDouble(elementText("txt_Eliabiltynetvatpaid", ""));
+		assertEquals(elementText("txt_ALliabiltynetvatpaid", ""), appendfrenchsys(tofrench(netLiabilvatpaitd)));
+		// VAT Credit
+		Double aLiabilcredit = frenchtoDouble(elementText("txt_Aliabiltycredit", ""))
+				- frenchtoDouble(elementText("txt_Eliabiltycredit", ""));
+		assertEquals(elementText("txt_ALliabiltycredit", ""), appendfrenchsys(tofrench(aLiabilcredit)));
+		// Refund of VAT credit requested
+		Double alvatcreditRef = frenchtoDouble(elementText("txt_Aliabiltycreditrefundreq", ""))
+				- frenchtoDouble(elementText("txt_Eliabiltyvcreditrefundreq", ""));
+		assertEquals(elementText("txt_ALliabiltycreditrefundreq", ""), appendfrenchsys(tofrench(alvatcreditRef)));
+		// VAT Credit carried forward
+		Double alvatcreditfwd = frenchtoDouble(elementText("txt_Aliabiltyvcreditfwd", ""))
+				- frenchtoDouble(elementText("txt_Eliabiltyvcreditfwd", ""));
+		assertEquals(elementText("txt_ALliabiltyvcreditfwd", ""), appendfrenchsys(tofrench(alvatcreditfwd)));
+		// VAT on externally financed public procurement
+		Double alpublicproc = frenchtoDouble(elementText("txt_Aliabiltyvpublicprocu", ""))
+				- frenchtoDouble(elementText("txt_Eliabiltyvpublicprocu", ""));
+		assertEquals(elementText("txt_ALliabiltyvpublicprocu", ""), appendfrenchsys(tofrench(alpublicproc)));
+		// VAT for third party account
+		Double althirdparty = frenchtoDouble(elementText("txt_AliabiltyTpartyac", ""))
+				- frenchtoDouble(elementText("txt_EliabiltyTpartyac", ""));
+		assertEquals(elementText("txt_ALliabiltyTpartyac", ""), appendfrenchsys(tofrench(althirdparty)));
+		// Interest
+		assertEquals(elementText("txt_Aliabiltyint", ""), elementText("txt_ALliabiltyint", ""));
+		// Late Fees
+		assertEquals(elementText("txt_Aliabiltyltfee", ""), elementText("txt_ALliabiltyltfee", ""));
+		// Penalty
+		if (!NumberFormat.getInstance(Locale.GERMAN)
+				.format(Double.parseDouble(
+						wd.findElement(By.xpath("//tr[9]//div[contains(text(),'Penalty')]//following::input"))
+								.getAttribute("value")))
+				.toString().contains(",")) {
+			pen = NumberFormat.getInstance(Locale.GERMAN)
+					.format(Double.parseDouble(
+							wd.findElement(By.xpath("//tr[9]//div[contains(text(),'Penalty')]//following::input"))
+									.getAttribute("value")))
+					+ ",00";
+		} else {
+			pen = NumberFormat.getInstance(Locale.GERMAN)
+					.format(Double.parseDouble(
+							wd.findElement(By.xpath("//tr[9]//div[contains(text(),'Penalty')]//following::input"))
+									.getAttribute("value")))
+					.toString();
+		}
+		assertEquals(elementText("txt_ALliabiltypenalty", ""), pen);
+
+		// Amount to pay
+		Double alamttopay = frenchtoDouble(elementText("txt_Aliabiltyamttopay", ""))
+				- frenchtoDouble(elementText("txt_Eliabiltyamttopay", ""));
+		assertEquals(elementText("txt_ALliabiltyamttopay", ""), appendfrenchsys(tofrench(alamttopay)));
+
+		Double alnetamttopay = frenchtoDouble(elementText("txt_ALliabiltynetvatpaid", ""))
+				- frenchtoDouble(elementText("txt_ALliabiltycredit", ""))
+				+ frenchtoDouble(elementText("txt_ALliabiltycreditrefundreq", ""))
+				+ frenchtoDouble(elementText("txt_ALliabiltyvpublicprocu", ""))
+				+ frenchtoDouble(elementText("txt_ALliabiltyTpartyac", ""))
+				+ frenchtoDouble(elementText("txt_ALliabiltyint", ""))
+				+ frenchtoDouble(elementText("txt_ALliabiltypenalty", ""))
+				+ frenchtoDouble(elementText("txt_ALliabiltyltfee", ""));
+		assertEquals(elementText("txt_ALliabiltyamttopay", ""), appendfrenchsys(tofrench(alnetamttopay)));
 
 	}
 
 	@Then("^Calculates the Net Payable column of Paymnent Due table$")
 	public void calculates_the_Net_Payable_column_of_Paymnent_Due_table() throws Throwable {
 
-		//assertEquals(elementText("txt_ApymtdueVatLiab", ""), elementText("txt_NPpymtdueVatLiab", ""));
+		// assertEquals(elementText("txt_ApymtdueVatLiab", ""),
+		// elementText("txt_NPpymtdueVatLiab", ""));
 		assertEquals(elementText("txt_Apymtdueint", ""), elementText("txt_ALliabiltyint", ""));
-	
+
 		assertEquals(elementText("txt_Apymtdueltfee", ""), elementText("txt_ALliabiltyltfee", ""));
-	
+
 		assertEquals(elementText("txt_Apymtduepenalty", ""), elementText("txt_ALliabiltypenalty", ""));
-		
-		assertEquals(elementText("txt_Apymtdueamttopay", ""), elementText("txt_Aliabiltyamttopay", ""));		
-		
+
+		assertEquals(elementText("txt_Apymtdueamttopay", ""), elementText("txt_Aliabiltyamttopay", ""));
+
 		assertEquals(elementText("txt_ApymtdueVatLiab", ""), elementText("txt_NPpymtdueVatLiab", ""));
 
 		assertEquals(elementText("txt_Apymtdueint", ""), elementText("txt_NPpymtdueint", ""));
-		
+
 		assertEquals(elementText("txt_Apymtdueltfee", ""), elementText("txt_NPpymtdueltfee", ""));
-	
+
 		assertEquals(elementText("txt_Apymtduepenalty", ""), elementText("txt_NPpymtduepenalty", ""));
-	
+
 		assertEquals(elementText("txt_Apymtdueamttopay", ""), elementText("txt_NPpymtdueamttopay", ""));
-	 
+
 	}
 
-@Then("^User click on download button message should be displayead as \"([^\"]*)\"$")
-public void user_click_on_download_button_message_should_be_displayead_as(String arg1) throws Throwable {
-	sleepWait(2000);
-clickOn("btn_maEfilingSchedule","");
-sleepWait(2000);
-//System.out.println(validationMessage());
-assertEquals(validationMessage(), arg1);
+	@Then("^User click on download button message should be displayead as \"([^\"]*)\"$")
+	public void user_click_on_download_button_message_should_be_displayead_as(String arg1) throws Throwable {
+		sleepWait(2000);
+		clickOn("btn_maEfilingSchedule", "");
+		sleepWait(2000);
+		// System.out.println(validationMessage());
+		assertEquals(validationMessage(), arg1);
+
 
 sleepWait(2000);
-}
+} 
 @Then("^user clicks on Raise notice button and Notice is generated as per the Liability Calculation Table and Payment Due Table$")
 public void user_clicks_on_Raise_notice_button_and_Notice_is_generated_as_per_the_Liability_Calculation_Table_and_Payment_Due_Table() throws Throwable {
 	String per =getvalue("txt_Aperiod","").replace(" ", "").substring(0, 3);
@@ -397,96 +405,85 @@ assertEquals(text.contains(frenchToIndian(Pamt[3])), true);
 
 
 
-
 sleepWait(5000);
 
-}
-
-
-
-@Then("^Total Additional Liability tile should be displayed as Total Assessed\\(FC\\) minus Total e-declaration\\(FC\\)\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"$")
-public void total_Additional_Liability_tile_should_be_displayed_as_Total_Assessed_FC_minus_Total_e_declaration_FC(String arg1, String arg2, String arg3)throws Throwable {
-	//NumberFormat nf= NumberFormat.getNumberInstance(Locale.ENGLISH);
-	String TotaladdLiab=elementText("txt_totalAltile","");	
-	System.out.println(frenchToIndian(TotaladdLiab.substring(3)));
-	
-	String Toatledeclared=elementText("txt_totalEtile","");System.out.println(Toatledeclared.substring(3));
-	String TotalAssessed=elementText("txt_totalAtile","");System.out.println(TotalAssessed.substring(3));
-	//double TA=nf.parse(TotalAssessed).doubleValue()-nf.parse(TotaladdLiab).doubleValue();
-	//assertEquals(TotalAssessed,NumberFormat.getInstance(Locale.GERMAN).format(TA),"");
-	Double al=Double.parseDouble(frenchToIndian(TotalAssessed.substring(3)))-Double.parseDouble(frenchToIndian(Toatledeclared.substring(3)));
-	
-	NumberFormat nf=NumberFormat.getNumberInstance(Locale.ITALY);
-
-	System.out.println(	nf.format(al));
-assertEquals(nf.format(al), TotaladdLiab.substring(3));	
-	
-	
-	assertEquals(Toatledeclared.substring(3), elementText("txt_Eliabiltyamttopay",""));
-	assertEquals(TotalAssessed.substring(3), elementText("txt_Aliabiltyamttopay",""));
-	assertEquals(TotaladdLiab.substring(3), elementText("txt_ALliabiltyamttopay",""));
-	
-	assertEquals(elementText("txt_ALliabiltyltfee",""), arg3);
-	//String Linterest=elementText("txt_Aliabiltyint","");
-
-
-/*	String TALremovedDot,TALremovedComma,TDremovedDot,TDremovedComma,TAremovedDot,TAremovedComma;
-	if(TotaladdLiab.contains(".")||Toatledeclared.contains(".")||TotalAssessed.contains(".")||TotaladdLiab.contains(",")||Toatledeclared.contains(",")||TotalAssessed.contains(",")) {
-		  TALremovedDot=TotaladdLiab.replace(".", "");
-		  TALremovedComma=TALremovedDot.replace(",", ".");
-		  TDremovedDot=Toatledeclared.replace(".", "");
-		  TDremovedComma=TDremovedDot.replace(",", ".");
-		  TAremovedDot=TotalAssessed.replace(".", "");
-		  TAremovedComma=TAremovedDot.replace(",", ".");		 
-	}else {
-		TAremovedComma=TotalAssessed;
-		TDremovedComma=Toatledeclared;
-		TALremovedComma=TotaladdLiab;
-		}*/
-	
-	
-	//assertEquals(Toatledeclared, TotalAssessed,"Total Assessed and Total Ededeclared are not same");
-	//assertEquals(TotaladdLiab, "0");
-	
-	
-
-}
-/*
- * 
- * To convert the text contain
- * 
- */
-private String frenchToIndian(String text) {	
-
-	return text.replace(".", "").replace(",", ".");
-	
-}
-private double frenchtoDouble(String text) {
-	return Double.parseDouble(frenchToIndian(text));
-}
-/*
- * To convert the number to french System
- * 
- * 
- */
-private String  tofrench(Double d)
-{
-	NumberFormat nf=NumberFormat.getNumberInstance(Locale.ITALY);
-
-	return nf.format(d);
-}
-/*
- * to append comma if the douoble value dont contains decimal places
- * 
- * 
- */
-private String appendfrenchsys(String frenchNo) {
-	String frenchnum;
-	if(!frenchNo.contains(",")) {
-		frenchNo=frenchNo+",00";
+		sleepWait(2000);
 	}
-	return frenchNo;
-}
 
+
+
+	@Then("^Total Additional Liability tile should be displayed as Total Assessed\\(FC\\) minus Total e-declaration\\(FC\\)\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"$")
+	public void total_Additional_Liability_tile_should_be_displayed_as_Total_Assessed_FC_minus_Total_e_declaration_FC(
+			String arg1, String arg2, String arg3) throws Throwable {
+		// NumberFormat nf= NumberFormat.getNumberInstance(Locale.ENGLISH);
+		String TotaladdLiab = elementText("txt_totalAltile", "");
+		System.out.println(frenchToIndian(TotaladdLiab.substring(3)));
+
+		String Toatledeclared = elementText("txt_totalEtile", "");
+		System.out.println(Toatledeclared.substring(3));
+		String TotalAssessed = elementText("txt_totalAtile", "");
+		System.out.println(TotalAssessed.substring(3));
+		// double
+		// TA=nf.parse(TotalAssessed).doubleValue()-nf.parse(TotaladdLiab).doubleValue();
+		// assertEquals(TotalAssessed,NumberFormat.getInstance(Locale.GERMAN).format(TA),"");
+		Double al = Double.parseDouble(frenchToIndian(TotalAssessed.substring(3)))
+				- Double.parseDouble(frenchToIndian(Toatledeclared.substring(3)));
+
+		NumberFormat nf = NumberFormat.getNumberInstance(Locale.ITALY);
+
+		System.out.println(nf.format(al));
+		assertEquals(nf.format(al), TotaladdLiab.substring(3));
+
+		assertEquals(Toatledeclared.substring(3), elementText("txt_Eliabiltyamttopay", ""));
+		assertEquals(TotalAssessed.substring(3), elementText("txt_Aliabiltyamttopay", ""));
+		assertEquals(TotaladdLiab.substring(3), elementText("txt_ALliabiltyamttopay", ""));
+
+		assertEquals(elementText("txt_ALliabiltyltfee", ""), arg3);
+		// String Linterest=elementText("txt_Aliabiltyint","");
+
+		// assertEquals(Toatledeclared, TotalAssessed,"Total Assessed and Total
+		// Ededeclared are not same");
+		// assertEquals(TotaladdLiab, "0");
+
+	}
+
+	/*
+	 * 
+	 * To convert the text contain
+	 * 
+	 */
+	private String frenchToIndian(String text) {
+
+		return text.replace(".", "").replace(",", ".");
+
+	}
+
+	private double frenchtoDouble(String text) {
+		return Double.parseDouble(frenchToIndian(text));
+	}
+
+	/*
+	 * To convert the number to french System
+	 * 
+	 * 
+	 */
+	private String tofrench(Double d) {
+		NumberFormat nf = NumberFormat.getNumberInstance(Locale.ITALY);
+
+		return nf.format(d);
+	}
+
+	/*
+	 * to append comma if the douoble value dont contains decimal places
+	 * 
+	 * 
+	 */
+	private String appendfrenchsys(String frenchNo) {
+		String frenchnum;
+		if (!frenchNo.contains(",")) {
+			frenchNo = frenchNo + ",00";
+		}
+		return frenchNo;
+	}
 
 }
