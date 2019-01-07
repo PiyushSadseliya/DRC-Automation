@@ -31,7 +31,6 @@ public class DV_2882_Manual_Assessed_LandingScreen {
 		sleepWait(2000);
 		clickOn("btn_windowsClick", "");
 		sleepWait(2000);
-
 	}
 
 	@And("^User enter username and password and click on login and see dashboard$")
@@ -109,6 +108,8 @@ public class DV_2882_Manual_Assessed_LandingScreen {
 	@And("^User type \"([^\"]*)\"$")
 	public void user_type(String typeValue) throws Throwable {
 		Thread.sleep(500);
+		type("txtbox_TypeHere",typeValue);	
+		Thread.sleep(1000);
 		type("txtbox_TypeHere", typeValue);
 		Thread.sleep(500);
 	}

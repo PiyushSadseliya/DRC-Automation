@@ -227,7 +227,7 @@ public class userRegistration {
 			sleepWait(2000);
 			if (elementText("txtbx_email", "").length() == Email.length()) {
 				System.out.println("As it isEmail ");
-				showvalidationMessage = false;
+				emailValidation = false;
 			}
 		}
 
@@ -314,40 +314,8 @@ public class userRegistration {
 
 	@Then("^Error messages should be shown to user as\"([^\"]*)\"$")
 	public void error_messages_should_be_shown_to_user_as(String validationMessage) throws Throwable {
-		if (validationMessage.length() > 0) {
-			fullNameValidation = true;
-			emailValidation = true;
-			passwordValidation = true;
-			cpasswordValidation = true;
-			mobValidation = true;
-		}
-
-		if (fullNameValidation) {
-			assertEquals(elementText("txt_fullnamevalidation", ""), validationMessage); // validation message for Full
-																						// Name
-		}
-		if (fullNameValidation = false) {
-			// assertEquals(true, true);
-			assertNotEquals(elementText("txt_fullnamevalidation", ""), validationMessage);
-		}
-		if (emailValidation) {
-			assertEquals(elementText("txt_emailvalidation", ""), validationMessage); // validation message for Email
-		}
-		if (passwordValidation) {
-			assertEquals(elementText("txt_passwordvalidation", ""), validationMessage); // validation message for
-																						// Password
-		}
-		if (passwordValidation = false) {
-			assertNotEquals(elementText("txt_passwordvalidation", ""), validationMessage);
-		}
-		if (cpasswordValidation) {
-			assertEquals(elementText("txt_cpasswordvalidation", ""), validationMessage); // validation message for
-																							// Confirm
-		}
-		if (cpasswordValidation = false) {
-			assertNotEquals(elementText("txt_cpasswordvalidation", ""), validationMessage);
-		}
-		if (mobValidation) {
+		if (validationMessage.length() > 0) {		
+		
 			assertEquals(elementText("txt_mobvalidation", ""), validationMessage); // validation message for Mobile
 		}
 	}

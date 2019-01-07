@@ -30,11 +30,12 @@ import static org.drc.vat.appmanager.HelperBase.clearCache;
 import static org.drc.vat.appmanager.HelperBase.assessmentOfficer;
 import static org.drc.vat.appmanager.HelperBase.sleepWait;
 
-
- 
-@CucumberOptions(features = {
-		"classpath:features/29_PaymentSummaryLiabilityCalculationPaymentDueManualReAssessment.feature" }, glue = "org.drc.vat.StepDefinitions", plugin = {
-				"com.cucumber.listener.ExtentCucumberFormatter:", "html:test-output/cucumber-report" })
+@CucumberOptions(features = {"classpath:features/30_TaxPayer_Portal_objection_appeal.feature"},
+	glue = "org.drc.vat.StepDefinitions",
+	plugin = {"com.cucumber.listener.ExtentCucumberFormatter:",
+	"html:test-output/cucumber-report"}
+	//,tags={"@DV_2253_TaxPayer_Portal_objection_appeal_TC_04_06_07_08_11_12_13"}
+)
 
 public class TestRunner extends AbstractTestNGCucumberTests {
 	private Logger logger = LoggerFactory.getLogger(TestRunner.class);
@@ -112,6 +113,7 @@ public class TestRunner extends AbstractTestNGCucumberTests {
 
 	@After
 	public void endScenario(Scenario scenario) throws Exception {
+		
 		String screenshot = scenario.getName();
 		File src = app.takeScreenshotAsFile();
 		File dest = new File(
@@ -120,7 +122,7 @@ public class TestRunner extends AbstractTestNGCucumberTests {
 		Reporter.addScreenCaptureFromPath(dest.toString());
 		scenario.embed(app.takeScreenshot(), "image/png");
 		// logout();
-		// assertEnding();
+		
 		logger.info("Stop scenario: " + scenario.getName());
 	}
 }

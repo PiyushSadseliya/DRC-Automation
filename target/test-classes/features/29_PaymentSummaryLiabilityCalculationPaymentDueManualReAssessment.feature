@@ -54,3 +54,4 @@ Feature: Manual ReAssessment- Payment summary for Liability Calculation and Paym
     Examples: 
       | Test Case ID            | Description                                                                                                                                             | uname            | password | period  | year | msg                | penamt | efiledamount | NITVA             | nif       | nvat | tpayer         |
       | DRC_ATC_ReAssessment_02 | Validate the tax assessment officer is able to raise notice for a particular period for no updation in manual assessment when efiling and pymt not done | ritesh.prajapati | admin    | January | 2019 | Saved Successfully | 500000 |       800,00 | 20181127030648745 | TestRefac | nvat | AutoTest Reass |
+
