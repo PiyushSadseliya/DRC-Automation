@@ -440,7 +440,7 @@ public class VatRegistration {
 		}
 
 	}
-
+ 
 	@Then("^click on Manage Vat Registartion$")
 	public void click_on_Manage_Vat_Registartion() throws Throwable {
 

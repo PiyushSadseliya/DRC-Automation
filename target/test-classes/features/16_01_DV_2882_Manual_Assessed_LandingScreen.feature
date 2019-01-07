@@ -2,14 +2,13 @@ Feature: User is on Manual Assessement Landing Screen
 
   @TC_02
   Scenario Outline: Validate the Manual Assessment dashboard page All clicking compoment - internal portal
-
     Given User is on Assessment Page "<TestcaseID>" "<Description>"
     And User click on Dashboard
+    And User click on pin
     And User click on Assessment Tab
     And User see manual assessment and assessament list tab
     And User click on manual assessment
     And User click on drop down "<Period>"
-    # And User click on month "<month>" and check
     And User click on year "<Year>" and check
     #And User click on FilterBy "<Filter>"
     And User type "<Data>"
@@ -30,6 +29,7 @@ Feature: User is on Manual Assessement Landing Screen
     And User click on Dashboard
     And User click on Assessment Tab
     And User click on drop down "<Period>"
+    And User click on year "<Year>" and check
     And User click on FilterBy "<Filter>" dropdown and click on Status
     And User click on Status and click on "<FilterStatus>"
     And User click on search button and check status "<check>"
@@ -64,16 +64,17 @@ Feature: User is on Manual Assessement Landing Screen
     And User click on Dashboard
     And User click on Assessment Tab
     And User click on drop down "<Period>"
+    And User click on year "<Year>" and check
     #And User click on year and select "<year>"
     And User click on FilterBy "<Filter>"
     And User enter data for NITVA "<data>" and click on search button
     And User check NITVA number "<NITVA>" no
     #And User refresh page
     #And User again click on filter "<AgainFilter>"
-    And User again enter invalid data "<niftvaData>" and check message no record found    
+    And User again enter invalid data "<niftvaData>" and check message no record found
 
     Examples: 
-      | TestcaseID           | Description                                                  | Period        | year          | Filter               | data              | NITVA             | AgainFilter          | niftvaData | again        | type                         | BType                   | businessType |
+      | TestcaseID           | Description                                                  | Period        | Year          | Filter               | data              | NITVA             | AgainFilter          | niftvaData | again        | type                         | BType                   | businessType |
       | Manual_Assessment_06 | Validating user is able filter by nitva no and business type | txt_PeriodJan | txt_AssYear17 | txt_AsestFilterNitva | 20181211062210697 | 20181211062210697 | txt_AsestFilterNitva | 0000526000 | drp_FilterBy | txt_AssestFilterBusinessType | txt_BusinessTypeTrading | Trading      |
 
   @TC_07_Name_of_Applicant_TAX_Payer
@@ -82,6 +83,7 @@ Feature: User is on Manual Assessement Landing Screen
     And User click on Dashboard
     And User click on Assessment Tab
     And User click on drop down "<Period>"
+    And User click on year "<Year>" and check
     And User selects value from Assessment filter drop down "<Filters>"
     And User enters data for Assessment in type here text box "<Value>"
     #And User check for valid data for TAX Payer "<Value>"
@@ -89,8 +91,8 @@ Feature: User is on Manual Assessement Landing Screen
     And User see message no record found
 
     Examples: 
-      | TestcaseID           | Description                    | Period        | Filters                  | Value       | data |
-      | Manual_Assessment_07 | validate tyax payer  PeriodJan | txt_PeriodJan | txt_AssestFilterTaxPayer | Automations | Abx  |
+      | TestcaseID           | Description                    | Period        | Filters                  | Value       | data | Year          |
+      | Manual_Assessment_07 | validate tyax payer  PeriodJan | txt_PeriodJan | txt_AssestFilterTaxPayer | Automations | Abx  | txt_AssYear17 |
 
   @TC_07_NITVA
   Scenario Outline: Validate whether User is able to filter by NITVA
@@ -98,34 +100,37 @@ Feature: User is on Manual Assessement Landing Screen
     And User click on Dashboard
     And User click on Assessment Tab
     And User click on drop down "<Period>"
+    And User click on year "<Year>" and check
     And User selects value from Assessment filter drop down "<Filters>"
     And User enters data for Assessment in type here text box "<Value>"
     #And User check for valid data for NITVA "<Value>"
     #And User again enter data in type here "<data>" for invalid data
-    And User see message no record found 
+    And User see message no record found
 
     Examples: 
-      | TestcaseID             | Description              | Period        | Filters              | Value             | data      |
-      | Manual_Assessment_07_1 | validate filter ny nitva | txt_PeriodJan | txt_AsestFilterNitva | 20181016011333143 | 000000000 |
+      | TestcaseID             | Description              | Period        | Filters              | Value             | data      | Year          |
+      | Manual_Assessment_07_1 | validate filter ny nitva | txt_PeriodJan | txt_AsestFilterNitva | 20181016011333143 | 000000000 | txt_AssYear17 |
 
   #@TC_07_Assessment_Officer
   # Scenario Outline: Validate whether User is able to filter by Assessment Officer
   #  Given User is on Assessment Page "<TestcaseID>" "<Description>"
   # And User click on Assessment Tab
   #  And User click on drop down "<Period>"
+  # And User click on year "<Year>" and check
   #  And User selects value from Assessment filter drop down "<Filters>"
   #  And User enters data for Assessment in type here text box "<Value>"
   #  #And User check for valid data for Assessment Officer "<validOfficer>"
   #  #And User again enter data in type here "<data>" for invalid data
   #  And User see message no record found
   #   Examples:
-  #     | TestcaseID             | Description                 | Period         | Filters                       | Value  | validOfficer | data   |
-  #     | Manual_Assessment_07_2 | validate assessment officer | txt_PeriodJan | txt_AssestFilterAssestOfficer | Laxman | Laxman       | franky |
+  #     | TestcaseID             | Description                 | Period         | Filters                       | Value  | validOfficer | data   |Year|
+  #     | Manual_Assessment_07_2 | validate assessment officer | txt_PeriodJan | txt_AssestFilterAssestOfficer | Laxman | Laxman       | franky |txt_AssYear17|
   #  @TC_07_Business_Type
   #  Scenario Outline: Validate whether User is able to filter by Business Type
   #    Given User is on Assessment Page "<TestcaseID>" "<Description>"
   #    And User click on Assessment Tab
   #    And User click on drop down "<Period>"
+  #   And User click on year "<Year>" and check
   #    And User selects value from Assessment filter drop down "<Filters>"
   #    And User click on business type and click on "<FilterStatus>"
   #    And User click on search button and check Business Type "<check>"
@@ -143,6 +148,7 @@ Feature: User is on Manual Assessement Landing Screen
   #Given User is on Assessment Page "<TestcaseID>" "<Description>"
   #And User click on Assessment Tab
   #And User click on drop down "<Period>"
+  #  And User click on year "<Year>" and check
   #And User selects value from Assessment filter drop down "<Filters>"
   #And User click on company size and click on "<FilterStatus>"
   #And User click on search button and check Company Size "<check>"
@@ -151,7 +157,7 @@ Feature: User is on Manual Assessement Landing Screen
   #And User click on "<FilterStatus>"
   #And User see message no record found
   #    Examples:
-  #      | TestcaseID              | Description                  | Period         | Filters                      | FilterStatus          | check        | year      |
+  #      | TestcaseID              | Description                  | Period         | Filters                      | FilterStatus          | check        | Year      |
   #      | Manual_Assessment_07_7  | validate company size large  | txt_PeriodJan | txt_AssestFilterCompanySize  | txt_CompanySizeLarge  | Large Scale  | AssYear18 |
   #      | Manual_Assessment_07_8  | validate company size medium | txt_PeriodJan | txt_AssestFilterCompanySize1 | txt_CompanySizeMedium | Medium Scale | AssYear18 |
   #      | Manual_Assessment_07_9  | validate company size micro  | txt_PeriodJan | txt_AssestFilterCompanySize1 | txt_CompanySizeMicro  | Micro Scale  | AssYear18 |
@@ -162,6 +168,7 @@ Feature: User is on Manual Assessement Landing Screen
     And User click on Dashboard
     And User click on Assessment Tab
     And User click on drop down "<Period>"
+    And User click on year "<Year>" and check
     And User selects value from Assessment filter drop down "<Filters>"
     And User click Status In Progress "<Status1>" and check "<InProgress>"
     And User click Status Pending "<Status2>" and check "<Pending>"
@@ -171,8 +178,8 @@ Feature: User is on Manual Assessement Landing Screen
     # And User click Status Pending "<Status2>"  and check for no record found
     #And   User see message no record found
     Examples: 
-      | TestcaseID              | Description     | Period        | Filters    | Status1        | Status2     | Pending | InProgress  |
-      | Manual_Assessment_07_11 | validate status | txt_PeriodJan | drp_Status | txt_InProgress | txt_Pending | Pending | In Progress |
+      | TestcaseID              | Description     | Period        | Filters    | Status1        | Status2     | Pending | InProgress  | Year          |
+      | Manual_Assessment_07_11 | validate status | txt_PeriodJan | drp_Status | txt_InProgress | txt_Pending | Pending | In Progress | txt_AssYear17 |
 
   #  @TC_08
   #  Scenario Outline: Validate whether admin is able to filter data using different combination of filter by option and entering different option in type here text box.
@@ -189,11 +196,12 @@ Feature: User is on Manual Assessement Landing Screen
   @TC_10
   Scenario Outline: Validate whether User is able to navigate to particular page and filter the data according
     Given User is on Assessment Page "<TestcaseID>" "<Description>"
-    And User click on Dashboard	
+    And User click on Dashboard
     And User click on Assessment Tab
     And User click on Assessed List
     And User click on Assessment Tab
     And User click on drop down "<Period>"
+    And User click on year "<Year>" and check
     And User click on Last "<Last>"
     #And User select "<month>"
     And User click on FilterBy "<Filter>"
@@ -201,7 +209,27 @@ Feature: User is on Manual Assessement Landing Screen
     And User check NITVA number "<nitvaNO>"
 
     Examples: 
-      | TestcaseID           | Description                                  | Period        | Last        | Filter               | data              | nitvaNO           |
-      | Manual_Assessment_10 | validate navigation and filter functionality | txt_PeriodJan | lbl_AssLast | txt_AsestFilterNitva | 20181211062210697 | 20181211062210697 |
-   
-  
+      | TestcaseID           | Description                                  | Period        | Last        | Filter               | data              | nitvaNO           | Year          |
+      | Manual_Assessment_10 | validate navigation and filter functionality | txt_PeriodJan | lbl_AssLast | txt_AsestFilterNitva | 20181211062210697 | 20181211062210697 | txt_AssYear17 |
+
+  # this scenario is of feature file 20
+  @TC_05_06_19_18_16
+  Scenario Outline: Validate that the Total Assessed(FC) tile amount when no any changes made in  assessment adjustment table for Operations Performed, Tax Deductible and Adjustment tab.
+    Given User is on Manual Assessment "<TestcaseID>" "<Description>"
+    And User click on Assessment Tab
+    And User click on drop down "<Period>" for Manual Assessment
+    And User click on year "<Year>" and check
+    And User click on FilterBy and click on TaxPayer
+    And User type "<TaxPayer>" and click on search button
+    And User click on manage and click on assess
+    And User see Total Assessed amount
+    And User click on next button and navigate to Assessment Summary page
+    And User check Total Assessed amount is not changed
+    And User validate Total Additional Liability on Assessment Summary page
+    And User see message "<mess>" when no changes done in adjustement
+    And User click on e-filing schedule when tax payer did not uploaded file at the time of e-declaration and shows message "<FNF>"
+    And User click on Transaction Received button
+
+    Examples: 
+      | TestcaseID            | Description                                                              | Period        | TaxPayer   | mess                                   | FNF            | Year            |
+      | Mal_AS_05_06_19_18_16 | Validate Total Assessed amount is same and check Additionality Liability | txt_PeriodMar | Arun111223 | No Modification made for e-declaration | File not found | txt_2019_Period |

@@ -30,16 +30,13 @@ import static org.drc.vat.appmanager.HelperBase.clearCache;
 import static org.drc.vat.appmanager.HelperBase.assessmentOfficer;
 import static org.drc.vat.appmanager.HelperBase.sleepWait;
 
-/*@CucumberOptions(features = {"classpath:features/"},
-glue = "org.drc.vat.StepDefinitions",
-plugin = {"com.cucumber.listener.ExtentCucumberFormatter:","html:test-output/cucumber-report"}
-		)*/
 
+ 
 @CucumberOptions(features = {
 	//"classpath:features/32_DebtManagementLandingScreen.feature","classpath:features/33_DebtManagementUnassignedDebt.feature",
 	//"classpath:features/34_DebtManagementAssignedDebtList.feature","classpath:features/35_DebtCollectionCaseScreen.feature",
 	//"classpath:features/36_popupofAgeingofArrears.feature",
-	"classpath:features/37_NotificationPopUp.feature"
+	//"classpath:features/37_NotificationPopUp.feature"
 	}
 , glue = "org.drc.vat.StepDefinitions", plugin = {
 				"com.cucumber.listener.ExtentCucumberFormatter:", "html:test-output/cucumber-report" }

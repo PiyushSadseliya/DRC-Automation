@@ -316,94 +316,101 @@ public class PaymentSummaryLiabilityCalculationPaymentDueManualAssessment {
 		// System.out.println(validationMessage());
 		assertEquals(validationMessage(), arg1);
 
+
+sleepWait(2000);
+} 
+@Then("^user clicks on Raise notice button and Notice is generated as per the Liability Calculation Table and Payment Due Table$")
+public void user_clicks_on_Raise_notice_button_and_Notice_is_generated_as_per_the_Liability_Calculation_Table_and_Payment_Due_Table() throws Throwable {
+	String per =getvalue("txt_Aperiod","").replace(" ", "").substring(0, 3);
+//System.out.println(per);
+	String nitva=elementText("txt_Anitva","");
+	//System.out.println(nitva);
+	String []Lvat=elementText("txt_Lvat","").split("\\r?\\n");
+	//System.out.println(Lvat);
+	
+		String []Lcred=elementText("txt_Lcredit","").split("\\r?\\n");
+		
+			String []Lref=elementText("txt_Lrefund","").split("\\r?\\n");		
+			
+
+		
+			String []Lcredfwd=elementText("txt_Lcreditfwd","").split("\\r?\\n");			//System.out.println(frenchToIndian(Lcredfwd));
+			String []Lpubproc=elementText("txt_Lpublicproc","").split("\\r?\\n");//System.out.println(frenchToIndian(Lpubproc));
+			String []Ltparty=elementText("txt_Ltpartyac","").split("\\r?\\n");	//	System.out.println(Ltparty);
+			String []Lint=elementText("txt_Lint","").split("\\r?\\n");//System.out.println(Lint);
+			String []Lltfee=elementText("txt_Lltfee","").split("\\r?\\n");//System.out.println(Lltfee);
+			
+			String []Lamtpay=elementText("txt_Lamounttopay","").split("\\r?\\n");//System.out.println(Lamtpay);
+			String []Pvat=elementText("txt_Pvat","").split("\\r?\\n");//System.out.println(Pvat);
+			String []Pint=elementText("txt_Pint","").split("\\r?\\n");//System.out.println(Pint);
+			String []Pltfee=elementText("txt_Pltfee","").split("\\r?\\n");//System.out.println(Pltfee);
+			String []Ppen=elementText("txt_Ppena","").split("\\r?\\n");//System.out.println(Ppen);
+			String []Pamt=elementText("txt_Pamounttopay","").split("\\r?\\n");//System.out.println(Pamt);
+
+clickOn("btn_maRaiseNotice","");
+sleepWait(20000);
+saveFile();
+sleepWait(2000);
+PDDocument doc = PDDocument.load(getLatestFilefromDir());   
+PDFTextStripper pdfStripper = new PDFTextStripper();  
+String text = pdfStripper.getText(doc);  
+//System.out.println(text);
+//Liability Calculation
+assertEquals(text.contains(per), true);
+assertEquals(text.contains(nitva), true);
+
+assertEquals(text.contains(frenchToIndian(Lvat[1])), true);
+assertEquals(text.contains(frenchToIndian(Lvat[2])), true);
+assertEquals(text.contains(frenchToIndian(Lvat[3])), true);
+assertEquals(text.contains(frenchToIndian(Lcred[1])), true);
+assertEquals(text.contains(frenchToIndian(Lcred[2])), true);
+assertEquals(text.contains(frenchToIndian(Lcred[3])), true);
+
+assertEquals(text.contains(frenchToIndian(Lref[1])), true);
+assertEquals(text.contains(frenchToIndian(Lref[2])), true);
+assertEquals(text.contains(frenchToIndian(Lref[3])), true);
+assertEquals(text.contains(frenchToIndian(Lcredfwd[1])), true);
+assertEquals(text.contains(frenchToIndian(Lcredfwd[2])), true);
+assertEquals(text.contains(frenchToIndian(Lpubproc[3])), true);
+assertEquals(text.contains(frenchToIndian(Ltparty[1])), true);
+assertEquals(text.contains(frenchToIndian(Ltparty[2])), true);
+assertEquals(text.contains(frenchToIndian(Ltparty[3])), true);
+assertEquals(text.contains(frenchToIndian(Lint[1])), true);
+assertEquals(text.contains(frenchToIndian(Lint[2])), true);
+assertEquals(text.contains(frenchToIndian(Lint[3])), true);
+assertEquals(text.contains(frenchToIndian(Lltfee[1])), true);
+assertEquals(text.contains(frenchToIndian(Lltfee[2])), true);
+assertEquals(text.contains(frenchToIndian(Lltfee[3])), true);
+
+assertEquals(text.contains(frenchToIndian(Lamtpay[1])), true);
+assertEquals(text.contains(frenchToIndian(Lamtpay[2])), true);
+assertEquals(text.contains(frenchToIndian(Lamtpay[3])), true);
+//Payment Due
+assertEquals(text.contains(frenchToIndian(Pvat[1])), true);
+assertEquals(text.contains(frenchToIndian(Pvat[2])), true);
+assertEquals(text.contains(frenchToIndian(Pvat[3])), true);
+assertEquals(text.contains(frenchToIndian(Pint[1])), true);
+assertEquals(text.contains(frenchToIndian(Pint[2])), true);
+assertEquals(text.contains(frenchToIndian(Pint[3])), true);
+assertEquals(text.contains(frenchToIndian(Pltfee[1])), true);
+assertEquals(text.contains(frenchToIndian(Pltfee[2])), true);
+assertEquals(text.contains(frenchToIndian(Pltfee[3])), true);
+assertEquals(text.contains(frenchToIndian(Ppen[1])), true);
+assertEquals(text.contains(frenchToIndian(Ppen[2])), true);
+assertEquals(text.contains(frenchToIndian(Ppen[3])), true);
+assertEquals(text.contains(frenchToIndian(Pamt[1])), true);
+assertEquals(text.contains(frenchToIndian(Pamt[2])), true);
+assertEquals(text.contains(frenchToIndian(Pamt[3])), true);
+
+
+
+
+sleepWait(5000);
+
 		sleepWait(2000);
 	}
 
-	@Then("^user clicks on Raise notice button and Notice is generated as per the Liability Calculation Table and Payment Due Table$")
-	public void user_clicks_on_Raise_notice_button_and_Notice_is_generated_as_per_the_Liability_Calculation_Table_and_Payment_Due_Table()
-			throws Throwable {
-		String per = getvalue("txt_Aperiod", "").replace(" ", "").substring(0, 3);
-		// System.out.println(per);
-		String nitva = elementText("txt_Anitva", "");
-		// System.out.println(nitva);
-		String[] Lvat = elementText("txt_Lvat", "").split("\\r?\\n");
-		// System.out.println(Lvat);
 
-		String[] Lcred = elementText("txt_Lcredit", "").split("\\r?\\n");
-
-		String[] Lref = elementText("txt_Lrefund", "").split("\\r?\\n");
-
-		String[] Lcredfwd = elementText("txt_Lcreditfwd", "").split("\\r?\\n"); // System.out.println(frenchToIndian(Lcredfwd));
-		String[] Lpubproc = elementText("txt_Lpublicproc", "").split("\\r?\\n");// System.out.println(frenchToIndian(Lpubproc));
-		String[] Ltparty = elementText("txt_Ltpartyac", "").split("\\r?\\n"); // System.out.println(Ltparty);
-		String[] Lint = elementText("txt_Lint", "").split("\\r?\\n");// System.out.println(Lint);
-		String[] Lltfee = elementText("txt_Lltfee", "").split("\\r?\\n");// System.out.println(Lltfee);
-
-		String[] Lamtpay = elementText("txt_Lamounttopay", "").split("\\r?\\n");// System.out.println(Lamtpay);
-		String[] Pvat = elementText("txt_Pvat", "").split("\\r?\\n");// System.out.println(Pvat);
-		String[] Pint = elementText("txt_Pint", "").split("\\r?\\n");// System.out.println(Pint);
-		String[] Pltfee = elementText("txt_Pltfee", "").split("\\r?\\n");// System.out.println(Pltfee);
-		String[] Ppen = elementText("txt_Ppena", "").split("\\r?\\n");// System.out.println(Ppen);
-		String[] Pamt = elementText("txt_Pamounttopay", "").split("\\r?\\n");// System.out.println(Pamt);
-
-		clickOn("btn_maRaiseNotice", "");
-		sleepWait(20000);
-		saveFile();
-		sleepWait(2000);
-		PDDocument doc = PDDocument.load(getLatestFilefromDir());
-		PDFTextStripper pdfStripper = new PDFTextStripper();
-		String text = pdfStripper.getText(doc);
-		// System.out.println(text);
-		// Liability Calculation
-		assertEquals(text.contains(per), true);
-		assertEquals(text.contains(nitva), true);
-
-		assertEquals(text.contains(frenchToIndian(Lvat[1])), true);
-		assertEquals(text.contains(frenchToIndian(Lvat[2])), true);
-		assertEquals(text.contains(frenchToIndian(Lvat[3])), true);
-		assertEquals(text.contains(frenchToIndian(Lcred[1])), true);
-		assertEquals(text.contains(frenchToIndian(Lcred[2])), true);
-		assertEquals(text.contains(frenchToIndian(Lcred[3])), true);
-
-		assertEquals(text.contains(frenchToIndian(Lref[1])), true);
-		assertEquals(text.contains(frenchToIndian(Lref[2])), true);
-		assertEquals(text.contains(frenchToIndian(Lref[3])), true);
-		assertEquals(text.contains(frenchToIndian(Lcredfwd[1])), true);
-		assertEquals(text.contains(frenchToIndian(Lcredfwd[2])), true);
-		assertEquals(text.contains(frenchToIndian(Lpubproc[3])), true);
-		assertEquals(text.contains(frenchToIndian(Ltparty[1])), true);
-		assertEquals(text.contains(frenchToIndian(Ltparty[2])), true);
-		assertEquals(text.contains(frenchToIndian(Ltparty[3])), true);
-		assertEquals(text.contains(frenchToIndian(Lint[1])), true);
-		assertEquals(text.contains(frenchToIndian(Lint[2])), true);
-		assertEquals(text.contains(frenchToIndian(Lint[3])), true);
-		assertEquals(text.contains(frenchToIndian(Lltfee[1])), true);
-		assertEquals(text.contains(frenchToIndian(Lltfee[2])), true);
-		assertEquals(text.contains(frenchToIndian(Lltfee[3])), true);
-
-		assertEquals(text.contains(frenchToIndian(Lamtpay[1])), true);
-		assertEquals(text.contains(frenchToIndian(Lamtpay[2])), true);
-		assertEquals(text.contains(frenchToIndian(Lamtpay[3])), true);
-		// Payment Due
-		assertEquals(text.contains(frenchToIndian(Pvat[1])), true);
-		assertEquals(text.contains(frenchToIndian(Pvat[2])), true);
-		assertEquals(text.contains(frenchToIndian(Pvat[3])), true);
-		assertEquals(text.contains(frenchToIndian(Pint[1])), true);
-		assertEquals(text.contains(frenchToIndian(Pint[2])), true);
-		assertEquals(text.contains(frenchToIndian(Pint[3])), true);
-		assertEquals(text.contains(frenchToIndian(Pltfee[1])), true);
-		assertEquals(text.contains(frenchToIndian(Pltfee[2])), true);
-		assertEquals(text.contains(frenchToIndian(Pltfee[3])), true);
-		assertEquals(text.contains(frenchToIndian(Ppen[1])), true);
-		assertEquals(text.contains(frenchToIndian(Ppen[2])), true);
-		assertEquals(text.contains(frenchToIndian(Ppen[3])), true);
-		assertEquals(text.contains(frenchToIndian(Pamt[1])), true);
-		assertEquals(text.contains(frenchToIndian(Pamt[2])), true);
-		assertEquals(text.contains(frenchToIndian(Pamt[3])), true);
-
-		sleepWait(5000);
-
-	}
 
 	@Then("^Total Additional Liability tile should be displayed as Total Assessed\\(FC\\) minus Total e-declaration\\(FC\\)\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"$")
 	public void total_Additional_Liability_tile_should_be_displayed_as_Total_Assessed_FC_minus_Total_e_declaration_FC(
@@ -433,22 +440,6 @@ public class PaymentSummaryLiabilityCalculationPaymentDueManualAssessment {
 
 		assertEquals(elementText("txt_ALliabiltyltfee", ""), arg3);
 		// String Linterest=elementText("txt_Aliabiltyint","");
-
-		/*
-		 * String
-		 * TALremovedDot,TALremovedComma,TDremovedDot,TDremovedComma,TAremovedDot,
-		 * TAremovedComma;
-		 * if(TotaladdLiab.contains(".")||Toatledeclared.contains(".")||TotalAssessed.
-		 * contains(".")||TotaladdLiab.contains(",")||Toatledeclared.contains(",")||
-		 * TotalAssessed.contains(",")) { TALremovedDot=TotaladdLiab.replace(".", "");
-		 * TALremovedComma=TALremovedDot.replace(",", ".");
-		 * TDremovedDot=Toatledeclared.replace(".", "");
-		 * TDremovedComma=TDremovedDot.replace(",", ".");
-		 * TAremovedDot=TotalAssessed.replace(".", "");
-		 * TAremovedComma=TAremovedDot.replace(",", "."); }else {
-		 * TAremovedComma=TotalAssessed; TDremovedComma=Toatledeclared;
-		 * TALremovedComma=TotaladdLiab; }
-		 */
 
 		// assertEquals(Toatledeclared, TotalAssessed,"Total Assessed and Total
 		// Ededeclared are not same");

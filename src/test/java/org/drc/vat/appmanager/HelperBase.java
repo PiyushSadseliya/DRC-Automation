@@ -58,16 +58,22 @@ public class HelperBase {
 	private static String currentWindow = null;
 	static int i = 0;
 	public static int no_window;
-	public static Boolean login = true;
-	public static String[] monthName = { "January", "February", "March", "April", "May", "June", "July", "August",
-			"September", "October", "November", "December" };
+
+	public static Boolean login=true;
+	public static String[] monthName = 
+		{ "January", "February", "March", "April", "May", "June", "July",
+		  "August", "September", "October", "November", "December" };
+	
+	public static String[] yearName = {"2019","2018","2017"};			
+	
+
 
 	public static SoftAssert softAssert = new SoftAssert();
 
 	HelperBase(WebDriver wd) {
 		HelperBase.wd = wd;
 	}
-
+ 
 	private static String cwd = System.getProperty("user.dir");
 	public static String filedoc = cwd + "\\src\\test\\resources\\docs\\";
 	private static File dir = new File(System.getProperty("user.home") + "/Downloads");
@@ -643,6 +649,7 @@ public class HelperBase {
 
 	}
 
+
 	public static void datePicker(String date) {
 		try {
 			String d, m, y;
@@ -653,6 +660,7 @@ public class HelperBase {
 			clickOn("span", "[contains(text(),'2019')]");
 			clickOn("span", "[contains(text(),'" + y + "')]");
 			// clickOn("span","[contains(text(),'June')]");
+
 			sleepWait(2000);
 			if (m.equals("01")) {
 				clickOn("span", "[contains(text(),'January')]");

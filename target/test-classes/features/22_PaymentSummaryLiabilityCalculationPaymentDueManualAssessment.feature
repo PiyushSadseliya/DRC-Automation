@@ -36,9 +36,7 @@ Feature: Manual Assessment- Payment summary for Liability Calculation and Paymen
       | DRC_ATC_Assessment_02 | Validate the Save,Previous button,prev button,next button Total Tiles,Additionality Liability column | laxman.prajapati | admin    | January | 2018 | Saved Successfully |  50000 |            0 |       | Arun111223 | 500.000,00 |
 
   @tc17
-
   Scenario Outline: Validate the download functionality of  e-filing schedule Button when e-file schedule file is not uploaded by tax paye
-
     Given The user has done the filing for the particular month
     When the assessemnt officer does the assessment for that particular month with "no" Updation for period"<period>"year"<year>"tpayer"<tpayer>"
     Then the officer is on the Payment Summary page for Liabilty Calculation and Payment Due
@@ -57,5 +55,6 @@ Feature: Manual Assessment- Payment summary for Liability Calculation and Paymen
     Then user clicks on Raise notice button and Notice is generated as per the Liability Calculation Table and Payment Due Table
 
     Examples: 
-      | Test Case ID          | Description                                                                                                                                             | uname            | password | period   | year | penamt | efiledamount | NITVA | tpayer        |
-      | DRC_ATC_Assessment_04 | Validate the tax assessment officer is able to raise notice for a particular period for no updation in manual assessment when efiling and pymt not done | laxman.prajapati | admin    | November | 2018 | 50000 |         0,00 |       | Approved User |
+      | Test Case ID          | Description                                                                                                                                             | uname            | password | period   | year | penamt | efiledamount | NITVA | tpayer     |
+      | DRC_ATC_Assessment_04 | Validate the tax assessment officer is able to raise notice for a particular period for no updation in manual assessment when efiling and pymt not done | laxman.prajapati | admin    | January  | 2018 | 500000 |         0,00 |       | Arun111223 |
+			| DRC_ATC_Assessment_05 | Validate the tax assessment officer is able to raise notice for a particular period for no updation in manual assessment when efiling and pymt not done | laxman.prajapati | admin    | March    | 2018 | 500000 |         0,00 |       | Arun111223 |
