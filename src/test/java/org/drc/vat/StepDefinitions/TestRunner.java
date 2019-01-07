@@ -36,8 +36,14 @@ plugin = {"com.cucumber.listener.ExtentCucumberFormatter:","html:test-output/cuc
 		)*/
 
 @CucumberOptions(features = {
-		"classpath:features/29_PaymentSummaryLiabilityCalculationPaymentDueManualReAssessment.feature" }, glue = "org.drc.vat.StepDefinitions", plugin = {
-				"com.cucumber.listener.ExtentCucumberFormatter:", "html:test-output/cucumber-report" })
+	//"classpath:features/32_DebtManagementLandingScreen.feature","classpath:features/33_DebtManagementUnassignedDebt.feature",
+	//"classpath:features/34_DebtManagementAssignedDebtList.feature","classpath:features/35_DebtCollectionCaseScreen.feature",
+	//"classpath:features/36_popupofAgeingofArrears.feature",
+	"classpath:features/37_NotificationPopUp.feature"
+	}
+, glue = "org.drc.vat.StepDefinitions", plugin = {
+				"com.cucumber.listener.ExtentCucumberFormatter:", "html:test-output/cucumber-report" }
+)
 
 public class TestRunner extends AbstractTestNGCucumberTests {
 	private Logger logger = LoggerFactory.getLogger(TestRunner.class);
@@ -115,6 +121,7 @@ public class TestRunner extends AbstractTestNGCucumberTests {
 
 	@After
 	public void endScenario(Scenario scenario) throws Exception {
+		
 		String screenshot = scenario.getName();
 		File src = app.takeScreenshotAsFile();
 		File dest = new File(
@@ -123,7 +130,7 @@ public class TestRunner extends AbstractTestNGCucumberTests {
 		Reporter.addScreenCaptureFromPath(dest.toString());
 		scenario.embed(app.takeScreenshot(), "image/png");
 		// logout();
-		// assertEnding();
+		
 		logger.info("Stop scenario: " + scenario.getName());
 	}
 }

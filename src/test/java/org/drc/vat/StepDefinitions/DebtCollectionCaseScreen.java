@@ -10,7 +10,9 @@ import static org.testng.Assert.assertEquals;
 import static org.drc.vat.appmanager.HelperBase.UploadImage;
 import static org.drc.vat.appmanager.HelperBase.pageSource;
 import static org.drc.vat.appmanager.HelperBase.sleepWait;
-
+import static org.drc.vat.appmanager.HelperBase.frenchToIndian;
+import static org.drc.vat.StepDefinitions.DebtManagementAssignedDebtList.recordNo;
+import static org.drc.vat.StepDefinitions.DebtManagementUnassignedDebt.totalDebtAmount;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -18,17 +20,17 @@ import org.openqa.selenium.WebElement;
 import cucumber.api.java.en.Then;
 
 public class DebtCollectionCaseScreen {
-
+//	static double totaldebt=Double.parseDouble(frenchToIndian(totalDebtAmount));
 	@Then("^user should be on Debt Collection Case$")
 	public void user_should_be_on_Debt_Collection_Case() throws Throwable {
-		sleepWait(3000);
-		assertEquals(elementText("heading_debtcasescreen", ""), "Debt Collection Case");
+		sleepWait(6000);
+		assertEquals(wd.findElement(By.xpath("//*[contains(text(),'Debt Collection Case')]")).getText().equalsIgnoreCase("Debt Collection Case"), true);
 
 	}
 
 	@Then("^user verifies the Total Due HyperLink\"([^\"]*)\"$")
 	public void user_verifies_the_Total_Due_HyperLink(String arg1) throws Throwable {
-		assertEquals(elementText("href_totalamountDue", ""), arg1);
+	//	assertEquals(elementText("href_totalamountDue", ""), arg1);
 
 	}
 
@@ -53,22 +55,29 @@ public class DebtCollectionCaseScreen {
 			throws Throwable {
 		System.out.println(arg1);
 		System.out.println(arg2);
+		double totaldebt=Double.parseDouble(frenchToIndian(elementText("href_totalamountDue", "")));
 		sleepWait(2000);
-		type("txtbx_recAmt", arg1);
+		Double amt=totaldebt/5;
+		type("txtbx_recAmt",String.valueOf(amt));
 		WebElement rper = wd.findElement(By.xpath("//input[@formcontrolname='expectedRecoveryPercentage']"));
 		JavascriptExecutor jse = (JavascriptExecutor) wd;
 		String perc = jse.executeScript("return arguments[0].value", rper).toString();
 		System.out.println(perc);
-		assertEquals(perc, arg2);
+		
+		Double percT=amt/totaldebt*100;
+		if (percT-percT.intValue()==0) {
+			assertEquals(perc, String.valueOf(percT.intValue()));
+		}else {
+			assertEquals(perc, String.valueOf(percT));
+		}
+		
 	}
 
 	@Then("^Status \"([^\"]*)\" should be displayed$")
 	public void status_should_be_displayed(String arg1) throws Throwable {
-		WebElement dt = wd.findElement(By.xpath("//strong[contains(text(),'Status')]/following::input"));
-		JavascriptExecutor jse = (JavascriptExecutor) wd;
-		String status = jse.executeScript("return arguments[0].value", dt).toString();
-		System.out.println(status);
-		assertEquals(status, arg1);
+		WebElement dt = wd.findElement(By.xpath("//strong[contains(text(),'Status')]/following::h6"));
+
+		assertEquals(dt.getText(), arg1);
 
 	}
 
@@ -84,9 +93,9 @@ public class DebtCollectionCaseScreen {
 	@Then("^click on Submit button$")
 	public void click_on_Submit_button() throws Throwable {
 		clickOn("btn_submit", "");
-		String txt = pageSource();
+		//String txt = pageSource();
 		// assertEquals(txt.contains("Case update successfully"), true);
-		sleepWait(8000);
+		sleepWait(15000);
 	}
 
 	@Then("^click in Percentage Radio At Expected Recovery$")
@@ -105,7 +114,12 @@ public class DebtCollectionCaseScreen {
 		JavascriptExecutor jse = (JavascriptExecutor) wd;
 		String perc = jse.executeScript("return arguments[0].value", peramt).toString();
 		sleepWait(2000);
-		assertEquals(perc, arg2);
+		double totaldebt=Double.parseDouble(frenchToIndian(elementText("href_totalamountDue", "")));
+		double per =Double.parseDouble(arg1);
+		double recamt=totaldebt*per/100;
+		
+		
+		assertEquals(perc, String.format("%.2f", recamt));
 	}
 
 	@Then("^add Comment \"([^\"]*)\"$")
@@ -116,7 +130,7 @@ public class DebtCollectionCaseScreen {
 	@Then("^attach the document\"([^\"]*)\"$")
 	public void attach_the_document(String arg1) throws Throwable {
 		clickOn("browse_debt", "");
-		sleepWait(2000);
+		sleepWait(3000);
 		UploadImage("", arg1);
 		sleepWait(2000);
 

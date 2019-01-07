@@ -36,11 +36,13 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.Objects;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
@@ -648,7 +650,7 @@ public class HelperBase {
 			;
 			m = date.substring(5, 7);
 			y = date.substring(0, 4);
-			clickOn("span", "[contains(text(),'2018')]");
+			clickOn("span", "[contains(text(),'2019')]");
 			clickOn("span", "[contains(text(),'" + y + "')]");
 			// clickOn("span","[contains(text(),'June')]");
 			sleepWait(2000);
@@ -866,6 +868,55 @@ public class HelperBase {
 		By locator = By.xpath(obj.getProperty(object) + data);
 		return wd.findElement(locator).getAttribute(attribue);
 
+	}
+	public static void waitUntilElementFound(String object,String data) {
+		try {
+			obj.load(fis);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		By locator = By.xpath(obj.getProperty(object) + data);
+		WebDriverWait wait=new WebDriverWait(wd, 10);		
+
+		wait.until(ExpectedConditions.elementToBeClickable(locator));
+	}
+	/*
+	 * 
+	 * To convert the text contain
+	 * 
+	 */
+	public static String frenchToIndian(String text) {
+
+		return text.replace(".", "").replace(",", ".");
+
+	}
+
+	public static double frenchtoDouble(String text) {
+		return Double.parseDouble(frenchToIndian(text));
+	}
+
+	/*
+	 * To convert the number to french System
+	 * 
+	 * 
+	 */
+	public static String tofrench(Double d) {
+		NumberFormat nf = NumberFormat.getNumberInstance(Locale.ITALY);
+
+		return nf.format(d);
+	}
+
+	/*
+	 * to append comma if the douoble value dont contains decimal places
+	 * 
+	 * 
+	 */
+	public static String appendfrenchsys(String frenchNo) {
+		String frenchnum;
+		if (!frenchNo.contains(",")) {
+			frenchNo = frenchNo + ",00";
+		}
+		return frenchNo;
 	}
 
 }

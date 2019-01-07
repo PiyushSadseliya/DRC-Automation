@@ -52,5 +52,5 @@ Feature: Manual ReAssessment- Payment summary for Liability Calculation and Paym
     Then After raise notice the records status is changed to "Re-Assessed" for period"<period>"year"<year>"tpayer"<tpayer>"
 
     Examples: 
-      | Test Case ID            | Description                                                                                                                                             | uname            | password | period   | year | msg                | penamt | efiledamount | NITVA             | nif       | nvat | tpayer        |
-      | DRC_ATC_ReAssessment_02 | Validate the tax assessment officer is able to raise notice for a particular period for no updation in manual assessment when efiling and pymt not done | ritesh.prajapati | admin    | December | 2018 | Saved Successfully | 500000 |       800,00 | 20181127030648745 | TestRefac | nvat | Approved User |
+      | Test Case ID            | Description                                                                                                                                             | uname            | password | period   | year | msg                | penamt | efiledamount | NITVA             | nif       |  tpayer        |
+      | DRC_ATC_ReAssessment_02 | Validate the tax assessment officer is able to raise notice for a particular period for no updation in manual assessment when efiling and pymt not done | ritesh.prajapati | admin    | December | 2018 | Saved Successfully | 500000 |       800,00 | 20181127030648745 | TestRefac |  Approved User |

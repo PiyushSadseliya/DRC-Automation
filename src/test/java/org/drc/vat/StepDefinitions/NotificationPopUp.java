@@ -37,7 +37,8 @@ public class NotificationPopUp {
 		sassert.assertEquals(elementText("txt_Notify_heading", ""), arg2);
 		Thread.sleep(4000);
 		clickOn("btn_close_Notification", "");
-
+		sleepWait(5000);
+	
 	}
 
 	@Then("^Previous status must be\"([^\"]*)\"$")
@@ -53,9 +54,9 @@ public class NotificationPopUp {
 
 	@Then("^Selects Collection Agent\"([^\"]*)\"$")
 	public void selects_Collection_Agent(String arg1) throws Throwable {
-		clickOn("slash", "label[text()='Collection Agent']//following::span[@class='ng-arrow']");
+		clickOn("drpdwn_collectionofficer", "");
 		Thread.sleep(3000);
-		clickOn("span", "[contains(text(),'" + arg1 + "')]");
+		clickOn("drpdown_panel", "[contains(text(),'" + arg1 + "')]");
 		Thread.sleep(3000);
 		// span[contains(text(),'Jainik')]
 

@@ -25,9 +25,10 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import static org.drc.vat.appmanager.HelperBase.*;
 
+
 public class ApplicationManager {
 	private final Properties properties;
-	public WebDriver wd;
+	//public WebDriver wd;
 	private String browser;
 
 	private HelperBase helperBase;
@@ -48,7 +49,7 @@ public class ApplicationManager {
 				wd = new InternetExplorerDriver();
 
 			} else if (browser.equals(BrowserType.CHROME)) {
-				System.setProperty("webdriver.CHROME.driver","F:\\PROJECT-1\\DRC\\Automation\\drc_vat\\DRC_VAT\\chromedriver.exe");
+				System.setProperty("webdriver.CHROME.driver",System.getProperty("user.dir")+"\\chromedriver.exe");
 
 
 				ChromeOptions options = new ChromeOptions();
@@ -112,7 +113,7 @@ public class ApplicationManager {
 		{			
 			wd.close();
 			Thread.sleep(1000);
-			WebDriver wd = new ChromeDriver();
+			wd = new ChromeDriver();
 			wd.manage().window().maximize();
 			wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 			wd.get("http://103.249.120.58:8044");
