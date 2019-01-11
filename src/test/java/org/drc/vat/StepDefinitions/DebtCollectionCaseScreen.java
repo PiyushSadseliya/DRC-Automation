@@ -95,7 +95,7 @@ public class DebtCollectionCaseScreen {
 		clickOn("btn_submit", "");
 		//String txt = pageSource();
 		// assertEquals(txt.contains("Case update successfully"), true);
-		sleepWait(15000);
+		sleepWait(20000);
 	}
 
 	@Then("^click in Percentage Radio At Expected Recovery$")

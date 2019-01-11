@@ -30,11 +30,11 @@ import static org.drc.vat.appmanager.HelperBase.clearCache;
 import static org.drc.vat.appmanager.HelperBase.assessmentOfficer;
 import static org.drc.vat.appmanager.HelperBase.sleepWait;
 
-@CucumberOptions(features = {"classpath:features/30_TaxPayer_Portal_objection_appeal.feature"},
+@CucumberOptions(features = {"classpath:features/42_AccountAdjustmentStmtofTransac.feature"},
 	glue = "org.drc.vat.StepDefinitions",
 	plugin = {"com.cucumber.listener.ExtentCucumberFormatter:",
 	"html:test-output/cucumber-report"}
-	//,tags={"@DV_2253_TaxPayer_Portal_objection_appeal_TC_04_06_07_08_11_12_13"}
+	,tags={"@1882mtc31"}
 )
 
 public class TestRunner extends AbstractTestNGCucumberTests {
