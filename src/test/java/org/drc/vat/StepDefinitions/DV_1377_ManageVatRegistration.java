@@ -369,7 +369,7 @@ public class DV_1377_ManageVatRegistration
 		@Then("^Tax Officier Changed and toast message display$")
 		public void tax_Officier_Changed_and_toast_message_display() throws Throwable 
 		{
-			sleepWait(1000);		
+			sleepWait(2000);		
 			if(elementText("txt_reassigned_toastMess").equals("Tax officer re-assigned successfully"))
 			{
 				assertTrue(true);

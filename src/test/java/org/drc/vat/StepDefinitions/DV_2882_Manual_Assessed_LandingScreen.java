@@ -23,6 +23,7 @@ public class DV_2882_Manual_Assessed_LandingScreen {
 	@And("^User click on Dashboard$")
 	public void user_click_on_Dashboard() throws Throwable {
 		clickOn("txt_dashboard", "");
+		sleepWait(200);
 	}
 
 	@Given("^User click on windows icon$")
@@ -30,7 +31,6 @@ public class DV_2882_Manual_Assessed_LandingScreen {
 		sleepWait(2000);
 		clickOn("btn_windowsClick", "");
 		sleepWait(2000);
-
 	}
 
 	@And("^User enter username and password and click on login and see dashboard$")
@@ -94,7 +94,7 @@ public class DV_2882_Manual_Assessed_LandingScreen {
 		Thread.sleep(1000);
 		clickOn("drp_year", "");
 		Thread.sleep(500);
-		clickOn(year, "");
+		clickOn(year, ""); 
 	}
 
 	@And("^User click on FilterBy \"([^\"]*)\"$")
@@ -108,6 +108,8 @@ public class DV_2882_Manual_Assessed_LandingScreen {
 	@And("^User type \"([^\"]*)\"$")
 	public void user_type(String typeValue) throws Throwable {
 		Thread.sleep(500);
+		type("txtbox_TypeHere",typeValue);	
+		Thread.sleep(1000);
 		type("txtbox_TypeHere", typeValue);
 		Thread.sleep(500);
 	}

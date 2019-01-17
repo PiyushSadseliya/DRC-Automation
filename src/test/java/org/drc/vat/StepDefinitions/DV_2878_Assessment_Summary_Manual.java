@@ -2,6 +2,8 @@ package org.drc.vat.StepDefinitions;
 import static org.drc.vat.appmanager.HelperBase.*;
 import static org.testng.Assert.assertTrue;
 
+import java.util.List;
+
 import org.drc.vat.appmanager.HelperBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -24,17 +26,18 @@ public class DV_2878_Assessment_Summary_Manual
 	public static Float Store_Toatal_AI_AL;
 	public static Float Store_Assert;
 	public static Float Store_Vat_rev;
+	public String Store_Remark_Selected;
 
 	@And("^User click on next button and navigate to Assessment Summary page$")
 	public void user_click_on_next_button_and_navigate_to_Assessment_Summary_page() throws Throwable 
 	{
-		Thread.sleep(1000);
+		sleepWait(1000);
 		clickOn("btn_NEXT", "");
-		Thread.sleep(2000);
+		sleepWait(2000);
 		clickOn("btn_NEXT", "");
-		Thread.sleep(2000);
+		sleepWait(2000);
 		clickOn("btn_NEXT", "");
-		Thread.sleep(2000);			
+		sleepWait(2000);			
 		if(wd.findElement(By.xpath(obj.getProperty("txt_AS"))).isDisplayed());
 		{
 			assertTrue(true);
@@ -44,11 +47,8 @@ public class DV_2878_Assessment_Summary_Manual
 	@And("^User see Total Assessed amount$")
 	public void user_see_Total_Assessed_amount() throws Throwable 
 	{
-		/*Thread.sleep(1000);
-		String Total_Assessed = wd.findElement(By.xpath(obj.getProperty("txt_TotalAssessed"))).getText();
-	    Float Store_TA = Float.parseFloat(Total_Assessed);
-	    Check_Store_TA =Store_TA;*/
-		Thread.sleep(1000);
+		
+		sleepWait(1000);
 		String Total_Assessed = elementText("txt_TotalAssessed");		 
 		String Remov_FC = Total_Assessed.replaceAll("[A-Z]", "");	
 		String Remove_FC = Remov_FC.replace("." ,"");	
@@ -64,7 +64,7 @@ public class DV_2878_Assessment_Summary_Manual
 
 		Float Validate =  Total_Ass - Total_e_dec;	
 
-		Thread.sleep(500);
+		sleepWait(500);
 		String Total_Add_Lib =elementText("txt_Total_Additionality_Liability_MA_OP");
 		String FC1 = Total_Add_Lib.replaceAll("[A-Z]", "");	
 		String	FC2 = FC1.replace("." ,"");		
@@ -72,10 +72,7 @@ public class DV_2878_Assessment_Summary_Manual
 		System.out.println(FC3);		 
 		Float Check_Add_Lib =Float.parseFloat(FC3);		 
 
-	/*	if(Validate==Check_Add_Lib)
-		{
-			System.out.println("pass");
-		}*/	    
+	
 	}
 
 	@And("^User check Total Assessed amount is not changed$")
@@ -95,10 +92,7 @@ public class DV_2878_Assessment_Summary_Manual
 			assertTrue(true);
 		}
 		
-		/*if(Total_Ass==check_ta)
-		{
-			assertTrue(true);
-		}*/
+		
 	}
 
 	@And("^User validate Total Additional Liability on Assessment Summary page$")
@@ -109,7 +103,7 @@ public class DV_2878_Assessment_Summary_Manual
 		String	Remove_FC2 = Remov_FC1.replace("." ,"");		
 		Remove_FC2 = Remove_FC2.replace("," ,".");
 		Total_e_dec = Float.parseFloat(Remove_FC2);
-		Thread.sleep(500);
+		sleepWait(500);
 
 		/*String Total_Additional_Liability = wd.findElement(By.xpath(obj.getProperty("txt_check_TAL"))).getText();
 		String Total_Assessed = wd.findElement(By.xpath(obj.getProperty("txt_TotalAssessed"))).getText();
@@ -128,7 +122,7 @@ public class DV_2878_Assessment_Summary_Manual
 	@And("^User see message \"([^\"]*)\" when no changes done in adjustement$")
 	public void user_see_message_when_no_changes_done_in_adjustement(String mess) throws Throwable 
 	{
-		Thread.sleep(1000);
+		sleepWait(1000);
 		if(wd.findElement(By.xpath("//h6[contains(text(),'" + mess + "')]")).isDisplayed() )
 		{					
 			assertTrue(true);
@@ -138,21 +132,21 @@ public class DV_2878_Assessment_Summary_Manual
 	@And("^User click on e-filing schedule when tax payer did not uploaded file at the time of e-declaration and shows message \"([^\"]*)\"$")
 	public void user_click_on_e_filing_schedule_when_tax_payer_did_not_uploaded_file_at_the_time_of_e_declaration_and_shows_message(String mess) throws Throwable 
 	{
-		Thread.sleep(2000);
+		sleepWait(2000);
 		clickOn("btn_eFile_Schedule", "");
-		Thread.sleep(1000);
+		sleepWait(1000);
 		if(wd.findElement(By.xpath("//div[contains(text(),'" + mess + "')]")).isDisplayed() )
 		{					
 			assertTrue(true);
 		}	
-		Thread.sleep(5000);
+		sleepWait(5000);
 
 	}
 
 	@And("^User click on Transaction Received button$")
 	public void user_click_on_Transaction_Received_button() throws Throwable 
 	{
-		Thread.sleep(1000);
+		sleepWait(1000);
 		clickOn("btn_TransactionReceived", "");
 		verifyDownload("TransactionReceived");	   
 	}
@@ -166,7 +160,7 @@ public class DV_2878_Assessment_Summary_Manual
 	@And("^User enter value \"([^\"]*)\" for Operation Performed in Assessment Adjustment$")
 	public void user_enter_value_for_Operation_Performed_in_Assessment_Adjustment(String value) throws Throwable 
 	{
-		Thread.sleep(500);
+		sleepWait(500);
 		type("txt_Delivery_goods", value);
 	}
 
@@ -174,13 +168,15 @@ public class DV_2878_Assessment_Summary_Manual
 	public void user_click_on_Save_button_and_validate_save_message(String mess) throws Throwable 
 	{
 		clickOn("btn_Save", "");
-		Thread.sleep(2000);
+		sleepWait(2000);
 		if(wd.findElement(By.xpath("//div[contains(text(),'" + mess + "')]")).isDisplayed() )
 		{					
 			assertTrue(true);
 		}
-		Thread.sleep(7000);	   
+		sleepWait(7000);
+		
 	}
+	
 
 	@And("^User entered value \"([^\"]*)\" \"([^\"]*)\" on Tax Deductible in Assessment Adjustment$")
 	public void user_entered_value_on_Tax_Deductible_in_Assessment_Adjustment(String AI, String AL) throws Throwable 
@@ -199,104 +195,27 @@ public class DV_2878_Assessment_Summary_Manual
 	@And("^User is on Assessment Summary and see Opeartion performed ,Tax Deductible and Adjustment record list$")
 	public void user_is_on_Assessment_Summary_and_see_Opeartion_performed_Tax_Deductible_and_Adjustment_record_list() throws Throwable
 	{
-		Thread.sleep(1000);
+		sleepWait(1000);
 		WebElement we1,we2,we3;
 		we1=wd.findElement(By.xpath(obj.getProperty("txt_AS_OP")));
-		Thread.sleep(500);
+		sleepWait(500);
 		we2=wd.findElement(By.xpath(obj.getProperty("txt_AS_TD")));
-		Thread.sleep(500);
+		sleepWait(500);
 		we3=wd.findElement(By.xpath(obj.getProperty("txt_AS_AD")));
-		Thread.sleep(500);
+		sleepWait(500);
 		if(we1.isDisplayed() && we2.isDisplayed()&& we3.isDisplayed())
 		{
 			assertTrue(true);
 		}
 	}
-
-	@And("^User select remark for Opeartion performed$")
-	public void user_select_remark_for_Opeartion_performed() throws Throwable 
-	{
-		sleepWait(3000);		
-		clickOn("txtBox_OP_1", "");
-		Thread.sleep(1000);				
-		clickOn("txt_Remark_VerifyEFD", "");
-		Thread.sleep(1000);
-		clickOn("txtBox_OP_2", "");
-		Thread.sleep(1000);
-		clickOn("txt_Remark_VerifyEFD", "");
-		Thread.sleep(1000);
-		clickOn("txtBox_OP_3", "");
-		Thread.sleep(1000);
-		clickOn("txt_Remark_VerifyEFD", "");
-		Thread.sleep(1000);
-		clickOn("txtBox_OP_4", "");
-		Thread.sleep(1000);
-		clickOn("txt_Remark_VerifyEFD", "");
-		Thread.sleep(1000);
-		clickOn("txtBox_OP_5", "");
-		Thread.sleep(1000);
-		clickOn("txt_Remark_VerifyEFD", "");
-		Thread.sleep(1000);
-		clickOn("txtBox_OP_6", "");
-		Thread.sleep(1000);
-		clickOn("txt_Remark_VerifyEFD", "");
-		Thread.sleep(1000);
-		clickOn("txtBox_OP_7", "");
-		Thread.sleep(1000);
-		clickOn("txt_Remark_VerifyEFD", "");
-		Thread.sleep(1000);
-		clickOn("txtBox_OP_8", "");
-		Thread.sleep(1000);
-		clickOn("txt_Remark_VerifyEFD", "");
-		Thread.sleep(1000);
-	}
-
-	@And("^User select remark for Tax Deductible$")
-	public void user_select_remark_for_Tax_Deductible() throws Throwable 
-	{
-		Thread.sleep(1000);
-		clickOn("txtBox_TD_1", "");
-		Thread.sleep(1000);
-		clickOn("txt_Remark_VerifyEFD", "");
-		Thread.sleep(1000);
-		clickOn("txtBox_TD_2", "");
-		Thread.sleep(1000);
-		clickOn("txt_Remark_VerifyEFD", "");
-		Thread.sleep(1000);
-		/*clickOn("txtBox_TD_3", "");
-		Thread.sleep(1000);
-		clickOn("txt_Remark_VerifyEFD", "");
-		Thread.sleep(1000);*/
-	}
-
-	@And("^User select remark for Adjustment$")
-	public void user_select_remark_for_Adjustment() throws Throwable 
-	{
-		Thread.sleep(1000);
-		clickOn("txtBox_Ad_1", "");
-		Thread.sleep(1000);
-		clickOn("txt_Remark_VerifyEFD", "");
-		Thread.sleep(1000);
-		clickOn("txtBox_Ad_2", "");
-		Thread.sleep(1000);
-		clickOn("txt_Remark_VerifyEFD", "");
-		Thread.sleep(1000);
-		clickOn("txtBox_Ad_3", "");
-		Thread.sleep(1000);
-		clickOn("txt_Remark_VerifyEFD", "");
-		Thread.sleep(1000);
-		clickOn("txtBox_Ad_4", "");
-		Thread.sleep(1000);
-		clickOn("txt_Remark_VerifyEFD", "");
-		Thread.sleep(1000);
-
-	}
+ 
+	
 
 	@And("^User navigate to Payment Summary page$")
 	public void user_navigate_to_Payment_Summary_page() throws Throwable
 	{
 		
-		Thread.sleep(5000);		
+		sleepWait(5000);		
 		if(wd.findElement(By.xpath(obj.getProperty("txt_check_PaymentSummary"))).isDisplayed());
 		{
 			assertTrue(true);
@@ -306,13 +225,13 @@ public class DV_2878_Assessment_Summary_Manual
 	@And("^User click on prev button and navigate to Tax Deductible tab screen$")
 	public void user_click_on_prev_button_and_navigate_to_Tax_Deductible_tab_screen() throws Throwable
 	{
-		Thread.sleep(1000);
+		sleepWait(1000);
 		clickOn("btn_Prev", "");
-		Thread.sleep(1000);		
+		sleepWait(1000);		
 		clickOn("btn_Prev", "");
-		Thread.sleep(1000);
-		//clickOn("btn_Prev", "");
-		Thread.sleep(500);
+		sleepWait(1000);
+	
+		sleepWait(500);
 		if(wd.findElement(By.xpath(obj.getProperty("txt_Tax_Deductible_Page"))).isDisplayed())
 		{
 			assertTrue(true);
@@ -323,13 +242,13 @@ public class DV_2878_Assessment_Summary_Manual
 	@And("^User click on next button and navigeta to Assessment Summary tab screen$")
 	public void user_click_on_next_button_and_navigeta_to_Assessment_Summary_tab_screen() throws Throwable
 	{
-		Thread.sleep(1000);
+		sleepWait(1000);
 		clickOn("btn_NEXT", "");
-		Thread.sleep(1000);
+		sleepWait(1000);
 		clickOn("btn_NEXT", "");
-		Thread.sleep(1000);
-		//	clickOn("btn_NEXT", "");
-		Thread.sleep(1000);
+		sleepWait(1000);
+	
+		sleepWait(1000);
 		if(wd.findElement(By.xpath(obj.getProperty("txt_AS"))).isDisplayed());
 		{
 			assertTrue(true);
@@ -339,30 +258,27 @@ public class DV_2878_Assessment_Summary_Manual
 	@And("^User select remark and validate \"([^\"]*)\"$")
 	public void user_select_remark_and_validate(String mess) throws Throwable
 	{
-		Thread.sleep(1000);
+		sleepWait(1000);
 		clickOn("txtBox_OP_1", "");
-		Thread.sleep(1000);
+		sleepWait(1000);
 		clickOn("txt_Remark_VerifyEFD", "");
-		Thread.sleep(1000);
+		sleepWait(1000);
 		if(wd.findElement(By.xpath("//span[contains(text(),'" + mess + "')]")).isDisplayed() )
 		{					
 			assertTrue(true);
 		}	
-		/* if(wd.findElement(By.xpath(obj.getProperty("txt_Remark_VerifyEFD"))).isDisplayed());
-		  {
-				 assertTrue(true);
-		  }*/	
+		
 
 	}
 
 	@And("^User click on next button and validate remark is removed \"([^\"]*)\"$")
 	public void user_click_on_next_button_and_validate_remark_is_removed(String mess) throws Throwable
 	{
-		Thread.sleep(1000);
+		sleepWait(1000);
 		clickOn("btn_NEXT", "");
-		Thread.sleep(1000);
+		sleepWait(1000);
 		clickOn("btn_NEXT", "");
-		Thread.sleep(1000);
+		sleepWait(1000);
 		if(wd.findElement(By.xpath("(//div[contains(text(),'" + mess +"')])[1]")).isDisplayed() )
 		{					
 			assertTrue(true);
@@ -373,46 +289,35 @@ public class DV_2878_Assessment_Summary_Manual
 	@And("^User see remark is selected	\"([^\"]*)\"$")
 	public void user_see_remark_is_selected(String mess) throws Throwable 
 	{
-		Thread.sleep(500);
+		sleepWait(500);
 		if(wd.findElement(By.xpath("//span[contains(text(),'" + mess + "')]")).isDisplayed() )
 		{					
 			assertTrue(true);
 		}	
 	}
-	/*@And("^User select all remark$")
-	public void user_select_all_remark() throws Throwable
-	{
-
-
-	}*/
+	
 
 	@And("^User click on next button and navigate to Assessment Summary tab screen$")
 	public void user_click_on_next_button_and_navigate_to_Assessment_Summary_tab_screen() throws Throwable 
 	{
-		Thread.sleep(1000);
+		sleepWait(1000);
 		clickOn("btn_NEXT", "");
-		Thread.sleep(1000);
+		sleepWait(1000);
 		clickOn("btn_NEXT", "");
-		Thread.sleep(1000);
+		sleepWait(1000);
 		if(wd.findElement(By.xpath(obj.getProperty("txt_AS"))).isDisplayed());
 		{
 			assertTrue(true);
 		}	
 	}
 
-	/*	@And("^User see all remark are selected$")
-	public void user_see_all_remark_are_selected() throws Throwable
-	{
-
-
-	}*/
 
 	@And("^User click on previous button and navigate to Manual Assessment landing screen$")
 	public void user_click_on_previous_button_and_navigate_to_Manual_Assessment_landing_screen() throws Throwable
 	{
-		Thread.sleep(1000);
+		sleepWait(1000);
 		clickOn("btn_Prev_m", "");
-		Thread.sleep(1000);
+		sleepWait(1000);
 		if(wd.findElement(By.xpath(obj.getProperty("txt_check_Landing_Man"))).isDisplayed());
 		{
 			assertTrue(true);
@@ -431,9 +336,9 @@ public class DV_2878_Assessment_Summary_Manual
 	@And("^User click on next and navigate to Tax Deductible tab$")
 	public void user_click_on_next_and_navigate_to_Tax_Deductible_tab() throws Throwable 
 	{
-		Thread.sleep(1000);
+		sleepWait(1000);
 		clickOn("btn_NEXT", "");
-		Thread.sleep(500);		
+		sleepWait(500);		
 		if(wd.findElement(By.xpath(obj.getProperty("txt_Tax_Deductible_Page"))).isDisplayed());
 		{
 			assertTrue(true);
@@ -443,9 +348,9 @@ public class DV_2878_Assessment_Summary_Manual
 	@And("^User click on next and navigate to Adjustment tab$")
 	public void user_click_on_next_and_navigate_to_Adjustment_tab() throws Throwable
 	{
-		Thread.sleep(1000);
+		sleepWait(1000);
 		clickOn("btn_NEXT", "");
-		Thread.sleep(500);		
+		sleepWait(500);		
 		if(wd.findElement(By.xpath(obj.getProperty("txt_Adjustement_check"))).isDisplayed());
 		{
 			assertTrue(true);
@@ -455,13 +360,13 @@ public class DV_2878_Assessment_Summary_Manual
 	@And("^User click on next and navigate to Assessment Summary tab$")
 	public void user_click_on_next_and_navigate_to_Assessment_Summary_tab() throws Throwable 
 	{
-		Thread.sleep(1000);
+		sleepWait(1000);
 		clickOn("btn_NEXT", "");
-		Thread.sleep(1000);
+		sleepWait(1000);
 		clickOn("btn_NEXT", "");
-		Thread.sleep(1000);
+		sleepWait(1000);
 		clickOn("btn_NEXT", "");
-		Thread.sleep(1000);
+		sleepWait(1000);
 		if(wd.findElement(By.xpath(obj.getProperty("txt_AS"))).isDisplayed());
 		{
 			assertTrue(true);
@@ -471,15 +376,9 @@ public class DV_2878_Assessment_Summary_Manual
 	@And("^User see Total e-Declaration amount and Total Assessed amount$")
 	public void user_see_Total_e_Declaration_amount_and_Total_Assessed_amount() throws Throwable 
 	{
-		/* String Total_e_Dec = getValue("txt_Total_Declaration");
-		 Float Tol_e_dec= Float.parseFloat(Total_e_Dec);
-		 Total_e_dec =Tol_e_dec;	
+				
 
-		 String Total_Assessed = getValue("txt_TotalAssessed");
-		 Float T_A= Float.parseFloat(Total_Assessed);		 
-		 Total_Ass=T_A; 		*/ 		 		
-
-		Thread.sleep(2000);		
+		sleepWait(2000);		
 		String Total_Assessed = elementText("txt_TotalAssessed");		 
 		String Remov_FC = Total_Assessed.replaceAll("[A-Z]", "");	
 		String Remove_FC = Remov_FC.replace("." ,"");	
@@ -497,11 +396,7 @@ public class DV_2878_Assessment_Summary_Manual
 	@And("^User see Total e-Declaration amount and Total Assessed amount is same on previous screen$")
 	public void user_see_Total_e_Declaration_amount_and_Total_Assessed_amount_is_same_on_previous_screen() throws Throwable
 	{
-		/*String Total_e_Dec = getValue("txt_Total_Declaration");
-		Float Tol_e_dec= Float.parseFloat(Total_e_Dec);
-
-		String Total_Assessed = getValue("txt_TotalAssessed");
-		Float T_A= Float.parseFloat(Total_Assessed);*/
+		
 		String Total_Assessed = elementText("txt_TotalAssessed");		 
 		String Remov_FC = Total_Assessed.replaceAll("[A-Z]", "");	
 		String Remove_FC = Remov_FC.replace("." ,"");	
@@ -540,23 +435,14 @@ public class DV_2878_Assessment_Summary_Manual
 			assertTrue(true);
 		}
 		
-		/*if(Validate==Check_Add_Lib_1)
-		{
-			assertTrue(true);
-		}*/
-		/*String Total_Add_Lib = getValue("txt_Total_Additionality_Liability");
-		//String Total_Add_Lib = wd.findElement(By.xpath(obj.getProperty("txt_Total_Additionality_Liability"))).getText();
-		if(Validate==Float.parseFloat(Total_Add_Lib))
-		 {
-			 System.out.println("pass");
-		 }*/
+
 
 	}
 
 	@And("^User see Total Additional Liability value is greater than zero$")
 	public void user_see_Total_Additional_Liability_value_is_greater_than_zero() throws Throwable 
 	{
-		Thread.sleep(2000);
+		sleepWait(2000);
 		String Total_Add_Lib =elementText("txt_Total_Additionality_Liability_MA");
 		String FC1 = Total_Add_Lib.replaceAll("[A-Z]", "");	
 		String	FC2 = FC1.replace("." ,"");		
@@ -569,12 +455,6 @@ public class DV_2878_Assessment_Summary_Manual
 			assertTrue(true);
 		}
 
-		/*String Total_Add_Lib = getValue("txt_Total_Additionality_Liability");
-		Float T_A_L= Float.parseFloat(Total_Add_Lib);
-		if(T_A_L > 0 )
-		{
-			assertTrue(true);
-		}*/	   
 	}
 
 	@And("^User see Total Additional Liability value is less than zero$")
@@ -592,19 +472,14 @@ public class DV_2878_Assessment_Summary_Manual
 		{
 			assertTrue(true);
 		}
-		/*String Total_Add_Lib = getValue("txt_Total_Additionality_Liability");
-		Float T_A_L= Float.parseFloat(Total_Add_Lib);
-		if(T_A_L < 0 )
-		{
-			assertTrue(true);
-		}*/
+
 
 	}
 
 	@And("^User clicik on previous button on Assessment Summary$")
 	public void user_clicik_on_previous_button_on_Assessment_Summary() throws Throwable 
 	{
-		Thread.sleep(1000);
+		sleepWait(1000);
 		clickOn("btn_Prev_m", "");
 	}
 
@@ -633,7 +508,7 @@ public class DV_2878_Assessment_Summary_Manual
 	@And("^User enter value in Delivery of goods \"([^\"]*)\" for Operation Performed in Assessment Adjustment$")
 	public void user_enter_value_in_Delivery_of_goods_for_Operation_Performed_in_Assessment_Adjustment(String value) throws Throwable 
 	{
-		Thread.sleep(1000);
+		sleepWait(1000);
 		type("txt_Delivery_goods", value);
 		String Delivery_goods = getValue("txt_Delivery_goods");
 		Store_Delivery_goods = Float.parseFloat(Delivery_goods);
@@ -662,60 +537,16 @@ public class DV_2878_Assessment_Summary_Manual
 		String Vat_rev = getValue("txtBox_VR");
 		Store_Vat_rev = Float.parseFloat(Vat_rev);
 	}
-	/*
-	@And("^User see Opeartion performed tab and validate entered value \"([^\"]*)\"$")
-	public void user_see_Opeartion_performed_tab_and_validate_entered_value(String arg1) throws Throwable 
-	{
-		String check_DOG = getValue("txt_check_DOG");
-		Store_DOG = Float.parseFloat(check_DOG);
-
-		if(Store_Delivery_goods==Store_DOG)
-		{
-			assertTrue(true);
-		}
-		WebElement we1;
-		we1=wd.findElement(By.xpath(obj.getProperty("txt_Adjustement_check")));
-		Float.parseFloat(we1);
-		if(Store_Delivery_goods==we1);
-		 {
-			 assertTrue(true);
-		 }
-
-	}
-
-	@And("^User see Tax Deductible tab and validate entered value \"([^\"]*)\" \"([^\"]*)\"$")
-	public void user_see_Tax_Deductible_tab_and_validate_entered_value(String arg1, String arg2) throws Throwable 
-	{
-		String check_Assert = getValue("txt_check_Assert");
-		Store_Assert = Float.parseFloat(check_Assert);
-		if(Store_Toatal_AI_AL==Store_Assert)
-		{
-			assertTrue(true);
-		}				
-	}
-
-	@And("^User see Adjustment tab and validate entered value \"([^\"]*)\"$")
-	public void user_see_Adjustment_tab_and_validate_entered_value(String arg1) throws Throwable 
-	{
-		String check_Assert = getValue("txt_Vat_rev");
-		Float check_Vat_rev=Float.parseFloat(check_Assert);
-	   if(Store_Vat_rev==check_Vat_rev)
-	   {
-		   assertTrue(true);
-	   }
-	}
-	 */
-
 
 	@And("^User see remark is selected in Opeartion performed$")
 	public void user_see_remark_is_selected_in_Opeartion_performed() throws Throwable 
 	{
-		Thread.sleep(1000);
+		sleepWait(1000);
 		WebElement we1,we2;
 		we1=wd.findElement(By.xpath(obj.getProperty("txt_Remark_VerifyEFD_check_OP_1")));
-		Thread.sleep(500);
+		sleepWait(500);
 		we2=wd.findElement(By.xpath(obj.getProperty("txt_Remark_VerifyEFD_check_OP_2")));
-		Thread.sleep(500);				
+		sleepWait(500);				
 		if(we1.isDisplayed() && we2.isDisplayed());
 		{
 			assertTrue(true);
@@ -728,11 +559,11 @@ public class DV_2878_Assessment_Summary_Manual
 		sleepWait(3000);
 		WebElement we1,we2,we3;
 		we1=wd.findElement(By.xpath(obj.getProperty("txt_Remark_VerifyEFD_check_TD_1")));
-		Thread.sleep(500);	
+		sleepWait(500);	
 		we2=wd.findElement(By.xpath(obj.getProperty("txt_Remark_VerifyEFD_check_TD_2")));
-		Thread.sleep(500);	
+		sleepWait(500);	
 		we3=wd.findElement(By.xpath(obj.getProperty("txt_Remark_VerifyEFD_check_TD_3")));
-		Thread.sleep(500);					
+		sleepWait(500);					
 		if(we1.isDisplayed() && we2.isDisplayed() && we3.isDisplayed());
 		{
 			assertTrue(true);
@@ -742,27 +573,24 @@ public class DV_2878_Assessment_Summary_Manual
 	@And("^User see remark is selected in Adjustment$")
 	public void user_see_remark_is_selected_in_Adjustment() throws Throwable 
 	{
-		Thread.sleep(1000);
+		sleepWait(1000);
 		if(wd.findElement(By.xpath(obj.getProperty("txt_Remark_VerifyEFD_check_AD_1"))).isDisplayed());
 		{
 			assertTrue(true);
 		}
 	}
 
-
-	//---------------Assessed List ---------//
-
-
-
-
+	
+	/**
+	 *  Assessed List 
+	 */
+	
 	@And("^User see Total Reassessed amount$")
 	public void user_see_Total_Reassessed_amount() throws Throwable 
 	{
-		/*String Total_Re_Assessed = wd.findElement(By.xpath(obj.getProperty("txt_Total_Reassessed"))).getText();
-	    Float Store_TA = Float.parseFloat(Total_Re_Assessed);
-	    Check_Store_Re_TA =Store_TA;*/
+		
 
-		Thread.sleep(1000);
+		sleepWait(1000);
 		String Total_Assessed = elementText("txt_Total_Reassessed");		 
 		String Remov_FC = Total_Assessed.replaceAll("[A-Z]", "");	
 		String Remove_FC = Remov_FC.replace("." ,"");	
@@ -774,32 +602,24 @@ public class DV_2878_Assessment_Summary_Manual
 	@And("^User check Total Reassessed amount is not changed$")
 	public void user_check_Total_Reassessed_amount_is_not_changed() throws Throwable
 	{
-		//String Total_Re_Assessed = wd.findElement(By.xpath(obj.getProperty("txt_Total_Reassessed"))).getText();
-		//Float Store_Re_TA = Float.parseFloat(Total_Re_Assessed);
-		Thread.sleep(1000);
+		
+		sleepWait(1000);
 		String Total_Assessed = elementText("txt_Total_Reassessed");		 
 		String Remov_FC = Total_Assessed.replaceAll("[A-Z]", "");	
 		String Remove_FC = Remov_FC.replace("." ,"");	
 		Remove_FC = Remove_FC.replace("," ,".");		    		    	 
 		Float Check_ReAss = Float.parseFloat(Remove_FC);
-
-		
+	
 		if(Check_ReAss.equals(Check_Store_Re_TA))
 		{
 			assertTrue(true);
 		}
-		
-		/*if(Check_ReAss==Check_Store_Re_TA)
-		{
-			assertTrue(true);
-		}*/
 	}
 
 	@And("^User see Total Assessed amount amount and Total Reassessed$")
 	public void user_see_Total_Assessed_amount_amount_and_Total_Reassessed() throws Throwable 
 	{
 
-		// String Total_ASS_TA = getValue("txt_TotalAssessed");
 		String Total_Assessed = elementText("txt_TotalAssessed");		 
 		String Remov_FC = Total_Assessed.replaceAll("[A-Z]", "");	
 		String Remove_FC = Remov_FC.replace("." ,"");	
@@ -812,12 +632,6 @@ public class DV_2878_Assessment_Summary_Manual
 		Remove_FC1 = Remove_FC1.replace("," ,".");		    		    	 
 		Total_ReAss = Float.parseFloat(Remove_FC1);
 
-		//String Total_Re_Assessed = getValue("txt_Total_Reassessed");
-
-		/*if(Total_AL_TA_==Total_TR_Ass)
-		 {
-			 assertTrue(true);
-		 }*/
 	}
 
 	@And("^User see Total Total Assessed amount and Total Reassessed amount is same on previous screen$")
@@ -858,88 +672,63 @@ public class DV_2878_Assessment_Summary_Manual
 			assertTrue(true);
 		}
 		
-		/*if(Validate==Check_Add_Lib_1)
-		{
-			assertTrue(true);
-		}*/
+
 	}	
 
 	@And("^User see Opeartion performed tab and validate entered value$")
 	public void user_see_Opeartion_performed_tab_and_validate_entered_value() throws Throwable 
 	{
-		Thread.sleep(1000);
-
+		sleepWait(1000);
 		String check_DOG =elementText("txt_check_DOG");
-		// String FC1 = check_DOG.replaceAll("[A-Z]", "");	
 		String	FC2 = check_DOG.replace("." ,"");		
-		String FC3 = FC2.replace("," ,".");
-		System.out.println(FC3);		 
+		String FC3 = FC2.replace("," ,".");			 
 		Float Check_DOG =Float.parseFloat(FC3);	
-		//Store_DOG = Float.parseFloat(check_DOG);
-
 		
 		if(Store_Delivery_goods.equals(Check_DOG))
 		{
 			assertTrue(true);
 		}
 		
-		
-		/*if(Store_Delivery_goods==Check_DOG)
-		{
-			assertTrue(true);
-		}*/
 	}
 
 	@And("^User see Tax Deductible tab and validate entered value$")
 	public void user_see_Tax_Deductible_tab_and_validate_entered_value() throws Throwable 
 	{
-		String check_Assert =elementText("txt_check_Assert");
-		//String FC1 = check_Assert.replaceAll("[A-Z]", "");	
+		String check_Assert =elementText("txt_check_Assert");	
 		String	FC2 = check_Assert.replace("." ,"");		
-		String FC3 = FC2.replace("," ,".");
-		System.out.println(FC3);		 
+		String FC3 = FC2.replace("," ,".");				 
 		Float Check_TD =Float.parseFloat(FC3);	
-
 		
 		if(Store_Toatal_AI_AL.equals(Check_TD))
 		{
 			assertTrue(true);
 		}	
-		/*if(Store_Toatal_AI_AL==Check_TD)
-		{
-			assertTrue(true);
-		}	*/	
 	}
 
+	
+	
+	
 	@And("^User see Adjustment tab and validate entered value$")
 	public void user_see_Adjustment_tab_and_validate_entered_value() throws Throwable 
 	{
-
-
 		String check_Reversal =elementText("txt_check_Assert");
-		//String FC1 = check_Assert.replaceAll("[A-Z]", "");	
+		
 		String	FC2 = check_Reversal.replace("." ,"");		
 		String FC3 = FC2.replace("," ,".");
-		System.out.println(FC3);		 
+			 
 		Float Check_Rev =Float.parseFloat(FC3);			
 
-		
 		if(Store_Vat_rev.equals(Check_Rev))
 		{
 			assertTrue(true);
 		}
-		
-		/*if(Store_Vat_rev==Check_Rev)
-		{
-			assertTrue(true);
-		}*/
 	}
 
 
 	@And("^User validate Total Additional Liability on Assessment Summary page on Assessed List$")
 	public void user_validate_Total_Additional_Liability_on_Assessment_Summary_page_on_Assessed_List() throws Throwable 
 	{
-		Thread.sleep(500);		
+		sleepWait(500);		
 		String Total_Assessed = elementText("txt_TotalAssessed");		 
 		String Remov_FC = Total_Assessed.replaceAll("[A-Z]", "");	
 		String Remove_FC = Remov_FC.replace("." ,"");	
@@ -954,35 +743,67 @@ public class DV_2878_Assessment_Summary_Manual
 		Float Total_Reassed = Float.parseFloat(Remove_FC2);		 	
 
 		Float Validate =  Total_Ass - Total_Reassed;
-		// Store_Validate =Validate;
 
 		String Total_Add_Lib =elementText("txt_Total_Additionality_Liability");
 		String FC1 = Total_Add_Lib.replaceAll("[A-Z]", "");	
 		String	FC2 = FC1.replace("." ,"");		
 		String FC3 = FC2.replace("," ,".");
-		System.out.println(FC3);		 
+			 
 		Float Check_Add_Lib =Float.parseFloat(FC3);		 
 
 		if(Validate.equals(Check_Add_Lib))
 		{
 			assertTrue(true);
 		}
-		
-		/*if(Validate ==Check_Add_Lib)
-		{
-			assertTrue(true);
-		}*/ 		 		
+			 		
 	}
 
 	@And("^User click on previous button and navigate to Assessed List page$")
 	public void user_click_on_previous_button_and_navigate_to_Assessed_List_page() throws Throwable 
 	{
 		clickOn("btn_Prev_m", "");
-		Thread.sleep(1000);
+		sleepWait(1000);
 		if(wd.findElement(By.xpath(obj.getProperty("txt_check_Landing_Man"))).isDisplayed());
 		{
 			assertTrue(true);
 		}	
 	}
 
+	@And("^User click on pin$")
+	public void user_click_on_pin() throws Throwable 
+	{	
+		sleepWait(500);
+		clickOn("lbl_Internal_pin", "");
+	}
+
+	@And("^User select remark for Assessment Summary$")
+	public void user_select_remark_for_Assessment_Summary() throws Throwable 
+	{
+		List<WebElement> elementName = wd.findElements(By.xpath(obj.getProperty("drp_txt_remark")));
+				
+		for(int i = 1; i<elementName.size()+1;i++)
+		{
+			WebElement element1 = wd.findElement(By.xpath(obj.getProperty("drp_txt_remark")));
+			element1.click();	
+			wd.findElement(By.xpath(obj.getProperty("drp_remark_click_1"))).click();		 	
+			
+			sleepWait(500);
+		}
+		
+		String Remark_Selected= elementText("drp_remark_selected_text");
+		Store_Remark_Selected = Remark_Selected; 
+		sleepWait(500);		
+	}
+
+	@And("^User see remark is selected and verify$")
+	public void user_see_remark_is_selected_and_verify() throws Throwable 
+	{
+		String check_remark = elementText("drp_remark_selected_text");
+		sleepWait(500);
+		if(Store_Remark_Selected.equals(check_remark))
+		{
+			assertTrue(true);
+		}
+	}
+	
 }

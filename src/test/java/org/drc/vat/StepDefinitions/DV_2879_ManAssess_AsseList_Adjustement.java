@@ -10,6 +10,7 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.testng.Assert;
 public class DV_2879_ManAssess_AsseList_Adjustement 
 {
@@ -53,8 +54,11 @@ public class DV_2879_ManAssess_AsseList_Adjustement
 	@And("^User navigate to Adjustment page$")
 	public void user_navigate_to_Adjustment_page() throws Throwable 
 	{		
-		
 		sleepWait(1000);
+		clickOn("btn_NEXT", "");		
+		sleepWait(2000);		
+		clickOn("btn_NEXT", "");
+		sleepWait(2000);		
 		if(wd.findElement(By.xpath(obj.getProperty("txt_checkAdjustement_page"))).isDisplayed());
 		{
 		  assertTrue(true);
@@ -266,11 +270,9 @@ public class DV_2879_ManAssess_AsseList_Adjustement
 	}
 
 	@And("^User keep field blank and validate mess \"([^\"]*)\"$")
-	public void user_keep_field_blank_and_validate_mess(String arg1) throws Throwable 
+	public void user_keep_field_blank_and_validate_mess(String mess) throws Throwable 
 	{
-		// bacspace
-		
-		sleepWait(2000);
+		/*sleepWait(2000);
 		wd.findElement(By.xpath(obj.getProperty("txtBox_VR"))).clear();
 		System.out.println("txtBox_VR");
 		sleepWait(4000);
@@ -279,9 +281,31 @@ public class DV_2879_ManAssess_AsseList_Adjustement
 		wd.findElement(By.xpath(obj.getProperty("txtBox_VD"))).clear();
 		sleepWait(4000);
 		wd.findElement(By.xpath(obj.getProperty("txtBox_PC"))).clear();
-		sleepWait(2000);
-	  
+		sleepWait(2000);*/
+		
+		
+		sleepWait(500);
+		wd.findElement(By.xpath(obj.getProperty("txtBox_VR"))).sendKeys(Keys.chord(Keys.CONTROL,"a",Keys.DELETE));
+		sleepWait(500);
+		
+		wd.findElement(By.xpath(obj.getProperty("txtBox_VR"))).sendKeys(Keys.TAB);
+				
+		if(wd.findElement(By.xpath("//span[contains(text(),'" + mess + "')]")).isDisplayed())
+		{
+			assertTrue(true);
+		}
 	}
+	
+	@And("^User see next button is disable$")
+	public void user_see_next_button_is_disable() throws Throwable 
+	{
+		sleepWait(500);
+		if(!wd.findElement(By.xpath(obj.getProperty("btn_NEXT"))).isEnabled())
+		{
+			assertTrue(true);
+		}
+	}
+
 
 	
 	@And("^User click on view icon on Supplementary deductions and navigate to Manual Assessment Supplementary deductions page$")

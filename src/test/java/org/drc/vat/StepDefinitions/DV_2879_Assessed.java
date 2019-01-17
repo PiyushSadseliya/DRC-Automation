@@ -26,7 +26,8 @@ public class DV_2879_Assessed
 	public void user_click_on_previous_button_and_navigate_to_Assessed_List_Adjustment_page() throws Throwable 
 	{
 		Thread.sleep(1000);
-		clickOn("btn_Prev_m", "");
+		//clickOn("btn_Prev_m", "");
+		clickOn("btn_Previous_M", "");
 		Thread.sleep(1000);
 		  if(wd.findElement(By.xpath(obj.getProperty("txt_checkAdjustement_page"))).isDisplayed());
 			{

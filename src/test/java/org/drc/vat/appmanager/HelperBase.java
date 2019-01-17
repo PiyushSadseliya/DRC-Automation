@@ -36,11 +36,13 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.Objects;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
@@ -56,9 +58,15 @@ public class HelperBase {
 	private static String currentWindow = null;
 	static int i = 0;
 	public static int no_window;
-	public static Boolean login = true;
-	public static String[] monthName = { "January", "February", "March", "April", "May", "June", "July", "August",
-			"September", "October", "November", "December" };
+
+	public static Boolean login=true;
+	public static String[] monthName = 
+		{ "January", "February", "March", "April", "May", "June", "July",
+				"August", "September", "October", "November", "December" };
+
+	public static String[] yearName = {"2019","2018","2017"};			
+
+
 
 	public static SoftAssert softAssert = new SoftAssert();
 
@@ -151,8 +159,8 @@ public class HelperBase {
 	}
 
 	public static void saveFile() throws AWTException {
-		// Arrays.stream(Objects.requireNonNull(
-		// new File(String.valueOf(dir)).listFiles())).forEach(File::delete);
+		//Arrays.stream(Objects.requireNonNull(
+		//new File(String.valueOf(dir)).listFiles())).forEach(File::delete);
 		Robot robot = new Robot();
 		robot.delay(1000);
 		robot.keyPress(KeyEvent.VK_ALT);
@@ -188,6 +196,22 @@ public class HelperBase {
 				assertTrue(false);
 			}
 		}
+
+		/*File[] files = dir.listFiles();
+		assert files != null;
+		//for (File file : files) 
+		for (int i = 0; i < files.length; i++) 
+		{
+			if (files[i].getName().contains(data) == files[i].getName().toLowerCase().endsWith(".pdf") || files[i].getName().toLowerCase().endsWith(".jpg") || files[i].getName().toLowerCase().endsWith(".png") || files[i].getName().toLowerCase().endsWith(".jpeg")) 
+			{  
+				System.out.println(files[i]);
+				assertTrue(true);
+			}
+			else
+			{
+				assertTrue(false);
+			}
+		}*/		
 	}
 
 	/*
@@ -392,12 +416,10 @@ public class HelperBase {
 			sleepWait(5000);
 
 		}
-		for (String handles : wd.getWindowHandles()) {
-			if (!wd.switchTo().window(handles).getWindowHandle().equals(handle)) {
+		for (String handles : wd.getWindowHandles()) {			
+			if(!wd.switchTo().window(handles).getWindowHandle().equals(handle)) {				
 				wd.close();
-
 			}
-
 		}
 		System.out.println(view.size());
 		if (view.size() == data) {
@@ -405,9 +427,7 @@ public class HelperBase {
 
 			wd.switchTo().window(handle);
 			sleepWait(2000);
-
 		}
-
 	}
 
 	/*
@@ -471,20 +491,18 @@ public class HelperBase {
 	 * 
 	 * @param Password
 	 */
-	public static void login(String email, String password) throws InterruptedException {
-		// List <WebElement> homepage=wd.findElements(By.xpath("//h2"));
-		// System.out.println(i++);
-		/*
-		 * if(homepage.size()>0) {
-		 * 
-		 * if(!homepage.get(0).getText().equals("Welcome to e-Service Portal")) {
-		 * sleepWait(5000);
-		 * 
-		 * 
-		 * }
-		 * 
-		 * }else{ logout(); }
-		 */
+
+	public static void login(String email,String password) throws InterruptedException {
+		//List <WebElement> homepage=wd.findElements(By.xpath("//h2"));
+		//System.out.println(i++);
+		/*	if(homepage.size()>0) {
+		if(!homepage.get(0).getText().equals("Welcome to e-Service Portal")) {
+			sleepWait(5000);
+	}
+	}else{
+		logout();
+	}*/
+
 
 		if (login) {
 			type("txtbox_username", email);
@@ -508,15 +526,14 @@ public class HelperBase {
 				wd.switchTo().window(wd.getWindowHandles().toArray()[wd.getWindowHandles().size() - 1].toString());
 			}
 			sleepWait(3000);
-
 		}
-
 	}
+	public static void bodymessage(String object) throws InterruptedException
+	{
+		try 
+		{
+			obj.load(fis);   
 
-	public static void bodymessage(String object) throws InterruptedException {
-
-		try {
-			obj.load(fis);
 			String expectedMessage = obj.getProperty(object);
 			bodyMessage = wd.findElement(By.tagName("body")).getText();
 			sleepWait(2000);
@@ -641,6 +658,7 @@ public class HelperBase {
 
 	}
 
+
 	public static void datePicker(String date) {
 		try {
 			String d, m, y;
@@ -649,11 +667,10 @@ public class HelperBase {
 			m = date.substring(5, 7);
 			y = date.substring(0, 4);
 			clickOn("span", "[contains(text(),'2019')]");
-			//clickOn("span", "[contains(text(),'" + y + "')]");
-			
-			wd.findElement(By.xpath("(//span[contains(text(),'" + y + "')])[2]")).click();
-			
+			//clickOn("span", "[contains(text(),'" + y + "')]");			
+			wd.findElement(By.xpath("(//span[contains(text(),'" + y + "')])[last()]")).click();			
 			// clickOn("span","[contains(text(),'June')]");
+
 			sleepWait(2000);
 			if (m.equals("01")) {
 				clickOn("span", "[contains(text(),'January')]");
@@ -859,16 +876,64 @@ public class HelperBase {
 		Thread.sleep(wait);
 	}
 
-	public static String getAttribute(String attribue, String object, String data) {
 
+	public static String getAttribute(String attribue,String object,String data) {
 		try {
 			obj.load(fis);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		By locator = By.xpath(obj.getProperty(object) + data);
-		return wd.findElement(locator).getAttribute(attribue);
-
+		return wd.findElement(locator).getAttribute(attribue);		
+		}
+	
+	public static void waitUntilElementFound(String object,String data) {
+		try {
+			obj.load(fis);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		By locator = By.xpath(obj.getProperty(object) + data);
+		WebDriverWait wait=new WebDriverWait(wd, 10);		
+	
+		wait.until(ExpectedConditions.elementToBeClickable(locator));
 	}
-
+	/*
+	 * 
+	 * To convert the text contain
+	 * 
+	 */
+	public static String frenchToIndian(String text) {
+	
+		return text.replace(".", "").replace(",", ".");
+	
+	}
+	
+	public static double frenchtoDouble(String text) {
+		return Double.parseDouble(frenchToIndian(text));
+	}
+	
+	/*
+	 * To convert the number to french System
+	 * 
+	 * 
+	 */
+	public static String tofrench(Double d) {
+		NumberFormat nf = NumberFormat.getNumberInstance(Locale.ITALY);
+	
+		return nf.format(d);
+	}
+	
+	/*
+	 * to append comma if the douoble value dont contains decimal places
+	 * 
+	 * 
+	 */
+	public static String appendfrenchsys(String frenchNo) {
+		String frenchnum;
+		if (!frenchNo.contains(",")) {
+			frenchNo = frenchNo + ",00";
+		}
+		return frenchNo;
+	}
 }

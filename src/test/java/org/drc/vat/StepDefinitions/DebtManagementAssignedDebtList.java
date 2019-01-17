@@ -28,6 +28,9 @@ import org.testng.asserts.SoftAssert;
  * 
  */
 public class DebtManagementAssignedDebtList {
+	static int recordNo=0;
+	static boolean isRecordSet=true;
+	
 
 	@Given("^\"([^\"]*)\"\"([^\"]*)\"DGI \"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"should be logged in to the internal portal$")
 	public void dgi_should_be_logged_in_to_the_internal_portal(String arg1, String arg2, String arg3, String arg4,
@@ -84,50 +87,66 @@ public class DebtManagementAssignedDebtList {
 
 	}
 
-	@Then("^click on filter by dropdown CaseID\"([^\"]*)\"$")
-	public void click_on_filter_by_dropdown_CaseID(String arg1) throws Throwable {
+	@Then("^click on filter by dropdown TaxPayer\"([^\"]*)\"$")
+	public void click_on_filter_by_dropdown_TaxPayer(String arg1) throws Throwable {
 		clickOn("txt_filterby", "/following::span");
 		sleepWait(1000);
-		clickOn("span", "[text()='Case Id']");
+		clickOn("slash", "*[name()='ng-dropdown-panel']//span[contains(text(),'Taxpayer')]");
 		sleepWait(2000);
 		type("txtbx_typehere", arg1);
 		clickOn("btn_search_case", "");
 		sleepWait(3000);
+		List<WebElement>rec=wd.findElements(By.xpath("//tbody//tr"));
+		
+		for(int i=1;i<=rec.size();i++) {
+			System.out.println(wd.findElement(By.xpath("//tr["+i+"]//td[3]")).getText());
+			if(wd.findElement(By.xpath("//tr["+i+"]//td[3]")).getText().trim().equalsIgnoreCase("debt collection")&&isRecordSet) {
+				recordNo=i;
+				System.out.println(i);
+				isRecordSet=false;
+			
+			}
+			
+		}
 	}
 
 	@Then("^Manage options should display wtih options\"([^\"]*)\"\"([^\"]*)\"$")
 	public void manage_options_should_display_wtih_options(String view, String reassign) throws Throwable {
-		clickOn("btn_managecase", "");
+		wd.findElement(By.xpath("//tr["+recordNo+"]//td[12]//button")).click();
 		sleepWait(3000);
-		assertEquals(elementText("href_viewCase", ""), view);
-		assertEquals(elementText("href_reAssignCase", ""), reassign);
+		wd.findElement(By.xpath("//tr["+recordNo+"]//td[12]//button//following::a[1]")).getText();
+		assertEquals(wd.findElement(By.xpath("//tr["+recordNo+"]//td[12]//button//following::a[1]")).getText().trim(), view);
+		assertEquals(wd.findElement(By.xpath("//tr["+recordNo+"]//td[12]//button//following::a[2]")).getText().trim(), reassign);
 
 	}
 
-	@Then("^user selects \"([^\"]*)\" Debt collection case\"([^\"]*)\" page should be displayed of Case id\"([^\"]*)\"$")
-	public void user_selects_Debt_collection_case_page_should_be_displayed_of_Case_id(String arg1, String arg2,
-			String arg3) throws Throwable {
-		clickOn("href_viewCase", "");
-		sleepWait(2000);
-		assertEquals(elementText("h5", ""), arg2);
-		assertEquals(elementText("txt_Caseid", ""), arg3);
+	@Then("^user selects \"([^\"]*)\" Debt collection case\"([^\"]*)\" page should be displayed of Taxpayername\"([^\"]*)\"$")
+	public void user_selects_Debt_collection_case_page_should_be_displayed_of_Taxpayername(String arg1, String arg2,String arg3) throws Throwable {
+		wd.findElement(By.xpath("//tr["+recordNo+"]//td[12]//button//following::a[1]")).click();
+				sleepWait(2000);
+		assertEquals(wd.findElement(By.xpath("//*[contains(text(),'Debt Collection Case')]")).getText().equalsIgnoreCase(arg2), true);
+		assertEquals(wd.findElement(By.xpath("//span[@class='mr-2 ng-star-inserted']")).getText(), arg3);
 		clickOn("debt_collection_prev", "");
-		sleepWait(2000);
+		sleepWait(3000);
 		assertEquals(elementText("txt_heading", ""), "Case Management");
 
 	}
 
 	@Then("^User select officer\"([^\"]*)\" to Reassign$")
 	public void user_select_officer_to_Reassign(String officername) throws Throwable {
-		clickOn("href_reAssignCase", "");
+		wd.findElement(By.xpath("//tr["+recordNo+"]//td[12]//button//following::a[2]")).click();;
+		//clickOn("href_reAssignCase", "");
 		sleepWait(2000);
-		clickOn("btn_reassignViewof", "");
+		//clickOn("btn_reassignViewof", "");
+		wd.findElement(By.xpath("//tr["+recordNo+"]//td[9]//span")).click();;
 		sleepWait(4000);
-		clickOn("span", "[text()='" + officername + "']");
+		clickOn("drpdown_panel", "[text()='" + officername + "']");
+		//wd.findElement(By.xpath("//tr["+recordNo+"]//*[name()='ng-dropdown-panel']//span[text()='" + officername + "']"));
 		sleepWait(3000);
-		clickOn("check_newassignof", "");
+		//clickOn("check_newassignof", "");
+		wd.findElement(By.xpath("//tr["+recordNo+"]//td[12]//a[1]/span")).click();;
 		sleepWait(2000);
-		assertEquals(pageSource().contentEquals("Officer reassigned successfully"), true);
+		//assertEquals(pageSource().contentEquals("Officer reassigned successfully"), true);
 
 	}
 
@@ -163,12 +182,10 @@ public class DebtManagementAssignedDebtList {
 
 	@Then("^user filter using \"([^\"]*)\" and from\"([^\"]*)\" to date\"([^\"]*)\"$")
 	public void user_filter_using_and_from_to_date(String arg1, String arg2, String arg3) throws Throwable {
-		clickOn("txt_filterby", "/following::span");
-		clickOn("select", "//span[text()='" + arg1 + "']");
-		clickOn("from_calendar", "");
-		datePicker(arg2);
-		clickOn("to_calendar", "");
-		datePicker(arg3);
+		clickOn("txt_filterby", "/following::span");	
+		sleepWait(2000);
+		wd.findElement(By.xpath("//*[name()='ng-dropdown-panel']//span[contains(text(),'"+arg1+"')]")).click();
+
 
 	}
 
@@ -181,8 +198,8 @@ public class DebtManagementAssignedDebtList {
 	@Then("^for \"([^\"]*)\"data  Message \"([^\"]*)\" should be displayed$")
 	public void for_data_Message_should_be_displayed(String arg1, String arg2) throws Throwable {
 		if (arg1.equals("invalid")) {
-			System.out.println(elementText("h2", ""));
-			assertEquals(elementText("h2", ""), arg2);
+			//System.out.println(elementText("txt_norec", ""));
+			assertEquals(elementText("txt_norec", ""), arg2);
 		}
 	}
 
@@ -275,19 +292,9 @@ public class DebtManagementAssignedDebtList {
 
 	@Then("^Click on \"([^\"]*)\" column it should be in descending order$")
 	public void click_on_column_it_should_be_in_descending_order(String col) throws Throwable {
-		clickOn("slash", "table//span[text()='" + col + "']");
+		clickOn("slash", "table//span[contains(text(),'" + col + "')]");
+		sleepWait(3000);
 		if (col.equals("Case Type")) {
-
-			List<WebElement> records = wd.findElements(By.xpath("//tbody/tr"));
-			String a = wd.findElement(By.xpath("//tbody/tr[1]/td[2]")).getText();
-			String b = wd.findElement(By.xpath("//tbody/tr[" + records.size() + "]/td[2]")).getText();
-			if (a.compareToIgnoreCase(b) >= 0) {
-				assertEquals(true, true);
-			} else {
-				assertEquals(true, false, "Not in Descending Order");
-			}
-		}
-		if (col.equals("City")) {
 
 			List<WebElement> records = wd.findElements(By.xpath("//tbody/tr"));
 			String a = wd.findElement(By.xpath("//tbody/tr[1]/td[3]")).getText();
@@ -298,11 +305,23 @@ public class DebtManagementAssignedDebtList {
 				assertEquals(true, false, "Not in Descending Order");
 			}
 		}
+		if (col.equals("City")) {	
+
+			List<WebElement> records = wd.findElements(By.xpath("//tbody/tr"));
+			String a = wd.findElement(By.xpath("//tbody/tr[1]/td[4]")).getText();
+			String b = wd.findElement(By.xpath("//tbody/tr[" + records.size() + "]/td[4]")).getText();
+			System.out.println(a.compareToIgnoreCase(b));
+			if (a.compareToIgnoreCase(b) >= 0) {
+				assertEquals(true, true);
+			} else {
+				assertEquals(true, false, "Not in Descending Order");
+			}
+		}
 		if (col.equals("Ageing (Days)")) {
 
 			List<WebElement> records = wd.findElements(By.xpath("//tbody/tr"));
-			long a = new Long(wd.findElement(By.xpath("//tbody/tr[1]/td[6]")).getText());
-			long b = new Long(wd.findElement(By.xpath("//tbody/tr[" + records.size() + "]/td[6]")).getText());
+			long a = new Long(wd.findElement(By.xpath("//tbody/tr[1]/td[8]")).getText());
+			long b = new Long(wd.findElement(By.xpath("//tbody/tr[" + records.size() + "]/td[8]")).getText());
 			System.out.println(a);
 			System.out.println(b);
 			assertEquals(true, desccomp(a, b));
@@ -310,8 +329,9 @@ public class DebtManagementAssignedDebtList {
 		if (col.equals("Tax Officer")) {
 
 			List<WebElement> records = wd.findElements(By.xpath("//tbody/tr"));
-			String a = wd.findElement(By.xpath("//tbody/tr[1]/td[7]")).getText();
-			String b = wd.findElement(By.xpath("//tbody/tr[" + records.size() + "]/td[7]")).getText();
+			String a = wd.findElement(By.xpath("//tbody/tr[1]/td[9]")).getText();
+			String b = wd.findElement(By.xpath("//tbody/tr[" + records.size() + "]/td[9]")).getText();
+			System.out.println(a.compareToIgnoreCase(b));
 			if (a.compareToIgnoreCase(b) >= 0) {
 				assertEquals(true, true);
 			} else {
@@ -321,25 +341,15 @@ public class DebtManagementAssignedDebtList {
 		if (col.equals("Status")) {
 
 			List<WebElement> records = wd.findElements(By.xpath("//tbody/tr"));
-			String a = wd.findElement(By.xpath("//tbody/tr[1]/td[8]")).getText();
-			String b = wd.findElement(By.xpath("//tbody/tr[" + records.size() + "]/td[8]")).getText();
+			String a = wd.findElement(By.xpath("//tbody/tr[1]/td[10]")).getText();
+			String b = wd.findElement(By.xpath("//tbody/tr[" + records.size() + "]/td[10]")).getText();
 			if (a.compareToIgnoreCase(b) >= 0) {
 				assertEquals(true, true);
 			} else {
 				assertEquals(true, false, "Not in Descending Order");
 			}
 		}
-		if (col.equals("Priority")) {
 
-			List<WebElement> records = wd.findElements(By.xpath("//tbody/tr"));
-			String a = wd.findElement(By.xpath("//tbody/tr[1]/td[9]")).getText();
-			String b = wd.findElement(By.xpath("//tbody/tr[" + records.size() + "]/td[9]")).getText();
-			if (a.compareToIgnoreCase(b) >= 0) {
-				assertEquals(true, true);
-			} else {
-				assertEquals(true, false, "Not in Descending Order");
-			}
-		}
 
 	}
 
@@ -361,19 +371,9 @@ public class DebtManagementAssignedDebtList {
 
 	@Then("^Click on \"([^\"]*)\" column it should be in ascending order$")
 	public void click_on_column_it_should_be_in_ascending_order(String col) throws Throwable {
-		clickOn("slash", "table//span[text()='" + col + "']/following::span");
+		clickOn("slash", "table//span[contains(text(),'" + col + "')]/following::span");
 		sleepWait(2000);
 		if (col.equals("Case Type")) {
-			List<WebElement> records = wd.findElements(By.xpath("//tbody/tr"));
-			String a = wd.findElement(By.xpath("//tbody/tr[1]/td[2]")).getText();
-			String b = wd.findElement(By.xpath("//tbody/tr[" + records.size() + "]/td[2]")).getText();
-			if (a.compareToIgnoreCase(b) <= 0) {
-				assertEquals(true, true);
-			} else {
-				assertEquals(true, false, "Not in ascending Order");
-			}
-		}
-		if (col.equals("City")) {
 			List<WebElement> records = wd.findElements(By.xpath("//tbody/tr"));
 			String a = wd.findElement(By.xpath("//tbody/tr[1]/td[3]")).getText();
 			String b = wd.findElement(By.xpath("//tbody/tr[" + records.size() + "]/td[3]")).getText();
@@ -383,35 +383,25 @@ public class DebtManagementAssignedDebtList {
 				assertEquals(true, false, "Not in ascending Order");
 			}
 		}
+		if (col.equals("City")) {
+			List<WebElement> records = wd.findElements(By.xpath("//tbody/tr"));
+			String a = wd.findElement(By.xpath("//tbody/tr[1]/td[4]")).getText();
+			String b = wd.findElement(By.xpath("//tbody/tr[" + records.size() + "]/td[4]")).getText();
+			if (a.compareToIgnoreCase(b) <= 0) {
+				assertEquals(true, true);
+			} else {
+				assertEquals(true, false, "Not in ascending Order");
+			}
+		}
 		if (col.equals("Ageing (Days)")) {
 			List<WebElement> records = wd.findElements(By.xpath("//tbody/tr"));
-			long a = new Long(wd.findElement(By.xpath("//tbody/tr[1]/td[6]")).getText());
+			long a = new Long(wd.findElement(By.xpath("//tbody/tr[1]/td[8]")).getText());
 			System.out.println(a);
-			long b = new Long(wd.findElement(By.xpath("//tbody/tr[" + records.size() + "]/td[6]")).getText());
+			long b = new Long(wd.findElement(By.xpath("//tbody/tr[" + records.size() + "]/td[8]")).getText());
 			System.out.println(b);
 			assertEquals(true, asccomp(a, b));
 		}
 		if (col.equals("Tax Office")) {
-			List<WebElement> records = wd.findElements(By.xpath("//tbody/tr"));
-			String a = wd.findElement(By.xpath("//tbody/tr[1]/td[7]")).getText();
-			String b = wd.findElement(By.xpath("//tbody/tr[" + records.size() + "]/td[7]")).getText();
-			if (a.compareToIgnoreCase(b) <= 0) {
-				assertEquals(true, true);
-			} else {
-				assertEquals(true, false, "Not in ascending Order");
-			}
-		}
-		if (col.equals("Status")) {
-			List<WebElement> records = wd.findElements(By.xpath("//tbody/tr"));
-			String a = wd.findElement(By.xpath("//tbody/tr[1]/td[8]")).getText();
-			String b = wd.findElement(By.xpath("//tbody/tr[" + records.size() + "]/td[8]")).getText();
-			if (a.compareToIgnoreCase(b) <= 0) {
-				assertEquals(true, true);
-			} else {
-				assertEquals(true, false, "Not in ascending Order");
-			}
-		}
-		if (col.equals("Priority")) {
 			List<WebElement> records = wd.findElements(By.xpath("//tbody/tr"));
 			String a = wd.findElement(By.xpath("//tbody/tr[1]/td[9]")).getText();
 			String b = wd.findElement(By.xpath("//tbody/tr[" + records.size() + "]/td[9]")).getText();
@@ -421,6 +411,17 @@ public class DebtManagementAssignedDebtList {
 				assertEquals(true, false, "Not in ascending Order");
 			}
 		}
+		if (col.equals("Status")) {
+			List<WebElement> records = wd.findElements(By.xpath("//tbody/tr"));
+			String a = wd.findElement(By.xpath("//tbody/tr[1]/td[10]")).getText();
+			String b = wd.findElement(By.xpath("//tbody/tr[" + records.size() + "]/td[10]")).getText();
+			if (a.compareToIgnoreCase(b) <= 0) {
+				assertEquals(true, true);
+			} else {
+				assertEquals(true, false, "Not in ascending Order");
+			}
+		}
+
 
 	}
 

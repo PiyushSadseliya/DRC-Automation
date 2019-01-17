@@ -48,7 +48,6 @@ public class Login {
 	@When("^User Enter Data: \"([^\"]*)\" \"([^\"]*)\"$")
 	public void i_Enter_Data(String email, String pwd) throws Throwable {
 		login(email, pwd);
-
 	}
 
 	@And("^User Enters Data \"([^\"]*)\" \"([^\"]*)\" in the respective fields$")

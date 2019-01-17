@@ -79,53 +79,53 @@ public class userRegistration {
 		ConnectDatabase CD = new ConnectDatabase();
 		CD.opendb();
 		String user = // "DECLARE @a int = (select count(*)+1 from [1AuthoritySTS].dbo.aspnetusers
-						// where email like 'AutomationUser%')"
+				// where email like 'AutomationUser%')"
 				"INSERT INTO [1AuthoritySTS].[dbo].[AspNetUsers]            "
-						+ "         (Id,                                                "
-						+ "         [AccessFailedCount]                                 "
-						+ "         ,[ConcurrencyStamp]                                 "
-						+ "         ,[Email]                                            "
-						+ "         ,[EmailConfirmed]                                   "
-						+ "         ,[LockoutEnabled]                                   "
-						+ "         ,[LockoutEnd]                                       "
-						+ "         ,[NormalizedEmail]                                  "
-						+ "         ,[NormalizedUserName]                               "
-						+ "         ,[PasswordHash]                                     "
-						+ "         ,[PhoneNumber]                                      "
-						+ "         ,[PhoneNumberConfirmed]                             "
-						+ "         ,[SecurityStamp]                                    "
-						+ "         ,[TwoFactorEnabled]                                 "
-						+ "         ,[UserClient]                                       "
-						+ "         ,[UserName]                                         "
-						+ "         ,[TokenExpiration]                                  "
-						+ "         ,[FullName])                                        "
-						+ "   VALUES                                                    "
-						+ "         (NEWID(),                                           "
-						+ "         0                                                   "
-						+ "         ,NEWID()                                            " + "         ,CONCAT('"
-						+ EmailUsername + "','@mailinator.com')              "
-						// +",'"+UserName+"'"
-						+ "         ,1                                                  "
-						+ "         ,0                                                  "
-						+ "         ,NULL                                               "
-						/*
-						 * +"         ,CONCAT('AutomationUser',@a,'@MAILINATOR.COM')              "
-						 * +"         ,CONCAT('AutomationUser',@a,'@MAILINATOR.COM')              "
-						 */
-						+ "        ,CONCAT('" + EmailCapsUsername + "','@MAILINATOR.COM')              "
-						+ "         ,CONCAT('" + EmailCapsUsername + "','@MAILINATOR.COM')              "
-						+ "         ,'AQAAAAEAACcQAAAAEM/wSgVN/nG79PYxp2X4xCzrtdQcsTEYE911sxUm9sniuJtbzybplBD6TYP+BnxhDg=='  "
-						+ "         ,'+919999999999'                                                                         "
-						+ "         ,1                                                                                       "
-						+ "          , NEWID()                                                                               "
-						+ "          ,0                                                                                      "
-						+ "          ,'TaxPortal'                                                                            "
-						// +" ,CONCAT('AutomationUser',@a,'@MAILINATOR.COM') "
-						+ "          ,CONCAT('" + EmailCapsUsername
-						+ "','@MAILINATOR.COM')                                                  "
-						+ "          ,CURRENT_TIMESTAMP                                                                      "
-						// +" ,CONCAT('AutomationUser',@a)) ";
-						+ "          ,'" + UserName + "') ";
+				+ "         (Id,                                                "
+				+ "         [AccessFailedCount]                                 "
+				+ "         ,[ConcurrencyStamp]                                 "
+				+ "         ,[Email]                                            "
+				+ "         ,[EmailConfirmed]                                   "
+				+ "         ,[LockoutEnabled]                                   "
+				+ "         ,[LockoutEnd]                                       "
+				+ "         ,[NormalizedEmail]                                  "
+				+ "         ,[NormalizedUserName]                               "
+				+ "         ,[PasswordHash]                                     "
+				+ "         ,[PhoneNumber]                                      "
+				+ "         ,[PhoneNumberConfirmed]                             "
+				+ "         ,[SecurityStamp]                                    "
+				+ "         ,[TwoFactorEnabled]                                 "
+				+ "         ,[UserClient]                                       "
+				+ "         ,[UserName]                                         "
+				+ "         ,[TokenExpiration]                                  "
+				+ "         ,[FullName])                                        "
+				+ "   VALUES                                                    "
+				+ "         (NEWID(),                                           "
+				+ "         0                                                   "
+				+ "         ,NEWID()                                            " + "         ,CONCAT('"
+				+ EmailUsername + "','@mailinator.com')              "
+				// +",'"+UserName+"'"
+				+ "         ,1                                                  "
+				+ "         ,0                                                  "
+				+ "         ,NULL                                               "
+				/*
+				 * +"         ,CONCAT('AutomationUser',@a,'@MAILINATOR.COM')              "
+				 * +"         ,CONCAT('AutomationUser',@a,'@MAILINATOR.COM')              "
+				 */
+				 + "        ,CONCAT('" + EmailCapsUsername + "','@MAILINATOR.COM')              "
+				 + "         ,CONCAT('" + EmailCapsUsername + "','@MAILINATOR.COM')              "
+				 + "         ,'AQAAAAEAACcQAAAAEM/wSgVN/nG79PYxp2X4xCzrtdQcsTEYE911sxUm9sniuJtbzybplBD6TYP+BnxhDg=='  "
+				 + "         ,'+919999999999'                                                                         "
+				 + "         ,1                                                                                       "
+				 + "          , NEWID()                                                                               "
+				 + "          ,0                                                                                      "
+				 + "          ,'TaxPortal'                                                                            "
+				 // +" ,CONCAT('AutomationUser',@a,'@MAILINATOR.COM') "
+				 + "          ,CONCAT('" + EmailCapsUsername
+				 + "','@MAILINATOR.COM')                                                  "
+				 + "          ,CURRENT_TIMESTAMP                                                                      "
+				 // +" ,CONCAT('AutomationUser',@a)) ";
+				 + "          ,'" + UserName + "') ";
 
 		CD.sta.executeUpdate(user);
 	}
@@ -137,20 +137,20 @@ public class userRegistration {
 		CD.opendb();
 
 		String Reguser = // "DECLARE @a int = (select count(*) from [1AuthoritySTS].dbo.aspnetusers where
-							// email like 'AutomationUser%')"
+				// email like 'AutomationUser%')"
 				// +
 				"declare  @emailvalue Nvarchar(500) "
-						+ "Set @emailvalue = (select ID from  [1AuthoritySTS].[dbo].[AspNetUsers] "
-						+ "where Email = CONCAT('" + EmailUsername + "','@mailinator.com'))               "
-						+ "insert into [DRC-QA].[Ref].[RegisteredUsers] values                             "
-						+ "  (@emailvalue                                                          "
-						+ "  ,1                                                                   " + "  ,'" + Username
-						+ "'" + "  ,CONCAT('" + EmailUsername + "','@MAILINATOR.COM')                              "
-						+ "  ,CURRENT_TIMESTAMP                                                   "
-						+ "  ,NULL                                                                "
-						+ "  ,CURRENT_TIMESTAMP                                                   "
-						+ "  ,NUll                                                                "
-						+ "  ,null                                                                " + "  ) ";
+				+ "Set @emailvalue = (select ID from  [1AuthoritySTS].[dbo].[AspNetUsers] "
+				+ "where Email = CONCAT('" + EmailUsername + "','@mailinator.com'))               "
+				+ "insert into [DRC-QA].[Ref].[RegisteredUsers] values                             "
+				+ "  (@emailvalue                                                          "
+				+ "  ,1                                                                   " + "  ,'" + Username
+				+ "'" + "  ,CONCAT('" + EmailUsername + "','@MAILINATOR.COM')                              "
+				+ "  ,CURRENT_TIMESTAMP                                                   "
+				+ "  ,NULL                                                                "
+				+ "  ,CURRENT_TIMESTAMP                                                   "
+				+ "  ,NUll                                                                "
+				+ "  ,null                                                                " + "  ) ";
 
 		CD.sta.executeUpdate(Reguser);
 		System.out.println("test");
@@ -163,11 +163,11 @@ public class userRegistration {
 		CD.opendb();
 
 		String roles = // "declare @i int = (select count(*) from [1AuthoritySTS].dbo.aspnetusers where
-						// email like 'dfdj%')"
+				// email like 'dfdj%')"
 				" declare  @emailvalue Nvarchar(500)"
-						+ " set @emailvalue = (select ID from  [1AuthoritySTS].[dbo].[AspNetUsers] "
-						+ " where Email = CONCAT('" + EmailUsername + "','@mailinator.com'))"
-						+ " insert into [1AuthoritySTS].[dbo].[AspNetUserRoles] ([UserId],[RoleId]) VALUES  (@emailvalue,'B828372F-B0AD-40DF-B8BB-5C6E11A8682E')";
+				+ " set @emailvalue = (select ID from  [1AuthoritySTS].[dbo].[AspNetUsers] "
+				+ " where Email = CONCAT('" + EmailUsername + "','@mailinator.com'))"
+				+ " insert into [1AuthoritySTS].[dbo].[AspNetUserRoles] ([UserId],[RoleId]) VALUES  (@emailvalue,'B828372F-B0AD-40DF-B8BB-5C6E11A8682E')";
 
 		// System.out.println("test");
 		CD.sta.executeUpdate(roles);
@@ -227,7 +227,7 @@ public class userRegistration {
 			sleepWait(2000);
 			if (elementText("txtbx_email", "").length() == Email.length()) {
 				System.out.println("As it isEmail ");
-				showvalidationMessage = false;
+				emailValidation = false;
 			}
 		}
 
@@ -316,5 +316,8 @@ public class userRegistration {
 	public void error_messages_should_be_shown_to_user_as(String validationMessage) throws Throwable {
 		if (validationMessage.length() > 0) {
 			assertEquals(elementText("txt_fullnamevalidation", ""), validationMessage); // validation message for Full Name																						
-	}}
+		}
+
+	}
+
 }

@@ -30,7 +30,6 @@ import static org.drc.vat.appmanager.HelperBase.clearCache;
 import static org.drc.vat.appmanager.HelperBase.assessmentOfficer;
 import static org.drc.vat.appmanager.HelperBase.sleepWait;
 
-
 @CucumberOptions(features = {
 		"classpath:features/01_userRegistration.feature",
 		"classpath:features/02_01_Login.feature",
@@ -122,6 +121,7 @@ public class TestRunner extends AbstractTestNGCucumberTests {
 
 	@After
 	public void endScenario(Scenario scenario) throws Exception {
+		
 		String screenshot = scenario.getName();
 		File src = app.takeScreenshotAsFile();
 		File dest = new File(
@@ -130,7 +130,7 @@ public class TestRunner extends AbstractTestNGCucumberTests {
 		Reporter.addScreenCaptureFromPath(dest.toString());
 		scenario.embed(app.takeScreenshot(), "image/png");
 		// logout();
-		// assertEnding();
+		
 		logger.info("Stop scenario: " + scenario.getName());
 	}
 }
