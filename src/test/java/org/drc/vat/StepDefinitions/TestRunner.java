@@ -32,24 +32,19 @@ import static org.drc.vat.appmanager.HelperBase.sleepWait;
 
 
 @CucumberOptions(features = {
-		"classpath:features/01_userRegistration.feature"
-		,"classpath:features/02_01_Login.feature"
-		,"classpath:features/03_uploadDocuments.feature",
-		"classpath:features/03_VATRegistration.feature"
-		,"classpath:features/04_DV_1377_ManageVatRegistration.feature"
-		,"classpath:features/05_DV_1376_AcceptRejectAdditionalClarification.feature"
-		,"classpath:features/07_UserRegistrationStatus.feature"},
+		"classpath:features/01_userRegistration.feature",
+		"classpath:features/02_01_Login.feature",
+		"classpath:features/03_01uploadDocuments.feature"
+		//,"classpath:features/03_02VATRegistration.feature",		
+		//"classpath:features/04_DV_1377_ManageVatRegistration.feature",
+		//"classpath:features/05_DV_1376_AcceptRejectAdditionalClarification.feature",
+		//"classpath:features/07_UserRegistrationStatus.feature"
+},
 
-
-							
 glue = "org.drc.vat.StepDefinitions",
 plugin = {"com.cucumber.listener.ExtentCucumberFormatter:","html:test-output/cucumber-report"}
-
-
+,tags= {"@Individual_mtc6_mtc12_mtc10"}
 		)
-
-
-
 
 public class TestRunner extends AbstractTestNGCucumberTests {
 	private Logger logger = LoggerFactory.getLogger(TestRunner.class);
@@ -62,7 +57,7 @@ public class TestRunner extends AbstractTestNGCucumberTests {
 	public void setUP_Mobilenop() throws IOException, AWTException {
 		app.initUrl();
 		ExtentProperties extentProperties = ExtentProperties.INSTANCE;
-		extentProperties.setReportPath(outputDir + "/RegressionSuite_ExtentReport" + timestamp + ".html");
+		extentProperties.setReportPath(outputDir + "/ExtentReport" + timestamp + ".html");
 	}
 
 	@AfterSuite(alwaysRun = true)
