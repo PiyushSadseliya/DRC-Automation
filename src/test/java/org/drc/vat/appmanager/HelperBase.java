@@ -667,7 +667,8 @@ public class HelperBase {
 			m = date.substring(5, 7);
 			y = date.substring(0, 4);
 			clickOn("span", "[contains(text(),'2019')]");
-			clickOn("span", "[contains(text(),'" + y + "')]");
+			//clickOn("span", "[contains(text(),'" + y + "')]");			
+			wd.findElement(By.xpath("(//span[contains(text(),'" + y + "')])[last()]")).click();			
 			// clickOn("span","[contains(text(),'June')]");
 
 			sleepWait(2000);

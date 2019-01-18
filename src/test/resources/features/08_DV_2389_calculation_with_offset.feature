@@ -8,7 +8,7 @@ Feature: User is on Tax Calculation
 
     Examples: 
       | TestcaseID       | Description          | email                        | password  |
-      | e-file_Login_001 | Login into tax payer | approvedduser@mailinator.com | Admin@123 |
+      | e-file_Login_001 | Login into tax payer | approveddduser@mailinator.com | Test@123 |
 
   @TC_02_12
   Scenario Outline: Validate proceed button functionality

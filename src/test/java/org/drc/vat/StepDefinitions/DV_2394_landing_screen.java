@@ -22,9 +22,9 @@ public class DV_2394_landing_screen
 	public void user_logout() throws Throwable 
 	{		
 		sleepWait(2000);
-		clickOn("btn_logout", "");
+		clickOn("drp_btn_logout", "");
 		sleepWait(2000);
-		clickOn("link_click", "");
+		clickOn("drp_Sign_out", "");
 		sleepWait(1000);			
 	}	
 

@@ -193,6 +193,8 @@ public class TaxBillPayment {
 
 	}
 
+//	xls(acno,branchname,edate,periodDate);
+
 	/*
 	 * @Then("^closes the print page$") public void closes_the_print_page() throws
 	 * Throwable { sleepWait(2000);
@@ -210,6 +212,7 @@ public class TaxBillPayment {
 	@Then("^user clicks on Cancel button on  Tax Payment Bill page$")
 	public void user_clicks_on_Cancel_button_on_Tax_Payment_Bill_page() throws Throwable {
 		clickOn("cancelbtn_taxbill", "");
+
 
 	}
 

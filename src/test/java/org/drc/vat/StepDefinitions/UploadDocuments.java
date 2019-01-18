@@ -269,13 +269,33 @@ public class UploadDocuments {
 		upload_doc++;
 		// System.out.println("uploaded ac");
 	}
+	
+	@When("^COI \"([^\"]*)\" \"([^\"]*)\"$")
+	public void coi(String coi, String coipath) throws Throwable {
+	clickOn("dropdown_2", "");
+	clickOn("span", "[contains(text(),'" + coi + "')]");
+	clickOn("file1_upload", "");
+	UploadImage("", coipath);
+	fileUploadMessage(coipath);
+	upload_doc++;
+	}
+	
+	@When("^LawDegree \"([^\"]*)\" \"([^\"]*)\"$")
+	public void lawdegree(String law, String lawpath) throws Throwable {
+	clickOn("dropdown_3", "");
+	clickOn("span", "[contains(text(),'" + law + "')]");
+	clickOn("file1_upload", "");
+	UploadImage("", lawpath);
+	fileUploadMessage(lawpath);
+	upload_doc++;
+	}
 
 	@When("^LOAuth\"([^\"]*)\" \"([^\"]*)\"$")
 	public void loauth(String lauth, String lauthpath) throws Exception {
 		// Write code here that turns the phrase above into concrete actions
 		// System.out.println(lauth);
 		if (cat.equals("Natural Person")) {
-			clickOn("dropdown_2", "");
+			clickOn("dropdown_5", "");
 			clickOn("span", "[contains(text(),'" + lauth + "')]");
 			clickOn("file2_upload", "");
 		} else if (subcat.equals("Government Entity") || subcat.equals("Other Non-Corporates") && llpyn.equals("Yes")
@@ -334,7 +354,7 @@ public class UploadDocuments {
 		// Write code here that turns the phrase above into concrete actions
 		// System.out.println(lyr);
 		if (cat.equals("Natural Person") & lyr != "") {
-			clickOn("dropdown_3", "");
+			clickOn("dropdown_5", "");
 			sleepWait(2000);
 			clickOn("span", "[contains(text(),'" + lyr + "')]");
 			clickOn("file3_upload", "");

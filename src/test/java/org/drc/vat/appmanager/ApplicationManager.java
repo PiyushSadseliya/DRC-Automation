@@ -238,7 +238,8 @@ public class ApplicationManager {
 	{
 		if(wd.getCurrentUrl().contains("90"))
 		{
-			sleepWait(500);
+			wd.get(properties.getProperty("web.Url"));
+			//sleepWait(500);
 		}		
 		else if(wd.getCurrentUrl().contains("8066"))
 		{
