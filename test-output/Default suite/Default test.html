@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Fri Jan 11 12:40:03 IST 2019</td>
+<td>Started on:</td><td>Thu Jan 17 17:36:13 IST 2019</td>
 </tr>
-<tr><td>Total time:</td><td>74 seconds (74280 ms)</td>
+<tr><td>Total time:</td><td>653 seconds (653760 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -76,7 +76,7 @@ function toggleAllBoxes() {
 </tr>
 <tr>
 <td title='org.drc.vat.StepDefinitions.TestRunner.feature()'><b>feature</b><br>Test class: org.drc.vat.StepDefinitions.TestRunner<br>Test method: Runs Cucumber Feature<br>Parameters: Account Adjustment Statement of Transaction TaxPayer Profile & Objection</td>
-<td><div><pre>cucumber.runtime.CucumberException: java.lang.AssertionError: expected [-307.68] but found [2.24]
+<td><div><pre>cucumber.runtime.CucumberException: java.lang.AssertionError: expected [Internal adjustment] but found [Account Adjustment]
 	at cucumber.api.testng.TestNGCucumberRunner.runCucumber(TestNGCucumberRunner.java:69)
 	at cucumber.api.testng.AbstractTestNGCucumberTests.feature(AbstractTestNGCucumberTests.java:21)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -103,17 +103,17 @@ function toggleAllBoxes() {
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-Caused by: java.lang.AssertionError: expected [-307.68] but found [2.24]
+Caused by: java.lang.AssertionError: expected [Internal adjustment] but found [Account Adjustment]
 	at org.testng.Assert.fail(Assert.java:94)
 	at org.testng.Assert.failNotEquals(Assert.java:513)
 	at org.testng.Assert.assertEqualsImpl(Assert.java:135)
 	at org.testng.Assert.assertEquals(Assert.java:116)
 	at org.testng.Assert.assertEquals(Assert.java:190)
 	at org.testng.Assert.assertEquals(Assert.java:200)
-	at org.drc.vat.StepDefinitions.AccountAdjustmentStmtofTransac.user_selects_Charge_and_Enter_Amount_to_be_adjusted_VAT_Liability_LateFee_Penalty_Interest_should_be_non_editable(AccountAdjustmentStmtofTransac.java:361)
-	at ?.Then user selects Charge&quot;Credit&quot; and Enter Amount to be adjusted VAT Liability&quot;500&quot;LateFee&quot;0&quot;Penalty&quot;50000&quot;Interest should be non-editable(features/42_AccountAdjustmentStmtofTransac.feature:33)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1713567412", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1713567412'><pre>cucumber.runtime.CucumberException: java.lang.AssertionError: expected [-307.68] but found [2.24]
+	at org.drc.vat.StepDefinitions.AccountAdjustmentStmtofTransac.selects_the_user_to_validate_the_button_for_account_adjustmentd_done_through_internal_adjstment(AccountAdjustmentStmtofTransac.java:644)
+	at ?.Then selects the user &quot;January Eight&quot; to validate the &quot;Reject&quot; button for account adjustmentd done through internal adjstment&quot;Internal adjustment&quot;(features/42_AccountAdjustmentStmtofTransac.feature:63)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1851602880", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1851602880'><pre>cucumber.runtime.CucumberException: java.lang.AssertionError: expected [Internal adjustment] but found [Account Adjustment]
 	at cucumber.api.testng.TestNGCucumberRunner.runCucumber(TestNGCucumberRunner.java:69)
 	at cucumber.api.testng.AbstractTestNGCucumberTests.feature(AbstractTestNGCucumberTests.java:21)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -140,17 +140,17 @@ Caused by: java.lang.AssertionError: expected [-307.68] but found [2.24]
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-Caused by: java.lang.AssertionError: expected [-307.68] but found [2.24]
+Caused by: java.lang.AssertionError: expected [Internal adjustment] but found [Account Adjustment]
 	at org.testng.Assert.fail(Assert.java:94)
 	at org.testng.Assert.failNotEquals(Assert.java:513)
 	at org.testng.Assert.assertEqualsImpl(Assert.java:135)
 	at org.testng.Assert.assertEquals(Assert.java:116)
 	at org.testng.Assert.assertEquals(Assert.java:190)
 	at org.testng.Assert.assertEquals(Assert.java:200)
-	at org.drc.vat.StepDefinitions.AccountAdjustmentStmtofTransac.user_selects_Charge_and_Enter_Amount_to_be_adjusted_VAT_Liability_LateFee_Penalty_Interest_should_be_non_editable(AccountAdjustmentStmtofTransac.java:361)
-	at ?.Then user selects Charge&quot;Credit&quot; and Enter Amount to be adjusted VAT Liability&quot;500&quot;LateFee&quot;0&quot;Penalty&quot;50000&quot;Interest should be non-editable(features/42_AccountAdjustmentStmtofTransac.feature:33)
+	at org.drc.vat.StepDefinitions.AccountAdjustmentStmtofTransac.selects_the_user_to_validate_the_button_for_account_adjustmentd_done_through_internal_adjstment(AccountAdjustmentStmtofTransac.java:644)
+	at ?.Then selects the user &quot;January Eight&quot; to validate the &quot;Reject&quot; button for account adjustmentd done through internal adjstment&quot;Internal adjustment&quot;(features/42_AccountAdjustmentStmtofTransac.feature:63)
 </pre></div></td>
-<td>73</td>
+<td>652</td>
 <td>org.drc.vat.StepDefinitions.TestRunner@43aeb5e0</td></tr>
 </table><p>
 </body>

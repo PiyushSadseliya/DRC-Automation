@@ -34,8 +34,7 @@ import static org.drc.vat.appmanager.HelperBase.sleepWait;
 	glue = "org.drc.vat.StepDefinitions",
 	plugin = {"com.cucumber.listener.ExtentCucumberFormatter:",
 	"html:test-output/cucumber-report"}
-	,tags={"@1882mtc31"}
-)
+	)
 
 public class TestRunner extends AbstractTestNGCucumberTests {
 	private Logger logger = LoggerFactory.getLogger(TestRunner.class);

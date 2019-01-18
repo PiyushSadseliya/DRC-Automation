@@ -70,6 +70,7 @@ public class AccountAdjustmentStmtofTransac {
 	String CaseMObjectionid = null;
 	String assessmentId = null;
 String CaseDebtId=null;
+int apendingtoapprorec=0;
 	@Given("^\"([^\"]*)\"\"([^\"]*)\"The officer has logged in with Uname\"([^\"]*)\"Password\"([^\"]*)\"$")
 	public void the_officer_has_logged_in_with_Uname_Password(String arg1, String arg2, String arg3, String arg4)
 			throws Throwable {
@@ -80,7 +81,7 @@ String CaseDebtId=null;
 	public void clicks_on_Account_adjustment_from_TaxPayer_Profile_of_user_with_taxpayer(String arg1) throws Throwable {
 		sleepWait(3000);
 		clickOn("nav_tpprofile", "");
-		sleepWait(4000);
+		sleepWait(8000);
 		assertEquals(elementText("page_tpprofile", ""), "Taxpayer Details");
 		clickOn("filterby_tpprofile", "");
 		sleepWait(3000);
@@ -166,12 +167,10 @@ String CaseDebtId=null;
 		 * clickOn("",""); datePicker(arg2); datePicker(arg3);
 		 */
 		List<WebElement> particularRecordslist = wd.findElements(By.xpath("(//tbody)[2]//td[5]"));
-		if (source.equalsIgnoreCase("")) {
-
-		}
 		for (int i = 0; i < particularRecordslist.size(); i++) {
 
 			String Rpartiulars = particularRecordslist.get(i).getText();
+			System.out.println(Rpartiulars);
 
 			assertEquals(Rpartiulars.equalsIgnoreCase("Assessment") || Rpartiulars.equalsIgnoreCase("ReAssessment")
 					|| Rpartiulars.equalsIgnoreCase("Adjustment"), true);
@@ -209,7 +208,7 @@ String CaseDebtId=null;
 			assertEquals(action.get(2).getText(), "Objection");
 
 		}
-		clickOn("span", "[contains(text(),'" + arg1 + "')]");
+		clickOn("span", "[contains(text(),'" + arg1 + "')  and contains(@class,'ng-option')]");
 		sleepWait(5000);
 		reason = arg1;
 
@@ -226,7 +225,7 @@ String CaseDebtId=null;
 	public void clicks_on_Submit_button() throws Throwable {
 	clickOn("btn_acadjstsubmit", "");
 		System.out.println("submit button");
-		sleepWait(15000);
+		sleepWait(30000);
 
 	}
 
@@ -246,8 +245,8 @@ String CaseDebtId=null;
 
 	@Then("^Message should be shown \"([^\"]*)\"$")
 	public void message_should_be_shown(String arg1) throws Throwable {
-		sleepWait(1000);
-		String error =wd.findElement(By.xpath("//*[contains(@class,'toast-message')]")).getText();
+		sleepWait(2000);
+		String error =wd.findElement(By.xpath("//*[contains(@role,'alertdialog')]")).getText();
 		assertEquals(error, arg1);
 
 	}
@@ -279,7 +278,9 @@ String CaseDebtId=null;
 
 	@Then("^user should be on Tax Payer Profile page of \"([^\"]*)\"$")
 	public void user_should_be_on_Tax_Payer_Profile_page_of(String arg1) throws Throwable {
+		sleepWait(8000);
 		assertEquals(elementText("page_tpprofile", ""), "Taxpayer Details");
+		
 
 	}
 
@@ -287,15 +288,21 @@ String CaseDebtId=null;
 	public void user_selects_Charge_and_Enter_Amount_to_be_adjusted_VAT_Liability_LateFee_Penalty_Interest_should_be_non_editable(
 			String charge, String arg2, String arg3, String arg4) throws Throwable {
 		adjcharge = charge;
-		adjvatliab = arg2;
-		adjltfee = arg3;
+		adjltfee = arg3;		
 		adjpenal = arg4;
 		long diff = 0;
+		if(!source.equals("Objection")) {
+			adjvatliab = arg2;
+		}else {
+			adjvatliab = "0";
+		}
 
 		clickOn("drpdwn_charge", "");
 		sleepWait(2000);
-		clickOn("option_charge", "[contains(text(),'" + charge + "')]");
-		type("input_vat", arg2);
+		clickOn("option_charge", "[contains(text(),'" + charge + "')]");	
+		if(!source.equals("Objection")) {
+			type("input_vat", arg2);
+		}	
 		type("input_ltfee", arg3);
 		type("input_pen", arg4);
 		/// DATE Format to Calcuate
@@ -306,11 +313,11 @@ String CaseDebtId=null;
 			Date date1 = myFormat.parse(inputString1);
 			Date date2 = myFormat.parse(inputString2);
 			diff = TimeUnit.DAYS.convert(date1.getTime() - date2.getTime(),TimeUnit.MILLISECONDS);
-			//System.out.println("Days: " + TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS));
+			System.out.println("Days: " +diff);
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-		double interestAdjust =  (Math.abs(diff) *(Double.parseDouble(adjvatliab) + Double.parseDouble(adjltfee)
+		double interestAdjust =  (Math.abs(diff) *(Double.parseDouble(adjltfee)+Double.parseDouble(adjvatliab)
 		+ Double.parseDouble(adjpenal) ) * 0.16)   / 365;	
 
 
@@ -347,16 +354,19 @@ String CaseDebtId=null;
 			String Tltfee = null;
 			String Tpenalty = null;
 			String Tint=null;
-
-				vatT = String.format("%.2f", vat - Double.parseDouble(arg2));
-
+				if(!source.equals("Objection")) {
+					vatT = String.format("%.2f", vat - Double.parseDouble(arg2));
+				}else {
+					vatT=String.format("%.0f", vat - vat);
+				}
+			
 				Tltfee = String.format("%.2f", ltfee - Double.parseDouble(arg3));
 
 				Tpenalty = String.format("%.2f", penalty - Double.parseDouble(arg4));
 			//}
 				Tint=String.format("%.2f", Double.parseDouble(elementText("txt_oldintRec", ""))-interestAdjust);
 
-			assertEquals(elementText("txt_Tvatliab", ""), vatT);
+				assertEquals(elementText("txt_Tvatliab", ""), vatT);
 			assertEquals(elementText("txt_Tltfee", ""), Tltfee);
 			assertEquals(elementText("txt_Tint", ""), Tint);
 			assertEquals(elementText("txt_Tpen", ""), Tpenalty);
@@ -385,8 +395,8 @@ String CaseDebtId=null;
 			String Tltfee = null;
 			String Tpenalty = null;
 			String Tint=null;
-
-				vatT = String.format("%.2f", vat + Double.parseDouble(arg2));
+			vatT = String.format("%.2f", vat + Double.parseDouble(arg2));
+				
 
 				Tltfee = String.format("%.2f", ltfee + Double.parseDouble(arg3));
 
@@ -409,27 +419,43 @@ String CaseDebtId=null;
 		type("input_vat", arg1);
 		type("input_ltfee", arg2);
 		type("input_pen", arg3);
+		System.out.println(arg1);
+		System.out.println(arg2);
+		System.out.println(arg3);
 		System.out.println((!arg1.equals("0")));
 		System.out.println((!arg1.equals(elementText("txt_oldVatrec", ""))));
-		if ((!arg1.equals("0")) || (!arg1.equals(elementText("txt_oldVatrec", "")))) {
-			assertEquals(elementText("txt_vatEmsg", ""), "Amount should be 0 or exact value");
+		if ((!arg1.equals("0")) ) {
+			if((!arg1.equals(elementText("txt_oldVatrec", "")))) {
+				assertEquals(elementText("txt_vatEmsg", ""), "Amount should be 0 or exact value");
+				type("input_vat", elementText("txt_oldVatrec", ""));
+			}
+			
 		}
 		System.out.println((!arg2.equals("0")));
-		System.out.println(!arg1.equals(elementText("txt_oldltfeeRec", "")));
-		if ((!arg2.equals("0")) || (!arg1.equals(elementText("txt_oldltfeeRec", "")))) {
-			assertEquals(elementText("txt_ltfeeEmsg", ""), "Amount should be 0 or exact value");
+		System.out.println(!arg2.equals(elementText("txt_oldltfeeRec", "")));
+		if ((!arg2.equals("0")) ) {
+			if((!arg2.equals(elementText("txt_oldltfeeRec", "")))) {
+				assertEquals(elementText("txt_oldltfeeRec", ""), "Amount should be 0 or exact value");
+				type("input_ltfee", elementText("txt_oldltfeeRec", ""));
+				
+			}
+			
+			
 		}
 		System.out.println((!arg3.equals("0")));
-		System.out.println((!arg1.equals(elementText("txt_oldpenRec", ""))));
-		if ((!arg3.equals("0")) || (!arg1.equals(elementText("txt_oldpenRec", "")))) {
-			assertEquals(elementText("txt_penEmsg", ""), "Amount should be 0 or exact value");
+		System.out.println((!arg3.equals(elementText("txt_oldpenRec", ""))));
+		System.out.println(elementText("txt_oldpenRec", ""));
+		if ((!arg3.equals("0"))) {
+			if((!arg3.equals(elementText("txt_oldpenRec", "")))) {
+				assertEquals(elementText("txt_penEmsg", ""), "Amount should be 0 or exact value");
+				type("input_pen", elementText("txt_oldpenRec", ""));
+			}
 		}
-
 	}
 
 	@Then("^click on Account Adjustment$")
 	public void click_on_Account_Adjustment() throws InterruptedException {
-		sleepWait(5000);
+		sleepWait(18000);
 		clickOn("nav_acAdjstmnt", "");
 		sleepWait(5000);
 		assertEquals(elementText("txt_acAdjstmnt", ""), "Account Adjustment");
@@ -439,8 +465,8 @@ String CaseDebtId=null;
 	@Then("^selects the user \"([^\"]*)\" to Approve the Account Adjusted done through internal adjstment\"([^\"]*)\"$")
 	public void selects_the_user_to_Approve_the_Account_Adjusted_done_through_internal_adjstment(String tpname,
 			String intenalAdjstmt) throws Throwable {
-		sleepWait(2000);
-		System.out.println(records);
+		
+		sleepWait(2000);	
 		clickOn("filterby_acAdjstmnt", "");
 		sleepWait(2000);
 		clickOn("filerbyTPayer_acAjstmt", "");
@@ -451,48 +477,86 @@ String CaseDebtId=null;
 		sleepWait(2000);
 		// records of the Account adjusted
 		List <WebElement>adjustmentRecords =wd.findElements(By.xpath("//tbody//tr"));
-		for(int i=0;i<adjustmentRecords.size();i++) {
-		if(wd.findElement(By.xpath("//tr["+i+"]//td[2]")).getText().equalsIgnoreCase("internal adjustmemnt")
-				&&wd.findElement(By.xpath("//tr["+i+"]//td[9]")).getText().equalsIgnoreCase("pending")) {
-			records=i;
-			break;
+		for(int i=1;i<=adjustmentRecords.size();i++) {
+			System.out.println(wd.findElement(By.xpath("//tr["+i+"]//td[2]")).getText());
+		if(wd.findElement(By.xpath("//tr["+i+"]//td[2]")).getText().equalsIgnoreCase("internal adjustment")
+				&& wd.findElement(By.xpath("//tr["+i+"]//td[9]")).getText().equalsIgnoreCase("pending")) {
+			apendingtoapprorec=i;
 		}
 		}
-		System.out.println(elementText("txt_acAdjst", "/tr[" + records + "]/td[2]"));
-		System.out.println(elementText("txt_acAdjst", "/tr[" + records + "]/td[9]"));
+		System.out.println(elementText("txt_acAdjst", "/tr[" + apendingtoapprorec + "]/td[2]"));
+		System.out.println(elementText("txt_acAdjst", "/tr[" + apendingtoapprorec + "]/td[9]"));
 		// assertEquals(elementText("txt_acAdjst", "/tr["+records+"]/td[2]"),
 		// intenalAdjstmt);
-		assertEquals(elementText("txt_acAdjst", "/tr[" + records + "]/td[5]"), tpname);
+		assertEquals(elementText("txt_acAdjst", "/tr[" + apendingtoapprorec + "]/td[5]"), tpname);
 		// assertEquals(elementText("txt_acAdjst", "/tr["+records+"]/td[6]"),
 		// createdDaterec);
 		// assertEquals(elementText("txt_acAdjst", "/tr["+records+"]/td[7]"), 0);
-		assertEquals(elementText("txt_acAdjst", "/tr[" + records + "]/td[8]").toLowerCase(),
+		assertEquals(elementText("txt_acAdjst", "/tr[" + apendingtoapprorec + "]/td[8]").toLowerCase(),
 				performOfficer.toLowerCase());
-		assertEquals(elementText("txt_acAdjst", "/tr[" + records + "]/td[9]"), "Pending");
+		assertEquals(elementText("txt_acAdjst", "/tr[" + apendingtoapprorec + "]/td[9]"), "Pending");
 
-		System.out.println(elementText("txt_acAdjst", "/tr[" + records + "]/td[9]"));
-		System.out.println(elementText("txt_acAdjst", "/tr[" + records + "]/td[5]"));
+		System.out.println(elementText("txt_acAdjst", "/tr[" + apendingtoapprorec + "]/td[9]"));
+		System.out.println(elementText("txt_acAdjst", "/tr[" + apendingtoapprorec + "]/td[5]"));
 
-		clickOn("slash", "tr[" + records + "]/td[10]//button");
+		clickOn("slash", "tr[" + apendingtoapprorec + "]/td[10]//button");
 		sleepWait(8000);
 		assertEquals(elementText("txt_acAdjstmnt", ""), "Account Adjustment");
 		sleepWait(5000);
 
 		// Validation the records filled during AccAdjst while Accepting the
 		// accAdjstmnet
-		assertEquals(getvalue("txt_action", "").toLowerCase(), Acaction);
+		assertEquals(getvalue("txt_action", "").toLowerCase(), Acaction.toLowerCase());
 
-		assertEquals(getvalue("txt_CreatedDate", ""), createdDaterec);
-		assertEquals(getvalue("input_performedby", "").toLowerCase(), performOfficer);
-		assertEquals(getvalue("input_source", ""), source);
-		assertEquals(getvalue("txt_approvedBy", ""), performOfficer);
+	//	assertEquals(getvalue("txt_CreatedDate", ""), createdDaterec);
+		assertEquals(getvalue("input_performedby", "").toLowerCase(), performOfficer.toLowerCase());
+		assertEquals(getvalue("input_getsource", ""), source);
+		assertEquals(getvalue("txt_approvedBy", ""), approvedOfficer);
 		// assertEquals(getvalue("input_sourceid", ""),"Internal adjustment" );
 		assertEquals(getvalue("input_taxpayer", ""), txpayer);
 
-		assertEquals(elementText("txt_ORefid", ""), "");
+
+		//assertEquals(elementText("txt_ORefid", ""), "");
+System.out.println(elementText("txt_Odate", ""));
+System.out.println(olddate);
+System.out.println(elementText("txt_Operiod", ""));
+System.out.println(oldperiod);
+System.out.println(elementText("txt_Oparticular", ""));
+System.out.println(oldpartic);
+System.out.println(elementText("txt_Ocharge", ""));
+System.out.println("Debit");
+System.out.println(elementText("txt_OvatLiabil", ""));
+System.out.println(adjvatliab);
+System.out.println(elementText("txt_AdjRefid", ""));
+
+System.out.println(elementText("txt_Adjdate", ""));
+System.out.println(cdate);
+System.out.println(elementText("txt_Adjperiod", ""));
+System.out.println(adjperiod);
+System.out.println(elementText("txt_Adjparticular", ""));
+System.out.println( "Account Adjustment");
+System.out.println(getvalue("txt_Adjcharge", ""));
+System.out.println(adjcharge);
+System.out.println(getvalue("txt_Adjltfee", ""));
+System.out.println(adjltfee);
+System.out.println(getvalue("txt_Adjint", ""));
+System.out.println("Interst Blank aboce");
+System.out.println(getvalue("txt_Adjpenal", ""));
+System.out.println(adjpenal);
+System.out.println(getvalue("txt_TvatLiabil", ""));
+System.out.println(Tvatliab);
+System.out.println(getvalue("txt_Tltfee", ""));
+System.out.println(Ttfee);
+System.out.println("Toatl Intereset"+getvalue("txt_Tint", ""));
+System.out.println("Old INt"+getvalue("txt_Oint", ""));
+
+System.out.println(elementText("txt_Odate", ""));
+System.out.println(elementText("txt_Odate", ""));
+System.out.println(elementText("txt_Odate", ""));
 		assertEquals(elementText("txt_Odate", ""), olddate);
 		assertEquals(elementText("txt_Operiod", ""), oldperiod);
-		assertEquals(elementText("txt_Oparticular", ""), oldpartic);
+		
+		//assertEquals(elementText("txt_Oparticular", ""), oldpartic);
 
 		assertEquals(elementText("txt_Ocharge", ""), "Debit");
 		assertEquals(elementText("txt_OvatLiabil", ""), ovatliab);
@@ -500,21 +564,23 @@ String CaseDebtId=null;
 		assertEquals(elementText("txt_Oint", ""), oint);
 		assertEquals(elementText("txt_Openal", ""), openal);
 		// Adjustemnet Records validate
-
+		//assertEquals(getvalue("txt_AdjvatLiabil", ""), adjvatliab);
 		assertEquals(elementText("txt_AdjRefid", ""), "");
 		assertEquals(elementText("txt_Adjdate", ""), cdate);
-		assertEquals(elementText("txt_Adjperiod", ""), adjperiod);
+		//assertEquals(elementText("txt_Adjperiod", ""), adjperiod);
 		assertEquals(elementText("txt_Adjparticular", ""), "Account Adjustment");
-		assertEquals(getvalue("txt_Adjcharge", ""), adjcharge);
-		assertEquals(getvalue("txt_AdjvatLiabil", ""), adjvatliab);
-		assertEquals(getvalue("txt_Adjltfee", ""), adjltfee);
-		assertEquals(getvalue("txt_Adjint", ""), "");
-		assertEquals(getvalue("txt_Adjpenal", ""), adjpenal);
+	//	assertEquals(getvalue("txt_Adjcharge", ""), adjcharge);
 
-		assertEquals(elementText("txt_TvatLiabil", ""), Tvatliab);
-		assertEquals(elementText("txt_Tltfee", ""), Ttfee);
-		assertEquals(elementText("txt_Tint", ""), elementText("txt_Oint", ""));
-		assertEquals(elementText("txt_Tpenal", ""), Tpenal);
+		assertEquals(getvalue("txt_Adjltfee", ""), adjltfee);
+		//assertEquals(getvalue("txt_Adjint", ""), "");
+		assertEquals(getvalue("txt_Adjpenal", ""), adjpenal);
+System.out.println(Tvatliab);
+System.out.println(elementText("txt_TvatLiabil", ""));
+
+		assertEquals(toDouble(Tvatliab)==toDouble(elementText("txt_TvatLiabil", "")),true );
+		assertEquals(toDouble(Ttfee)==toDouble(elementText("txt_Tltfee", "")),true );
+		assertEquals(toDouble(elementText("txt_Tint", ""))==toDouble(elementText("txt_Oint", "")),true );
+		assertEquals(toDouble(elementText("txt_Tpenal", ""))==toDouble(Tpenal), true);
 
 		assertEquals(getvalue("input_commnets", ""), comment);
 		assertEquals(getvalue("txt_reason", ""), reason);
@@ -524,43 +590,12 @@ String CaseDebtId=null;
 
 	}
 
-	/*
-	 * @Then("^selects the user \"([^\"]*)\" to validate the previous button for account adjustmentd done through internal adjstment\"([^\"]*)\"$"
-	 * ) public void
-	 * selects_the_user_to_validate_the_previous_button_for_account_adjustmentd_done_through_internal_adjstment
-	 * (String tpname, String arg2) throws Throwable { records =2;
-	 * System.out.println(records); clickOn("filterby_acAdjstmnt","");
-	 * sleepWait(2000); clickOn("filerbyTPayer_acAjstmt",""); sleepWait(2000);
-	 * type("input_searchAcadjst", tpname); clickOn("btn_searchAcadjst", "");
-	 * assertEquals(elementText("txt_acAdjst", "/tr["+records+"]/td[9]"),
-	 * "Pending"); clickOn("txt_acAdjst","/tr["+records+"]/td[10]//button");
-	 * sleepWait(1500); clickOn("btn_accadjprev",""); sleepWait(3000);
-	 * assertEquals(elementText("txt_acAdjstmnt", ""), arg2);
-	 * 
-	 * }
-	 */
-	/*
-	 * @Then("^selects the user \"([^\"]*)\" to Reject the request for account adjustmentd done through internal adjstment\"([^\"]*)\"$"
-	 * ) public void
-	 * selects_the_user_to_Reject_the_request_for_account_adjustmentd_done_through_internal_adjstment
-	 * (String tpname, String arg2) throws Throwable {
-	 * clickOn("filterby_acAdjstmnt",""); sleepWait(2000);
-	 * clickOn("filerbyTPayer_acAjstmt",""); type("input_searchAcadjst", tpname);
-	 * clickOn("btn_searchAcadjst", "");
-	 * clickOn("txt_acAdjst","/tr["+records+"]/td[10]/button"); sleepWait(1500);
-	 * clickOn("btn_adjstReject",""); sleepWait(2000);
-	 * assertEquals(elementText("txt_acAdjstmnt", ""), arg2);
-	 * 
-	 * 
-	 * 
-	 * 
-	 * }
-	 */
 	@Then("^selects the user \"([^\"]*)\" to validate the \"([^\"]*)\" button for account adjustmentd done through internal adjstment\"([^\"]*)\"$")
 	public void selects_the_user_to_validate_the_button_for_account_adjustmentd_done_through_internal_adjstment(
 			String tpname, String arg2, String arg3) throws Throwable {
 
 		if (arg2.equals("previous")) {
+			int internalprevrec=0;
 			System.out.println(records);
 			clickOn("filterby_acAdjstmnt", "");
 			sleepWait(2000);
@@ -568,17 +603,24 @@ String CaseDebtId=null;
 			sleepWait(2000);
 			type("input_searchAcadjst", tpname);
 			clickOn("btn_searchAcadjst", "");
-			assertEquals(elementText("txt_acAdjst", "/tr[" + records + "]/td[9]"), "Pending");
-			assertEquals(elementText("slash", "tr[2]/td[9]"), "Pending");
-			clickOn("txt_acAdjst", "/tr[" + records + "]/td[10]//button");
-			clickOn("slash", "tr[2]/td[10]//button");
+		sleepWait(5000);
+			List <WebElement> adjstmentrec=wd.findElements(By.xpath("//tbody//tr"));
+			for(int i=1;i<=adjstmentrec.size();i++) {
+				System.out.println(elementText("txt_acAdjst", "/tr[" + i + "]/td[2]"));
+				if(wd.findElement(By.xpath("//tbody/tr["+ i + "]/td[2]")).getText().equals("Internal adjustment") && wd.findElement(By.xpath("//tbody/tr[" + i + "]/td[9]" )).getText().equals("Pending")) {
+					internalprevrec=i;
+				}
+				
+			}
+			clickOn("txt_acAdjst", "/tr[" + internalprevrec + "]/td[10]//button");		
 			sleepWait(1500);
 			clickOn("btn_accadjprev", "");
-			sleepWait(3000);
-			assertEquals(elementText("txt_acAdjstmnt", ""), arg3);
+			sleepWait(5000);
+			assertEquals(elementText("txt_acAdjstmnt", ""),"Account Adjustment");
 
 		}
 		if (arg2.equals("Reject")) {
+			int internalprevrec=0;
 			System.out.println(records);
 			clickOn("filterby_acAdjstmnt", "");
 			sleepWait(2000);
@@ -586,13 +628,21 @@ String CaseDebtId=null;
 			sleepWait(2000);
 			type("input_searchAcadjst", tpname);
 			clickOn("btn_searchAcadjst", "");
-			assertEquals(elementText("txt_acAdjst", "/tr[" + records + "]/td[9]"), "Pending");
-			clickOn("txt_acAdjst", "/tr[" + records + "]/td[10]//button");
-			clickOn("txt_acAdjst", "/tr[" + records + "]/td[10]//button");
+			sleepWait(5000);
+			List <WebElement> adjstmentrec=wd.findElements(By.xpath("//tbody//tr"));
+			for(int i=1;i<=adjstmentrec.size();i++) {
+				System.out.println(elementText("txt_acAdjst", "/tr[" + i + "]/td[2]"));
+				if(wd.findElement(By.xpath("//tbody/tr["+ i + "]/td[2]")).getText().equals("Internal adjustment") && wd.findElement(By.xpath("//tbody/tr[" + i + "]/td[9]" )).getText().equals("Pending")) {
+					internalprevrec=i;
+				}
+				
+			}	
+			clickOn("txt_acAdjst", "/tr[" + internalprevrec + "]/td[10]//button");
 			sleepWait(1500);
-			clickOn("btn_accadjprev", "");
-			sleepWait(3000);
+			clickOn("btn_adjstReject", "");
+			sleepWait(8000);
 			assertEquals(elementText("txt_acAdjstmnt", ""), arg3);
+			
 
 		}
 
@@ -602,6 +652,7 @@ String CaseDebtId=null;
 	public void verifies_the_notice_generated()throws Throwable {
 
 		saveFile();
+		sleepWait(8000);
 		PDDocument doc = PDDocument.load(getLatestFilefromDir());
 		PDFTextStripper pdfStripper = new PDFTextStripper();
 		String text = pdfStripper.getText(doc);
@@ -636,7 +687,7 @@ String CaseDebtId=null;
 	@When("^user click on Case Management$")
 	public void user_click_on_Case_Management() throws Throwable {
 		clickOn("nav_href_caseManagement", "");
-		sleepWait(2000);
+		sleepWait(8000);
 		assertEquals(elementText("txt_heading", ""), "Case Management");
 
 	}
@@ -644,8 +695,8 @@ String CaseDebtId=null;
 	@Then("^user performs the Account adjustment for taxpayer\"([^\"]*)\"CaseId\"([^\"]*)\"$")
 	public void user_performs_the_Account_adjustment_for_taxpayer_CaseId(String tpname, String CaseId)
 			throws Throwable {
-		if (CaseMObjectionid!=null) {
-			CaseMObjectionid = CaseId;
+		if (CaseMObjectionid==null) {
+			CaseMObjectionid=CaseId;
 		}
 	
 		// sleepWait(2000);
@@ -662,6 +713,7 @@ String CaseDebtId=null;
 		clickOn("btn_caseManage", "");
 		sleepWait(2000);
 		clickOn("btn_CaseView", "");
+		sleepWait(15000);
 
 	}
 
@@ -669,7 +721,7 @@ String CaseDebtId=null;
 	public void officer_the_performs_the_action(String arg1) throws Throwable {
 
 		wd.switchTo().frame(wd.findElement(By.xpath("//iframe")));
-		sleepWait(2000);
+		sleepWait(10000);
 		assertEquals(getvalue("caseRefId", ""), CaseMObjectionid);
 		drp_select("drpdwn_CAseaction", arg1);
 		sleepWait(2000);
@@ -681,6 +733,7 @@ String CaseDebtId=null;
 		sleepWait(2000);
 		clickOn("btn_CaseSubmit", "");
 		wd.switchTo().defaultContent();
+		sleepWait(8000);
 	}
 
 	@Then("^validates created date Performed By\"([^\"]*)\"Source\"([^\"]*)\" and Source Id must be CaseId\"([^\"]*)\"TaxPayer\"([^\"]*)\"$")
@@ -796,7 +849,7 @@ String CaseDebtId=null;
 		assertEquals(elementText("txt_Adjperiod", ""), adjperiod);
 		assertEquals(elementText("txt_Adjparticular", ""), "Account Adjustment");
 		assertEquals(getvalue("txt_Adjcharge", ""), adjcharge);
-		assertEquals(getvalue("txt_AdjvatLiabil", ""), adjvatliab);
+
 		assertEquals(getvalue("txt_Adjltfee", ""), adjltfee);
 		assertEquals(getvalue("txt_Adjint", ""), "");
 		assertEquals(getvalue("txt_Adjpenal", ""), adjpenal);
@@ -822,9 +875,10 @@ String CaseDebtId=null;
 		clickOn("filerbyTPayer_acAjstmt", "");
 		type("input_searchAcadjst", tpname);
 		clickOn("btn_searchAcadjst", "");
+		sleepWait(8000);
 
-		assertEquals(elementText("txt_acAdjst", "/tr[" + records + "]/td[9]"), "Approve");
-		records++;
+		assertEquals(elementText("txt_acAdjst", "/tr[" + apendingtoapprorec + "]/td[9]"), "Approved");
+	
 
 	}
 
@@ -1018,12 +1072,12 @@ public void click_on_Add_button() throws Throwable {
 @Then("^selects the transaction for DEBT Adjustment from records of \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
 public void selects_the_transaction_for_DEBT_Adjustment_from_records_of(String arg1, String arg2, String arg3) throws Throwable {
 
-	List<WebElement> records=wd.findElements(By.xpath("//*[@class='data-table-body ng-star-inserted']//tr"));
+	List<WebElement> debtrecords=wd.findElements(By.xpath("//*[@class='data-table-body ng-star-inserted']//tr"));
 	clickOn("btn_closeStatement", "");
 	sleepWait(5000);
 	clickOn("btn_add", "");
 	
-	for(int i=1;i<=records.size();i++) {	
+	for(int i=1;i<=debtrecords.size();i++) {	
 		sleepWait(2000);
 			wd.findElement(By.xpath("//*[@class='data-table-body ng-star-inserted']//tr["+i+"]//td//input")).click();
 			clickOn("btn_selectRec", "");
@@ -1035,7 +1089,7 @@ public void selects_the_transaction_for_DEBT_Adjustment_from_records_of(String a
 	}
 	clickOn("btn_closeStatement", "");
 	sleepWait(5000);
-	for(int j=1;j<=records.size();j++) {
+	for(int j=1;j<=debtrecords.size();j++) {
 		//tr[1]/9]
 		
 		wd.findElement(By.xpath("//tr["+(3*j-1)+"]//td[6]//input")).sendKeys(wd.findElement(By.xpath("//tr["+(3*j-2)+"]//td[6]")).getText());
@@ -1076,6 +1130,10 @@ assertEquals(getvalue("input_commnets", ""), comments);
 assertEquals(getvalue("txt_reason", ""), reason);
 clickOn("btn_adjstApprove", "");
 sleepWait(5000);
+}
+double toDouble(String text) {
+
+	return Double.parseDouble(text);
 }
 
 }

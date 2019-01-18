@@ -2,23 +2,23 @@
 <testng-results skipped="0" failed="1" total="1" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="74280" started-at="2019-01-11T07:10:03Z" finished-at="2019-01-11T07:11:17Z">
+  <suite name="Default suite" duration-ms="653760" started-at="2019-01-17T12:06:13Z" finished-at="2019-01-17T12:17:07Z">
     <groups>
       <group name="cucumber">
         <method signature="AbstractTestNGCucumberTests.feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:org.drc.vat.StepDefinitions.TestRunner@43aeb5e0]" name="feature" class="cucumber.api.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test name="Default test" duration-ms="74280" started-at="2019-01-11T07:10:03Z" finished-at="2019-01-11T07:11:17Z">
+    <test name="Default test" duration-ms="653760" started-at="2019-01-17T12:06:13Z" finished-at="2019-01-17T12:17:07Z">
       <class name="org.drc.vat.StepDefinitions.TestRunner">
-        <test-method status="PASS" signature="setUP_Mobilenop()[pri:0, instance:org.drc.vat.StepDefinitions.TestRunner@43aeb5e0]" name="setUP_Mobilenop" is-config="true" duration-ms="5541" started-at="2019-01-11T12:39:57Z" finished-at="2019-01-11T12:40:03Z">
+        <test-method status="PASS" signature="setUP_Mobilenop()[pri:0, instance:org.drc.vat.StepDefinitions.TestRunner@43aeb5e0]" name="setUP_Mobilenop" is-config="true" duration-ms="5061" started-at="2019-01-17T17:36:08Z" finished-at="2019-01-17T17:36:13Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUP_Mobilenop -->
-        <test-method status="PASS" signature="setUpClass()[pri:0, instance:org.drc.vat.StepDefinitions.TestRunner@43aeb5e0]" name="setUpClass" is-config="true" duration-ms="447" started-at="2019-01-11T12:40:03Z" finished-at="2019-01-11T12:40:03Z">
+        <test-method status="PASS" signature="setUpClass()[pri:0, instance:org.drc.vat.StepDefinitions.TestRunner@43aeb5e0]" name="setUpClass" is-config="true" duration-ms="438" started-at="2019-01-17T17:36:13Z" finished-at="2019-01-17T17:36:13Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method status="FAIL" signature="feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:org.drc.vat.StepDefinitions.TestRunner@43aeb5e0]" name="feature" duration-ms="73163" started-at="2019-01-11T12:40:03Z" description="Runs Cucumber Feature" data-provider="features" finished-at="2019-01-11T12:41:17Z">
+        <test-method status="FAIL" signature="feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:org.drc.vat.StepDefinitions.TestRunner@43aeb5e0]" name="feature" duration-ms="652619" started-at="2019-01-17T17:36:14Z" description="Runs Cucumber Feature" data-provider="features" finished-at="2019-01-17T17:47:06Z">
           <params>
             <param index="0">
               <value>
@@ -28,10 +28,10 @@
           </params>
           <exception class="cucumber.runtime.CucumberException">
             <message>
-              <![CDATA[java.lang.AssertionError: expected [-307.68] but found [2.24]]]>
+              <![CDATA[java.lang.AssertionError: expected [Internal adjustment] but found [Account Adjustment]]]>
             </message>
             <full-stacktrace>
-              <![CDATA[cucumber.runtime.CucumberException: java.lang.AssertionError: expected [-307.68] but found [2.24]
+              <![CDATA[cucumber.runtime.CucumberException: java.lang.AssertionError: expected [Internal adjustment] but found [Account Adjustment]
 	at cucumber.api.testng.TestNGCucumberRunner.runCucumber(TestNGCucumberRunner.java:69)
 	at cucumber.api.testng.AbstractTestNGCucumberTests.feature(AbstractTestNGCucumberTests.java:21)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -58,26 +58,26 @@
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-Caused by: java.lang.AssertionError: expected [-307.68] but found [2.24]
+Caused by: java.lang.AssertionError: expected [Internal adjustment] but found [Account Adjustment]
 	at org.testng.Assert.fail(Assert.java:94)
 	at org.testng.Assert.failNotEquals(Assert.java:513)
 	at org.testng.Assert.assertEqualsImpl(Assert.java:135)
 	at org.testng.Assert.assertEquals(Assert.java:116)
 	at org.testng.Assert.assertEquals(Assert.java:190)
 	at org.testng.Assert.assertEquals(Assert.java:200)
-	at org.drc.vat.StepDefinitions.AccountAdjustmentStmtofTransac.user_selects_Charge_and_Enter_Amount_to_be_adjusted_VAT_Liability_LateFee_Penalty_Interest_should_be_non_editable(AccountAdjustmentStmtofTransac.java:361)
-	at ✽.Then user selects Charge"Credit" and Enter Amount to be adjusted VAT Liability"500"LateFee"0"Penalty"50000"Interest should be non-editable(features/42_AccountAdjustmentStmtofTransac.feature:33)
+	at org.drc.vat.StepDefinitions.AccountAdjustmentStmtofTransac.selects_the_user_to_validate_the_button_for_account_adjustmentd_done_through_internal_adjstment(AccountAdjustmentStmtofTransac.java:644)
+	at ✽.Then selects the user "January Eight" to validate the "Reject" button for account adjustmentd done through internal adjstment"Internal adjustment"(features/42_AccountAdjustmentStmtofTransac.feature:63)
 ]]>
             </full-stacktrace>
           </exception> <!-- cucumber.runtime.CucumberException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- feature -->
-        <test-method status="PASS" signature="tearDownClass()[pri:0, instance:org.drc.vat.StepDefinitions.TestRunner@43aeb5e0]" name="tearDownClass" is-config="true" duration-ms="557" started-at="2019-01-11T12:41:17Z" finished-at="2019-01-11T12:41:17Z">
+        <test-method status="PASS" signature="tearDownClass()[pri:0, instance:org.drc.vat.StepDefinitions.TestRunner@43aeb5e0]" name="tearDownClass" is-config="true" duration-ms="579" started-at="2019-01-17T17:47:06Z" finished-at="2019-01-17T17:47:07Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:org.drc.vat.StepDefinitions.TestRunner@43aeb5e0]" name="tearDown" is-config="true" duration-ms="691" started-at="2019-01-11T12:41:17Z" finished-at="2019-01-11T12:41:18Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:org.drc.vat.StepDefinitions.TestRunner@43aeb5e0]" name="tearDown" is-config="true" duration-ms="729" started-at="2019-01-17T17:47:07Z" finished-at="2019-01-17T17:47:08Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
