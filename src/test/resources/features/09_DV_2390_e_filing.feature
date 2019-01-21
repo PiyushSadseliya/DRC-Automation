@@ -92,6 +92,7 @@ Feature: E-filing -> Filing -> Declaration with verification and confirmation of
     And User entered value "<17>" "<18>" "<19>" "<20>" for Adjustment calculation
     And calculate tax calculations and enter "<VAT3Party>"
     And User click on check box and click on submit button
+     And User click on Yes button
     And Enter OTP and click on verify button and click on Ok button
 
     # need to add submit

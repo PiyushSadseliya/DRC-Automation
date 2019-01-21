@@ -90,7 +90,7 @@ public class DV_2391_eFile_Preview
 							break;
 						}
 				}
-				//sleepWait(500);
+				sleepWait(3000);
 			}			
 			@And("^User click on Preview$")
 			public void user_click_on_Preview() throws Throwable 
@@ -116,11 +116,11 @@ public class DV_2391_eFile_Preview
 			public void enter_OTP_and_click_on_verify_button_and_click_on_Ok_button() throws Throwable 
 			{			    
 			   Read_OTP RO = new Read_OTP();
-			   String OTP=RO.ReadOTP();
+			   String OTP=RO.ReadOTP(DV_2390_e_filing.emailid);
 			   sleepWait(1000);
 			   wd.findElement(By.xpath("//*[@placeholder='Enter your OTP']")).sendKeys(OTP);
 			   sleepWait(1000);
-			   wd.findElement(By.xpath("//*[text()='Verify']")).click();
+			  wd.findElement(By.xpath("//*[text()='Verify']")).click();
 			   sleepWait(5000);
 			   wd.findElement(By.xpath("//*[@title='OK']")).click();
 			   sleepWait(2000);			   

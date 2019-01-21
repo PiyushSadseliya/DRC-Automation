@@ -260,8 +260,9 @@ public class DV_2394_landing_screen
 		clickOn("drp_select_efile_click1", "");
 		sleepWait(500);
 		clickOn("btn_efile_submit", "");
-
-		sleepWait(1000);
+		sleepWait(2000);
+		
+		
 	}
 
 
@@ -716,6 +717,8 @@ public class DV_2394_landing_screen
 	{
 		sleepWait(1000);
 		clickOn("btn_efilling", "");
+		sleepWait(8000);
+		
 		
 	}
 	

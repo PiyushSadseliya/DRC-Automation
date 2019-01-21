@@ -53,7 +53,7 @@ public class DV_1376_AcceptRejectAdditionalClarification
 	
 	@And("^user click on view icon and file gets display$")
 	public void user_click_on_view_icon_and_file_gets_display() throws Throwable 
-	{
+	{ 
 		sleepWait(1000);
 		viewDoc("txt_Eye_click",6);		
 		sleepWait(1000);

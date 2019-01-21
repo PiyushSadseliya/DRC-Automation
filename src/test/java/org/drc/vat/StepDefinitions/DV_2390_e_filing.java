@@ -53,6 +53,7 @@ public class DV_2390_e_filing
 	public static  Float SDC ;
 	public static  Float VDC ;
 	public static  Float PCC ;
+	static String emailid=null;
 	
 
 	public String DG;
@@ -67,6 +68,7 @@ public class DV_2390_e_filing
 	@And("^User Enter email \"([^\"]*)\" and  password \"([^\"]*)\"$")
 	public void user_Enter_email_and_password(String email, String pwd) throws Throwable 
 	{
+		emailid=email;
 /*		 type("txtbox_username",email);		
 		 type("txtbox_password",pwd);*/
 		 login(email, pwd);

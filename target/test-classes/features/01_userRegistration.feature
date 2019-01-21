@@ -13,7 +13,7 @@ Feature: User Registration for the steps involved in creating a user account for
       #| DRC_ATC_Valid_Registration_01 | Register with valid data | Regression One |
       #| DRC_ATC_Valid_Registration_02 | Register with valid data | Regression Two |
       #| DRC_ATC_Valid_Registration_03 | Register with valid data | Regression Three |
-			| DRC_ATC_Valid_Registration_03 | Register with valid data | Regression Nine |
+			| DRC_ATC_Valid_Registration_03 | Register with valid data | Regression Last |
 
   # | DRC_ATC_Valid_Registration_04 | Register with valid data | Rejected User |
   #| DRC_ATC_Valid_Registration_01 | Register with valid data | Rejecteud User |

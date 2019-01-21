@@ -10,7 +10,7 @@ public class Read_OTP
 {
 
 	public static final String dir = System.getProperty("user.dir");
-	public static String ReadOTP() throws IOException, InterruptedException 
+	public static String ReadOTP(String email) throws IOException, InterruptedException 
 	{		
 		System.setProperty("webdriver.chrome.driver", dir + "//chromedriver.exe");
 		
@@ -18,10 +18,10 @@ public class Read_OTP
         WebDriver driver = new ChromeDriver();       
         driver.get("https://www.mailinator.com/v3/#/#inboxpane");
        Thread.sleep(3000);
-        driver.findElement(By.xpath("//*[@id='inbox_field']")).sendKeys("testarun1112291");
+        driver.findElement(By.xpath("//*[@id='inbox_field']")).sendKeys(email);
 
         driver.findElement(By.xpath("//*[text()='Go!']")).click();
-        Thread.sleep(5000);
+        Thread.sleep(8000);
         driver.findElement(By.xpath("//*[contains(text(),'testernew123456@gmail.com')]")).click();
         Thread.sleep(2000);
 
