@@ -30,6 +30,7 @@ import static org.drc.vat.appmanager.HelperBase.clearCache;
 import static org.drc.vat.appmanager.HelperBase.assessmentOfficer;
 import static org.drc.vat.appmanager.HelperBase.sleepWait;
 
+
 @CucumberOptions(features = {
 		"classpath:features/01_userRegistration.feature",
 		"classpath:features/02_01_Login.feature",
@@ -44,6 +45,7 @@ glue = "org.drc.vat.StepDefinitions",
 plugin = {"com.cucumber.listener.ExtentCucumberFormatter:","html:test-output/cucumber-report"}
 //,tags= {"@RejectUser,@OnholdUser"}
 		)
+
 
 public class TestRunner extends AbstractTestNGCucumberTests {
 	private Logger logger = LoggerFactory.getLogger(TestRunner.class);

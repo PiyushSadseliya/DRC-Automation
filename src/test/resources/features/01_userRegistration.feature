@@ -9,7 +9,6 @@ Feature: User Registration for the steps involved in creating a user account for
     And Update data in roles table
 
     Examples:
-
       | Test Case ID                  | Description              | username       |
       | DRC_ATC_Valid_Registration_01 | Register with valid data | Regression Seventeen |
       | DRC_ATC_Valid_Registration_02 | Register with valid data | Regression Eightteen |
