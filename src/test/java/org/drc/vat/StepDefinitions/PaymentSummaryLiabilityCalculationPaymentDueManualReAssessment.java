@@ -35,7 +35,7 @@ public class PaymentSummaryLiabilityCalculationPaymentDueManualReAssessment {
 			String arg1, String period, String year, String tpayer) throws Throwable {
 		sleepWait(2000);
 		clickOn("nav_manualAssessment", "");
-		sleepWait(3000);
+		sleepWait(3000); 
 		clickOn("nav_AssessedList", "");
 		sleepWait(3000);
 		Rperiod = period;
@@ -107,7 +107,7 @@ public class PaymentSummaryLiabilityCalculationPaymentDueManualReAssessment {
 		sleepWait(2000);
 		
 		//assertEquals(validationMessage(), arg1);
-		
+		assertEquals(validationMessage(), arg1);
 		if(wd.findElement(By.xpath("//*[contains(text(),'" + arg1 + "')]")).isDisplayed() )
 		{					
 			assertTrue(true);

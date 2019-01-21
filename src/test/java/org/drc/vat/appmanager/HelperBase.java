@@ -1,10 +1,13 @@
 package org.drc.vat.appmanager;
 
+import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
@@ -89,9 +92,30 @@ public class HelperBase {
 	public static void waitFor(String object) {
 		WebDriverWait wait = new WebDriverWait(wd, 60);
 		By locator = By.xpath(obj.getProperty(object));
-		wait.until(ExpectedConditions.elementToBeClickable(locator));
+		wait.until(ExpectedConditions.elementToBeClickable(locator)); 
 	}
 
+	/**
+	 *  Wait for particulat text 
+	 */
+	
+		
+	public static WebElement FluetWait1(WebElement driverelement) 
+	{
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(wd).withTimeout(30, TimeUnit.SECONDS)
+				.pollingEvery(5, TimeUnit.SECONDS).ignoring(NoSuchElementException.class);
+		seleniumElement = wait.until(new Function<WebDriver, WebElement>()	
+		{
+			public WebElement apply(WebDriver driver) 
+			{
+				return driverelement;
+			}
+		});
+		return seleniumElement;
+	} 
+
+	
+ 
 	public static void clickOn(String object, String data) {
 
 		WebDriverWait wait = new WebDriverWait(wd, 60);
@@ -252,7 +276,7 @@ public class HelperBase {
 		}
 		By locator = By.xpath(obj.getProperty(object));
 		return wd.findElement(locator).getText();
-	}
+	} 
 
 	void attach(By locator, File file) {
 		if (file != null) {
@@ -319,7 +343,7 @@ public class HelperBase {
 		 * //text(By.xpath("//*[@class='toast-top-right toast-container']"));
 		 */
 		return text(By.xpath("//div[@class='toast-message ng-star-inserted']"));
-
+		//return text(By.xpath("//*[@role='alertdialog']"));
 	}
 
 	public static String elementText(String object, String data) {
@@ -486,48 +510,56 @@ public class HelperBase {
 
 	/*
 	 * Login
-	 * 
+	 *  
 	 * @param username
 	 * 
 	 * @param Password
 	 */
 
-	public static void login(String email,String password) throws InterruptedException {
-		//List <WebElement> homepage=wd.findElements(By.xpath("//h2"));
-		//System.out.println(i++);
-		/*	if(homepage.size()>0) {
-		if(!homepage.get(0).getText().equals("Welcome to e-Service Portal")) {
-			sleepWait(5000);
-	}
-	}else{
-		logout();
-	}*/
-
-
-		if (login) {
+	public static void login(String email,String password) throws InterruptedException 
+	{
+			if (login) 
+		{
 			type("txtbox_username", email);
 			type("txtbox_password", password);
 			sleepWait(2000);
 			clickOn("btn_login", "");
 			sleepWait(3000);
 			List<WebElement> vatTile = wd.findElements(By.xpath("//h3[contains(text(),'VAT')]"));
-			if (vatTile.size() > 0) {
+			if (vatTile.size() > 0) 
+			{
 				clickOn("tile_vat", "");
 				sleepWait(2000);
 				List<WebElement> sure = wd.findElements(By.xpath("//a[contains(text(),'Yes')]"));
 				if (sure.size() > 0) {
 					sure.get(0).click();
-				}
-				// login=false;
 			}
-
+				// login=false;
+		}
 			sleepWait(2000);
-			if (wd.getWindowHandles().size() > 0) {
+			if (wd.getWindowHandles().size() > 0) 
+			{
 				wd.switchTo().window(wd.getWindowHandles().toArray()[wd.getWindowHandles().size() - 1].toString());
 			}
 			sleepWait(3000);
 		}
 	}
+	
+	/**
+	 *  Login for Helpdesk Tax Payer
+	 */
+	public static void login_Helpdesk(String email,String password) throws InterruptedException
+	{
+			type("txtbox_username", email);
+			type("txtbox_password", password);
+			sleepWait(2000);
+			clickOn("btn_login", "");
+			sleepWait(1000);
+	}
+	
+	
+	
+	
 	public static void bodymessage(String object) throws InterruptedException
 	{
 		try 
@@ -661,7 +693,7 @@ public class HelperBase {
 
 	public static void datePicker(String date) {
 		try {
-			String d, m, y;
+			String d, m, y; 
 			d = date.substring(8, 10);
 			;
 			m = date.substring(5, 7);
@@ -935,4 +967,43 @@ public class HelperBase {
 		}
 		return frenchNo;
 	}
+	
+	
+	/**
+	 *  Date Pattern DD-MMM-YYYY
+	 */
+	public static boolean isValidDate(String dateMatch) 
+	{
+		boolean validDate = true;			
+		try
+		{
+			org.joda.time.format.DateTimeFormatter formatter = DateTimeFormat.forPattern("dd-MMM-yyyy");
+			DateTime dob = formatter.parseDateTime(dateMatch);		
+		}
+		catch(Exception e)
+		{
+			validDate = false;
+		}		
+		return validDate; 
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

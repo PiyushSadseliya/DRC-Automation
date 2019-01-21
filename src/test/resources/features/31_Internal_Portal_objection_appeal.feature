@@ -140,7 +140,7 @@ Feature: User is on internal Portal for objection and appeal
   #And User see validation message for changing priority "<mess>"
   
   Examples:
-  | TestcaseID       | Description                            | filter     | id              | priority | mess |
+  | TestcaseID       | Description                            | filter     | id              | priority  | mess |
   | Case_Management_ | Verify date filteration functionalityt | drp_CaseID | O18121200000003 | drp_P_High     | Objection updated successfully     |
   
   
