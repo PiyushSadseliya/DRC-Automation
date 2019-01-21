@@ -13,7 +13,7 @@ import cucumber.api.java.en.And;
 
 public class DV_2253_TaxPayer_Portal_objection_appeal 
 {
-
+	public static String Storereference_value; 
 	public String Noticeperiod;
 
 	@And("^User is on Tax Payer portal Objection and Appeal and click on VAT e-Filing Tab \"([^\"]*)\" \"([^\"]*)\"$")
@@ -294,7 +294,11 @@ public class DV_2253_TaxPayer_Portal_objection_appeal
 	public void user_click_on_submit_button_on_notice_page() throws Throwable 
 	{
 		clickOn("btn_Obj_Submit", "");
-		sleepWait(1000);
+		sleepWait(2000);
+		
+		if (wd.findElement(By.xpath("//h3[contains(text(),'Cases')]")).isDisplayed()) {			
+			Storereference_value = elementText("text_storereference_value");
+		}
 	}	
 
 	@And("^User see period on notice$")
@@ -311,7 +315,4 @@ public class DV_2253_TaxPayer_Portal_objection_appeal
 		 *  bug locator to find 
 		 */
 	}
-
-
-
 }

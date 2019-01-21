@@ -2,7 +2,7 @@
 Feature: Upload Documents after all process are completed till the Banks details
 
   #Individual 4 docs poa*,a/c*,loa*,lyr
-  @Individual_mtc6_mtc12_mtc10
+  @Individual_mtc6_mtc12_mtc10 @Sprint3
   Scenario Outline: Tax payer Category as  Natural Person and  Tax payer Sub Category as Individual user wants to upload the document
     Given The users has logged in "<uname>""<pwd>" and proceeds for VAT Registration "<Test Case ID>" "<Description>"
     When Selects taxpayer "Natural Person" and sub category "Individual" and llp ""
@@ -12,14 +12,16 @@ Feature: Upload Documents after all process are completed till the Banks details
     And Fills Bank Details "32145645678" "1rivet" "Advans Bank" "Branch4" and clicks continue
     And The user is on the upload the page with Proofs of Add "<POA>""<POA path>"
     And Acc "<A/C Proof>" "<a/c path>"
+    And COI "<COI>" "<COIpath>"
+    And LawDegree "<LAWdegree>" "<LAWpath>"
     And LOAuth"<LOAuth>" "<LOAuthpath>"
     And rev"<Revenue>""<Revpath>"
     And Views the files
     Then Clicks on Continue.
 
     Examples: 
-      | Test Case ID                  | Description                                                                                                              | POA         | POA path    | A/C Proof | a/c path    | LOAuth    | LOAuthpath  | Revenue   | Revpath     | uname                        | pwd    |
-      | DRC_ATC_Valid_Required_doc_01 | Tax payer Category as  Natural Person and  Tax payer Sub Category as Individual user wants to upload the document (.png) | doc_desc1_1 | Capture.png | doc_desc3 | Capture.png | doc_desc5 | Capture.png | doc_desc4 | Capture.png | approvedduser@mailinator.com | 123456 |
+      | Test Case ID                  | Description                                                                                                              | POA         | POA path    | A/C Proof | a/c path    | COI       | COIpath     | LAWdegree       | LAWpath     | LOAuth    | LOAuthpath  | Revenue   | Revpath     | uname                         | pwd      |
+      | DRC_ATC_Valid_Required_doc_01 | Tax payer Category as  Natural Person and  Tax payer Sub Category as Individual user wants to upload the document (.png) | doc_desc1_1 | Capture.png | doc_desc3 | Capture.png | doc_desc3 | Capture.png | doc_desc3 | Capture.png | doc_desc5 | Capture.png | doc_desc4 | Capture.png | regressionnine@mailinator.com | Test@123 |
 
   #  | DRC_ATC_Valid_Required_doc_02 | Tax payer Category as  Natural Person and  Tax payer Sub Category as Individual user wants to upload the document (.jpg)  | doc_desc1_1 | capture.jpg  | doc_desc3 | capture.jpg  | doc_desc5 | capture.jpg  | doc_desc4 | capture.jpg  | approvedduser@mailinator.com  | Test@123 |
   # | DRC_ATC_Valid_Required_doc_03 | Tax payer Category as  Natural Person and  Tax payer Sub Category as Individual user wants to upload the document (.jpeg)                 | doc_desc1_1 | capture.jpeg       | doc_desc3 | capture.jpeg       | doc_desc5 | capture.jpeg       | doc_desc4 | capture.jpeg       | approvedduser@mailinator.com  | Test@123 |
@@ -30,7 +32,7 @@ Feature: Upload Documents after all process are completed till the Banks details
   #| DRC_ATC_Valid_Required_doc_08 | Tax payer Category as  Natural Person and  Tax payer Sub Category as Individual user wants to upload the document (pdf with greater size) | doc_desc1_1 | TCP_Estimation.pdf | doc_desc3 | TCP_Estimation.pdf | doc_desc5 | TCP_Estimation.pdf | doc_desc4 | TCP_Estimation.pdf | approvedduser@mailinator.com  | Test@123 |
   #govt 6docs poa*,a/c*,coi*,establishemnt*,loa*,lyr 9 general details
   #LLP no 6 docs   poa,a/c,coi,loa,lyr.establishemnt
-  @GovernmentEntity_mtc7_mtc12_mtc10_mtc7
+  @GovernmentEntity_mtc7_mtc12_mtc10_mtc7 @Sprint3
   Scenario Outline: Tax payer Category as Legal Entity and  Tax payer Sub Category as Governement Entity user wants to upload the document
     Given The users has logged in "<uname>""<pwd>" and proceeds for VAT Registration "<Test Case ID>" "<Description>"
     When Selects taxpayer "Legal Entity" and sub category "Government Entity" and llp ""
@@ -58,7 +60,7 @@ Feature: Upload Documents after all process are completed till the Banks details
       #  | DRC_ATC_Required_doc_14 | Tax payer Category as Legal Entity and  Tax payer Sub Category as Governement Entity user wants to upload the document | doc_desc23 | capture.docx | doc_desc25 | capture.docx | doc_desc22 | capture.docx | doc_desc27 | capture.docx | doc_desc21 | capture.docx | doc_desc26 | capture.docx | approvedduser@mailinator.com  | Test@123 |
       | DRC_ATC_Required_doc_15 | Tax payer Category as Legal Entity and  Tax payer Sub Category as Governement Entity user wants to upload the document | doc_desc23 | capture.xlsx | doc_desc25 | capture.xlsx | doc_desc22 | capture.xlsx | doc_desc27 | capture.xlsx | doc_desc21 | capture.xlsx | doc_desc26 | capture.xlsx | approvedduser@mailinator.com | Test@123 |
 
-  @IncLLPY_mtc12_mtc10_mtc8
+  @IncLLPY_mtc12_mtc10_mtc8 @Sprint3
   Scenario Outline: Tax payer Category as Legal Entity and  Tax payer Sub Category as Incorporated Body and is  LLP user wants to upload the document
     Given The users has logged in "<uname>""<pwd>" and proceeds for VAT Registration "<Test Case ID>" "<Description>"
     When Selects taxpayer "Legal Entity" and sub category "Incorporated Bodies" and llp "Yes"
@@ -87,7 +89,7 @@ Feature: Upload Documents after all process are completed till the Banks details
 
   #   | DRC_ATC_Required_doc_22 | Tax payer Category as Legal Entity and  Tax payer Sub Category as Incorporated Body and is  LLP user wants to upload the document | doc_desc7 | capture.xlsx | doc_desc9 | capture.xlsx | doc_desc6 | capture.xlsx | doc_desc11 | capture.xlsx | doc_desc12 | capture.xlsx | doc_desc10 | capture.xlsx | approvedduser@mailinator.com  | Test@123 |
   #LLP no 5 docs  poa,a/c,coi,loa,lyr
-  @IncLLPN_mtc12_mtc10_mtc9
+  @IncLLPN_mtc12_mtc10_mtc9 @Sprint3
   Scenario Outline: Tax payer Category as Legal Entity and  Tax payer Sub Category as Incorporated Body and is not LLP user wants to upload the document
     Given The users has logged in "<uname>""<pwd>" and proceeds for VAT Registration "<Test Case ID>" "<Description>"
     When Selects taxpayer "Legal Entity" and sub category "Incorporated Bodies" and llp "No"
@@ -115,7 +117,7 @@ Feature: Upload Documents after all process are completed till the Banks details
   # | DRC_ATC_Required_doc_28 | Tax payer Category as Legal Entity and  Tax payer Sub Category as Incorporated Body and is not LLP user wants to upload the document | doc_desc7 | capture.gif  | doc_desc9 | capture.gif  | doc_desc6 | capture.gif  | doc_desc11 | capture.gif  | doc_desc10 | capture.gif  | approvedduser@mailinator.com  | Test@123 |
   #| DRC_ATC_Required_doc_29 | Tax payer Category as Legal Entity and  Tax payer Sub Category as Incorporated Body and is not LLP user wants to upload the document | doc_desc7 | capture.xlsx | doc_desc9 | capture.xlsx | doc_desc6 | capture.xlsx | doc_desc11 | capture.xlsx | doc_desc10 | capture.xlsx | approvedduser@mailinator.com  | Test@123 |
   # non corp llp Yes 7 docs poa,a/c,coi,assoc,loa,llp,lyr #done
-  @NonCopratesLLPY_mtc12_mtc10
+  @NonCopratesLLPY_mtc12_mtc10 @Sprint3
   Scenario Outline: Tax payer Category as Legal Entity and  Tax payer Sub Category as Other Non Corporates and is LLP user wants to upload the document
     Given The users has logged in "<uname>""<pwd>" and proceeds for VAT Registration "<Test Case ID>" "<Description>"
     When Selects taxpayer "Legal Entity" and sub category "Other Non-Corporates" and llp "Yes"
@@ -145,7 +147,7 @@ Feature: Upload Documents after all process are completed till the Banks details
   #| DRC_ATC_Required_doc_35 | Tax payer Category as Legal Entity and  Tax payer Sub Category as Other Non Corporates and is LLP user wants to upload the document | doc_desc14 | capture.gif  | doc_desc16 | capture.gif  | doc_desc13 | capture.gif  | doc_desc18 | capture.gif  | doc_desc19 | capture.gif  | doc_desc20 | capture.gif  | doc_desc17 | capture.gif  | approvedduser@mailinator.com  | Test@123 |
   #| DRC_ATC_Required_doc_36 | Tax payer Category as Legal Entity and  Tax payer Sub Category as Other Non Corporates and is LLP user wants to upload the document | doc_desc14 | capture.xlsx | doc_desc16 | capture.xlsx | doc_desc13 | capture.xlsx | doc_desc18 | capture.xlsx | doc_desc19 | capture.xlsx | doc_desc20 | capture.xlsx | doc_desc17 | capture.xlsx | approvedduser@mailinator.com  | Test@123 |
   #other non corporates LLp no 6 docs- Poa,a/c,COI,Assoc REg,LOA,Lyr
-  @NonCopratesLLPN_mtc12_mtc10
+  @NonCopratesLLPN_mtc12_mtc10 @Sprint3
   Scenario Outline: Tax payer Category as Legal Entity and  Tax payer Sub Category as Other Non Corporates and is not LLP user user wants to upload the document
     Given The users has logged in "<uname>""<pwd>" and proceeds for VAT Registration "<Test Case ID>" "<Description>"
     When Selects taxpayer "Legal Entity" and sub category "Other Non-Corporates" and llp "No"
@@ -173,7 +175,7 @@ Feature: Upload Documents after all process are completed till the Banks details
   #  | DRC_ATC_Required_doc_41 | Tax payer Category as Legal Entity and  Tax payer Sub Category as Other Non Corporates and is not LLP user user wants to upload the document | doc_desc14 | capture.docx | doc_desc16 | capture.docx | doc_desc13 | capture.doc  | doc_desc18 | capture.docx | doc_desc19 | capture.docx | doc_desc17 | capture.docx | approvedduser@mailinator.com  | Test@123 |
   #  | DRC_ATC_Required_doc_42 | Tax payer Category as Legal Entity and  Tax payer Sub Category as Other Non Corporates and is not LLP user user wants to upload the document | doc_desc14 | capture.gif  | doc_desc16 | capture.gif  | doc_desc13 | capture.gif  | doc_desc18 | capture.gif  | doc_desc19 | capture.gif  | doc_desc17 | capture.gif  | approvedduser@mailinator.com  | Test@123 |
   # | DRC_ATC_Required_doc_43 | Tax payer Category as Legal Entity and  Tax payer Sub Category as Other Non Corporates and is not LLP user user wants to upload the document | doc_desc14 | capture.xlsx | doc_desc16 | capture.xlsx | doc_desc13 | capture.xlsx | doc_desc18 | capture.xlsx | doc_desc19 | capture.xlsx | doc_desc17 | capture.xlsx | approvedduser@mailinator.com  | Test@123 |
-  @Delete_mtc13_mtc11
+  @Delete_mtc13_mtc11 @Sprint3
   Scenario Outline: Check the Delete Functionality
     Given The users has logged in "<uname>""<pwd>" and proceeds for VAT Registration "<Test Case ID>" "<Description>"
     When Selects taxpayer "Natural Person" and sub category "Individual" and llp ""
@@ -189,7 +191,7 @@ Feature: Upload Documents after all process are completed till the Banks details
       | Test Case ID            | Description                    | POA         | POA path    | uname                        | pwd      |
       | DRC_ATC_Required_doc_44 | Check the Delete Functionality | doc_desc1_1 | Capture.png | RejecteudUser@mailinator.com | Test@123 |
 
-  @previous_mtc3
+  @previous_mtc3 @Sprint3
   Scenario Outline: User is on Required Documents page and wants to redirect to Bank Details page.
     Given The users has logged in "<uname>""<pwd>" and proceeds for VAT Registration "<Test Case ID>" "<Description>"
     When Selects taxpayer "<Category>" and sub category "<SubCategory>" and llp "<Llp>"

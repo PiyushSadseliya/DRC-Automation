@@ -76,8 +76,7 @@ Feature: User is on Tax Payer portal Objection and Appeal
     And User click on Object on notice page
     And User click on Objection Type and select "<list>"
     And User enter description "<description>"
-
-    # And User click on submit button on notice page
+    And User click on submit button on notice page
     Examples: 
-      | TestcaseID                             | Description                       | month | click        | list                    | description                      |
-      | Objection_Appeal_Tax_Payer_02_14_23_24 | Verify raise notice for objection | eMar  | btn_Mar_View | drp_Objection_Assesment | Notice raise by you is incorrect |
+      | TestcaseID                             | Description                       | month | click        | list                    | description   |
+      | Objection_Appeal_Tax_Payer_02_14_23_24 | Verify raise notice for objection | eMar  | btn_May_View | drp_Objection_Assesment | Notice raised |

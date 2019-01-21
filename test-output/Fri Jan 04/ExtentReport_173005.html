@@ -1,0 +1,2152 @@
+
+<!DOCTYPE html>
+<html>
+
+
+<head>
+	<meta charset='utf-8' /> 
+	<meta name='description' content='' />
+	<meta name='robots' content='noodp, noydir' />
+	<meta name='viewport' content='width=device-width, initial-scale=1' />
+	<meta id="timeStampFormat" name="timeStampFormat" content='MMM d, yyyy hh:mm:ss a'/>
+	
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css' />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+		<link href='https://cdn.rawgit.com/anshooarora/extentreports-java/b4a58fcfd1e137bd9287244035a7c80d3d73b3af/dist/css/extent.css' type='text/css' rel='stylesheet' />
+	
+	<title>ExtentReports</title>
+
+	<style type='text/css'>
+	</style>
+</head>
+
+	<body class='extent standard default hide-overflow bdd-report'>
+		<div id='theme-selector' alt='Click to toggle theme. To enable by default, use theme configuration.' title='Click to toggle theme. To enable by default, use theme configuration.'>
+			<span><i class='material-icons'>desktop_windows</i></span>
+		</div>
+
+<nav>
+	<div class="nav-wrapper">
+		<a href="#!" class="brand-logo blue darken-3">Extent</a>
+
+		<!-- slideout menu -->
+		<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
+			<li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
+						<li class='waves-effect'><a href='#!' view='category-view' onclick="configureView(1)"><i class='material-icons'>label_outline</i></a></li>
+			<li class='waves-effect'><a href='#!' view='exception-view' onclick="configureView(2)"><i class='material-icons'>bug_report</i></a></li>
+			<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></i></a></li>
+		</ul>
+
+		<!-- report name -->
+		<span class='report-name'>ExtentReports</span>
+		
+		<!-- report headline -->
+		<span class='report-headline'></span>
+
+		<!-- nav-right -->
+		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
+			<li>
+                <a href='#!'>
+                    <span class='label suite-start-time blue darken-3'>Jan 4, 2019 05:30:09 PM</span>
+				</a>
+			</li>
+			<li>
+                <a href='#!'>
+                    <span class='label blue darken-3'>3.1.5</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+
+		<!-- container -->
+		<div class='container'>
+
+<div id='test-view' class='view'>
+				
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- test toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button tests-toggle' data-activates='tests-toggle' data-constrainwidth='true' data-beloworigin='true' data-hover='true' href='#'>
+					<i class='material-icons'>warning</i> Status
+				</a>
+				<ul id='tests-toggle' class='dropdown-content'>
+											<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
+						<li status='fail'><a href='#!'>Fail <i class='material-icons red-text'>cancel</i></a></li>
+						<li status='skip'><a href='#!'>Skip <i class='material-icons cyan-text'>redo</i></a></li>
+					<li class='divider'></li>
+					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
+				</ul>
+			</div>
+			<!-- test toggle -->
+
+			<!-- category toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button category-toggle' data-activates='category-toggle' data-constrainwidth='false' data-beloworigin='true' data-hover='true' href='#'>
+					<i class='material-icons'>local_offer</i> Category
+				</a>
+				<ul id='category-toggle' class='dropdown-content'>
+					<li><a href='#'>@DebtManagementUnAssignedDebt</a></li>
+					<li><a href='#'>@mtc_19</a></li>
+					<li><a href='#'>@mtc_03</a></li>
+					<li><a href='#'>@mtc_04</a></li>
+					<li><a href='#'>@mtc_05</a></li>
+					<li><a href='#'>@mtc_14</a></li>
+					<li><a href='#'>@mtc_12</a></li>
+					<li><a href='#'>@mtc_07</a></li>
+					<li><a href='#'>@mtc_08</a></li>
+					<li><a href='#'>@mtc_09</a></li>
+					<li><a href='#'>@mtc_06</a></li>
+					<li><a href='#'>@columnverify</a></li>
+					<li><a href='#'>@mtc_13</a></li>
+					<li><a href='#'>@mtc_11</a></li>
+					<li><a href='#'>@mtc_10</a></li>
+					<li><a href='#'>@mtc18</a></li>
+					<li><a href='#'>@mtc_02</a></li>
+					<li class='divider'></li>
+					<li class='clear'><a href='#!' clear='true'>Clear Filters</a></li>
+				</ul>
+			</div>
+			<!-- category toggle -->
+
+			<!-- clear filters -->
+			<div class='chip transparent hide'>
+				<a class='' id='clear-filters' alt='Clear Filters' title='Clear Filters'>
+					<i class='material-icons'>close</i> Clear
+				</a>
+			</div>
+			<!-- clear filters -->
+
+			<!-- enable dashboard -->
+			<div id='toggle-test-view-charts' class='chip transparent'>
+				<a class='pink-text' id='enable-dashboard' alt='Enable Dashboard' title='Enable Dashboard'>
+					<i class='material-icons'>track_changes</i> Dashboard
+				</a>
+			</div>
+			<!-- enable dashboard -->
+
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+					<i class='material-icons'>search</i> Search
+				</a>
+
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+				
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+
+
+<div id='test-view-charts' class='subview-full'>
+	<div id='charts-row' class='row nm-v nm-h'>
+		<div class='col s12 m4 l4 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Features</div>
+				<div class='chart-box'>
+					<canvas id='parent-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='0%'><span class='strong'>0</span> feature(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='100%'>1</span> feature(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+				</div>
+			</div>
+		</div>
+		
+		<div class='col s12 m4 l4 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Scenarios</div>
+				<div class='chart-box'>
+					<canvas id='child-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='85.714%'><span class='strong'>12</span> scenario(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='14.286%'>2</span> scenario(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+				</div>
+			</div>
+		</div>
+		
+		<div class='col s12 m4 l4 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Steps</div>
+				<div class='chart-box'>
+					<canvas id='grandchild-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='95.283%'><span class='strong'>101</span> step(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='1.887%'>2</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='2.83%'>3</span> others
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+	<div class='subview-left left'>
+		
+		<div class='view-summary'>
+			<h5>Features</h5>
+			<ul id='test-collection' class='test-collection'>
+				
+				
+				<li class='test displayed active has-leaf fail' status='fail' bdd='true' test-id='1'>
+					<div class='test-heading'>
+						<span class='test-name'>The Supervisor can assign the collection officer the pending amount from the TaxPayer</span>
+						<span class='test-time'>Jan 4, 2019 05:30:10 PM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='scenariooutline node' test-id='2' status='pass'>
+	<span class='duration right label'>0h 0m 38s+32ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Validate the close (X) icon functionality on officer selection Pop-up internal portal</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='3' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@DebtManagementUnAssignedDebt</span>
+				<span class='category label white-text'>@mtc_19</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Validate the close (X) icon functionality on officer selection Pop-up internal portal</span>
+			
+				<ul class='steps'>
+					<li test-id='4' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given "DRC_ATC_DebtManagement_Unassigned_18""Validate the close (X) icon functionality on officer selection Pop-up"DGI "admin""ketan.prajapati""admin""Aketi"should be logged in to the internal portal</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='5' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When clicked on Debt Management Module must be on Debt Management Module</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='6' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Clicked on pending amount for "0-3 Months"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='7' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then user is on Pending debts</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='8' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then selects unassigned debt and selects the officer and closes the popup window</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="F:\DRC-Automation\test-output\Fri Jan 04\screenshots\Validate the close (X) icon functionality on officer selection Pop-up internal portal_173010.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='9' status='pass'>
+	<span class='duration right label'>0h 0m 17s+42ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Validate the date picker functionality</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='10' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@mtc_03</span>
+				<span class='category label white-text'>@DebtManagementUnAssignedDebt</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Validate the date picker functionality</span>
+			
+				<ul class='steps'>
+					<li test-id='11' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given "DRC_ATC_DebtManagement_Unassigned_03""Validate the close (X) icon functionality on officer selection Pop-up"DGI "admin""ketan.prajapati""admin""Aketi"should be logged in to the internal portal</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='12' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When clicked on Debt Management Module must be on Debt Management Module</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='13' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Clicked on pending amount for "0-3 Months"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='14' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then user is on Pending debts</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='15' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Date selection should be disabled and should be same as debt management</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="F:\DRC-Automation\test-output\Fri Jan 04\screenshots\Validate the date picker functionality_173048.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='16' status='pass'>
+	<span class='duration right label'>0h 1m 44s+62ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Validate the sorting functionality</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='17' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@DebtManagementUnAssignedDebt</span>
+				<span class='category label white-text'>@mtc_04</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Validate the sorting functionality</span>
+			
+				<ul class='steps'>
+					<li test-id='18' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given "DRC_ATC_DebtManagement_Unassigned_04""Validate the sorting functionality"DGI "admin""ketan.prajapati""admin""Aketi"should be logged in to the internal portal</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='19' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When clicked on Debt Management Module must be on Debt Management Module</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='20' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Clicked on pending amount for "0-3 Months"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='21' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then user is on Pending debts</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='22' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then clicks on "NITVA" column on Debt Management</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='23' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then "NITVA" should be in ascending order</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='24' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then clicks on "NITVA" column on Debt Management</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='25' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then "NITVA" should be in descending order</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='26' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then clicks on "Taxpayer" column on Debt Management</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='27' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then "TaxPayer" should be in ascending order</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='28' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then clicks on "Taxpayer" column on Debt Management</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='29' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then "TaxPayer" should be in descending order</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='30' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then clicks on "City" column on Debt Management</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='31' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then "City" should be in ascending order</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='32' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then clicks on "City" column on Debt Management</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='33' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then "City" should be in descending order</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='34' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then clicks on "0-3 Months" column on Debt Management</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='35' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then "ageing" should be in ascending order</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='36' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then clicks on "0-3 Months" column on Debt Management</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='37' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then "ageing" should be in descending order</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='38' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then clicks on "Others" column on Debt Management</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='39' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then "Others" should be in ascending order</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='40' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then clicks on "Others" column on Debt Management</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='41' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then "Others" should be in descending order</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='42' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then clicks on "Total" column on Debt Management</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='43' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then "Total" should be in ascending order</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='44' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then clicks on "Total" column on Debt Management</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='45' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then "Total" should be in descending order</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="F:\DRC-Automation\test-output\Fri Jan 04\screenshots\Validate the sorting functionality_173106.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='46' status='pass'>
+	<span class='duration right label'>0h 0m 23s+127ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Validate the Filter drop down functionality on Debt screen</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='47' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@DebtManagementUnAssignedDebt</span>
+				<span class='category label white-text'>@mtc_05</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Validate the Filter drop down functionality on Debt screen</span>
+			
+				<ul class='steps'>
+					<li test-id='48' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given "DRC_ATC_DebtManagement_Unassigned_05""Validate the Filter drop down functionality on Debt screen"DGI "admin""ketan.prajapati""admin""Aketi"should be logged in to the internal portal</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='49' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When clicked on Debt Management Module must be on Debt Management Module</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='50' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Clicked on pending amount for "0-3 Months"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='51' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then user is on Pending debts</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='52' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Clicks on Filter dropdown button</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='53' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Search by TaxPayer Name "willson" and Records should be displayed</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="F:\DRC-Automation\test-output\Fri Jan 04\screenshots\Validate the Filter drop down functionality on Debt screen_173251.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='54' status='pass'>
+	<span class='duration right label'>0h 0m 19s+208ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Validate view icon functionality</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='55' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@mtc_14</span>
+				<span class='category label white-text'>@DebtManagementUnAssignedDebt</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Validate view icon functionality</span>
+			
+				<ul class='steps'>
+					<li test-id='56' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given "DRC_ATC_DebtManagement_Unassigned_14""Validate view icon functionality"DGI "admin""ketan.prajapati""admin""Aketi"should be logged in to the internal portal</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='57' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When clicked on Debt Management Module must be on Debt Management Module</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='58' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Clicked on pending amount for "0-3 Months"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='59' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then user is on Pending debts</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='60' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then user Clicks on View button on Debt Managemnt and is on Taxpayer profile</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="F:\DRC-Automation\test-output\Fri Jan 04\screenshots\Validate view icon functionality_173315.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='61' status='pass'>
+	<span class='duration right label'>0h 0m 19s+223ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Validate previous button functionality</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='62' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@mtc_12</span>
+				<span class='category label white-text'>@DebtManagementUnAssignedDebt</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Validate previous button functionality</span>
+			
+				<ul class='steps'>
+					<li test-id='63' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given "DRC_ATC_DebtManagement_Unassigned_12""Validate previous button functionality."DGI "admin""ketan.prajapati""admin""Aketi"should be logged in to the internal portal</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='64' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When clicked on Debt Management Module must be on Debt Management Module</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='65' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Clicked on pending amount for "0-3 Months"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='66' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then user is on Pending debts</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='67' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then user clicks on Previous Button on Debt Unassigned and is on Debt Management List</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="F:\DRC-Automation\test-output\Fri Jan 04\screenshots\Validate previous button functionality_173335.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='68' status='pass'>
+	<span class='duration right label'>0h 0m 24s+887ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Validate the Search button functionality with only value in From field</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='69' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@DebtManagementUnAssignedDebt</span>
+				<span class='category label white-text'>@mtc_07</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Validate the Search button functionality with only value in From field</span>
+			
+				<ul class='steps'>
+					<li test-id='70' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given "DRC_ATC_DebtManagement_Unassigned_07""Validate the Search button functionality with only value in From field"DGI "admin""ketan.prajapati""admin""Aketi"should be logged in to the internal portal</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='71' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When clicked on Debt Management Module must be on Debt Management Module</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='72' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Clicked on pending amount for "0-3 Months"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='73' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then user is on Pending debts</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='74' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Clicks on Filter dropdown button</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='75' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Selects "0-3 Months" from debt age</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='76' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Enter value "0"in the from value range</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='77' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then click on search button Records should be displayed in "0-3 Months" as per From "0" value</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="F:\DRC-Automation\test-output\Fri Jan 04\screenshots\Validate the Search button functionality with only value in From field_173355.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='78' status='pass'>
+	<span class='duration right label'>0h 0m 25s+346ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Validate the Search button functionality with only value in to field</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='79' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@DebtManagementUnAssignedDebt</span>
+				<span class='category label white-text'>@mtc_08</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Validate the Search button functionality with only value in to field</span>
+			
+				<ul class='steps'>
+					<li test-id='80' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given "DRC_ATC_DebtManagement_Unassigned_08""Validate the Search button functionality with only value in to field"DGI "admin""ketan.prajapati""admin""Aketi"should be logged in to the internal portal</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='81' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When clicked on Debt Management Module must be on Debt Management Module</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='82' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Clicked on pending amount for "0-3 Months"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='83' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then user is on Pending debts</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='84' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Clicks on Filter dropdown button</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='85' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Selects "0-3 Months" from debt age</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='86' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Enter value "50000"in the to value range</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='87' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then click on search button Records should be displayed in "0-3 Months" as per To"50000" value</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="F:\DRC-Automation\test-output\Fri Jan 04\screenshots\Validate the Search button functionality with only value in to field_173420.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='88' status='pass'>
+	<span class='duration right label'>0h 0m 17s+265ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Validate the Search button functionality</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='89' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@DebtManagementUnAssignedDebt</span>
+				<span class='category label white-text'>@mtc_09</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Validate the Search button functionality</span>
+			
+				<ul class='steps'>
+					<li test-id='90' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given "DRC_ATC_DebtManagement_Unassigned_09""Validate the Search button functionality"DGI "admin""ketan.prajapati""admin""Aketi"should be logged in to the internal portal</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='91' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When clicked on Debt Management Module must be on Debt Management Module</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='92' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Clicked on pending amount for "0-3 Months"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='93' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then user is on Pending debts</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='94' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Clicks on Filter dropdown button</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='95' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then if keeps blank in From and To value range, Search button should be disabled</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="F:\DRC-Automation\test-output\Fri Jan 04\screenshots\Validate the Search button functionality_173447.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='96' status='pass'>
+	<span class='duration right label'>0h 0m 33s+378ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Validate the Reset button functionality</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='97' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@DebtManagementUnAssignedDebt</span>
+				<span class='category label white-text'>@mtc_06</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Validate the Reset button functionality</span>
+			
+				<ul class='steps'>
+					<li test-id='98' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given "DRC_ATC_DebtManagement_Unassigned_06""Validate the Reset button functionality"DGI "admin""ketan.prajapati""admin""Aketi"should be logged in to the internal portal</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='99' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When clicked on Debt Management Module must be on Debt Management Module</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='100' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Clicked on pending amount for "0-3 Months"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='101' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then user is on Pending debts</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='102' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then user enters uses first records in the to filter the records click again on filter option to reset the previously filtered records</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="F:\DRC-Automation\test-output\Fri Jan 04\screenshots\Validate the Reset button functionality_173505.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='103' status='fail'>
+	<span class='duration right label'>0h 0m 18s+322ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Verify the tax payer details columns (NITVA, Tax payer Name, City)</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='104' class='node scenario fail' status='fail'>
+			<div class='category-list'>
+				<span class='category label white-text'>@columnverify</span>
+				<span class='category label white-text'>@mtc_13</span>
+				<span class='category label white-text'>@DebtManagementUnAssignedDebt</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Verify the tax payer details columns (NITVA, Tax payer Name, City)</span>
+			
+				<ul class='steps'>
+					<li test-id='105' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given "DRC_ATC_DebtManagement_Unassigned_13""Verify the tax payer details columns (NITVA, Tax payer Name, City)"DGI "admin""ketan.prajapati""admin""Aketi"should be logged in to the internal portal</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='106' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When clicked on Debt Management Module must be on Debt Management Module</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='107' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Clicked on pending amount for "0-3 Months"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='108' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then user is on Pending debts</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='109' class='node then fail' status='fail'><b>Then</b>
+						<span class="bdd-step-name">Then Column should be "NITVA" "Taxpayer" "City" "0-3 Months" "Others" "Total" "View"</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="F:\DRC-Automation\test-output\Fri Jan 04\screenshots\Verify the tax payer details columns (NITVA, Tax payer Name, City)_173539.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//th[9]"}
+  (Session info: chrome=71.0.3578.98)
+  (Driver info: chromedriver=2.43.600210 (68dcf5eebde37173d4027fa8635e332711d2874a),platform=Windows NT 10.0.17134 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.11.0', revision: 'e59cfb3', time: '2018-03-11T20:26:55.152Z'
+System info: host: '1R-22', ip: '172.16.3.22', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_171'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.43.600210 (68dcf5eebde371..., userDataDir: C:\Users\SRIJO~1.VAL\AppDat...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:50740}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 71.0.3578.98, webStorageEnabled: true}
+Session ID: 9538668b6d6c3945c93d8d7a93a71e02
+*** Element info: {Using=xpath, value=//th[9]}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:214)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:166)
+	at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:80)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:44)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:319)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:421)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:311)
+	at org.drc.vat.appmanager.HelperBase.elementText(HelperBase.java:311)
+	at org.drc.vat.StepDefinitions.DebtManagementUnassignedDebt.column_should_be(DebtManagementUnassignedDebt.java:351)
+	at ?.Then Column should be "NITVA" "Taxpayer" "City" "0-3 Months" "Others" "Total" "View"(features/33_DebtManagementUnassignedDebt.feature:210)
+</pre></div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='110' status='pass'>
+	<span class='duration right label'>0h 0m 25s+312ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Validate the pagination functionality</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='111' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@mtc_11</span>
+				<span class='category label white-text'>@DebtManagementUnAssignedDebt</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Validate the pagination functionality</span>
+			
+				<ul class='steps'>
+					<li test-id='112' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given "DRC_ATC_DebtManagement_Unassigned_11""Validate the pagination functionality"DGI "admin""ketan.prajapati""admin""Aketi"should be logged in to the internal portal</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='113' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When clicked on Debt Management Module must be on Debt Management Module</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='114' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Clicked on pending amount for "0-3 Months"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='115' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then user is on Pending debts</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='116' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Click on Last button on debt pending it should be on last page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='117' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then click on First button it should be on First page of pending debt</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='118' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then click on next button it should be second page of pendign debt</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='119' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Click on previous button it should be First page of pending Debt</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="F:\DRC-Automation\test-output\Fri Jan 04\screenshots\Validate the pagination functionality_173558.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='120' status='pass'>
+	<span class='duration right label'>0h 0m 23s+455ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Validate Assign officer button functionality</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='121' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@mtc_10</span>
+				<span class='category label white-text'>@DebtManagementUnAssignedDebt</span>
+				<span class='category label white-text'>@mtc18</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Validate Assign officer button functionality</span>
+			
+				<ul class='steps'>
+					<li test-id='122' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given "DRC_ATC_DebtManagement_Unassigned_10""Validate Assign officer button functionality"DGI "admin""ketan.prajapati""admin""Aketi"should be logged in to the internal portal</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='123' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When clicked on Debt Management Module must be on Debt Management Module</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='124' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When Clicked on pending amount for "0-3 Months"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='125' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then user is on Pending debts</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='126' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then user selects all the records for assigning all the records should be selected</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='127' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then click on assign button</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='128' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then click on save button ,It should be disabled</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="F:\DRC-Automation\test-output\Fri Jan 04\screenshots\Validate Assign officer button functionality_173624.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='129' status='fail'>
+	<span class='duration right label'>0h 0m 5s+626ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Validate the assign officer button functionality with valid data</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='130' class='node scenario fail' status='fail'>
+			<div class='category-list'>
+				<span class='category label white-text'>@mtc_02</span>
+				<span class='category label white-text'>@DebtManagementUnAssignedDebt</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Validate the assign officer button functionality with valid data</span>
+			
+				<ul class='steps'>
+					<li test-id='131' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given "DRC_ATC_DebtManagement_Unassigned_02""Validate the assign officer button functionality with valid data"DGI "admin""ketan.prajapati""admin""Aketi"should be logged in to the internal portal</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='132' class='node when fail' status='fail'><b>When</b>
+						<span class="bdd-step-name">When clicked on Debt Management Module must be on Debt Management Module</span>
+							<div class='pre'><textarea>org.openqa.selenium.WebDriverException: unknown error: Element <a _ngcontent-c8="" class="icon-container ng-tns-c8-10 ng-star-inserted" ng-reflect-router-link="debt-management" href="/debt-management">...</a> is not clickable at point (35, 522). Other element would receive the click: <modal-container class="modal fade show" role="dialog" tabindex="-1" style="display: block;" aria-modal="true">...</modal-container>
+  (Session info: chrome=71.0.3578.98)
+  (Driver info: chromedriver=2.43.600210 (68dcf5eebde37173d4027fa8635e332711d2874a),platform=Windows NT 10.0.17134 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+Build info: version: '3.11.0', revision: 'e59cfb3', time: '2018-03-11T20:26:55.152Z'
+System info: host: '1R-22', ip: '172.16.3.22', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_171'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.43.600210 (68dcf5eebde371..., userDataDir: C:\Users\SRIJO~1.VAL\AppDat...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:50740}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 71.0.3578.98, webStorageEnabled: true}
+Session ID: 9538668b6d6c3945c93d8d7a93a71e02
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:214)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:166)
+	at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:80)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:44)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:279)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:83)
+	at org.drc.vat.appmanager.HelperBase.clickOn(HelperBase.java:99)
+	at org.drc.vat.StepDefinitions.DebtManagementLandingScreen.clicked_on_Debt_Management_Module_must_be_on_Debt_Management_Module(DebtManagementLandingScreen.java:77)
+	at ?.When clicked on Debt Management Module must be on Debt Management Module(features/33_DebtManagementUnassignedDebt.feature:248)
+</textarea></div>
+					</li>
+					<li test-id='133' class='node when skip' status='skip'><b>When</b>
+						<span class="bdd-step-name">When Clicked on pending amount for "0-3 Months"</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='134' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then user is on Pending debts</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='135' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then Search by TaxPayer Name "Approved User" and assigns to officer and is on Case Management</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="F:\DRC-Automation\test-output\Fri Jan 04\screenshots\Validate the assign officer button functionality with valid data_173648.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>skipped</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- subview left -->
+
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='test-name'></h5>
+
+			<div id='step-filters' class="right">
+				<span class="blue-text" status="info" alt="info" title="info"><i class="material-icons">info_outline</i></span>
+				<span class="green-text" status="pass" alt="pass" title="pass"><i class="material-icons">check_circle</i></span>
+				<span class="red-text" status="fail" alt="fail" title="fail"><i class="material-icons">cancel</i></span>
+				<span class="red-text text-darken-4" status="fatal" alt="fatal" title="fatal"><i class="material-icons">cancel</i></span>
+				<span class="pink-text text-lighten-1" status="error" alt="error" title="error"><i class="material-icons">error</i></span>
+				<span class="orange-text" alt="warning" status="warning" title="warning"><i class="material-icons">warning</i></span>
+				<span class="teal-text" status="skip" alt="skip" title="skip"><i class="material-icons">redo</i></span>
+				<span status="clear" alt="Clear filters" title="Clear filters"><i class="material-icons">clear</i></span>
+			</div>
+		</div>
+	</div>
+	<!-- subview right -->
+
+</div>
+<!-- test view -->
+<div id='category-view' class='view hide'>
+
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+					<i class='material-icons'>search</i> Search
+				</a>
+				
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+				
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+
+	<div class='subview-left left'>
+		
+		<div class='view-summary'>
+			<h5>Categories</h3>
+			<ul id='category-collection' class='category-collection'>
+				
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@DebtManagementUnAssignedDebt</span>
+						<span class='category-status right'>
+							<span class='label pass'>12</span>
+							<span class='label fail'>3</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 12</span>
+							<span class='label red lighten-1 white-text'>Failed: 3</span>
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jan 4, 2019 05:30:10 PM</td>
+										<td class='linked' test-id='1'>The Supervisor can assign the collection officer the pending amount from the TaxPayer</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+									<tr>
+										<td>Jan 4, 2019 05:30:10 PM</td>
+										<td class='linked' test-id='3'>The Supervisor can assign the collection officer the pending amount from the TaxPayer.Validate the close (X) icon functionality on officer selection Pop-up internal portal.Validate the close (X) icon functionality on officer selection Pop-up internal portal</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 4, 2019 05:30:48 PM</td>
+										<td class='linked' test-id='10'>The Supervisor can assign the collection officer the pending amount from the TaxPayer.Validate the date picker functionality.Validate the date picker functionality</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 4, 2019 05:31:06 PM</td>
+										<td class='linked' test-id='17'>The Supervisor can assign the collection officer the pending amount from the TaxPayer.Validate the sorting functionality.Validate the sorting functionality</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 4, 2019 05:32:51 PM</td>
+										<td class='linked' test-id='47'>The Supervisor can assign the collection officer the pending amount from the TaxPayer.Validate the Filter drop down functionality on Debt screen.Validate the Filter drop down functionality on Debt screen</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 4, 2019 05:33:15 PM</td>
+										<td class='linked' test-id='55'>The Supervisor can assign the collection officer the pending amount from the TaxPayer.Validate view icon functionality.Validate view icon functionality</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 4, 2019 05:33:35 PM</td>
+										<td class='linked' test-id='62'>The Supervisor can assign the collection officer the pending amount from the TaxPayer.Validate previous button functionality.Validate previous button functionality</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 4, 2019 05:33:55 PM</td>
+										<td class='linked' test-id='69'>The Supervisor can assign the collection officer the pending amount from the TaxPayer.Validate the Search button functionality with only value in From field.Validate the Search button functionality with only value in From field</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 4, 2019 05:34:20 PM</td>
+										<td class='linked' test-id='79'>The Supervisor can assign the collection officer the pending amount from the TaxPayer.Validate the Search button functionality with only value in to field.Validate the Search button functionality with only value in to field</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 4, 2019 05:34:47 PM</td>
+										<td class='linked' test-id='89'>The Supervisor can assign the collection officer the pending amount from the TaxPayer.Validate the Search button functionality.Validate the Search button functionality</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 4, 2019 05:35:05 PM</td>
+										<td class='linked' test-id='97'>The Supervisor can assign the collection officer the pending amount from the TaxPayer.Validate the Reset button functionality.Validate the Reset button functionality</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 4, 2019 05:35:39 PM</td>
+										<td class='linked' test-id='104'>The Supervisor can assign the collection officer the pending amount from the TaxPayer.Verify the tax payer details columns (NITVA, Tax payer Name, City).Verify the tax payer details columns (NITVA, Tax payer Name, City)</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+									<tr>
+										<td>Jan 4, 2019 05:35:58 PM</td>
+										<td class='linked' test-id='111'>The Supervisor can assign the collection officer the pending amount from the TaxPayer.Validate the pagination functionality.Validate the pagination functionality</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 4, 2019 05:36:24 PM</td>
+										<td class='linked' test-id='121'>The Supervisor can assign the collection officer the pending amount from the TaxPayer.Validate Assign officer button functionality.Validate Assign officer button functionality</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 4, 2019 05:36:48 PM</td>
+										<td class='linked' test-id='130'>The Supervisor can assign the collection officer the pending amount from the TaxPayer.Validate the assign officer button functionality with valid data.Validate the assign officer button functionality with valid data</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@mtc_19</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jan 4, 2019 05:30:10 PM</td>
+										<td class='linked' test-id='3'>The Supervisor can assign the collection officer the pending amount from the TaxPayer.Validate the close (X) icon functionality on officer selection Pop-up internal portal.Validate the close (X) icon functionality on officer selection Pop-up internal portal</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@mtc_03</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jan 4, 2019 05:30:48 PM</td>
+										<td class='linked' test-id='10'>The Supervisor can assign the collection officer the pending amount from the TaxPayer.Validate the date picker functionality.Validate the date picker functionality</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@mtc_04</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jan 4, 2019 05:31:06 PM</td>
+										<td class='linked' test-id='17'>The Supervisor can assign the collection officer the pending amount from the TaxPayer.Validate the sorting functionality.Validate the sorting functionality</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@mtc_05</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jan 4, 2019 05:32:51 PM</td>
+										<td class='linked' test-id='47'>The Supervisor can assign the collection officer the pending amount from the TaxPayer.Validate the Filter drop down functionality on Debt screen.Validate the Filter drop down functionality on Debt screen</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@mtc_14</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jan 4, 2019 05:33:15 PM</td>
+										<td class='linked' test-id='55'>The Supervisor can assign the collection officer the pending amount from the TaxPayer.Validate view icon functionality.Validate view icon functionality</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@mtc_12</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jan 4, 2019 05:33:35 PM</td>
+										<td class='linked' test-id='62'>The Supervisor can assign the collection officer the pending amount from the TaxPayer.Validate previous button functionality.Validate previous button functionality</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@mtc_07</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jan 4, 2019 05:33:55 PM</td>
+										<td class='linked' test-id='69'>The Supervisor can assign the collection officer the pending amount from the TaxPayer.Validate the Search button functionality with only value in From field.Validate the Search button functionality with only value in From field</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@mtc_08</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jan 4, 2019 05:34:20 PM</td>
+										<td class='linked' test-id='79'>The Supervisor can assign the collection officer the pending amount from the TaxPayer.Validate the Search button functionality with only value in to field.Validate the Search button functionality with only value in to field</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@mtc_09</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jan 4, 2019 05:34:47 PM</td>
+										<td class='linked' test-id='89'>The Supervisor can assign the collection officer the pending amount from the TaxPayer.Validate the Search button functionality.Validate the Search button functionality</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@mtc_06</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jan 4, 2019 05:35:05 PM</td>
+										<td class='linked' test-id='97'>The Supervisor can assign the collection officer the pending amount from the TaxPayer.Validate the Reset button functionality.Validate the Reset button functionality</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@columnverify</span>
+						<span class='category-status right'>
+							<span class='label fail'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							
+							<span class='label red lighten-1 white-text'>Failed: 1</span>
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jan 4, 2019 05:35:39 PM</td>
+										<td class='linked' test-id='104'>The Supervisor can assign the collection officer the pending amount from the TaxPayer.Verify the tax payer details columns (NITVA, Tax payer Name, City).Verify the tax payer details columns (NITVA, Tax payer Name, City)</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@mtc_13</span>
+						<span class='category-status right'>
+							<span class='label fail'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							
+							<span class='label red lighten-1 white-text'>Failed: 1</span>
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jan 4, 2019 05:35:39 PM</td>
+										<td class='linked' test-id='104'>The Supervisor can assign the collection officer the pending amount from the TaxPayer.Verify the tax payer details columns (NITVA, Tax payer Name, City).Verify the tax payer details columns (NITVA, Tax payer Name, City)</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@mtc_11</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jan 4, 2019 05:35:58 PM</td>
+										<td class='linked' test-id='111'>The Supervisor can assign the collection officer the pending amount from the TaxPayer.Validate the pagination functionality.Validate the pagination functionality</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@mtc_10</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jan 4, 2019 05:36:24 PM</td>
+										<td class='linked' test-id='121'>The Supervisor can assign the collection officer the pending amount from the TaxPayer.Validate Assign officer button functionality.Validate Assign officer button functionality</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@mtc18</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jan 4, 2019 05:36:24 PM</td>
+										<td class='linked' test-id='121'>The Supervisor can assign the collection officer the pending amount from the TaxPayer.Validate Assign officer button functionality.Validate Assign officer button functionality</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@mtc_02</span>
+						<span class='category-status right'>
+							<span class='label fail'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							
+							<span class='label red lighten-1 white-text'>Failed: 1</span>
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jan 4, 2019 05:36:48 PM</td>
+										<td class='linked' test-id='130'>The Supervisor can assign the collection officer the pending amount from the TaxPayer.Validate the assign officer button functionality with valid data.Validate the assign officer button functionality with valid data</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+
+			</ul>
+		</div>
+	</div>
+
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='category-name'></h5>
+		</div>
+	</div>
+</div>
+<!-- category view -->
+<div id='exception-view' class='view hide'>
+
+    <section id='controls'>
+        <div class='controls grey lighten-4'>
+            <!-- search -->
+            <div class='chip transparent' alt='Search Tests' title='Search Tests'>
+                <a href="#" class='search-div'>
+                    <i class='material-icons'>search</i> Search
+                </a>
+
+                <div class='input-field left hide'>
+                    <input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+                </div>
+
+            </div>
+            <!-- search -->
+        </div>
+    </section>
+
+    <div class='subview-left left'>
+
+        <div class='view-summary'>
+            <h5>Exceptions</h3>
+                <ul id='exception-collection' class='exception-collection'>
+
+                        <li class='exception displayed active'>
+                            <div class='exception-heading'>
+                                <span class='exception-name'>org.openqa.selenium.NoSuchElementException</span>
+                                <span class='exception-count right'><span class='label red lighten-1 white-text'>1</span></span>
+                            </div>
+                            <div class='exception-content hide'>
+                                <div class='exception-tests'>
+                                    <table class='bordered table-results'>
+                                        <thead>
+                                        <tr>
+                                            <th>Timestamp</th>
+                                            <th>TestName</th>
+                                            <th>Status</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                                    <tr>
+                                                        <td>Jan 4, 2019 05:35:56 PM</td>
+                                                        <td class='linked' test-id='109'>The Supervisor can assign the collection officer the pending amount from the TaxPayer.Verify the tax payer details columns (NITVA, Tax payer Name, City).Verify the tax payer details columns (NITVA, Tax payer Name, City).Then Column should be "NITVA" "Taxpayer" "City" "0-3 Months" "Others" "Total" "View"</td>
+                                                        <td><pre><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//th[9]"}
+  (Session info: chrome=71.0.3578.98)
+  (Driver info: chromedriver=2.43.600210 (68dcf5eebde37173d4027fa8635e332711d2874a),platform=Windows NT 10.0.17134 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.11.0', revision: 'e59cfb3', time: '2018-03-11T20:26:55.152Z'
+System info: host: '1R-22', ip: '172.16.3.22', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_171'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.43.600210 (68dcf5eebde371..., userDataDir: C:\Users\SRIJO~1.VAL\AppDat...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:50740}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 71.0.3578.98, webStorageEnabled: true}
+Session ID: 9538668b6d6c3945c93d8d7a93a71e02
+*** Element info: {Using=xpath, value=//th[9]}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:214)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:166)
+	at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:80)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:44)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:319)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:421)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:311)
+	at org.drc.vat.appmanager.HelperBase.elementText(HelperBase.java:311)
+	at org.drc.vat.StepDefinitions.DebtManagementUnassignedDebt.column_should_be(DebtManagementUnassignedDebt.java:351)
+	at ?.Then Column should be "NITVA" "Taxpayer" "City" "0-3 Months" "Others" "Total" "View"(features/33_DebtManagementUnassignedDebt.feature:210)
+</pre></pre></td>
+                                                    </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </li>
+                        <li class='exception displayed active'>
+                            <div class='exception-heading'>
+                                <span class='exception-name'>org.openqa.selenium.WebDriverException</span>
+                                <span class='exception-count right'><span class='label red lighten-1 white-text'>1</span></span>
+                            </div>
+                            <div class='exception-content hide'>
+                                <div class='exception-tests'>
+                                    <table class='bordered table-results'>
+                                        <thead>
+                                        <tr>
+                                            <th>Timestamp</th>
+                                            <th>TestName</th>
+                                            <th>Status</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                                    <tr>
+                                                        <td>Jan 4, 2019 05:36:54 PM</td>
+                                                        <td class='linked' test-id='132'>The Supervisor can assign the collection officer the pending amount from the TaxPayer.Validate the assign officer button functionality with valid data.Validate the assign officer button functionality with valid data.When clicked on Debt Management Module must be on Debt Management Module</td>
+                                                        <td><pre><textarea>org.openqa.selenium.WebDriverException: unknown error: Element <a _ngcontent-c8="" class="icon-container ng-tns-c8-10 ng-star-inserted" ng-reflect-router-link="debt-management" href="/debt-management">...</a> is not clickable at point (35, 522). Other element would receive the click: <modal-container class="modal fade show" role="dialog" tabindex="-1" style="display: block;" aria-modal="true">...</modal-container>
+  (Session info: chrome=71.0.3578.98)
+  (Driver info: chromedriver=2.43.600210 (68dcf5eebde37173d4027fa8635e332711d2874a),platform=Windows NT 10.0.17134 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+Build info: version: '3.11.0', revision: 'e59cfb3', time: '2018-03-11T20:26:55.152Z'
+System info: host: '1R-22', ip: '172.16.3.22', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_171'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.43.600210 (68dcf5eebde371..., userDataDir: C:\Users\SRIJO~1.VAL\AppDat...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:50740}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 71.0.3578.98, webStorageEnabled: true}
+Session ID: 9538668b6d6c3945c93d8d7a93a71e02
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:214)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:166)
+	at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:80)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:44)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:279)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:83)
+	at org.drc.vat.appmanager.HelperBase.clickOn(HelperBase.java:99)
+	at org.drc.vat.StepDefinitions.DebtManagementLandingScreen.clicked_on_Debt_Management_Module_must_be_on_Debt_Management_Module(DebtManagementLandingScreen.java:77)
+	at ?.When clicked on Debt Management Module must be on Debt Management Module(features/33_DebtManagementUnassignedDebt.feature:248)
+</textarea></pre></td>
+                                                    </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </li>
+                </ul>
+        </div>
+    </div>
+
+    <div class='subview-right left'>
+        <div class='view-summary'>
+            <h5 class='exception-name'></h5>
+        </div>
+    </div>
+</div>
+<!-- exception view -->
+<div id='dashboard-view' class='view hide'>
+	<div class='card-panel transparent np-v'>
+		<h5>Dashboard</h5>
+
+		<div class='row'>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Features
+					<div class='panel-lead'>1</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Scenarios
+					<div class='panel-lead'>14</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Steps
+					<div class='panel-lead'>106</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Start
+					<div class='panel-lead'>Jan 4, 2019 05:30:09 PM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+			 		End
+			 		<div class='panel-lead'>Jan 4, 2019 05:36:55 PM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Time Taken
+					<div class='panel-lead'>0h 6m 45s+73ms</div>
+				</div>
+			</div>
+			<div class='col s6'>
+				<div class='card-panel dashboard-categories'>
+					<span class='right label cyan white-text'>Categories</span><p>&nbsp;</p>
+					
+					<table>
+						<tr>
+							<th>Name</th>
+							<th>Passed</th>
+							<th>Failed</th>
+							<th>Others</th>
+							<th>Passed %</th>
+						</tr>
+						<tr>
+							<td>@DebtManagementUnAssignedDebt</td>
+							<td>12</td>
+							<td>3</td>
+							<td>0</td>
+							<td>
+									80%
+							</td>
+						</tr>
+						<tr>
+							<td>@mtc_19</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>@mtc_03</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>@mtc_04</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>@mtc_05</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>@mtc_14</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>@mtc_12</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>@mtc_07</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>@mtc_08</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>@mtc_09</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>@mtc_06</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>@columnverify</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>
+									0%
+							</td>
+						</tr>
+						<tr>
+							<td>@mtc_13</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>
+									0%
+							</td>
+						</tr>
+						<tr>
+							<td>@mtc_11</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>@mtc_10</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>@mtc18</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>@mtc_02</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>
+									0%
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- dashboard view -->
+<!-- testrunner-logs view -->
+		</div>
+		<!-- container -->
+
+		<script>
+			var statusGroup = {
+				passParent: 0,
+				failParent: 1,
+				fatalParent: 0,
+				errorParent: 0,
+				warningParent: 0,
+				skipParent: 0,
+				exceptionsParent: 1,
+				
+				passChild: 12,
+				failChild: 2,
+				fatalChild: 0,
+				errorChild: 0,
+				warningChild: 0,
+				skipChild: 0,
+				infoChild: 0,
+				exceptionsChild: 2,
+				
+				passGrandChild: 101,
+				failGrandChild: 2,
+				fatalGrandChild: 0,
+				errorGrandChild: 0,
+				warningGrandChild: 0,
+				skipGrandChild: 3,
+				infoGrandChild: 0,
+				exceptionsGrandChild: 5,
+			};
+		</script>
+		
+			<script src='https://cdn.rawgit.com/anshooarora/extentreports-java/fca20fb7653aade98810546ab96a2a4360e3e712/dist/js/extent.js' type='text/javascript'></script>
+		
+		
+ 		<script type='text/javascript'>
+ 		</script>
+	</body>
+	
+</html>
