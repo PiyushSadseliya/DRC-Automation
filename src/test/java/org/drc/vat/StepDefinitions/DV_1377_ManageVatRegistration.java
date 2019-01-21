@@ -233,6 +233,16 @@ public class DV_1377_ManageVatRegistration
 		sleepWait(2000);
 	}
 
+	@And("^User see piority \"([^\"]*)\"$")
+	public void user_see_piority(String value) throws Throwable 
+	{ 
+		sleepWait(1000);
+		if(wd.findElement(By.xpath("(//*[contains(text(),'" + value + "')])[1]")).isDisplayed())
+		{
+			assertTrue(true);
+		}
+	}
+
 	@Then("^clicks on download pdf button$")
 	public void clicks_on_download_pdf_button() throws Throwable 
 	{

@@ -76,7 +76,7 @@ public class HelperBase {
 
 	private static String cwd = System.getProperty("user.dir");
 	public static String filedoc = cwd + "\\src\\test\\resources\\docs\\";
-	private static File dir = new File(System.getProperty("user.home") + "/Downloads");
+	private static File dir = new File(System.getProperty("user.home") + "/Pictures");
 
 	static {
 		try {
@@ -278,11 +278,11 @@ public class HelperBase {
 		WebDriverWait wait = new WebDriverWait(wd, 10);
 		// wait.until(ExpectedConditions.invisibilityOfElementLocated(
 		// By.xpath("(//*[contains(@class,'toast-content')])[last()]")));
-		clickOn("span", "[@class='fa fa-power-off']");
-		sleepWait(2500);
-		clickOn("link_clickhere", "");
-		sleepWait(2000);
-
+		clickOn("drp_btn_logout", "");
+		clickOn("drp_Sign_out", "");		
+		//System.out.println("browser closed");
+//		clickOn("link_clickhere", "");
+//		sleepWait(2000);
 	}
 
 	public static void drp_select(String object, String data) {
@@ -424,7 +424,6 @@ public class HelperBase {
 		System.out.println(view.size());
 		if (view.size() == data) {
 			System.out.println("All Documents viewed");
-
 			wd.switchTo().window(handle);
 			sleepWait(2000);
 		}
@@ -667,7 +666,8 @@ public class HelperBase {
 			m = date.substring(5, 7);
 			y = date.substring(0, 4);
 			clickOn("span", "[contains(text(),'2019')]");
-			clickOn("span", "[contains(text(),'" + y + "')]");
+			//clickOn("span", "[contains(text(),'" + y + "')]");			
+			wd.findElement(By.xpath("(//span[contains(text(),'" + y + "')])[last()]")).click();			
 			// clickOn("span","[contains(text(),'June')]");
 
 			sleepWait(2000);

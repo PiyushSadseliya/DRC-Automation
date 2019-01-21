@@ -6,6 +6,11 @@
       <class name="org.drc.vat.StepDefinitions.TestRunner"/>
     </classes>
   </test> <!-- Default test -->
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> 1707975d32a89dc8978a09fcf5723d89b0e20a23
   <test name="Default test(failed)">
     <classes>
       <class name="org.drc.vat.StepDefinitions.TestRunner">
@@ -19,4 +24,8 @@
       </class> <!-- org.drc.vat.StepDefinitions.TestRunner -->
     </classes>
   </test> <!-- Default test(failed) -->
+<<<<<<< HEAD
+=======
+>>>>>>> adccba3f2ac7cbb15dbe0f5d7c480256b51bbdad
+>>>>>>> 1707975d32a89dc8978a09fcf5723d89b0e20a23
 </suite> <!-- Failed suite [Default suite] -->

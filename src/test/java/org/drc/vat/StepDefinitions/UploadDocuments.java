@@ -259,34 +259,33 @@ public class UploadDocuments {
 
 	@When("^Acc \"([^\"]*)\" \"([^\"]*)\"$")
 	public void acc(String ac, String acpath) throws Throwable {
-		clickOn("dropdown_1", "");
-		wd.findElement(By.xpath("//span[contains(text(),'')]")).click();
-		//clickOn("span", "[contains(text(),'" + ac + "')]");
+		clickOn("dropdown_1", "");		
+		clickOn("span","[contains(text(),' " + ac + "') and contains(@class,'ng-option-label ng-star-inserted')]");
 		clickOn("file1_upload", "");
 		UploadImage("", acpath);
 		fileUploadMessage(acpath);
 		upload_doc++;
 		// System.out.println("uploaded ac");
 	}
-	
+
 	@When("^COI \"([^\"]*)\" \"([^\"]*)\"$")
 	public void coi(String coi, String coipath) throws Throwable {
 		clickOn("dropdown_2", "");
-		clickOn("span", "[contains(text(),'" + coi + "')]");
+		clickOn("span", "[contains(text(),'" + coi + "') and contains(@class,'ng-option-label ng-star-inserted')]");
 		clickOn("file1_upload", "");
 		UploadImage("", coipath);
 		fileUploadMessage(coipath);
 		upload_doc++;
 	}
-	
+
 	@When("^LawDegree \"([^\"]*)\" \"([^\"]*)\"$")
 	public void lawdegree(String law, String lawpath) throws Throwable {
-		clickOn("dropdown_4", "");
-		clickOn("span", "[contains(text(),'" + law + "')]");
+		clickOn("dropdown_3", "");
+		clickOn("span", "[contains(text(),'" + law + "') and contains(@class,'ng-option-label ng-star-inserted')]");
 		clickOn("file1_upload", "");
 		UploadImage("", lawpath);
 		fileUploadMessage(lawpath);
-		upload_doc++;
+		upload_doc++;		
 	}
 
 	@When("^LOAuth\"([^\"]*)\" \"([^\"]*)\"$")
@@ -295,20 +294,20 @@ public class UploadDocuments {
 		// System.out.println(lauth);
 		if (cat.equals("Natural Person")) {
 			clickOn("dropdown_2", "");
-			clickOn("span", "[contains(text(),'" + lauth + "')]");
+			clickOn("span", "[contains(text(),'" + lauth + "') and contains(@class,'ng-option-label ng-star-inserted')]");
 			clickOn("file2_upload", "");
 		} else if (subcat.equals("Government Entity") || subcat.equals("Other Non-Corporates") && llpyn.equals("Yes")
 				|| subcat.equals("Other Non-Corporates") && llpyn.equals("No")) {
 			clickOn("dropdown_4", "");
 			sleepWait(2000);
-			clickOn("span", "[contains(text(),'" + lauth + "')]");
+			clickOn("span", "[contains(text(),'" + lauth + "') and contains(@class,'ng-option-label ng-star-inserted')]");
 			clickOn("file4_upload", "");
 			sleepWait(1000);
 		} else if (subcat.equals("Incorporated Bodies") && llpyn.equals("No")
 				|| subcat.equals("Incorporated Bodies") && llpyn.equals("Yes")) {
 			clickOn("dropdown_3", "");
 			sleepWait(2000);
-			clickOn("span", "[contains(text(),'" + lauth + "')]");
+			clickOn("span", "[contains(text(),'" + lauth + "') and contains(@class,'ng-option-label ng-star-inserted')]");
 			clickOn("file3_upload", "");
 			sleepWait(2000);
 		}
@@ -324,7 +323,7 @@ public class UploadDocuments {
 		// System.out.println(inc);
 		clickOn("dropdown_2", "");
 		sleepWait(1000);
-		clickOn("span", "[contains(text(),'" + inc + "')]");
+		clickOn("span", "[contains(text(),'" + inc + "') and contains(@class,'ng-option-label ng-star-inserted')]");
 		clickOn("file2_upload", "");
 		sleepWait(1000);
 		UploadImage("", incpath);
@@ -339,7 +338,7 @@ public class UploadDocuments {
 		// System.out.println(establish);
 		clickOn("dropdown_3", "");
 		sleepWait(1000);
-		clickOn("span", "[contains(text(),'" + establish + "')]");
+		clickOn("span", "[contains(text(),'" + establish + "') and contains(@class,'ng-option-label ng-star-inserted')]");
 		clickOn("file3_upload", "");
 		sleepWait(1000);
 		UploadImage("", establishpath);
@@ -355,26 +354,26 @@ public class UploadDocuments {
 		if (cat.equals("Natural Person") & lyr != "") {
 			clickOn("dropdown_3", "");
 			sleepWait(2000);
-			clickOn("span", "[contains(text(),'" + lyr + "')]");
+			clickOn("span", "[contains(text(),'" + lyr + "') and contains(@class,'ng-option-label ng-star-inserted')]");
 			clickOn("file3_upload", "");
 
 		} else if (subcat.equals("Incorporated Bodies") && llpyn.equals("No")) {
 			clickOn("dropdown_4", "");
 			sleepWait(2000);
-			clickOn("span", "[contains(text(),'" + lyr + "')]");
+			clickOn("span", "[contains(text(),'" + lyr + "') and contains(@class,'ng-option-label ng-star-inserted')]");
 			clickOn("file4_upload", "");
 
 		} else if (subcat.equals("Government Entity") || subcat.equals("Incorporated Bodies") && llpyn.equals("Yes")
 				|| subcat.equals("Other Non-Corporates") && llpyn.equals("No")) {
 			clickOn("dropdown_5", "");
 			sleepWait(2000);
-			clickOn("span", "[contains(text(),'" + lyr + "')]");
+			clickOn("span", "[contains(text(),'" + lyr + "') and contains(@class,'ng-option-label ng-star-inserted')]");
 			clickOn("file5_upload", "");
 
 		} else if (subcat.equals("Other Non-Corporates") && llpyn.equals("Yes")) {
 			clickOn("dropdown_6", "");
 			sleepWait(2000);
-			clickOn("span", "[contains(text(),'" + lyr + "')]");
+			clickOn("span", "[contains(text(),'" + lyr + "') and contains(@class,'ng-option-label ng-star-inserted')]");
 			clickOn("file6_upload", "");
 
 		}

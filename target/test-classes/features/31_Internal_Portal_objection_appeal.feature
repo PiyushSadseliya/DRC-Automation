@@ -43,8 +43,8 @@ Feature: User is on internal Portal for objection and appeal
       | Case_Status_2 | Verify date filteration functionalityt | drp_Status_Click | Reject             | Reject             |
       | Case_Status_3 | Verify date filteration functionalityt | drp_Status_Click | Under Review       | Under Review       |
       | Case_Status_4 | Verify date filteration functionalityt | drp_Status_Click | Request adjustment | Request adjustment |
-      #| Case_Status_5 | Verify date filteration functionalityt | drp_Status_Click | ApproveReport      | ApproveReport      |
 
+  #| Case_Status_5 | Verify date filteration functionalityt | drp_Status_Click | ApproveReport      | ApproveReport      |
   @TC_03_Taxofficer
   Scenario Outline: Verify the Filter by Functionality based on filter option Priority Tax Officer
     Given User is on Internal Portal "<TestcaseID>" "<Description>"
@@ -74,28 +74,24 @@ Feature: User is on internal Portal for objection and appeal
   #    | Case_Management_9_4 | validating right and first | txt_PeriodJan | lbl_AssestRight | lbl_AssFirst    | right and first |
   #    | Case_Management_9_5 | validating first and left  | txt_PeriodJan | lbl_AssFirst    | lbl_AssestLeft  | first and left  |
   #    | Case_Management_9_6 | validating first and first | txt_PeriodJan | lbl_AssFirst    | lbl_AssFirst    | first and first |
-  
-  
-  
   @TC_09
   Scenario Outline: Validate the Reassign option functionality under view column
     Given User is on Internal Portal "<TestcaseID>" "<Description>"
     And User click on Dashboard and click on pin button
     And User click on case management
     And User click on filter by on case management and click on "<filter>"
-    And User type status "<status>" 
+    And User type status "<status>"
     And user click on Reassign
     And select another Tax Officier fron the list "<ChangeOfficer>"
     And click on right tick for reassign
     Then Tax Officier Changed and toast message display
 
     Examples: 
-      | TestcaseID       | Description                            | filter           | status |  ChangeOfficer           |
-      | Case_Management_ | Verify date filteration functionalityt | drp_Status_Click | Open   |drp_SelectTaxOfficerOne |  
-  
-  
-   @TC_19
-  Scenario Outline: Validate the functionality of Transaction Details button 
+      | TestcaseID       | Description                            | filter           | status | ChangeOfficer           |
+      | Case_Management_ | Verify date filteration functionalityt | drp_Status_Click | Open   | drp_SelectTaxOfficerOne |
+
+  @TC_19
+  Scenario Outline: Validate the functionality of Transaction Details button
     Given User is on Internal Portal "<TestcaseID>" "<Description>"
     And User click on Dashboard and click on pin button
     And User click on case management
@@ -106,9 +102,9 @@ Feature: User is on internal Portal for objection and appeal
     Examples: 
       | TestcaseID       | Description                            | filter           | ChangeOfficer           |
       | Case_Management_ | Verify date filteration functionalityt | drp_Status_Click | drp_SelectTaxOfficerOne |
-  
+
   @TC_21_17_18
-  Scenario Outline: Validate the previous and cancel button functionality 
+  Scenario Outline: Validate the previous and cancel button functionality
     Given User is on Internal Portal "<TestcaseID>" "<Description>"
     And User click on Dashboard and click on pin button
     And User click on case management
@@ -116,6 +112,7 @@ Feature: User is on internal Portal for objection and appeal
     And User click on previous button on objection page
     And User navigate to Case Management list page
     And User click on manage drop down and click on view
+
     #And User click on cancel button on objection page
     #And User navigate to Case Management list page
     #And User click on manage drop down and click on view
@@ -123,8 +120,7 @@ Feature: User is on internal Portal for objection and appeal
     Examples: 
       | TestcaseID       | Description                            | comment       | mess                           |
       | Case_Management_ | Verify date filteration functionalityt | need document | Objection updated successfully |
-  
-  
+
   @TC_08
   Scenario Outline: Validate the priority is set correctly for the individual tax payer
   Given User is on Internal Portal "<TestcaseID>" "<Description>"
@@ -161,5 +157,3 @@ Feature: User is on internal Portal for objection and appeal
   Examples:
   | TestcaseID                          | Description                   | filter     | id              | mess                           |
   | Objection_Appeal_internal_portal_15 | Verify Reassign functionality | drp_CaseID | O18091000000003 | Objection updated successfully |
-  
-
