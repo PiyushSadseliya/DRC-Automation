@@ -70,7 +70,6 @@ public class additionalClarificationRejectedApproved {
 	public void again_applies_for_VAT_Registration() {
 		// Write code here that turns the phrase above into concrete actions
 		clickOn("btn_apply_new_Registration", "");
-
 	}
 
 	@Given("^the officer Ask for additional clarification in the form and The User is on Dashboard After Successfully login from taxpayer portal \"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\" \"([^\"]*)\"$")

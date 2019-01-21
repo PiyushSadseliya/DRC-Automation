@@ -2,7 +2,7 @@
 Feature: User Registration for the steps involved in creating a user account for logging into DRC e-services portal that would be used by the taxpayer to perform tax activities
 
   @Valid_Registration
-  Scenario Outline: New User should be allowed to Register in DRC TAX Portal with valid details.
+  Scenario Outline: New User should be allowed to Register in DRC TAX Portal with valid details. 
     Given User is on VAT Registration Dashboard
     When Establish a connection with data base and execute query to create user"<username>".
     And Update data in another table based on created user
@@ -11,10 +11,10 @@ Feature: User Registration for the steps involved in creating a user account for
     Examples:
 
       | Test Case ID                  | Description              | username       |
-      #| DRC_ATC_Valid_Registration_01 | Register with valid data | Regression One |
-      #| DRC_ATC_Valid_Registration_02 | Register with valid data | Regression Two |
-      #| DRC_ATC_Valid_Registration_03 | Register with valid data | Regression Three |
-			| DRC_ATC_Valid_Registration_03 | Register with valid data | Regression Nine |
+      | DRC_ATC_Valid_Registration_01 | Register with valid data | Regression Seventeen |
+      | DRC_ATC_Valid_Registration_02 | Register with valid data | Regression Eightteen |
+      | DRC_ATC_Valid_Registration_03 | Register with valid data | Regression Nineteen |
+			#| DRC_ATC_Valid_Registration_03 | Register with valid data | Regression Nine |
 
   # | DRC_ATC_Valid_Registration_04 | Register with valid data | Rejected User |
   #| DRC_ATC_Valid_Registration_01 | Register with valid data | Rejecteud User |

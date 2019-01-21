@@ -7,7 +7,7 @@ Feature: User is on Manage VAT Registration
 #    And User enter username and password and click on login and see dashboard
 
   @FilterByDropdown_Piority_DV-1377
-  Scenario Outline: Validate Filter Functionality for Dropdown -internal portal
+  Scenario Outline: Validate Filter Functionality for Dropdown - internal portal
     Given User is on Internal Portal "<TestcaseID>" "<Description>"
     When user selects Manage Vat Registraion
     Then user selects value from filter drop down "<Filters>"
@@ -16,7 +16,7 @@ Feature: User is on Manage VAT Registration
 
     Examples: 
       | TestcaseID                     | Description     | Filters  | Value |
-      | Valid_Manage_VAT_Reg_Filter_01 | Filter Priority | Priority |     1 |
+      | Valid_Manage_VAT_Reg_Filter_01 | Filter Priority | Priority |     6 |
 
  @FilterByDropdown_Piority_invalid_data_DV-1377
   Scenario Outline: Validate Filter Functionality for Dropdown 
@@ -130,22 +130,22 @@ Feature: User is on Manage VAT Registration
     Examples: 
       | TestcaseID                          | Description                | Filters     | Value        | mess             |
       | InValid_Manage_VAT_Reg_Filter_TO_01 | Enter Special character    | Tax Officer | !@!@$@@      | No records found |
-      | InValid_Manage_VAT_Reg_Filter_TO_02 | Enter character with space | Tax Officer | a b c d e f  | No records found |
-      | InValid_Manage_VAT_Reg_Filter_TO_03 | Enter alphanumeric         | Tax Officer | Abd123454561 | No records found |
+      #| InValid_Manage_VAT_Reg_Filter_TO_02 | Enter character with space | Tax Officer | a b c d e f  | No records found |
+      #| InValid_Manage_VAT_Reg_Filter_TO_03 | Enter alphanumeric         | Tax Officer | Abd123454561 | No records found |
 
-  @FilterByDropdown_Status_invalid_data_DV-1377
-  Scenario Outline: Validate Filter Functionality for Dropdown 
-    Given User is on Internal Portal "<TestcaseID>" "<Description>"
-    When user selects Manage Vat Registraion
-    Then user selects value from filter drop down "<Filters>" for Status
-    And enters data in type here text box "<Value>"
-    And User see mess "<mess>"
-
-    Examples: 
-      | TestcaseID                         | Description                | Filters | Value       | mess             |
-      | InValid_Manage_VAT_Reg_Filter_S_01 | Enter Special character    | Status  | !@!@$@@     | No records found |
-      | InValid_Manage_VAT_Reg_Filter_S_02 | Enter character with space | Status  | a b c d e f | No records found |
-      | InValid_Manage_VAT_Reg_Filter_S_03 | Enter alphanumeric         | Status  | Abd12345    | No records found |
+  #@FilterByDropdown_Status_invalid_data_DV-1377
+  #Scenario Outline: Validate Filter Functionality for Dropdown 
+    #Given User is on Internal Portal "<TestcaseID>" "<Description>"
+    #When user selects Manage Vat Registraion
+    #Then user selects value from filter drop down "<Filters>" for Status
+    #And enters data in type here text box "<Value>"
+    #And User see mess "<mess>"
+#
+    #Examples: 
+      #| TestcaseID                         | Description                | Filters | Value       | mess             |
+      #| InValid_Manage_VAT_Reg_Filter_S_01 | Enter Special character    | Status  | !@!@$@@     | No records found |
+      #| InValid_Manage_VAT_Reg_Filter_S_02 | Enter character with space | Status  | a b c d e f | No records found |
+      #| InValid_Manage_VAT_Reg_Filter_S_03 | Enter alphanumeric         | Status  | Abd12345    | No records found |
 
   # filter will removed from all the screen
   #TC_04
@@ -171,155 +171,162 @@ Feature: User is on Manage VAT Registration
   #     | InValid_Manage_VAT_Reg_Filter_All_01 | Enter Special character    | !@!@$@@     | No records found |
   #     | InValid_Manage_VAT_Reg_Filter_All_02 | Enter character with space | a b c d e f | No records found |
   #     | InValid_Manage_VAT_Reg_Filter_All_03 | Enter alphanumeric         | Abd12345    | No records found |
-  @TC_06_TC_05_ManageVATRegistration_DV-1377
-  Scenario Outline: Validate Admin/Supervisor is able to filter data and then download the pdf/excel file - internal portal
-    Given User is on Internal Portal "<TestcaseID>" "<Description>"
-    When user selects Manage Vat Registraion
-    Then user selects value from filter drop down "<Filters>"
-    And enters data in type here text box "<Value>"
-    Then clicks on download pdf button
-    And user clicks on download and click on Excel button
-
-    Examples: 
-      | TestcaseID                        | Description                        | Filters  | Value |
-      | Valid_Manage_VAT_Reg_DonPDF_05_06 | Filter with download PDF and Excel | Priority |    10 |
-
-  @TC_07_ManageVATRegistration_DV-1377
-  Scenario Outline: User Navigate to particular page - internal portal
-    Given User is on Internal Portal "<TestcaseID>" "<Description>"
-    When user selects Manage Vat Registraion
-    And User click on page "<ClickPage>" and check page"<CheckPage>" "<option>"
-    And User click on Dashboard
-
-    Examples: 
-      | TestcaseID                       | Description                | Filters  | Value    | Period        | ClickPage       | CheckPage       | option          |
-      | Valid_Manage_VAT_Reg_Navigate_01 | validating last and right  | Status   | rejected | txt_PeriodJan | lbl_AssLast     | lbl_AssestRight | last and right  |
-      | Valid_Manage_VAT_Reg_Navigate_02 | validating last and left   | Priority |        1 | txt_PeriodJan | lbl_AssLast     | lbl_AssestLeft  | last and left   |
-      | Valid_Manage_VAT_Reg_Navigate_03 | validating right and left  | Status   | rejected | txt_PeriodJan | lbl_AssestRight | lbl_AssestLeft  | right and left  |
-      | Valid_Manage_VAT_Reg_Navigate_04 | validating right and first | Priority |        1 | txt_PeriodJan | lbl_AssestRight | lbl_AssFirst    | right and first |
-      | Valid_Manage_VAT_Reg_Navigate_05 | validating first and left  | Status   | rejected | txt_PeriodJan | lbl_AssFirst    | lbl_AssestLeft  | first and left  |
-      | Valid_Manage_VAT_Reg_Navigate_06 | validating first and first | Priority |        1 | txt_PeriodJan | lbl_AssFirst    | lbl_AssFirst    | first and first |
-
+  
+  
+  
+  
+  
+  #@TC_06_TC_05_ManageVATRegistration_DV-1377
+  #Scenario Outline: Validate Admin/Supervisor is able to filter data and then download the pdf/excel file
+    #Given User is on Internal Portal "<TestcaseID>" "<Description>"
+    #When user selects Manage Vat Registraion
+    #Then user selects value from filter drop down "<Filters>"
+    #And enters data in type here text box "<Value>"
+    #Then clicks on download pdf button
+    #And user clicks on download and click on Excel button
+#
+    #Examples: 
+      #| TestcaseID                        | Description                        | Filters  | Value |
+      #| Valid_Manage_VAT_Reg_DonPDF_05_06 | Filter with download PDF and Excel | Priority |    10 |
+#
+  #@TC_07_ManageVATRegistration_DV-1377
+  #Scenario Outline: User Navigate to particular page
+    #Given User is on Internal Portal "<TestcaseID>" "<Description>"
+    #When user selects Manage Vat Registraion
+    #And User click on page "<ClickPage>" and check page"<CheckPage>" "<option>"
+    #And User click on Dashboard
+#
+    #Examples: 
+      #| TestcaseID                       | Description                | Filters  | Value    | Period        | ClickPage       | CheckPage       | option          |
+      #| Valid_Manage_VAT_Reg_Navigate_01 | validating last and right  | Status   | rejected | txt_PeriodJan | lbl_AssLast     | lbl_AssestRight | last and right  |
+      #| Valid_Manage_VAT_Reg_Navigate_02 | validating last and left   | Priority |        1 | txt_PeriodJan | lbl_AssLast     | lbl_AssestLeft  | last and left   |
+      #| Valid_Manage_VAT_Reg_Navigate_03 | validating right and left  | Status   | rejected | txt_PeriodJan | lbl_AssestRight | lbl_AssestLeft  | right and left  |
+      #| Valid_Manage_VAT_Reg_Navigate_04 | validating right and first | Priority |        1 | txt_PeriodJan | lbl_AssestRight | lbl_AssFirst    | right and first |
+      #| Valid_Manage_VAT_Reg_Navigate_05 | validating first and left  | Status   | rejected | txt_PeriodJan | lbl_AssFirst    | lbl_AssestLeft  | first and left  |
+      #| Valid_Manage_VAT_Reg_Navigate_06 | validating first and first | Priority |        1 | txt_PeriodJan | lbl_AssFirst    | lbl_AssFirst    | first and first |
+#
   #TC_08
-  @ShowEnteries_ManageVATRegistration_DV-1377
-  Scenario Outline: Validate User Click on Show Enteries - internal portal
-    Given User is on Internal Portal "<TestcaseID>" "<Description>"
+  #@ShowEnteries_ManageVATRegistration_DV-1377
+  #Scenario Outline: Validate User Click on Show Enteries
+    #Given User is on Internal Portal "<TestcaseID>" "<Description>"
   #  Then user selects value from filter drop down "<Filters>"
   #  And enters data in type here text box "<Value>"
-    When user selects Manage Vat Registraion
-    And User Click Dropdown "<Value1>"
-    Then user see the page result
-
-    Examples: 
-      | TestcaseID                   | Filters  | Value    | Description      | Value1 |
-      | Valid_Manage_VAT_Reg_Show_01 | Status   | rejected | Show 20 Entries  |    20 |
-      | Valid_Manage_VAT_Reg_show_02 | Priority |        1 | Show 15 Entries  |    15 |
-      | Valid_Manage_VAT_Reg_Show_03 | Status   | rejected | Show 25 Entries  |    25 |
-      | Valid_Manage_VAT_Reg_Show_04 | Priority |        1 | Show 50 Entries  |    50 |
-      | Valid_Manage_VAT_Reg_Show_05 | Status   | rejected | Show 100 Entries |   100 |
-
+    #When user selects Manage Vat Registraion
+    #And User Click Dropdown "<Value1>"
+    #Then user see the page result
+#
+    #Examples: 
+      #| TestcaseID                   | Filters  | Value    | Description      | Value1 |
+      #| Valid_Manage_VAT_Reg_Show_01 | Status   | rejected | Show 20 Entries  |    20 |
+      #| Valid_Manage_VAT_Reg_show_02 | Priority |        1 | Show 15 Entries  |    15 |
+      #| Valid_Manage_VAT_Reg_Show_03 | Status   | rejected | Show 25 Entries  |    25 |
+      #| Valid_Manage_VAT_Reg_Show_04 | Priority |        1 | Show 50 Entries  |    50 |
+      #| Valid_Manage_VAT_Reg_Show_05 | Status   | rejected | Show 100 Entries |   100 |
+#
   #TC_09
-  @StatusChangePriority_ManageVATRegistration_DV-1377
-  Scenario Outline: Validate Review in Progress from Filter status and user select Change Priority - internal portal
-    Given User is on Internal Portal "<TestcaseID>" "<Description>"
-    When user selects Manage Vat Registraion
-    Then user selects value from filter drop down "<Filters>"
-    And enters data in type here text box "<Value>"
-    And user click on Change Priority
-    And user selects priority from priority list "<ChangePriority>"
-    And click on right tick
-    Then Priority is Changed and toast message display
-
-    Examples: 
-      | TestcaseID                             | Description          | Filters | Value    | ChangePriority |
-      | Valid_Manage_VAT_Reg_ChangePriority_01 | user change priority | Status  | assigned | Ten            |
-
+  #@StatusChangePriority_ManageVATRegistration_DV-1377
+  #Scenario Outline: Validate Review in Progress from Filter status and user select Change Priority
+    #Given User is on Internal Portal "<TestcaseID>" "<Description>"
+    #When user selects Manage Vat Registraion
+    #Then user selects value from filter drop down "<Filters>"
+    #And enters data in type here text box "<Value>"
+    #And user click on Change Priority
+    #And user selects priority from priority list "<ChangePriority>"
+    #And click on right tick
+    #Then Priority is Changed and toast message display
+#
+    #Examples: 
+      #| TestcaseID                             | Description          | Filters | Value    | ChangePriority |
+      #| Valid_Manage_VAT_Reg_ChangePriority_01 | user change priority | Status  | assigned | Ten            |
+#
   #TC_10
-  @StatusReassign_ManageVATRegistration_DV-1377
-  Scenario Outline: Validate Review in Progress from Filter status and user select Reassign - internal portal
-    Given User is on Internal Portal "<TestcaseID>" "<Description>"
-    And enters data in type here text box "<Value>"
-    And user click on Reassign
-    And select another Tax Officier fron the list "<ChangeOfficer>"
-    And click on right tick for reassign
-    Then Tax Officier Changed and toast message display
-
-    Examples: 
-      | TestcaseID                       | Description         | Value              | ChangeOfficer           |
-      | Valid_Manage_VAT_Reg_Reassign_01 | user change officer | Review in Progress | drp_SelectTaxOfficerOne |
-
+  #@StatusReassign_ManageVATRegistration_DV-1377
+  #Scenario Outline: Validate Review in Progress from Filter status and user select Reassign 
+    #Given User is on Internal Portal "<TestcaseID>" "<Description>"
+    #And enters data in type here text box "<Value>"
+    #And user click on Reassign
+    #And select another Tax Officier fron the list "<ChangeOfficer>"
+    #And click on right tick for reassign
+    #Then Tax Officier Changed and toast message display
+#
+    #Examples: 
+      #| TestcaseID                       | Description         | Value              | ChangeOfficer           |
+      #| Valid_Manage_VAT_Reg_Reassign_01 | user change officer | Review in Progress | drp_SelectTaxOfficerOne |
+#
   #TC_11
-  @RejectedPopup_ManageVATRegistration_DV-1377
-  Scenario Outline: Validate Pop up when user Click on Rejected - internal portal
-    Given User is on Internal Portal "<TestcaseID>" "<Description>"
-    When user selects Manage Vat Registraion
-    Then user selects value from filter drop down "<Filters>"
-    And enters data in type here text box "<Value>"
-    And User click on Rejected
-    Then User See pop up Reason for Rejected
-
-    Examples: 
-      | TestcaseID                       | Description            | Filters | Value      |
-      | Valid_Manage_VAT_Reg_RejPopUp_01 | user click on rejected | NIF     | LOKI123456 |
-
+  #@RejectedPopup_ManageVATRegistration_DV-1377
+  #Scenario Outline: Validate Pop up when user Click on Rejected
+    #Given User is on Internal Portal "<TestcaseID>" "<Description>"
+    #When user selects Manage Vat Registraion
+    #Then user selects value from filter drop down "<Filters>"
+    #And enters data in type here text box "<Value>"
+    #And User click on Rejected
+    #Then User See pop up Reason for Rejected
+#
+    #Examples: 
+      #| TestcaseID                       | Description            | Filters | Value      |
+      #| Valid_Manage_VAT_Reg_RejPopUp_01 | user click on rejected | NIF     | LOKI123456 |
+#
   #TC_12
-  @OnHold_ManageVATRegistration_DV-1377
-  Scenario Outline: Validate Pop up when user Click on OnHold - internal portal
-    Given User is on Internal Portal "<TestcaseID>" "<Description>"
-    When user selects Manage Vat Registraion
-    Then user selects value from filter drop down "<Filters>"
-    And enters data in type here text box "<Value>"
-    And User click on OnHold
-    Then User See pop up Reason for OnHold
-
-    Examples: 
-      | TestcaseID                          | Description           | Filters | Value  |
-      | Valid_Manage_VAT_Reg_OnHoldPopUp_01 | user click on on hold | Status  | OnHold |
-
+  #@OnHold_ManageVATRegistration_DV-1377
+  #Scenario Outline: Validate Pop up when user Click on OnHold 
+    #Given User is on Internal Portal "<TestcaseID>" "<Description>"
+    #When user selects Manage Vat Registraion
+    #Then user selects value from filter drop down "<Filters>"
+    #And enters data in type here text box "<Value>"
+    #And User click on OnHold
+    #Then User See pop up Reason for OnHold
+#
+    #Examples: 
+      #| TestcaseID                          | Description           | Filters | Value  |
+      #| Valid_Manage_VAT_Reg_OnHoldPopUp_01 | user click on on hold | Status  | OnHold |
+#
   #TC_13
-  @StatusReviewInProgress_ManageVATRegistration_DV-1377
-  Scenario Outline: Validate Review in Progress from Filter status and user select Review - internal portal
-    Given User is on Internal Portal "<TestcaseID>" "<Description>"
-    When user selects Manage Vat Registraion
-    And select filter
-    Then user selects value from filter drop down "<Filters>"
-    And enters data in type here text box "<Value>"
-    And user click on manage setting and select Review
-    Then it Navigate to Tax Payer Details
+  #@StatusReviewInProgress_ManageVATRegistration_DV-1377
+  #Scenario Outline: Validate Review in Progress from Filter status and user select Review
+    #Given User is on Internal Portal "<TestcaseID>" "<Description>"
+    #When user selects Manage Vat Registraion
+    #And select filter
+    #Then user selects value from filter drop down "<Filters>"
+    #And enters data in type here text box "<Value>"
+    #And user click on manage setting and select Review
+    #Then it Navigate to Tax Payer Details
+#
+    #Examples: 
+      #| TestcaseID                     | Description                        | Filters | Value              |
+      #| Valid_Manage_VAT_Reg_Review_01 | user navigate to tax payer details | Status  | Review in Progress |
+#
+  #@TC_14_ManageVATRegistration_Sort_DV-1377
+  #Scenario Outline: Validate User is able to do sorting
+    #Given User is on Internal Portal "<TestcaseID>" "<Description>"
+    #When user selects Manage Vat Registraion
+    #And user click on the sorting "<sort>"
+    #Then User see sorting result
+#
+    #Examples: 
+      #| TestcaseID                   | Description                     | sort |
+      #| Valid_Manage_VAT_Reg_Sort_01 | user validate ascending order   | asc  |
+      #| Valid_Manage_VAT_Reg_Sort_02 | user validate descending  order | desc |
+#
+  #@TC_15_ManageVATRegistration_DV-1377
+  #Scenario Outline: Validate whether all filter working properly when used simultaneously
+    #Given User is on Internal Portal "<TestcaseID>" "<Description>"
+    #When user selects Manage Vat Registraion
+    #And user select from filter "<Filters>"
+    #And enter valid data in Type Here "<Value1>"
+    #And user click on NIF sorting "<sorting>"
+    #And user select from filter "<Filters1>"
+    #And enter valid filter data "<Value3>" and verify
+#
+    #Examples: 
+      #| TestcaseID                                    | Description                                  | Value1 | Filters  | sorting | Value3   | Filters1 |
+      #| Valid_Manage_VAT_Reg_Filter_Simultaneously_01 | user check multuiple possibility with filter |      7 | Priority | asc     | Rejected | Status   |
 
-    Examples: 
-      | TestcaseID                     | Description                        | Filters | Value              |
-      | Valid_Manage_VAT_Reg_Review_01 | user navigate to tax payer details | Status  | Review in Progress |
-
-  @TC_14_ManageVATRegistration_Sort_DV-1377
-  Scenario Outline: Validate User is able to do sorting - internal portal
-    Given User is on Internal Portal "<TestcaseID>" "<Description>"
-    When user selects Manage Vat Registraion
-    And user click on the sorting "<sort>"
-    Then User see sorting result
-
-    Examples: 
-      | TestcaseID                   | Description                     | sort |
-      | Valid_Manage_VAT_Reg_Sort_01 | user validate ascending order   | asc  |
-      | Valid_Manage_VAT_Reg_Sort_02 | user validate descending  order | desc |
-
-  @TC_15_ManageVATRegistration_DV-1377
-  Scenario Outline: Validate whether all filter working properly when used simultaneously. - internal portal
-    Given User is on Internal Portal "<TestcaseID>" "<Description>"
-    When user selects Manage Vat Registraion
-    And user select from filter "<Filters>"
-    And enter valid data in Type Here "<Value1>"
-    And user click on NIF sorting "<sorting>"
-    And user select from filter "<Filters1>"
-    And enter valid filter data "<Value3>" and verify
-
-    Examples: 
-      | TestcaseID                                    | Description                                  | Value1 | Filters  | sorting | Value3   | Filters1 |
-      | Valid_Manage_VAT_Reg_Filter_Simultaneously_01 | user check multuiple possibility with filter |      7 | Priority | asc     | Rejected | Status   |
-
+  
+  
   #TC_16
   @FilterCombinationInvalid_ManageVATRegistration_DV-1377
-  Scenario Outline: Validate filter fucntionality and Type here with different combination Invalid - internal portal
+  Scenario Outline: Validate filter fucntionality and Type here with different combination Invalid
     Given User is on Internal Portal "<TestcaseID>" "<Description>"
     When user selects Manage Vat Registraion
     Then user selects value from filter drop down "<Filters>"
@@ -328,8 +335,8 @@ Feature: User is on Manage VAT Registration
 
     Examples: 
       | TestcaseID                          | Filters           | Value         | check            |
-      | Valid_Manage_VAT_Reg_Combination_01 | Priority          | A10           | No records found |
-      | Valid_Manage_VAT_Reg_Combination_02 | NIF               | Arun          | No records found |
+      #| Valid_Manage_VAT_Reg_Combination_01 | Priority          | A10           | No records found |
+      #| Valid_Manage_VAT_Reg_Combination_02 | NIF               | Arun          | No records found |
       | Valid_Manage_VAT_Reg_Combination_03 | Applicant Name    | Individual    | No records found |
       | Valid_Manage_VAT_Reg_Combination_04 | Taxpayer Category | Banana        | No records found |
       | Valid_Manage_VAT_Reg_Combination_05 | Location          | 06/19/2018    | No records found |

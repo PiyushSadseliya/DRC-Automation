@@ -98,12 +98,12 @@ public class ApplicationManager {
 	public File takeScreenshotAsFile() {
 		return ((TakesScreenshot) wd).getScreenshotAs(OutputType.FILE);
 	}
-	
-	
+
+
 	/** 
 	 *  For QA Environment
 	 */
-	
+
 	/**
 	 *  Ketan.prajapati internal portal
 	 */
@@ -135,6 +135,21 @@ public class ApplicationManager {
 			}
 		}
 	}
+
+
+	public void calltaxpayerportal() throws AWTException, InterruptedException, IOException 
+	{		
+		sleepWait(1500);
+		wd.close();
+		Thread.sleep(1000);
+		wd = new ChromeDriver();
+		wd.manage().window().maximize();
+		wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		wd.get("http://103.249.120.58:8042");	
+		Thread.sleep(1000);			
+	}
+
+
 	/**
 	 *  rohit.patil internal portal
 	 */
@@ -258,12 +273,12 @@ public class ApplicationManager {
 			wd.get(properties.getProperty("web.Url"));
 		}
 	}
-	
-	
+
+
 	/**
 	 *  For Demo Environment
 	 */
-	
+
 	/**
 	 *  Ketan.prajapati internal portal demo
 	 */
@@ -314,7 +329,7 @@ public class ApplicationManager {
 		{
 			if (!wd.getCurrentUrl().contains("8031"))
 			{
-				
+
 				Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\Demo_Internal_Roles_Login\\Rohit_Internal.exe");
 				wd.get("http://103.249.120.58:8046");
 				//clickOn("btn_windowsClick", "");
@@ -375,9 +390,9 @@ public class ApplicationManager {
 			}
 		}
 	}
-	
-	
-	
-	
+
+
+
+
 
 }

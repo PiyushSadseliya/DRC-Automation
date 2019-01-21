@@ -25,7 +25,7 @@ public class DV_2394_landing_screen
 		clickOn("drp_btn_logout", "");
 		sleepWait(2000);
 		clickOn("drp_Sign_out", "");
-		sleepWait(1000);			
+		sleepWait(1000);
 	}	
 
 	@And("^User click on SignIn button$")
