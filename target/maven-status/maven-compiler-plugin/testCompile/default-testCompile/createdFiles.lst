@@ -1,0 +1,15 @@
+org\drc\vat\StepDefinitions\End2EndTest.class
+org\drc\vat\StepDefinitions\Reset.class
+org\drc\vat\StepDefinitions\UploadDocuments.class
+org\drc\vat\StepDefinitions\ManageVatRegistration.class
+org\drc\vat\StepDefinitions\OneAuth.class
+org\drc\vat\StepDefinitions\ReviewAndSubmit.class
+org\drc\vat\StepDefinitions\SmokeSuiteSprint6.class
+org\drc\vat\StepDefinitions\TestRunner.class
+org\drc\vat\StepDefinitions\userRegistration.class
+org\drc\vat\appmanager\HelperBase.class
+org\drc\vat\appmanager\ConnectDatabase.class
+org\drc\vat\StepDefinitions\databaseconnection.class
+org\drc\vat\appmanager\ApplicationManager.class
+org\drc\vat\StepDefinitions\VATRegistartions.class
+org\drc\vat\StepDefinitions\Login.class
