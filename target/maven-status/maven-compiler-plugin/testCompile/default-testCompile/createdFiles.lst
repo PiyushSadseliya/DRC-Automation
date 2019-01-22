@@ -1,6 +1,0 @@
-org\drc\vat\StepDefinitions\TestRunner.class
-org\drc\vat\StepDefinitions\userRegistration.class
-org\drc\vat\appmanager\HelperBase.class
-org\drc\vat\appmanager\ApplicationManager.class
-org\drc\vat\StepDefinitions\VATRegistartions.class
-org\drc\vat\StepDefinitions\Login.class
