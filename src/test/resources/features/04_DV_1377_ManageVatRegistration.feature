@@ -343,5 +343,3 @@ Feature: User is on Manage VAT Registration
       | Valid_Manage_VAT_Reg_Combination_06 | Updated Date      | officer       | No records found |
       | Valid_Manage_VAT_Reg_Combination_07 | Tax Officer       | Rejected      | No records found |
       | Valid_Manage_VAT_Reg_Combination_08 | Status            | JUIJIBI121213 | No records found |
-
- 

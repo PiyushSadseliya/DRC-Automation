@@ -2,8 +2,8 @@
 <section name="Workbench">
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
-			<item value="D:\LA\New folder"/>
 			<item value="D:\LA\New folder\DRC-Automation"/>
+			<item value="D:\LA\New folder"/>
 			<item value="F:\regression"/>
 		</list>
 		<list key="projectNameTemplate">

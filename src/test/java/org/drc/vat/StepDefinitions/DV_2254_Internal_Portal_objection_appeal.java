@@ -2,9 +2,8 @@ package org.drc.vat.StepDefinitions;
 
 import static org.drc.vat.appmanager.HelperBase.*;
 import static org.testng.Assert.assertTrue;
-
+import static org.drc.vat.StepDefinitions.DV_2253_TaxPayer_Portal_objection_appeal.*;
 import java.util.List;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -75,15 +74,14 @@ public class DV_2254_Internal_Portal_objection_appeal
 
 	@And("^User Type id \"([^\"]*)\"$")
 	public void user_Type_id(String id) throws Throwable 
-	{
-		type("TypeHere",id);	   
+	{	
+		type("TypeHere", Storereference_value);
 	}
 
 	@And("^User click on search button$")
 	public void user_click_on_search_button() throws Throwable 
 	{
 		clickOn("btn_SearchFX", "");
-
 	}
 
 	@And("^User click on manage drop down and click on view$")
@@ -118,7 +116,6 @@ public class DV_2254_Internal_Portal_objection_appeal
 		{
 			assertTrue(true);
 		}
-		
 		sleepWait(1500);
 	}
 
@@ -132,7 +129,6 @@ public class DV_2254_Internal_Portal_objection_appeal
 	}
 
 
-
 	@And("^User click on select action$")
 	public void user_click_on_select_action() throws Throwable 
 	{
@@ -143,6 +139,11 @@ public class DV_2254_Internal_Portal_objection_appeal
 	public void user_select_reject() throws Throwable 
 	{
 		clickOn("drp_Reject_CaseMan", "");
+	}
+	
+	@And("^User select under review$")
+	public void user_select_under_review() throws Throwable {
+		clickOn("drp_UnderReview_CaseMan", "");
 	}
 
 	@And("^User click on Transaction Detail button$")

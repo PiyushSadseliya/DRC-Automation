@@ -123,18 +123,37 @@ Feature: User is on internal Portal for objection and appeal
 
   @TC_08
   Scenario Outline: Validate the priority is set correctly for the individual tax payer
-    Given User is on Internal Portal "<TestcaseID>" "<Description>"
-    And User click on Dashboard and click on pin button
-    And User click on case management
-    And User click on filter by on case management and click on "<filter>"
-    And User Type id "<id>"
-    And User click on search button
-    And User click on manage drop down and click on view
-    And User click on priority
-    And User select priority "<priority>"
-    And User click on submit button
-
-    #And User see validation message for changing priority "<mess>"
-    Examples: 
-      | TestcaseID       | Description                            | filter     | id              | priority   | mess                           |
-      | Case_Management_ | Verify date filteration functionalityt | drp_CaseID | O18121200000003 | drp_P_High | Objection updated successfully |
+  Given User is on Internal Portal "<TestcaseID>" "<Description>"
+  And User click on Dashboard and click on pin button
+  And User click on case management
+  And User click on filter by on case management and click on "<filter>"
+  And User Type id "<id>"
+  And User click on search button
+  And User click on manage drop down and click on view
+  And User click on priority
+  And User select priority "<priority>"
+  And User click on submit button
+  #And User see validation message for changing priority "<mess>"
+  
+  Examples:
+  | TestcaseID       | Description                            | filter     | id              | priority | mess |
+  | Case_Management_ | Verify date filteration functionalityt | drp_CaseID | O18121200000003 | drp_P_High     | Objection updated successfully     |
+  
+  
+  @TC_11
+  Scenario Outline: Validate Reject status
+  Given User is on Internal Portal "<TestcaseID>" "<Description>"
+  And User click on Dashboard and click on pin button
+  And User click on case management
+  And User click on filter by on case management and click on "<filter>"
+  And User Type id "<id>"
+  And User click on search button
+  And User click on manage drop down and click on view
+  And User click on select action
+  And User select under review
+  And User click on submit button
+  And User see validation message for changing priority "<mess>"
+  
+  Examples:
+  | TestcaseID                          | Description                   | filter     | id              | mess                           |
+  | Objection_Appeal_internal_portal_15 | Verify Reassign functionality | drp_CaseID | O18091000000003 | Objection updated successfully |

@@ -121,7 +121,6 @@ public class additionalClarificationRejectedApproved {
 	public void clicks_on_continue() throws Throwable {
 		// Write code here that turns the phrase above into concrete actions
 		// clickOn("btn_continue", "");
-
 	}
 
 	@Then("^Edits the clarifications details needed respectively \"([^\"]*)\" \"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"$")

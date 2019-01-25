@@ -196,11 +196,3 @@ Feature: User is on FX Management Page Tax Officer
    Examples: 
       | TestcaseID               | Description                  |
       | FX_Management_Officer_16 | Verify Log out functionality |
- 
- 
- 
- 
- 
- 
-
-
