@@ -1,8 +1,6 @@
 Feature: User is on e file landing screen and click on Preview button
 
 
-
-
   @TC_02_03_04_05_06_07_VAT_e-Filing_Preview
   Scenario Outline: User verify Operations Performed Section ,Tax Deductible , Adjustment along with Download,preview  functionality
     Given User is on Vat e-Filing Page "<TestcaseID>" "<Description>"
@@ -14,7 +12,8 @@ Feature: User is on e file landing screen and click on Preview button
     And User entered value "<17>" "<18>" "<19>" "<20>" for Adjustment on preview
     And User entered value "<26>" for Tax Calculation on preview
     And User click on check box and click on submit button
-    And Enter OTP and click on verify button and click on Ok button
+    And User click on Yes button
+    And Enter OTP and click on verify button and click on Ok button    
     And User is navigate to Tax Calculation page
     And User click on previous button and navigate to Vat e-filing page
     And User click on Preview

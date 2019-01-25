@@ -1,15 +1,15 @@
 Feature: Use is on e-Filing page and see Important Dates
 
- # @TC_01
-  #Scenario Outline: DRC Tax Portal Login
-   # Given User Login "<TestcaseID>" "<Description>"
-    #And User Enter email "<email>" and  password "<password>"
-    #And User click on SignIn button 
 
+  @TC_01_Login
+  Scenario Outline: DRC Tax Portal Login
+    Given User Login "<TestcaseID>" "<Description>"
+    And User Enter email "<email>" and  password "<password>"
+    And User Click on SignIn
 
-    #Examples: 
-     # | TestcaseID         | Description          | email                      | password   |
-      #| Landing_Screen_001 | Login into tax payer | autotest007@mailinator.com | franky@123 |
+    Examples: 
+      | TestcaseID       | Description          | email                           | password |
+      | e-file_Login_001 | Login into tax payer | regressiondaysix@mailinator.com | Test@123 |
 
   @TC_002_ImportantDates
   Scenario Outline: Validate the functionality of important Dates.
@@ -58,7 +58,7 @@ Feature: Use is on e-Filing page and see Important Dates
   Scenario Outline: Validate the date format in important date section
     Given User is on Vat e-Filing Page "<TestcaseID>" "<Description>"
     Then user can see the e-filing landing screen,verify "<date_format>" for payment
-    And User logout
+ 
 
     Examples: 
       | TestcaseID                 | Description          | date_format  |

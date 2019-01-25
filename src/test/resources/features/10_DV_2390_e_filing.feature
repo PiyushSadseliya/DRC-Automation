@@ -1,4 +1,6 @@
+
 Feature: E-filing -> Filing -> Declaration with verification and confirmation of e-declaration
+
 
   @TC_02_DV_2390_Declaration_with_verification
   Scenario Outline: Validate whether the tax payer is able to e-file
@@ -13,6 +15,7 @@ Feature: E-filing -> Filing -> Declaration with verification and confirmation of
     And User click on browser and upload file "<uploadFile>"
     And User see uploaded file name in field
     And User click on check box and click on submit button
+    And User click on Yes button
     And Enter OTP and click on verify button and click on Ok button
 
     #    And User is navigate to Tax Calculation page
@@ -37,18 +40,18 @@ Feature: E-filing -> Filing -> Declaration with verification and confirmation of
       | Declaration_Verification_03_1 | Validate the text fields | -10000 | -7000 | -5000 | -500 | -500 | -500 | -500 | -500 | -500 | -500 | -500 | -500 | -500 | -500 | -500 | -500 | -500 | -500 | -500 | 500 | 500 | 10000 | March, 2018 | DRC Test Data.xlsx |
       | Declaration_Verification_03_2 | Validate the text fields | A0b00  | b000  | c000  | d00  | e00  | s00  | h00  | a00  | sd0  | j00  | f00  | h00  | h00  | a00  | h00  | h00  | h00  | gh00 | h00  | g00 | f00 | h000  | March, 2018 | DRC Test Data.xlsx |
 
-  @TC_04_DV_2390_Declaration_with_verification
-  Scenario Outline: Validate the Period field.
-    Given User is on Vat e-Filing Page "<TestcaseID>" "<Description>"
-    And User click on Dashboard
-    And User click on Tab
-    And User click on collpase icon for filing "<month>"
-    And User click on file button "<file>" and navigate to e-declaration page
-    And User verify period "<period>" for Tax Calculation
+ #@TC_04_DV_2390_Declaration_with_verification
+  #Scenario Outline: Validate the Period field.
+   # Given User is on Vat e-Filing Page "<TestcaseID>" "<Description>"
+   # And User click on Dashboard
+   # And User click on Tab
+    #And User click on collpase icon for filing "<month>"
+    #And User click on file button "<file>" and navigate to e-declaration page
+    #And User verify period "<period>" for Tax Calculation
 
-    Examples: 
-      | TestcaseID                  | Description               | month | file  | period         |
-      | Declaration_Verification_04 | Validate the Period field | eDec  | eDecC | December, 2018 |
+#    Examples: 
+ #     | TestcaseID                  | Description               | month | file  | period         |
+ #     | Declaration_Verification_04 | Validate the Period field | eDec  | eDecC | December, 2018 |
 
   @TC_05_06_DV_2390_Declaration_with_verification
   Scenario Outline: Validate the delivery of services field under Turnover realized column
@@ -92,6 +95,7 @@ Feature: E-filing -> Filing -> Declaration with verification and confirmation of
     And User entered value "<17>" "<18>" "<19>" "<20>" for Adjustment calculation
     And calculate tax calculations and enter "<VAT3Party>"
     And User click on check box and click on submit button
+     And User click on Yes button
     And Enter OTP and click on verify button and click on Ok button
 
     # need to add submit
@@ -180,6 +184,7 @@ Feature: E-filing -> Filing -> Declaration with verification and confirmation of
     And User entered value "<17>" "<18>" "<19>" "<20>" for Adjustment
     And User entered value "<26>" for Tax Calculation
     And User click on check box and click on submit button
+    And User click on Yes button
     And User validate Otp pop up window should appear
     And User click on verify button and validate message "<mess>"
     And User enter invalid data numbers "<numeric>" and click on verify and see mess "<InvalidMess>"

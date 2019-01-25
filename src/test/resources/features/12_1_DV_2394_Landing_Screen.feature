@@ -28,7 +28,7 @@ Feature: User is on e-filing landing screen
     #  And User see important dates "<date1>" "<date2>" "<date3>" "<date4>" "<date5>" "<date6>"
     Examples: 
       | TestcaseID        | Description                 | Filters      | jan     | dec     |
-      | Landing_Screen_04 | Finicial year functionality | drp_Year2018 | TextJan | TextDec |
+      | Landing_Screen_04 | Finicial year functionality | drp_Year2019 | TextJan | TextDec |
 
   @TC_05_e-filing_landing_screen
   Scenario Outline: Validate the Status functionality whether the e-filing , payment and assessment are pending for that particular month
@@ -40,7 +40,7 @@ Feature: User is on e-filing landing screen
 
     Examples: 
       | TestcaseID        | Description                   | Filters      |
-      | Landing_Screen_05 | validate status functionality | drp_Year2018 |
+      | Landing_Screen_05 | validate status functionality | drp_Year2019 |
 
  
   
@@ -80,6 +80,7 @@ Feature: User is on e-filing landing screen
     And clicks on e-filing on landing screen
     And User entered value "<1>" "<2>" "<2.1>" "<3>" "<4>" "<5>" "<6>" "<7>" "<8>" for Operation Performed on preview
     And User click on check box and click on submit button
+    And User click on Yes button
     And Enter OTP and click on verify button and click on Ok button
     And User is navigate to Tax Calculation page
     And User click on previous button and navigate to Vat e-filing page

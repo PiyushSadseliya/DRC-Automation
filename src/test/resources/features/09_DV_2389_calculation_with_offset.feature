@@ -1,46 +1,33 @@
 Feature: User is on Tax Calculation
 
-  @TC_01_Login
-  Scenario Outline: DRC Tax Portal Login
-    Given User Login "<TestcaseID>" "<Description>"
-    And User Enter email "<email>" and  password "<password>"
-    And User Click on SignIn
-
-    Examples: 
-      | TestcaseID       | Description          | email                         | password |
-      | e-file_Login_001 | Login into tax payer | approveddduser@mailinator.com | Test@123 |
-
-  # commenting for upload
   @TC_02_12
   Scenario Outline: Validate proceed button functionality
     Given User is on Vat e-Filing Page "<TestcaseID>" "<Description>"
     And User click on Dashboard
     And User click on Tab
     And clicks on e-filing to fill data
-    #  And User click on browser and upload file "<uploadFile>" for tax calculation
     And User click on check box and click on submit button
+    And User click on Yes button
     And Enter OTP and click on verify button and click on Ok button
     And User is navigate to Tax Calculation page
     And User click on proceed button on tax calculation
     And User see pop up for offset successful
 
     Examples: 
-      | TestcaseID    | Description                                   | uploadFile         |
-      | Tax_Cal_02,12 | validate proceed functionality and see offset | DRC Test Data.xlsx |
+      | TestcaseID    | Description                                   |
+      | Tax_Cal_02,12 | validate proceed functionality and see offset |
 
-  @TC_03
-  Scenario Outline: Validate the Period field.
-    Given User is on Vat e-Filing Page "<TestcaseID>" "<Description>"
-    And User click on Dashboard
-    And User click on Tab
-    And User click on collpase icon for filing "<month>"
-    And User click on file button "<file>" and navigate to e-declaration page
-    And User verify period "<period>" for Tax Calculation
-
-    Examples: 
-      | TestcaseID | Description               | month | file  | period         |
-      | Tax_Cal_03 | Validate the Period field | eDec  | eDecC | December, 2018 |
-
+  # @TC_03
+  # Scenario Outline: Validate the Period field.
+  #  Given User is on Vat e-Filing Page "<TestcaseID>" "<Description>"
+  #  And User click on Dashboard
+  #  And User click on Tab
+  #  And User click on collpase icon for filing "<month>"
+  #  And User click on file button "<file>" and navigate to e-declaration page
+  #    And User verify period "<period>" for Tax Calculation
+  #    Examples:
+  ##     | TestcaseID | Description               | month | file  | period         |
+  #   | Tax_Cal_03 | Validate the Period field | eDec    | eDecC  | December, 2019 |
   @TC_04_05_07_08_09_10_11
   Scenario Outline: Validate Tax calculation values are displayed
     Given User is on Vat e-Filing Page "<TestcaseID>" "<Description>"
@@ -53,6 +40,7 @@ Feature: User is on Tax Calculation
     And User entered value "<26>" for Tax Calculation on calculation
     And User click on browser and upload file "<uploadFile>" for tax calculation
     And User click on check box and click on submit button
+    And User click on Yes button
     And Enter OTP and click on verify button and click on Ok button
     And User is navigate to Tax Calculation page
     And User verify Tax calculation

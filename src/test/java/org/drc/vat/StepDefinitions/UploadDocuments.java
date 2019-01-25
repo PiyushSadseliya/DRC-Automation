@@ -212,9 +212,7 @@ public class UploadDocuments {
 	public void selects_Authorized_signatory_no_and_clicks_continue() throws InterruptedException {
 		clickOn("input", "[@id='no']");
 		clickOn("btn_continue", "");
-
 		sleepWait(2000);
-
 	}
 
 	@When("^Fills Bank Details \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" and clicks continue$")
@@ -269,25 +267,25 @@ public class UploadDocuments {
 		upload_doc++;
 		// System.out.println("uploaded ac");
 	}
-	
+
 	@When("^COI \"([^\"]*)\" \"([^\"]*)\"$")
 	public void coi(String coi, String coipath) throws Throwable {
-	clickOn("dropdown_2", "");
-	clickOn("span", "[contains(text(),'" + coi + "') and contains(@class,'ng-option-label ng-star-inserted')]");
-	clickOn("file1_upload", "");
-	UploadImage("", coipath);
-	fileUploadMessage(coipath);
-	upload_doc++;
+		clickOn("dropdown_2", "");
+		clickOn("span", "[contains(text(),'" + coi + "') and contains(@class,'ng-option-label ng-star-inserted')]");
+		clickOn("file1_upload", "");
+		UploadImage("", coipath);
+		fileUploadMessage(coipath);
+		upload_doc++;
 	}
-	
+
 	@When("^LawDegree \"([^\"]*)\" \"([^\"]*)\"$")
 	public void lawdegree(String law, String lawpath) throws Throwable {
-	clickOn("dropdown_3", "");
-	clickOn("span", "[contains(text(),'" + law + "') and contains(@class,'ng-option-label ng-star-inserted')]");
-	clickOn("file1_upload", "");
-	UploadImage("", lawpath);
-	fileUploadMessage(lawpath);
-	upload_doc++;
+		clickOn("dropdown_3", "");
+		clickOn("span", "[contains(text(),'" + law + "') and contains(@class,'ng-option-label ng-star-inserted')]");
+		clickOn("file1_upload", "");
+		UploadImage("", lawpath);
+		fileUploadMessage(lawpath);
+		upload_doc++;		
 	}
 
 	@When("^LOAuth\"([^\"]*)\" \"([^\"]*)\"$")

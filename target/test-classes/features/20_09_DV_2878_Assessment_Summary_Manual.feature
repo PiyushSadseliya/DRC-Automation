@@ -16,7 +16,7 @@ Feature: User is on Assessment Summary Manual Assessement
     And Validate Period field
 
     Examples: 
-      | TestcaseID   | Description                    | Period        | TaxPayer         | Year            |
+      | TestcaseID   | Description                    | Period        | TaxPayer        | Year            |
       | Mal_AS_02_03 | validate nitva no,Period field | txt_PeriodFeb | regressionforty | txt_2019_Period |
 
   # this scenario is moved to feature file 16

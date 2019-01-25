@@ -59,6 +59,10 @@ import static org.drc.vat.appmanager.HelperBase.sleepWait;
 //,tags={"@TC_Extra_user_created_System,@TC_Extra_user_created_Payment_Related"}
 )
 
+  
+
+
+
 
 public class TestRunner extends AbstractTestNGCucumberTests {
 	private Logger logger = LoggerFactory.getLogger(TestRunner.class);
@@ -142,8 +146,7 @@ public class TestRunner extends AbstractTestNGCucumberTests {
 		
 		String screenshot = scenario.getName();
 		File src = app.takeScreenshotAsFile();
-		File dest = new File(
-				System.getProperty("user.dir") + "/" + outputDir + "/screenshots/" + screenshot + timestamp + ".png");
+		File dest = new File(System.getProperty("user.dir") + "/" + outputDir + "/screenshots/" + screenshot + timestamp + ".png");
 		FileUtils.copyFile(src, dest);
 		Reporter.addScreenCaptureFromPath(dest.toString());
 		scenario.embed(app.takeScreenshot(), "image/png");

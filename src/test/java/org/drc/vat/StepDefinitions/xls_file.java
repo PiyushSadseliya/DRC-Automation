@@ -35,7 +35,7 @@ import static org.drc.vat.appmanager.HelperBase.*;
 	        
 	        
 	        Thread.sleep(2000);	        	      
-	        String Doc_no = wd.findElement(By.xpath("//span[contains(text(),'Tax Bill No.')]//following::span")).getText();
+	        String Doc_no = wd.findElement(By.xpath("//span[contains(text(),'Tax Bill No')]//following::span")).getText();
 	        System.out.println(Doc_no);
 	        Thread.sleep(2000);
 	        String Nitva_no = wd.findElement(By.xpath("//strong[contains(text(),'NITVA:')]//following::span")).getText();
@@ -44,7 +44,7 @@ import static org.drc.vat.appmanager.HelperBase.*;
 	        Thread.sleep(2000);
 	        String Taxpayer_name = wd.findElement(By.xpath("//span[contains(text(),'Taxpayer Name:')]//following::td/div")).getText();
 	        Thread.sleep(2000);
-	        String Amount = wd.findElement(By.xpath("//span[contains(text(),'Amount:')]//following::td/div/span")).getText();
+	        String Amount = wd.findElement(By.xpath("(//tbody)[2]//tr[2]//td[6]")).getText();
 	        
 	        
 	        String amount = "7.848,00 "; // store gettext value for amount in string via getText method
@@ -52,7 +52,7 @@ import static org.drc.vat.appmanager.HelperBase.*;
 	        System.out.println(newamount);
 	        
 	        
-			 FileInputStream filelocation = new FileInputStream("C:\\Users\\frankey.mehta\\Desktop\\BankFile_2018.xlsx");
+			 FileInputStream filelocation = new FileInputStream(filedoc+"BankFile.xlsx");
 			 XSSFWorkbook workbook = new XSSFWorkbook(filelocation);
 			 XSSFSheet sheet = workbook.getSheetAt(0);
 			 	 
@@ -80,7 +80,7 @@ import static org.drc.vat.appmanager.HelperBase.*;
 			 Cell cell8 = row.createCell(8); // Amount
 			 cell8.setCellValue(newamount);		 
 			 
-			 FileOutputStream fos = new FileOutputStream("C:\\Users\\frankey.mehta\\Desktop\\BankFile_2018.xlsx");
+			 FileOutputStream fos = new FileOutputStream(filedoc+"BankFile.xlsx");
 			 workbook.write(fos);
 			 fos.close();		 
 			 System.out.println("END OF WRITING DATA IN EXCEL");		 

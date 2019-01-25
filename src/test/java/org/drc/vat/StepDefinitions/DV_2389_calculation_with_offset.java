@@ -234,7 +234,7 @@ public class DV_2389_calculation_with_offset
 	@And("^User verify period \"([^\"]*)\" for Tax Calculation$")
 	public void user_verify_period_for_Tax_Calculation(String period) throws Throwable 
 	{
-		String period_check = getValue("txt_period_offset_check");		
+		String period_check = elementText("txt_period_offset_check");		
 		if(period_check.equals(period))
 		{
 			assertTrue(true);
