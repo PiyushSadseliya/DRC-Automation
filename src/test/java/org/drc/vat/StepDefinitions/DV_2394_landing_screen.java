@@ -22,10 +22,10 @@ public class DV_2394_landing_screen
 	public void user_logout() throws Throwable 
 	{		
 		sleepWait(2000);
-		clickOn("btn_logout", "");
+		clickOn("drp_btn_logout", "");
 		sleepWait(2000);
-		clickOn("link_click", "");
-		sleepWait(1000);			
+		clickOn("drp_Sign_out", "");
+		sleepWait(1000);
 	}	
 
 	@And("^User click on SignIn button$")

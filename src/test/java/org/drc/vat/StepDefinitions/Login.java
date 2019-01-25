@@ -7,7 +7,10 @@ import static org.junit.Assume.assumeTrue;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -35,7 +38,11 @@ public class Login {
 
 	@And("^User is on DRC Tax Portal \"([^\"]*)\" \"([^\"]*)\"$")
 	public void user_is_on_DRC_Tax_Portal(String arg1, String arg2) throws Throwable {
-		System.out.println("Welcome to DRC Tax Portal");
+		sleepWait(2000);
+		List<WebElement> buttonSignin = wd.findElements(By.xpath("//button[@title='Back to Sign In']"));
+		if (buttonSignin.size() > 0) {
+			clickOn("btn_signin", "");
+		}
 	}
 
 	@When("^User Enter Data: \"([^\"]*)\" \"([^\"]*)\"$")
@@ -45,10 +52,8 @@ public class Login {
 
 	@And("^User Enters Data \"([^\"]*)\" \"([^\"]*)\" in the respective fields$")
 	public void user_Enters_Data_in_the_respective_fields(String Email, String Password) throws Throwable {
-
 		type("txtbox_username", Email);
 		type("txtbox_password", Password);
-
 	}
 
 	@And("^User Clicks on SignIn and checks Validation message \"([^\"]*)\"$")

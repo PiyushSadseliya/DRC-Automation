@@ -1,12 +1,13 @@
 Feature: User is on Tax Payer Portal Help Desk
+
   #0
   @TC_01_Extra_user_created_System
   Scenario Outline: Creating System related issue
     Given User login in to tax payer email "<email>" and  password "<password>"
- #  And User click on Dashboard
+    #  And User click on Dashboard
     And User click on Helpdesk menu "<TestcaseID>" "<Description>"
     And User validate Helpdesk page
- #  And User click here for first time
+    #  And User click here for first time
     And User enter in add new button frame
     And User click on Add New Issue button
     And User click on Issue Type and select "<List>"
@@ -15,13 +16,14 @@ Feature: User is on Tax Payer Portal Help Desk
     And User enter in description frame
     And User type description "<Description_1>" for Helpdesk
     And User click on Submit button for system related
-    And User type store title and get issue id    
+    And User type store title and get issue id
     And User see referance id for System related issue
+    And User see frame is default
     And User click on Dashboard
 
     Examples: 
-      | TestcaseID           | Description                        | email                     | password | List           | title           | Description_1                 |
-      | TaxPayer_Helpdesk_01 | Verify System related issue extra  | arunkumar1@mailinator.com | Arun123  | drp_Select_SRI | System Related4 | Creating System related issue |
+      | TestcaseID           | Description                       | email                        | password | List           | title           | Description_1                 |
+      | TaxPayer_Helpdesk_01 | Verify System related issue extra | automationone@mailinator.com | Test123  | drp_Select_SRI | System Related4 | Creating System related issue |
 
   #0.1
   @TC_Extra_user_created_Payment_Related
@@ -39,21 +41,23 @@ Feature: User is on Tax Payer Portal Help Desk
     And User type Amount "<Amount>"
     And User select date "<date>"
     And User click on Submit button
-    And User type store title and get issue id Payment Related    
+    And User type store title and get issue id Payment Related
     And User see referance id forPayment Related issue
+    And User see frame is default
     And User click on Dashboard
 
     Examples: 
-      | TestcaseID        | Description                   | List          | title            | Description_1                  | Tid       | Amount | date       |
-      | TaxPayer_Helpdesk | Verify Payment related extra  | drp_Select_PR | Payment Related4 | Creating Payment related issue | T10012019 |  10000 | 2018-08-22 |
+      | TestcaseID        | Description                  | List          | title            | Description_1                  | Tid       | Amount | date       |
+      | TaxPayer_Helpdesk | Verify Payment related extra | drp_Select_PR | Payment Related4 | Creating Payment related issue | T10012019 |  10000 | 2018-08-22 |
 
   #1
   @TC_08_09_10_11_06_07_03
-  Scenario Outline: Verify add new issue , submit , cancel , System Related Issue dropdown , search functionality 
+  Scenario Outline: Verify add new issue , submit , cancel , System Related Issue dropdown , search functionality
     Given User click on Helpdesk menu "<TestcaseID>" "<Description>"
     And User enter in add new button frame
     And User click on Add New Issue button
-    And User click on Submit button and see mess "Title field is required." and "Description field is required." and "Please select Issue Type"
+    And User click on Submit button and see mess "Title field is required." and "Description field is required." and "Please select Issue Types."
+    And User enter in add new button frame
     And User click on Issue Type and select "<List>"
     And User type title "<title>" for Helpdesk
     And User enter in description frame
@@ -75,13 +79,13 @@ Feature: User is on Tax Payer Portal Help Desk
     And User type title one
     And User get issue id for system related
     And User verify date format on internal
-    And User type invalid search id "<in-search>" and verify mess " No records found"
+    And User type invalid search id "<in-search>" and verify mess " No records found."
     And User see frame is default
     And User click on Dashboard
 
     Examples: 
-      | TestcaseID                             | Description                                                                                    | List           | title   | Description_1  | subcategory | file                               | in-search     | date                |
-      | TaxPayer_Helpdesk_08_09_10_11_06_07_03 | Verify add new issue , submit , cancel , System Related Issue dropdown , search functionality  | drp_Select_SRI | Testing | System Related | drp_GSI     | Officers List With Tax Center.xlsx | 14681231asdda | asdasdasdasdasdsads |
+      | TestcaseID                             | Description                                                                                   | List           | title   | Description_1  | subcategory | file                               | in-search     | date                |
+      | TaxPayer_Helpdesk_08_09_10_11_06_07_03 | Verify add new issue , submit , cancel , System Related Issue dropdown , search functionality | drp_Select_SRI | Testing | System Related | drp_GSI     | Officers List With Tax Center.xlsx | 14681231asdda | asdasdasdasdasdsads |
 
   #2
   @TC_12_24_23
@@ -117,8 +121,8 @@ Feature: User is on Tax Payer Portal Help Desk
     And User click on Dashboard
 
     Examples: 
-      | TestcaseID                 | Description                                | List          | title                | Description_1            | subcategory | file           | Tax Period |
-      | TaxPayer_Helpdesk_12_24_23 | Verify General Query Issue and edit button | drp_Select_GQ | General Queary Issue | General Query Issue type | drp_Decl    | BankFile.xlsx  | January    |
+      | TestcaseID                 | Description                                | List          | title                | Description_1            | subcategory | file          | Tax Period |
+      | TaxPayer_Helpdesk_12_24_23 | Verify General Query Issue and edit button | drp_Select_GQ | General Queary Issue | General Query Issue type | drp_Decl    | BankFile.xlsx | January    |
 
   #3
   @TC_13
@@ -127,7 +131,7 @@ Feature: User is on Tax Payer Portal Help Desk
     And User enter in add new button frame
     And User click on Add New Issue button
     And User click on Issue Type and select "<List>"
-    And User type title "<title>" for Helpdesk    
+    And User type title "<title>" for Helpdesk
     And User store title for EFD Related Issue type
     And User enter in description frame
     And User type description "<Description_1>" for Helpdesk
@@ -193,8 +197,8 @@ Feature: User is on Tax Payer Portal Help Desk
     And User click on Dashboard
 
     Examples: 
-      | TestcaseID                    | Description                                        | List_check           | List           | title                        | title1                       | title2                        | Description_1 | Description_2              | Description_3   | more_file                | file                               |
-      | TaxPayer_Helpdesk_19_20_21_22 | Verify Issue Type dropdown ,title and description  | System Related Issue | drp_Select_SRI | QUEARY FOR PAYMENT RELATED 1 | Queary For Payment Related 1 | !!@!@#$@#$@#$@$ @#$!$@!#$@!#$ |   56165166554 | QUEARY FOR PAYMENT RELATED | 651651651665161 | SampleXLSFile_6800kb.xls | Officers List With Tax Center.xlsx |
+      | TestcaseID                    | Description                                       | List_check           | List           | title                        | title1                       | title2                        | Description_1 | Description_2              | Description_3   | more_file                | file                               |
+      | TaxPayer_Helpdesk_19_20_21_22 | Verify Issue Type dropdown ,title and description | System Related Issue | drp_Select_SRI | QUEARY FOR PAYMENT RELATED 1 | Queary For Payment Related 1 | !!@!@#$@#$@#$@$ @#$!$@!#$@!#$ |   56165166554 | QUEARY FOR PAYMENT RELATED | 651651651665161 | SampleXLSFile_6800kb.xls | Officers List With Tax Center.xlsx |
 
   # inter portal start from here
   #6
@@ -203,10 +207,8 @@ Feature: User is on Tax Payer Portal Help Desk
   Scenario Outline: Verify the Under Review Status for the Helpdesk ticket - internal portal
     Given User click on Helpdesk menu on internal portal "<TestcaseID>" "<Description>"
     And User enter in add new button frame
-  
     #   And User type "<date>" om
-    
-  # store title will type here
+    # store title will type here
     And User type get issue id for system related
     And User click on edit buton internal portal
     And User click on Next status and click on under review

@@ -360,7 +360,9 @@ public class DV_2880_Tax_Deductable_Ass_and_Reass_Adjustement
 	public void user_click_on_Save_button_and_verify_toast_message(String mess) throws Throwable 
 	{
 		clickOn("btn_Save", "");
-		sleepWait(500);
+		sleepWait(1000);
+		//waitFor("btn_Save");
+		
 		if(wd.findElement(By.xpath("//div[contains(text(),'" + mess + "')]")).isDisplayed() )
 		{					
 			assertTrue(true);
@@ -479,8 +481,9 @@ public class DV_2880_Tax_Deductable_Ass_and_Reass_Adjustement
 	@And("^User click on Transaction Received button and validate$")
 	public void user_click_on_Transaction_Received_button_and_validate() throws Throwable 
 	{
-		clickOn("btn_TransactionReceived", "");
-		verifyDownload("TransactionReceived");
+		clickOn("btn_TransactionReceived", "");		
+		verifyDownloadCheck("TransactionReceived");
+		//verifyDownload("TransactionReceived");
 		sleepWait(1000);
 	  
 	}

@@ -31,7 +31,7 @@ public class Read_OTP
         
         int stringindex = S.indexOf("is: ");
 		int stringlength = "is: ".length();		
-		
+		 
 		String SP = S.substring(stringindex + stringlength, stringindex + stringlength + 6);
         
         //String SP = S.substring(S.lastIndexOf(':')+2, S.length());        

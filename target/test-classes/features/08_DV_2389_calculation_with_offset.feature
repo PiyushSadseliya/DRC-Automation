@@ -1,22 +1,23 @@
 Feature: User is on Tax Calculation
 
   @TC_01_Login
-  Scenario Outline: DRC Tax Portal Login 
+  Scenario Outline: DRC Tax Portal Login
     Given User Login "<TestcaseID>" "<Description>"
     And User Enter email "<email>" and  password "<password>"
     And User Click on SignIn
 
     Examples: 
-      | TestcaseID       | Description          | email                        | password  |
-      | e-file_Login_001 | Login into tax payer | approvedduser@mailinator.com | Admin@123 |
+      | TestcaseID       | Description          | email                         | password |
+      | e-file_Login_001 | Login into tax payer | approveddduser@mailinator.com | Test@123 |
 
+  # commenting for upload
   @TC_02_12
   Scenario Outline: Validate proceed button functionality
     Given User is on Vat e-Filing Page "<TestcaseID>" "<Description>"
     And User click on Dashboard
     And User click on Tab
     And clicks on e-filing to fill data
-    And User click on browser and upload file "<uploadFile>" for tax calculation
+    #  And User click on browser and upload file "<uploadFile>" for tax calculation
     And User click on check box and click on submit button
     And Enter OTP and click on verify button and click on Ok button
     And User is navigate to Tax Calculation page
@@ -50,6 +51,7 @@ Feature: User is on Tax Calculation
     And User entered value "<10>" "<10.1>" "<11>" "<11.1>" "<12>" "<12.1>" "<13>" "<13.1>" for Tax Deductible On calculation
     And User entered value "<17>" "<18>" "<19>" "<20>" for Adjustment on calculation
     And User entered value "<26>" for Tax Calculation on calculation
+    And User click on browser and upload file "<uploadFile>" for tax calculation
     And User click on check box and click on submit button
     And Enter OTP and click on verify button and click on Ok button
     And User is navigate to Tax Calculation page
@@ -57,5 +59,5 @@ Feature: User is on Tax Calculation
     And User click on previous button on tax calculation and navigate to e-filing landing screen
 
     Examples: 
-      | TestcaseID                   | Description                                   |   1 |   2 | 2.1 |   3 |   4 |   5 |   6 |   7 |   8 | 10 | 10.1 | 11 | 11.1 | 12 | 12.1 | 13 | 13.1 | 17 | 18 | 19 | 20 | 26 |
-      | Tax_Cal_04_05_07_08_09_10_11 | validate Tax calculation values are displayed | 500 | 500 | 500 | 500 | 500 | 500 | 500 | 500 | 500 | 10 |   10 | 10 |   10 | 10 |   10 | 10 |   10 | 10 | 10 | 10 | 10 | 10 |
+      | TestcaseID                   | Description                                   |   1 |   2 | 2.1 |   3 |   4 |   5 |   6 |   7 |   8 | 10 | 10.1 | 11 | 11.1 | 12 | 12.1 | 13 | 13.1 | 17 | 18 | 19 | 20 | 26 | uploadFile         |
+      | Tax_Cal_04_05_07_08_09_10_11 | validate Tax calculation values are displayed | 500 | 500 | 500 | 500 | 500 | 500 | 500 | 500 | 500 | 10 |   10 | 10 |   10 | 10 |   10 | 10 |   10 | 10 | 10 | 10 | 10 | 10 | DRC Test Data.xlsx |

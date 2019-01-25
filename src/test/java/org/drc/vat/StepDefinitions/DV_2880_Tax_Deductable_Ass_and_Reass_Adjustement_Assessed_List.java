@@ -313,13 +313,15 @@ public class DV_2880_Tax_Deductable_Ass_and_Reass_Adjustement_Assessed_List
 	{
 		clickOn("btn_eFile_Schedule", "");
 		sleepWait(1000);
-		verifyDownload("Schedule");
+		verifyDownload("e-Filing Schedule");
+		 
 	    
 	}
 
 	@And("^User click on Transaction Received button on Assessed List and validate$")
 	public void user_click_on_Transaction_Received_button_on_Assessed_List_and_validate() throws Throwable 
 	{
+		sleepWait(1000);
 		clickOn("btn_TransactionReceived", "");
 		verifyDownload("TransactionReceived");
 		sleepWait(1000);

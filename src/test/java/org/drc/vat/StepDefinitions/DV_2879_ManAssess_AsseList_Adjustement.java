@@ -40,6 +40,17 @@ public class DV_2879_ManAssess_AsseList_Adjustement
 	}
 
 	
+	@Given("^User type NITVA number and check$")
+	public void user_type_NITVA_number_and_check() throws Throwable 
+	{
+		sleepWait(1000);
+		type("txtbox_TypeHere", Store_NITVA);
+		
+		String NITVA_Check = elementText("txt_NITVA_ch");
+		assertEquals(Store_NITVA, NITVA_Check);
+	}
+	
+	
 	@And("^User click on Next button$")
 	public void user_click_on_Next_button() throws Throwable 
 	{
@@ -53,11 +64,7 @@ public class DV_2879_ManAssess_AsseList_Adjustement
 	
 	@And("^User navigate to Adjustment page$")
 	public void user_navigate_to_Adjustment_page() throws Throwable 
-	{		
-		sleepWait(1000);
-		clickOn("btn_NEXT", "");		
-		sleepWait(2000);		
-		clickOn("btn_NEXT", "");
+	{						
 		sleepWait(2000);		
 		if(wd.findElement(By.xpath(obj.getProperty("txt_checkAdjustement_page"))).isDisplayed());
 		{

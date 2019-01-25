@@ -73,7 +73,7 @@ public class DV_2878_Assessment_Summary_Manual
 		Float Check_Add_Lib =Float.parseFloat(FC3);		 
 
 	
-	}
+	} 
 
 	@And("^User check Total Assessed amount is not changed$")
 	public void user_check_Total_Assessed_amount_is_not_changed() throws Throwable 
@@ -149,6 +149,7 @@ public class DV_2878_Assessment_Summary_Manual
 		sleepWait(1000);
 		clickOn("btn_TransactionReceived", "");
 		verifyDownload("TransactionReceived");	   
+		
 	}
 
 	@And("^User click on edit button$")
@@ -168,7 +169,8 @@ public class DV_2878_Assessment_Summary_Manual
 	public void user_click_on_Save_button_and_validate_save_message(String mess) throws Throwable 
 	{
 		clickOn("btn_Save", "");
-		sleepWait(2000);
+		waitFor("toast_common");
+		//sleepWait(2000);
 		if(wd.findElement(By.xpath("//div[contains(text(),'" + mess + "')]")).isDisplayed() )
 		{					
 			assertTrue(true);
@@ -242,11 +244,11 @@ public class DV_2878_Assessment_Summary_Manual
 	@And("^User click on next button and navigeta to Assessment Summary tab screen$")
 	public void user_click_on_next_button_and_navigeta_to_Assessment_Summary_tab_screen() throws Throwable
 	{
-		sleepWait(1000);
+		sleepWait(2000);
 		clickOn("btn_NEXT", "");
-		sleepWait(1000);
+		sleepWait(2000);
 		clickOn("btn_NEXT", "");
-		sleepWait(1000);
+		sleepWait(2000);
 	
 		sleepWait(1000);
 		if(wd.findElement(By.xpath(obj.getProperty("txt_AS"))).isDisplayed());
@@ -762,7 +764,7 @@ public class DV_2878_Assessment_Summary_Manual
 	public void user_click_on_previous_button_and_navigate_to_Assessed_List_page() throws Throwable 
 	{
 		clickOn("btn_Prev_m", "");
-		sleepWait(1000);
+		sleepWait(2000);		
 		if(wd.findElement(By.xpath(obj.getProperty("txt_check_Landing_Man"))).isDisplayed());
 		{
 			assertTrue(true);
@@ -798,6 +800,8 @@ public class DV_2878_Assessment_Summary_Manual
 	@And("^User see remark is selected and verify$")
 	public void user_see_remark_is_selected_and_verify() throws Throwable 
 	{
+		sleepWait(1000);
+		waitFor("drp_remark_selected_text");
 		String check_remark = elementText("drp_remark_selected_text");
 		sleepWait(500);
 		if(Store_Remark_Selected.equals(check_remark))
