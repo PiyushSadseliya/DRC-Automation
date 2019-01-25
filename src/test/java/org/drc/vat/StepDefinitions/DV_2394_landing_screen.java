@@ -25,7 +25,7 @@ public class DV_2394_landing_screen
 		clickOn("drp_btn_logout", "");
 		sleepWait(2000);
 		clickOn("drp_Sign_out", "");
-		sleepWait(1000);			
+		sleepWait(1000);
 	}	
 
 	@And("^User click on SignIn button$")
@@ -45,7 +45,7 @@ public class DV_2394_landing_screen
 	@And("^User click on Download Template$")
 	public void user_click_on_Download_Template() throws Throwable 
 	{
-		sleepWait(1000);
+		sleepWait(5000);
 		
 		
 		clickOn("bDownloadTemplate", "");
@@ -505,7 +505,7 @@ public class DV_2394_landing_screen
 		sleepWait(1000);
 		clickOn("txt_BankName_Central", "");
 		sleepWait(1000);
-		
+		clickOn("btn_paynow", "");
 		
 		
 	}
@@ -513,11 +513,14 @@ public class DV_2394_landing_screen
 	@And("^User navigate to selected bank page$")
 	public void user_navigate_to_selected_bank_page() throws Throwable 
 	{
-		sleepWait(5000);		
-		wd.get("http://www.bcc.cd/");
+		sleepWait(5000);	
+		wd.switchTo().window(wd.getWindowHandles().toArray()[1].toString());		
+		sleepWait(5000);
 		String title=wd.getTitle();
 		System.out.println("Title is"+title);
 		Assert.assertTrue(title.contains("Banque Centrale du Congo"));
+		wd.close();
+		wd.switchTo().window(wd.getWindowHandles().toArray()[0].toString());		
 
 	}
 
@@ -676,7 +679,7 @@ public class DV_2394_landing_screen
 	@And("^User click on Pay button on Total Liability$")
 	public void user_click_on_Pay_button_on_Total_Liability() throws Throwable 
 	{
-		clickOn("btn_T_L_button", "");
+		clickOn("btn_TotalPay", "");
 	}
 
 	@And("^User check current liability \"([^\"]*)\"$")

@@ -827,7 +827,8 @@ public class DV_2390_e_filing
 		if(wd.findElement(By.xpath(obj.getProperty("txt_e_file_landing_Screen"))).isDisplayed());
 		 {
 			 assertTrue(true);
-		 }   	   
+		 }   
+		 sleepWait(8000);
 	}
 
 	@And("^User click on previous button$")

@@ -219,11 +219,15 @@ public class VatRegistration {
 
 	@Then("^Enters Business Start Date \"([^\"]*)\" , Company Size \"([^\"]*)\"$")
 	public void enters_Business_Start_Date_Company_Size_Last_Year_Revenue(String BStartDate, String CompanySize)
-			throws Throwable {
-		clickOn("dt_bstartdate", "");
-		datePicker(BStartDate);
+			throws Throwable {		
+		JavascriptExecutor js = (JavascriptExecutor) wd;        
+		WebElement Element = wd.findElement(By.xpath("//button[@title='Continue']"));
+		js.executeScript("arguments[0].scrollIntoView();", Element);		
 		clickOn("drp_compsize", "");
 		clickOn("span", "[contains(text(),'" + CompanySize + "')]");
+		clickOn("dt_bstartdate", "");
+		sleepWait(2000);
+		datePicker(BStartDate);
 		// type("txtbox_lrevenue",LRevenue);
 	}
 
@@ -249,7 +253,6 @@ public class VatRegistration {
 		}
 		type("txtbox_zipcode", ZipCode);
 		type("txtbox_mobileno", MobileNumber);
-
 	}
 
 	@Then("^Enters Business details \"([^\"]*)\",\"([^\"]*)\" , \"([^\"]*)\" , \"([^\"]*)\" ,\"([^\"]*)\" ,\"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
@@ -312,18 +315,36 @@ public class VatRegistration {
 	}
 
 	@Then("^Enters Bank Details with Account Number \"([^\"]*)\" , Account Holder Name \"([^\"]*)\" ,Bank Name \"([^\"]*)\" ,Branch \"([^\"]*)\"$")
-	public void enters_Bank_Details_with_Account_Number_Account_Holder_Name_Bank_Name_Branch(String AccountNumber,
-			String AccountHolderName, String BankName, String BranchName) throws Throwable {
+	public void enters_Bank_Details_with_Account_Number_Account_Holder_Name_Bank_Name_Branch(String AccountNumber, String AccountHolderName, String BankName, String BranchName) throws Throwable {
 
-		type("txtbox_accountnumber", AccountNumber);
-		type("txtbox_holdername", AccountHolderName);
-		clickOn("drp_bankname", "");
+		sleepWait(2000);
+		type("acct_no", AccountNumber);
+		sleepWait(1000);
+		type("acct_holder_name", AccountHolderName);
+		clickOn("bank_name", "");
 		sleepWait(1000);
 		clickOn("span", "[contains(text(),'" + BankName + "')]");
 		sleepWait(1000);
 		clickOn("branch_name", "");
 		sleepWait(1000);
 		clickOn("span", "[contains(text(),'" + BranchName + "')]");
+		
+		/*sleepWait(2000);
+		// System.out.println(acct + name + bank + branch);
+		type("acct_no", AccountNumber);
+		sleepWait(1000);
+		type("acct_holder_name", AccountHolderName);
+		sleepWait(2000);
+		clickOn("bank_name", "");
+		sleepWait(2000);
+		clickOn("span", "[contains(text(),'" + BankName + "')]");		
+		sleepWait(2000);
+		clickOn("branch_name", "");
+		sleepWait(2000);
+		clickOn("span", "[contains(text(),'" + BranchName + "')]");		
+		sleepWait(1000);
+		clickOn("btn_continue", "");
+		sleepWait(3000);*/
 	}
 
 	@Then("^Clicks on Bank details Continue Button$")
@@ -336,6 +357,7 @@ public class VatRegistration {
 			throws Throwable {
 
 		clickOn("drp_addressproof", "");
+		Thread.sleep(2000);
 		clickOn("span", "[contains(text(),'" + Document1 + "')]");
 		// String Imagepath1 = cwd.concat("\\").concat(status1);
 		// System.out.println(Imagepath1);
@@ -347,48 +369,47 @@ public class VatRegistration {
 	@Then("^select Bank Account Proof for \"([^\"]*)\" , \"([^\"]*)\"$")
 	public void select_Bank_Account_Proof_for(String Document2, String status2) throws Throwable {
 
-		clickOn("drp_bankaccountproof", "");
-		clickOn("span", "[contains(text(),'" + Document2 + "')]");
+		clickOn("dropdown_1", "");
+		clickOn("span","[contains(text(),' " + Document2 + "') and contains(@class,'ng-option-label ng-star-inserted')]");
 		// String Imagepath2 = cwd.concat("\\").concat(status2);
-		clickOn("upload_file2", "");
-		UploadImage("", status2);
+		clickOn("file1_upload", "");
+		UploadImage("", status2);		
 	}
 
 	@Then("^Select Certificate of Incorporation for \"([^\"]*)\" , \"([^\"]*)\"$")
 	public void select_Certificate_of_Incorporation_for(String Document3, String status3) throws Throwable {
-		clickOn("drp_certification", "");
-		clickOn("span", "[contains(text(),'" + Document3 + "')]");
+		clickOn("dropdown_2", "");
+		sleepWait(1000);
+		clickOn("span", "[contains(text(),'" + Document3 + "') and contains(@class,'ng-option-label ng-star-inserted')]");
 		// String Imagepath3 = cwd.concat("\\").concat(status3);
-		clickOn("upload_file3", "");
+		clickOn("file2_upload", "");
 		UploadImage("", status3);
 	}
 
 	@Then("^select Law or Degree of Establishment for \"([^\"]*)\" , \"([^\"]*)\"$")
 	public void select_Law_or_Degree_of_Establishment_for(String Document4, String status4) throws Throwable {
 
-		clickOn("drp_lawordegree", "");
-		clickOn("span", "[contains(text(),'" + Document4 + "')]");
-		// String Imagepath4 = cwd.concat("\\").concat(status4);
-		clickOn("upload_file4", "");
-		UploadImage("", status4);
+		clickOn("dropdown_3", "");
+		clickOn("span", "[contains(text(),'" + Document4 + "') and contains(@class,'ng-option-label ng-star-inserted')]");		
+		clickOn("file1_upload", "");
+		UploadImage("", status4);		
 	}
 
 	@Then("^select Letter of Authorization/Board Resolution for Authorized Signatory – Download Template for \"([^\"]*)\" , \"([^\"]*)\"$")
 	public void select_Letter_of_Authorization_Board_Resolution_for_Authorized_Signatory_Download_Template_for(
 			String Document5, String status5) throws Throwable {
-		clickOn("drp_letterofauthorization", "");
-		clickOn("span", "[contains(text(),'" + Document5 + "')]");
+		clickOn("dropdown_4", "");
+		clickOn("span", "[contains(text(),'" + Document5 + "') and contains(@class,'ng-option-label ng-star-inserted')]");
 		// String Imagepath5 = cwd.concat("\\").concat(status5);
-		clickOn("upload_file5", "");
+		clickOn("file4_upload", "");
 		UploadImage("", status5);
 	}
 
 	@Then("^select Proof of Last Year Revenue for \"([^\"]*)\" , \"([^\"]*)\"$")
 	public void select_Proof_of_Last_Year_Revenue_for(String Document6, String status6) throws Throwable {
-		clickOn("drp_proofoflastrevenue", "");
-		clickOn("span", "[contains(text(),'" + Document6 + "')]");
-		// String Imagepath6 = cwd.concat("\\").concat(status6);
-		clickOn("upload_file6", "");
+		clickOn("dropdown_5", "");
+		clickOn("span", "[contains(text(),'" + Document6 + "') and contains(@class,'ng-option-label ng-star-inserted')]");		
+		clickOn("file5_upload", "");
 		UploadImage("", status6);
 	}
 

@@ -1,16 +1,5 @@
 Feature: Login Module
 
-  #@Run_Valid_Login
-  #Scenario Outline: DRC Tax Portal with Valid Data
-    #Given User is on DRC Tax Portal and login
-    #When User Enter Data: "<email>" "<password>"
-    #And User Click on SignIn
-    #And User logout
-#
-    #Examples: 
-      #| TestcaseID                      | email                      | password | 
-      #| Valid_DRC_ATC_LoginTaxPortal_01 | regressionnine@mailinator.com | Test@123 |
-
   @Run_InValid_Login
   Scenario Outline: DRC Tax Portal with InValid Data
     Given User is on DRC Tax Portal "<TestcaseID>" "<Description>"
@@ -40,6 +29,18 @@ Feature: Login Module
       | Invalid_DRC_ATC_LoginTaxPortal_19 | Invalid Email id                                     | Q@.in                                                                                                                                                                                          | Arun123  | Email is not valid.    |
       | Invalid_DRC_ATC_LoginTaxPortal_20 | Invalid Email id                                     | a@s.in                                                                                                                                                                                         | Arun123  | Email is not verified. |
       | Invalid_DRC_ATC_LoginTaxPortal_21 | Invalid Email id  invalid domain                     | sdfklzxcvbnmqwertqwertyuiopasdfcsdfsdfdfsdfsdfsdfsdfsfkjhdfionjkjnjbikuhuhoijhojiuhasknjsdanskdaoilasdjksadijasdoiasdioaspasdasadsfssfwwerwwewerasdssd@gmail.com                               | Arun123  | Email is not valid.    |
-  #    | Invalid_DRC_ATC_LoginTaxPortal_22 | blank password                                       | testarun1122@mailinator.com                                                                                                                                                                    |                                                                                                                                                                                                                  | This account has been locked out, please try again later. |
-   #   | Invalid_DRC_ATC_LoginTaxPortal_23 | password wiyh max character                          | testarun1122@mailinator.com                                                                                                                                                                    | AsaartGovernmentanitiativtowardovernanceDRCgovernmenthasbroughtdigitaltransformationbusirocessetoasignificantxtenthroughthexortalrojecthichrovidesntegratedlatformconductariousaxroceedingselectronicallythrough | This account has been locked out, please try again later. |
-    #  | Invalid_DRC_ATC_LoginTaxPortal_24 | password wiyh max character with space               | testarun1122@mailinator.com                                                                                                                                                                    | A sa art Go vernmentaniti ativtoward overna nceDRCg overnmen thasbroughtdi gitaltransfor mationb usirocesse toasig nific antxtenthroug hthexortal rojecthic hrovide snt eg                                       | This account has been locked out, please try again later. |
+
+  #  | Invalid_DRC_ATC_LoginTaxPortal_22 | blank password                                       | testarun1122@mailinator.com                                                                                                                                                                    |                                                                                                                                                                                                                  | This account has been locked out, please try again later. |
+  #  | Invalid_DRC_ATC_LoginTaxPortal_23 | password wiyh max character                          | testarun1122@mailinator.com                                                                                                                                                                    | AsaartGovernmentanitiativtowardovernanceDRCgovernmenthasbroughtdigitaltransformationbusirocessetoasignificantxtenthroughthexortalrojecthichrovidesntegratedlatformconductariousaxroceedingselectronicallythrough | This account has been locked out, please try again later. |
+  #  | Invalid_DRC_ATC_LoginTaxPortal_24 | password wiyh max character with space               | testarun1122@mailinator.com                                                                                                                                                                    | A sa art Go vernmentaniti ativtoward overna nceDRCg overnmen thasbroughtdi gitaltransfor mationb usirocesse toasig nific antxtenthroug hthexortal rojecthic hrovide snt eg                                       | This account has been locked out, please try again later. |
+  
+  @Run_Valid_Login
+  Scenario Outline: DRC Tax Portal with Valid Data
+    Given User is on DRC Tax Portal and login
+    When User Enter Data: "<email>" "<password>"
+    And User Click on SignIn
+
+    #And User logout
+    Examples: 
+      | TestcaseID                      | email                           | password |
+      | Valid_DRC_ATC_LoginTaxPortal_01 | regressionseventeen@mailinator.com | Test@123 |

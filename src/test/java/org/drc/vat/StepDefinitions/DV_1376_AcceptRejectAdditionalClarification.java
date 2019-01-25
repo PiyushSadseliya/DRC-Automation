@@ -48,14 +48,14 @@ public class DV_1376_AcceptRejectAdditionalClarification
 		clickOn("DowView1","");
 		sleepWait(5000);
 		verifyDownloadCheck("TexPayerDetailsDocuments");
-		sleepWait(2000);		
+		sleepWait(2000);
 	}
 	
 	@And("^user click on view icon and file gets display$")
 	public void user_click_on_view_icon_and_file_gets_display() throws Throwable 
 	{ 
 		sleepWait(1000);
-		viewDoc("txt_Eye_click",6);		
+		viewDoc("txt_Eye_click",6);
 		sleepWait(1000);
 	}	
 
@@ -78,7 +78,7 @@ public class DV_1376_AcceptRejectAdditionalClarification
 	public void user_click_on_Submit_button() throws Throwable 
 	{
 		clickOn("btn_RejCommentSubmit","");
-		sleepWait(2000);			
+		sleepWait(3500);			
 		if(wd.findElement(By.xpath(obj.getProperty("txt_RejectCommentPopup"))).isDisplayed())
 		{
 			assertTrue(true);
@@ -130,7 +130,6 @@ public class DV_1376_AcceptRejectAdditionalClarification
 		}
 		clickOn("btn_DownoadCertificate","");
 		verifyDownloadCheck("certificate");
-		sleepWait(1000);
-		
+		sleepWait(1000);		
 	}
 }

@@ -32,12 +32,17 @@ import static org.drc.vat.appmanager.HelperBase.sleepWait;
 
 
 @CucumberOptions(features = {
-		//"classpath:features/08_DV_2389_calculation_with_offset.feature",
-		"classpath:features/"
+
+		"classpath:features/08_1DV_2394_Important_Dates.feature",
+"classpath:features/09_DV_2389_calculation_with_offset.feature",
+	"classpath:features/10_DV_2390_e_filing.feature",
+	"classpath:features/11_DV_2391_eFile_Preview.feature",
+	"classpath:features/12_1_DV_2394_Landing_Screen.feature",
+	"classpath:features/13_3DV_2394_Total_Liability.feature",
 },
 
 glue = "org.drc.vat.StepDefinitions",
-plugin = {"com.cucumber.listener.ExtentCucumberFormatter:","html:test-output/cucumber-report"},tags= {"@Valid_Registration"}
+plugin = {"com.cucumber.listener.ExtentCucumberFormatter:","html:test-output/cucumber-report"}
 		)
 
 
@@ -70,6 +75,9 @@ public class TestRunner extends AbstractTestNGCucumberTests {
 		 */
 		if (scenario.getName().toLowerCase().contains("internal portal")) {
 			app.callinternalportal();
+		}
+		else if (scenario.getName().toLowerCase().contains("taxpayer portal")) {
+			app.calltaxpayerportal();
 		}
 		/**
 		 * Login with rohit.patil
