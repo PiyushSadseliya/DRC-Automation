@@ -154,24 +154,21 @@ public class DV_2253_TaxPayer_Portal_objection_appeal
 		}	   	    
 	}
 
-
-
 	@And("^User enter data \"([^\"]*)\" in title for objection page$")
 	public void user_enter_data_in_title_for_objection_page(String title) throws Throwable 
 	{		
 		sleepWait(1000);
 		type("txt_Objection_Title", title);
 		wd.findElement(By.xpath(obj.getProperty("txt_Objection_Title"))).sendKeys(Keys.CONTROL + "a",Keys.DELETE);
-
 	}
-
 
 	@And("^User click on submit button on notice page and see message \"([^\"]*)\"$")
 	public void user_click_on_submit_button_on_notice_page_and_see_message(String mess) throws Throwable 
 	{
 		sleepWait(500);
-		clickOn("btn_Obj_Submit", "");
-		wd.switchTo().defaultContent();			
+		clickOn("btn_Obj_Submit", "");		
+		wd.switchTo().defaultContent();
+		sleepWait(500);
 		if(wd.findElement(By.xpath("//*[contains(text(),'" + mess + "')]")).isDisplayed())
 		{			
 			assertTrue(true);
@@ -222,19 +219,25 @@ public class DV_2253_TaxPayer_Portal_objection_appeal
 	{
 		sleepWait(1000);
 		type("txt_Obj_Description", spec);
-		if(wd.findElement(By.xpath("//p[contains(text(),'" + spec + "')]")).isDisplayed())
-		{			
-			assertTrue(true);
-		}
+//		if(wd.findElement(By.xpath("//p[contains(text(),'" + spec + "')]")).isDisplayed())
+//		{			
+//			assertTrue(true);
+//		}
 		
-		wd.switchTo().defaultContent();		
+		Actions action = new Actions(wd);
+		action.sendKeys(Keys.TAB).build().perform();
+		
+		/*JavascriptExecutor js = (JavascriptExecutor) wd;
+		js.executeScript("window.scrollTo(0, document.body.scrollHeight)");*/
+		
+		wd.switchTo().defaultContent();
 		WebElement element1 = wd.findElement(By.id("iframe"));
-		wd.switchTo().frame(element1);					
+		wd.switchTo().frame(element1);
 	}	
 
 	@And("^User select file format zip \"([^\"]*)\" and see message \"([^\"]*)\" on objection page$")
 	public void user_select_file_format_zip_and_see_message_on_objection_page(String ZIP, String Mess) throws Throwable 
-	{		
+	{
 		sleepWait(500);
 		wd.findElement(By.xpath("//*[@for='File-Upload']")).click();
 		sleepWait(500);
@@ -252,7 +255,7 @@ public class DV_2253_TaxPayer_Portal_objection_appeal
 	{
 		wd.findElement(By.xpath("//*[@for='File-Upload']")).click();
 		UploadImage("", twoMB);
-//		if(wd.findElement(By.xpath("//*[contains(text(),'" + Mess + "')]")).isDisplayed() )
+//		if(wd.findElement(By.xpath("//*[contains(text(),'" + Mess + "')]")).isDisplayed())
 //		{
 //			assertTrue(true);
 //		}	
@@ -289,6 +292,13 @@ public class DV_2253_TaxPayer_Portal_objection_appeal
 		sleepWait(1000);
 		type("txt_Obj_Description", description);
 	}
+	
+	@And("^user return back to original frame from description$")
+	public void user_return_back_to_original_frame_from_description() throws Throwable {
+		wd.switchTo().defaultContent();
+		WebElement element1 = wd.findElement(By.id("iframe"));
+		wd.switchTo().frame(element1);
+	}
 
 	@And("^User click on submit button on notice page$")
 	public void user_click_on_submit_button_on_notice_page() throws Throwable 
@@ -304,7 +314,7 @@ public class DV_2253_TaxPayer_Portal_objection_appeal
 	@And("^User see period on notice$")
 	public void user_see_period_on_notice() throws Throwable 
 	{
-		sleepWait(1000);
+		sleepWait(2000);
 		Noticeperiod = elementText("txt_Period_Notice");
 	}
 
