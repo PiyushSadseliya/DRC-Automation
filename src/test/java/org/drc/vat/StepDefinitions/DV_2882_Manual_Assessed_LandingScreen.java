@@ -185,13 +185,17 @@ public class DV_2882_Manual_Assessed_LandingScreen {
 		clickOn("drp_AssestManage", "");
 		sleepWait(1000);
 		clickOn("txt_AssestManageAssess", "");
+		sleepWait(1000);
 	}
 
 	@And("^User will navigate to user manual assessement page$")
-	public void user_will_navigate_to_user_manual_assessement_page() throws Throwable {
+	public void user_will_navigate_to_user_manual_assessement_page() throws Throwable 
+	{
+		sleepWait(2000);
 		WebElement we;
 		we = wd.findElement(By.xpath(obj.getProperty("txt_OperPeerfor")));
-		if (we.isDisplayed()) {
+		if (we.isDisplayed()) 
+		{
 			assertTrue(true);
 		}
 		sleepWait(1000);

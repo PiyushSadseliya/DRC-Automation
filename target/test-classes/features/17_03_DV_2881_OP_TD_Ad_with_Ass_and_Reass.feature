@@ -86,13 +86,13 @@ Feature: User is on Operation Performed Page Manual Assessement
       | TestcaseID   | Description                                              | Period        | TaxPayer         | Year            |
       | Mal_OP_10_11 | Validate Total Additional liability and amount calculate | txt_PeriodFeb | regressionforty | txt_2019_Period |
 
-  @TC_13_14_15_16_17_19_Manual_2881
-  Scenario Outline: Validate total row under Other e-declaration table , total amount for taxable turnover,next and prev,previous,transaction received button and e-filing schedule button
+  @TC_13_14_15_16_17_Manual_2881
+  Scenario Outline: Validate total row under Other e-declaration table , total amount for taxable turnover,next and prev,previous,transaction received button 
     Given User is on Manual Assessment "<TestcaseID>" "<Description>"
     And User click on Dashboard
     And User click on Assessment Tab
     And User click on drop down "<Period>" for Manual Assessment
-    And User click on year "<Year>" and check
+    And User click on year "<Year>" and check	
     And User click on FilterBy and click on TaxPayer
     And User type "<TaxPayer>" and click on search button
     And User click on manage and click on assess
@@ -100,23 +100,15 @@ Feature: User is on Operation Performed Page Manual Assessement
     And User verify the total amount for VAT collected
     And User click on next button and navigate to Tax deductible page
     And User click on prev and navigate to operation tap and prev button is disable
-    And User click on Transaction received button and verify
-    
-    And User click on previous button and navigate to manual assessement landing screen
-    And User click on drop down "<Period1>" for Manual Assessment
-    And User click on year "<Year>" and check
-    And User click on FilterBy and click on TaxPayer
-    And User type "<TaxPayer>" and click on search button
-    And User click on manage and click on assess
-     And User click on next button and navigate to Tax deductible page
-    
-    And User click on e-filing schedule when tax payer did not uploaded file at the time of e-declaration and shows message "<FNF>"
+    And User click on Transaction received button and verify        
     And User click on previous button and navigate to manual assessement landing screen
 
     Examples: 
-      | TestcaseID               | Description                                                                                                         | Period        |Period1       | TaxPayer        | FNF            | Year            |
-      | Mal_OP_13_14_15_16_17_19 | Validate total row,amount for taxable turnover,next and prev,previous,transaction received,e-filing schedule button | txt_PeriodFeb |txt_PeriodJan |regressionforty | File not found | txt_2019_Period |
+      | TestcaseID               | Description                                                                                                         | Period        | TaxPayer       |
+      | Mal_OP_13_14_15_16_17_19 | Validate total row,amount for taxable turnover,next and prev,previous,transaction received,e-filing schedule button | txt_PeriodFeb |regressionforty | 
 
+  
+  
   @TC_18_Manual_2881
   Scenario Outline: Validate the download functionality of e-filing schedule button when e-file schedule file is uploaded by tax payer from tax payer portal
     Given User is on Manual Assessment "<TestcaseID>" "<Description>"
@@ -130,9 +122,27 @@ Feature: User is on Operation Performed Page Manual Assessement
     And User click on e-filing schedule button and validate
 
     Examples: 
-      | TestcaseID | Description                       | Period        | TaxPayer         | Year            |
+      | TestcaseID | Description                       | Period        | TaxPayer         | Year           |
       | Mal_OP_18  | Validate e-filing schedule button | txt_PeriodFeb | regressionforty | txt_2019_Period |
+  
+  
+  @TC_19_Manual_2881
+  Scenario Outline: Validate the download functionality of e-filing schedule button when e-file schedule file is not uploaded by tax payer from tax payer portal    
+    Given User is on Manual Assessment "<TestcaseID>" "<Description>"
+    And User click on Dashboard
+    And User click on Assessment Tab
+    And User click on drop down "<Period>" for Manual Assessment
+    And User click on year "<Year>" and check
+    And User click on FilterBy and click on TaxPayer
+    And User type "<TaxPayer>" and click on search button
+    And User click on manage and click on assess
+  	And User click on e-filing schedule when tax payer did not uploaded file at the time of e-declaration and shows message "<FNF>" 
 
+    Examples: 
+      | TestcaseID | Description                       | Period        | TaxPayer        | Year            |FNF           |
+      | Mal_OP_19  | Validate e-filing schedule button | txt_PeriodJan | regressionforty | txt_2019_Period |File not found|
+  
+  
   @TC_Negative_Scenario_Manual_2881
   Scenario Outline: Validate Negative Scenario for all fields
     Given User is on Manual Assessment "<TestcaseID>" "<Description>"
