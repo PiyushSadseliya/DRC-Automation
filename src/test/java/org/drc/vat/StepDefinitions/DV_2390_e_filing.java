@@ -53,8 +53,6 @@ public class DV_2390_e_filing
 	public static  Float SDC ;
 	public static  Float VDC ;
 	public static  Float PCC ;
-	
-
 	public String DG;
 	
 	@Given("^User Login \"([^\"]*)\" \"([^\"]*)\"$")

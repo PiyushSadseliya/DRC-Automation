@@ -116,9 +116,9 @@ public class ApplicationManager {
 			wd = new ChromeDriver();
 			wd.manage().window().maximize();
 			wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-			wd.get("http://103.249.120.58:8044");
-			Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\src\\test\\resources\\authusers\\autoitsample.exe");
+			wd.get("http://103.249.120.58:8044");			
 			wd.findElement(By.xpath(obj.getProperty("btn_windowsClick"))).click();
+			Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\src\\test\\resources\\authusers\\autoitsample.exe");
 			Thread.sleep(1000);
 		}
 		else
@@ -135,7 +135,29 @@ public class ApplicationManager {
 			}
 		}
 	}
+	
+	public void EFDinternalportal() throws AWTException, InterruptedException, IOException 
+	{
+		if (wd.getCurrentUrl().contains("8057")) 
+		{			
+			wd.close();
+			Thread.sleep(1000);
+			wd = new ChromeDriver();
+			wd.manage().window().maximize();
+			wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+			wd.get("http://103.249.120.58:8044");
+			Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\src\\test\\resources\\authusers\\autoitsample.exe");
+			wd.findElement(By.xpath(obj.getProperty("btn_windowsClick"))).click();
+			Thread.sleep(1000);
+		}		
+	}
 
+	public void callmanufacturerportal() throws AWTException, InterruptedException, IOException {
+		wd.get("http://103.249.120.58:8057");
+	}
+	public void callvendorportal() throws AWTException, InterruptedException, IOException {		
+		wd.get("http://103.249.120.58:8012");
+	}
 
 	public void calltaxpayerportal() throws AWTException, InterruptedException, IOException 
 	{		
@@ -146,9 +168,8 @@ public class ApplicationManager {
 		wd.manage().window().maximize();
 		wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		wd.get("http://103.249.120.58:8042");	
-		Thread.sleep(1000);			
+		Thread.sleep(1000);
 	}
-
 
 	/**
 	 *  rohit.patil internal portal
@@ -390,9 +411,4 @@ public class ApplicationManager {
 			}
 		}
 	}
-
-
-
-
-
 }

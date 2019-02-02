@@ -31,19 +31,19 @@ import static org.drc.vat.appmanager.HelperBase.assessmentOfficer;
 import static org.drc.vat.appmanager.HelperBase.sleepWait;
 
 @CucumberOptions(features = {
-//		"classpath:features/01_userRegistration.feature",
-//		"classpath:features/02_01_Login.feature",
-//		"classpath:features/03_01uploadDocuments.feature",
-//		"classpath:features/03_02VATRegistration.feature",
-//		"classpath:features/04_DV_1377_ManageVatRegistration.feature",
-//		"classpath:features/05_DV_1376_AcceptRejectAdditionalClarification.feature",	
-		"classpath:features/30_TaxPayer_Portal_objection_appeal.feature",
-		//"classpath:features/07_UserRegistrationStatus.feature"
+		//		"classpath:features/01_userRegistration.feature",
+		//		"classpath:features/02_01_Login.feature",
+		//		"classpath:features/03_01uploadDocuments.feature",
+		//"classpath:features/03_02VATRegistration.feature",
+		//		"classpath:features/04_DV_1377_ManageVatRegistration.feature",
+		//		"classpath:features/05_DV_1376_AcceptRejectAdditionalClarification.feature",
+		//"classpath:features/30_TaxPayer_Portal_objection_appeal.feature",
+		"classpath:features/EFDVendor.feature"
 },
 
 glue = "org.drc.vat.StepDefinitions",
 plugin = {"com.cucumber.listener.ExtentCucumberFormatter:","html:test-output/cucumber-report"}
-,tags= {"@Testing, @DV_2253_TaxPayer_Portal_objection_appeal_TC_20_21_22"}
+//,tags= {"@TC_01,@TC_02,@TC_Search"}
 		)
 
 public class TestRunner extends AbstractTestNGCucumberTests {
@@ -78,62 +78,70 @@ public class TestRunner extends AbstractTestNGCucumberTests {
 		else if (scenario.getName().toLowerCase().contains("taxpayer portal")) {
 			app.calltaxpayerportal();
 		}
-		/**
-		 * Login with rohit.patil
-		 */
-		else if (scenario.getName().toLowerCase().contains("fx taxofficer")) {
-			app.callinternalportal_TaxOfficer();
+		else if (scenario.getName().contains("EFDinternalportal")) {
+			app.EFDinternalportal();
+		}		
+		else if (scenario.getName().toLowerCase().contains("efd-manufacturerportal")) {
+			app.callmanufacturerportal();
+		} else if (scenario.getName().toLowerCase().contains("vendor portal")) {
+			app.callvendorportal();
 		}
-		/**
-		 * Login with pooja.parmar
-		 */
-		else if (scenario.getName().toLowerCase().contains("supervisor")) {
-			app.callinternalportal_Supervisor();
-		} else if (scenario.getName().toLowerCase().contains("laxman")) {
-			app.callinternalportal_Assessment_Officer();
+			/**
+			 * Login with rohit.patil
+			 */
+			else if (scenario.getName().toLowerCase().contains("fx taxofficer")) {
+				app.callinternalportal_TaxOfficer();
+			}
+			/**
+			 * Login with pooja.parmar
+			 */
+			else if (scenario.getName().toLowerCase().contains("supervisor")) {
+				app.callinternalportal_Supervisor();
+			} else if (scenario.getName().toLowerCase().contains("laxman")) {
+				app.callinternalportal_Assessment_Officer();
+			}
+
+			/**
+			 * For Demo login
+			 */
+			/**
+			 * Login with Ketan.prajapati demo
+			 */
+			else if (scenario.getName().toLowerCase().contains("admin demo")) {
+				app.callinternalportal_ketan_demo();
+			}
+			/**
+			 * Login with rohit.patil demo
+			 */
+			else if (scenario.getName().toLowerCase().contains("taxofficer demo")) {
+				app.callinternalportal_TaxOfficer_demo();
+			}
+
+			/**
+			 * Login with pooja.parmar demo
+			 */
+			else if (scenario.getName().toLowerCase().contains("supervisor demo")) {
+				app.callinternalportal_Supervisor_demo();
+			} else if (scenario.getName().toLowerCase().contains("laxman demo")) {
+				app.callinternalportal_Assessment_Officer_laxman_demo();
+			} else {
+				app.callurl();
+			}
+			Thread.sleep(5000);
+			logger.info("Start scenario: " + scenario.getName());
 		}
 
-		/**
-		 * For Demo login
-		 */
-		/**
-		 * Login with Ketan.prajapati demo
-		 */
-		else if (scenario.getName().toLowerCase().contains("admin demo")) {
-			app.callinternalportal_ketan_demo();
-		}
-		/**
-		 * Login with rohit.patil demo
-		 */
-		else if (scenario.getName().toLowerCase().contains("taxofficer demo")) {
-			app.callinternalportal_TaxOfficer_demo();
-		}
+		@After
+		public void endScenario(Scenario scenario) throws Exception {
 
-		/**
-		 * Login with pooja.parmar demo
-		 */
-		else if (scenario.getName().toLowerCase().contains("supervisor demo")) {
-			app.callinternalportal_Supervisor_demo();
-		} else if (scenario.getName().toLowerCase().contains("laxman demo")) {
-			app.callinternalportal_Assessment_Officer_laxman_demo();
-		} else {
-			app.callurl();
+			String screenshot = scenario.getName();
+			File src = app.takeScreenshotAsFile();
+			File dest = new File(System.getProperty("user.dir") + "/" + outputDir + "/screenshots/" + screenshot + timestamp + ".png");
+			FileUtils.copyFile(src, dest);
+			Reporter.addScreenCaptureFromPath(dest.toString());
+			scenario.embed(app.takeScreenshot(), "image/png");
+			// logout();
+
+			logger.info("Stop scenario: " + scenario.getName());
 		}
-		Thread.sleep(5000);
-		logger.info("Start scenario: " + scenario.getName());
 	}
-
-	@After
-	public void endScenario(Scenario scenario) throws Exception {
-		
-		String screenshot = scenario.getName();
-		File src = app.takeScreenshotAsFile();
-		File dest = new File(System.getProperty("user.dir") + "/" + outputDir + "/screenshots/" + screenshot + timestamp + ".png");
-		FileUtils.copyFile(src, dest);
-		Reporter.addScreenCaptureFromPath(dest.toString());
-		scenario.embed(app.takeScreenshot(), "image/png");
-		// logout();
-		
-		logger.info("Stop scenario: " + scenario.getName());
-	}
-}

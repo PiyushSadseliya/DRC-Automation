@@ -16,6 +16,13 @@ import cucumber.api.java.en.When;
 
 public class DV_1294_TaxPayerProfile {
 	
+	@When("^user click on Dashboard link$")
+	public void user_click_on_Dashboard_link() throws Throwable {
+		clickOn("txt_dashboard", "");
+	    sleepWait(200);
+	    clickOn("label_pin", "");
+	}
+	
 	@When("^user selects Tax Payer Profile$")
 	public void user_selects_Tax_Payer_Profile() throws Throwable {
 		sleepWait(1000);
@@ -36,7 +43,8 @@ public class DV_1294_TaxPayerProfile {
 		sleepWait(1000);
 		type("TypeHere",value);
 		sleepWait(1000);		
-		clickOn("btn_SearchFX","");		
+		clickOn("btn_SearchFX","");
+		sleepWait(500);
 	}
 	
 	@And("^user click on Associated risk button$")

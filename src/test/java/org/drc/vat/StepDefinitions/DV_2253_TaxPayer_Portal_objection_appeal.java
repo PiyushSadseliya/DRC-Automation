@@ -3,6 +3,8 @@ package org.drc.vat.StepDefinitions;
 import static org.drc.vat.appmanager.HelperBase.*;
 import static org.testng.Assert.assertTrue;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -16,6 +18,19 @@ public class DV_2253_TaxPayer_Portal_objection_appeal
 	public static String Storereference_value; 
 	public String Noticeperiod;
 
+	@And("^user click on VAT menu$")
+	public void user_click_on_VAT_menu() throws Throwable {
+		List<WebElement> vatTile = wd.findElements(By.xpath("//h3[contains(text(),'VAT')]"));
+		if (vatTile.size() > 0) {
+			clickOn("tile_vat", "");
+			sleepWait(2000);
+			List<WebElement> sure = wd.findElements(By.xpath("//a[contains(text(),'Yes')]"));
+			if (sure.size() > 0) {
+				sure.get(0).click();
+			}			
+		}
+	}
+	
 	@And("^User is on Tax Payer portal Objection and Appeal and click on VAT e-Filing Tab \"([^\"]*)\" \"([^\"]*)\"$")
 	public void user_is_on_Tax_Payer_portal_Objection_and_Appeal_and_click_on_VAT_e_Filing_Tab(String arg1, String arg2) throws Throwable 
 	{

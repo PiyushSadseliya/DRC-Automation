@@ -116,9 +116,9 @@ public class DV_2391_eFile_Preview
 			public void enter_OTP_and_click_on_verify_button_and_click_on_Ok_button() throws Throwable 
 			{			    
 			   Read_OTP RO = new Read_OTP();
-			   String OTP=RO.ReadOTP();
+			   //String OTP=RO.ReadOTP();
 			   sleepWait(1000);
-			   wd.findElement(By.xpath("//*[@placeholder='Enter your OTP']")).sendKeys(OTP);
+			   //wd.findElement(By.xpath("//*[@placeholder='Enter your OTP']")).sendKeys(OTP);
 			   sleepWait(1000);
 			   wd.findElement(By.xpath("//*[text()='Verify']")).click();
 			   sleepWait(5000);
@@ -128,8 +128,7 @@ public class DV_2391_eFile_Preview
 			
 			@And("^User entered value \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" for Operation Performed on preview$")
 			public void user_entered_value_for_Operation_Performed_on_preview(String DG, String DS1, String DS2, String DGI, String DSI, String FPP, String Export, String Exempt, String Nontaxable) throws Throwable 
-			{
-				
+			{				
 				sleepWait(10000);				
 				sleepWait(200);
 				type("txt_Delivery_goods", DG);

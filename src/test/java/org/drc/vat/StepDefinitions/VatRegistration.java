@@ -464,14 +464,14 @@ public class VatRegistration {
  
 	@Then("^click on Manage Vat Registartion$")
 	public void click_on_Manage_Vat_Registartion() throws Throwable {
-
 		clickOn("tab_manageregistartion", "");
 		sleepWait(2000);
 	}
 
 	@Then("^select \"([^\"]*)\" option and \"([^\"]*)\"$")
 	public void select_option_and(String Filter, String Searchelement) throws Throwable {
-		clickOn("drp_filter", "");
+		clickOn("drp_FilterByMVT", "");
+		sleepWait(500);
 		clickOn("span", "[contains(text(),'" + Filter + "')]");
 		type("txt_search", Searchelement);
 	}
