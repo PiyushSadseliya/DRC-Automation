@@ -109,15 +109,16 @@ public class ApplicationManager {
 	 */
 	public void callinternalportal() throws AWTException, InterruptedException, IOException 
 	{
-		if (wd.getCurrentUrl().contains("8068")) 
-		{			
+		if (wd.getCurrentUrl().contains("8068") || wd.getCurrentUrl().contains("8042")) 
+		{			 
 			wd.close();
 			Thread.sleep(1000);
 			wd = new ChromeDriver();
 			wd.manage().window().maximize();
 			wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 			wd.get("http://103.249.120.58:8044");
-			Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\src\\test\\resources\\authusers\\autoitsample.exe");
+			//Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\src\\test\\resources\\authusers\\autoitsample.exe");
+			Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\QA_Internal_Portal_Login\\autoitsample.exe");
 			wd.findElement(By.xpath(obj.getProperty("btn_windowsClick"))).click();
 			Thread.sleep(1000);
 		}
@@ -130,18 +131,44 @@ public class ApplicationManager {
 			wd.manage().window().maximize();
 				Thread.sleep(1000);
 				wd.get("http://103.249.120.58:8044");
-
-				Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\src\\test\\resources\\authusers\\autoitsample.exe");
-
+				Thread.sleep(500);
+				//Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\src\\test\\resources\\authusers\\autoitsample.exe");
+				Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\QA_Internal_Portal_Login\\autoitsample.exe");
 				clickOn("btn_windowsClick", "");			
 				Thread.sleep(1000);
 			}
 		}
 	}
 
-
+	/**
+	 *  Frankey Created
+	 */
 	public void calltaxpayerportal() throws AWTException, InterruptedException, IOException 
-	{		
+	{				
+		if (wd.getCurrentUrl().contains("8068")) 
+		{			
+			sleepWait(1500);
+			wd.close(); 
+			Thread.sleep(1000);
+			wd = new ChromeDriver();
+			wd.manage().window().maximize();
+			wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+			wd.get("http://103.249.120.58:8042");	
+			Thread.sleep(1000);		
+		}
+	}
+
+	
+	
+	
+	
+	
+	
+	/** 
+	 * Arun creted
+	 */
+	/*public void calltaxpayerportal() throws AWTException, InterruptedException, IOException 
+	{				
 		sleepWait(1500);
 		wd.close();
 		Thread.sleep(1000);
@@ -150,7 +177,7 @@ public class ApplicationManager {
 		wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		wd.get("http://103.249.120.58:8042");	
 		Thread.sleep(1000);			
-	}
+	}*/
 
 
 	/**
@@ -161,14 +188,14 @@ public class ApplicationManager {
 		if (wd.getCurrentUrl().contains("8068")) 
 		{
 			wd.close();
-			WebDriver wd = new ChromeDriver();
+			//WebDriver wd = new ChromeDriver(); 
 			wd = new ChromeDriver();
 			wd.manage().window().maximize();
 			wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 			wd.get("http://103.249.120.58:8044");
 
-			Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\src\\test\\resources\\authusers\\autoitlaxman.exe");
-
+			//Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\src\\test\\resources\\authusers\\autoitlaxman.exe");
+			Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\QA_Internal_Portal_Login\\autoitsample.rohit.exe");
 			wd.findElement(By.xpath(obj.getProperty("btn_windowsClick"))).click();
 			Thread.sleep(1000);
 		}
@@ -178,8 +205,8 @@ public class ApplicationManager {
 			{
 				wd.get("http://103.249.120.58:8044");
 
-				Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\src\\test\\resources\\authusers\\autoitlaxman.exe");
-
+				//Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\src\\test\\resources\\authusers\\autoitlaxman.exe");
+				Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\QA_Internal_Portal_Login\\autoitsample.rohit.exe");
 				clickOn("btn_windowsClick", "");
 				Thread.sleep(1000);
 			}						
@@ -199,7 +226,8 @@ public class ApplicationManager {
 			wd.manage().window().maximize();
 			wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);									
 			wd.get("http://103.249.120.58:8044");
-			Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\src\\test\\resources\\authusers\\autoitlaxman.exe");	
+			//Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\src\\test\\resources\\authusers\\autoitlaxman.exe");
+			Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\QA_Internal_Portal_Login\\autoitsample.Supervisiour.exe");
 			wd.findElement(By.xpath(obj.getProperty("btn_windowsClick"))).click();
 			Thread.sleep(1000);
 		}
@@ -210,8 +238,8 @@ public class ApplicationManager {
 				Thread.sleep(5000);
 				wd.get("http://103.249.120.58:8044");
 
-				Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\src\\test\\resources\\authusers\\autoitlaxman.exe");				
-
+				//Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\src\\test\\resources\\authusers\\autoitlaxman.exe");				
+				Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\QA_Internal_Portal_Login\\autoitsample.Supervisiour.exe");
 				clickOn("btn_windowsClick", "");
 				Thread.sleep(1000);
 			}
@@ -230,8 +258,8 @@ public class ApplicationManager {
 			wd.manage().window().maximize();
 			wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 			wd.get("http://103.249.120.58:8044");
-
-			Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\src\\test\\resources\\authusers\\autoitlaxman.exe");			
+			Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\QA_Internal_Portal_Login\\autoitlaxman.exe");
+			//Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\src\\test\\resources\\authusers\\autoitlaxman.exe");			
 
 			wd.findElement(By.xpath(obj.getProperty("btn_windowsClick"))).click();
 			Thread.sleep(1000);
@@ -242,8 +270,8 @@ public class ApplicationManager {
 			{
 				Thread.sleep(1000);
 				wd.get("http://103.249.120.58:8044");
-
-				Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\src\\test\\resources\\authusers\\autoitlaxman.exe");				
+				Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\QA_Internal_Portal_Login\\autoitlaxman.exe");
+				//Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\src\\test\\resources\\authusers\\autoitlaxman.exe");				
 
 				clickOn("btn_windowsClick", "");
 				Thread.sleep(1000);

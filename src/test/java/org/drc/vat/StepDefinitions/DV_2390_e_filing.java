@@ -33,7 +33,7 @@ public class DV_2390_e_filing
 	
 	public String StoreAuthorizedSignatory;
 	
-	public static  String VAT_Store_VR;
+	public static String VAT_Store_VR;
 	public static String VAT_Store_SD;
 	public static String VAT_Store_VD;
 	public static String VAT_Store_PC;
@@ -65,7 +65,7 @@ public class DV_2390_e_filing
 		System.out.println(arg2);		
 	}	
 	
-	@And("^User Enter email \"([^\"]*)\" and  password \"([^\"]*)\"$")
+		@And("^User Enter email \"([^\"]*)\" and  password \"([^\"]*)\"$")
 	public void user_Enter_email_and_password(String email, String pwd) throws Throwable 
 	{
 		emailid=email;

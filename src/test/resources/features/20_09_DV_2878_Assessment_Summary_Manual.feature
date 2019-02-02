@@ -16,8 +16,8 @@ Feature: User is on Assessment Summary Manual Assessement
     And Validate Period field
 
     Examples: 
-      | TestcaseID   | Description                    | Period        | TaxPayer   | Year            |
-      | Mal_AS_02_03 | validate nitva no,Period field | txt_PeriodJan | Arun111223 | txt_2019_Period |
+      | TestcaseID   | Description                    | Period        | TaxPayer           | Year            |
+      | Mal_AS_02_03 | validate nitva no,Period field | txt_PeriodFeb | Automation User 10 | txt_2019_Period |
 
   # this scenario is moved to feature file 16
   #  @TC_05_06_19_18_16
@@ -51,8 +51,8 @@ Feature: User is on Assessment Summary Manual Assessement
     And User navigate to Payment Summary page
 
     Examples: 
-      | TestcaseID | Description         | Period        | TaxPayer   |  1 | 10 | 10.1 | 17 | SaveMess           | selectedRemark                    | SR             | selected                          | Year            |
-      | Mal_AS_07  | validate Happy Path | txt_PeriodJan | Arun111223 | 10 | 10 |   10 | 10 | Saved Successfully | Verified through EFD transactions | Select remarks | Verified through EFD transactions | txt_2019_Period |
+      | TestcaseID | Description         | Period        | TaxPayer           |    1 |   10 | 10.1 |   17 | SaveMess           | selectedRemark                    | SR             | selected                          | Year            |
+      | Mal_AS_07  | validate Happy Path | txt_PeriodFeb | Automation User 10 | 1101 | 1101 | 1101 | 1101 | Saved Successfully | Verified through EFD transactions | Select remarks | Verified through EFD transactions | txt_2019_Period |
 
   @TC_14_08_09_10_11_12_13
   Scenario Outline: Validate the Prev button functionality
@@ -85,8 +85,8 @@ Feature: User is on Assessment Summary Manual Assessement
     And User see remark is selected and verify
 
     Examples: 
-      | TestcaseID                  | Description                 | Period        | TaxPayer   |  1 | 10 | 10.1 | 17 | SaveMess           | selectedRemark                    | SR             | selected                          | Year            |
-      | Mal_AS_14_08_09_10_11_12_13 | validate prev functionality | txt_PeriodJan | Arun111223 | 10 | 10 |   10 |  1 | Saved Successfully | Verified through EFD transactions | Select remarks | Verified through EFD transactions | txt_2019_Period |
+      | TestcaseID                  | Description                 | Period        | TaxPayer           |      1 |    10 |  10.1 |   17 | SaveMess           | selectedRemark                    | SR             | selected                          | Year            |
+      | Mal_AS_14_08_09_10_11_12_13 | validate prev functionality | txt_PeriodFeb | Automation User 10 | 110101 | 10101 | 10101 | 1010 | Saved Successfully | Verified through EFD transactions | Select remarks | Verified through EFD transactions | txt_2019_Period |
 
   @TC_15
   Scenario Outline: Validate the Previous button functionality
@@ -125,8 +125,8 @@ Feature: User is on Assessment Summary Manual Assessement
     And User see remark is selected and verify
 
     Examples: 
-      | TestcaseID | Description                     | Period        | TaxPayer   |  1 | 10 | 10.1 | 17 | SaveMess           | selectedRemark                    | SR             | selected                          | Year            |
-      | Mal_AS_15  | validate previous functionality | txt_PeriodJan | Arun111223 | 10 | 10 |   10 |  1 | Saved Successfully | Verified through EFD transactions | Select remarks | Verified through EFD transactions | txt_2019_Period |
+      | TestcaseID | Description                     | Period        | TaxPayer           |     1 |    10 |  10.1 |   17 | SaveMess           | selectedRemark                    | SR             | selected                          | Year            |
+      | Mal_AS_15  | validate previous functionality | txt_PeriodFeb | Automation User 10 | 10101 | 10101 | 10101 | 1010 | Saved Successfully | Verified through EFD transactions | Select remarks | Verified through EFD transactions | txt_2019_Period |
 
   @TC_17
   Scenario Outline: Validate e-filing schedule button functionality when tax payer uploaded file at the time of e-declaration.
@@ -140,8 +140,8 @@ Feature: User is on Assessment Summary Manual Assessement
     And User click on e-Filing Scedule on Manual Assessment and validate
 
     Examples: 
-      | TestcaseID | Description                                                       | Period        | TaxPayer   | Year            |
-      | Mal_AS_17  | validate download functionality when user upload file on tax paye | txt_PeriodJan | Arun111223 | txt_2019_Period |
+      | TestcaseID | Description                                                       | Period        | TaxPayer           | Year            |
+      | Mal_AS_17  | validate download functionality when user upload file on tax paye | txt_PeriodFeb | Automation User 10 | txt_2019_Period |
 
   @TC_24
   Scenario Outline: Validate that the Total Additional Liability(FC) amount should be zero when Total e-Declaration(FC)  amount should  be same as Total Assessed(FC) amount.
@@ -158,8 +158,8 @@ Feature: User is on Assessment Summary Manual Assessement
     And User validate total additionality liability
 
     Examples: 
-      | TestcaseID | Description    | Period        | TaxPayer   | Year            |
-      | Mal_AS_24  | amount is same | txt_PeriodJan | Arun111223 | txt_2019_Period |
+      | TestcaseID | Description    | Period        | TaxPayer           | Year            |
+      | Mal_AS_24  | amount is same | txt_PeriodFeb | Automation User 10 | txt_2019_Period |
 
   @TC_25_26
   Scenario Outline: Validate that the Total Additional Liability(FC) amount should be more than zero when Total e-Declaration(FC)  amount is less than Total Assessed(FC) amount
@@ -200,8 +200,8 @@ Feature: User is on Assessment Summary Manual Assessement
     And User see Total Additional Liability value is less than zero
 
     Examples: 
-      | TestcaseID   | Description                                                              | Period        | TaxPayer   | SaveMess           |      1 | 10 | 10.1 | 17 | again1 | again10 | again10.1 | again17 | Year            |
-      | Mal_AS_25_26 | validate additionality liablility with more than zero and less than zero | txt_PeriodJan | Arun111223 | Saved Successfully | 500000 |  1 |    0 | 10 |    400 |       5 |         5 |      10 | txt_2019_Period |
+      | TestcaseID   | Description                                                              | Period        | TaxPayer           | SaveMess           |      1 | 10 | 10.1 | 17 | again1 | again10 | again10.1 | again17 | Year            |
+      | Mal_AS_25_26 | validate additionality liablility with more than zero and less than zero | txt_PeriodFeb | Automation User 10 | Saved Successfully | 500000 |  1 |    0 | 10 |    400 |       5 |         5 |      10 | txt_2019_Period |
 
   @TC_27
   Scenario Outline: Validate that the Assessment Summary tab records should get auto populated with only those records whose changes made in assessment adjustment table for Operations Performed, Tax Deductible and Adjustment tab
@@ -226,5 +226,5 @@ Feature: User is on Assessment Summary Manual Assessement
     And User see Adjustment tab and validate entered value
 
     Examples: 
-      | TestcaseID | Description                                            | Period        | TaxPayer   |   1 | 10 | 10.1 | 17 | Year            |
-      | Mal_AS_27  | validate tabs auto populated in assessment adjustement | txt_PeriodJan | Arun111223 | 500 |  5 |    5 | 10 | txt_2019_Period |
+      | TestcaseID | Description                                            | Period        | TaxPayer           |    1 | 10 | 10.1 |  17 | Year            |
+      | Mal_AS_27  | validate tabs auto populated in assessment adjustement | txt_PeriodFeb | Automation User 10 | 1500 | 15 |   15 | 110 | txt_2019_Period |

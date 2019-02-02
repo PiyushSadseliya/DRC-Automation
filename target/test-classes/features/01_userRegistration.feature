@@ -8,18 +8,10 @@ Feature: User Registration for the steps involved in creating a user account for
     And Update data in another table based on created user
     And Update data in roles table
 
-
-    Examples:
+    Examples: 
       | Test Case ID                  | Description              | username       |
+      | DRC_ATC_Valid_Registration_04 | Register with valid data | Automation Ten |
 
-      | DRC_ATC_Valid_Registration_04 | Register with valid data | one test |
-    | DRC_ATC_Valid_Registration_04 | Register with valid data | two test |
-        | DRC_ATC_Valid_Registration_04 | Register with valid data | three test |
-          | DRC_ATC_Valid_Registration_04 | Register with valid data | four test |
-
-
-  # | DRC_ATC_Valid_Registration_04 | Register with valid data | Rejected User |
-  #| DRC_ATC_Valid_Registration_01 | Register with valid data | Rejecteud User |
   @Invalid_Registration @mtc3 @mtc4 @mtc5 @mtc6 @mtc8 @mtc9 @Sprint3
   Scenario Outline: User Should not be allowed to Register in DRC TAX Portal with InValid details.
     Given User is on Welcome to DRC Tax Portal page"<Test Case ID>" "<Description>"

@@ -30,23 +30,26 @@ import static org.drc.vat.appmanager.HelperBase.clearCache;
 import static org.drc.vat.appmanager.HelperBase.assessmentOfficer;
 import static org.drc.vat.appmanager.HelperBase.sleepWait;
 
-@CucumberOptions(features = {
-		//"src/test/resources/features/08_1DV_2394_Important_Dates.feature",
-/*		"src/test/resources/features/13_3DV_2394_Total_Liability.feature",
-		"src/test/resources/features/14_ViewAllStatementofTransaction.feature",
-		"src/test/resources/features/15_01_TaxBillPayment.feature"*/
-		"src/test/resources/features/32_0DebtRecord.feature",
-		"src/test/resources/features/32_DebtManagementLandingScreen.feature",
-		"src/test/resources/features/33_DebtManagementUnassignedDebt.feature",
-		"src/test/resources/features/34_DebtManagementAssignedDebtList.feature",
-		"src/test/resources/features/35_DebtCollectionCaseScreen.feature",
-		"src/test/resources/features/36_popupofAgeingofArrears.feature",
-		"src/test/resources/features/37_NotificationPopUp.feature"
-},
 
-glue = "org.drc.vat.StepDefinitions",
-plugin = {"com.cucumber.listener.ExtentCucumberFormatter:","html:test-output/cucumber-report"}
-		)
+@CucumberOptions(features = {"classpath:features/49_DV_3893_TaxPayer_Help_Desk.feature",
+							"classpath:features/50_DV_3893_TaxOfficer_Help_Desk_Internal.feature"},
+							
+							
+
+
+
+	glue = "org.drc.vat.StepDefinitions",
+	plugin = {"com.cucumber.listener.ExtentCucumberFormatter:",
+	"html:test-output/cucumber-report"}
+//,tags={"@TC_17_19_TaxOfficer_3893"}
+//,tags={"@TC_Extra_user_created_System,@TC_Extra_user_created_Payment_Related"}
+)
+
+  
+
+
+
+
 
 public class TestRunner extends AbstractTestNGCucumberTests {
 	private Logger logger = LoggerFactory.getLogger(TestRunner.class);
@@ -77,7 +80,12 @@ public class TestRunner extends AbstractTestNGCucumberTests {
 		if (scenario.getName().toLowerCase().contains("internal portal")) {
 			app.callinternalportal();
 		}
-		else if (scenario.getName().toLowerCase().contains("taxpayer portal")) {
+		/**
+		 *  taxpayer portal 
+		 */
+		
+		else if (scenario.getName().toLowerCase().contains("taxpayer portal")) 
+		{
 			app.calltaxpayerportal();
 		}
 		/**
@@ -93,10 +101,9 @@ public class TestRunner extends AbstractTestNGCucumberTests {
 			app.callinternalportal_Supervisor();
 		} else if (scenario.getName().toLowerCase().contains("laxman")) {
 			app.callinternalportal_Assessment_Officer();
-		}
+		} 
+		/** 
 
-		/**admin
-		 * 
 		 * For Demo login
 		 */
 		/**
@@ -107,7 +114,7 @@ public class TestRunner extends AbstractTestNGCucumberTests {
 		}
 		/**
 		 * Login with rohit.patil demo
-		 */
+		 */ 
 		else if (scenario.getName().toLowerCase().contains("taxofficer demo")) {
 			app.callinternalportal_TaxOfficer_demo();
 		}

@@ -28,6 +28,7 @@ public class DV_2880_Tax_Deductable_Ass_and_Reass_Adjustement_Assessed_List
 	public void user_click_on_drop_down_for_Assessed_List(String period) throws Throwable 
 	{
 	  sleepWait(2000);
+	  waitFor("drp_month");
 	  clickOn("drp_month", "");
 	  sleepWait(500);
 	  clickOn(period, "");
@@ -37,11 +38,11 @@ public class DV_2880_Tax_Deductable_Ass_and_Reass_Adjustement_Assessed_List
 	@And("^User click on manage and click on Reassess$")
 	public void user_click_on_manage_and_click_on_Reassess() throws Throwable 
 	{	
-		sleepWait(500);  
+		sleepWait(1000);  
 		clickOn("drp_AssestManage", "");
-		sleepWait(500);
-		clickOn("drp_ReAssess", "");
 		sleepWait(1000);
+		clickOn("drp_ReAssess", "");
+		sleepWait(5000);
 	}
 
 	@And("^User entered value \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" on Assessed List Tax Deductible and calculate Total Reassessed amount$")
@@ -313,13 +314,15 @@ public class DV_2880_Tax_Deductable_Ass_and_Reass_Adjustement_Assessed_List
 	{
 		clickOn("btn_eFile_Schedule", "");
 		sleepWait(1000);
-		verifyDownload("Schedule");
+		verifyDownload("e-Filing Schedule");
+		 
 	    
 	}
 
 	@And("^User click on Transaction Received button on Assessed List and validate$")
 	public void user_click_on_Transaction_Received_button_on_Assessed_List_and_validate() throws Throwable 
 	{
+		sleepWait(1000);
 		clickOn("btn_TransactionReceived", "");
 		verifyDownload("TransactionReceived");
 		sleepWait(1000);
