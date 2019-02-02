@@ -12,8 +12,10 @@ Feature: User Registration for the steps involved in creating a user account for
     Examples:
       | Test Case ID                  | Description              | username       |
 
-      | DRC_ATC_Valid_Registration_04 | Register with valid data | Automation Ten   |
-
+      | DRC_ATC_Valid_Registration_04 | Register with valid data | one test |
+    | DRC_ATC_Valid_Registration_04 | Register with valid data | two test |
+        | DRC_ATC_Valid_Registration_04 | Register with valid data | three test |
+          | DRC_ATC_Valid_Registration_04 | Register with valid data | four test |
 
 
   # | DRC_ATC_Valid_Registration_04 | Register with valid data | Rejected User |

@@ -6,7 +6,6 @@ Feature: User is on Tax Calculation
     And User click on Dashboard
     And User click on Tab
     And clicks on e-filing to fill data
-    #  And User click on browser and upload file "<uploadFile>" for tax calculation
     And User click on check box and click on submit button
     And User click on Yes button
     And Enter OTP and click on verify button and click on Ok button

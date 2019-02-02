@@ -903,6 +903,7 @@ public class DV_2390_e_filing
 		sleepWait(5000);
 		clickOn("btn_efile_Verify", "");
 		sleepWait(1000);
+		waitFor("msg_otpverify");
 		if(wd.findElement(By.xpath("//div[contains(text(),'" + otp + "')]")).isDisplayed() )
 		{					
 			assertTrue(true);

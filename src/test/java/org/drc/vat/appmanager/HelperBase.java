@@ -65,6 +65,7 @@ public class HelperBase {
 				"August", "September", "October", "November", "December" };
 
 	public static String[] yearName = {"2019","2018","2017"};			
+	public static String emailid;
 
 
 
@@ -502,7 +503,7 @@ public class HelperBase {
 		logout();
 	}*/
 
-
+emailid=email;
 		if (login) {
 			type("txtbox_username", email);
 			type("txtbox_password", password);
@@ -661,8 +662,8 @@ public class HelperBase {
 	public static void datePicker(String date) {
 		try {
 			String d, m, y;
-			d = date.substring(8, 10);
-			;
+			d = date.substring(8, 10).replaceFirst ("^0*", "");			
+			System.out.println(d);
 			m = date.substring(5, 7);
 			y = date.substring(0, 4);
 			clickOn("span", "[contains(text(),'2019')]");
@@ -696,8 +697,8 @@ public class HelperBase {
 			} else if (m.equals("12")) {
 				clickOn("span", "[contains(text(),'December')]");
 			}
-			sleepWait(2000);
-			clickOn("span", "[contains(text(),'" + d + "')]");
+			sleepWait(2000);	
+			clickOn("slash", "td[@role='gridcell']/span[text()='" + d + "' and not(contains(@class,'is'))]");
 		} catch (Exception e) {
 
 		}

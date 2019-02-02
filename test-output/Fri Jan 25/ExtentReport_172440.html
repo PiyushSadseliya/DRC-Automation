@@ -1,0 +1,1497 @@
+
+<!DOCTYPE html>
+<html>
+
+
+<head>
+	<meta charset='utf-8' /> 
+	<meta name='description' content='' />
+	<meta name='robots' content='noodp, noydir' />
+	<meta name='viewport' content='width=device-width, initial-scale=1' />
+	<meta id="timeStampFormat" name="timeStampFormat" content='MMM d, yyyy hh:mm:ss a'/>
+	
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css' />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+		<link href='https://cdn.rawgit.com/anshooarora/extentreports-java/b4a58fcfd1e137bd9287244035a7c80d3d73b3af/dist/css/extent.css' type='text/css' rel='stylesheet' />
+	
+	<title>ExtentReports</title>
+
+	<style type='text/css'>
+	</style>
+</head>
+
+	<body class='extent standard default hide-overflow bdd-report'>
+		<div id='theme-selector' alt='Click to toggle theme. To enable by default, use theme configuration.' title='Click to toggle theme. To enable by default, use theme configuration.'>
+			<span><i class='material-icons'>desktop_windows</i></span>
+		</div>
+
+<nav>
+	<div class="nav-wrapper">
+		<a href="#!" class="brand-logo blue darken-3">Extent</a>
+
+		<!-- slideout menu -->
+		<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
+			<li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
+						<li class='waves-effect'><a href='#!' view='category-view' onclick="configureView(1)"><i class='material-icons'>label_outline</i></a></li>
+			<li class='waves-effect'><a href='#!' view='exception-view' onclick="configureView(2)"><i class='material-icons'>bug_report</i></a></li>
+			<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></i></a></li>
+		</ul>
+
+		<!-- report name -->
+		<span class='report-name'>ExtentReports</span>
+		
+		<!-- report headline -->
+		<span class='report-headline'></span>
+
+		<!-- nav-right -->
+		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
+			<li>
+                <a href='#!'>
+                    <span class='label suite-start-time blue darken-3'>Jan 25, 2019 05:24:45 PM</span>
+				</a>
+			</li>
+			<li>
+                <a href='#!'>
+                    <span class='label blue darken-3'>3.1.5</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+
+		<!-- container -->
+		<div class='container'>
+
+<div id='test-view' class='view'>
+				
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- test toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button tests-toggle' data-activates='tests-toggle' data-constrainwidth='true' data-beloworigin='true' data-hover='true' href='#'>
+					<i class='material-icons'>warning</i> Status
+				</a>
+				<ul id='tests-toggle' class='dropdown-content'>
+											<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
+						<li status='fail'><a href='#!'>Fail <i class='material-icons red-text'>cancel</i></a></li>
+						<li status='skip'><a href='#!'>Skip <i class='material-icons cyan-text'>redo</i></a></li>
+					<li class='divider'></li>
+					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
+				</ul>
+			</div>
+			<!-- test toggle -->
+
+			<!-- category toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button category-toggle' data-activates='category-toggle' data-constrainwidth='false' data-beloworigin='true' data-hover='true' href='#'>
+					<i class='material-icons'>local_offer</i> Category
+				</a>
+				<ul id='category-toggle' class='dropdown-content'>
+					<li><a href='#'>@TC_01_Login</a></li>
+					<li><a href='#'>@TC_02</a></li>
+					<li><a href='#'>@TC_03</a></li>
+					<li><a href='#'>@ViewAllStatementofTransc</a></li>
+					<li><a href='#'>@tc1</a></li>
+					<li><a href='#'>@taxbill</a></li>
+					<li><a href='#'>@tc18_13__17_4_5</a></li>
+					<li><a href='#'>@netbank</a></li>
+					<li><a href='#'>@tc20_21</a></li>
+					<li><a href='#'>@c19_13__17_5</a></li>
+					<li class='divider'></li>
+					<li class='clear'><a href='#!' clear='true'>Clear Filters</a></li>
+				</ul>
+			</div>
+			<!-- category toggle -->
+
+			<!-- clear filters -->
+			<div class='chip transparent hide'>
+				<a class='' id='clear-filters' alt='Clear Filters' title='Clear Filters'>
+					<i class='material-icons'>close</i> Clear
+				</a>
+			</div>
+			<!-- clear filters -->
+
+			<!-- enable dashboard -->
+			<div id='toggle-test-view-charts' class='chip transparent'>
+				<a class='pink-text' id='enable-dashboard' alt='Enable Dashboard' title='Enable Dashboard'>
+					<i class='material-icons'>track_changes</i> Dashboard
+				</a>
+			</div>
+			<!-- enable dashboard -->
+
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+					<i class='material-icons'>search</i> Search
+				</a>
+
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+				
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+
+
+<div id='test-view-charts' class='subview-full'>
+	<div id='charts-row' class='row nm-v nm-h'>
+		<div class='col s12 m4 l4 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Features</div>
+				<div class='chart-box'>
+					<canvas id='parent-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='33.333%'><span class='strong'>1</span> feature(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='66.667%'>2</span> feature(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+				</div>
+			</div>
+		</div>
+		
+		<div class='col s12 m4 l4 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Scenarios</div>
+				<div class='chart-box'>
+					<canvas id='child-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='62.5%'><span class='strong'>5</span> scenario(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='37.5%'>3</span> scenario(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+				</div>
+			</div>
+		</div>
+		
+		<div class='col s12 m4 l4 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Steps</div>
+				<div class='chart-box'>
+					<canvas id='grandchild-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='68.182%'><span class='strong'>45</span> step(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='4.545%'>3</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='27.273%'>18</span> others
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+	<div class='subview-left left'>
+		
+		<div class='view-summary'>
+			<h5>Features</h5>
+			<ul id='test-collection' class='test-collection'>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='1'>
+					<div class='test-heading'>
+						<span class='test-name'>User is on e filing and see Total Liability</span>
+						<span class='test-time'>Jan 25, 2019 05:24:45 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='scenariooutline node' test-id='2' status='pass'>
+	<span class='duration right label'>0h 0m 23s+714ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">DRC Tax Portal Login</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='3' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@TC_01_Login</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">DRC Tax Portal Login</span>
+			
+				<ul class='steps'>
+					<li test-id='4' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given User Login "e-file_Login_001" "Login into tax payer"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='5' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User Enter email "Regressiondaysixtw@mailinator.com" and  password "Test@123"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='6' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User Click on SignIn</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="F:\DRC-Automation\test-output\Fri Jan 25\screenshots\DRC Tax Portal Login_172445.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='7' status='pass'>
+	<span class='duration right label'>0h 0m 25s+370ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Validate that if user changes the Financial year from drop down the total liability amount does not change.</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='8' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@TC_02</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Validate that if user changes the Financial year from drop down the total liability amount does not change.</span>
+			
+				<ul class='steps'>
+					<li test-id='9' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given User is on Vat e-Filing Page "Total_Liability_02" "validate liability amount"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='10' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on Tab</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='11' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And user see Total Liability</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='12' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on Finicial year dropdown "drp_Year2019"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='13' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User see Total Liability is not changed</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="F:\DRC-Automation\test-output\Fri Jan 25\screenshots\Validate that if user changes the Financial year from drop down the total liability amount does not change._172509.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='14' status='pass'>
+	<span class='duration right label'>0h 0m 47s+850ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Validate whether Total Liability amount displayed is reflected Zero when user completes the payment process for outstanding amount which is displayed at Total liability section at dash board.</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='15' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@TC_03</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Validate whether Total Liability amount displayed is reflected Zero when user completes the payment process for outstanding amount which is displayed at Total liability section at dash board.</span>
+			
+				<ul class='steps'>
+					<li test-id='16' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given User is on Vat e-Filing Page "Total_Liability_03" "validate liability amount"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='17' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on Tab</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='18' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on Pay button on Total Liability</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='19' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on radio button on particular bank</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='20' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on Pay now buttton on payment of tax page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='21' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User navigate to selected bank page</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="F:\DRC-Automation\test-output\Fri Jan 25\screenshots\Validate whether Total Liability amount displayed is reflected Zero when user completes the payment process for outstanding amount which is displayed at Total liability section at dash board._172536.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf fail' status='fail' bdd='true' test-id='22'>
+					<div class='test-heading'>
+						<span class='test-name'>To view all the Transaction done by the VAT User</span>
+						<span class='test-time'>Jan 25, 2019 05:26:24 PM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='scenariooutline node' test-id='23' status='fail'>
+	<span class='duration right label'>0h 0m 6s+426ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Validate the effect on Statement of Transaction table columns data when the e-filing is done and Payment is not done</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='24' class='node scenario fail' status='fail'>
+			<div class='category-list'>
+				<span class='category label white-text'>@ViewAllStatementofTransc</span>
+				<span class='category label white-text'>@tc1</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Validate the effect on Statement of Transaction table columns data when the e-filing is done and Payment is not done</span>
+			
+				<ul class='steps'>
+					<li test-id='25' class='node given fail' status='fail'><b>Given</b>
+						<span class="bdd-step-name">Given "DRC_ATC_Efiling_07""Validate the effect on Statement of Transaction table columns data when the e-filing is particular month and Payment is not done"The User has logged in the DRC Tax Payer Portal with "regressiondaydaysix@mailinator.com""Test@123"</span>
+							<div class='pre'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//*[contains(@id,'UserName')]"}
+  (Session info: chrome=71.0.3578.98)
+  (Driver info: chromedriver=2.43.600210 (68dcf5eebde37173d4027fa8635e332711d2874a),platform=Windows NT 10.0.17134 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.11.0', revision: 'e59cfb3', time: '2018-03-11T20:26:55.152Z'
+System info: host: '1R-22', ip: '172.16.3.22', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_171'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.43.600210 (68dcf5eebde371..., userDataDir: C:\Users\SRIJO~1.VAL\AppDat...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:59523}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 71.0.3578.98, webStorageEnabled: true}
+Session ID: 29faf6ca8d9158b3dcd161b9e9e52458
+*** Element info: {Using=xpath, value=//*[contains(@id,'UserName')]}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:214)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:166)
+	at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:80)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:44)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:319)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:421)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:311)
+	at org.drc.vat.appmanager.HelperBase.type(HelperBase.java:122)
+	at org.drc.vat.appmanager.HelperBase.login(HelperBase.java:507)
+	at org.drc.vat.StepDefinitions.ViewAllStatementofTransaction.the_User_has_logged_in_the_DRC_Tax_Payer_Portal_with(ViewAllStatementofTransaction.java:31)
+	at ?.Given "DRC_ATC_Efiling_07""Validate the effect on Statement of Transaction table columns data when the e-filing is particular month and Payment is not done"The User has logged in the DRC Tax Payer Portal with "regressiondaydaysix@mailinator.com""Test@123"(src/test/resources/features/14_ViewAllStatementofTransaction.feature:24)
+</pre></div>
+					</li>
+					<li test-id='26' class='node when skip' status='skip'><b>When</b>
+						<span class="bdd-step-name">When User Clicks on the efiling menu</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='27' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then user should be on VAT e-filling Page</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='28' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then Click on View All button</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='29' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then Statemnt of Transaction should show the details of Date"1""21-Jan-2019"Period"January""2019"Particular"e-Filing"OpeningBalance"0,00"Liability Amount"0,00"Late Fee"0,00"Interest "0,00"Penalty"0,00"Total"0,00"</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='30' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then Statemnt of Transaction should show the details of Date"2""21-Jan-2019"Period"February""2019"Particular"e-Filing"OpeningBalance"0,00"Liability Amount"310,00"Late Fee"0,00"Interest "0,00"Penalty"0,00"Total"310,00"</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='31' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then Statemnt of Transaction should show the details of Date"3""21-Jan-2019"Period"March""2019"Particular"e-Filing"OpeningBalance"310,00"Liability Amount"7.640,00"Late Fee"0,00"Interest "0,00"Penalty"0,00"Total"7.950,00"</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='32' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then Statemnt of Transaction should show the details of Date"4""21-Jan-2019"Period"April""2019"Particular"e-Filing"OpeningBalance"7.950,00"Liability Amount"-4.000,00"Late Fee"0,00"Interest "0,00"Penalty"0,00"Total"3.950,00"</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='33' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then Statemnt of Transaction should show the details of Date"5""21-Jan-2019"Period"May""2019"Particular"e-Filing"OpeningBalance"3.950,00"Liability Amount"-8.400,00"Late Fee"0,00"Interest "0,00"Penalty"0,00"Total"-4.450,00"</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='34' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then Statemnt of Transaction should show the details of Date"6""21-Jan-2019"Period"June""2019"Particular"e-Filing"OpeningBalance"-4.450,00"Liability Amount"112.040,00"Late Fee"0,00"Interest "0,00"Penalty"0,00"Total"107.590,00"</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='35' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then Statemnt of Transaction should show the details of Date"7""21-Jan-2019"Period"July""2019"Particular"e-Filing"OpeningBalance"107.590,00"Liability Amount"2.640,00"Late Fee"0,00"Interest "0,00"Penalty"0,00"Total"110.230,00"</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="F:\DRC-Automation\test-output\Fri Jan 25\screenshots\Validate the effect on Statement of Transaction table columns data when the e-filing is done and Payment is not done_172624.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>skipped</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf fail' status='fail' bdd='true' test-id='36'>
+					<div class='test-heading'>
+						<span class='test-name'>Tax Bill Payment   | NetBanking and Over the counter</span>
+						<span class='test-time'>Jan 25, 2019 05:26:31 PM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='scenariooutline node' test-id='37' status='fail'>
+	<span class='duration right label'>0h 0m 27s+552ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Vaildate the Tax Bill Payment for particular month done by Over the counter</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='38' class='node scenario fail' status='fail'>
+			<div class='category-list'>
+				<span class='category label white-text'>@tc18_13__17_4_5</span>
+				<span class='category label white-text'>@taxbill</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Vaildate the Tax Bill Payment for particular month done by Over the counter</span>
+			
+				<ul class='steps'>
+					<li test-id='39' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given "DRC_ATC_TaxBillPayment_01""Vaildate the Tax Bill Payment for particular month done by Over the counter"The User has logged in the DRC Tax Payer Portal with "regressiondaydaysix@mailinator.com""Test@123" and has declared for the month of"June"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='40' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When User Clicks on the efiling menu</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='41' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then user should be on VAT e-filling Page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='42' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then clicks on pay button of period"June""2019"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='43' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then click on proceed button on Tax Calculation page"Tax Calculation"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='44' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then chooses "over the counter" Payment Method</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='45' class='node then fail' status='fail'><b>Then</b>
+						<span class="bdd-step-name">Then Verifies the Detaisl of TaxPayer NITVA "20190122055024109" emailid"automationsix@mailinator.com"mobile no "9898787845"name"Regression Daythurs"Address"Irrigation Colony"duedate"20-02-2019"</span>
+							<div class='pre'><pre>java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:94)
+	at org.testng.Assert.failNotEquals(Assert.java:513)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:135)
+	at org.testng.Assert.assertEquals(Assert.java:116)
+	at org.testng.Assert.assertEquals(Assert.java:305)
+	at org.testng.Assert.assertEquals(Assert.java:315)
+	at org.drc.vat.StepDefinitions.TaxBillPayment.verifies_the_Detaisl_of_TaxPayer_NITVA_emailid_mobile_no_name_Address_duedate(TaxBillPayment.java:95)
+	at ?.Then Verifies the Detaisl of TaxPayer NITVA "20190122055024109" emailid"automationsix@mailinator.com"mobile no "9898787845"name"Regression Daythurs"Address"Irrigation Colony"duedate"20-02-2019"(src/test/resources/features/15_01_TaxBillPayment.feature:32)
+</pre></div>
+					</li>
+					<li test-id='46' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then Verifies the liability details Period"Jun-2019"VAT"107.590,00"Interest"0,00"Penalty"0,00"LateFee"0,00"TotalAmount"107.590,00"total Amount Words"One Hunderd seven Thousand Five Hunderd Ninety- Franc Congolais Only."</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='47' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then Verifies Beneficiary Bank Details BeneficiaryName"DGI"account number"18042600001632"Bank name"Central Bank Of DRC"Branch Code"RBISOGSTPMT"</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='48' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then does the paymnet"18042600001632""Advans Bank""22-07-2019 16:45:00""22-06-2019"</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="F:\DRC-Automation\test-output\Fri Jan 25\screenshots\Vaildate the Tax Bill Payment for particular month done by Over the counter_172631.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>skipped</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='49' status='pass'>
+	<span class='duration right label'>0h 0m 25s+680ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Vaildate the Tax Bill Payment for particular month done by Netbanking</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='50' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@netbank</span>
+				<span class='category label white-text'>@taxbill</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Vaildate the Tax Bill Payment for particular month done by Netbanking</span>
+			
+				<ul class='steps'>
+					<li test-id='51' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When User Clicks on the efiling menu</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='52' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then user should be on VAT e-filling Page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='53' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then clicks on pay button of period"June""2019"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='54' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then click on proceed button on Tax Calculation page"Tax Calculation"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='55' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then chooses "net banking" Payment Method</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='56' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Bank list should be displayed</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='57' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then click on Cancel button on Payment of Tax</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='58' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then user is on VAT e-Filing page"VAT e-Filing"</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="F:\DRC-Automation\test-output\Fri Jan 25\screenshots\Vaildate the Tax Bill Payment for particular month done by Netbanking_172700.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='59' status='pass'>
+	<span class='duration right label'>0h 0m 29s+690ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Vaildate the Print and Cancel Button functionality on Tax Bill Payment Page</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='60' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@tc20_21</span>
+				<span class='category label white-text'>@taxbill</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Vaildate the Print and Cancel Button functionality on Tax Bill Payment Page</span>
+			
+				<ul class='steps'>
+					<li test-id='61' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When User Clicks on the efiling menu</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='62' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then user should be on VAT e-filling Page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='63' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then clicks on pay button of period"June""2019"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='64' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then click on proceed button on Tax Calculation page"Tax Calculation"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='65' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then chooses "over the counter" Payment Method</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='66' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then user is on Tax Payment Bill page "Tax Payment Bill"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='67' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then does print of the tax Payment Bill</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='68' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then user is on Tax Payment Bill page "Tax Payment Bill"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='69' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then user clicks on Cancel button on  Tax Payment Bill page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='70' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then user is on VAT e-Filing page"VAT e-Filing"</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="F:\DRC-Automation\test-output\Fri Jan 25\screenshots\Vaildate the Print and Cancel Button functionality on Tax Bill Payment Page_172726.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='71' status='fail'>
+	<span class='duration right label'>0h 0m 19s+865ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Vaildate the Tax Bill Payment when user pays from Total Liability Pay button</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='72' class='node scenario fail' status='fail'>
+			<div class='category-list'>
+				<span class='category label white-text'>@c19_13__17_5</span>
+				<span class='category label white-text'>@taxbill</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Vaildate the Tax Bill Payment when user pays from Total Liability Pay button</span>
+			
+				<ul class='steps'>
+					<li test-id='73' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When User Clicks on the efiling menu</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='74' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then user should be on VAT e-filling Page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='75' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then user clicks on pay button on Total Liability column</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='76' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then chooses "net banking" Payment Method</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='77' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Bank list should be displayed</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='78' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then chooses "over the counter" Payment Method</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='79' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then user is on Tax Payment Bill page "Tax Payment Bill"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='80' class='node then fail' status='fail'><b>Then</b>
+						<span class="bdd-step-name">Then Verifies the Details of TaxPayer NITVA "" emailid"regressiondaydaysix@mailinator.com"mobile no "9898787845"name"Regression daysix"Address"Irrigation Colony"</span>
+							<div class='pre'><pre>java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:94)
+	at org.testng.Assert.failNotEquals(Assert.java:513)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:135)
+	at org.testng.Assert.assertEquals(Assert.java:116)
+	at org.testng.Assert.assertEquals(Assert.java:305)
+	at org.testng.Assert.assertEquals(Assert.java:315)
+	at org.drc.vat.StepDefinitions.TaxBillPayment.verifies_the_Details_of_TaxPayer_NITVA_emailid_mobile_no_name_Address(TaxBillPayment.java:230)
+	at ?.Then Verifies the Details of TaxPayer NITVA "" emailid"regressiondaydaysix@mailinator.com"mobile no "9898787845"name"Regression daysix"Address"Irrigation Colony"(src/test/resources/features/15_01_TaxBillPayment.feature:87)
+</pre></div>
+					</li>
+					<li test-id='81' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then Verifies the liability details records"2" Period"Jun-2019"VAT"107.590,00"Interest"0,00"Penalty"0,00"LateFee"0,00"TotalAmount"107.590,00"</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='82' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then Verifies the liability details records"3" Period"Jul-2019"VAT"2.640,00"Interest"0,00"Penalty"0,00"LateFee"0,00"TotalAmount"2.640,00"</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='83' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then Verifies Beneficiary Bank Details BeneficiaryName"DGI"account number"18042600001632"Bank name"Central Bank Of DRC"Branch Code"RBISOGSTPMT"</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='84' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then Verifies Paid Bill Information "" TaxPayerName"Regression daysix"Amount"4.000,00"</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='85' class='node then skip' status='skip'><b>Then</b>
+						<span class="bdd-step-name">Then Verifies Details of Beneficiary BeneficiaryName"DGI"account number"18042600001632"Bank name"Central Bank Of DRC"Branch Code"RBISOGSTPMT"Amount"4.000,00"</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="F:\DRC-Automation\test-output\Fri Jan 25\screenshots\Vaildate the Tax Bill Payment when user pays from Total Liability Pay button_172757.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>skipped</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- subview left -->
+
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='test-name'></h5>
+
+			<div id='step-filters' class="right">
+				<span class="blue-text" status="info" alt="info" title="info"><i class="material-icons">info_outline</i></span>
+				<span class="green-text" status="pass" alt="pass" title="pass"><i class="material-icons">check_circle</i></span>
+				<span class="red-text" status="fail" alt="fail" title="fail"><i class="material-icons">cancel</i></span>
+				<span class="red-text text-darken-4" status="fatal" alt="fatal" title="fatal"><i class="material-icons">cancel</i></span>
+				<span class="pink-text text-lighten-1" status="error" alt="error" title="error"><i class="material-icons">error</i></span>
+				<span class="orange-text" alt="warning" status="warning" title="warning"><i class="material-icons">warning</i></span>
+				<span class="teal-text" status="skip" alt="skip" title="skip"><i class="material-icons">redo</i></span>
+				<span status="clear" alt="Clear filters" title="Clear filters"><i class="material-icons">clear</i></span>
+			</div>
+		</div>
+	</div>
+	<!-- subview right -->
+
+</div>
+<!-- test view -->
+<div id='category-view' class='view hide'>
+
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+					<i class='material-icons'>search</i> Search
+				</a>
+				
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+				
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+
+	<div class='subview-left left'>
+		
+		<div class='view-summary'>
+			<h5>Categories</h3>
+			<ul id='category-collection' class='category-collection'>
+				
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@TC_01_Login</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jan 25, 2019 05:24:45 PM</td>
+										<td class='linked' test-id='3'>User is on e filing and see Total Liability.DRC Tax Portal Login.DRC Tax Portal Login</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@TC_02</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jan 25, 2019 05:25:09 PM</td>
+										<td class='linked' test-id='8'>User is on e filing and see Total Liability.Validate that if user changes the Financial year from drop down the total liability amount does not change..Validate that if user changes the Financial year from drop down the total liability amount does not change.</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@TC_03</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jan 25, 2019 05:25:36 PM</td>
+										<td class='linked' test-id='15'>User is on e filing and see Total Liability.Validate whether Total Liability amount displayed is reflected Zero when user completes the payment process for outstanding amount which is displayed at Total liability section at dash board..Validate whether Total Liability amount displayed is reflected Zero when user completes the payment process for outstanding amount which is displayed at Total liability section at dash board.</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@ViewAllStatementofTransc</span>
+						<span class='category-status right'>
+							<span class='label fail'>2</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							
+							<span class='label red lighten-1 white-text'>Failed: 2</span>
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jan 25, 2019 05:26:24 PM</td>
+										<td class='linked' test-id='22'>To view all the Transaction done by the VAT User</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+									<tr>
+										<td>Jan 25, 2019 05:26:24 PM</td>
+										<td class='linked' test-id='24'>To view all the Transaction done by the VAT User.Validate the effect on Statement of Transaction table columns data when the e-filing is done and Payment is not done.Validate the effect on Statement of Transaction table columns data when the e-filing is done and Payment is not done</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@tc1</span>
+						<span class='category-status right'>
+							<span class='label fail'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							
+							<span class='label red lighten-1 white-text'>Failed: 1</span>
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jan 25, 2019 05:26:24 PM</td>
+										<td class='linked' test-id='24'>To view all the Transaction done by the VAT User.Validate the effect on Statement of Transaction table columns data when the e-filing is done and Payment is not done.Validate the effect on Statement of Transaction table columns data when the e-filing is done and Payment is not done</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@taxbill</span>
+						<span class='category-status right'>
+							<span class='label pass'>2</span>
+							<span class='label fail'>3</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 2</span>
+							<span class='label red lighten-1 white-text'>Failed: 3</span>
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jan 25, 2019 05:26:31 PM</td>
+										<td class='linked' test-id='36'>Tax Bill Payment   | NetBanking and Over the counter</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+									<tr>
+										<td>Jan 25, 2019 05:26:31 PM</td>
+										<td class='linked' test-id='38'>Tax Bill Payment   | NetBanking and Over the counter.Vaildate the Tax Bill Payment for particular month done by Over the counter.Vaildate the Tax Bill Payment for particular month done by Over the counter</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+									<tr>
+										<td>Jan 25, 2019 05:27:00 PM</td>
+										<td class='linked' test-id='50'>Tax Bill Payment   | NetBanking and Over the counter.Vaildate the Tax Bill Payment for particular month done by Netbanking.Vaildate the Tax Bill Payment for particular month done by Netbanking</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 25, 2019 05:27:26 PM</td>
+										<td class='linked' test-id='60'>Tax Bill Payment   | NetBanking and Over the counter.Vaildate the Print and Cancel Button functionality on Tax Bill Payment Page.Vaildate the Print and Cancel Button functionality on Tax Bill Payment Page</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 25, 2019 05:27:57 PM</td>
+										<td class='linked' test-id='72'>Tax Bill Payment   | NetBanking and Over the counter.Vaildate the Tax Bill Payment when user pays from Total Liability Pay button.Vaildate the Tax Bill Payment when user pays from Total Liability Pay button</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@tc18_13__17_4_5</span>
+						<span class='category-status right'>
+							<span class='label fail'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							
+							<span class='label red lighten-1 white-text'>Failed: 1</span>
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jan 25, 2019 05:26:31 PM</td>
+										<td class='linked' test-id='38'>Tax Bill Payment   | NetBanking and Over the counter.Vaildate the Tax Bill Payment for particular month done by Over the counter.Vaildate the Tax Bill Payment for particular month done by Over the counter</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@netbank</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jan 25, 2019 05:27:00 PM</td>
+										<td class='linked' test-id='50'>Tax Bill Payment   | NetBanking and Over the counter.Vaildate the Tax Bill Payment for particular month done by Netbanking.Vaildate the Tax Bill Payment for particular month done by Netbanking</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@tc20_21</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jan 25, 2019 05:27:26 PM</td>
+										<td class='linked' test-id='60'>Tax Bill Payment   | NetBanking and Over the counter.Vaildate the Print and Cancel Button functionality on Tax Bill Payment Page.Vaildate the Print and Cancel Button functionality on Tax Bill Payment Page</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@c19_13__17_5</span>
+						<span class='category-status right'>
+							<span class='label fail'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							
+							<span class='label red lighten-1 white-text'>Failed: 1</span>
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jan 25, 2019 05:27:57 PM</td>
+										<td class='linked' test-id='72'>Tax Bill Payment   | NetBanking and Over the counter.Vaildate the Tax Bill Payment when user pays from Total Liability Pay button.Vaildate the Tax Bill Payment when user pays from Total Liability Pay button</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+
+			</ul>
+		</div>
+	</div>
+
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='category-name'></h5>
+		</div>
+	</div>
+</div>
+<!-- category view -->
+<div id='exception-view' class='view hide'>
+
+    <section id='controls'>
+        <div class='controls grey lighten-4'>
+            <!-- search -->
+            <div class='chip transparent' alt='Search Tests' title='Search Tests'>
+                <a href="#" class='search-div'>
+                    <i class='material-icons'>search</i> Search
+                </a>
+
+                <div class='input-field left hide'>
+                    <input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+                </div>
+
+            </div>
+            <!-- search -->
+        </div>
+    </section>
+
+    <div class='subview-left left'>
+
+        <div class='view-summary'>
+            <h5>Exceptions</h3>
+                <ul id='exception-collection' class='exception-collection'>
+
+                        <li class='exception displayed active'>
+                            <div class='exception-heading'>
+                                <span class='exception-name'>org.openqa.selenium.NoSuchElementException</span>
+                                <span class='exception-count right'><span class='label red lighten-1 white-text'>1</span></span>
+                            </div>
+                            <div class='exception-content hide'>
+                                <div class='exception-tests'>
+                                    <table class='bordered table-results'>
+                                        <thead>
+                                        <tr>
+                                            <th>Timestamp</th>
+                                            <th>TestName</th>
+                                            <th>Status</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                                    <tr>
+                                                        <td>Jan 25, 2019 05:26:30 PM</td>
+                                                        <td class='linked' test-id='25'>To view all the Transaction done by the VAT User.Validate the effect on Statement of Transaction table columns data when the e-filing is done and Payment is not done.Validate the effect on Statement of Transaction table columns data when the e-filing is done and Payment is not done.Given "DRC_ATC_Efiling_07""Validate the effect on Statement of Transaction table columns data when the e-filing is particular month and Payment is not done"The User has logged in the DRC Tax Payer Portal with "regressiondaydaysix@mailinator.com""Test@123"</td>
+                                                        <td><pre><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//*[contains(@id,'UserName')]"}
+  (Session info: chrome=71.0.3578.98)
+  (Driver info: chromedriver=2.43.600210 (68dcf5eebde37173d4027fa8635e332711d2874a),platform=Windows NT 10.0.17134 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.11.0', revision: 'e59cfb3', time: '2018-03-11T20:26:55.152Z'
+System info: host: '1R-22', ip: '172.16.3.22', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_171'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.43.600210 (68dcf5eebde371..., userDataDir: C:\Users\SRIJO~1.VAL\AppDat...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:59523}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 71.0.3578.98, webStorageEnabled: true}
+Session ID: 29faf6ca8d9158b3dcd161b9e9e52458
+*** Element info: {Using=xpath, value=//*[contains(@id,'UserName')]}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:214)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:166)
+	at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:80)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:44)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:319)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:421)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:311)
+	at org.drc.vat.appmanager.HelperBase.type(HelperBase.java:122)
+	at org.drc.vat.appmanager.HelperBase.login(HelperBase.java:507)
+	at org.drc.vat.StepDefinitions.ViewAllStatementofTransaction.the_User_has_logged_in_the_DRC_Tax_Payer_Portal_with(ViewAllStatementofTransaction.java:31)
+	at ?.Given "DRC_ATC_Efiling_07""Validate the effect on Statement of Transaction table columns data when the e-filing is particular month and Payment is not done"The User has logged in the DRC Tax Payer Portal with "regressiondaydaysix@mailinator.com""Test@123"(src/test/resources/features/14_ViewAllStatementofTransaction.feature:24)
+</pre></pre></td>
+                                                    </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </li>
+                        <li class='exception displayed active'>
+                            <div class='exception-heading'>
+                                <span class='exception-name'>java.lang.AssertionError</span>
+                                <span class='exception-count right'><span class='label red lighten-1 white-text'>2</span></span>
+                            </div>
+                            <div class='exception-content hide'>
+                                <div class='exception-tests'>
+                                    <table class='bordered table-results'>
+                                        <thead>
+                                        <tr>
+                                            <th>Timestamp</th>
+                                            <th>TestName</th>
+                                            <th>Status</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                                    <tr>
+                                                        <td>Jan 25, 2019 05:26:56 PM</td>
+                                                        <td class='linked' test-id='45'>Tax Bill Payment   | NetBanking and Over the counter.Vaildate the Tax Bill Payment for particular month done by Over the counter.Vaildate the Tax Bill Payment for particular month done by Over the counter.Then Verifies the Detaisl of TaxPayer NITVA "20190122055024109" emailid"automationsix@mailinator.com"mobile no "9898787845"name"Regression Daythurs"Address"Irrigation Colony"duedate"20-02-2019"</td>
+                                                        <td><pre><pre>java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:94)
+	at org.testng.Assert.failNotEquals(Assert.java:513)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:135)
+	at org.testng.Assert.assertEquals(Assert.java:116)
+	at org.testng.Assert.assertEquals(Assert.java:305)
+	at org.testng.Assert.assertEquals(Assert.java:315)
+	at org.drc.vat.StepDefinitions.TaxBillPayment.verifies_the_Detaisl_of_TaxPayer_NITVA_emailid_mobile_no_name_Address_duedate(TaxBillPayment.java:95)
+	at ?.Then Verifies the Detaisl of TaxPayer NITVA "20190122055024109" emailid"automationsix@mailinator.com"mobile no "9898787845"name"Regression Daythurs"Address"Irrigation Colony"duedate"20-02-2019"(src/test/resources/features/15_01_TaxBillPayment.feature:32)
+</pre></pre></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Jan 25, 2019 05:28:16 PM</td>
+                                                        <td class='linked' test-id='80'>Tax Bill Payment   | NetBanking and Over the counter.Vaildate the Tax Bill Payment when user pays from Total Liability Pay button.Vaildate the Tax Bill Payment when user pays from Total Liability Pay button.Then Verifies the Details of TaxPayer NITVA "" emailid"regressiondaydaysix@mailinator.com"mobile no "9898787845"name"Regression daysix"Address"Irrigation Colony"</td>
+                                                        <td><pre><pre>java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:94)
+	at org.testng.Assert.failNotEquals(Assert.java:513)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:135)
+	at org.testng.Assert.assertEquals(Assert.java:116)
+	at org.testng.Assert.assertEquals(Assert.java:305)
+	at org.testng.Assert.assertEquals(Assert.java:315)
+	at org.drc.vat.StepDefinitions.TaxBillPayment.verifies_the_Details_of_TaxPayer_NITVA_emailid_mobile_no_name_Address(TaxBillPayment.java:230)
+	at ?.Then Verifies the Details of TaxPayer NITVA "" emailid"regressiondaydaysix@mailinator.com"mobile no "9898787845"name"Regression daysix"Address"Irrigation Colony"(src/test/resources/features/15_01_TaxBillPayment.feature:87)
+</pre></pre></td>
+                                                    </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </li>
+                </ul>
+        </div>
+    </div>
+
+    <div class='subview-right left'>
+        <div class='view-summary'>
+            <h5 class='exception-name'></h5>
+        </div>
+    </div>
+</div>
+<!-- exception view -->
+<div id='dashboard-view' class='view hide'>
+	<div class='card-panel transparent np-v'>
+		<h5>Dashboard</h5>
+
+		<div class='row'>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Features
+					<div class='panel-lead'>3</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Scenarios
+					<div class='panel-lead'>8</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Steps
+					<div class='panel-lead'>66</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Start
+					<div class='panel-lead'>Jan 25, 2019 05:24:45 PM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+			 		End
+			 		<div class='panel-lead'>Jan 25, 2019 05:28:17 PM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Time Taken
+					<div class='panel-lead'>0h 3m 32s+644ms</div>
+				</div>
+			</div>
+			<div class='col s6'>
+				<div class='card-panel dashboard-categories'>
+					<span class='right label cyan white-text'>Categories</span><p>&nbsp;</p>
+					
+					<table>
+						<tr>
+							<th>Name</th>
+							<th>Passed</th>
+							<th>Failed</th>
+							<th>Others</th>
+							<th>Passed %</th>
+						</tr>
+						<tr>
+							<td>@TC_01_Login</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>@TC_02</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>@TC_03</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>@ViewAllStatementofTransc</td>
+							<td>0</td>
+							<td>2</td>
+							<td>0</td>
+							<td>
+									0%
+							</td>
+						</tr>
+						<tr>
+							<td>@tc1</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>
+									0%
+							</td>
+						</tr>
+						<tr>
+							<td>@taxbill</td>
+							<td>2</td>
+							<td>3</td>
+							<td>0</td>
+							<td>
+									40%
+							</td>
+						</tr>
+						<tr>
+							<td>@tc18_13__17_4_5</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>
+									0%
+							</td>
+						</tr>
+						<tr>
+							<td>@netbank</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>@tc20_21</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>@c19_13__17_5</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>
+									0%
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- dashboard view -->
+<!-- testrunner-logs view -->
+		</div>
+		<!-- container -->
+
+		<script>
+			var statusGroup = {
+				passParent: 1,
+				failParent: 2,
+				fatalParent: 0,
+				errorParent: 0,
+				warningParent: 0,
+				skipParent: 0,
+				exceptionsParent: 2,
+				
+				passChild: 5,
+				failChild: 3,
+				fatalChild: 0,
+				errorChild: 0,
+				warningChild: 0,
+				skipChild: 0,
+				infoChild: 0,
+				exceptionsChild: 3,
+				
+				passGrandChild: 45,
+				failGrandChild: 3,
+				fatalGrandChild: 0,
+				errorGrandChild: 0,
+				warningGrandChild: 0,
+				skipGrandChild: 18,
+				infoGrandChild: 0,
+				exceptionsGrandChild: 21,
+			};
+		</script>
+		
+			<script src='https://cdn.rawgit.com/anshooarora/extentreports-java/fca20fb7653aade98810546ab96a2a4360e3e712/dist/js/extent.js' type='text/javascript'></script>
+		
+		
+ 		<script type='text/javascript'>
+ 		</script>
+	</body>
+	
+</html>

@@ -3,12 +3,18 @@ package org.drc.vat.StepDefinitions;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import freemarker.template.SimpleDate;
+
 import static org.drc.vat.appmanager.HelperBase.clickOn;
 import static org.drc.vat.appmanager.HelperBase.elementText;
 import static org.drc.vat.appmanager.HelperBase.datePicker;
 import static org.drc.vat.appmanager.HelperBase.logout;
 import static org.drc.vat.appmanager.HelperBase.sleepWait;
+import static org.drc.vat.appmanager.HelperBase.type;
+import static org.drc.vat.appmanager.HelperBase.getvalue;
 import org.testng.asserts.SoftAssert;
+
+import bsh.org.objectweb.asm.Type;
 
 import static org.drc.vat.appmanager.HelperBase.waitUntilElementFound;
 import static org.drc.vat.appmanager.HelperBase.pageSource;
@@ -18,13 +24,22 @@ import static org.junit.Assert.assertArrayEquals;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertNotEquals;
 
+import java.io.FileReader;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
+import org.drc.vat.appmanager.ConnectDatabase;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -47,6 +62,7 @@ public class DebtManagementLandingScreen {
 	double m,result;
 	String max;
 	SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-d");  
+	String debtamoount;
 
 
 	
@@ -71,6 +87,67 @@ public class DebtManagementLandingScreen {
 	    
 	      
 	}
+	
+	@Given("^User with email address\"([^\"]*)\"does efiling in age bracket (\\d+)-(\\d+) month\"([^\"]*)\"$")
+	public void user_with_email_address_does_efiling_in_age_bracket_month(String email, int arg2, int arg3, String goodsupplied) throws Throwable {
+
+		
+		ConnectDatabase.opendb();
+		Calendar cal = Calendar.getInstance();
+		Calendar newcal;
+		Date result = cal.getTime();
+		Date todaysdate=new Date();
+		SimpleDateFormat dateformatter=new SimpleDateFormat("MMM");
+		SimpleDateFormat yearformat=new SimpleDateFormat("YYYY");
+		SimpleDateFormat sqldate=new SimpleDateFormat("YYYY-MM-dd");
+		SimpleDateFormat monthformat=new SimpleDateFormat("MM");
+		int monthno=Integer.parseInt(monthformat.format(result));
+		System.out.println(monthno);
+		if (monthno==1) {
+			cal.add(Calendar.YEAR, -1);
+			result=cal.getTime();	
+			System.out.println(sqldate.format(result));
+			String nitvabackdate="update Vat.VuUsers set createdDate='"+sqldate.format(result)+"' where VuUserId="+
+					"(select VuUserId from Vat.VuUsers where RegisteredUserId=("+
+							"select RegisteredUserId from ref.RegisteredUsers where email='"
+							+ email+"'))";
+			ConnectDatabase.sta.executeUpdate(nitvabackdate);
+			}	
+	
+		clickOn("menu_vat-e-filing", "");		
+		sleepWait(5000);
+		if (monthno==1) {		
+			clickOn("drpdwn_efilingyear", "");
+			sleepWait(2000);
+			System.out.println(yearformat.format(result));
+			clickOn("drpdwn_list", "//*[contains(text(),'"+yearformat.format(result)+"')]");
+			sleepWait(2000);			
+		}
+		newcal = Calendar.getInstance();	
+		newcal.add(Calendar.MONTH, -1);
+		result=newcal.getTime();		
+		clickOn("slash", "*[contains(text(),'"+dateformatter.format(result)+"')]");
+		sleepWait(3000);
+		clickOn("slash", "*[contains(text(),'"+dateformatter.format(result)+"')]//following::button[@title='File']");
+		sleepWait(5000);
+type("txtbx_filing",goodsupplied);
+DV_2390_e_filing.emailid=email;
+debtamoount=getvalue("txtbx_vat","");
+JSONObject debt = new JSONObject();
+
+debt.put("email", email);
+debt.put("debtamt", debtamoount);
+Files.write(Paths.get("debtdata.json"), debt.toJSONString().getBytes());
+
+FileReader reader = new FileReader("debtdata.json");
+JSONParser jsonParser = new JSONParser();
+JSONObject jsondecode = (JSONObject)jsonParser.parse(reader);
+System.out.println((String) jsondecode.get("email"));
+
+System.out.println((String) jsondecode.get("debtamt"));
+		
+	}
+
 
 	@When("^clicked on Debt Management Module must be on Debt Management Module$")
 	public void clicked_on_Debt_Management_Module_must_be_on_Debt_Management_Module() throws Throwable {	    
@@ -85,16 +162,20 @@ public class DebtManagementLandingScreen {
 		sleepWait(1000);
 	   clickOn("btn_uptodate", "");
 	 //  System.out.println(arg1);
-		datePicker(arg1);
+		datePicker(new SimpleDateFormat("YYYY-MM-dd").format(new Date()));
+		
+		sleepWait(8000);
+	    clickOn("btn_dsave","");
 	      
 	}
 
 	@Then("^click on zero to three months Pending amount Link$")
 	public void click_on_zero_to_three_months_Pending_amount_Link() throws Throwable {
+		sleepWait(2000);
 	    String pendingamount=elementText("txt_0to3months","/following::td[2]");	
 		clickOn("txt_0to3months","/following::a");	 
 		//waitUntilElementFound("vchkbx_selectall", "");
-		sleepWait(3000);
+		sleepWait(5000);
 	    assertEquals(elementText("txt_heading",""), "Debt Management");
 	    assertEquals(elementText("txt_pending0to3months",""),pendingamount);
 	    

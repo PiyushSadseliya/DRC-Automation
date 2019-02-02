@@ -1,21 +1,3 @@
-#Author: your.email@your.domain.com
-#Keywords Summary :
-#Feature: List of scenarios.
-#Scenario: Business rule through list of steps with arguments.
-#Given: Some precondition step
-#When: Some key actions
-#Then: To observe outcomes or validation
-#And,But: To enumerate more Given,When,Then steps
-#Scenario Outline: List of steps for data-driven as an Examples and <placeholder>
-#Examples: Container for s table
-#Background: List of steps run before each of the scenarios
-#""" (Doc Strings)
-#| (Data Tables)
-#@ (Tags/Labels):To group Scenarios
-#<> (placeholder)
-#""
-## (Comments)
-#Sample Feature Definition Template
 @DebtMangagement @AssignedDebt
 Feature: DGI employee should be able to do following
   
@@ -25,7 +7,7 @@ Feature: DGI employee should be able to do following
   The system is able to generate the list of payments which are under dispute and not paid because of objection cases raised
 
   @mtc8 @ManageView @execute
-  Scenario Outline: Validate whether collection officer is able to view the case for the particular internal portal taxpayer
+  Scenario Outline: Validate whether collection officer is able to view the case for the particular tax payer
     Given "<Test Case ID>""<Description>"DGI "<officername>""<uname>""<password>"should be logged in to the internal portal
     When clicked on Debt Management Module must be on Debt Management Module
     When Clicked on assigned amount for "<ageing>"
@@ -36,7 +18,7 @@ Feature: DGI employee should be able to do following
 
     Examples: 
       | Test Case ID                       | Description                                                                                | officername  | uname           | password | ageing     | tpayer        | Moption1 | Moption2 |
-      | DRC_ATC_DebtManagement_Assigned_01 | Validate whether collection officer is able to view the case for the particular tax payer. | Urvish Patel | ketan.prajapati | admin    | 0-3 Months | Approved User | View     | Reassign |
+      | DRC_ATC_DebtManagement_Assigned_01 | Validate whether collection officer is able to view the case for the particular tax payer. | Urvish Patel | ketan.prajapati | admin    | 0-3 Months | two test| View     | Reassign |
 
   @mtc7 @ManageReassign @execute
   Scenario Outline: Validate whether collection officer is able to reassign the tax office
@@ -50,7 +32,7 @@ Feature: DGI employee should be able to do following
 
     Examples: 
       | Test Case ID                       | Description                                                              | officername  | uname           | password | ageing     | tpayer        | Moption1 | Moption2 | reassign     |
-      | DRC_ATC_DebtManagement_Assigned_02 | Validate whether collection officer is able to reassign the tax officer. | Urvish Patel | ketan.prajapati | admin    | 0-3 Months | Approved User | View     | Reassign | Urvish Patel |
+      | DRC_ATC_DebtManagement_Assigned_02 | Validate whether collection officer is able to reassign the tax officer. | Urvish Patel | ketan.prajapati | admin    | 0-3 Months | two test| View     | Reassign | Urvish Patel |
 
   @mtc9 @FilterBy @execute
   Scenario Outline: Validate whether user is able to filter by using filter by option
@@ -59,8 +41,8 @@ Feature: DGI employee should be able to do following
     Then user can filter by"Case Type""Case Id""Priority""City""Tax Officer""Status"
 
     Examples: 
-      | Test Case ID                       | Description                                                        | officername  | uname           | password | ageing     | caseid          |
-      | DRC_ATC_DebtManagement_Assigned_03 | Validate whether user is able to filter by using filter by option. | Urvish Patel | ketan.prajapati | admin    | 0-3 Months | R18112900000003 |
+      | Test Case ID                       | Description                                                        | officername  | uname           | password | ageing     | 
+      | DRC_ATC_DebtManagement_Assigned_03 | Validate whether user is able to filter by using filter by option. | Urvish Patel | ketan.prajapati | admin    | 0-3 Months |
 
   @mtc10 @mtc11 @mtc12 @FilterBy @FilterValidation
   Scenario Outline: Validate whether user is able to filter by using filter by option
@@ -86,8 +68,6 @@ Feature: DGI employee should be able to do following
   Scenario Outline: Validate whether user is able to filter data in sorting order
     Given "<Test Case ID>""<Description>"DGI "<officer>""<uname>""<password>"should be logged in to the internal portal
     When clicked on Case Management Module must be on Case Management Module List of cases assigned to the officer should be displayed
-    Then Case Type should be in ascending Order
-    Then Click on "Case Type" column it should be in descending order
     Then Click on "City" column it should be in ascending order
     Then Click on "City" column it should be in descending order
     Then Click on "Ageing (Days)" column it should be in ascending order
@@ -98,5 +78,5 @@ Feature: DGI employee should be able to do following
     Then Click on "Status" column it should be in descending order
 
     Examples: 
-      | Test Case ID                       | Description                                                    | officername  | uname           | password | ageing     | tpayer | fdate      | todate     |
-      | DRC_ATC_DebtManagement_Assigned_13 | Validate whether user is able to filter data in sorting order. | Urvish Patel | ketan.prajapati | admin    | 0-3 Months | Approved User  | 2018-09-20 | 2018-09-20 |
+      | Test Case ID                       | Description                                                    | officername  | uname           | password | ageing      | 
+      | DRC_ATC_DebtManagement_Assigned_13 | Validate whether user is able to filter data in sorting order. | Urvish Patel | ketan.prajapati | admin    | 0-3 Months  | 

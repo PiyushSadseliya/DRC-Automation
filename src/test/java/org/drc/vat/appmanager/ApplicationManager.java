@@ -124,7 +124,10 @@ public class ApplicationManager {
 		else
 		{
 			if (!wd.getCurrentUrl().contains("8068")) 
-			{
+			{wd.close();
+			Thread.sleep(1000);
+			wd = new ChromeDriver();
+			wd.manage().window().maximize();
 				Thread.sleep(1000);
 				wd.get("http://103.249.120.58:8044");
 
@@ -251,24 +254,24 @@ public class ApplicationManager {
 
 	public void callurl() throws AWTException, InterruptedException 
 	{
-		if(wd.getCurrentUrl().contains("90"))
+		if(wd.getCurrentUrl().contains(":90"))
 		{
 			wd.get(properties.getProperty("web.Url"));
 			//sleepWait(500);
 		}		
-		else if(wd.getCurrentUrl().contains("8066"))
+		else if(wd.getCurrentUrl().contains(":8066"))
 		{
 			sleepWait(500);			
 		}
-		else if(wd.getCurrentUrl().contains("8068"))
+		else if(wd.getCurrentUrl().contains(":8068"))
 		{
 			sleepWait(500);			
 		}
-		else if(wd.getCurrentUrl().contains("8031"))
+		else if(wd.getCurrentUrl().contains(":8031"))
 		{
 			sleepWait(500);			
 		}
-		else if(!wd.getCurrentUrl().contains("8042"))
+		else if(!wd.getCurrentUrl().contains(":8042"))
 		{
 			wd.get(properties.getProperty("web.Url"));
 		}
