@@ -348,8 +348,6 @@ public class PaymentSummaryLiabilityCalculationPaymentDueManualReAssessment {
 	@Then("^Calculates the Additional Liability column for ReAssessment$")
 	public void calculates_the_Additional_Liability_column_for_ReAssessment() throws Throwable {
 
-
-
 		// Net VAT to be paid
 		Double netLiabilvatpaitd = frenchtoDouble(elementText("txt_ReAliabiltynetvatpaid", ""))
 				- frenchtoDouble(elementText("txt_Aliabiltynetvatpaid", ""));
@@ -373,7 +371,7 @@ public class PaymentSummaryLiabilityCalculationPaymentDueManualReAssessment {
 				- frenchtoDouble(elementText("txt_Aliabiltyvpublicprocu", ""));
 		assertEquals(elementText("txt_ReALliabiltyvpublicprocu", ""), appendfrenchsys(tofrench(alpublicproc)));
 		// VAT for third party account
-		Double althirdparty = frenchtoDouble(elementText("txt_ReAliabiltyTpartyac", ""))
+		Double althirdparty = frenchtoDouble(elementText("txt_ReAliabiltyTpartyac", "")) 
 				- frenchtoDouble(elementText("txt_AliabiltyTpartyac", ""));
 		assertEquals(elementText("txt_ReALliabiltyTpartyac", ""), appendfrenchsys(tofrench(althirdparty)));
 		// Interest
@@ -393,18 +391,7 @@ public class PaymentSummaryLiabilityCalculationPaymentDueManualReAssessment {
 				- frenchtoDouble(elementText("txt_Aliabiltyamttopay", ""));
 		assertEquals(elementText("txt_ReALliabiltyamttopay", ""), appendfrenchsys(tofrench(alamttopay)));
 
-		Double alnetamttopay = frenchtoDouble(elementText("txt_ReALliabiltynetvatpaid", ""))
 
-				//- frenchtoDouble(elementText("txt_ReALliabiltycredit", ""))
-			//	+ frenchtoDouble(elementText("txt_ReALliabiltycreditrefundreq", ""))
-				+ frenchtoDouble(elementText("txt_ReALliabiltyvpublicprocu", ""))
-				+ frenchtoDouble(elementText("txt_ReALliabiltyTpartyac", ""))
-				+ frenchtoDouble(elementText("txt_ReALliabiltyint", ""))
-				+ frenchtoDouble(elementText("txt_ReALliabiltypenalty", ""))
-				+ frenchtoDouble(elementText("txt_ReALliabiltyltfee", ""));
-		
-
-		assertEquals(elementText("txt_ReALliabiltyamttopay", ""), appendfrenchsys(tofrench(alnetamttopay)));
 
 	}
 

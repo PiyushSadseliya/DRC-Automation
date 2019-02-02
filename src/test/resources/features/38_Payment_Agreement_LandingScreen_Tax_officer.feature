@@ -2,6 +2,7 @@ Feature: User is on Payment Agreement Landing Screen (Tax-officer)
 
   #@TC_02 at last
   #Payment_Agreement_Landing_Screen
+  
   @TC_03_NITVA_Number
   Scenario Outline: Validate NITVA number
     Given User is on Payment Agreement Landing Screen "<TestcaseID>" "<Description>"
@@ -17,50 +18,50 @@ Feature: User is on Payment Agreement Landing Screen (Tax-officer)
       | TestcaseID                      | Description     | filter           | id              | NITVA             |
       | Payment_Agrement_Tax_Officer_03 | Verify NITVA no | drp_CaseID_Click | R18092000000004 | 20180920122825615 |
 
-  @TC_04_NIF_Number
-  Scenario Outline: Validate NIF number
-    Given User is on Payment Agreement Landing Screen "<TestcaseID>" "<Description>"
-    And User click on case management
-    And User click on filter by on case management and click on "<filter>"
-    And User Type id "<id>"
-    And User click on search button
-    And User click on manage drop down and click on view
-    And User clck on continue
-    And User see NIF number "<NIF>" for Payment Agreement
+  #@TC_04_NIF_Number
+  #Scenario Outline: Validate NIF number
+    #Given User is on Payment Agreement Landing Screen "<TestcaseID>" "<Description>"
+    #And User click on case management
+    #And User click on filter by on case management and click on "<filter>"
+    #And User Type id "<id>"
+    #And User click on search button
+    #And User click on manage drop down and click on view
+    #And User clck on continue
+    #And User see NIF number "<NIF>" for Payment Agreement
+#
+    #Examples: 
+      #| TestcaseID                      | Description   | filter           | id              | NIF                       |
+      #| Payment_Agrement_Tax_Officer_04 | Verify NIF no | drp_CaseID_Click | R18092000000004 | 1010101010101010101010107 |
 
-    Examples: 
-      | TestcaseID                      | Description   | filter           | id              | NIF                       |
-      | Payment_Agrement_Tax_Officer_04 | Verify NIF no | drp_CaseID_Click | R18092000000004 | 1010101010101010101010107 |
+  #@TC_05_Validate_Address
+  #Scenario Outline: Validate Address
+    #Given User is on Payment Agreement Landing Screen "<TestcaseID>" "<Description>"
+    #And User click on case management
+    #And User click on filter by on case management and click on "<filter>"
+    #And User Type id "<id>"
+    #And User click on search button
+    #And User click on manage drop down and click on view
+    #And User clck on continue
+    #And User see Address "<Address>" for Payment Agreement
+#
+    #Examples: 
+      #| TestcaseID                      | Description    | filter           | id              | Address |
+      #| Payment_Agrement_Tax_Officer_05 | Verify Address | drp_CaseID_Click | R18092000000004 | valsad  |
 
-  @TC_05_Validate_Address
-  Scenario Outline: Validate Address
-    Given User is on Payment Agreement Landing Screen "<TestcaseID>" "<Description>"
-    And User click on case management
-    And User click on filter by on case management and click on "<filter>"
-    And User Type id "<id>"
-    And User click on search button
-    And User click on manage drop down and click on view
-    And User clck on continue
-    And User see Address "<Address>" for Payment Agreement
-
-    Examples: 
-      | TestcaseID                      | Description    | filter           | id              | Address |
-      | Payment_Agrement_Tax_Officer_05 | Verify Address | drp_CaseID_Click | R18092000000004 | valsad  |
-
-  @TC_06_Validate_business_type
-  Scenario Outline: Validate business type
-    Given User is on Payment Agreement Landing Screen "<TestcaseID>" "<Description>"
-    And User click on case management
-    And User click on filter by on case management and click on "<filter>"
-    And User Type id "<id>"
-    And User click on search button
-    And User click on manage drop down and click on view
-    And User clck on continue
-    And User see Business Type "<business>" for Payment Agreement
-
-    Examples: 
-      | TestcaseID                      | Description          | filter           | id              | business |
-      | Payment_Agrement_Tax_Officer_06 | Verify business name | drp_CaseID_Click | R18092000000004 | Trading  |
+  #@TC_06_Validate_business_type
+  #Scenario Outline: Validate business type
+    #Given User is on Payment Agreement Landing Screen "<TestcaseID>" "<Description>"
+    #And User click on case management
+    #And User click on filter by on case management and click on "<filter>"
+    #And User Type id "<id>"
+    #And User click on search button
+    #And User click on manage drop down and click on view
+    #And User clck on continue
+    #And User see Business Type "<business>" for Payment Agreement
+#
+    #Examples: 
+      #| TestcaseID                      | Description          | filter           | id              | business |
+      #| Payment_Agrement_Tax_Officer_06 | Verify business name | drp_CaseID_Click | R18092000000004 | Trading  |
 
   @TC_07_Validate_no_of_notification
   Scenario Outline: Validate the no of notification.

@@ -1,7 +1,7 @@
 Feature: User is on Assessed List Landing Screen
 
   @TC_08_AssessedList_2882
-  Scenario Outline: Validate Assessed status
+  Scenario Outline: Validate Assessed status - internal portal
     Given User is on Assessment Page "<TestcaseID>" "<Description>"
     And User click on Dashboard
     #   And User click on pin
@@ -14,8 +14,8 @@ Feature: User is on Assessed List Landing Screen
     And User see the status is changed to "<statusChanged>"
 
     Examples: 
-      | TestcaseID       | Description              | Period        | statusChanged | Year            | TaxPayer         |
-      | Assessed List_08 | Validate Assessed status | txt_PeriodFeb | Assessed      | txt_2019_Period | regressionforty |
+      | TestcaseID       | Description              | Period        | statusChanged | Year            | TaxPayer           |
+      | Assessed List_08 | Validate Assessed status | txt_PeriodFeb | Assessed      | txt_2019_Period | Automation User 10 |
 
   #@TC_07_AssessedList_2882
   @TC_07_TC_03_AssessedList_2882
@@ -57,7 +57,7 @@ Feature: User is on Assessed List Landing Screen
   #      And User see notice
   #      Examples:
   #        | TestcaseID       | Description          | Period        | Filter          |TaxPayer          |Year            |
-  #        | Assessed List_02 | Validate View Notice | txt_PeriodJan | drp_ReferanceId |regressionforty    |txt_2019_Period |
+  #        | Assessed List_02 | Validate View Notice | txt_PeriodJan | drp_ReferanceId |Automation User 10    |txt_2019_Period |
   #@TC_03_AssessedList_2882
   #Scenario Outline: Validate reassess option from manage dropdown
   #Given User is on Assessment Page "<TestcaseID>" "<Description>"
@@ -75,7 +75,7 @@ Feature: User is on Assessed List Landing Screen
   #
   #Examples:
   #| TestcaseID       | Description               | Period        | TaxPayer        | Year            |
-  #| Assessed List_03 | Validate Reassess Options | txt_PeriodFeb | regressionforty | txt_2019_Period |
+  #| Assessed List_03 | Validate Reassess Options | txt_PeriodFeb | Automation User 10 | txt_2019_Period |
   @TC_04_AssessedList_2882
   Scenario Outline: Validate ReferenceID generated is not duplicate
     Given User is on Assessment Page "<TestcaseID>" "<Description>"
@@ -226,8 +226,8 @@ Feature: User is on Assessed List Landing Screen
       | TestcaseID           | Description                 | Period        | Filter     | SelectStatus   | record      | Year            |
       | Assessed List_11_3_1 | Validate search in progress | txt_PeriodJan | drp_Status | txt_InProgress | In Progress | txt_2019_Period |
       | Assessed List_11_3_2 | Validate search Objection   | txt_PeriodJan | drp_Status | txt_Objection  | Objection   | txt_2019_Period |
+
   #   | Assessed List_11_3_2 | Validate search Assessed    | txt_PeriodJan | drp_Status | txt_Assessed   | Assessed    | txt_2019_Period |
-   
   #   | Assessed List_11_3_4 | Validate search Re-Assed    | txt_PeriodJan | drp_Status | txt_ReAssessed | Re-Assessed | txt_2019_Period |
   # this scenario is of feature file 27
   @TC_05_06_19_18_16_AssessedList_2878
@@ -250,5 +250,5 @@ Feature: User is on Assessed List Landing Screen
     And User click on Transaction Received button
 
     Examples: 
-      | TestcaseID            | Description                                                                | Period        | Year            | TaxPayer         | mess                                | FNF            |
-      | Ass_AS_05_06_19_18_16 | Validate Total Reassessed amount is same and check Additionality Liability | txt_PeriodJan | txt_2019_Period | regressionforty | No Modification made for Assessment | File not found |
+      | TestcaseID            | Description                                                                | Period        | Year            | TaxPayer           | mess                                | FNF            |
+      | Ass_AS_05_06_19_18_16 | Validate Total Reassessed amount is same and check Additionality Liability | txt_PeriodJan | txt_2019_Period | Automation User 10 | No Modification made for Assessment | File not found |

@@ -45,9 +45,7 @@ public class testone {
 	{
 		System.out.println(checkDate("16-01-2019"));
 	}*/
-		
-	
-	
+
 	public static void main(String[] args) 
 	{
 		/*Date Mydate = new Date();		
@@ -68,9 +66,9 @@ public class testone {
 		
 		
 		//String DateFormat  = elementText("txt_Date");			
-		String value = "Date : 16-Jan-2019";
+		/*String value = "Date : 16-Jan-2019";
 		value = value.substring(7);
-		System.out.println(value);
+		System.out.println(value);*/
 		
 		/*Date Mydate = new Date();		
 		SimpleDateFormat mdyFormat = new SimpleDateFormat("dd-MMM-yyyy");
@@ -79,7 +77,7 @@ public class testone {
 		
 		
 		//String DateFormat  = elementText("txt_Date");
-		String DateFormat1  = "16-Jan-2019";		
+		//String DateFormat1  = "16-Jan-2019";		
 		//System.out.println(DateFormat1);
 		
 	/*	org.joda.time.format.DateTimeFormatter formatter = DateTimeFormat.forPattern("dd-MMMM-yyyy");		 		
@@ -87,7 +85,7 @@ public class testone {
 		System.out.println(DateFor);*/
 		
 		
-
+ 
 	}
 	
 	

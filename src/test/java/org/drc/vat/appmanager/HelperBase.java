@@ -127,7 +127,7 @@ public class HelperBase {
 		try {
 			obj.load(fis);
 		} catch (IOException e) {
-			e.printStackTrace();
+			e.printStackTrace(); 
 		}
 		By locator = By.xpath(obj.getProperty(object) + data);
 		wd.manage().timeouts().implicitlyWait(800, TimeUnit.MILLISECONDS);
@@ -204,8 +204,7 @@ public class HelperBase {
 		File[] files = dir1.listFiles();
 		assert files != null; 
 		for (File file : files) 
-		{	
-			
+		{				
 			if (file.getName().contains(data))
 			{
 				assertTrue(true);
@@ -225,6 +224,8 @@ public class HelperBase {
 				assertTrue(false);
 			}			*/
 		}
+		
+		
 		
 		
 	

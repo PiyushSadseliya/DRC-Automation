@@ -90,8 +90,9 @@ public class DV_2882_Assessed_List
 	{		
 		sleepWait(1000);
 		clickOn("drp_month", "");
-		sleepWait(500);
+		sleepWait(1000);
 		clickOn(period, "");
+		sleepWait(1000);
 		
 
 	}
