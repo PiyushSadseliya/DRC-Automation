@@ -40,6 +40,17 @@ public class DV_2879_ManAssess_AsseList_Adjustement
 	}
 
 	
+	@Given("^User type NITVA number and check$")
+	public void user_type_NITVA_number_and_check() throws Throwable 
+	{
+		sleepWait(1000);
+		type("txtbox_TypeHere", Store_NITVA);
+		
+		String NITVA_Check = elementText("txt_NITVA_ch");
+		assertEquals(Store_NITVA, NITVA_Check);
+	}
+	
+	
 	@And("^User click on Next button$")
 	public void user_click_on_Next_button() throws Throwable 
 	{
@@ -53,12 +64,8 @@ public class DV_2879_ManAssess_AsseList_Adjustement
 	
 	@And("^User navigate to Adjustment page$")
 	public void user_navigate_to_Adjustment_page() throws Throwable 
-	{		
-		sleepWait(1000);
-		clickOn("btn_NEXT", "");		
-		sleepWait(2000);		
-		clickOn("btn_NEXT", "");
-		sleepWait(2000);		
+	{						
+		sleepWait(3000);				
 		if(wd.findElement(By.xpath(obj.getProperty("txt_checkAdjustement_page"))).isDisplayed());
 		{
 		  assertTrue(true);
@@ -108,14 +115,6 @@ public class DV_2879_ManAssess_AsseList_Adjustement
 		 {
 			 assertTrue(true);
 		 }
-		 
-		 /*if(Validate==Check_Add_Lib)
-		 {
-			 assertTrue(true);
-		 }*/
-		
-		
-	  
 	}
 
 	@And("^User check total assessed value and click on next button and validate same amount$")
@@ -198,23 +197,12 @@ public class DV_2879_ManAssess_AsseList_Adjustement
 	    type("txtBox_VD",VD);
 	    type("txtBox_PC",PC);
 	    
-		/*wd.findElement(By.xpath(obj.getProperty("txtBox_VR"))).clear();
-		sleepWait(500);
-		wd.findElement(By.xpath(obj.getProperty("txtBox_SD"))).clear();
-		sleepWait(500);
-		wd.findElement(By.xpath(obj.getProperty("txtBox_VD"))).clear();
-		sleepWait(500);
-		wd.findElement(By.xpath(obj.getProperty("txtBox_PC"))).clear();
-		sleepWait(500);*/
-	    
-	    
 	    sleepWait(8000);
 	    String VAT_VRC = getValue("txtBox_VR");
 	    String VAT_SD = getValue("txtBox_SD");
 	    String VAT_VD = getValue("txtBox_VD");
 	    String VAT_PC = getValue("txtBox_PC");
 	    
-	 //   Float.parseFloat(VAT_VRC);
 	    Float VAT_Float_VRC= Float.parseFloat(VAT_VRC);
 	    Float VAT_Float_SDC= Float.parseFloat(VAT_SD);
 	    Float VAT_Float_VDC= Float.parseFloat(VAT_VD);
@@ -324,8 +312,7 @@ public class DV_2879_ManAssess_AsseList_Adjustement
 	public void user_click_on_previous_button_and_navigate_to_Manual_Assessment_Adjustment_page() throws Throwable 
 	{
 		sleepWait(1000);
-		 clickOn("btn_Previous_M", ""); 
-		 
+		 clickOn("btn_Previous_M", ""); 		 
 		  if(wd.findElement(By.xpath(obj.getProperty("txt_checkAdjustement_page"))).isDisplayed());
 			{
 			  assertTrue(true);
@@ -395,12 +382,13 @@ public class DV_2879_ManAssess_AsseList_Adjustement
 	@And("^User click on prev button and navigate to Tax Deductible$")
 	public void user_click_on_prev_button_and_navigate_to_Tax_Deductible() throws Throwable
 	{
-		sleepWait(1000);
-		 clickOn("btn_Prev", ""); 
+		 sleepWait(1000);
+		 clickOn("btn_Prev", "");
+		 sleepWait(3000);
 		  if(wd.findElement(By.xpath(obj.getProperty("txt_Tax_Deductible_Page"))).isDisplayed());
-			{
+		  {
 			  assertTrue(true);
-			}		  
+		  }		  
 	}
 	
 	
@@ -439,9 +427,6 @@ public class DV_2879_ManAssess_AsseList_Adjustement
 		}
 		
 	}
-
-	
-	
 	
 	@And("^User entered value \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" for Adjustment page negative field length$")
 	public void user_entered_value_for_Adjustment_page_negative_field_length(String VR, String SD, String VD, String PC) throws Throwable 
@@ -462,10 +447,6 @@ public class DV_2879_ManAssess_AsseList_Adjustement
 		int actualLimit3 =wd.findElement(By.xpath(obj.getProperty("txtBox_PC"))).getAttribute("value").length();
 		assertEquals(actualLimit3, 15);	
 	}
-
-	
-	
-	
 	
 	
 }

@@ -40,12 +40,10 @@ import static org.drc.vat.appmanager.HelperBase.sleepWait;
 		//"classpath:features/30_TaxPayer_Portal_objection_appeal.feature",
 		"classpath:features/EFDVendor.feature"
 },
-
 glue = "org.drc.vat.StepDefinitions",
 plugin = {"com.cucumber.listener.ExtentCucumberFormatter:","html:test-output/cucumber-report"}
 //,tags= {"@TC_01,@TC_02,@TC_Search"}
 		)
-
 public class TestRunner extends AbstractTestNGCucumberTests {
 	private Logger logger = LoggerFactory.getLogger(TestRunner.class);
 	private String outputDir = "test-output/" + new Date().toString().substring(0, 10);
@@ -75,7 +73,12 @@ public class TestRunner extends AbstractTestNGCucumberTests {
 		if (scenario.getName().toLowerCase().contains("internal portal")) {
 			app.callinternalportal();
 		}
-		else if (scenario.getName().toLowerCase().contains("taxpayer portal")) {
+		/**
+		 *  taxpayer portal 
+		 */
+
+		else if (scenario.getName().toLowerCase().contains("taxpayer portal")) 
+		{
 			app.calltaxpayerportal();
 		}
 		else if (scenario.getName().contains("EFDinternalportal")) {
@@ -86,62 +89,92 @@ public class TestRunner extends AbstractTestNGCucumberTests {
 		} else if (scenario.getName().toLowerCase().contains("vendor portal")) {
 			app.callvendorportal();
 		}
-			/**
-			 * Login with rohit.patil
-			 */
-			else if (scenario.getName().toLowerCase().contains("fx taxofficer")) {
-				app.callinternalportal_TaxOfficer();
-			}
-			/**
-			 * Login with pooja.parmar
-			 */
-			else if (scenario.getName().toLowerCase().contains("supervisor")) {
-				app.callinternalportal_Supervisor();
-			} else if (scenario.getName().toLowerCase().contains("laxman")) {
-				app.callinternalportal_Assessment_Officer();
-			}
-
-			/**
-			 * For Demo login
-			 */
-			/**
-			 * Login with Ketan.prajapati demo
-			 */
-			else if (scenario.getName().toLowerCase().contains("admin demo")) {
-				app.callinternalportal_ketan_demo();
-			}
-			/**
-			 * Login with rohit.patil demo
-			 */
-			else if (scenario.getName().toLowerCase().contains("taxofficer demo")) {
-				app.callinternalportal_TaxOfficer_demo();
-			}
-
-			/**
-			 * Login with pooja.parmar demo
-			 */
-			else if (scenario.getName().toLowerCase().contains("supervisor demo")) {
-				app.callinternalportal_Supervisor_demo();
-			} else if (scenario.getName().toLowerCase().contains("laxman demo")) {
-				app.callinternalportal_Assessment_Officer_laxman_demo();
-			} else {
-				app.callurl();
-			}
-			Thread.sleep(5000);
-			logger.info("Start scenario: " + scenario.getName());
+		/**
+		 * Login with rohit.patil
+		 */
+		else if (scenario.getName().toLowerCase().contains("fx taxofficer")) {
+			app.callinternalportal_TaxOfficer();
+		}
+		/**
+		 * Login with pooja.parmar
+		 */
+		else if (scenario.getName().toLowerCase().contains("supervisor")) {
+			app.callinternalportal_Supervisor();
+		} else if (scenario.getName().toLowerCase().contains("laxman")) {
+			app.callinternalportal_Assessment_Officer();
 		}
 
-		@After
-		public void endScenario(Scenario scenario) throws Exception {
-
-			String screenshot = scenario.getName();
-			File src = app.takeScreenshotAsFile();
-			File dest = new File(System.getProperty("user.dir") + "/" + outputDir + "/screenshots/" + screenshot + timestamp + ".png");
-			FileUtils.copyFile(src, dest);
-			Reporter.addScreenCaptureFromPath(dest.toString());
-			scenario.embed(app.takeScreenshot(), "image/png");
-			// logout();
-
-			logger.info("Stop scenario: " + scenario.getName());
+		/**
+		 * For Demo login
+		 */
+		/**
+		 * Login with Ketan.prajapati demo
+		 */
+		else if (scenario.getName().toLowerCase().contains("admin demo")) {
+			app.callinternalportal_ketan_demo();
 		}
+		/**
+		 * Login with rohit.patil demo
+		 */
+		else if (scenario.getName().toLowerCase().contains("taxofficer demo")) {
+			app.callinternalportal_TaxOfficer_demo();
+		}
+		/**
+		 * Login with rohit.patil
+		 */
+		else if (scenario.getName().toLowerCase().contains("fx taxofficer")) {
+			app.callinternalportal_TaxOfficer();
+		}
+		/**
+		 * Login with pooja.parmar
+		 */
+		else if (scenario.getName().toLowerCase().contains("supervisor")) {
+			app.callinternalportal_Supervisor();
+		} else if (scenario.getName().toLowerCase().contains("laxman")) {
+			app.callinternalportal_Assessment_Officer();
+		} 
+		/** 
+
+		 * For Demo login
+		 */
+		/**
+		 * Login with Ketan.prajapati demo
+		 */
+		else if (scenario.getName().toLowerCase().contains("admin demo")) {
+			app.callinternalportal_ketan_demo();
+		}
+		/**
+		 * Login with rohit.patil demo
+		 */ 
+		else if (scenario.getName().toLowerCase().contains("taxofficer demo")) {
+			app.callinternalportal_TaxOfficer_demo();
+		}
+
+		/**
+		 * Login with pooja.parmar demo
+		 */
+		else if (scenario.getName().toLowerCase().contains("supervisor demo")) {
+			app.callinternalportal_Supervisor_demo();
+		} else if (scenario.getName().toLowerCase().contains("laxman demo")) {
+			app.callinternalportal_Assessment_Officer_laxman_demo();
+		} else {
+			app.callurl();
+		}
+		Thread.sleep(5000);
+		logger.info("Start scenario: " + scenario.getName());
 	}
+
+	@After
+	public void endScenario(Scenario scenario) throws Exception {
+
+		String screenshot = scenario.getName();
+		File src = app.takeScreenshotAsFile();
+		File dest = new File(System.getProperty("user.dir") + "/" + outputDir + "/screenshots/" + screenshot + timestamp + ".png");
+		FileUtils.copyFile(src, dest);
+		Reporter.addScreenCaptureFromPath(dest.toString());
+		scenario.embed(app.takeScreenshot(), "image/png");
+		// logout();
+
+		logger.info("Stop scenario: " + scenario.getName());
+	}
+}

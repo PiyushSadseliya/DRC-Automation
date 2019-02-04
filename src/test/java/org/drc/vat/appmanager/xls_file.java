@@ -54,7 +54,7 @@ import static org.drc.vat.appmanager.HelperBase.filedoc;
 	        System.out.println(newamount);
 	        
 	        
-			 FileInputStream filelocation = new FileInputStream(filedoc+"app.xlsx");
+			 FileInputStream filelocation = new FileInputStream(filedoc+"BankFile.xlsx");
 			 XSSFWorkbook workbook = new XSSFWorkbook(filelocation);
 			 XSSFSheet sheet = workbook.getSheetAt(0);
 			 	 
@@ -62,9 +62,9 @@ import static org.drc.vat.appmanager.HelperBase.filedoc;
 			  // Date
 			 Row row;
 			
-			 sheet.createRow(0).createCell(3).setCellValue(edate);
+			 sheet.getRow(0).createCell(3).setCellValue(edate);
 		// Doc No.
-			 row=sheet.createRow(4);
+			 row=sheet.getRow(4);
 			 row.createCell(1).setCellValue(Doc_no);
 			 // Nitva
 			 row.createCell(2).setCellValue(Nitva_no);
@@ -77,7 +77,7 @@ import static org.drc.vat.appmanager.HelperBase.filedoc;
 			  // Amount
 			 row.createCell(8).setCellValue(newamount);		 
 			 
-			 FileOutputStream fos = new FileOutputStream(filedoc+"app.xlsx");
+			 FileOutputStream fos = new FileOutputStream(filedoc+"BankFile.xlsx");
 			 workbook.write(fos);
 			 fos.close();		 
 			 System.out.println("END OF WRITING DATA IN EXCEL");		 

@@ -7,7 +7,7 @@ import static org.drc.vat.appmanager.HelperBase.wd;
 import static org.testng.Assert.assertEquals;
 import static org.drc.vat.appmanager.HelperBase.sleepWait;
 import static org.drc.vat.appmanager.HelperBase.frenchToIndian;
-
+import static org.drc.vat.appmanager.HelperBase.buttonEnabled;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.util.List;
@@ -67,6 +67,7 @@ public class DebtManagementUnassignedDebt {
 		  sleepWait(5000);*/
 
 	}
+	
 
 	@When("^Clicked on pending amount for \"([^\"]*)\"$")
 	public void clicked_on_pending_amount_for(String arg1) throws Throwable {
@@ -107,7 +108,7 @@ public class DebtManagementUnassignedDebt {
 	}
 	@Then("^Date selection should be disabled and should be same as debt management$")
 	public void date_selection_should_be_disabled_and_should_be_same_as_debt_management() throws Throwable {
-		assertEquals(wd.findElement(By.xpath("//h6[text()='Upto Date: ']/following::input")).isEnabled(),false);
+		assertEquals(wd.findElement(By.xpath("//*[text()='Upto Date: ']/following::input")).isEnabled(),false);
 	}
 	@Then("^clicks on \"([^\"]*)\" column on Debt Management$")
 	public void clicks_on_column_on_Debt_Management(String arg1) throws Throwable {
@@ -125,41 +126,31 @@ public class DebtManagementUnassignedDebt {
 		if(records.size()>1) {
 			if(arg1.equalsIgnoreCase("NITVA")) {
 				Double a =new Double(wd.findElement(By.xpath("//tbody/tr[1]/td[2]")).getText());
-	//			System.out.println(a);
 				Double b =new Double(wd.findElement(By.xpath("//tbody/tr["+records.size()+"]/td[2]")).getText());		   
-		//		System.out.println(b);
 				assertEquals(true, asccomp(a, b));
 
 			}
 			if(arg1.equalsIgnoreCase("Others")) {
 				Double a = Double.parseDouble(frenchToIndian(wd.findElement(By.xpath("//tbody/tr[1]/td[6]")).getText()));
-			//	System.out.println(a);
 				Double b = Double.parseDouble(frenchToIndian(wd.findElement(By.xpath("//tbody/tr["+records.size()+"]/td[6]")).getText()));		
-			//	System.out.println(b);
 				assertEquals(true, asccomp(a, b));
 
 			}
 			if(arg1.equalsIgnoreCase("Total")) {
 				Double a = Double.parseDouble(frenchToIndian(wd.findElement(By.xpath("//tbody/tr[1]/td[7]")).getText()));
-			//	System.out.println(a);
 				Double b = Double.parseDouble(frenchToIndian(wd.findElement(By.xpath("//tbody/tr["+records.size()+"]/td[7]")).getText()));		    	
-		//		System.out.println(b);
 				assertEquals(true, asccomp(a, b));
 
 			}
 			if(arg1.equalsIgnoreCase("7-12 Months ")||arg1.equalsIgnoreCase("0-3 Months")||arg1.equalsIgnoreCase("24 Months and Above")||arg1.equalsIgnoreCase("13-24 Months")||arg1.equalsIgnoreCase("4-6 Months")) {
 				Double a = Double.parseDouble(frenchToIndian(wd.findElement(By.xpath("//tbody/tr[1]/td[5]")).getText()));
-			//	System.out.println(a);
 				Double b = Double.parseDouble(frenchToIndian(wd.findElement(By.xpath("//tbody/tr["+records.size()+"]/td[5]")).getText()));	
-			//	System.out.println(b);
 				assertEquals(true, asccomp(a, b));
 
 			}
-			if(arg1.equalsIgnoreCase("City")) {
+			if(arg1.equalsIgnoreCase("City")) { 
 				String a = wd.findElement(By.xpath("//tbody/tr[1]/td[4]")).getText();
 				String  b = wd.findElement(By.xpath("//tbody/tr["+records.size()+"]/td[4]")).getText();	    	
-/*				System.out.println(a);
-				System.out.println(b);*/
 				if(a.compareToIgnoreCase(b)<=0) {
 					 assertEquals(true, true);
 				}else {
@@ -169,8 +160,6 @@ public class DebtManagementUnassignedDebt {
 			if(arg1.equalsIgnoreCase("TaxPayer")) {
 				String a = wd.findElement(By.xpath("//tbody/tr[1]/td[3]")).getText();
 				String  b = wd.findElement(By.xpath("//tbody/tr["+records.size()+"]/td[3]")).getText();	    	
-/*				System.out.println(a);
-				System.out.println(b);*/
 				if(a.compareToIgnoreCase(b)<=0) {
 					assertEquals(true, true);
 				}else {
@@ -192,29 +181,22 @@ public class DebtManagementUnassignedDebt {
 			if(arg1.equalsIgnoreCase("NITVA")) {
 				Long a =new Long(wd.findElement(By.xpath("//tbody/tr[1]/td[2]")).getText());
 				Long b =new Long(wd.findElement(By.xpath("//tbody/tr["+records.size()+"]/td[2]")).getText());		    
-/*				System.out.println(a);
-				System.out.println(b);*/
 				 assertEquals(true, desccomp(a, b));		    	
 			}
 			if(arg1.equalsIgnoreCase("Others")) {
 				Double a = Double.parseDouble(frenchToIndian(wd.findElement(By.xpath("//tbody/tr[1]/td[6]")).getText()));
 				Double b = Double.parseDouble(frenchToIndian(wd.findElement(By.xpath("//tbody/tr["+records.size()+"]/td[6]")).getText()));		    	
-/*				System.out.println(a);
-				System.out.println(b);*/
 				 assertEquals(true, desccomp(a, b));		    	
 			}
 			if(arg1.equalsIgnoreCase("Total")) {
 				Double a = Double.parseDouble(frenchToIndian(wd.findElement(By.xpath("//tbody/tr[1]/td[7]")).getText()));
 				Double b = Double.parseDouble(frenchToIndian(wd.findElement(By.xpath("//tbody/tr["+records.size()+"]/td[7]")).getText()));		    	
-/*				System.out.println(a);
-				System.out.println(b);*/
 				 assertEquals(true, desccomp(a, b));		    	
 			}
 			if(arg1.equalsIgnoreCase("TaxPayer")) {
 				String a = wd.findElement(By.xpath("//tbody/tr[1]/td[3]")).getText();
 				String  b = wd.findElement(By.xpath("//tbody/tr["+records.size()+"]/td[3]")).getText();	    	
-/*				System.out.println(a);
-				System.out.println(b);*/
+
 
 				if(a.compareToIgnoreCase(b)>=0) {
 					 assertEquals(true, true);
@@ -225,9 +207,6 @@ public class DebtManagementUnassignedDebt {
 			if(arg1.equalsIgnoreCase("City")) {
 				String a = wd.findElement(By.xpath("//tbody/tr[1]/td[4]")).getText();
 				String  b = wd.findElement(By.xpath("//tbody/tr["+records.size()+"]/td[4]")).getText();	    
-/*				System.out.println(a);
-				System.out.println(b);*/
-
 				if(a.compareToIgnoreCase(b)>=0) {
 					 assertEquals(true, true);
 				}else {
@@ -236,8 +215,8 @@ public class DebtManagementUnassignedDebt {
 			}
 
 			if(arg1.equalsIgnoreCase("7-12 Months ")||arg1.equalsIgnoreCase("0-3 Months")||arg1.equalsIgnoreCase("24 Months and Above")||arg1.equalsIgnoreCase("13-24 Months")||arg1.equalsIgnoreCase("4-6 Months")) {
-				Double a = Double.parseDouble(wd.findElement(By.xpath("//tbody/tr[1]/td[5]")).getText());
-				Double b = Double.parseDouble(wd.findElement(By.xpath("//tbody/tr["+records.size()+"]/td[5]")).getText());		   
+				Double a = Double.parseDouble(frenchToIndian(wd.findElement(By.xpath("//tbody/tr[1]/td[5]")).getText()));
+				Double b = Double.parseDouble(frenchToIndian(wd.findElement(By.xpath("//tbody/tr["+records.size()+"]/td[5]")).getText()));		   
 /*				System.out.println(a);
 				System.out.println(b);*/
 				assertEquals(true, desccomp(a, b));		    	
@@ -256,8 +235,9 @@ public class DebtManagementUnassignedDebt {
 	@Then("^Search by TaxPayer Name \"([^\"]*)\" and Records should be displayed$")
 	public void search_by_TaxPayer_Name_and_Records_should_be_displayed(String arg1) throws Throwable {
 		clickOn("drpdwnfilterby_txpayer", "");
-		clickOn("filterbytpayer", "");		
-		type("input_search_tpprofile",arg1);
+		clickOn("filterbytpayer", "");
+		String taxpayername=elementText("txt_particulars","");
+		type("input_search_tpprofile",taxpayername);
 		clickOn("btn_searchage","");		
 		
 		sleepWait(5000);
@@ -265,7 +245,7 @@ public class DebtManagementUnassignedDebt {
 		List <WebElement> records = wd.findElements(By.xpath("//tbody/tr"));
 		//System.out.println(records.size());
 		assertEquals(records.size(), 1);
-		assertEquals(elementText("txt_tpname",""), arg1);
+		assertEquals(elementText("txt_tpname",""), taxpayername);
 	
 
 	}
@@ -405,15 +385,18 @@ public class DebtManagementUnassignedDebt {
 		sleepWait(8000);	  
 		if(agebkt.contains("Months")) {
 			List <WebElement> months = wd.findElements(By.xpath("//tr/td[5]"));
-			for(int i =0;i<months.size();i++) {
+			if (months.size()>1) {
+				for(int i =0;i<months.size();i++) {
 
-				if(Double.parseDouble(frenchToIndian(months.get(i).getText()))<=Double.parseDouble(to)) {
-					 assertEquals(true, true);
-				}else {
-					 assertEquals(true, false);
+					if(Double.parseDouble(frenchToIndian(months.get(i).getText()))<=Double.parseDouble(to)) {
+						 assertEquals(true, true);
+					}else {
+						 assertEquals(true, false);
+					}
+
 				}
-
 			}
+
 		}
 		if(agebkt.equalsIgnoreCase("Others")) {
 			List <WebElement> months = wd.findElements(By.xpath("//tr/td[6]"));
@@ -444,7 +427,7 @@ public class DebtManagementUnassignedDebt {
 
 @Then("^if keeps blank in From and To value range, Search button should be disabled$")
 public void if_keeps_blank_in_From_and_To_value_range_Search_button_should_be_disabled() throws Throwable {
-  assertEquals(false, wd.findElement(By.xpath("//button[@title='search ']")).isEnabled());
+  assertEquals(false,buttonEnabled("btn_searchdebtunass",""));
 }
 @Then("^user enters uses first records in the to filter the records click again on filter option to reset the previously filtered records$")
 public void user_enters_uses_first_records_in_the_to_filter_the_records_click_again_on_filter_option_to_reset_the_previously_filtered_records()  throws Throwable {
@@ -542,7 +525,7 @@ public void search_by_TaxPayer_Name_and_assigns_to_officer_and_is_on_Case_Manage
 	   sleepWait(2000);
 	   clickOn("chkbx_selectfirst","");	 
 	   sleepWait(2000);
-	   totalDebtAmount=elementText("txt_int","");
+	   //totalDebtAmount=elementText("txt_int","");
 	   sleepWait(2000);
 	   clickOn("btn_assignofficer","");
 	   
@@ -551,7 +534,7 @@ public void search_by_TaxPayer_Name_and_assigns_to_officer_and_is_on_Case_Manage
 	   sleepWait(2000);
 	   clickOn("select_officer","");
 	   sleepWait(2000);
-	  clickOn("btn_save","");
+	 clickOn("btn_save","");
 	  sleepWait(8000);
 	  //assertEquals(elementText("txt_heading", ""), "Case Management");
 }

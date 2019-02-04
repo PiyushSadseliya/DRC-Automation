@@ -33,7 +33,7 @@ public class DV_2390_e_filing
 	
 	public String StoreAuthorizedSignatory;
 	
-	public static  String VAT_Store_VR;
+	public static String VAT_Store_VR;
 	public static String VAT_Store_SD;
 	public static String VAT_Store_VD;
 	public static String VAT_Store_PC;
@@ -53,6 +53,7 @@ public class DV_2390_e_filing
 	public static  Float SDC ;
 	public static  Float VDC ;
 	public static  Float PCC ;
+	static String emailid=null;
 	public String DG;
 	
 	@Given("^User Login \"([^\"]*)\" \"([^\"]*)\"$")
@@ -62,9 +63,10 @@ public class DV_2390_e_filing
 		System.out.println(arg2);		
 	}	
 	
-	@And("^User Enter email \"([^\"]*)\" and  password \"([^\"]*)\"$")
+		@And("^User Enter email \"([^\"]*)\" and  password \"([^\"]*)\"$")
 	public void user_Enter_email_and_password(String email, String pwd) throws Throwable 
 	{
+		emailid=email;
 /*		 type("txtbox_username",email);		
 		 type("txtbox_password",pwd);*/
 		 login(email, pwd);
@@ -823,7 +825,8 @@ public class DV_2390_e_filing
 		if(wd.findElement(By.xpath(obj.getProperty("txt_e_file_landing_Screen"))).isDisplayed());
 		 {
 			 assertTrue(true);
-		 }   	   
+		 }   
+		 sleepWait(8000);
 	}
 
 	@And("^User click on previous button$")
@@ -898,6 +901,7 @@ public class DV_2390_e_filing
 		sleepWait(5000);
 		clickOn("btn_efile_Verify", "");
 		sleepWait(1000);
+		waitFor("msg_otpverify");
 		if(wd.findElement(By.xpath("//div[contains(text(),'" + otp + "')]")).isDisplayed() )
 		{					
 			assertTrue(true);

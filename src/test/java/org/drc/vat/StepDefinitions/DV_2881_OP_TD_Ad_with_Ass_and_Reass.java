@@ -22,9 +22,13 @@ public class DV_2881_OP_TD_Ad_with_Ass_and_Reass
 	public void user_click_on_FilterBy_and_click_on_TaxPayer() throws Throwable 
 	{		
 		sleepWait(1000);
+		waitFor("drp_FilterBy");
 		clickOn("drp_FilterBy", "");
-		sleepWait(500);
-		clickOn("txt_TaxPayer", "");		
+		sleepWait(1000);
+		waitFor("txt_TaxPayer");
+		clickOn("txt_TaxPayer", "");
+		sleepWait(1000);
+		
 	}	
 	
 	@And("^User entered value \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" for Operation Performed and calculate$")

@@ -4,8 +4,14 @@ import cucumber.api.java.en.Then;
 import static org.drc.vat.appmanager.HelperBase.clickOn;
 import static org.drc.vat.appmanager.HelperBase.elementText;
 import static org.drc.vat.appmanager.HelperBase.wd;
+import static org.drc.vat.appmanager.HelperBase.waitfor;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 import static org.drc.vat.appmanager.HelperBase.sleepWait;
 
+import org.drc.vat.appmanager.ConnectDatabase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -30,14 +36,26 @@ public class NotificationPopUp {
 	}
 
 	@Then("^no of notification should be (\\d+) with \"([^\"]*)\" notification$")
-	public void no_of_notification_should_be_with_notification(int arg1, String arg2) throws Throwable {
-		sassert.assertEquals(elementText("btn_notify", ""), arg1);
+	public void no_of_notification_should_be_with_notification(int arg1, String action) throws Throwable {
+	//	sassert.assertEquals(elementText("btn_notify", ""), arg1);
+		ConnectDatabase.opendb();
 		clickOn("btn_notify", "");
 		Thread.sleep(4000);
-		sassert.assertEquals(elementText("txt_Notify_heading", ""), arg2);
+		sassert.assertEquals(elementText("txt_Notify_heading", ""), action);
 		Thread.sleep(4000);
 		clickOn("btn_close_Notification", "");
 		sleepWait(5000);
+		if(action.equals("Request Payment")) {
+			Calendar cal2=Calendar.getInstance();
+			cal2.add(Calendar.DATE, -15);
+			String fifteendaysago=new SimpleDateFormat("YYYY-MM-dd").format(cal2.getTime());
+			
+			String paymentremindersent="update  vat.CaseManagement set CreationDate='"+fifteendaysago+"' where CaseId='"+elementText("txt_cseid", "")+"'";
+			System.out.println(paymentremindersent);
+
+			ConnectDatabase.sta.executeUpdate(paymentremindersent);
+			sleepWait(300000);
+		}
 	
 	}
 

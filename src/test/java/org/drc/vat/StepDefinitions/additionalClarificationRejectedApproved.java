@@ -65,7 +65,7 @@ public class additionalClarificationRejectedApproved {
 		}
 
 	}
-
+ 
 	@Then("^again applies for VAT Registration$")
 	public void again_applies_for_VAT_Registration() {
 		// Write code here that turns the phrase above into concrete actions

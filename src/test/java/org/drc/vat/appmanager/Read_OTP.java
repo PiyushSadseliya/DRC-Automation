@@ -15,12 +15,12 @@ public class Read_OTP
 	static int stringlength;
 	public static final String dir = System.getProperty("user.dir");
 	public static String ReadOTP(String email) throws IOException, InterruptedException 
-	{	
-		System.setProperty("webdriver.chrome.driver", dir + "//chromedriver.exe");		
+	{
+		System.setProperty("webdriver.chrome.driver", dir + "//chromedriver.exe");
 		WebDriver driver = new ChromeDriver();       
 		driver.get("http://www.mytrashmail.com/");
 		Thread.sleep(5000);	
-		  
+
 		driver.findElement(By.xpath("//input[@type='text']")).sendKeys(email);
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//input[contains(@value,'Ge')]")).click();
@@ -35,7 +35,7 @@ public class Read_OTP
 				fetchOTP(driver);
 			}else {
 				//driver.switchTo().frame(driver.findElement(By.id("msg_body")));				 
-				fetchOTP(driver);			  
+				fetchOTP(driver);		  
 			}
 		}
 		//String SP = S.substring(S.lastIndexOf(':')+2, S.length());  
