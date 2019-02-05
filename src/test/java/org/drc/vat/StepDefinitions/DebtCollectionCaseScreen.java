@@ -86,6 +86,7 @@ public class DebtCollectionCaseScreen {
 	@Then("^Status \"([^\"]*)\" should be displayed$")
 	public void status_should_be_displayed(String status) throws Throwable {
 		waitFor("btn_Save");
+		sleepWait(2000);
 		WebElement dt = wd.findElement(By.xpath("//*[contains(text(),'Status')]/following::span"));
 
 		assertEquals(dt.getText(), status);
