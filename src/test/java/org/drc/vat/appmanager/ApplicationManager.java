@@ -102,14 +102,22 @@ public class ApplicationManager {
 	/**
 	 * Ketan.prajapati internal portal
 	 */
+<<<<<<< HEAD
 	public void callinternalportal() throws AWTException, InterruptedException, IOException {
 		if (wd.getCurrentUrl().contains("8068")) {
+=======
+	public void callinternalportal() throws AWTException, InterruptedException, IOException 
+	{
+		if (wd.getCurrentUrl().contains("8068") || wd.getCurrentUrl().contains("8042")) 
+		{			 
+>>>>>>> 2c77e680d63dc4ac8a6bfaf84d5487025d193069
 			wd.close();
 			Thread.sleep(2000);
 			wd = new ChromeDriver();
 			wd.manage().window().maximize();
 			wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 			wd.get("http://103.249.120.58:8044");
+<<<<<<< HEAD
 			// Runtime.getRuntime().exec(System.getProperty("user.dir")
 			// +"\\src\\test\\resources\\authusers\\autoitsample.exe");
 			Runtime.getRuntime().exec(System.getProperty("user.dir") + "\\QA_Internal_Portal_Login\\autoitsample.exe");
@@ -126,20 +134,105 @@ public class ApplicationManager {
 						.exec(System.getProperty("user.dir") + "\\QA_Internal_Portal_Login\\autoitsample.exe");
 				clickOn("btn_windowsClick", "");
 				Thread.sleep(2000);
+=======
+			//Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\src\\test\\resources\\authusers\\autoitsample.exe");
+			Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\QA_Internal_Portal_Login\\autoitsample.exe");
+
+			wd.findElement(By.xpath(obj.getProperty("btn_windowsClick"))).click();
+			Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\src\\test\\resources\\authusers\\autoitsample.exe");
+			Thread.sleep(1000);
+		}
+		else
+		{
+			if (!wd.getCurrentUrl().contains("8068")) 
+			{wd.close();
+			Thread.sleep(1000);
+			wd = new ChromeDriver();
+			wd.manage().window().maximize();
+				Thread.sleep(1000);
+				wd.get("http://103.249.120.58:8044");
+				Thread.sleep(500);
+				//Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\src\\test\\resources\\authusers\\autoitsample.exe");
+				Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\QA_Internal_Portal_Login\\autoitsample.exe");
+				clickOn("btn_windowsClick", "");			
+				Thread.sleep(1000);
+>>>>>>> 2c77e680d63dc4ac8a6bfaf84d5487025d193069
 			}
 		}
 	}
+	
+	public void EFDinternalportal() throws AWTException, InterruptedException, IOException 
+	{
+		if (wd.getCurrentUrl().contains("8057")) 
+		{			
+			wd.close();
+			Thread.sleep(1000);
+			wd = new ChromeDriver();
+			wd.manage().window().maximize();
+			wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+			wd.get("http://103.249.120.58:8044");
+			Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\src\\test\\resources\\authusers\\autoitsample.exe");
+			wd.findElement(By.xpath(obj.getProperty("btn_windowsClick"))).click();
+			Thread.sleep(1000);
+		}		
+	}
 
+<<<<<<< HEAD
 	public void calltaxpayerportal() throws AWTException, InterruptedException, IOException {
+=======
+	public void callmanufacturerportal() throws AWTException, InterruptedException, IOException {
+		wd.get("http://103.249.120.58:8057");
+	}
+	public void callvendorportal() throws AWTException, InterruptedException, IOException {		
+		wd.get("http://103.249.120.58:8012");
+	}
+
+	public void calltaxpayerportal() throws AWTException, InterruptedException, IOException 
+	{				
+		if (wd.getCurrentUrl().contains("8068")) 
+		{			
+			sleepWait(1500);
+			wd.close(); 
+			Thread.sleep(1000);
+			wd = new ChromeDriver();
+			wd.manage().window().maximize();
+			wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+			wd.get("http://103.249.120.58:8042");	
+			Thread.sleep(1000);		
+		}
+	}
+
+	
+	
+	
+	
+	
+	
+	/** 
+	 * Arun creted
+	 */
+	/*public void calltaxpayerportal() throws AWTException, InterruptedException, IOException 
+	{				
+>>>>>>> 2c77e680d63dc4ac8a6bfaf84d5487025d193069
 		sleepWait(1500);
 		wd.close();
 		Thread.sleep(1000);
 		wd = new ChromeDriver();
 		wd.manage().window().maximize();
 		wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+<<<<<<< HEAD
 		wd.get("http://103.249.120.58:8042");
 		Thread.sleep(1000);
 	}
+=======
+		wd.get("http://103.249.120.58:8042");	
+<<<<<<< HEAD
+		Thread.sleep(1000);
+	}
+=======
+		Thread.sleep(1000);			
+	}*/
+>>>>>>> 2c77e680d63dc4ac8a6bfaf84d5487025d193069
 
 	/**
 	 * rohit.patil internal portal
@@ -147,6 +240,10 @@ public class ApplicationManager {
 	public void callinternalportal_TaxOfficer() throws AWTException, InterruptedException, IOException {
 		if (wd.getCurrentUrl().contains("8068")) {
 			wd.close();
+<<<<<<< HEAD
+=======
+			//WebDriver wd = new ChromeDriver(); 
+>>>>>>> 2c77e680d63dc4ac8a6bfaf84d5487025d193069
 			wd = new ChromeDriver();
 			wd.manage().window().maximize();
 			wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
@@ -224,6 +321,7 @@ public class ApplicationManager {
 		}
 	}
 
+<<<<<<< HEAD
 	public void callurl() throws AWTException, InterruptedException {
 		if (wd.getCurrentUrl().contains("90")) {
 			wd.get(properties.getProperty("web.Url"));
@@ -235,6 +333,30 @@ public class ApplicationManager {
 		} else if (wd.getCurrentUrl().contains("8031")) {
 			sleepWait(500);
 		} else if (!wd.getCurrentUrl().contains("8042")) {
+=======
+
+	public void callurl() throws AWTException, InterruptedException 
+	{
+		if(wd.getCurrentUrl().contains(":90"))
+		{
+			wd.get(properties.getProperty("web.Url"));
+			//sleepWait(500);
+		}		
+		else if(wd.getCurrentUrl().contains(":8066"))
+		{
+			sleepWait(500);			
+		}
+		else if(wd.getCurrentUrl().contains(":8068"))
+		{
+			sleepWait(500);			
+		}
+		else if(wd.getCurrentUrl().contains(":8031"))
+		{
+			sleepWait(500);			
+		}
+		else if(!wd.getCurrentUrl().contains(":8042"))
+		{
+>>>>>>> 2c77e680d63dc4ac8a6bfaf84d5487025d193069
 			wd.get(properties.getProperty("web.Url"));
 		}
 	}
@@ -346,6 +468,7 @@ public class ApplicationManager {
 			}
 		}
 	}
+<<<<<<< HEAD
 
 	public void callmanufactoreportal() throws AWTException, InterruptedException, IOException {
 		wd.get("http://103.249.120.58:8057");
@@ -376,3 +499,6 @@ public class ApplicationManager {
 		Thread.sleep(4000);
 	}
 }
+=======
+}
+>>>>>>> 2c77e680d63dc4ac8a6bfaf84d5487025d193069

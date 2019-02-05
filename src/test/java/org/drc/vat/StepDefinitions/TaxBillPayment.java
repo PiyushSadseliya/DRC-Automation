@@ -14,6 +14,7 @@ import static org.drc.vat.appmanager.xls_file.xls;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
+import org.drc.vat.appmanager.HelperBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -76,7 +77,7 @@ public class TaxBillPayment {
 		sleepWait(3000);
 		assertEquals(elementText("txt_billno", ""), elementText("txt_barcode", ""));
 		assertEquals(elementText("txt_nitva", ""), arg1);
-		assertEquals(elementText("txt_email", ""), arg2);
+		assertEquals(elementText("txt_email", "").toLowerCase(), HelperBase.emailid.toLowerCase());
 		assertEquals(elementText("txt_mobile", ""), arg3);
 		assertEquals(elementText("txt_name", ""), arg4);
 		assertEquals(elementText("txt_add", ""), arg5);

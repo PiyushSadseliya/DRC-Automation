@@ -5,14 +5,22 @@ import org.testng.asserts.SoftAssert;
 import static org.drc.vat.appmanager.HelperBase.elementText;
 import static org.drc.vat.appmanager.HelperBase.clickOn;
 import static org.drc.vat.appmanager.HelperBase.type;
+import static org.drc.vat.appmanager.HelperBase.waitFor;
 import static org.drc.vat.appmanager.HelperBase.wd;
 import static org.testng.Assert.assertEquals;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 import static org.drc.vat.appmanager.HelperBase.UploadImage;
 import static org.drc.vat.appmanager.HelperBase.pageSource;
 import static org.drc.vat.appmanager.HelperBase.sleepWait;
 import static org.drc.vat.appmanager.HelperBase.frenchToIndian;
 import static org.drc.vat.StepDefinitions.DebtManagementAssignedDebtList.recordNo;
 import static org.drc.vat.StepDefinitions.DebtManagementUnassignedDebt.totalDebtAmount;
+
+import org.drc.vat.appmanager.ConnectDatabase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -20,6 +28,8 @@ import org.openqa.selenium.WebElement;
 import cucumber.api.java.en.Then;
 
 public class DebtCollectionCaseScreen {
+	static String debtaction;
+
 //	static double totaldebt=Double.parseDouble(frenchToIndian(totalDebtAmount));
 	@Then("^user should be on Debt Collection Case$")
 	public void user_should_be_on_Debt_Collection_Case() throws Throwable {
@@ -74,25 +84,40 @@ public class DebtCollectionCaseScreen {
 	}
 
 	@Then("^Status \"([^\"]*)\" should be displayed$")
-	public void status_should_be_displayed(String arg1) throws Throwable {
-		WebElement dt = wd.findElement(By.xpath("//strong[contains(text(),'Status')]/following::h6"));
+	public void status_should_be_displayed(String status) throws Throwable {
+		waitFor("btn_Save");
+		WebElement dt = wd.findElement(By.xpath("//*[contains(text(),'Status')]/following::span"));
 
-		assertEquals(dt.getText(), arg1);
+		assertEquals(dt.getText(), status);
+		if (status.equals("Payment Reminder Sent")) {
+			ConnectDatabase.opendb();
+			Calendar cal2=Calendar.getInstance();
+			cal2.add(Calendar.DATE, -30);
+			String thirtydaysago=new SimpleDateFormat("YYYY-MM-dd").format(cal2.getTime());
+			
+			String paymentnotcompleted="update  vat.CaseManagement set CreationDate='"+thirtydaysago+"' where CaseId='"+elementText("txt_cseid", "")+"'";
+			System.out.println(paymentnotcompleted);
+
+		   ConnectDatabase.sta.executeUpdate(paymentnotcompleted);
+			sleepWait(320000);
+		}
 
 	}
 
 	@Then("^Selects Action \"([^\"]*)\"$")
-	public void selects_Action(String arg1) throws Throwable {
+	public void selects_Action(String action) throws Throwable {
 		// action select action
 		clickOn("select_action", "");
 		sleepWait(2000);
-		clickOn("span", "[text()='" + arg1 + "']");
+		clickOn("span", "[text()='" + action + "']");
 
 	}
 
 	@Then("^click on Submit button$")
 	public void click_on_Submit_button() throws Throwable {
 		clickOn("btn_submit", "");
+		
+		
 		//String txt = pageSource();
 		// assertEquals(txt.contains("Case update successfully"), true);
 		sleepWait(20000);
@@ -119,12 +144,13 @@ public class DebtCollectionCaseScreen {
 		double recamt=totaldebt*per/100;
 		
 		
-		assertEquals(perc, String.format("%.2f", recamt));
+		assertEquals(Double.parseDouble(perc), recamt);
 	}
 
 	@Then("^add Comment \"([^\"]*)\"$")
 	public void add_Comment(String arg1) throws Throwable {
 		type("txtbx_comment", arg1);
+
 	}
 
 	@Then("^attach the document\"([^\"]*)\"$")

@@ -30,6 +30,7 @@ import static org.drc.vat.appmanager.HelperBase.clearCache;
 import static org.drc.vat.appmanager.HelperBase.assessmentOfficer;
 import static org.drc.vat.appmanager.HelperBase.sleepWait;
 
+<<<<<<< HEAD
 @CucumberOptions(features = { "classpath:features/16_01_DV_2882_Manual_Assessed_LandingScreen.feature",
 		"classpath:features/17_03_DV_2881_OP_TD_Ad_with_Ass_and_Reass.feature",
 		"classpath:features/18_05_DV_2880_Tax_Deductable_Ass_and_Reass_Adjustement.feature",
@@ -55,6 +56,22 @@ import static org.drc.vat.appmanager.HelperBase.sleepWait;
 // ,tags={"@TC_Extra_user_created_System,@TC_Extra_user_created_Payment_Related"}
 )
 
+=======
+@CucumberOptions(features = {
+		//		"classpath:features/01_userRegistration.feature",
+		//		"classpath:features/02_01_Login.feature",
+		//		"classpath:features/03_01uploadDocuments.feature",
+		//"classpath:features/03_02VATRegistration.feature",
+		//		"classpath:features/04_DV_1377_ManageVatRegistration.feature",
+		//		"classpath:features/05_DV_1376_AcceptRejectAdditionalClarification.feature",
+		//"classpath:features/30_TaxPayer_Portal_objection_appeal.feature",
+		"classpath:features/EFDVendor.feature"
+},
+glue = "org.drc.vat.StepDefinitions",
+plugin = {"com.cucumber.listener.ExtentCucumberFormatter:","html:test-output/cucumber-report"}
+//,tags= {"@TC_01,@TC_02,@TC_Search"}
+		)
+>>>>>>> 2c77e680d63dc4ac8a6bfaf84d5487025d193069
 public class TestRunner extends AbstractTestNGCucumberTests {
 	private Logger logger = LoggerFactory.getLogger(TestRunner.class);
 	private String outputDir = "test-output/" + new Date().toString().substring(0, 10);
@@ -83,8 +100,26 @@ public class TestRunner extends AbstractTestNGCucumberTests {
 		 */
 		if (scenario.getName().toLowerCase().contains("internal portal")) {
 			app.callinternalportal();
+<<<<<<< HEAD
 		} else if (scenario.getName().toLowerCase().contains("taxpayer portal")) {
+=======
+		}
+		/**
+		 *  taxpayer portal 
+		 */
+
+		else if (scenario.getName().toLowerCase().contains("taxpayer portal")) 
+		{
+>>>>>>> 2c77e680d63dc4ac8a6bfaf84d5487025d193069
 			app.calltaxpayerportal();
+		}
+		else if (scenario.getName().contains("EFDinternalportal")) {
+			app.EFDinternalportal();
+		}		
+		else if (scenario.getName().toLowerCase().contains("efd-manufacturerportal")) {
+			app.callmanufacturerportal();
+		} else if (scenario.getName().toLowerCase().contains("vendor portal")) {
+			app.callvendorportal();
 		}
 		/**
 		 * Login with rohit.patil
@@ -100,6 +135,7 @@ public class TestRunner extends AbstractTestNGCucumberTests {
 		} else if (scenario.getName().toLowerCase().contains("laxman")) {
 			app.callinternalportal_Assessment_Officer();
 		}
+<<<<<<< HEAD
 		/**
 		 * Login with manufacture and vendor module
 		 */
@@ -108,6 +144,9 @@ public class TestRunner extends AbstractTestNGCucumberTests {
 		} else if (scenario.getName().toLowerCase().contains("vendor portal")) {
 			app.callvendorportal();
 		}
+=======
+
+>>>>>>> 2c77e680d63dc4ac8a6bfaf84d5487025d193069
 		/**
 		 * For Demo login
 		 */
@@ -120,6 +159,36 @@ public class TestRunner extends AbstractTestNGCucumberTests {
 		/**
 		 * Login with rohit.patil demo
 		 */
+		else if (scenario.getName().toLowerCase().contains("taxofficer demo")) {
+			app.callinternalportal_TaxOfficer_demo();
+		}
+		/**
+		 * Login with rohit.patil
+		 */
+		else if (scenario.getName().toLowerCase().contains("fx taxofficer")) {
+			app.callinternalportal_TaxOfficer();
+		}
+		/**
+		 * Login with pooja.parmar
+		 */
+		else if (scenario.getName().toLowerCase().contains("supervisor")) {
+			app.callinternalportal_Supervisor();
+		} else if (scenario.getName().toLowerCase().contains("laxman")) {
+			app.callinternalportal_Assessment_Officer();
+		} 
+		/** 
+
+		 * For Demo login
+		 */
+		/**
+		 * Login with Ketan.prajapati demo
+		 */
+		else if (scenario.getName().toLowerCase().contains("admin demo")) {
+			app.callinternalportal_ketan_demo();
+		}
+		/**
+		 * Login with rohit.patil demo
+		 */ 
 		else if (scenario.getName().toLowerCase().contains("taxofficer demo")) {
 			app.callinternalportal_TaxOfficer_demo();
 		}

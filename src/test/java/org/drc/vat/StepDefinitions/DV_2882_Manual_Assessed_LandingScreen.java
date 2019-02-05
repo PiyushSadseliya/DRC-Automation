@@ -84,11 +84,14 @@ public class DV_2882_Manual_Assessed_LandingScreen {
 	public void user_click_on_manual_assessment() throws Throwable 
 	{
 		clickOn("ManualAssessmentTab", "");
+		sleepWait(1000);
 	}
 
 	@And("^User click on drop down \"([^\"]*)\"$")
 	public void user_click_on_drop_down(String period) throws Throwable {
+		
 		sleepWait(2000);
+		waitFor("drp_month");
 		clickOn("drp_month", "");
 		sleepWait(1000);
 		clickOn(period, "");
@@ -97,7 +100,9 @@ public class DV_2882_Manual_Assessed_LandingScreen {
 
 	@And("^User click on year \"([^\"]*)\" and check$")
 	public void user_click_on_year_and_check(String year) throws Throwable {
+		
 		sleepWait(1000);
+		waitFor("drp_year");
 		clickOn("drp_year", "");
 		sleepWait(500);
 		clickOn(year, ""); 

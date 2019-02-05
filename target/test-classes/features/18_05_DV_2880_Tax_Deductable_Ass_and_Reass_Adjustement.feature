@@ -17,8 +17,8 @@ Feature: User is on Tax Deductible Page Manual Assessement
     And Validate Period field
 
     Examples: 
-      | TestcaseID    | Description                    | Period        | TaxPayer         | Year            |
-      | Tax_Dec_02_03 | validate nitva no,Period field | txt_PeriodFeb | regressionforty | txt_2019_Period |
+      | TestcaseID    | Description                    | Period        | TaxPayer           | Year            |
+      | Tax_Dec_02_03 | validate nitva no,Period field | txt_PeriodFeb | Automation User 10 | txt_2019_Period |
 
   #TC_04 same amount on e-filing
   @TC_06_05
@@ -38,8 +38,8 @@ Feature: User is on Tax Deductible Page Manual Assessement
     And User click on next button and validate Total Assessed
 
     Examples: 
-      | TestcaseID    | Description                    | Period        | TaxPayer         |  10 | 10.1 |  11 | 11.1 |  12 | 12.1 |  13 | 13.1 | Year            |
-      | Tax_Dec_06_05 | validate nitva no,Period field | txt_PeriodFeb | regressionforty | 500 |  500 | 500 |  500 | 500 |  500 | 500 |  500 | txt_2019_Period |
+      | TestcaseID    | Description                    | Period        | TaxPayer           |  10 | 10.1 |  11 | 11.1 |  12 | 12.1 |  13 | 13.1 | Year            |
+      | Tax_Dec_06_05 | validate nitva no,Period field | txt_PeriodFeb | Automation User 10 | 500 |  500 | 500 |  500 | 500 |  500 | 500 |  500 | txt_2019_Period |
 
   # 07 half cover total dec
   @TC_07_19_17
@@ -62,8 +62,8 @@ Feature: User is on Tax Deductible Page Manual Assessement
     And User validate previously enter value
 
     Examples: 
-      | TestcaseID       | Description                                                                                    | Period        | TaxPayer         | 10 | 10.1 | 11 | 11.1 | 12 | 12.1 | 13 | 13.1 | mes                | Year            |
-      | Tax_Dec_07_19_17 | validate Edit button functionality and Total of Difference field and Save button functionality | txt_PeriodFeb | regressionforty |  5 |    5 |  0 |    0 |  0 |    0 |  0 |    0 | Saved Successfully | txt_2019_Period |
+      | TestcaseID       | Description                                                                                    | Period        | TaxPayer           | 10 | 10.1 | 11 | 11.1 | 12 | 12.1 | 13 | 13.1 | mes                | Year            |
+      | Tax_Dec_07_19_17 | validate Edit button functionality and Total of Difference field and Save button functionality | txt_PeriodFeb | Automation User 10 |  5 |    5 |  0 |    0 |  0 |    0 |  0 |    0 | Saved Successfully | txt_2019_Period |
 
   #TC_08  same on e declaration page
   #TC_09  data come from edf
@@ -82,8 +82,8 @@ Feature: User is on Tax Deductible Page Manual Assessement
     And User validate total difference field
 
     Examples: 
-      | TestcaseID    | Description                                                                    | Period        | TaxPayer         | Year            |
-      | Tax_Dec_10_11 | validate view icon in transaction received table and Total of Difference field | txt_PeriodFeb | regressionforty | txt_2019_Period |
+      | TestcaseID    | Description                                                                    | Period        | TaxPayer           | Year            |
+      | Tax_Dec_10_11 | validate view icon in transaction received table and Total of Difference field | txt_PeriodFeb | Automation User 10 | txt_2019_Period |
 
   #TC_12
   # fot this new nitva with uploaded file   - > 20181022121408836 file uploaded while filiong
@@ -101,8 +101,8 @@ Feature: User is on Tax Deductible Page Manual Assessement
     And User click on e-Filing Scedule on Manual Assessment and validate
 
     Examples: 
-      | TestcaseID | Description                                                        | Period        | TaxPayer         | Year            |
-      | Tax_Dec_14 | validate download functionality when user upload file on tax payer | txt_PeriodFeb | regressionforty | txt_2019_Period |
+      | TestcaseID | Description                                                        | Period        | TaxPayer           | Year            |
+      | Tax_Dec_14 | validate download functionality when user upload file on tax payer | txt_PeriodFeb | Automation User 10 | txt_2019_Period |
 
   @TC_13_15
   Scenario Outline: Validate the download functionality of Transaction Received button and e-filing schedule button when e-file schedule file is not uploaded
@@ -118,8 +118,8 @@ Feature: User is on Tax Deductible Page Manual Assessement
     And User click on e-Filing Scedule when file is not upload by tax payer and user see "<mes>"
 
     Examples: 
-      | TestcaseID    | Description                                                                    | Period        | TaxPayer         | mes            | Year            |
-      | Tax_Dec_13_15 | validate view icon in transaction received table and Total of Difference field | txt_PeriodJan | regressionforty | File not found | txt_2019_Period |
+      | TestcaseID    | Description                                                                    | Period        | TaxPayer           | mes            | Year            |
+      | Tax_Dec_13_15 | validate view icon in transaction received table and Total of Difference field | txt_PeriodJan | Automation User 10 | File not found | txt_2019_Period |
 
   @TC_16_18_20
   Scenario Outline: Validate the next button functionality when assessment officer does not edit the fields on the page
@@ -137,8 +137,8 @@ Feature: User is on Tax Deductible Page Manual Assessement
     And User click on Previous button and navigate to Manual assessment Tax payer list page
 
     Examples: 
-      | TestcaseID       | Description                                                                    | Period        | TaxPayer         | Year            |
-      | Tax_Dec_16_18_20 | validate view icon in transaction received table and Total of Difference field | txt_PeriodFeb | regressionforty | txt_2019_Period |
+      | TestcaseID       | Description                                                                    | Period        | TaxPayer           | Year            |
+      | Tax_Dec_16_18_20 | validate view icon in transaction received table and Total of Difference field | txt_PeriodFeb | Automation User 10 | txt_2019_Period |
 
   @TC_Negative_Scenario_Manual_2880
   Scenario Outline: Validate Negative Scenario for all fields
@@ -154,9 +154,9 @@ Feature: User is on Tax Deductible Page Manual Assessement
     And User entered value "<10>" "<10.1>" "<11>" "<11.1>" "<12>" "<12.1>" "<13>" "<13.1>" on Manual Assessment Tax Deductible negative
 
     Examples: 
-      | TestcaseID | Description                 | Period        | TaxPayer         |   10 | 10.1 |   11 | 11.1 |   12 | 12.1 |   13 | 13.1 | Year            |
-      | Tax_Dec_1  | Validate special chatracter | txt_PeriodFeb | regressionforty | @!@$ | @!@$ | @!@$ | @!@$ | @!@$ | @!@$ | @!@$ | @!@$ | txt_2019_Period |
-      | Tax_Dec_2  | Validate alpha numeric      | txt_PeriodFeb | regressionforty | A12  | B123 | C465 | D234 | E234 | F123 | G123 | H123 | txt_2019_Period |
+      | TestcaseID | Description                 | Period        | TaxPayer           |   10 | 10.1 |   11 | 11.1 |   12 | 12.1 |   13 | 13.1 | Year            |
+      | Tax_Dec_1  | Validate special chatracter | txt_PeriodFeb | Automation User 10 | @!@$ | @!@$ | @!@$ | @!@$ | @!@$ | @!@$ | @!@$ | @!@$ | txt_2019_Period |
+      | Tax_Dec_2  | Validate alpha numeric      | txt_PeriodFeb | Automation User 10 | A12  | B123 | C465 | D234 | E234 | F123 | G123 | H123 | txt_2019_Period |
 
   @TC_Negative_Scenario_field_length_Manual_2880
   Scenario Outline: Validate Negative Scenario for all fields length
@@ -172,5 +172,5 @@ Feature: User is on Tax Deductible Page Manual Assessement
     And User entered value "<10>" "<10.1>" "<11>" "<11.1>" "<12>" "<12.1>" "<13>" "<13.1>" on Manual Assessment Tax Deductible field length
 
     Examples: 
-      | TestcaseID               | Description               | Period        | Year            | TaxPayer         |               10 |             10.1 |               11 |             11.1 |               12 |             12.1 |               13 |             13.1 |
-      | Mal_OP_NS_Field_Length_1 | Validate length of number | txt_PeriodFeb | txt_2019_Period | regressionforty | 1234567891011123 | 1234567891011123 | 1234567891011123 | 1234567891011123 | 1234567891011123 | 1234567891011123 | 1234567891011123 | 1234567891011123 |
+      | TestcaseID               | Description               | Period        | Year            | TaxPayer           |               10 |             10.1 |               11 |             11.1 |               12 |             12.1 |               13 |             13.1 |
+      | Mal_OP_NS_Field_Length_1 | Validate length of number | txt_PeriodFeb | txt_2019_Period | Automation User 10 | 1234567891011123 | 1234567891011123 | 1234567891011123 | 1234567891011123 | 1234567891011123 | 1234567891011123 | 1234567891011123 | 1234567891011123 |

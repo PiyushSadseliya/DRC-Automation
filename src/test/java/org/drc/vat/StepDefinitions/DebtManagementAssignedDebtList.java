@@ -30,6 +30,7 @@ import org.testng.asserts.SoftAssert;
 public class DebtManagementAssignedDebtList {
 	static int recordNo=0;
 	static boolean isRecordSet=true;
+	public static String debtcaseid;
 	
 
 	@Given("^\"([^\"]*)\"\"([^\"]*)\"DGI \"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"should be logged in to the internal portal$")
@@ -108,6 +109,26 @@ public class DebtManagementAssignedDebtList {
 			}
 			
 		}
+	}
+	@Then("^click on previous button from debt case$")
+	public void click_on_previous_button_from_debt_case() throws Throwable {
+	debtcaseid=elementText("txt_cseid","");
+clickOn("btn_previous_associatedbank", "");
+sleepWait(5000);
+
+	}
+
+	@Then("^click on filter by dropdown CaseID$")
+	public void click_on_filter_by_dropdown_CaseID() throws Throwable {
+		clickOn("txt_filterby", "/following::span");
+		sleepWait(1000);
+		clickOn("slash", "*[name()='ng-dropdown-panel']//span[contains(text(),'Case Id')]");
+		sleepWait(2000);
+		type("txtbx_typehere", debtcaseid);
+		clickOn("btn_search_case", "");
+		sleepWait(5000);
+		clickOn("btn_casemanage", "");
+		clickOn("btn_casemanageview", "");
 	}
 
 	@Then("^Manage options should display wtih options\"([^\"]*)\"\"([^\"]*)\"$")

@@ -24,14 +24,6 @@ Feature: User is on Tax Payer portal Objection and Appeal
       #| TestcaseID                                      | Description                       | email                     | password | month | click        | document   |
       #| Objection_Appeal_Tax_Payer_04_06_07_08_11_12_13 | Verify raise notice for objection | arunkumar1@mailinator.com | Arun123  | eJan  | btn_Jan_View | Assessment |
 
-  @Testing
-  Scenario Outline: Validate title ,period and object type
-    Given User Enter email "<email>" and  password "<password>"
-    
-    Examples: 
-      | TestcaseID                          | Description                       | email                         | password |
-      | Objection_Appeal_Tax_Payer_16_18_19 | Verify raise notice for objection | regressionlast@mailinator.com | Test@123 |
-  
   #16 bug 2968
   @DV_2253_TaxPayer_Portal_objection_appeal_TC_16_18_19
   Scenario Outline: Validate title ,period and object type
@@ -58,7 +50,8 @@ Feature: User is on Tax Payer portal Objection and Appeal
 
   @DV_2253_TaxPayer_Portal_objection_appeal_TC_20_21_22
   Scenario Outline: Validate the Description field FileUpload
-    Given User is on Tax Payer portal Objection and Appeal and click on VAT e-Filing Tab "<TestcaseID>" "<Description>"
+    Given user click on VAT menu 
+    And User is on Tax Payer portal Objection and Appeal and click on VAT e-Filing Tab "<TestcaseID>" "<Description>"
     And User click on collapse for the month "<month>"
     And User click on view for month "<click>"
     And User click on view on notice popup
@@ -78,7 +71,8 @@ Feature: User is on Tax Payer portal Objection and Appeal
 
   @DV_2253_TaxPayer_Portal_objection_appeal_TC_02_14_23_24
   Scenario Outline: validate submit
-    Given User is on Tax Payer portal Objection and Appeal and click on VAT e-Filing Tab "<TestcaseID>" "<Description>"
+  	#Given user click on VAT menu 
+    And User is on Tax Payer portal Objection and Appeal and click on VAT e-Filing Tab "<TestcaseID>" "<Description>"
     And User click on collapse for the month "<month>"
     And User click on view for month "<click>"
     And User click on view on notice popup
@@ -86,6 +80,7 @@ Feature: User is on Tax Payer portal Objection and Appeal
     And User click on Object on notice page
     And User click on Objection Type and select "<list>"
     And User enter description "<description>"
+    And user return back to original frame from description
     And User click on submit button on notice page
 
     Examples: 

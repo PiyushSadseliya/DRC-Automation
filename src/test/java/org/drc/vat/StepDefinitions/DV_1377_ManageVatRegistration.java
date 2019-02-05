@@ -242,6 +242,15 @@ public class DV_1377_ManageVatRegistration
 			assertTrue(true);
 		}
 	}
+	
+	@And("^User see result \"([^\"]*)\"$")
+	public void user_see_result(String value) throws Throwable {
+		sleepWait(1000);
+		if(wd.findElement(By.xpath("(//*[contains(text(),'" + value + "')])[1]")).isDisplayed())
+		{
+			assertTrue(true);
+		}
+	}
 
 	@Then("^clicks on download pdf button$")
 	public void clicks_on_download_pdf_button() throws Throwable 
@@ -352,7 +361,7 @@ public class DV_1377_ManageVatRegistration
 	@And("^user click on Reassign$")
 	public void user_click_on_Reassign() throws Throwable 
 	{
-		sleepWait(1000);
+		sleepWait(3000);
 		clickOn("drp_ManageDropdown","");
 		sleepWait(1000);
 		clickOn("drp_Reassign", "");							
@@ -376,8 +385,8 @@ public class DV_1377_ManageVatRegistration
 	@Then("^Tax Officier Changed and toast message display$")
 	public void tax_Officier_Changed_and_toast_message_display() throws Throwable 
 	{
-		sleepWait(2000);		
-		if(elementText("txt_reassigned_toastMess").equals("Tax officer re-assigned successfully"))
+		sleepWait(1500);
+		if(elementText("txt_reassigned_toastMess").equals("Officer reassigned successfully"))
 		{
 			assertTrue(true);
 		}		

@@ -7,6 +7,7 @@ import static org.drc.vat.appmanager.HelperBase.*;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
+import java.awt.RenderingHints.Key;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import java.text.DateFormat;
@@ -18,36 +19,40 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.openqa.selenium.support.ui.Select; 
 public class DV_3893_TaxPayer_Help_Desk
 {
-	public String StoreTit;
-	public String StoreTit_PR;
-	public String StorePaymentRelated;
-	public String StoreID;
-	public String Issue_store_GQ;
-	public String Store_Issue_store_GQ;
-	public String Store_EFD_ID;
-	public String StoreEFDTitle;
-	public String Store_Payment_ID;
-	public String StorePayRel;
-	public String StoreSysRelated;
-	public String Store_Title;
-	public String Issue_TypeGQ;
-	public String Issue_Description;
+	public static String StoreTit;
+	public static String StoreTit_PR;
+	public static String StorePaymentRelated;
+	public static String StoreID;
+	public static String Issue_store_GQ;
+	public static String Store_Issue_store_GQ;
+	public static String Store_EFD_ID;
+	public static String StoreEFDTitle;
+	public static String Store_Payment_ID;
+	public static String StorePayRel;
+	public static String StoreSysRelated;
+	public static String Store_Title;
+	public static String Issue_TypeGQ;
+	public static String Issue_Description;
 	
 	@Given("^User click on Helpdesk menu \"([^\"]*)\" \"([^\"]*)\"$")
-	public void user_click_on_Helpdesk_menu(String arg1, String arg2) throws Throwable 
+	public void user_click_on_Helpdesk_menu(String TestcaseID, String Description) throws Throwable 
 	{
 	   sleepWait(1000);
 	   clickOn("txt_Helpdesk_Menu", "");
 	   sleepWait(1000);    
+	   System.out.println(TestcaseID);
+	   System.out.println(Description);
 	}
 
 	@And ("^User click here for first time$")
 	public void user_click_here_for_first_time() throws Throwable 
 	{
+		sleepWait(1000);		
 		clickOn("txt_First_Click_Here", "");
 	}
 	@And("^User click on Add New Issue button$")
@@ -58,6 +63,7 @@ public class DV_3893_TaxPayer_Help_Desk
 		wd.switchTo().frame(element1);
 		sleepWait(1000);		*/
 		clickOn("btn_Add_New_Issue", "");	
+		sleepWait(1000);
 	}
 
 	@And("^User click on Issue Type and select \"([^\"]*)\"$")
@@ -67,17 +73,19 @@ public class DV_3893_TaxPayer_Help_Desk
 		WebElement element1 = wd.findElement(By.id("iframe"));
 		wd.switchTo().frame(element1);
 		sleepWait(1000);*/
-		
+		sleepWait(1000);
 		waitFor("drp_Select_Issue");
 		clickOn("drp_Select_Issue","");
 		sleepWait(1000);
 		clickOn(value, "");
+		sleepWait(1000);
 	    
 	}
 
 	@And("^User type title \"([^\"]*)\" for Helpdesk$")
 	public void user_type_title_for_Helpdesk(String title) throws Throwable 
 	{
+		
 		type("txt_HelpdeskTitle", title);
 	}
 
@@ -94,7 +102,9 @@ public class DV_3893_TaxPayer_Help_Desk
 	{
 		/*WebElement element1 = wd.findElement(By.id("iframe"));
 		wd.switchTo().frame(element1);*/		
-		type("txt_Search_Issue", StoreTit);	
+		sleepWait(1000);
+		type("txt_Search_Issue", StoreTit);
+		
 	}
 	/**
 	 *  Here title is typed and user get ticket id and stored 
@@ -115,6 +125,7 @@ public class DV_3893_TaxPayer_Help_Desk
 	@And("^User type System related issue id$")
 	public void user_type_System_related_issue_id() throws Throwable 
 	{
+		sleepWait(1000);
 		type("txt_Search_Issue",StoreSysRelated);
 		System.out.println(StoreSysRelated);
 	}
@@ -130,6 +141,7 @@ public class DV_3893_TaxPayer_Help_Desk
 	@And("^User type store title and get issue id Payment Related$")
 	public void user_type_store_title_and_get_issue_id_Payment_Related() throws Throwable
 	{
+		sleepWait(1000);
 		type("txt_Search_Issue", StoreTit_PR);
 	}
 	/**
@@ -149,6 +161,7 @@ public class DV_3893_TaxPayer_Help_Desk
 	@And("^User type Payment related issue id$")
 	public void user_type_Payment_related_issue_id() throws Throwable 
 	{
+		sleepWait(1000);
 		type("txt_Search_Issue", StorePaymentRelated);
 		System.out.println(StorePaymentRelated);
 	}
@@ -196,7 +209,7 @@ public class DV_3893_TaxPayer_Help_Desk
 	{
 		type("txt_Amount", Amo);
 	}
-
+	
 	@And("^User select date \"([^\"]*)\"$")
 	public void user_select_date(String Date) throws Throwable 
 	{
@@ -204,6 +217,20 @@ public class DV_3893_TaxPayer_Help_Desk
 		datePicker(Date);
 	}
 
+	
+	@And("^User tab for payment$")
+	public void user_tab_for_payment() throws Throwable 
+	{
+		sleepWait(1000);
+		clickOn("txt_Transaction_ID", "");
+		sleepWait(1000);
+		wd.findElement(By.xpath(obj.getProperty("txt_Transaction_ID"))).sendKeys(Keys.TAB);
+		wd.findElement(By.xpath(obj.getProperty("txt_Amount"))).sendKeys(Keys.TAB);
+		wd.findElement(By.xpath(obj.getProperty("txt_Click_date"))).sendKeys(Keys.TAB);
+		sleepWait(1000);		
+		
+	}
+	
 	@And("^User validate Helpdesk page$")	
 	public void user_validate_Helpdesk_page() throws Throwable 
 	{
@@ -237,15 +264,14 @@ public class DV_3893_TaxPayer_Help_Desk
 		sleepWait(1000);
 		clickOn("drp_Subcategory", "");
 		sleepWait(1000);
-		
 	}
 
 	@And("^User click on browse button and select file \"([^\"]*)\"$")
 	public void user_click_on_browse_button_and_select_file(String file) throws Throwable
 	{
-		sleepWait(1000);
+		sleepWait(1000);		
 		type("txt_comment_here", "comment Here");
-		wd.findElement(By.xpath(obj.getProperty("txt_comment_here"))).sendKeys(Keys.PAGE_UP);;
+		wd.findElement(By.xpath(obj.getProperty("txt_comment_here"))).sendKeys(Keys.PAGE_UP);
 		sleepWait(1000);
 		//wd.findElement(By.xpath("//div[@id='form-scroll']/div"));
 		
@@ -296,6 +322,7 @@ public class DV_3893_TaxPayer_Help_Desk
 	@And("^User type title one$")
 	public void user_type_title_one() throws Throwable 
 	{
+		sleepWait(1000);
 		type("txt_Search_Issue", Store_Title);
 	}
 	/**
@@ -314,7 +341,10 @@ public class DV_3893_TaxPayer_Help_Desk
 	@And("^User type get issue id for system related$")
 	public void user_type_get_issue_id_for_system_related() throws Throwable 
 	{
+		sleepWait(1000);
 		type("txt_Search_Issue", StoreID);
+		sleepWait(1000);
+		
 	}
 	
 	@And("^User type invalid search id \"([^\"]*)\" and verify mess \"([^\"]*)\"$")
@@ -337,6 +367,7 @@ public class DV_3893_TaxPayer_Help_Desk
 	@And("^User click on Issue Type and select \"([^\"]*)\" and user verify issue type is selected$")
 	public void user_click_on_Issue_Type_and_select_and_user_verify_issue_type_is_selected(String issue) throws Throwable 
 	{
+		sleepWait(2000);
 		clickOn("drp_Select_Issue", "");
 		sleepWait(2000);
 		clickOn(issue, "");
@@ -381,7 +412,10 @@ public class DV_3893_TaxPayer_Help_Desk
 	@And("^User type title for general query issue type$")
 	public void user_type_title_for_general_query_issue_type() throws Throwable 
 	{
+		sleepWait(1000);
 		type("txt_Search_Issue", Issue_store_GQ);
+		sleepWait(1000);
+		
 	}
 	/**
 	 * Store id  GQ
@@ -399,6 +433,7 @@ public class DV_3893_TaxPayer_Help_Desk
 	@And("^User type issue id for general query issue type$")
 	public void user_type_issue_id_for_general_query_issue_type() throws Throwable 
 	{
+		sleepWait(1000);
 		type("txt_Search_Issue", Store_Issue_store_GQ);
 	} 
 
@@ -430,6 +465,7 @@ public class DV_3893_TaxPayer_Help_Desk
 	@And("^User verify Issue Type$")
 	public void user_verify_Issue_Type() throws Throwable 
 	{
+		sleepWait(1000);
 		String Check_IssType = getValue("drp_Select_Issue");
 		assertEquals(Check_IssType, Issue_TypeGQ);
 		sleepWait(1000);
@@ -439,10 +475,16 @@ public class DV_3893_TaxPayer_Help_Desk
 	public void user_verify_Ticket_id() throws Throwable 
 	{
 		sleepWait(1000);
-		String Check_Ref_ID = getValue("txt_Ticket_Id_Check");		
+		String Check_Ref_ID = elementText("txt_Ticket_Id_Check");	
 		assertEquals(Check_Ref_ID, Store_Issue_store_GQ);	 
-		System.out.println(Check_Ref_ID);
-		System.out.println(Store_Issue_store_GQ);
+	/*	sleepWait(2000);
+		String Value = elementText("txt_Reference_ID_Store");
+		Value = Value.substring(14);			
+		Store_Issue_store_GQ  = Value;	*/
+		
+		
+	//	System.out.println(Check_Ref_ID);
+	//	System.out.println(Store_Issue_store_GQ);
 	    sleepWait(1000);
 	}
 	/**
@@ -452,8 +494,8 @@ public class DV_3893_TaxPayer_Help_Desk
 	public void user_verify_title() throws Throwable 
 	{	  
 		String Check_ti = getValue("txt_HelpdeskTitle");				
-	    System.out.println(Check_ti);
-	    System.out.println(Issue_store_GQ);	    
+	 //   System.out.println(Check_ti);
+	 //   System.out.println(Issue_store_GQ);	    
 	    assertEquals(Check_ti, Issue_store_GQ);
 	    sleepWait(1000);
 	}
@@ -463,6 +505,19 @@ public class DV_3893_TaxPayer_Help_Desk
 	{
 		String Check_Des = elementText("txt_Helpdesk_Description");
 		assertEquals(Check_Des, Issue_Description);
+	}
+	
+	@And("^User tab general query$")
+	public void user_tab_general_query() throws Throwable 
+	{
+		
+		sleepWait(1000);
+		clickOn("txt_dis_comm", "");
+		sleepWait(1000);		
+	//	wd.findElement(By.xpath(obj.getProperty("txt_dis_comm"))).sendKeys(Keys.PAGE_DOWN);	
+//		sleepWait(1000);		
+		
+		
 	}
 
 	/*@And("^User click on upload button and select file \"([^\"]*)\" and verify uploaded file$")
@@ -483,13 +538,17 @@ public class DV_3893_TaxPayer_Help_Desk
 	public void user_click_on_submit_button_on_helpdesk() throws Throwable 
 	{
 	   clickOn("btn_Help_Submit", "");
+	   sleepWait(1000);
+	   waitFor("btn_Help_Submit");
+	   sleepWait(1000);
+	   
 	    
 	}
 
 	@And("^User click on download and verify$")
 	public void user_click_on_download_and_verify() throws Throwable
 	{
-	   
+	    sleepWait(1000);
 		String checkFile = elementText("uploaded_file_name");		
 		clickOn("download_uploaded_file", "");	   
 		verifyDownload(checkFile);
@@ -500,13 +559,14 @@ public class DV_3893_TaxPayer_Help_Desk
 	@And("^User store title for EFD Related Issue type$")
 	public void user_store_title_for_EFD_Related_Issue_type() throws Throwable 
 	{
+		sleepWait(1000);
 		StoreEFDTitle = getValue("txt_HelpdeskTitle");
 	}
 	
 	@And("^User type title for EFD Related Issue type$")
 	public void user_type_title_for_EFD_Related_Issue_type() throws Throwable 
 	{
-		
+		sleepWait(1000);
 		type("txt_Search_Issue", StoreEFDTitle);
 	}
 	
@@ -516,7 +576,7 @@ public class DV_3893_TaxPayer_Help_Desk
 	@And("^User get issue id for EFD Related Issue type$")
 	public void user_get_issue_id_for_EFD_Related_Issue_type() throws Throwable
 	{
-			
+		sleepWait(1000);	
 		String Value = elementText("txt_Reference_ID_Store");
 		Value = Value.substring(14);			
 		Store_EFD_ID  = Value;
@@ -526,7 +586,9 @@ public class DV_3893_TaxPayer_Help_Desk
 	@And("^User type issue id for EFD Related Issue type$")
 	public void user_type_issue_id_for_EFD_Related_Issue_type() throws Throwable 
 	{
+		sleepWait(1000);
 		type("txt_Search_Issue", Store_EFD_ID);
+		sleepWait(1000);
 	}
 	
 
@@ -537,9 +599,25 @@ public class DV_3893_TaxPayer_Help_Desk
 		clickOn("drp_SelectEFD_Man", "");
 		sleepWait(1000);
 		clickOn(select, "");
-		sleepWait(500);	    
+		sleepWait(1000);		 
 	}
 
+	@And("^User tab for efd$")
+	public void user_tab_for_efd() throws Throwable 
+	{
+		clickOn("drp_Subcategory", "");
+		sleepWait(1000);
+		clickOn("drp_Subcategory", "");
+		sleepWait(1000);
+		wd.findElement(By.xpath(obj.getProperty("drp_Subcategory"))).sendKeys(Keys.TAB);
+		wd.findElement(By.xpath(obj.getProperty("txt_EFD_id"))).sendKeys(Keys.TAB);
+		wd.findElement(By.xpath(obj.getProperty("drp_SelectEFD_Man"))).sendKeys(Keys.TAB);
+		sleepWait(1000);		
+		
+	}
+
+	
+	
 	@Given("^User store title for Payment Related Issue type Drop-down$")
 	public void user_store_title_for_Payment_Related_Issue_type_Drop_down() throws Throwable 
 	{
@@ -570,6 +648,7 @@ public class DV_3893_TaxPayer_Help_Desk
 	@And("^User type id for Payment Related Issue type Drop-down$")
 	public void user_type_id_for_Payment_Related_Issue_type_Drop_down() throws Throwable 
 	{
+		sleepWait(1000);
 		type("txt_Search_Issue", Store_Payment_ID);
 	}
 	
@@ -625,12 +704,18 @@ public class DV_3893_TaxPayer_Help_Desk
 		UploadImage("", file);
 		sleepWait(1000);
 		clickOn("btn_Help_Submit", "");
+		waitFor("btn_Help_Submit");
+				
+		wd.switchTo().defaultContent();
+		sleepWait(1000);
+		waitFor("toast_common");		
 		assertEquals(validationMessage(), mess);
 	}
 
 	@And("^User click on upload button and and verify the file \"([^\"]*)\" and see file name$")
 	public void user_click_on_upload_button_and_and_verify_the_file_and_see_file_name(String file) throws Throwable 
 	{
+		sleepWait(1000);
 		type("txt_comment_here", "comment Here");
 		wd.findElement(By.xpath(obj.getProperty("txt_comment_here"))).sendKeys(Keys.PAGE_DOWN);		
 		sleepWait(1000);
@@ -654,10 +739,22 @@ public class DV_3893_TaxPayer_Help_Desk
 	}
 
 	@And("^User click on Helpdesk menu on internal portal \"([^\"]*)\" \"([^\"]*)\"$")
-	public void user_click_on_Helpdesk_menu_on_internal_portal(String arg1, String arg2) throws Throwable 
+	public void user_click_on_Helpdesk_menu_on_internal_portal(String TestcaseID, String Description) throws Throwable 
 	{
+		System.out.println(TestcaseID);
+		System.out.println(Description);
 		clickOn("txt_Helpdesk_Menu", "");
-		sleepWait(2000);
+		sleepWait(3000);
+		waitFor("txt_Helpdesk_Menu");
+		sleepWait(3000);
+		waitFor("txt_Helpdesk_Menu");		
+		sleepWait(1000);
+		waitFor("txt_Helpdesk_Menu");
+		sleepWait(1000);
+		waitFor("txt_Helpdesk_Menu");
+		sleepWait(1000);
+		//sleepWait(5000);
+		//waitFor("btn_help_Internal");
 	}
 
 	@And("^User click on edit buton$")
@@ -685,6 +782,7 @@ public class DV_3893_TaxPayer_Help_Desk
 	@And("^User see status changed to \"([^\"]*)\"$")
 	public void user_see_status_changed_to(String Status) throws Throwable 
 	{
+		sleepWait(1000);
 		waitFor("txt_Search_Issue");		
 		String Status_Check = elementText("Status_check");
 		sleepWait(1000);
@@ -722,29 +820,77 @@ public class DV_3893_TaxPayer_Help_Desk
 		clickOn("drp_Next_Status", "");
 		sleepWait(1000);
 		clickOn("drp_RI", "");
-	    
+		sleepWait(1000);
 	}
+	
+	
+	@And("^User click on comments and Attachments$")
+	public void user_click_on_comments_and_Attachments() throws Throwable 
+	{
+		sleepWait(1000);
+		Actions actions = new Actions(wd);		
+		actions.moveToElement(wd.findElement(By.xpath(obj.getProperty("txt_Priority_tab"))));
+		actions.click();
+		actions.sendKeys(Keys.PAGE_DOWN);
+		actions.build().perform();
+		sleepWait(1000);
+		
+	}
+
+	@And("^User type comments and Attachments \"([^\"]*)\"$")
+	public void user_type_comments_and_Attachments(String comment) throws Throwable 
+	{
+		sleepWait(1000);		
+		type("txt_comment_here", "comment Here");
+		sleepWait(1000);
+	}
+	
+	
 
 	@And("^User login in to tax payer email \"([^\"]*)\" and  password \"([^\"]*)\"$")
 	public void user_login_in_to_tax_payer_email_and_password(String email, String password) throws Throwable
 	{
+		sleepWait(1000);
 		login_Helpdesk(email, password);
 	}
 
 	@And("^User click on helpdesk$")
 	public void user_click_on_helpdesk() throws Throwable
 	{
+	   sleepWait(1000);
 	   clickOn("txt_Helpdesk_Menu", "");
+	   sleepWait(1000);
+	   waitFor("txt_Helpdesk_Menu");
+	   sleepWait(1000);
+	   waitFor("txt_Helpdesk_Menu");
+	   sleepWait(1000);
+	   waitFor("txt_Helpdesk_Menu");
+	   sleepWait(1000);
 	    
 	}
 
+	
+	/*@And("^User click on comment and press tab on taxpayer$")
+	public void user_click_on_comment_and_press_tab_on_taxpayer() throws Throwable 
+	{
+		sleepWait(1000);
+		Actions actions = new Actions(wd);
+		actions.moveToElement(wd.findElement(By.xpath(obj.getProperty("txt_title_tab"))));
+		actions.click();
+		actions.sendKeys(Keys.PAGE_DOWN);
+		actions.build().perform();
+		sleepWait(1000);
+	}*/
+	
 	@And("^User respond to the comment \"([^\"]*)\"$")
 	public void user_respond_to_the_comment(String data) throws Throwable 
 	{
+		sleepWait(1000);
 	   type("txt_comment_here", data);
+	   sleepWait(1000);
 	    
 	}
-
+	
 	@And("^User click on Next status and click on close status$")
 	public void user_click_on_Next_status_and_click_on_close_status() throws Throwable
 	{
@@ -757,6 +903,7 @@ public class DV_3893_TaxPayer_Help_Desk
 	@And("^User enter in add new button frame$")
 	public void user_enter_in_add_new_button_frame() throws Throwable 
 	{
+		sleepWait(1000);
 		WebElement element1 = wd.findElement(By.id("iframe"));
 		wd.switchTo().frame(element1);
 		//sleepWait(1000);		
@@ -809,8 +956,72 @@ public class DV_3893_TaxPayer_Help_Desk
 	public void user_click_on_Submit_button_internal_portal() throws Throwable 
 	{
 		clickOn("btn_Help_Submit", "");		
-		sleepWait(500);
+		sleepWait(1000);
+		waitFor("btn_Help_Submit");						
 		
 	}
+	
+	
+	@And("^User type \"([^\"]*)\" test$")
+	public void user_type_test(String test) throws Throwable 
+	{
+		sleepWait(1000);
+	  type("txt_Search_Issue", test);
+	}
+	
+	@And("^User type \"([^\"]*)\" taxpayer$")
+	public void user_type_taxpayer(String id) throws Throwable 
+	{
+		sleepWait(1000);
+		waitFor("txt_Search_Issue");
+		type("txt_Search_Issue", id);
+		sleepWait(1000);		
+		waitFor("btn_Edit_Click");		
+		clickOn("btn_Edit_Click", "");
+		sleepWait(1000);
+	
+	}
+	
+	@And("^User click on title and press tab$")
+	public void user_click_on_title_and_press_tab() throws Throwable 
+	{
+		sleepWait(1000);
+		Actions actions = new Actions(wd);		
+		actions.moveToElement(wd.findElement(By.xpath(obj.getProperty("txt_title_tab"))));
+		actions.click();
+		actions.sendKeys(Keys.PAGE_DOWN);
+		actions.build().perform();
+		sleepWait(1000);
+	}
+	
+	@And("^User see upload button is disable$")
+	public void user_see_upload_button_is_disable() throws Throwable 
+	{
+		sleepWait(1000);
+		if(!wd.findElement(By.xpath(obj.getProperty("upload_File_helpdesk"))).isEnabled())
+		{
+			assertTrue(true);
+		} 
+		else
+		{
+			assertTrue(false);
+		}
+		
+	}
+
+	@And("^User again click on Helpdesk$")
+	public void user_again_click_on_Helpdesk() throws Throwable 
+	{
+		sleepWait(1000);
+		waitFor("txt_Helpdesk_Menu");
+		sleepWait(1000);
+		clickOn("txt_Helpdesk_Menu", "");
+		sleepWait(1000);
+		waitFor("txt_Helpdesk_Menu");
+		sleepWait(1000);		
+	}
+	
+	
+	
 	
 }

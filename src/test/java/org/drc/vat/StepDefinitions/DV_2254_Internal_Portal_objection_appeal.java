@@ -30,8 +30,8 @@ public class DV_2254_Internal_Portal_objection_appeal
 	@And("^User click on filter by on case management and click on \"([^\"]*)\"$")
 	public void user_click_on_filter_by_on_case_management_and_click_on(String value) throws Throwable 
 	{
-		sleepWait(1000);
-		clickOn("drp_FilterByMVT", "");			
+		sleepWait(1500);
+		clickOn("drp_FilterByMVT", "");
 		sleepWait(500);
 		clickOn(value, "");
 	}
@@ -149,6 +149,7 @@ public class DV_2254_Internal_Portal_objection_appeal
 	@And("^User click on Transaction Detail button$")
 	public void user_click_on_Transaction_Detail_button() throws Throwable
 	{
+		sleepWait(5000);
 		clickOn("btn_TransactionDetails", "");
 		sleepWait(2000);
 	}

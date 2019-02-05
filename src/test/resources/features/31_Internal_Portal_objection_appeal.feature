@@ -1,7 +1,7 @@
 Feature: User is on internal Portal for objection and appeal
 
   @TC_03_Priority
-  Scenario Outline: Verify the Filter by Functionality based on filter option Priority Tax Officer internal portal
+  Scenario Outline: Verify the Filter by Functionality based on filter option Priority Tax Officer - internal portal
     Given User is on Internal Portal "<TestcaseID>" "<Description>"
     And User click on Dashboard and click on pin button
     And User click on case management
@@ -40,7 +40,7 @@ Feature: User is on internal Portal for objection and appeal
     Examples: 
       | TestcaseID    | Description                            | filter           | status             | VerifyStatus       |
       | Case_Status_1 | Verify date filteration functionalityt | drp_Status_Click | Open               | Open               |
-      | Case_Status_2 | Verify date filteration functionalityt | drp_Status_Click | Reject             | Reject             |
+      # | Case_Status_2 | Verify date filteration functionalityt | drp_Status_Click | Reject             | Reject             |
       | Case_Status_3 | Verify date filteration functionalityt | drp_Status_Click | Under Review       | Under Review       |
       | Case_Status_4 | Verify date filteration functionalityt | drp_Status_Click | Request adjustment | Request adjustment |
 
@@ -58,23 +58,22 @@ Feature: User is on internal Portal for objection and appeal
       | Case_Taxofficer_1 | Verify date filteration functionalityt | drp_Officer_Click | Laxman | Laxman    |
 
   #   | Case_Taxofficer_2 | Verify date filteration functionalityt | drp_Officer_Click | Ketan  | Ketan     |
-  @TC_05
-  Scenario Outline: Validate the Pagination on the FX management page with historic data
-    Given User is on Internal Portal "<TestcaseID>" "<Description>"
-    And User click on Dashboard and click on pin button
-    And User click on case management
-    And User click on page "<ClickPage>" and check page"<CheckPage>" "<option>"
-
-    Examples: 
-      | TestcaseID          | Description               | Period        | ClickPage   | CheckPage       | option         |
-      | Case_Management_9_1 | validating last and right | txt_PeriodJan | lbl_AssLast | lbl_AssestRight | last and right |
-
+  #@TC_05
+  #Scenario Outline: Validate the Pagination on the FX management page with historic data
+  #Given User is on Internal Portal "<TestcaseID>" "<Description>"
+  #And User click on Dashboard and click on pin button
+  #And User click on case management
+  #And User click on page "<ClickPage>" and check page"<CheckPage>" "<option>"
+  #
+  #Examples:
+  #| TestcaseID          | Description               | Period        | ClickPage   | CheckPage       | option         |
+  #| Case_Management_9_1 | validating last and right | txt_PeriodJan | lbl_AssLast | lbl_AssestRight | last and right |
   #    | Case_Management_9_2 | validating last and left   | txt_PeriodJan | lbl_AssLast     | lbl_AssestLeft  | last and left   |
   #    | Case_Management_9_3 | validating right and left  | txt_PeriodJan | lbl_AssestRight | lbl_AssestLeft  | right and left  |
   #    | Case_Management_9_4 | validating right and first | txt_PeriodJan | lbl_AssestRight | lbl_AssFirst    | right and first |
   #    | Case_Management_9_5 | validating first and left  | txt_PeriodJan | lbl_AssFirst    | lbl_AssestLeft  | first and left  |
   #    | Case_Management_9_6 | validating first and first | txt_PeriodJan | lbl_AssFirst    | lbl_AssFirst    | first and first |
-  @TC_09
+  @TC_09 
   Scenario Outline: Validate the Reassign option functionality under view column
     Given User is on Internal Portal "<TestcaseID>" "<Description>"
     And User click on Dashboard and click on pin button
@@ -156,6 +155,7 @@ Feature: User is on internal Portal for objection and appeal
   #Examples:
   #| TestcaseID                          | Description                   | filter     | id              | mess                           |
   #| Objection_Appeal_internal_portal_15 | Verify Reassign functionality | drp_CaseID | O18091000000003 | Objection updated successfully |
+  
   @TC_11
   Scenario Outline: Validate Reject status
     Given User is on Internal Portal "<TestcaseID>" "<Description>"

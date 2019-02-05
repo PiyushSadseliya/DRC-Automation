@@ -41,6 +41,7 @@ public class DV_2880_Tax_Deductable_Ass_and_Reass_Adjustement
 	public void user_click_on_drop_down_for_Manual_Assessment(String value) throws Throwable 
 	{
 		sleepWait(3000);
+		waitFor("drp_month");
 		clickOn("drp_month", "");
 		sleepWait(500);
 		clickOn(value, "");
@@ -50,9 +51,9 @@ public class DV_2880_Tax_Deductable_Ass_and_Reass_Adjustement
 	/*@And("^User click on FilterBy and click on TaxPayer$")
 	public void user_click_on_FilterBy_and_click_on_TaxPayer() throws Throwable 
 	{
-		Thread.sleep(2000);
+		sleepWait(2000);
 		clickOn("drp_FilterBy", "");
-		Thread.sleep(500);
+		sleepWait(500);
 		clickOn("txt_TaxPayer", "");	  
 	}*/
 
@@ -60,8 +61,10 @@ public class DV_2880_Tax_Deductable_Ass_and_Reass_Adjustement
 	public void user_type_and_click_on_search_button(String taxpayer) throws Throwable 
 	{
 		type("txtbox_TypeHere", taxpayer);
-		Thread.sleep(500);
+		sleepWait(1000);
 		clickOn("btn_TypeHere_click", "");
+		sleepWait(2000);
+		
 	}
 
 	@And("^User see that period field month and year is selected$")
@@ -87,10 +90,11 @@ public class DV_2880_Tax_Deductable_Ass_and_Reass_Adjustement
 	@And("^User click on manage and click on assess$")
 	public void user_click_on_manage_and_click_on_assess() throws Throwable 
 	{
-		Thread.sleep(500);		
+		sleepWait(500);		
 		clickOn("drp_AssestManage", "");
-		Thread.sleep(500);
+		sleepWait(500);
 		clickOn("txt_AssestManageAssess", "");  
+		sleepWait(2000);
 	}
 
 	@And("^User navigate to Tax Deductible$")
@@ -109,7 +113,7 @@ public class DV_2880_Tax_Deductable_Ass_and_Reass_Adjustement
 	@And("^Validate NITVA no \"([^\"]*)\"$")
 	public void validate_NITVA_no(String nitva) throws Throwable 
 	{
-		Thread.sleep(500);
+		sleepWait(1000);
 		if(wd.findElement(By.xpath("//div[contains(text(),'" + nitva + "')]")).isDisplayed())
 		{					
 			assertTrue(true);
@@ -373,9 +377,9 @@ public class DV_2880_Tax_Deductable_Ass_and_Reass_Adjustement
 	@And("^User click on next button$")
 	public void user_click_on_next_button() throws Throwable 
 	{
-		sleepWait(1000);
+		sleepWait(2000);
 		clickOn("btn_NEXT", "");	  
-		sleepWait(1000);
+		sleepWait(2000);
 	}
 
 	@And("^User click on previous button and click on edit button$")

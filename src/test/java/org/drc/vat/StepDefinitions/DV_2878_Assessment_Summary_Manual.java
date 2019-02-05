@@ -134,7 +134,8 @@ public class DV_2878_Assessment_Summary_Manual
 	{
 		sleepWait(2000);
 		clickOn("btn_eFile_Schedule", "");
-		sleepWait(1000);
+		sleepWait(1000);		
+		waitFor("toast_common");
 		if(wd.findElement(By.xpath("//div[contains(text(),'" + mess + "')]")).isDisplayed() )
 		{					
 			assertTrue(true);
@@ -246,11 +247,9 @@ public class DV_2878_Assessment_Summary_Manual
 	{
 		sleepWait(2000);
 		clickOn("btn_NEXT", "");
-		sleepWait(2000);
+		sleepWait(4000);
 		clickOn("btn_NEXT", "");
-		sleepWait(2000);
-	
-		sleepWait(1000);
+		sleepWait(4000);			
 		if(wd.findElement(By.xpath(obj.getProperty("txt_AS"))).isDisplayed());
 		{
 			assertTrue(true);

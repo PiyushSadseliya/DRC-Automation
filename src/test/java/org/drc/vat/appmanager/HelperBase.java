@@ -68,6 +68,7 @@ public class HelperBase {
 				"August", "September", "October", "November", "December" };
 
 	public static String[] yearName = {"2019","2018","2017"};			
+	public static String emailid;
 
 
 
@@ -127,7 +128,7 @@ public class HelperBase {
 		try {
 			obj.load(fis);
 		} catch (IOException e) {
-			e.printStackTrace();
+			e.printStackTrace(); 
 		}
 		By locator = By.xpath(obj.getProperty(object) + data);
 		wd.manage().timeouts().implicitlyWait(800, TimeUnit.MILLISECONDS);
@@ -204,8 +205,7 @@ public class HelperBase {
 		File[] files = dir1.listFiles();
 		assert files != null; 
 		for (File file : files) 
-		{	
-			
+		{				
 			if (file.getName().contains(data))
 			{
 				assertTrue(true);
@@ -225,6 +225,8 @@ public class HelperBase {
 				assertTrue(false);
 			}			*/
 		}
+		
+		
 		
 		
 	
@@ -574,10 +576,20 @@ public class HelperBase {
 	 * @param Password
 	 */
 
-	public static void login(String email,String password) throws InterruptedException 
-	{
-			if (login) 
-		{
+	public static void login(String email,String password) throws InterruptedException {
+		//List <WebElement> homepage=wd.findElements(By.xpath("//h2"));
+		//System.out.println(i++);
+		/*	if(homepage.size()>0) {
+		if(!homepage.get(0).getText().equals("Welcome to e-Service Portal")) {
+			sleepWait(5000);
+	}
+	}else{
+		logout();
+	}*/
+
+		emailid=email;
+		if (login) {
+
 			type("txtbox_username", email);
 			type("txtbox_password", password);
 			sleepWait(2000);
@@ -751,9 +763,10 @@ public class HelperBase {
 
 	public static void datePicker(String date) {
 		try {
-			String d, m, y; 
-			d = date.substring(8, 10);
-			;
+			String d, m, y;
+			d = date.substring(8, 10).replaceFirst ("^0*", "");			
+			System.out.println(d);
+
 			m = date.substring(5, 7);
 			y = date.substring(0, 4);
 			clickOn("span", "[contains(text(),'2019')]");
@@ -787,8 +800,8 @@ public class HelperBase {
 			} else if (m.equals("12")) {
 				clickOn("span", "[contains(text(),'December')]");
 			}
-			sleepWait(2000);
-			clickOn("span", "[contains(text(),'" + d + "')]");
+			sleepWait(2000);	
+			clickOn("slash", "td[@role='gridcell']/span[text()='" + d + "' and not(contains(@class,'is'))]");
 		} catch (Exception e) {
 
 		}

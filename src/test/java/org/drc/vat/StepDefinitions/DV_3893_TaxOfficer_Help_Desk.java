@@ -106,7 +106,7 @@ public class DV_3893_TaxOfficer_Help_Desk
 		{
 			assertTrue(true);
 		}
-		else if(Issue == Payment_Related)
+		else if(Issue == Payment_Related) 
 		{
 			assertTrue(true);
 		}
@@ -240,8 +240,11 @@ public class DV_3893_TaxOfficer_Help_Desk
 	@And("^User select radio button and click on select$")
 	public void user_select_radio_button_and_click_on_select() throws Throwable
 	{
+		sleepWait(1000);
+		waitFor("rad_Click");
 	   clickOn("rad_Click", "");
 	   sleepWait(1000);
+	   waitFor("btn_Select");
 	   clickOn("btn_Select", "");
 	   sleepWait(1000);
 	}
@@ -273,6 +276,10 @@ public class DV_3893_TaxOfficer_Help_Desk
 	{
 	   sleepWait(1000);
 	   clickOn("nav_acAdjstmnt", "");
+	   sleepWait(1000);
+	   waitFor("filterby_acAdjstmnt");
+	   sleepWait(1000);
+	   waitFor("filterby_acAdjstmnt");
 	   sleepWait(1000);
 	   clickOn("filterby_acAdjstmnt", "");
 	   sleepWait(1000);

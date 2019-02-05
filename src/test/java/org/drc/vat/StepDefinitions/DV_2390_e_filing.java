@@ -33,7 +33,7 @@ public class DV_2390_e_filing
 	
 	public String StoreAuthorizedSignatory;
 	
-	public static  String VAT_Store_VR;
+	public static String VAT_Store_VR;
 	public static String VAT_Store_SD;
 	public static String VAT_Store_VD;
 	public static String VAT_Store_PC;
@@ -54,8 +54,6 @@ public class DV_2390_e_filing
 	public static  Float VDC ;
 	public static  Float PCC ;
 	static String emailid=null;
-	
-
 	public String DG;
 	
 	@Given("^User Login \"([^\"]*)\" \"([^\"]*)\"$")
@@ -903,6 +901,7 @@ public class DV_2390_e_filing
 		sleepWait(5000);
 		clickOn("btn_efile_Verify", "");
 		sleepWait(1000);
+		waitFor("msg_otpverify");
 		if(wd.findElement(By.xpath("//div[contains(text(),'" + otp + "')]")).isDisplayed() )
 		{					
 			assertTrue(true);

@@ -2,6 +2,11 @@ package org.drc.vat.StepDefinitions;
 import static org.drc.vat.appmanager.HelperBase.*;
 import static org.testng.Assert.assertTrue;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 import org.drc.vat.StepDefinitions.DV_2390_e_filing;
 import org.drc.vat.appmanager.Read_OTP;
 import org.openqa.selenium.By;
@@ -56,7 +61,8 @@ public class DV_2391_eFile_Preview
 	public void clicks_on_e_filing_to_fill_data() throws Throwable 
 	{				
 
-		sleepWait(10000);
+		sleepWait(10000);	
+
 
 		for(int i =1;i<=12;i++)
 		{
@@ -130,7 +136,7 @@ public class DV_2391_eFile_Preview
 		}
 		catch(Exception e)
 		{
-			wd.findElement(By.xpath("//*[@title='OK']")).click();
+			wd.findElement(By.xpath("//*[@title='Close']")).click();
 		}
 	}
 

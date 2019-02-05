@@ -274,15 +274,7 @@ public class PaymentSummaryLiabilityCalculationPaymentDueManualAssessment {
 				- frenchtoDouble(elementText("txt_Eliabiltyamttopay", ""));
 		assertEquals(elementText("txt_ALliabiltyamttopay", ""), appendfrenchsys(tofrench(alamttopay)));
 
-		Double alnetamttopay = frenchtoDouble(elementText("txt_ALliabiltynetvatpaid", ""))
-				- frenchtoDouble(elementText("txt_ALliabiltycredit", ""))
-				+ frenchtoDouble(elementText("txt_ALliabiltycreditrefundreq", ""))
-				+ frenchtoDouble(elementText("txt_ALliabiltyvpublicprocu", ""))
-				+ frenchtoDouble(elementText("txt_ALliabiltyTpartyac", ""))
-				+ frenchtoDouble(elementText("txt_ALliabiltyint", ""))
-				+ frenchtoDouble(elementText("txt_ALliabiltypenalty", ""))
-				+ frenchtoDouble(elementText("txt_ALliabiltyltfee", ""));
-		assertEquals(elementText("txt_ALliabiltyamttopay", ""), appendfrenchsys(tofrench(alnetamttopay)));
+		
 
 	}
 
@@ -350,6 +342,7 @@ public void user_clicks_on_Raise_notice_button_and_Notice_is_generated_as_per_th
 			String []Ppen=elementText("txt_Ppena","").split("\\r?\\n");//System.out.println(Ppen);
 			String []Pamt=elementText("txt_Pamounttopay","").split("\\r?\\n");//System.out.println(Pamt);
 
+sleepWait(3000);			
 clickOn("btn_maRaiseNotice","");
 sleepWait(20000);
 saveFile(); 

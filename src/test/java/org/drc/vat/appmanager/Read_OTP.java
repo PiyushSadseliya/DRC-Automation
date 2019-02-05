@@ -11,24 +11,21 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class Read_OTP 
 {
 	static String SP;
-	static int stringindex; 
-	static int stringlength; 
-
+	static int stringindex;
+	static int stringlength;
 	public static final String dir = System.getProperty("user.dir");
 	public static String ReadOTP(String email) throws IOException, InterruptedException 
-	{		
-
+	{
 		System.setProperty("webdriver.chrome.driver", dir + "//chromedriver.exe");
-
-		//System.setProperty("webdriver.chrome.driver", "E:\\DRC Merge Regreation\\DRC-Automation\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();       
- 		driver.get("https://www.mailinator.com");
-		Thread.sleep(5000);
+		driver.get("http://www.mytrashmail.com/");
+		Thread.sleep(5000);	
+
 		driver.findElement(By.xpath("//input[@type='text']")).sendKeys(email);
 		Thread.sleep(2000);
-		driver.findElement(By.xpath("//button[contains(text(),'G')]")).click();
+		driver.findElement(By.xpath("//input[contains(@value,'Ge')]")).click();
 		Thread.sleep(8000);
-		driver.findElement(By.xpath("//*[contains(text(),'testernew123456@gmail.com')]")).click();
+		driver.findElement(By.xpath("//b//a")).click();
 		Thread.sleep(8000);
 		List <WebElement> body=driver.findElements(By.xpath("//body"));
 		if (body.size()>0) {
@@ -37,20 +34,15 @@ public class Read_OTP
 				Thread.sleep(8000);
 				fetchOTP(driver);
 			}else {
-				driver.switchTo().frame(driver.findElement(By.id("msg_body")));				 
-				fetchOTP(driver);			  
+				//driver.switchTo().frame(driver.findElement(By.id("msg_body")));				 
+				fetchOTP(driver);		  
 			}
-
 		}
 		//String SP = S.substring(S.lastIndexOf(':')+2, S.length());  
 		return SP;        
- 
 	}
 	static void fetchOTP(WebDriver driver) {
-
-
-
-		String S = driver.findElement(By.xpath("/html/body")).getText();
+		String S = driver.findElement(By.xpath("//td//p")).getText();
 		System.out.println(S);
 		stringindex = S.indexOf("is: ");
 		stringlength = "is: ".length();		
@@ -61,10 +53,4 @@ public class Read_OTP
 		System.out.println(SP);
 		driver.close();
 	}
-
-
-
-
 }
-
-
