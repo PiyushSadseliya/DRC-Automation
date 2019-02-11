@@ -31,18 +31,18 @@ import static org.drc.vat.appmanager.HelperBase.assessmentOfficer;
 import static org.drc.vat.appmanager.HelperBase.sleepWait;
 
 @CucumberOptions(features = {
-		//		"classpath:features/01_userRegistration.feature",
-		//		"classpath:features/02_01_Login.feature",
-		//		"classpath:features/03_01uploadDocuments.feature",
-		//"classpath:features/03_02VATRegistration.feature",
-		//		"classpath:features/04_DV_1377_ManageVatRegistration.feature",
-		//		"classpath:features/05_DV_1376_AcceptRejectAdditionalClarification.feature",
+		//"classpath:features/01_userRegistration.feature",
+		//"classpath:features/02_01_Login.feature",
+		//"classpath:features/03_01uploadDocuments.feature",
+		"classpath:features/FuelManagement_Supervisor.feature",
+		//"classpath:features/04_DV_1377_ManageVatRegistration.feature",
+		//"classpath:features/05_DV_1376_AcceptRejectAdditionalClarification.feature",
 		//"classpath:features/30_TaxPayer_Portal_objection_appeal.feature",
-		"classpath:features/EFDVendor.feature"
+		//"classpath:features/EFDVendor.feature"
 },
 glue = "org.drc.vat.StepDefinitions",
 plugin = {"com.cucumber.listener.ExtentCucumberFormatter:","html:test-output/cucumber-report"}
-//,tags= {"@TC_01,@TC_02,@TC_Search"}
+,tags= {"@TC_01, @TC_02, @TC_03"}
 		)
 public class TestRunner extends AbstractTestNGCucumberTests {
 	private Logger logger = LoggerFactory.getLogger(TestRunner.class);

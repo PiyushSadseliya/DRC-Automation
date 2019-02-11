@@ -167,7 +167,7 @@ public class ApplicationManager {
 
 	public void calltaxpayerportal() throws AWTException, InterruptedException, IOException 
 	{				
-		if (wd.getCurrentUrl().contains("8068")) 
+		if (wd.getCurrentUrl().contains("8068"))
 		{			
 			sleepWait(1500);
 			wd.close(); 
@@ -179,12 +179,6 @@ public class ApplicationManager {
 			Thread.sleep(1000);		
 		}
 	}
-
-	
-	
-	
-	
-	
 	
 	/** 
 	 * Arun creted

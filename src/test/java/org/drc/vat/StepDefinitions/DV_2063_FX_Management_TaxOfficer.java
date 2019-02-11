@@ -29,8 +29,7 @@ public class DV_2063_FX_Management_TaxOfficer
 	
 	@And("^User is on FX Management \"([^\"]*)\" \"([^\"]*)\"$")
 	public void user_is_on_FX_Management(String value, String value1) throws Throwable
-	{
-	    
+	{	    
 		System.out.println(value);
 		System.out.println(value1);
 	}

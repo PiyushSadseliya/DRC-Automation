@@ -301,7 +301,6 @@ public class PasswordPolicyTaxpayerPortal {
 	@Then("^click on submit button$")
 	public void click_on_submit_button() throws Throwable {
 		clickOn("btn_changepassword", "");
-
 	}
 
 	@Then("^Message should display \"([^\"]*)\"\"([^\"]*)\"$")
