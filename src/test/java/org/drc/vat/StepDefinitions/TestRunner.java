@@ -29,18 +29,10 @@ import static org.drc.vat.appmanager.HelperBase.assertEnding;
 import static org.drc.vat.appmanager.HelperBase.clearCache;
 import static org.drc.vat.appmanager.HelperBase.assessmentOfficer;
 import static org.drc.vat.appmanager.HelperBase.sleepWait;
+import static org.drc.vat.appmanager.HelperBase.softAssert;
 
-@CucumberOptions(features = {
-	
-	"classpath:features/32_0DebtRecord.feature",
-				"classpath:features/32_0DebtRecord.feature",
-				"classpath:features/32_DebtManagementLandingScreen.feature",
-				"classpath:features/33_DebtManagementUnassignedDebt.feature",
-		"classpath:features/34_DebtManagementAssignedDebtList.feature",
-				"classpath:features/35_DebtCollectionCaseScreen.feature",
-		"classpath:features/36_popupofAgeingofArrears.feature",
-		"classpath:features/37_NotificationPopUp.feature"
-
+@CucumberOptions(features = {	
+	"classpath:features/FuelRateManagementAdmin.feature"
 },
 glue = "org.drc.vat.StepDefinitions",
 plugin = {"com.cucumber.listener.ExtentCucumberFormatter:","html:test-output/cucumber-report"}
@@ -87,7 +79,7 @@ public class TestRunner extends AbstractTestNGCucumberTests {
 		}		
 		else if (scenario.getName().toLowerCase().contains("efd-manufacturerportal")) {
 			app.callmanufacturerportal();
-		} else if (scenario.getName().toLowerCase().contains("vendor portal")) {
+		} else if (scenario.getName().toLowerCase().contains("vendor portal")) { 
 			app.callvendorportal();
 		}
 		/**
@@ -174,6 +166,7 @@ public class TestRunner extends AbstractTestNGCucumberTests {
 		FileUtils.copyFile(src, dest);
 		Reporter.addScreenCaptureFromPath(dest.toString());
 		scenario.embed(app.takeScreenshot(), "image/png");
+		softAssert.assertAll();
 		// logout();
 
 		logger.info("Stop scenario: " + scenario.getName());

@@ -120,8 +120,7 @@ public class ApplicationManager {
 			//Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\src\\test\\resources\\authusers\\autoitsample.exe");
 			Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\QA_Internal_Portal_Login\\autoitsample.exe");
 
-			wd.findElement(By.xpath(obj.getProperty("btn_windowsClick"))).click();
-			Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\src\\test\\resources\\authusers\\autoitsample.exe");
+			wd.findElement(By.xpath(obj.getProperty("btn_windowsClick"))).click();			
 			Thread.sleep(1000);
 		}
 		else

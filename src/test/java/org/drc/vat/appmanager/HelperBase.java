@@ -1059,23 +1059,40 @@ public class HelperBase {
 		return validDate; 
 		
 	}
+	public static void waitTillElementLocated(String object) {
+		try {
+			obj.load(fis);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		WebElement myDynamicElement = (new WebDriverWait(wd, 15))
+				  .until(ExpectedConditions.presenceOfElementLocated(By.xpath(obj.getProperty(object))));
+	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+public static boolean waitTillElementDisappear(String object) {
+
+WebDriverWait wait = new WebDriverWait(wd, 100);
+
+return wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(object)));
 }
+}
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
