@@ -66,21 +66,17 @@ public class DebtManagementUnassignedDebt {
 	}
 		  sleepWait(5000);*/
 
-	}
+	} 
 	
 
 	@When("^Clicked on pending amount for \"([^\"]*)\"$")
 	public void clicked_on_pending_amount_for(String arg1) throws Throwable {
 		//By pending_href =By.xpath("//td[1]/div[text()='0-3 Months']/following::a");
 		sleepWait(2000);
-		WebElement pendinglink=wd.findElement(By.xpath("//td/div[text()='0-3 Months']/following::a"));
+		WebElement pendinglink=wd.findElement(By.xpath("//td/div[text()='0-3 Months']/following::a"));		
 		pendingamount=pendinglink.getText();
 		pendinglink.click();
-
-
-
 	}
-
 
 	@Then("^user is on Pending debts$")
 	public void user_is_on_Pending_debts() throws Throwable {
@@ -234,12 +230,12 @@ public class DebtManagementUnassignedDebt {
 
 	@Then("^Search by TaxPayer Name \"([^\"]*)\" and Records should be displayed$")
 	public void search_by_TaxPayer_Name_and_Records_should_be_displayed(String arg1) throws Throwable {
+		
 		clickOn("drpdwnfilterby_txpayer", "");
 		clickOn("filterbytpayer", "");
 		String taxpayername=elementText("txt_particulars","");
 		type("input_search_tpprofile",taxpayername);
 		clickOn("btn_searchage","");		
-		
 		sleepWait(5000);
 		waitUntilElementFound("vchkbx_selectall", "");
 		List <WebElement> records = wd.findElements(By.xpath("//tbody/tr"));

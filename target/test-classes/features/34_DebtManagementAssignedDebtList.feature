@@ -17,8 +17,8 @@ Feature: DGI employee should be able to do following
     Then user selects "View" Debt collection case"Debt Collection Case" page should be displayed of Taxpayername"<tpayer>"
 
     Examples: 
-      | Test Case ID                       | Description                                                                                | officername  | uname           | password | ageing     | tpayer        | Moption1 | Moption2 |
-      | DRC_ATC_DebtManagement_Assigned_01 | Validate whether collection officer is able to view the case for the particular tax payer. | Urvish Patel | ketan.prajapati | admin    | 0-3 Months | two test| View     | Reassign |
+      | Test Case ID                       | Description                                                                                | officername  | uname           | password | ageing     | tpayer   | Moption1 | Moption2 |
+      | DRC_ATC_DebtManagement_Assigned_01 | Validate whether collection officer is able to view the case for the particular tax payer. | Urvish Patel | ketan.prajapati | admin    | 0-3 Months | two test | View     | Reassign |
 
   @mtc7 @ManageReassign @execute
   Scenario Outline: Validate whether collection officer is able to reassign the tax office
@@ -31,8 +31,8 @@ Feature: DGI employee should be able to do following
     Then User select officer"<reassign>" to Reassign
 
     Examples: 
-      | Test Case ID                       | Description                                                              | officername  | uname           | password | ageing     | tpayer        | Moption1 | Moption2 | reassign     |
-      | DRC_ATC_DebtManagement_Assigned_02 | Validate whether collection officer is able to reassign the tax officer. | Urvish Patel | ketan.prajapati | admin    | 0-3 Months | two test| View     | Reassign | Urvish Patel |
+      | Test Case ID                       | Description                                                              | officername  | uname           | password | ageing     | tpayer   | Moption1 | Moption2 | reassign     |
+      | DRC_ATC_DebtManagement_Assigned_02 | Validate whether collection officer is able to reassign the tax officer. | Urvish Patel | ketan.prajapati | admin    | 0-3 Months | two test | View     | Reassign | Urvish Patel |
 
   @mtc9 @FilterBy @execute
   Scenario Outline: Validate whether user is able to filter by using filter by option
@@ -41,7 +41,7 @@ Feature: DGI employee should be able to do following
     Then user can filter by"Case Type""Case Id""Priority""City""Tax Officer""Status"
 
     Examples: 
-      | Test Case ID                       | Description                                                        | officername  | uname           | password | ageing     | 
+      | Test Case ID                       | Description                                                        | officername  | uname           | password | ageing     |
       | DRC_ATC_DebtManagement_Assigned_03 | Validate whether user is able to filter by using filter by option. | Urvish Patel | ketan.prajapati | admin    | 0-3 Months |
 
   @mtc10 @mtc11 @mtc12 @FilterBy @FilterValidation
@@ -78,5 +78,5 @@ Feature: DGI employee should be able to do following
     Then Click on "Status" column it should be in descending order
 
     Examples: 
-      | Test Case ID                       | Description                                                    | officername  | uname           | password | ageing      | 
-      | DRC_ATC_DebtManagement_Assigned_13 | Validate whether user is able to filter data in sorting order. | Urvish Patel | ketan.prajapati | admin    | 0-3 Months  | 
+      | Test Case ID                       | Description                                                    | officername  | uname           | password | ageing     |
+      | DRC_ATC_DebtManagement_Assigned_13 | Validate whether user is able to filter data in sorting order. | Urvish Patel | ketan.prajapati | admin    | 0-3 Months |

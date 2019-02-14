@@ -150,18 +150,12 @@ public class DV_3893_TaxOfficer_Help_Desk
 
 	@And("^User click on browse button and select file on internal \"([^\"]*)\"$")
 	public void user_click_on_browse_button_and_select_file_on_internal(String file) throws Throwable 
-	{
-		/*sleepWait(1000);
-		type("txt_comment_here", "comment Here");
-		
-		wd.findElement(By.xpath(obj.getProperty("txt_comment_here"))).sendKeys(Keys.PAGE_UP);;
-		sleepWait(1000);*/
+	{		
 		sleepWait(1000);
 		waitFor("upload_File_helpdesk");
 		sleepWait(1000);
 		clickOn("upload_File_helpdesk", "");
-		UploadImage("", file);
-	   
+		UploadImage("", file);	  
 	}
 
 	@And("^User see file \"([^\"]*)\" is uploaded and click on download button and verify$")

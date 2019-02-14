@@ -126,12 +126,13 @@ public class ApplicationManager {
 		}
 		else
 		{
-			if (!wd.getCurrentUrl().contains("8068")) 
-			{wd.close();
+			if (!wd.getCurrentUrl().contains("8068"))				
+			{
+			/*wd.close();
 			Thread.sleep(1000);
 			wd = new ChromeDriver();
 			wd.manage().window().maximize();
-				Thread.sleep(1000);
+				Thread.sleep(1000);*/
 				wd.get("http://103.249.120.58:8044");
 				Thread.sleep(500);
 				//Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\src\\test\\resources\\authusers\\autoitsample.exe");
@@ -165,6 +166,9 @@ public class ApplicationManager {
 		wd.get("http://103.249.120.58:8012");
 	}
 
+	/**
+	 *  Frankey 
+	 */
 	public void calltaxpayerportal() throws AWTException, InterruptedException, IOException 
 	{				
 		if (wd.getCurrentUrl().contains("8068")) 
@@ -179,12 +183,6 @@ public class ApplicationManager {
 			Thread.sleep(1000);		
 		}
 	}
-
-	
-	
-	
-	
-	
 	
 	/** 
 	 * Arun creted
@@ -198,10 +196,6 @@ public class ApplicationManager {
 		wd.manage().window().maximize();
 		wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		wd.get("http://103.249.120.58:8042");	
-<<<<<<< HEAD
-		Thread.sleep(1000);
-	}
-=======
 		Thread.sleep(1000);			
 	}*/
 

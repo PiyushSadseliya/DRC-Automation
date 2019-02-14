@@ -21,7 +21,9 @@ public class DV_2254_Internal_Portal_objection_appeal
 	@And("^User click on case management$")
 	public void user_click_on_case_management() throws Throwable
 	{
-		wd.findElement(By.xpath("//label[@class=\"ng-tns-c2-1\"]")).click();
+		//wd.findElement(By.xpath("//label[@class='ng-tns-c2-1']")).click();
+		sleepWait(1000);
+		waitFor("txt_CaseManagement");
 		sleepWait(1000);
 		clickOn("txt_CaseManagement", "");
 		sleepWait(1000);
@@ -30,10 +32,13 @@ public class DV_2254_Internal_Portal_objection_appeal
 	@And("^User click on filter by on case management and click on \"([^\"]*)\"$")
 	public void user_click_on_filter_by_on_case_management_and_click_on(String value) throws Throwable 
 	{
-		sleepWait(1500);
-		clickOn("drp_FilterByMVT", "");
+		sleepWait(1000);
+		waitFor("drp_FilterByMVT");
 		sleepWait(500);
+		clickOn("drp_FilterByMVT", "");
+		sleepWait(1000);
 		clickOn(value, "");
+		sleepWait(1000);
 	}
 
 	@And("^User user click on case type \"([^\"]*)\" and click on search button search result \"([^\"]*)\" on case management$")
@@ -81,7 +86,11 @@ public class DV_2254_Internal_Portal_objection_appeal
 	@And("^User click on search button$")
 	public void user_click_on_search_button() throws Throwable 
 	{
+		sleepWait(1000);
+		waitFor("btn_SearchFX");
 		clickOn("btn_SearchFX", "");
+		sleepWait(1000);
+		waitFor("btn_SearchFX");
 	}
 
 	@And("^User click on manage drop down and click on view$")
