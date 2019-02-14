@@ -238,8 +238,7 @@ public class DebtManagementUnassignedDebt {
 		clickOn("filterbytpayer", "");
 		String taxpayername=elementText("txt_particulars","");
 		type("input_search_tpprofile",taxpayername);
-		clickOn("btn_searchage","");		
-		
+		clickOn("btn_searchage","");		 		
 		sleepWait(5000);
 		waitUntilElementFound("vchkbx_selectall", "");
 		List <WebElement> records = wd.findElements(By.xpath("//tbody/tr"));

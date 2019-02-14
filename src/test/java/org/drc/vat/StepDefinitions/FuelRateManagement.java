@@ -44,7 +44,7 @@ public class FuelRateManagement {
 	private static List <String>afterupdaterate;
 	private static List <String>afterUpdateChangedrate;
 	private static Date futureDateSelected;
-	private int fuelType=3;
+	private int fuelType=6;
 	@Given("^The officer has logged in \"([^\"]*)\"\"([^\"]*)\"$")
 	public void the_officer_has_logged_in(String arg1, String arg2) throws Throwable {
 	    
@@ -71,8 +71,12 @@ public class FuelRateManagement {
 	  List <WebElement>previosraterecords=wd.findElements(By.xpath("//td[3]"));
 for(int i=0;i<fuelType;i++) {
 	System.out.println("Previous rate"+previosraterecords.get(i).getText());
+	if(previosraterecords.get(i).getText().equalsIgnoreCase("nil")) {
+	previousrate.add("0");
+	}else {
 	previousrate.add(previosraterecords.get(i).getText());
-}
+	}
+	}
 
 	 
 	}
@@ -81,9 +85,11 @@ for(int i=0;i<fuelType;i++) {
 	public void the_Change_in_Rate_CDF_column_should_be_Previous_Rate_Current_Rate() throws Throwable {
 		beforeupdatechangeinrate=changedrate(currentrate,previousrate);
 		  List <WebElement>chageninraterecords=wd.findElements(By.xpath("//td[4]"));
-/*		  for(int i=0;i<fuelType;i++) {
+	  for(int i=0;i<fuelType;i++) {
+		  System.out.println("Changed before rates screen"+chageninraterecords.get(i).getText());
+		  System.out.println("Changed before rates calculated"+beforeupdatechangeinrate.get(i));
 			assertEquals(chageninraterecords.get(i).getText(), beforeupdatechangeinrate.get(i));
-			}*/
+			}
 		
 	 
 	}
@@ -93,7 +99,7 @@ for(int i=0;i<fuelType;i++) {
 		currentrate=new ArrayList<String>();
 	  List <WebElement>currentraterecords=wd.findElements(By.xpath("//td[5]"));
 	  for(int i=0;i<fuelType;i++) {
-		  System.out.println("Previous rate"+currentraterecords.get(i).getText());
+		  System.out.println("Current rate"+currentraterecords.get(i).getText());
 	  		currentrate.add(currentraterecords.get(i).getText());	 
 	}
 }
@@ -314,6 +320,7 @@ for(int i=0;i<fuelType;i++) {
 		for(int i=0;i<currentrate2.size();i++) {			
 			double current=frenchtoDouble(currentrate2.get(i));
 			double previous=frenchtoDouble(previousrate2.get(i));
+			System.out.println("Current Rate"+current+"-"+"Previous Rate"+previous);
 			double ratechanged=frenchtoDouble(currentrate2.get(i))-frenchtoDouble(previousrate2.get(i));
 			System.out.println(current+"-"+previous+"+"+ratechanged);
 			change.add(String.valueOf(ratechanged));
@@ -390,5 +397,54 @@ public void click_on_Approve_button_and_check_the_message(String message) throws
 public void user_check_the_validation_message(String arg1) throws Throwable {
 	String message = elementText("text_domestic","");
 }
+@Then("^enter Fuel Rates of CNG in basic\"([^\"]*)\" Rates are Excise\"([^\"]*)\" ,VAT\"([^\"]*)\",Fuel Tax\"([^\"]*)\",Royalty\"([^\"]*)\" and does Total$")
+public void enter_Fuel_Rates_of_CNG_in_basic_Rates_are_Excise_VAT_Fuel_Tax_Royalty_and_does_Total(String cngbasicrate, String excise, String VAT, String fuelTax, String Royalty) throws Throwable {
+	 type("txtbx_basicfuelcng",cngbasicrate);
+		double cngrate=Double.parseDouble(cngbasicrate);
+		double cngExcise=cngrate*todouble(excise)/100;
+		double cngVAT=cngrate*todouble(VAT)/100;
+		double cngFuelTax =cngrate*todouble(fuelTax)/100;
+		double cngRoyalty  =cngrate*todouble(Royalty)/100;
+		double cngTotal =cngrate+cngExcise+cngVAT+cngFuelTax+cngRoyalty;
+		List <WebElement>cngtype=wd.findElements(By.xpath("(//table)[2]//tr[4]//input[@disabled='true']"));			
+	assertEquals(todouble(cngtype.get(0).getAttribute("value"))==todouble(convertToFourDotSeven(cngExcise)),true);
+		 assertEquals(todouble(cngtype.get(1).getAttribute("value"))==todouble(convertToFourDotSeven(cngVAT)),true);			 
+		 assertEquals(todouble(cngtype.get(2).getAttribute("value"))==todouble(convertToFourDotSeven(cngFuelTax)),true);
+		 assertEquals(todouble(cngtype.get(3).getAttribute("value"))==todouble(convertToFourDotSeven(cngRoyalty)),true);
+		assertEquals(todouble(cngtype.get(4).getAttribute("value"))==todouble(convertToFourDotSeven(cngTotal)),true);
+}
 
+@Then("^enter Fuel Rates of Methanol in basic\"([^\"]*)\" Rates are Excise\"([^\"]*)\" ,VAT\"([^\"]*)\",Fuel Tax\"([^\"]*)\",Royalty\"([^\"]*)\" and does Total$")
+public void enter_Fuel_Rates_of_Methanol_in_basic_Rates_are_Excise_VAT_Fuel_Tax_Royalty_and_does_Total(String methanolbasicrate, String excise, String VAT, String fuelTax, String Royalty) throws Throwable {
+	 type("txtbx_basicfuelmethanol",methanolbasicrate);
+		double methanolrate=Double.parseDouble(methanolbasicrate);
+		double methanolExcise=methanolrate*todouble(excise)/100;
+		double methanolVAT=methanolrate*todouble(VAT)/100;
+		double methanolFuelTax =methanolrate*todouble(fuelTax)/100;
+		double methanolRoyalty  =methanolrate*todouble(Royalty)/100;
+		double methanolTotal =methanolrate+methanolExcise+methanolVAT+methanolFuelTax+methanolRoyalty;
+		List <WebElement>methanoltype=wd.findElements(By.xpath("(//table)[2]//tr[5]//input[@disabled='true']"));			
+	assertEquals(todouble(methanoltype.get(0).getAttribute("value"))==todouble(convertToFourDotSeven(methanolExcise)),true);
+		 assertEquals(todouble(methanoltype.get(1).getAttribute("value"))==todouble(convertToFourDotSeven(methanolVAT)),true);			 
+		 assertEquals(todouble(methanoltype.get(2).getAttribute("value"))==todouble(convertToFourDotSeven(methanolFuelTax)),true);
+		 assertEquals(todouble(methanoltype.get(3).getAttribute("value"))==todouble(convertToFourDotSeven(methanolRoyalty)),true);
+		assertEquals(todouble(methanoltype.get(4).getAttribute("value"))==todouble(convertToFourDotSeven(methanolTotal)),true);
+}
+
+@Then("^enter Fuel Rates of Gasoline in basic\"([^\"]*)\" Rates are Excise\"([^\"]*)\" ,VAT\"([^\"]*)\",Fuel Tax\"([^\"]*)\",Royalty\"([^\"]*)\" and does Total$")
+public void enter_Fuel_Rates_of_Gasoline_in_basic_Rates_are_Excise_VAT_Fuel_Tax_Royalty_and_does_Total(String gasolinebasicrate, String excise, String VAT, String fuelTax, String Royalty) throws Throwable {
+	 type("txtbx_basicfuelgasoline",gasolinebasicrate);
+		double gasolinerate=Double.parseDouble(gasolinebasicrate);
+		double gasolineExcise=gasolinerate*todouble(excise)/100;
+		double gasolineVAT=gasolinerate*todouble(VAT)/100;
+		double gasolineFuelTax =gasolinerate*todouble(fuelTax)/100;
+		double gasolineRoyalty  =gasolinerate*todouble(Royalty)/100;
+		double gasolineTotal =gasolinerate+gasolineExcise+gasolineVAT+gasolineFuelTax+gasolineRoyalty;
+		List <WebElement>gasolinetype=wd.findElements(By.xpath("(//table)[2]//tr[6]//input[@disabled='true']"));			
+	assertEquals(todouble(gasolinetype.get(0).getAttribute("value"))==todouble(convertToFourDotSeven(gasolineExcise)),true);
+		 assertEquals(todouble(gasolinetype.get(1).getAttribute("value"))==todouble(convertToFourDotSeven(gasolineVAT)),true);			 
+		 assertEquals(todouble(gasolinetype.get(2).getAttribute("value"))==todouble(convertToFourDotSeven(gasolineFuelTax)),true);
+		 assertEquals(todouble(gasolinetype.get(3).getAttribute("value"))==todouble(convertToFourDotSeven(gasolineRoyalty)),true);
+		assertEquals(todouble(gasolinetype.get(4).getAttribute("value"))==todouble(convertToFourDotSeven(gasolineTotal)),true);
+}
 }

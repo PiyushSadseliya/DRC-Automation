@@ -1,6 +1,11 @@
 package org.drc.vat.StepDefinitions;
 import static org.drc.vat.appmanager.HelperBase.*;
+import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -12,8 +17,16 @@ import cucumber.api.java.en.Given;
 
 public class DV_2387_Payment_Agreement_Installment_Status 
 {
-	
-	
+	static  String agreeemntID;
+	static  String dateInstallment;
+	static  String nextdateInstallment;
+	static  String casedate;
+	SimpleDateFormat sdfDMonth =new SimpleDateFormat("dd MMM,yyyy");
+	SimpleDateFormat sdfdateslash =new SimpleDateFormat("dd-MMM-yyyy");
+	static String installmentfrequency ;
+	int noOfInstallment=0;
+	Date nextInstallmentDate ;
+	long frequencydays=0;
 	@Given("^User is on Payment Agreement Installment Status \"([^\"]*)\" \"([^\"]*)\"$")
 	public void user_is_on_Payment_Agreement_Installment_Status(String arg1, String arg2) throws Throwable 
 	{
@@ -25,7 +38,29 @@ public class DV_2387_Payment_Agreement_Installment_Status
 	public void user_click_on_eye_button_on_installement_page() throws Throwable 
 	{
 			sleepWait(2000);
-			clickOn("btn_installment_Status_click", "");
+			WebElement rper = wd.findElement(By.xpath("//*[contains(text(),'Frequency')]/following::span[2]"));
+			JavascriptExecutor jse = (JavascriptExecutor) wd;
+			installmentfrequency = jse.executeScript("return arguments[0].innerText", rper).toString();
+			if (installmentfrequency.equals("Weekly")) {
+				frequencydays=7;
+			}
+			if (installmentfrequency.equals("Monthly")) {
+				frequencydays=31;
+			}
+			if (installmentfrequency.equalsIgnoreCase("quarterly")) {
+				frequencydays=92;
+			}
+			if (installmentfrequency.equals("fortnightly")) {
+				frequencydays=14;
+			}
+			agreeemntID=elementText("txt_agreementID", "");
+			dateInstallment=elementText("txt_dateinstallment1","");
+			nextdateInstallment=getvalue("txt_nextinstallment", "");
+			nextInstallmentDate=sdfDMonth.parse(nextdateInstallment);
+			casedate=elementText("txt_dateinstallment1","");
+			noOfInstallment=Integer.parseInt(getvalue("txt_noOfInstallment", ""));
+			
+			clickOn("btn_viewinstallment", "");
 			sleepWait(2000); 
 	}
 
@@ -42,13 +77,10 @@ public class DV_2387_Payment_Agreement_Installment_Status
 	}
 
 	
-	@And("^User see date \"([^\"]*)\"$")
-	public void user_see_date(String date) throws Throwable 
+	@Given("^User see date$")
+	public void user_see_date() throws Throwable 
 	{
-			String expectedMessage =date;
-			String dateCheck = elementText("//header/div/div[2]/div/input");
-			
-			if(expectedMessage.contains(dateCheck))
+			if(dateInstallment.equals(elementText("txt_dateinstallment2","")))
 			{
 				assertTrue(true);
 			}
@@ -56,10 +88,10 @@ public class DV_2387_Payment_Agreement_Installment_Status
 	
 	
 
-	@And("^User see agreement id \"([^\"]*)\"$")
-	public void user_see_agreement_id(String id) throws Throwable
+	@Given("^User see agreement id$")
+	public void user_see_agreement_id()throws Throwable
 	{
-		if(wd.findElement(By.xpath("(//span[contains(text(),'" + id + "')])[2]")).isDisplayed() )
+		if(wd.findElement(By.xpath("(//span[contains(text(),'"+agreeemntID+"')])[2]")).isDisplayed() )
 		{					
 			assertTrue(true);
 		} 
@@ -79,7 +111,7 @@ public class DV_2387_Payment_Agreement_Installment_Status
 	@And("^User validate date field \"([^\"]*)\"$")
 	public void user_validate_date_field(String date) throws Throwable 
 	{
-		if(wd.findElement(By.xpath("(//div[contains(text(),'" + date + "')])[1]")).isDisplayed() )
+		if(wd.findElement(By.xpath("(//label[contains(text(),'" + casedate + "')])[2]")).isDisplayed() )
 		{					
 			assertTrue(true);
 		}    
@@ -96,23 +128,39 @@ public class DV_2387_Payment_Agreement_Installment_Status
 	    
 	}
 
-	@And("^User see emi start date \"([^\"]*)\" and end date \"([^\"]*)\"$")
-	public void user_see_emi_start_date_and_end_date(String start, String end) throws Throwable 
+	@Given("^User see emi start date$")
+	public void user_see_emi_start_date() throws Throwable 
 	{
+		List<WebElement> noOfInstallmentRecords=wd.findElements(By.xpath("//*[contains(text(),'Details')]/following::tbody//tr"));
+				assertEquals(noOfInstallmentRecords.size(), noOfInstallment);
+				sdfdateslash.format(nextInstallmentDate);
+				List<WebElement> installmentDateon=wd.findElements(By.xpath("//*[contains(text(),'Details')]/following::tbody//tr/td[1]"));		
+				assertEquals(installmentDateon.get(0).getText(), sdfdateslash.format(nextInstallmentDate));
+				for (int i = 1; i < installmentDateon.size(); i++) {	
+
+					assertEquals(	countDays("dd-MMM-yyyy",installmentDateon.get(i-1).getText(),installmentDateon.get(i).getText()), frequencydays);
+				}
+				List<WebElement> instalmentpendingStatus=wd.findElements(By.xpath("//*[contains(text(),'Details')]/following::tbody//tr/td[4]"));
+				for(WebElement pending:instalmentpendingStatus) {
+					assertEquals(pending.getText(), "Pending");
+				}
+/*		
 		if(wd.findElement(By.xpath("(//div[contains(text(),'" + start + "')])[1]")).isDisplayed() && wd.findElement(By.xpath("(//div[contains(text(),'" + end + "')])[1]")).isDisplayed())
 		{					
 			assertTrue(true);
-		}    
+		} 
+*/
 	}
 
-	@And("^User see close button$")
-	public void user_see_close_button() throws Throwable 
+	@Given("^User click close button$")
+	public void user_click_close_button()  throws Throwable 
 	{
-		if(wd.findElement(By.xpath("//button[@title='Close' or type='button']")).isDisplayed() )
+		if(wd.findElement(By.xpath("//*[contains(@class,'close')]")).isDisplayed() )
 		{					
 			assertTrue(true);
 		}    
 		sleepWait(1000);
+		clickOn("btn_closeagreementpopup", "");
 	}
 
 }
