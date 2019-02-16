@@ -22,7 +22,13 @@ public class DV_2882_Manual_Assessed_LandingScreen {
 	public String NITVA_ChecK;
 
 	@And("^User click on Dashboard$")
-	public void user_click_on_Dashboard() throws Throwable {
+	public void user_click_on_Dashboard() throws Throwable 
+	{
+		sleepWait(1000);
+		waitFor("txt_dashboard");
+		sleepWait(1000);
+		waitFor("txt_dashboard");
+		sleepWait(1000);
 		clickOn("txt_dashboard", "");
 		sleepWait(200);
 	}

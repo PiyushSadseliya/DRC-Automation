@@ -442,6 +442,7 @@ public class DV_2384_Payment_Agreement_LandingScreen_Tax_officer
 		sleepWait(1000);
 		waitFor("txtbox_TypeHere");
 		type("txtbox_TypeHere", StoreCaseID);
+		//type("txtbox_TypeHere", "R19021500000006");		
 		sleepWait(1000);		
 	}	
 
@@ -1028,6 +1029,8 @@ public class DV_2384_Payment_Agreement_LandingScreen_Tax_officer
 	@Then("^User search TaxPayer name \"([^\"]*)\" and store TaxPayer name and address$")
 	public void user_search_TaxPayer_name_and_store_TaxPayer_name_and_address(String arg1) throws Throwable 
 	{
+		sleepWait(1000);
+		waitFor("btn_filter");
 		clickOn("btn_filter","");
 		clickOn("drpdwnfilterby_txpayer", "");
 		sleepWait(2000);
@@ -1043,6 +1046,7 @@ public class DV_2384_Payment_Agreement_LandingScreen_Tax_officer
 		sleepWait(3000);
 		StoreTaxPayerAddress = elementText("txt_store_TaxPyerAddress");
 		sleepWait(1000);
+		
 		clickOn("nav_debt","");
 
 	}
@@ -1051,7 +1055,7 @@ public class DV_2384_Payment_Agreement_LandingScreen_Tax_officer
 	public void user_store_Assigned_To_Tax_Officer_name() throws Throwable 
 	{
 		sleepWait(1000);
-		StoreAssignedTo = elementText("");
+		StoreAssignedTo = elementText("txt_store_AssignedTO");
 		sleepWait(1000);
 		
 	}
@@ -1064,7 +1068,7 @@ public class DV_2384_Payment_Agreement_LandingScreen_Tax_officer
 	public void user_see_current_date_generated_and_verify_date_format_DD_MMM_YYYY_and_on_payment_agreement() throws Throwable
 	{
 		sleepWait(1000);
-		String DateFormatPaymentAgreementCheck = elementText("");		
+		String DateFormatPaymentAgreementCheck = elementText("txt_newDate");		
 		sleepWait(1000);
 		if(isValidDate(DateFormatPaymentAgreementCheck))
 		{					
@@ -1084,9 +1088,29 @@ public class DV_2384_Payment_Agreement_LandingScreen_Tax_officer
 			SimpleDateFormat mdyFormat = new SimpleDateFormat("YYMMdd");
 			String mdy = mdyFormat.format(Mydate);			
 			
-			String barcode = elementText("");
+			String barcode = elementText("txt_Case_ID");		
+			//String CaseID_PaymentAgreement = elementText("txt_Case_ID");
+			//String CaseID_PaymentAgreement = "Case Id : R19021400000036";
+			String value = barcode;
+			value = value.substring(10);
+			value = value.substring(1,7);
+			System.out.println(value);			
+			if(mdy.startsWith(value))
+			{
+				assertTrue(true);
+			}
+			else
+			{
+				assertTrue(false);
+			}
+			
+			
 			//String s = "R19021300000006";
-			String Bar = barcode.substring(1, barcode.length() / 2);   
+			//String Bar = barcode.substring(1, barcode.length() / 2);			
+		/*	String Bar = barcode;
+			String value = Bar;
+			value = value.substring(1,7);
+			
 			System.out.println(Bar);			
 			if(mdy.startsWith(Bar))
 			{
@@ -1095,15 +1119,15 @@ public class DV_2384_Payment_Agreement_LandingScreen_Tax_officer
 			else
 			{
 				assertTrue(false);
-			}
+			}*/
 	}
 
 	@And("^User validate taxpayer name and address on payment agreement$")
 	public void user_validate_taxpayer_name_and_address_on_payment_agreement() throws Throwable 
 	{
 		sleepWait(1000);		
-		String PA_TaxpayerName = elementText("");			
-		String PA_TaxpayerAddress = elementText("");		
+		String PA_TaxpayerName = elementText("txt_TaxPayerName");			
+		String PA_TaxpayerAddress = elementText("txt_TaxPayerAdrress");		
 		assertEquals(StoreTaxPayerName, PA_TaxpayerName);		
 		assertEquals(StoreTaxPayerAddress, PA_TaxpayerAddress);
 	}
@@ -1115,11 +1139,10 @@ public class DV_2384_Payment_Agreement_LandingScreen_Tax_officer
 		SimpleDateFormat mdyFormat = new SimpleDateFormat("YYMMdd");
 		String mdy = mdyFormat.format(Mydate);		
 		
-		String CaseID_PaymentAgreement = elementText("");
-
-		//String value = "Case Id: R19021300000006";
+		String CaseID_PaymentAgreement = elementText("txt_Case_ID");
+		//String CaseID_PaymentAgreement = "Case Id : R19021400000036";
 		String value = CaseID_PaymentAgreement;
-		value = value.substring(9);		
+		value = value.substring(10);
 		value = value.substring(1,7);
 		System.out.println(value);
 		
@@ -1130,44 +1153,58 @@ public class DV_2384_Payment_Agreement_LandingScreen_Tax_officer
 	@And("^User validate payment agreement id format YYMMDD$")
 	public void user_validate_payment_agreement_id_format_YYMMDD() throws Throwable
 	{
-		sleepWait(1000);	
-		
+		sleepWait(1000);			
 		Date Mydate = new Date();		
 		SimpleDateFormat mdyFormat = new SimpleDateFormat("YYMMdd");
 		String mdy = mdyFormat.format(Mydate);	
 		
-		String CaseID_PaymentAgreement = elementText("");
-		
+		String CaseID_PaymentAgreement = elementText("txt_Agree_ID");
+//		String CaseID_PaymentAgreement = "Agreement Id : PA19021400001";
+	
 		String value = CaseID_PaymentAgreement;
-		value = value.substring(14);		
-		value = value.substring(1,7);								
+		value = value.substring(14);
+		value = value.substring(3,9);
+		System.out.println(value);
 		assertEquals(mdy, value);
 		
 		
 	}
 
-	@And("^User verify the paymentg period field start date and end date$")
-	public void user_verify_the_paymentg_period_field_start_date_and_end_date() throws Throwable
+	@And("^User verify the payment period field start date and end date$")
+	public void user_verify_the_payment_period_field_start_date_and_end_date() throws Throwable
 	{
 		sleepWait(1000);
-		String PaymentstartDate = elementText("");
-		assertEquals(StoteNIA, PaymentstartDate);
+		String PaymentstartDate = elementText("txt_PaymentPeriod");		
+		//String value = "21-Feb-2019 To 28-Feb-2019 ";
+		String value = PaymentstartDate;
+		value = value.substring(0,11);
+		System.out.println(value);					 
+		
+		//String Mydate = "22-February-2019";
+		String Mydate = StoreNID_1;
+		SimpleDateFormat mdyFormat = new SimpleDateFormat("dd MMMM, yyyy");		
+		SimpleDateFormat mdyFormat1 = new SimpleDateFormat("dd-MMM-yyyy");		
+		System.out.println(mdyFormat.parse(Mydate));
+		String check =  mdyFormat1.format(mdyFormat.parse(Mydate));
+		System.out.println(check);
+		assertEquals(check, value);
+		
+		
 	}
 
 	@And("^User verify payment amount due date$")
 	public void user_verify_payment_amount_due_date() throws Throwable 
 	{
-		String PayAmountDue = elementText("");		
-		PayAmountDue = PayAmountDue.substring(23);		
+		String PayAmountDue = elementText("txt_PaymentAmountDue");		
+		PayAmountDue = PayAmountDue.substring(3);		
 		System.out.println(PayAmountDue);
-		
 		assertEquals(StoreRecoveryAmount, PayAmountDue);
 	}
 
 	@And("^User verify Payment Schedule field and verify date for Annexure A and installment amount$")
 	public void user_verify_Payment_Schedule_field_and_verify_date_for_Annexure_A_and_installment_amount() throws Throwable 
 	{
-		String InstAmount_A  = elementText("");		
+		String InstAmount_A  = elementText("txt_check_1_Amount");		
 		//String value = "90,87";				
 	
 /*	String value = InstAmount;	
@@ -1176,7 +1213,7 @@ public class DV_2384_Payment_Agreement_LandingScreen_Tax_officer
 		
 		assertEquals(StoteSIA, InstAmount_A);		
 		
-		String PaymentPeriodDate = elementText("");
+		String PaymentPeriodDate = elementText("txt_check_1_Date");
 		// 14-02-2019		
 		//StoreNID_1 =14 Febuary, 2019 				
 	    Date Mydate = new Date();		
@@ -1191,7 +1228,7 @@ public class DV_2384_Payment_Agreement_LandingScreen_Tax_officer
 	@And("^User verify the Regards field$")
 	public void user_verify_the_Regards_field() throws Throwable
 	{
-		String Regards_PA = elementText("");
+		String Regards_PA = elementText("txt_Regards_check");
 		assertEquals(StoreAssignedTo, Regards_PA);
 	}
 
@@ -1199,7 +1236,7 @@ public class DV_2384_Payment_Agreement_LandingScreen_Tax_officer
 	public void user_see_print_button_is_enabled() throws Throwable
 	{
 		sleepWait(1000);
-		if(wd.findElement(By.xpath(obj.getProperty(""))).isEnabled())			
+		if(wd.findElement(By.xpath(obj.getProperty("btn_Print_PA_notice"))).isEnabled())			
 		{
 			assertTrue(true);
 		}
@@ -1212,22 +1249,21 @@ public class DV_2384_Payment_Agreement_LandingScreen_Tax_officer
 	@And("^User click on previous button and navigate to payment agrement landing screen$")
 	public void user_click_on_previous_button_and_navigate_to_payment_agrement_landing_screen() throws Throwable 
 	{
-		// need to find locator 
-		clickOn("btn_Previous_page", "");	    
+		sleepWait(1000);
+		clickOn("btn_Previous_page", "");	
+		sleepWait(1000);
 	}
 	
 	@And("^User validate subject field \"([^\"]*)\"$")
-	public void user_validate_subject_field(String arg1) throws Throwable 
+	public void user_validate_subject_field(String subject) throws Throwable 
 	{
-		// need to find locator
-		if(wd.findElement(By.xpath(obj.getProperty("txt_PaymentAgreement"))).isDisplayed())
-		{
-			assertTrue(true);
-		}
-		/*if(wd.findElement(By.xpath("//strong[contains(text(),'Subject')]//following::text()")).isDisplayed() )
-		{					
-			assertTrue(true);
-		}*/   	    
+		String check = elementText("txt_PaymentAgreement");		
+		//String value = "Subject : Payment Agreement";
+		String value = check;
+		value = value.substring(10);
+		System.out.println(value);		
+		assertEquals(subject, value);		
+		
 	}
 	
 	

@@ -25,6 +25,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.asserts.SoftAssert;
+import static org.drc.vat.appmanager.HelperBase.*;
 /*
  * Based on the selection of the Pending Amount of age brackets the officer can 
  * assign the pending VAT amount to be collected to the Collection officer
@@ -235,7 +236,9 @@ public class DebtManagementUnassignedDebt {
 		clickOn("filterbytpayer", "");
 		String taxpayername=elementText("txt_particulars","");
 		type("input_search_tpprofile",taxpayername);
+
 		clickOn("btn_searchage","");		
+
 		sleepWait(5000);
 		waitUntilElementFound("vchkbx_selectall", "");
 		List <WebElement> records = wd.findElements(By.xpath("//tbody/tr"));
@@ -511,6 +514,9 @@ public void click_on_save_button_It_should_be_disabled() throws Throwable {
 
 @Then("^Search by TaxPayer Name \"([^\"]*)\" and assigns to officer and is on Case Management$")
 public void search_by_TaxPayer_Name_and_assigns_to_officer_and_is_on_Case_Management(String arg1)throws Throwable {
+	
+	sleepWait(1000);
+	waitFor("btn_filter");
 	clickOn("btn_filter","");
 	clickOn("drpdwnfilterby_txpayer", "");
 	sleepWait(2000);

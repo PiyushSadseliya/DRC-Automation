@@ -61,7 +61,7 @@ public class DebtManagementLandingScreen {
 	NumberFormat f =NumberFormat.getNumberInstance();
 	double m,result;
 	String max;
-	SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-d");  
+	SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");  
 	String debtamoount;
 
 

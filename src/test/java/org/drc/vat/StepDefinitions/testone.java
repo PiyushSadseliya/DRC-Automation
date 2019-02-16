@@ -51,7 +51,7 @@ public class testone {
 		System.out.println(checkDate("16-01-2019"));
 	}*/
 
-	public static void main(String[] args) 
+	public static void main(String[] args) throws ParseException 
 	{
 	    /* Date now = new Date();
 	     SimpleDateFormat mdyFormat = new SimpleDateFormat("dd MMMM, yyyy");
@@ -100,15 +100,26 @@ public class testone {
 		value = value.substring(15);
 		System.out.println(value);*/
 	    
-	    
+		String ch = "22-Feb-2019";
 		
-		/*Date Mydate = new Date();		
-		SimpleDateFormat mdyFormat = new SimpleDateFormat("dd-MMM-yyyy");
-		String mdy = mdyFormat.format(Mydate);
-		System.out.println(mdy);
+		String Mydate = "22 February, 2019";			
+		SimpleDateFormat mdyFormat = new SimpleDateFormat("dd MMMM,yyyy");		
+		SimpleDateFormat mdyFormat1 = new SimpleDateFormat("dd-MMM-yyyy");
 	
-		String value = "Reference Id: H19011100000018";
+		 String check =  mdyFormat1.format(mdyFormat.parse(Mydate));
+		// System.out.println(check);
+		 //System.out.println(mdyFormat1.format(mdyFormat.parse(Mydate)));
+		
+		assertEquals(ch, check);
+		
+		System.out.println(ch);
+		System.out.println(check);
+	
+		
+		
+/*		String value = "Reference Id: H19011100000018";
 		value = value.substring(14);
+		
 		System.out.println(value);
 		
 		String s = "Reference Id: H19011100000018";
@@ -163,12 +174,26 @@ public class testone {
 		value = value.substring(1,7);
 		System.out.println(value);
 		
+		
+		
+		
 		Date Mydate = new Date();		
 		SimpleDateFormat mdyFormat = new SimpleDateFormat("YYMMdd");
 		String mdy = mdyFormat.format(Mydate);		
 		System.out.println(value);
 		assertEquals(mdy, value);
 		*/
+		
+	/*	String CaseID_PaymentAgreement = "R1902140000003";
+		String value = CaseID_PaymentAgreement;
+		value = value.substring(1,7);
+		//value = value.substring(1,7);
+		System.out.println(value);
+		*/
+		/*String value = "Agreement Id : PA19021400001";
+		value = value.substring(15);
+		System.out.println(value);*/
+		
 		//------------------------------------------------------------------------------------------------//
 		
 		/*String value = "Payment Amount Due: FC 112,08";
@@ -177,11 +202,11 @@ public class testone {
 		
 		String FC1 = value.replaceAll("[A-Z]", "");*/
 		
-		StoreRecoveryAmount SRA = 
+	/*	StoreRecoveryAmount SRA = 
 		
 		String FC2 = FC1.replace("," ,".");
 		 //String FC2 = FC1.replace("." ,"");
-		 System.out.println(FC2);		 
+		 System.out.println(FC2);		 */
 		
 		
 	/*	System.out.println(StoteNIA); 

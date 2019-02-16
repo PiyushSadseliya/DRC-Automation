@@ -25,10 +25,8 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import static org.drc.vat.appmanager.HelperBase.*;
 
-
 public class ApplicationManager {
 	private final Properties properties;
-	//public WebDriver wd;
 	private String browser;
 
 	private HelperBase helperBase;
@@ -41,28 +39,25 @@ public class ApplicationManager {
 
 	public void initUrl() throws IOException, AWTException {
 		String target = System.getProperty("target", "local");
-		properties.load(new FileReader(new File(
-				String.format("src/test/resources/%s.properties", target))));
+		properties.load(new FileReader(new File(String.format("src/test/resources/%s.properties", target))));
 		if ("".equals(properties.getProperty("selenium.server"))) {
 			if (browser.equals(BrowserType.IE)) {
-				//System.setProperty("webdriver.ie.driver","D:\\AutomationFHLBNY\\AuditConfirmations\\IEDriverServer.exe");
+				// System.setProperty("webdriver.ie.driver","D:\\AutomationFHLBNY\\AuditConfirmations\\IEDriverServer.exe");
 				wd = new InternetExplorerDriver();
 
 			} else if (browser.equals(BrowserType.CHROME)) {
-				System.setProperty("webdriver.CHROME.driver",System.getProperty("user.dir")+"\\chromedriver.exe");
-
+				System.setProperty("webdriver.CHROME.driver", System.getProperty("user.dir") + "\\chromedriver.exe");
 
 				ChromeOptions options = new ChromeOptions();
 				options.setExperimentalOption("plugins.always_open_pdf_externally", true);
 
 				ChromeOptions co = new ChromeOptions();
-				Map<String,Object> prefs = new HashMap<>();
+				Map<String, Object> prefs = new HashMap<>();
 				prefs.put("plugins.always_open_pdf_externally", true);
 				co.setExperimentalOption("prefs", prefs);
 
 				wd = new ChromeDriver(co);
-			}
-			else if (browser.equals(BrowserType.FIREFOX)) {
+			} else if (browser.equals(BrowserType.FIREFOX)) {
 				System.setProperty("webdriver.gecko.driver", "F:\\DRC\\Automation\\drc_vat\\DRC_VAT\\geckodriver.exe");
 				wd = new FirefoxDriver();
 			}
@@ -74,10 +69,7 @@ public class ApplicationManager {
 		}
 
 		wd.manage().window().maximize();
-		wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-		// wd.get(properties.getProperty("web.Url"));
-		//auth();
-
+		wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		helperBase = new HelperBase(wd);
 
 	}
@@ -99,20 +91,15 @@ public class ApplicationManager {
 		return ((TakesScreenshot) wd).getScreenshotAs(OutputType.FILE);
 	}
 
-
-	/** 
-	 *  For QA Environment
-	 */
-
 	/**
-	 *  Ketan.prajapati internal portal
+	 * Ketan.prajapati internal portal
 	 */
 	public void callinternalportal() throws AWTException, InterruptedException, IOException 
 	{
 		if (wd.getCurrentUrl().contains("8068") || wd.getCurrentUrl().contains("8042")) 
-		{			 
+		{
 			wd.close();
-			Thread.sleep(1000);
+			Thread.sleep(2000);
 			wd = new ChromeDriver();
 			wd.manage().window().maximize();
 			wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
@@ -120,8 +107,7 @@ public class ApplicationManager {
 			//Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\src\\test\\resources\\authusers\\autoitsample.exe");
 			Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\QA_Internal_Portal_Login\\autoitsample.exe");
 
-			wd.findElement(By.xpath(obj.getProperty("btn_windowsClick"))).click();
-			Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\src\\test\\resources\\authusers\\autoitsample.exe");
+			wd.findElement(By.xpath(obj.getProperty("btn_windowsClick"))).click();			
 			Thread.sleep(1000);
 		}
 		else
@@ -141,30 +127,35 @@ public class ApplicationManager {
 				Thread.sleep(1000);
 			}
 		}
+			
 	}
 	
-	public void EFDinternalportal() throws AWTException, InterruptedException, IOException 
-	{
-		if (wd.getCurrentUrl().contains("8057")) 
-		{			
+
+	public void EFDinternalportal() throws AWTException, InterruptedException, IOException {
+		if (wd.getCurrentUrl().contains("8057")) {
 			wd.close();
 			Thread.sleep(1000);
 			wd = new ChromeDriver();
 			wd.manage().window().maximize();
 			wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 			wd.get("http://103.249.120.58:8044");
-			Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\src\\test\\resources\\authusers\\autoitsample.exe");
+			//Runtime.getRuntime().exec(System.getProperty("user.dir") + "\\src\\test\\resources\\authusers\\autoitsample.exe");
+			Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\QA_Internal_Portal_Login\\autoitsample.exe");
 			wd.findElement(By.xpath(obj.getProperty("btn_windowsClick"))).click();
 			Thread.sleep(1000);
-		}		
+		}
 	}
 
-	public void callmanufacturerportal() throws AWTException, InterruptedException, IOException {
+	public void callmanufacturerportal() throws AWTException, InterruptedException, IOException 
+	{
+		wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		wd.get("http://103.249.120.58:8057");
 	}
-	public void callvendorportal() throws AWTException, InterruptedException, IOException {		
+
+	public void callvendorportal() throws AWTException, InterruptedException, IOException {
 		wd.get("http://103.249.120.58:8012");
 	}
+
 
 	/**
 	 *  Frankey 
@@ -174,13 +165,13 @@ public class ApplicationManager {
 		if (wd.getCurrentUrl().contains("8068")) 
 		{			
 			sleepWait(1500);
-			wd.close(); 
+			wd.close();
 			Thread.sleep(1000);
 			wd = new ChromeDriver();
 			wd.manage().window().maximize();
 			wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-			wd.get("http://103.249.120.58:8042");	
-			Thread.sleep(1000);		
+			wd.get("http://103.249.120.58:8042");
+			Thread.sleep(1000);
 		}
 	}
 	
@@ -199,98 +190,80 @@ public class ApplicationManager {
 		Thread.sleep(1000);			
 	}*/
 
+
 	/**
-	 *  rohit.patil internal portal
+	 * rohit.patil internal portal
 	 */
-	public void callinternalportal_TaxOfficer() throws AWTException, InterruptedException, IOException 
-	{
-		if (wd.getCurrentUrl().contains("8068")) 
-		{
+	public void callinternalportal_TaxOfficer() throws AWTException, InterruptedException, IOException {
+		if (wd.getCurrentUrl().contains("8068")) {
 			wd.close();
-			//WebDriver wd = new ChromeDriver(); 
 			wd = new ChromeDriver();
 			wd.manage().window().maximize();
 			wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 			wd.get("http://103.249.120.58:8044");
 
-			//Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\src\\test\\resources\\authusers\\autoitlaxman.exe");
-			Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\QA_Internal_Portal_Login\\autoitsample.rohit.exe");
+			Runtime.getRuntime()
+					.exec(System.getProperty("user.dir") + "\\QA_Internal_Portal_Login\\autoitsample.rohit.exe");
 			wd.findElement(By.xpath(obj.getProperty("btn_windowsClick"))).click();
 			Thread.sleep(1000);
-		}
-		else
-		{
-			if (!wd.getCurrentUrl().contains("8068"))
-			{
+		} else {
+			if (!wd.getCurrentUrl().contains("8068")) {
 				wd.get("http://103.249.120.58:8044");
-
-				//Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\src\\test\\resources\\authusers\\autoitlaxman.exe");
-				Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\QA_Internal_Portal_Login\\autoitsample.rohit.exe");
+				Runtime.getRuntime()
+						.exec(System.getProperty("user.dir") + "\\QA_Internal_Portal_Login\\autoitsample.rohit.exe");
 				clickOn("btn_windowsClick", "");
 				Thread.sleep(1000);
-			}						
+			}
 		}
 	}
-	/**
-	 *  pooja.parmar internal portal
-	 */
-	public void callinternalportal_Supervisor() throws AWTException, InterruptedException, IOException 
-	{
 
-		if (wd.getCurrentUrl().contains("8068")) 
-		{		
+	/**
+	 * pooja.parmar internal portal
+	 */
+	public void callinternalportal_Supervisor() throws AWTException, InterruptedException, IOException {
+
+		if (wd.getCurrentUrl().contains("8068")) {
 			wd.close();
-			//WebDriver wd = new ChromeDriver();
 			wd = new ChromeDriver();
 			wd.manage().window().maximize();
-			wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);									
+			wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 			wd.get("http://103.249.120.58:8044");
-			//Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\src\\test\\resources\\authusers\\autoitlaxman.exe");
-			Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\QA_Internal_Portal_Login\\autoitsample.Supervisiour.exe");
+			Runtime.getRuntime()
+					.exec(System.getProperty("user.dir") + "\\QA_Internal_Portal_Login\\autoitsample.Supervisiour.exe");
 			wd.findElement(By.xpath(obj.getProperty("btn_windowsClick"))).click();
 			Thread.sleep(1000);
-		}
-		else
-		{
-			if (!wd.getCurrentUrl().contains("8068")) 
-			{
+		} else {
+			if (!wd.getCurrentUrl().contains("8068")) {
 				Thread.sleep(5000);
 				wd.get("http://103.249.120.58:8044");
-
-				//Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\src\\test\\resources\\authusers\\autoitlaxman.exe");				
-				Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\QA_Internal_Portal_Login\\autoitsample.Supervisiour.exe");
+				Runtime.getRuntime().exec(
+						System.getProperty("user.dir") + "\\QA_Internal_Portal_Login\\autoitsample.Supervisiour.exe");
 				clickOn("btn_windowsClick", "");
 				Thread.sleep(1000);
 			}
 		}
 	}
+
 	/**
-	 *  laxman.prajapati internal portal
+	 * laxman.prajapati internal portal
 	 */
-	public void callinternalportal_Assessment_Officer() throws AWTException, InterruptedException, IOException 
-	{	
-		if (wd.getCurrentUrl().contains("8068")) 
-		{		
+	public void callinternalportal_Assessment_Officer() throws AWTException, InterruptedException, IOException {
+		if (wd.getCurrentUrl().contains("8068")) {
 			wd.close();
 			WebDriver wd = new ChromeDriver();
 			wd = new ChromeDriver();
 			wd.manage().window().maximize();
 			wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 			wd.get("http://103.249.120.58:8044");
-			Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\QA_Internal_Portal_Login\\autoitlaxman.exe");
-			//Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\src\\test\\resources\\authusers\\autoitlaxman.exe");			
-
+			Runtime.getRuntime().exec(System.getProperty("user.dir") + "\\QA_Internal_Portal_Login\\autoitlaxman.exe");
 			wd.findElement(By.xpath(obj.getProperty("btn_windowsClick"))).click();
 			Thread.sleep(1000);
-		}
-		else
-		{
-			if (!wd.getCurrentUrl().contains("8068")) 
-			{
+		} else {
+			if (!wd.getCurrentUrl().contains("8068")) {
 				Thread.sleep(1000);
 				wd.get("http://103.249.120.58:8044");
-				Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\QA_Internal_Portal_Login\\autoitlaxman.exe");
-				//Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\src\\test\\resources\\authusers\\autoitlaxman.exe");				
+				Runtime.getRuntime()
+						.exec(System.getProperty("user.dir") + "\\QA_Internal_Portal_Login\\autoitlaxman.exe");
 
 				clickOn("btn_windowsClick", "");
 				Thread.sleep(1000);
@@ -298,146 +271,141 @@ public class ApplicationManager {
 		}
 	}
 
-
-	public void callurl() throws AWTException, InterruptedException 
-	{
-		if(wd.getCurrentUrl().contains(":90"))
-		{
+	public void callurl() throws AWTException, InterruptedException {
+		if (wd.getCurrentUrl().contains(":90")) {
 			wd.get(properties.getProperty("web.Url"));
-			//sleepWait(500);
-		}		
-		else if(wd.getCurrentUrl().contains(":8066"))
-		{
-			sleepWait(500);			
-		}
-		else if(wd.getCurrentUrl().contains(":8068"))
-		{
-			sleepWait(500);			
-		}
-		else if(wd.getCurrentUrl().contains(":8031"))
-		{
-			sleepWait(500);			
-		}
-		else if(!wd.getCurrentUrl().contains(":8042"))
-		{
+		} else if (wd.getCurrentUrl().contains(":8066")) {
+			sleepWait(500);
+		} else if (wd.getCurrentUrl().contains(":8068")) {
+			sleepWait(500);
+		} else if (wd.getCurrentUrl().contains(":8031")) {
+			sleepWait(500);
+		} else if (!wd.getCurrentUrl().contains(":8042")) {
 			wd.get(properties.getProperty("web.Url"));
 		}
 	}
 
-
 	/**
-	 *  For Demo Environment
+	 * For Demo Environment
 	 */
 
 	/**
-	 *  Ketan.prajapati internal portal demo
+	 * Ketan.prajapati internal portal demo
 	 */
-	public void callinternalportal_ketan_demo() throws AWTException, InterruptedException, IOException 
-	{
-		if (wd.getCurrentUrl().contains("8031")) 
-		{			
+	public void callinternalportal_ketan_demo() throws AWTException, InterruptedException, IOException {
+		if (wd.getCurrentUrl().contains("8031")) {
 			wd.close();
 			Thread.sleep(1000);
 			WebDriver wd = new ChromeDriver();
 			wd.manage().window().maximize();
 			wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 			wd.get("http://103.249.120.58:8046");
-			Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\Demo_Internal_Roles_Login\\Ketan_Internal.exe");			
-			//wd.findElement(By.xpath(obj.getProperty("btn_windowsClick"))).click();
+			Runtime.getRuntime()
+					.exec(System.getProperty("user.dir") + "\\Demo_Internal_Roles_Login\\Ketan_Internal.exe");
 			Thread.sleep(1000);
-		}
-		else
-		{
-			if (!wd.getCurrentUrl().contains("8031")) 
-			{
+		} else {
+			if (!wd.getCurrentUrl().contains("8031")) {
 				Thread.sleep(1000);
 				wd.get("http://103.249.120.58:8046");
-				Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\Demo_Internal_Roles_Login\\Ketan_Internal.exe");
-				//clickOn("btn_windowsClick", "");			
+				Runtime.getRuntime()
+						.exec(System.getProperty("user.dir") + "\\Demo_Internal_Roles_Login\\Ketan_Internal.exe");
 				Thread.sleep(1000);
 			}
 		}
 	}
+
 	/**
-	 *  rohit.patil internal portal demo
+	 * rohit.patil internal portal demo
 	 */
-	public void callinternalportal_TaxOfficer_demo() throws AWTException, InterruptedException, IOException 
-	{
-		if (wd.getCurrentUrl().contains("8031")) 
-		{
+	public void callinternalportal_TaxOfficer_demo() throws AWTException, InterruptedException, IOException {
+		if (wd.getCurrentUrl().contains("8031")) {
 			wd.close();
 			WebDriver wd = new ChromeDriver();
 			wd = new ChromeDriver();
 			wd.manage().window().maximize();
 			wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 			wd.get("http://103.249.120.58:8046");
-			Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\Demo_Internal_Roles_Login\\Rohit_Internal.exe");
-			//wd.findElement(By.xpath(obj.getProperty("btn_windowsClick"))).click();
-			Thread.sleep(1000);
-		}
-		else
-		{
-			if (!wd.getCurrentUrl().contains("8031"))
-			{
+			Runtime.getRuntime()
+					.exec(System.getProperty("user.dir") + "\\Demo_Internal_Roles_Login\\Rohit_Internal.exe");
 
-				Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\Demo_Internal_Roles_Login\\Rohit_Internal.exe");
+			Thread.sleep(1000);
+		} else {
+			if (!wd.getCurrentUrl().contains("8031")) {
+
+				Runtime.getRuntime()
+						.exec(System.getProperty("user.dir") + "\\Demo_Internal_Roles_Login\\Rohit_Internal.exe");
 				wd.get("http://103.249.120.58:8046");
-				//clickOn("btn_windowsClick", "");
+
 				Thread.sleep(1000);
-			}						
+			}
 		}
 	}
+
 	/**
 	 * pooja.parmar internal portal demo
-	 */ 
-	public void callinternalportal_Supervisor_demo() throws AWTException, InterruptedException, IOException 
-	{
+	 */
+	public void callinternalportal_Supervisor_demo() throws AWTException, InterruptedException, IOException {
 
-		if (wd.getCurrentUrl().contains("8031")) 
-		{		
+		if (wd.getCurrentUrl().contains("8031")) {
 			Thread.sleep(1000);
-			WebDriver wd = new ChromeDriver();			
+			WebDriver wd = new ChromeDriver();
 			wd.get("http://103.249.120.58:8046");
-			Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\Demo_Internal_Roles_Login\\Pooja_Internal.exe");			
-			//wd.findElement(By.xpath(obj.getProperty("btn_windowsClick"))).click();
+			Runtime.getRuntime()
+					.exec(System.getProperty("user.dir") + "\\Demo_Internal_Roles_Login\\Pooja_Internal.exe");
+
 			Thread.sleep(1000);
-		}
-		else
-		{
-			if (!wd.getCurrentUrl().contains("8031")) 
-			{
+		} else {
+			if (!wd.getCurrentUrl().contains("8031")) {
 				Thread.sleep(5000);
 				wd.get("http://103.249.120.58:8046");
-				Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\Demo_Internal_Roles_Login\\Pooja_Internal.exe");				
-				//clickOn("btn_windowsClick", "");
+				Runtime.getRuntime()
+						.exec(System.getProperty("user.dir") + "\\Demo_Internal_Roles_Login\\Pooja_Internal.exe");
 				Thread.sleep(1000);
 			}
 		}
 	}
+
 	/**
-	 *  laxman.prajapati internal portal demo
+	 * laxman.prajapati internal portal demo
 	 */
-	public void callinternalportal_Assessment_Officer_laxman_demo() throws AWTException, InterruptedException, IOException 
-	{	
-		if (wd.getCurrentUrl().contains("8031")) 
-		{		
+	public void callinternalportal_Assessment_Officer_laxman_demo()
+			throws AWTException, InterruptedException, IOException {
+		if (wd.getCurrentUrl().contains("8031")) {
 			Thread.sleep(1000);
-			WebDriver wd = new ChromeDriver();			
+			WebDriver wd = new ChromeDriver();
 			wd.get("http://103.249.120.58:8046");
-			Runtime.getRuntime().exec(System.getProperty("user.dir") +"Demo_Internal_Roles_Login\\Laxman_Internal.exe");			
-			//wd.findElement(By.xpath(obj.getProperty("btn_windowsClick"))).click();
+			Runtime.getRuntime()
+					.exec(System.getProperty("user.dir") + "Demo_Internal_Roles_Login\\Laxman_Internal.exe");
 			Thread.sleep(1000);
-		}
-		else
-		{
-			if (!wd.getCurrentUrl().contains("8031")) 
-			{
+		} else {
+			if (!wd.getCurrentUrl().contains("8031")) {
 				Thread.sleep(1000);
 				wd.get("http://103.249.120.58:8046");
-				Runtime.getRuntime().exec(System.getProperty("user.dir") +"Demo_Internal_Roles_Login\\Laxman_Internal.exe");				
-				//clickOn("btn_windowsClick", "");
+				Runtime.getRuntime()
+						.exec(System.getProperty("user.dir") + "Demo_Internal_Roles_Login\\Laxman_Internal.exe");
 				Thread.sleep(1000);
 			}
 		}
+	}
+
+	public void call1trackitadminUser() throws AWTException, InterruptedException, IOException {
+
+		wd.close();
+		wd = new ChromeDriver();
+		wd.manage().window().maximize();
+		wd.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		wd.get("http://103.249.120.58:8027");
+		Thread.sleep(3000);
+		Runtime.getRuntime().exec(System.getProperty("user.dir") + "\\QA_Internal_Portal_Login\\itsupportadmin.exe");
+		clickOn("btn_windowsClick", "");
+	}
+
+	public void call1trackituser() throws AWTException, InterruptedException, IOException {
+		wd.close();
+		wd = new ChromeDriver();
+		wd.manage().window().maximize();
+		wd.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		wd.get("http://103.249.120.58:8027");
+		Thread.sleep(4000);
 	}
 }

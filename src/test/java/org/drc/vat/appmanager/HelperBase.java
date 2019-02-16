@@ -968,11 +968,11 @@ public class HelperBase {
 			Date date1 = myFormat.parse(Date1);
 			Date date2 = myFormat.parse(Date2);
 			diff = date2.getTime() - date1.getTime();
-			System.out.println("Days: " + TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS));
+			//System.out.println("Days: " + TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS));
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-		return diff;
+		return TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
 
 	}
 
@@ -1060,5 +1060,20 @@ public class HelperBase {
 		return validDate; 
 		
 	}
-	
+	public static void waitTillElementLocated(String object) {
+		try {
+			obj.load(fis);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		WebElement myDynamicElement = (new WebDriverWait(wd, 15))
+				  .until(ExpectedConditions.presenceOfElementLocated(By.xpath(obj.getProperty(object))));
+	}
+
+	public static boolean waitTillElementDisappear(String object) 
+	{		
+		WebDriverWait wait = new WebDriverWait(wd, 100);
+		return wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(object)));
+	}
 }
+	

@@ -16,7 +16,7 @@ Feature: User is on FX Management Page DGI Supervisor
   @TC_05_name_and_profile
   Scenario Outline: Validate the Name and profile picture displayed  on all the screens
     Given User is on FX Management "<TestcaseID>" "<Description>"
-    And User click on Dashboard
+    And User click on Dashboard	
     And User see FX Management
     And User click on FX Management tab
     And User verify the DGI officer name and profile picture "<name>" for DGI Supervisior

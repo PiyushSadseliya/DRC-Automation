@@ -474,6 +474,7 @@ public class VatRegistration {
 		sleepWait(500);
 		clickOn("span", "[contains(text(),'" + Filter + "')]");
 		type("txt_search", Searchelement);
+		
 	}
 
 	@Then("^clicks on manage button and select \"([^\"]*)\"$")
