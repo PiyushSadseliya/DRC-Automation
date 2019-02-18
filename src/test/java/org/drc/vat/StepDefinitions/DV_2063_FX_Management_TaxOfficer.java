@@ -1,12 +1,16 @@
 package org.drc.vat.StepDefinitions;
 
 import static org.drc.vat.appmanager.HelperBase.*;
+import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 import java.awt.Robot;
 import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -21,16 +25,16 @@ import cucumber.api.java.en.Then;
 
 public class DV_2063_FX_Management_TaxOfficer 
 {
-	
-	public String BaseCurr;
-	public String BaseCurrName;
-	public String BaseCurrCheck;
-	public String StoreCurrency;
+	 
+	public static String BaseCurr;
+	public static String BaseCurrName;
+	public static String BaseCurrCheck;
+	public static String StoreCurrency;
+	public static String ToDate;
 	
 	@And("^User is on FX Management \"([^\"]*)\" \"([^\"]*)\"$")
 	public void user_is_on_FX_Management(String value, String value1) throws Throwable
-	{
-	    
+	{	    
 		System.out.println(value);
 		System.out.println(value1);
 	}
@@ -79,8 +83,7 @@ public class DV_2063_FX_Management_TaxOfficer
 	public void user_click_on_update_button() throws Throwable 
 	{
 		sleepWait(1000);
-		clickOn("btn_UpdateFX", "");
-	    
+		clickOn("btn_UpdateFX", "");	    
 	}
 
 	@And("^User see pop up and see base currency is (\\d+)$")
@@ -109,8 +112,7 @@ public class DV_2063_FX_Management_TaxOfficer
 		if(BaseCurr.contains("1") && BaseCurrName.contains("Congolese Franc(FC)"))
 		{
 			assertTrue(true);
-		}
-		
+		}		
 	}
 
 	@And("^User click on Update button and pop up appear$")
@@ -155,12 +157,11 @@ public class DV_2063_FX_Management_TaxOfficer
 			
 	}	
 	
-	// 05
+	
 	@And("^User click on \"([^\"]*)\"enter data \"([^\"]*)\"  and click on save button and check \"([^\"]*)\"$")
 	public void user_click_on_enter_data_and_click_on_save_button_and_check(String value, String value1, String value2) throws Throwable
 	{
-	    clickOn("value", "");
-	    
+	    clickOn("value", "");	    
 	    type(value1, "");
 	    
 	}
@@ -189,11 +190,8 @@ public class DV_2063_FX_Management_TaxOfficer
 	   if(BaseCurrCheck.equals(curr))
 	   {
 		   assertTrue(true);
-	   }
-	   
+	   }	   
 	}
-
-	
 	
 	@And("^User click on save button on pop up$")
 	public void user_click_own_save_button_on_pop_up() throws Throwable 
@@ -243,145 +241,77 @@ public class DV_2063_FX_Management_TaxOfficer
 		sleepWait(1000);
 		if(wd.findElement(By.xpath(obj.getProperty("txt_record_in_table"))).isDisplayed() || wd.findElement(By.xpath(obj.getProperty("txt_FxManNRF"))).isDisplayed())
 		{
-			assertTrue(true);
-			
-		}
-		
-	}
-
-	@And("^User verify the by default date displaying in the From date and To date \"([^\"]*)\" \"([^\"]*)\"$")
-	public void user_verify_the_by_default_date_displaying_in_the_From_date_and_To_date(String FD, String TD) throws Throwable 
-	{
-		String sum =FD;
-		String sum1 =TD;
-		 //WebElement element1 = wd.findElement(By.xpath("//div[1]/div[2]/input"));		
-		WebElement element1 = wd.findElement(By.xpath(obj.getProperty("txtBoxFrom")));
-		 String number1 = element1.getAttribute("value");		 
-		 //WebElement element2 = wd.findElement(By.xpath("//div[2]/div[2]/input"));		
-		 WebElement element2 = wd.findElement(By.xpath(obj.getProperty("txtBoxTo")));
-		 String number2 = element2.getAttribute("value");
-		if(sum==number1 && sum1==number2)
-		{
-			assertTrue(true);
-		}
-	}
-
-	
-	/**
-	 * User select Today date 
-	 */
-	@And("^User Select Todays date \"([^\"]*)\" in From and check selected date$")
-	public void user_Select_Todays_date_in_From_and_check_selected_date(String arg1) throws Throwable
-	{
-		sleepWait(2000);
-		String sum =arg1;
-		clickOn("FromDateSelectFX", "");
-	    sleepWait(2000);
-        WebElement To_date = wd.findElement(By.xpath("//div[2]/table/tbody"));    
-        sleepWait(2000);
-        List<WebElement> startDate = To_date.findElements(By.tagName("td"));
-        for(int i = 0; i < startDate.size(); i++)
-        {
-         String date = startDate.get(i).getText();         
-         if(date.equals(arg1)) 
-         {
-          startDate.get(i).click();
-           break;
-         }
-        }		
-        WebElement element1 = wd.findElement(By.xpath("//div[1]/div[2]/input"));		
-		String number1 = element1.getAttribute("value");							
-		if(sum == number1)
-		{
-			assertTrue(true);
+			assertTrue(true);			
 		}		
 	}
 
-	@And("^USer Select todays days \"([^\"]*)\" in To and check selected date$")
-	public void user_Select_todays_days_in_To_and_check_selected_date(String arg1) throws Throwable 
-	{		
-		String sum =arg1;
-		clickOn("ToDateSelect", "");
-	    sleepWait(2000);
-        WebElement To_date = wd.findElement(By.xpath("//div[2]/table/tbody"));    
-        sleepWait(2000);
-        List<WebElement> startDate = To_date.findElements(By.tagName("td"));
-        for(int i = 0; i < startDate.size(); i++)
-        {
-         String date = startDate.get(i).getText();
-         if(date.equals(arg1)) 
-         {
-          startDate.get(i).click();
-           break;
-         }
-        }		
-        WebElement element1 = wd.findElement(By.xpath("//div[2]/div[2]/input"));		
-		String number1 = element1.getAttribute("value");								
-		if(sum == number1)
-		{
-			assertTrue(true);
-		}			
+	
+	@And("^User verify the by default date displaying in the From date and To date$")
+	public void user_verify_the_by_default_date_displaying_in_the_From_date_and_To_date() throws Throwable 
+	{
+		String ToDatecheck = getValue("txtBoxTo");
+		String FromDate =getValue("txtBoxFrom");
+		Calendar cal = Calendar.getInstance();
+	    cal.add(Calendar.DATE,0);
+	    Date date = cal.getTime();             
+	    SimpleDateFormat format1 = new SimpleDateFormat("MM/dd/YYYY");
+	    String date1 = format1.format(date);
+	    ToDate = date1;
+	    assertEquals(ToDate, ToDatecheck);
+	    cal.add(Calendar.DATE,0-6);
+	    Date date01 = cal.getTime();             
+	    SimpleDateFormat format2 = new SimpleDateFormat("MM/dd/YYYY");
+	    String date2 = format2.format(date01);    
+	    assertEquals(date2, FromDate);
+	}
+	
+	@And("^User Select Todays date \"([^\"]*)\" in From and Select todays days \"([^\"]*)\" in To check selected date$")
+	public void user_Select_Todays_date_in_From_and_Select_todays_days_in_To_check_selected_date(String To, String From) throws Throwable 
+	{
+		sleepWait(1000);
+		clickOn("FromDateSelectFX", "");		
+		datePicker(To);	
+		clickOn("ToDateSelect", "");		
+		datePicker(From);		
+		String ToCheck = getValue("txtBoxTo");
+		assertEquals(ToDate, ToCheck);		
+		String FromCheck = getValue("txtBoxFrom");		
+		Calendar cal = Calendar.getInstance();
+	    cal.add(Calendar.DATE,0);
+	    Date date = cal.getTime();             
+	    SimpleDateFormat format1 = new SimpleDateFormat("MM/dd/YYYY");
+	    String date1 = format1.format(date);		
+		assertEquals(FromCheck, date1);
+		
 	}
 
 	@And("^User click on search icon and today date should display \"([^\"]*)\"$")
 	public void user_click_on_search_icon_and_today_date_should_display(String value) throws Throwable 
 	{
 		clickOn("btn_SearchFX", "");
-				
+		sleepWait(1000);				
 		if(wd.findElement(By.xpath("(//div[contains(text(),'" + value + "')])[1]")).isDisplayed() )
-		{		
-			System.out.println("User see Display date");
+		{					
 			assertTrue(true);
 		}			
 	}
 
-	@And("^User select date which the currency record are not present in From \"([^\"]*)\"$")
-	public void user_select_date_which_the_currency_record_are_not_present_in_From(String arg1) throws Throwable 
+	
+	@And("^User select date which the currency record are not present in From \"([^\"]*)\" and in To \"([^\"]*)\"$")
+	public void user_select_date_which_the_currency_record_are_not_present_in_From_and_in_To(String To, String From) throws Throwable 
 	{
 		sleepWait(1000);
 		clickOn("FromDateSelectFX", "");
-	    sleepWait(2000);
-        WebElement To_date = wd.findElement(By.xpath("//div[2]/table/tbody"));    
-        sleepWait(2000);
-        List<WebElement> startDate = To_date.findElements(By.tagName("td"));
-        for(int i = 0; i < startDate.size(); i++)
-        {
-         String date = startDate.get(i).getText();
-         if(date.equals(arg1)) 
-         {
-          startDate.get(i).click();
-           break;
-         }
-        }     
-	}
-
-	@And("^User select date which the currency record are not present in To \"([^\"]*)\"$")
-	public void user_select_date_which_the_currency_record_are_not_present_in_To(String arg1) throws Throwable 
-	{
-		
+		datePicker(To);	
+		sleepWait(1000);
 		clickOn("ToDateSelect", "");
-	    sleepWait(2000);
-        WebElement To_date = wd.findElement(By.xpath("//div[2]/table/tbody"));    
-        sleepWait(2000);
-
-        List<WebElement> startDate = To_date.findElements(By.tagName("td"));
-        for(int i = 0; i < startDate.size(); i++)
-        {
-         String date = startDate.get(i).getText();
-         if(date.equals(arg1)) 
-         {
-          startDate.get(i).click();
-           break;
-         }
-        }
+		datePicker(From);
 	}
-
 
 	@And("^User click on search icon$")
 	public void user_click_on_search_icon() throws Throwable
 	{
-	    clickOn("btn_SearchFX", "");
-	    
+	    clickOn("btn_SearchFX", "");	   
 	}
 
 	@And("^User see message no record found for date$")
@@ -423,8 +353,7 @@ public class DV_2063_FX_Management_TaxOfficer
 		if(wd.findElement(By.xpath(obj.getProperty("txt_ApprovalRequired"))).isDisplayed())
 		{
 			assertTrue(true);
-		}			
-		
+		}				
 	}
 
 	
@@ -437,7 +366,7 @@ public class DV_2063_FX_Management_TaxOfficer
 	}
 
 	/**
-	 *  Logout and login in supervisiour
+	 *  Logout and login in supervisor
 	 */
 	@Then("^User enter credencial for DGI Supervisor and verify New Updated rates notification on their FX management landing page$")
 	public void user_enter_credencial_for_DGI_Supervisor_and_verify_New_Updated_rates_notification_on_their_FX_management_landing_page() throws Throwable 
@@ -579,8 +508,6 @@ public class DV_2063_FX_Management_TaxOfficer
 		String	FC1 = CurrencyAR.replace("." ,"");		
 		String FC2 = FC1.replace("," ,".");
 		
-		
-		
 		if(StoreCurrency.equals(FC2))
 		{
 			assertTrue(true);
@@ -655,8 +582,6 @@ public class DV_2063_FX_Management_TaxOfficer
 		clickOn("txt_Click", "");
 		sleepWait(1000);
 		clickOn("btn_windowsClick", "");
-		
-	    
 	}
 
 	@Then("^User Click on Historical FX Rates button$")
@@ -699,13 +624,9 @@ public class DV_2063_FX_Management_TaxOfficer
 	
 	@And("^User type \"([^\"]*)\" and see \"([^\"]*)\"$")
 	public void user_type_and_see(String data, String check) throws Throwable 
-	{
-		
-		type("txtBox_type_Currency", data);
-		
+	{		
+		type("txtBox_type_Currency", data);		
 		String check1 = getvalue("txtBox_type_Currency", ""); 
-		
-		
 		if(!data.equals(check1))
 		{
 			assertTrue(true);
@@ -802,9 +723,6 @@ public class DV_2063_FX_Management_TaxOfficer
 	@And("^User enter credencial for admin$")
 	public void user_enter_credencial_for_DGI_Officer_and_update_the_currency_for_admin() throws Throwable 
 	{
-		
-		
-		
 		//wd.close();		
 		wd = new ChromeDriver();		
 		wd.manage().window().maximize();		
@@ -815,6 +733,4 @@ public class DV_2063_FX_Management_TaxOfficer
 		sleepWait(1000);			
 		//wd.findElement(By.xpath(obj.getProperty("txt_FxManagement"))).click();
 	}
-	
-	
 }

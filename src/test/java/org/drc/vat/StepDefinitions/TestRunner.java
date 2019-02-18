@@ -44,7 +44,7 @@ import static org.drc.vat.appmanager.HelperBase.softAssert;
 },
 glue = "org.drc.vat.StepDefinitions",
 plugin = {"com.cucumber.listener.ExtentCucumberFormatter:","html:test-output/cucumber-report"}
-//,tags= {"@TC_02,@TC_08"}
+,tags= {"@TC_10"}
 		)
 
 public class TestRunner extends AbstractTestNGCucumberTests {

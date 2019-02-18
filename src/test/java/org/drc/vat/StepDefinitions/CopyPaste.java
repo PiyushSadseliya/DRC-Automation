@@ -62,13 +62,28 @@ public class CopyPaste {
 		String Cal = String.format ("%.3f", Check);
 		System.out.println(Cal);*/
 		
+		
+		String ToDate = "02/18/2019";
+		String FromDate ="02/12/2019";
+		
 		Calendar cal = Calendar.getInstance();
 	    cal.add(Calendar.DATE,0);
 	    Date date = cal.getTime();             
-	    SimpleDateFormat format1 = new SimpleDateFormat("YYMMdd");
+	    SimpleDateFormat format1 = new SimpleDateFormat("MM/dd/YYYY");
 	    String date1 = format1.format(date);    
 	    System.out.println(date1);
-		
+
+	    assertEquals(date1, ToDate);
+
+	    cal.add(Calendar.DATE,0-6);
+	    Date date01 = cal.getTime();             
+	    SimpleDateFormat format2 = new SimpleDateFormat("MM/dd/YYYY");
+	    String date2 = format2.format(date01);    
+	    System.out.println(date2);
+	    
+	    assertEquals(date2, FromDate);
+	    
+	    
 	    
 	  /*  cal.add(Calendar.DAY_OF_WEEK, 7*3);
 	    Date date01 = cal.getTime();             

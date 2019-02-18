@@ -16,7 +16,7 @@ Feature: User is on FX Management Page DGI Supervisor
   @TC_05_name_and_profile
   Scenario Outline: Validate the Name and profile picture displayed  on all the screens
     Given User is on FX Management "<TestcaseID>" "<Description>"
-    And User click on Dashboard	
+    And User click on Dashboard
     And User see FX Management
     And User click on FX Management tab
     And User verify the DGI officer name and profile picture "<name>" for DGI Supervisior
@@ -40,23 +40,21 @@ Feature: User is on FX Management Page DGI Supervisor
       | FX_Management_Supervisior_08 | Verify Historical FX Rates button functionality |
 
   @TC_10
-  Scenario Outline: Validate the from and to date search functionality on the FX management page with historic data
+  Scenario Outline: Validate the from and to date search functionality on the FX management page with historic data -supervisor
     Given User is on FX Management "<TestcaseID>" "<Description>"
     And User click on Dashboard
     And User click on FX Management tab
     And User Click on Historical FX Rates button
-    And User verify the by default date displaying in the From date and To date "<FD>" "<TD>"
-    And User Select Todays date "<TodayDate>" in From and check selected date
-    And USer Select todays days "<ToDate>" in To and check selected date
+    And User verify the by default date displaying in the From date and To date
+    And User Select Todays date "<TodayDate>" in From and Select todays days "<ToDate>" in To check selected date
     And User click on search icon and today date should display "<DisplayDate>"
-    And User select date which the currency record are not present in From "<NoCurrencyFromDate>"
-    And User select date which the currency record are not present in To "<NoCurrencyToDate>"
+    And User select date which the currency record are not present in From "<NoCurrencyFromDate>" and in To "<NoCurrencyToDate>"
     And User click on search icon
     And User see message no record found for date
 
     Examples: 
-      | TestcaseID                   | Description                      | FD         | TD         | TodayDate | ToDate | DisplayDate | NoCurrencyFromDate | NoCurrencyToDate |
-      | FX_Management_Supervisior_10 | Verify date search functionality | 12/12/2018 | 12/18/2018 |        18 |     18 | 12/18/2018  |                  1 |                1 |
+      | TestcaseID                   | Description                      | TodayDate  | ToDate     | DisplayDate | NoCurrencyFromDate | NoCurrencyToDate |
+      | FX_Management_Supervisior_10 | Verify date search functionality | 2019-02-18 | 2019-02-18 | 02/18/2019  | 2019-02-18         | 2019-02-18       |
 
   @TC_11
   Scenario Outline: Validate the Pagination on the FX management page with historic data

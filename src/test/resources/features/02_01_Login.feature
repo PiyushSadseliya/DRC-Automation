@@ -41,5 +41,5 @@ Feature: Login Module
     #And User logout
 
     Examples: 
-      | TestcaseID                      | email                    | password |
+      | TestcaseID                      | email                         | password |
       | Valid_DRC_ATC_LoginTaxPortal_01 | AutoTest1Reass@mailinator.com | Test@123 |
