@@ -249,7 +249,10 @@ public class EFDManufacture {
 	@Given("^User click on EFD management link$")
 	public void user_click_on_EFD_management_link() throws Throwable {
 		sleepWait(1000);
-		clickOn("txt_EFDmanagement","");			
+		clickOn("txt_EFDmanagement","");				
+		sleepWait(2000);
+		waitFor("txt_EFD_Firmware");
+		clickOn("txt_EFD_Firmware","");
 		sleepWait(2000);
 	}
 

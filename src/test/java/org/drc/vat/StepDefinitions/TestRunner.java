@@ -7,12 +7,8 @@ import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.testng.AbstractTestNGCucumberTests;
-import gherkin.formatter.model.Feature;
-
 import org.apache.commons.io.FileUtils;
 import org.drc.vat.appmanager.ApplicationManager;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.BrowserType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,12 +19,6 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import static org.drc.vat.appmanager.HelperBase.logout;
-import static org.drc.vat.appmanager.HelperBase.wd;
-import static org.drc.vat.appmanager.HelperBase.assertEnding;
-import static org.drc.vat.appmanager.HelperBase.clearCache;
-import static org.drc.vat.appmanager.HelperBase.assessmentOfficer;
-import static org.drc.vat.appmanager.HelperBase.sleepWait;
 import static org.drc.vat.appmanager.HelperBase.softAssert;
 @CucumberOptions(features = {	
 	
@@ -38,6 +28,7 @@ glue = "org.drc.vat.StepDefinitions",
 plugin = {"com.cucumber.listener.ExtentCucumberFormatter:","html:test-output/cucumber-report"}
 
 		)
+
 
 public class TestRunner extends AbstractTestNGCucumberTests {
 	private Logger logger = LoggerFactory.getLogger(TestRunner.class);

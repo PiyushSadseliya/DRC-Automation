@@ -2,7 +2,7 @@ Feature: User is on FX Management Page Tax Officer
 
   @TC_03
   Scenario Outline: Validate the Base currency on all the pages of FX management module -fx taxofficer
-    Given User is on FX Management "<TestcaseID>" "<Description>" 
+    Given User is on FX Management "<TestcaseID>" "<Description>"
     And User click on FX Management tab
     And User verify the Base currency on the FX management is Congolese France and its value is one
     And User click on update button
@@ -78,18 +78,16 @@ Feature: User is on FX Management Page Tax Officer
     And User click on Dashboard
     And User click on FX Management tab
     And User Click on Historical FX Rates button
-    And User verify the by default date displaying in the From date and To date "<FD>" "<TD>"
-    And User Select Todays date "<TodayDate>" in From and check selected date
-    And USer Select todays days "<ToDate>" in To and check selected date
+    And User verify the by default date displaying in the From date and To date
+    And User Select Todays date "<TodayDate>" in From and Select todays days "<ToDate>" in To check selected date
     And User click on search icon and today date should display "<DisplayDate>"
-    And User select date which the currency record are not present in From "<NoCurrencyFromDate>"
-    And User select date which the currency record are not present in To "<NoCurrencyToDate>"
+    And User select date which the currency record are not present in From "<NoCurrencyFromDate>" and in To "<NoCurrencyToDate>"
     And User click on search icon
     And User see message no record found for date
 
     Examples: 
-      | TestcaseID               | Description               | FD         | TD         | TodayDate | ToDate | DisplayDate | NoCurrencyFromDate | NoCurrencyToDate |
-      | FX_Management_Officer_08 | Verify date functionality | 12/12/2018 | 12/18/2018 |        18 |     18 | 12/18/2018  |                  1 |                1 |
+      | TestcaseID               | Description                      | TodayDate  | ToDate     | DisplayDate | NoCurrencyFromDate | NoCurrencyToDate |
+      | FX_Management_Officer_08 | Verify date search functionality | 2019-02-18 | 2019-02-18 | 02/18/2019  | 2019-02-18         | 2019-02-18       |
 
   @TC_09
   Scenario Outline: Validate the Pagination on the FX management page with historic data
@@ -134,21 +132,17 @@ Feature: User is on FX Management Page Tax Officer
     And User click on save button on pop up on officer
     And User see message for fx management officer "<mess>"
     And User see New Conversion Rate column is display
-
     Then User logout fx
-
-#		And User enter credencial for admin
-#		And User click on Dashboard
-#    And User click on FX Management tab
-#		And User verify new currency rates on tax officer 		
-
-    And User enter credencial for DGI Supervisor and verify New Updated rates notification on their FX management landing page    
-#    And User verify new currency rates on admin     
+    #		And User enter credencial for admin
+    #		And User click on Dashboard
+    #    And User click on FX Management tab
+    #		And User verify new currency rates on tax officer
+    And User enter credencial for DGI Supervisor and verify New Updated rates notification on their FX management landing page
+    #    And User verify new currency rates on admin
     And User enter credencial for DGI Admin and verify New Updated rates notification on their FX management landing page
 
- #   And User enter credencial for DGI Supervisor and verify New Updated rates notification on their FX management landing page demo
- #   And User enter credencial for DGI Admin and verify New Updated rates notification on their FX management landing page demo
-
+    #   And User enter credencial for DGI Supervisor and verify New Updated rates notification on their FX management landing page demo
+    #   And User enter credencial for DGI Admin and verify New Updated rates notification on their FX management landing page demo
     Examples: 
       | TestcaseID                        | Description                       | data | mess                                  |
       | FX_Management_Officer_04_06_11_12 | Verify update Currency and cancel |  100 | FX currency rate updated successfully |
@@ -166,24 +160,20 @@ Feature: User is on FX Management Page Tax Officer
   #    | TestcaseID                | Description         |
   #    | FX_Management_Officer_22 | Verify notification  |
   # when admin updates than tax officer see the rates
- 
- 
-#  @TC_13
-#  Scenario Outline: Validate the New Conversion Rate(approval rate) data when Admin has updated currency rates 
-#    Given User is on FX Management "<TestcaseID>" "<Description>"
-    #    And User click on Dashboard
-    #    And User click on FX Management tab
-    #    And User logout fx
-#    And User log in with DGI Admin credencial and update the currency
-#    And User log in with officer credencial and verify currency rate
-#    And User log in with supervisiour and click on approve
-
- #   Examples: 
- #     | TestcaseID               | Description                               |
- #     | FX_Management_Officer_13 | Verify New Conversion Rate(approval rate) |
-
+  #  @TC_13
+  #  Scenario Outline: Validate the New Conversion Rate(approval rate) data when Admin has updated currency rates
+  #    Given User is on FX Management "<TestcaseID>" "<Description>"
+  #    And User click on Dashboard
+  #    And User click on FX Management tab
+  #    And User logout fx
+  #    And User log in with DGI Admin credencial and update the currency
+  #    And User log in with officer credencial and verify currency rate
+  #    And User log in with supervisiour and click on approve
+  #   Examples:
+  #     | TestcaseID               | Description                               |
+  #     | FX_Management_Officer_13 | Verify New Conversion Rate(approval rate) |
   @TC_16
-  Scenario Outline: Validate the log out functionality on FX Management landing and Historical FX Rates page 
+  Scenario Outline: Validate the log out functionality on FX Management landing and Historical FX Rates page
     Given User is on FX Management "<TestcaseID>" "<Description>"
     And User click on Dashboard
     And User click on FX Management tab
@@ -193,6 +183,6 @@ Feature: User is on FX Management Page Tax Officer
     And User Click on Historical FX Rates button
     Then User logout and verify
 
-   Examples: 
+    Examples: 
       | TestcaseID               | Description                  |
       | FX_Management_Officer_16 | Verify Log out functionality |

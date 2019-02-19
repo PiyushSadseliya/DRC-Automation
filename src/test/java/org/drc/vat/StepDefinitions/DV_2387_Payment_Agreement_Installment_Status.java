@@ -108,16 +108,15 @@ public class DV_2387_Payment_Agreement_Installment_Status
 		
 	}
 
-	@And("^User validate date field \"([^\"]*)\"$")
-	public void user_validate_date_field(String date) throws Throwable 
+	@And("^User validate date field$")
+	public void user_validate_date_field() throws Throwable 
 	{
 		if(wd.findElement(By.xpath("(//label[contains(text(),'" + casedate + "')])[2]")).isDisplayed() )
 		{					
 			assertTrue(true);
-		}    
-		 
+		}
 	}
-
+	
 	@And("^User see installment Amount \"([^\"]*)\"$")
 	public void user_see_installment_Amount(String amount) throws Throwable
 	{

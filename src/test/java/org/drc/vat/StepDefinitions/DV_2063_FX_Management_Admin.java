@@ -114,7 +114,7 @@ public class DV_2063_FX_Management_Admin
 		wd.findElement(By.xpath(obj.getProperty("btn_RejectFX"))).click();
 		sleepWait(5000);		
 		if(wd.findElement(By.xpath("//*[contains(text(),'" + value + "')]")).isDisplayed() )
-		{											
+		{
 			assertTrue(true);
 		}
 	}

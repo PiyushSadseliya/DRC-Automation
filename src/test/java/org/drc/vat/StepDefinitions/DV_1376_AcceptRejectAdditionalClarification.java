@@ -47,7 +47,7 @@ public class DV_1376_AcceptRejectAdditionalClarification
 		sleepWait(1000);
 		clickOn("DowView1","");
 		sleepWait(5000);
-		verifyDownloadCheck("TexPayerDetailsDocuments");
+		//verifyDownloadCheck("TexPayerDetailsDocuments");
 		sleepWait(2000);
 	}
 	
@@ -82,7 +82,7 @@ public class DV_1376_AcceptRejectAdditionalClarification
 		if(wd.findElement(By.xpath(obj.getProperty("txt_RejectCommentPopup"))).isDisplayed())
 		{
 			assertTrue(true);
-		}		
+		}	
 	}
 	
 	@Then("^user click on Additional Clarification/Document Needed$")
@@ -106,18 +106,18 @@ public class DV_1376_AcceptRejectAdditionalClarification
 	{
 		sleepWait(1000);
 		clickOn("btn_BHold","");
-		sleepWait(2000);		
+		sleepWait(500);		
 		if(wd.findElement(By.xpath(obj.getProperty("txt_BHoldCommentPopup"))).isDisplayed())
 		{
 			assertTrue(true);
-		}		
+		}
 	}
 
 	@And("^user click on Approve and Continue$")
 	public void user_click_on_Approve_and_Continue() throws Throwable 
 	{
 		clickOn("btn_BApproveContinue","");
-		sleepWait(10000);	
+		sleepWait(10000);
 	}
 
 	@And("^user see the certificate and click on download$")
