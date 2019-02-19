@@ -58,23 +58,23 @@ Feature: User is on FX Management Page DGI Supervisor
       | TestcaseID                   | Description                      | FD         | TD         | TodayDate | ToDate | DisplayDate | NoCurrencyFromDate | NoCurrencyToDate |
       | FX_Management_Supervisior_10 | Verify date search functionality | 12/12/2018 | 12/18/2018 |        18 |     18 | 12/18/2018  |                  1 |                1 |
 
-  @TC_11
-  Scenario Outline: Validate the Pagination on the FX management page with historic data
-    Given User is on FX Management "<TestcaseID>" "<Description>"
-    And User click on Dashboard
-    And User see FX Management
-    And User click on FX Management tab
-    And User Click on Historical FX Rates button
-    And User click on page "<ClickPage>" and check page"<CheckPage>" "<option>"
-
-    Examples: 
-      | TestcaseID                    | Description                | Period        | ClickPage       | CheckPage       | option          |
-      | FX_Management_Supervisio_11_1 | validating last and right  | txt_PeriodJan | lbl_AssLast     | lbl_AssestRight | last and right  |
-      | FX_Management_Supervisio_11_2 | validating last and left   | txt_PeriodJan | lbl_AssLast     | lbl_AssestLeft  | last and left   |
-      | FX_Management_Supervisio_11_3 | validating right and left  | txt_PeriodJan | lbl_AssestRight | lbl_AssestLeft  | right and left  |
-      | FX_Management_Supervisio_11_4 | validating right and first | txt_PeriodJan | lbl_AssestRight | lbl_AssFirst    | right and first |
-      | FX_Management_Supervisio_11_5 | validating first and left  | txt_PeriodJan | lbl_AssFirst    | lbl_AssestLeft  | first and left  |
-      | FX_Management_Supervisio_11_6 | validating first and first | txt_PeriodJan | lbl_AssFirst    | lbl_AssFirst    | first and first |
+  #@TC_11
+  #Scenario Outline: Validate the Pagination on the FX management page with historic data
+    #Given User is on FX Management "<TestcaseID>" "<Description>"
+    #And User click on Dashboard
+    #And User see FX Management
+    #And User click on FX Management tab
+    #And User Click on Historical FX Rates button
+    #And User click on page "<ClickPage>" and check page"<CheckPage>" "<option>"
+#
+    #Examples: 
+      #| TestcaseID                    | Description                | Period        | ClickPage       | CheckPage       | option          |
+      #| FX_Management_Supervisio_11_1 | validating last and right  | txt_PeriodJan | lbl_AssLast     | lbl_AssestRight | last and right  |
+      #| FX_Management_Supervisio_11_2 | validating last and left   | txt_PeriodJan | lbl_AssLast     | lbl_AssestLeft  | last and left   |
+      #| FX_Management_Supervisio_11_3 | validating right and left  | txt_PeriodJan | lbl_AssestRight | lbl_AssestLeft  | right and left  |
+      #| FX_Management_Supervisio_11_4 | validating right and first | txt_PeriodJan | lbl_AssestRight | lbl_AssFirst    | right and first |
+      #| FX_Management_Supervisio_11_5 | validating first and left  | txt_PeriodJan | lbl_AssFirst    | lbl_AssestLeft  | first and left  |
+      #| FX_Management_Supervisio_11_6 | validating first and first | txt_PeriodJan | lbl_AssFirst    | lbl_AssFirst    | first and first |
 
   @TC_12
   Scenario Outline: Validate the previous button functionality on Historical FX Rates page

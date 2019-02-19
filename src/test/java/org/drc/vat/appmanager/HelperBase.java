@@ -3,11 +3,9 @@ package org.drc.vat.appmanager;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
@@ -21,18 +19,9 @@ import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.Toolkit;
 
-import static org.drc.vat.appmanager.HelperBase.assertMsg;
-import static org.drc.vat.appmanager.HelperBase.clearCache;
-import static org.drc.vat.appmanager.HelperBase.clickOn;
-import static org.drc.vat.appmanager.HelperBase.elementText;
-import static org.drc.vat.appmanager.HelperBase.internalPortal;
-import static org.drc.vat.appmanager.HelperBase.sleepWait;
-import static org.drc.vat.appmanager.HelperBase.type;
-import static org.drc.vat.appmanager.HelperBase.wd;
 import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
-import java.awt.*;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 import java.io.File;
@@ -42,14 +31,11 @@ import java.io.IOException;
 import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
-import java.util.Objects;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
-import static org.drc.vat.StepDefinitions.userRegistration.Username;
 
 public class HelperBase {
 	public static WebDriver wd;
@@ -81,7 +67,7 @@ public class HelperBase {
 	private static String cwd = System.getProperty("user.dir");
 	public static String filedoc = cwd + "\\src\\test\\resources\\docs\\";
 	private static File dir = new File(System.getProperty("user.home") + "/Pictures");
-	
+
 	/**
 	 *  For Download file location
 	 */
@@ -104,8 +90,8 @@ public class HelperBase {
 	/**
 	 *  Wait for particulat text 
 	 */
-	
-		
+
+
 	public static WebElement FluetWait1(WebElement driverelement) 
 	{
 		Wait<WebDriver> wait = new FluentWait<WebDriver>(wd).withTimeout(30, TimeUnit.SECONDS)
@@ -118,12 +104,9 @@ public class HelperBase {
 			}
 		});
 		return seleniumElement;
-	} 
+	}
 
-	
- 
 	public static void clickOn(String object, String data) {
-
 		WebDriverWait wait = new WebDriverWait(wd, 60);
 		try {
 			obj.load(fis);
@@ -167,9 +150,7 @@ public class HelperBase {
 		By locator = By.xpath(obj.getProperty(object));
 		wd.manage().timeouts().implicitlyWait(700, TimeUnit.MILLISECONDS);
 		if (data != null) {
-
 			wd.findElement(locator).sendKeys(data);
-
 		}
 	}
 
@@ -211,7 +192,7 @@ public class HelperBase {
 				assertTrue(true);
 				break;				
 			}
-			
+
 			/*if (file.getName().contains(data)) 
 			{					
 				if(data.equals(file.getName()))
@@ -225,13 +206,8 @@ public class HelperBase {
 				assertTrue(false);
 			}			*/
 		}
-		
-		
-		
-		
-	
 	}
-	
+
 	/*public static void waitUntilFileToDownload(String folderLocation) throws InterruptedException 
 	{
         File directory = new File(folderLocation);
@@ -243,8 +219,8 @@ public class HelperBase {
             {
             	File[] files = dir1.listFiles();
         		assert files != null; 
-        		 
-                
+
+
                 for (File file : filesList) 
                 {
                     downloadinFilePresence = file.getName().contains(folderLocation);
@@ -263,7 +239,7 @@ public class HelperBase {
                 }
             }
     }*/
-	
+
 
 	/**
 	 * 
@@ -366,8 +342,8 @@ public class HelperBase {
 		clickOn("drp_btn_logout", "");
 		clickOn("drp_Sign_out", "");		
 		//System.out.println("browser closed");
-//		clickOn("link_clickhere", "");
-//		sleepWait(2000);
+		//		clickOn("link_clickhere", "");
+		//		sleepWait(2000);
 	}
 
 	public static void drp_select(String object, String data) {
@@ -603,9 +579,9 @@ public class HelperBase {
 				List<WebElement> sure = wd.findElements(By.xpath("//a[contains(text(),'Yes')]"));
 				if (sure.size() > 0) {
 					sure.get(0).click();
-			}
+				}
 				// login=false;
-		}
+			}
 			sleepWait(2000);
 			if (wd.getWindowHandles().size() > 0) 
 			{
@@ -614,22 +590,22 @@ public class HelperBase {
 			sleepWait(3000);
 		}
 	}
-	
+
 	/**
 	 *  Login for Helpdesk Tax Payer
 	 */
 	public static void login_Helpdesk(String email,String password) throws InterruptedException
 	{
-			type("txtbox_username", email);
-			type("txtbox_password", password);
-			sleepWait(2000);
-			clickOn("btn_login", "");
-			sleepWait(1000);
+		type("txtbox_username", email);
+		type("txtbox_password", password);
+		sleepWait(2000);
+		clickOn("btn_login", "");
+		sleepWait(1000);
 	}
-	
-	
-	
-	
+
+
+
+
 	public static void bodymessage(String object) throws InterruptedException
 	{
 		try 
@@ -988,8 +964,8 @@ public class HelperBase {
 		}
 		By locator = By.xpath(obj.getProperty(object) + data);
 		return wd.findElement(locator).getAttribute(attribue);		
-		}
-	
+	}
+
 	public static void waitUntilElementFound(String object,String data) {
 		try {
 			obj.load(fis);
@@ -998,7 +974,7 @@ public class HelperBase {
 		}
 		By locator = By.xpath(obj.getProperty(object) + data);
 		WebDriverWait wait=new WebDriverWait(wd, 10);		
-	
+
 		wait.until(ExpectedConditions.elementToBeClickable(locator));
 	}
 	/*
@@ -1007,15 +983,15 @@ public class HelperBase {
 	 * 
 	 */
 	public static String frenchToIndian(String text) {
-	
+
 		return text.replace(".", "").replace(",", ".");
-	
+
 	}
-	
+
 	public static double frenchtoDouble(String text) {
 		return Double.parseDouble(frenchToIndian(text));
 	}
-	
+
 	/*
 	 * To convert the number to french System
 	 * 
@@ -1023,10 +999,10 @@ public class HelperBase {
 	 */
 	public static String tofrench(Double d) {
 		NumberFormat nf = NumberFormat.getNumberInstance(Locale.ITALY);
-	
+
 		return nf.format(d);
 	}
-	
+
 	/*
 	 * to append comma if the douoble value dont contains decimal places
 	 * 
@@ -1039,8 +1015,8 @@ public class HelperBase {
 		}
 		return frenchNo;
 	}
-	
-	
+
+
 	/**
 	 *  Date Pattern DD-MMM-YYYY
 	 */
@@ -1057,25 +1033,42 @@ public class HelperBase {
 			validDate = false;
 		}		
 		return validDate; 
-		
+
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	public static void waitTillElementLocated(String object) {
+		try {
+			obj.load(fis);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		WebElement myDynamicElement = (new WebDriverWait(wd, 15))
+				.until(ExpectedConditions.presenceOfElementLocated(By.xpath(obj.getProperty(object))));
+	}
+
+
+	public static boolean waitTillElementDisappear(String object) {
+
+		WebDriverWait wait = new WebDriverWait(wd, 100);
+
+		return wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(object)));
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

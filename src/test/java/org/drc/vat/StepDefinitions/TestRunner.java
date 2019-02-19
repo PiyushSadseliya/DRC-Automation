@@ -7,12 +7,8 @@ import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.testng.AbstractTestNGCucumberTests;
-import gherkin.formatter.model.Feature;
-
 import org.apache.commons.io.FileUtils;
 import org.drc.vat.appmanager.ApplicationManager;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.BrowserType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,27 +19,36 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import static org.drc.vat.appmanager.HelperBase.logout;
-import static org.drc.vat.appmanager.HelperBase.wd;
-import static org.drc.vat.appmanager.HelperBase.assertEnding;
-import static org.drc.vat.appmanager.HelperBase.clearCache;
-import static org.drc.vat.appmanager.HelperBase.assessmentOfficer;
-import static org.drc.vat.appmanager.HelperBase.sleepWait;
+import static org.drc.vat.appmanager.HelperBase.softAssert;
 
 @CucumberOptions(features = {
 		//"classpath:features/01_userRegistration.feature",
 		//"classpath:features/02_01_Login.feature",
-		//"classpath:features/03_01uploadDocuments.feature",
-		"classpath:features/FuelManagement_Supervisor.feature",
+		"classpath:features/03_02VATRegistration.feature",
+		//"classpath:features/FuelManagement_Supervisor.feature",
 		//"classpath:features/04_DV_1377_ManageVatRegistration.feature",
 		//"classpath:features/05_DV_1376_AcceptRejectAdditionalClarification.feature",
+		
+//		"classpath:features/09_DV_2389_calculation_with_offset.feature",
+//		"classpath:features/10_DV_2390_e_filing.feature",
+//		"classpath:features/11_DV_2391_eFile_Preview.feature",
+		
+//		"classpath:features/12_1_DV_2394_Landing_Screen.feature",
+//		"classpath:features/13_3DV_2394_Total_Liability.feature",
+//		"classpath:features/14_ViewAllStatementofTransaction.feature",
+//		"classpath:features/15_01_TaxBillPayment.feature",
+		
 		//"classpath:features/30_TaxPayer_Portal_objection_appeal.feature",
-		//"classpath:features/EFDVendor.feature"
+		//"classpath:features/DV_4007_IT_Support_Admin.feature"
+		//"classpath:features/52EFDVendor.feature"
 },
 glue = "org.drc.vat.StepDefinitions",
-plugin = {"com.cucumber.listener.ExtentCucumberFormatter:","html:test-output/cucumber-report"}
-,tags= {"@TC_01, @TC_02, @TC_03"}
-		)
+plugin = {"com.cucumber.listener.ExtentCucumberFormatter:","html:test-output/cucumber-report", 
+		  "pretty","html:target/site/cucumber-pretty","json:target/cucumber/cucumber.json"}
+
+,tags= {"@SP_03"}
+)
+
 public class TestRunner extends AbstractTestNGCucumberTests {
 	private Logger logger = LoggerFactory.getLogger(TestRunner.class);
 	private String outputDir = "test-output/" + new Date().toString().substring(0, 10);
@@ -72,21 +77,22 @@ public class TestRunner extends AbstractTestNGCucumberTests {
 		 */
 		if (scenario.getName().toLowerCase().contains("internal portal")) {
 			app.callinternalportal();
+
+		} else if (scenario.getName().toLowerCase().contains("taxpayer portal")) {
+
 		}
 		/**
-		 *  taxpayer portal 
+		 * taxpayer portal
 		 */
 
-		else if (scenario.getName().toLowerCase().contains("taxpayer portal")) 
-		{
+		else if (scenario.getName().toLowerCase().contains("taxpayer portal")) {
+
 			app.calltaxpayerportal();
-		}
-		else if (scenario.getName().contains("EFDinternalportal")) {
+		} else if (scenario.getName().contains("EFDinternalportal")) {
 			app.EFDinternalportal();
-		}		
-		else if (scenario.getName().toLowerCase().contains("efd-manufacturerportal")) {
+		} else if (scenario.getName().toLowerCase().contains("efd-manufacturerportal")) {
 			app.callmanufacturerportal();
-		} else if (scenario.getName().toLowerCase().contains("vendor portal")) {
+		} else if (scenario.getName().toLowerCase().contains("vendor portal")) { 
 			app.callvendorportal();
 		}
 		/**
@@ -105,6 +111,13 @@ public class TestRunner extends AbstractTestNGCucumberTests {
 		}
 
 		/**
+		 * Login with manufacture and vendor module
+		 */
+		else if (scenario.getName().toLowerCase().contains("vendor portal")) {
+			app.callvendorportal();
+		}
+
+		/**
 		 * For Demo login
 		 */
 		/**
@@ -132,9 +145,9 @@ public class TestRunner extends AbstractTestNGCucumberTests {
 			app.callinternalportal_Supervisor();
 		} else if (scenario.getName().toLowerCase().contains("laxman")) {
 			app.callinternalportal_Assessment_Officer();
-		} 
-		/** 
-
+		}
+		/**
+		 * 
 		 * For Demo login
 		 */
 		/**
@@ -145,9 +158,15 @@ public class TestRunner extends AbstractTestNGCucumberTests {
 		}
 		/**
 		 * Login with rohit.patil demo
-		 */ 
+		 */
 		else if (scenario.getName().toLowerCase().contains("taxofficer demo")) {
 			app.callinternalportal_TaxOfficer_demo();
+		}
+
+		else if (scenario.getName().toLowerCase().contains("itadminuser")) {
+			app.call1trackitadminUser();
+		} else if (scenario.getName().toLowerCase().contains("ituser")) {
+			app.call1trackituser();
 		}
 
 		/**
@@ -169,10 +188,12 @@ public class TestRunner extends AbstractTestNGCucumberTests {
 
 		String screenshot = scenario.getName();
 		File src = app.takeScreenshotAsFile();
-		File dest = new File(System.getProperty("user.dir") + "/" + outputDir + "/screenshots/" + screenshot + timestamp + ".png");
+		File dest = new File(
+				System.getProperty("user.dir") + "/" + outputDir + "/screenshots/" + screenshot + timestamp + ".png");
 		FileUtils.copyFile(src, dest);
 		Reporter.addScreenCaptureFromPath(dest.toString());
 		scenario.embed(app.takeScreenshot(), "image/png");
+		softAssert.assertAll();
 		// logout();
 
 		logger.info("Stop scenario: " + scenario.getName());

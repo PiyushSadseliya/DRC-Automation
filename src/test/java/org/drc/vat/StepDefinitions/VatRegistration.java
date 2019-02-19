@@ -12,12 +12,14 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Properties;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 import org.drc.vat.appmanager.ApplicationManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.BrowserType;
 import org.drc.vat.appmanager.*;
 
@@ -443,6 +445,15 @@ public class VatRegistration {
 	@Then("^Click on Logout on Dashboard$")
 	public void click_on_Logout_on_Dashboard() throws Throwable {
 		logout();
+
+		wd.close();
+		Thread.sleep(1000);
+		wd = new ChromeDriver();
+		wd.manage().window().maximize();
+		wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		wd.get("http://103.249.120.58:8042");
+		Thread.sleep(1000);
+		
 		// clickOn("btn_logout","");
 	}
 

@@ -37,7 +37,6 @@ public class DV_2394_landing_screen
 	@Given("^User is on Vat e-Filing Page \"([^\"]*)\" \"([^\"]*)\"$")
 	public void user_is_on_Vat_e_Filing_Page(String arg1, String arg2) throws Throwable
 	{
-
 		System.out.println(arg1);
 		System.out.println(arg2);    
 	}
@@ -64,7 +63,6 @@ public class DV_2394_landing_screen
 	@And("^User click on Tab$")
 	public void user_click_on_Tab() throws Throwable 
 	{
-
 		sleepWait(5000);
 		clickOn("menu_vat-e-filing", "");		
 		sleepWait(10000);		

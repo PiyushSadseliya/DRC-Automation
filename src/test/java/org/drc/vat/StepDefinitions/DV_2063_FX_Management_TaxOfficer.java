@@ -431,8 +431,9 @@ public class DV_2063_FX_Management_TaxOfficer
 	public void user_logout() throws Throwable 
 	{
 		sleepWait(7000);
-		clickOn("btn_LogoutFX", "");
-		//sleepWait(7000);	    
+		logout();
+		//clickOn("btn_LogoutFX", "");
+		//sleepWait(7000);
 	}
 
 	/**

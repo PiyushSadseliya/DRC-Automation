@@ -42,4 +42,4 @@ Feature: Login Module
 
     Examples: 
       | TestcaseID                      | email                    | password |
-      | Valid_DRC_ATC_LoginTaxPortal_01 | AutoTest1Reass@mailinator.com | Test@123 |
+      | Valid_DRC_ATC_LoginTaxPortal_01 | automationtwentythree@mt2015.com | Test@123 |

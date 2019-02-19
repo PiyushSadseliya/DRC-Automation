@@ -63,7 +63,7 @@ public class DV_2390_e_filing
 		System.out.println(arg2);		
 	}	
 	
-		@And("^User Enter email \"([^\"]*)\" and  password \"([^\"]*)\"$")
+	@And("^User Enter email \"([^\"]*)\" and  password \"([^\"]*)\"$")
 	public void user_Enter_email_and_password(String email, String pwd) throws Throwable 
 	{
 		emailid=email;
@@ -71,10 +71,11 @@ public class DV_2390_e_filing
 		 type("txtbox_password",pwd);*/
 		 login(email, pwd);
 	}
+	
 	@And("^User Click on SignIn$")
 	public void user_Click_on_SignIn() throws Throwable 
 	{
-/*		sleepWait(1000);
+		/*sleepWait(1000);
 		clickOn("btn_login", "");		
 		 sleepWait(2000);
 		 clickOn("tile_vat","");
