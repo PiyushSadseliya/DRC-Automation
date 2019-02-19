@@ -40,11 +40,11 @@ import static org.drc.vat.appmanager.HelperBase.softAssert;
 		//		"classpath:features/04_DV_1377_ManageVatRegistration.feature",
 		//		"classpath:features/05_DV_1376_AcceptRejectAdditionalClarification.feature",
 		//"classpath:features/30_TaxPayer_Portal_objection_appeal.feature",
-		"classpath:features/46_FX_Management_Supervisor.feature"
+		"classpath:features/01_userRegistration.feature"
 },
 glue = "org.drc.vat.StepDefinitions",
 plugin = {"com.cucumber.listener.ExtentCucumberFormatter:","html:test-output/cucumber-report"}
-,tags= {"@TC_10"}
+,tags= {"@Valid_Registration"}
 		)
 
 public class TestRunner extends AbstractTestNGCucumberTests {
