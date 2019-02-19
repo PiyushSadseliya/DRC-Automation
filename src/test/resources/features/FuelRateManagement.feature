@@ -60,13 +60,13 @@ Feature: Update and Appove or Reject the Fuel Rate.
     Then enter Fuel Rates of CNG in basic"<basiccngrate>" Rates are Excise"<Excise>" ,VAT"<VAT>",Fuel Tax"<Fuel>",Royalty"<Royalty>" and does Total
     Then enter Fuel Rates of Methanol in basic"<basicmethanolrate>" Rates are Excise"<Excise>" ,VAT"<VAT>",Fuel Tax"<Fuel>",Royalty"<Royalty>" and does Total
     Then enter Fuel Rates of Gasoline in basic"<basicgasolinerate>" Rates are Excise"<Excise>" ,VAT"<VAT>",Fuel Tax"<Fuel>",Royalty"<Royalty>" and does Total
-    #Then click on Save button on update fuel rate popup.
-    #Then Message of "Fuel price Accepted sucessfully" should be displayed
-    #Then Fuel Rates List the page should get displayed with caption "Approval Required"
-    #Then Current Rate should be dispayed
-    #And New Rate with the effective date as well should be displayed
-    #Then The Change in Rate (CDF) column should be New Rate -Current Rate
-    #Then Admin should not approve or reject the self-updated rates
+    Then click on Save button on update fuel rate popup.
+    Then Message of "Fuel price Accepted sucessfully" should be displayed
+    Then Fuel Rates List the page should get displayed with caption "Approval Required"
+    Then Current Rate should be dispayed
+    And New Rate with the effective date as well should be displayed
+    Then The Change in Rate (CDF) column should be New Rate -Current Rate
+    Then Admin should not approve or reject the self-updated rates
 
     Examples: 
       | TestcaseID                      | Description                                                                                         | Excise | VAT | Fuel | Royalty | basicpetrolrate | basicdieselrate | basickerosenerate | basiccngrate | basicmethanolrate | basicgasolinerate |
@@ -81,7 +81,7 @@ Feature: Update and Appove or Reject the Fuel Rate.
 
     Examples: 
       | TestcaseID                  | Description          | comment            |
-      | FX_Management_supervisor_01 | Verify Base Currency | Rates are too high |
+      | DRC_ATC_FuelManagement_supervisor_01 | Verify Base Currency | Rates are too high |
 
   @TC_02
   Scenario Outline: Verify the character limitation on Reject fuel rate
@@ -120,7 +120,7 @@ Feature: Update and Appove or Reject the Fuel Rate.
 
     Examples: 
       | TestcaseID                      | Description                                                     | message            |
-      | DRC_ATC_FuelManagement_Admin_03 | Validate  Historical Fuel Rate button and Previous button on it | Rates are too high |
+      | DRC_ATC_FuelManagement_Admin_04 | Validate  Historical Fuel Rate button and Previous button on it | Rates are too high |
 
   @admin @tc39 @tc40 @tc42 @tc43 @tc44 @tc45 @tc46 @approval
   Scenario Outline: Validate the Excise,VAT,Fuel Rate,Royalty,Total are getting calculated,Save on Update fuel rate popup Approval Required
@@ -129,7 +129,7 @@ Feature: Update and Appove or Reject the Fuel Rate.
     Then user is on "Fuel Management"
     Then Contains Header Previous Rate
     Then Contains header Current Rates
-    # Then The Change in Rate (CDF) column should be Previous Rate-Current Rate
+    Then The Change in Rate (CDF) column should be Previous Rate-Current Rate
     Then Click on Update button to update the fuel rate
     Then Selects effective date of future date
     Then enter Fuel Rates of Petrol in basic"<basicpetrolrate>" Rates are Excise"<Excise>" ,VAT"<VAT>",Fuel Tax"<Fuel>",Royalty"<Royalty>" and does Total
@@ -138,14 +138,14 @@ Feature: Update and Appove or Reject the Fuel Rate.
     Then click on Save button on update fuel rate popup.
     Then Message of "Fuel price Accepted sucessfully" should be displayed
     Then Fuel Rates List the page should get displayed with caption "Approval Required"
-    #Then Current Rate should be dispayed
-    #And New Rate with the effective date as well should be displayed
-    #Then The Change in Rate (CDF) column should be New Rate -Current Rate
+    Then Current Rate should be dispayed
+    And New Rate with the effective date as well should be displayed
+    Then The Change in Rate (CDF) column should be New Rate -Current Rate
     Then Admin should not approve or reject the self-updated rates
 
     Examples: 
       | TestcaseID                      | Description                                                                                         | Excise | VAT | Fuel | Royalty | basicpetrolrate | basicdieselrate | basickerosenerate |
-      | DRC_ATC_FuelManagement_Admin_04 | Validate the close(X) icon functionality on update fuel rate popup  Approval Required admin update. |     10 |   0 |    5 |      12 |             100 |             100 |               100 |
+      | DRC_ATC_FuelManagement_Admin_05 | Validate the close(X) icon functionality on update fuel rate popup  Approval Required admin update. |     10 |   0 |    5 |      12 |             100 |             100 |               100 |
 
   @TC_04
   Scenario Outline: Verify the Approval of fuel rate functionality supervisor

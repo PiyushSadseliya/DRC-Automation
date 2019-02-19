@@ -229,12 +229,12 @@ Feature: The Supervisor can assign the collection officer the pending amount fro
   @mtc_10 @mtc18
   Scenario Outline: Validate Assign officer button functionality
     Given "<Test Case ID>""<Description>"DGI "<officer>""<uname>""<password>""<location>"should be logged in to the internal portal
-    When clicked on Debt Management Module must be on Debt Management Module
-    When Clicked on pending amount for "<ageing>"
-    Then user is on Pending debts
-    Then user selects all the records for assigning all the records should be selected
-    Then click on assign button
-    Then click on save button ,It should be disabled
+    When clicked on Debt Management Module must be on Debt Management Module  
+    When Clicked on pending amount for "<ageing>"   
+    Then user is on Pending debts  
+    Then user selects all the records for assigning all the records should be selected    
+    Then click on assign button   
+    Then click on save button ,It should be disabled   
 
     Examples: 
       | Test Case ID                         | Description                                  | ageing     | officer | uname           | password | location |
@@ -243,11 +243,11 @@ Feature: The Supervisor can assign the collection officer the pending amount fro
   @mtc_02
   Scenario Outline: Validate the assign officer button functionality with valid data
     Given "<Test Case ID>""<Description>"DGI "<officer>""<uname>""<password>""<location>"should be logged in to the internal portal
-    When clicked on Debt Management Module must be on Debt Management Module
-    When Clicked on pending amount for "<ageing>"
-    Then user is on Pending debts
-    Then Search by TaxPayer Name "<name>" and assigns to officer and is on Case Management
+    When clicked on Debt Management Module must be on Debt Management Module   
+    When Clicked on pending amount for "<ageing>"  
+    Then user is on Pending debts  
+    Then Search by TaxPayer Name "<name>" and assigns to officer and is on Case Management   
 
     Examples: 
       | Test Case ID                         | Description                                                      | ageing     | name              | officer | uname           | password | location |
-      | DRC_ATC_DebtManagement_Unassigned_02 | Validate the assign officer button functionality with valid data | 0-3 Months | Three Feb| admin   | ketan.prajapati | admin    | Aketi    |
+      | DRC_ATC_DebtManagement_Unassigned_02 | Validate the assign officer button functionality with valid data | 0-3 Months | Automation User 57| admin   | ketan.prajapati | admin    | Aketi    |

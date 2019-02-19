@@ -28,9 +28,8 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Sleeper;
 
 import java.util.List;
-
-
-
+import java.util.Locale;
+import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -88,7 +87,7 @@ for(int i=0;i<fuelType;i++) {
 	  for(int i=0;i<fuelType;i++) {
 		  System.out.println("Changed before rates screen"+chageninraterecords.get(i).getText());
 		  System.out.println("Changed before rates calculated"+beforeupdatechangeinrate.get(i));
-			assertEquals(chageninraterecords.get(i).getText(), beforeupdatechangeinrate.get(i));
+			assertEquals(chageninraterecords.get(i).getText(), appendfrenchsys(beforeupdatechangeinrate.get(i)));
 			}
 		
 	 
@@ -124,7 +123,7 @@ for(int i=0;i<fuelType;i++) {
 				 }
 				 
 			 }
-		 }	
+		 }		
 		 clickOn("select_rejected",recordsno+"]");
 		 sleepWait(5000);
 		 assertEquals(elementText("txt_fuelRejectionmsg",""), rejectionmsg);
@@ -197,6 +196,8 @@ for(int i=0;i<fuelType;i++) {
 		 futuredate.add(Calendar.DATE, 30);	 
 		 futureDateSelected=futuredate.getTime();
 		 datePicker(sdf.format(futureDateSelected));	   
+		 List <WebElement> records =wd.findElements(By.xpath("//span[contains(text(),'Update')]/following::tbody//tr"));
+		 assertEquals(records.size(), fuelType);
 	}
 	@Then("^enter Fuel Rates of Petrol in basic\"([^\"]*)\" Rates are Excise\"([^\"]*)\" ,VAT\"([^\"]*)\",Fuel Tax\"([^\"]*)\",Royalty\"([^\"]*)\" and does Total$")
 	public void enter_Fuel_Rates_of_Petrol_in_basic_Rates_are_Excise_VAT_Fuel_Tax_Royalty_and_does_Total(String petrolbasicrate, String excise, String VAT, String fuelTax, String Royalty) throws Throwable {
@@ -322,8 +323,15 @@ for(int i=0;i<fuelType;i++) {
 			double previous=frenchtoDouble(previousrate2.get(i));
 			System.out.println("Current Rate"+current+"-"+"Previous Rate"+previous);
 			double ratechanged=frenchtoDouble(currentrate2.get(i))-frenchtoDouble(previousrate2.get(i));
+			
 			System.out.println(current+"-"+previous+"+"+ratechanged);
-			change.add(String.valueOf(ratechanged));
+			StringBuilder digitWithDecimal=new StringBuilder(String.format("%4.3f", ratechanged));
+
+			System.out.println(digitWithDecimal.subSequence(0, digitWithDecimal.indexOf(".")+3));
+			NumberFormat nf = NumberFormat.getNumberInstance(Locale.ITALY);
+			
+			
+			change.add(nf.format(Double.valueOf(digitWithDecimal.subSequence(0, digitWithDecimal.indexOf(".")+3).toString())));
 		}
 		return change;
 	}
@@ -331,6 +339,7 @@ private String convertToFourDotSeven(double number) {
 	StringBuilder digitWithDecimal=new StringBuilder(String.format("%4.3f", number));
 
 	System.out.println(digitWithDecimal.subSequence(0, digitWithDecimal.indexOf(".")+3));
+	
 	return digitWithDecimal.toString();
 	
 
@@ -446,5 +455,30 @@ public void enter_Fuel_Rates_of_Gasoline_in_basic_Rates_are_Excise_VAT_Fuel_Tax_
 		 assertEquals(todouble(gasolinetype.get(2).getAttribute("value"))==todouble(convertToFourDotSeven(gasolineFuelTax)),true);
 		 assertEquals(todouble(gasolinetype.get(3).getAttribute("value"))==todouble(convertToFourDotSeven(gasolineRoyalty)),true);
 		assertEquals(todouble(gasolinetype.get(4).getAttribute("value"))==todouble(convertToFourDotSeven(gasolineTotal)),true);
+}
+private String appendfrenchsys(String frenchNo) {
+
+	System.out.println(frenchNo);
+	if (!frenchNo.contains(",")) {
+
+		frenchNo = frenchNo + ",00";
+	}
+	if (frenchNo.contains(",")) {
+		StringBuilder french=new StringBuilder(frenchNo);
+
+		int frenchdecimal=french.substring(french.indexOf(","), french.length()).length();					
+		if(frenchdecimal==2) {
+			french.append("0");
+			frenchNo=french.toString();
+		}
+
+
+
+
+
+
+	}
+
+	return frenchNo;
 }
 }

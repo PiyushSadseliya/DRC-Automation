@@ -30,13 +30,13 @@ import static org.drc.vat.appmanager.HelperBase.clearCache;
 import static org.drc.vat.appmanager.HelperBase.assessmentOfficer;
 import static org.drc.vat.appmanager.HelperBase.sleepWait;
 import static org.drc.vat.appmanager.HelperBase.softAssert;
-
-
 @CucumberOptions(features = {	
-	"classpath:features/41_Payment_Agreement_Installment_Status.feature"
+	
+		"classpath:features/DV_4007_IT_Support_Admin.feature"		
 },
 glue = "org.drc.vat.StepDefinitions",
 plugin = {"com.cucumber.listener.ExtentCucumberFormatter:","html:test-output/cucumber-report"}
+
 		)
 
 public class TestRunner extends AbstractTestNGCucumberTests {

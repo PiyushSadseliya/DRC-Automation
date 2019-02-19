@@ -46,6 +46,8 @@ Feature: No. of Notification: Shows the notifications count. When clicked, pop-u
     Then Selects Action "Assign to Legal"
     Then Selects Collection Agent"<collectionofficer>"
     Then click on Submit button
+    Then click on previous button from debt case
+    Then click on filter by dropdown CaseID
     Then Status "Assign to Legal" should be displayed
     Then no of notification should be 3 with "Assign to Legal" notification
 

@@ -253,7 +253,10 @@ else {
 			sleepWait(500);
 		} else if (wd.getCurrentUrl().contains(":8031")) {
 			sleepWait(500);
-		} else if (!wd.getCurrentUrl().contains(":8042")) {
+		}else if(wd.getCurrentUrl().contains(":8027")){
+			
+		}
+		else if (!wd.getCurrentUrl().contains(":8042")) {
 			wd.get(properties.getProperty("web.Url"));
 		}
 	}

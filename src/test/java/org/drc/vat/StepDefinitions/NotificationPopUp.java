@@ -4,6 +4,7 @@ import cucumber.api.java.en.Then;
 import static org.drc.vat.appmanager.HelperBase.clickOn;
 import static org.drc.vat.appmanager.HelperBase.elementText;
 import static org.drc.vat.appmanager.HelperBase.wd;
+import static org.drc.vat.appmanager.HelperBase.minutespattern;
 import static org.drc.vat.appmanager.HelperBase.waitfor;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -19,6 +20,7 @@ import org.testng.asserts.SoftAssert;
 
 public class NotificationPopUp {
 	SoftAssert sassert = new SoftAssert();
+
 
 	@Then("^click on previous button on Debt collection Case$")
 	public void click_on_previous_button_on_Debt_collection_Case() throws Throwable {
@@ -54,7 +56,7 @@ public class NotificationPopUp {
 			System.out.println(paymentremindersent);
 
 			ConnectDatabase.sta.executeUpdate(paymentremindersent);
-			sleepWait(300000);
+			sleepWait((5-Integer.parseInt(minutespattern.format(new Date()))%5)*60*1000);
 		}
 	
 	}

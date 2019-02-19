@@ -130,7 +130,7 @@ Feature: Debt Management - Landing screen to show the grouped (according to dura
       | DRC_ATC_DebtManagemnt_16 | Validate the Pending (FC) amount hyper link for all age brackets | Admin   | ketan.prajapati | admin    | 0-3 Months          |
 
   @Mtc18 @comp
-  Scenario Outline: Validate the amount in Total Debt (FC) for Total (FC),Pending (FC),and Assigned (FC) columns
+  Scenario Outline: Validate the amount in Total Debt (FC) for Total (FC),Pending (FC),and Assigned (FC) columns internal portal
     Given DGI "<officer>""<uname>""<password>""<location>"should be logged in to the internal portal
     When clicked on Debt Management Module must be on Debt Management Module
     Then Total Debt (FC) amount of Total (FC) column should be the sum of all amounts
