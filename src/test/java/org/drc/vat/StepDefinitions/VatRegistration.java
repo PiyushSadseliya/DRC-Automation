@@ -12,12 +12,14 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Properties;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
-import org.drc.vat.appmanager.ApplicationManager;
+import org.drc.vat.appmanager.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.BrowserType;
 import org.drc.vat.appmanager.*;
 
@@ -78,7 +80,7 @@ public class VatRegistration {
 				+ "         (NEWID(),                                           "
 				+ "         0                                                   "
 				+ "         ,NEWID()                                            "
-				+ "         ,CONCAT('atuser',@a,'@mailinator.com')              "
+				+ "         ,CONCAT('atuser',@a,'@mt2015.com')              "
 				+ "         ,1                                                  "
 				+ "         ,0                                                  "
 				+ "         ,NULL                                               "
@@ -110,12 +112,12 @@ public class VatRegistration {
 				+ "declare  @emailvalue Nvarchar(500) " + "declare @a int;" + "set @a= @i	" + "WHILE @a <=  @i+2"
 				+ "BEGIN                                                                  "
 				+ "Set @emailvalue = (select ID from  [1AuthoritySTS].[dbo].[AspNetUsers] "
-				+ "where Email = CONCAT('ATUSER',@a,'@mailinator.com'))               "
+				+ "where Email = CONCAT('ATUSER',@a,'@mt2015.com'))               "
 				+ "insert into [DRC-QA].[Ref].[RegisteredUsers] values                             "
 				+ "  (@emailvalue                                                          "
 				+ "  ,1                                                                   "
 				+ "  ,Concat ('atuser',@a)                                               "
-				+ "  ,CONCAT('ATUSER',@a,'@mailinator.com')                              "
+				+ "  ,CONCAT('ATUSER',@a,'@mt2015.com')                              "
 				+ "  ,CURRENT_TIMESTAMP                                                   "
 				+ "  ,NULL                                                                "
 				+ "  ,CURRENT_TIMESTAMP                                                   "
@@ -137,9 +139,9 @@ public class VatRegistration {
 	public void user_is_on_VAT_Registration_Dashboard() throws Throwable {
 		/*
 		 * for(int i=0;i<5;i++) { String Firstname = "bindi0"; String Lastname
-		 * ="@mailinator.com"; String UName =
+		 * ="@mt2015.com"; String UName =
 		 * Firstname.concat(Integer.toString(i)).concat(Lastname); }
-		 * type("txtbox_username","demouser02@mailinator.com"); sleepWait(2000);
+		 * type("txtbox_username","demouser02@mt2015.com"); sleepWait(2000);
 		 * type("txtbox_password","admin@123"); sleepWait(2000);
 		 * clickOn("btn_login","");
 		 */
@@ -443,6 +445,15 @@ public class VatRegistration {
 	@Then("^Click on Logout on Dashboard$")
 	public void click_on_Logout_on_Dashboard() throws Throwable {
 		logout();
+
+		wd.close();
+		Thread.sleep(1000);
+		wd = new ChromeDriver();
+		wd.manage().window().maximize();
+		wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		wd.get("http://103.249.120.58:8042");
+		Thread.sleep(1000);
+		
 		// clickOn("btn_logout","");
 	}
 
@@ -540,7 +551,7 @@ public class VatRegistration {
 				+ "(VuUserId,FinancialYear,FinancialMonth,PaymentDueDate,TotalAmount,DueAmount,VfDueDate,CreatedDate)"
 				+ "values ((select VuUserId from Vat.VuUsers"
 				+ "where RegisteredUserId in (select RegisteredUserId from ref.RegisteredUsers"
-				+ "where Email='bindi1005@mailinator.com')),(select YEAR(GETDATE())),@month,"
+				+ "where Email='bindi1005@mt2015.com')),(select YEAR(GETDATE())),@month,"
 				+ "(select DATEADD(mm,@month,'2018/01/20')),0.00,0.00,"
 				+ "(select DATEADD(mm,@month,'2018/01/15')),GETDATE())";
 
@@ -550,13 +561,13 @@ public class VatRegistration {
 				+ "(VfVateFileId,VfActivityId,VfStatusId,CreatedDate)" + "values"
 				+ "((select VfVateFileId from vat.VfVateFile where FinancialMonth=@FY and VuUserId in (select VuUserId from Vat.VuUsers"
 				+ "where RegisteredUserId in (select RegisteredUserId from ref.RegisteredUsers"
-				+ "where Email='bindi1005@mailinator.com'))),1,2,getdate()),"
+				+ "where Email='bindi1005@mt2015.com'))),1,2,getdate()),"
 				+ "((select VfVateFileId from vat.VfVateFile where FinancialMonth=@FY and VuUserId in (select VuUserId from Vat.VuUsers"
 				+ "where RegisteredUserId in (select RegisteredUserId from ref.RegisteredUsers"
-				+ "where Email='bindi1005@mailinator.com'))),2,2,getdate()),"
+				+ "where Email='bindi1005@mt2015.com'))),2,2,getdate()),"
 				+ "((select VfVateFileId from vat.VfVateFile where FinancialMonth=@FY and VuUserId in (select VuUserId from Vat.VuUsers"
 				+ "where RegisteredUserId in (select RegisteredUserId from ref.RegisteredUsers"
-				+ "where Email='bindi1005@mailinator.com'))),3,2,getdate())";
+				+ "where Email='bindi1005@mt2015.com'))),3,2,getdate())";
 
 		CD.sta.executeUpdate(Sql1);
 

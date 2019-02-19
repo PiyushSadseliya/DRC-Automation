@@ -227,10 +227,10 @@ public class DV_1377_ManageVatRegistration
 
 	@Then("^enters data in type here text box \"([^\"]*)\"$")
 	public void enters_data_in_type_here_text_box(String value) throws Throwable 
-	{			
-		sleepWait(1000);
+	{
+		sleepWait(1500);
 		type("TypeHere",value);
-		sleepWait(2000);
+ 		sleepWait(3000);
 	}
 
 	@And("^User see piority \"([^\"]*)\"$")

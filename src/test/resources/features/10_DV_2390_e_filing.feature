@@ -1,4 +1,3 @@
-
 Feature: E-filing -> Filing -> Declaration with verification and confirmation of e-declaration
 
 
@@ -117,25 +116,25 @@ Feature: E-filing -> Filing -> Declaration with verification and confirmation of
       | TestcaseID                        | Description                  | AssetsI | AssetsL | GoodsI | GoodsL | Raw MaterialI | Raw MaterialL | OthersI | OthersL |
       | Declaration_Verification_10_11_13 | Enter data in E-filling form |     120 |     200 |     10 |     10 |            10 |            10 |      20 |      20 |
 
-  @TC_21_DV_2390_Declaration_with_verification
-  Scenario Outline: Validate the e-filing schedule Upload functionality
-    Given User is on Vat e-Filing Page "<TestcaseID>" "<Description>"
-    And User click on Dashboard
-    And User click on Tab
-    And clicks on e-filing to fill data
-    And User click on browse button
-    And User select file format pdf "<pdf>" and see message "<Mess>"
-    And User click on browse button
-    And User select file format image "<imj>" and see message "<Mess>"
-    And User click on browse button
-    And User select file format word "<word>" and see message "<Mess>"
-    And User click on browse button and upload file more than two mp "<mb>" and validate mess "<mbMess>"
-    And User click on browse button and upload file less than two mp "<lessMB>" and user see file name "<name>"
-    And User click on cancel button and excel file gets removed and user see "<removed>"
-
-    Examples: 
-      | TestcaseID                  | Description                   | Mess                                  | mbMess                          | name               | removed          | pdf             | imj          | word           | mb                | lessMB             |
-      | Declaration_Verification_21 | validate Upload functionality | Selected file format is not supported | File size must be less than 2MB | DRC Test Data.xlsx | No file selected | certificate.pdf | test img.PNG | test word.docx | SampleXLSFile.xls | DRC Test Data.xlsx |
+  #@TC_21_DV_2390_Declaration_with_verification
+  #Scenario Outline: Validate the e-filing schedule Upload functionality
+    #Given User is on Vat e-Filing Page "<TestcaseID>" "<Description>"
+    #And User click on Dashboard
+    #And User click on Tab
+    #And clicks on e-filing to fill data
+    #And User click on browse button
+    #And User select file format pdf "<pdf>" and see message "<Mess>"
+    #And User click on browse button
+    #And User select file format image "<imj>" and see message "<Mess>"
+    #And User click on browse button
+    #And User select file format word "<word>" and see message "<Mess>"
+    #And User click on browse button and upload file more than two mp "<mb>" and validate mess "<mbMess>"
+    #And User click on browse button and upload file less than two mp "<lessMB>" and user see file name "<name>"
+    #And User click on cancel button and excel file gets removed and user see "<removed>"
+#
+    #Examples: 
+      #| TestcaseID                  | Description                   | Mess                                  | mbMess                          | name               | removed          | pdf             | imj          | word           | mb                | lessMB             |
+      #| Declaration_Verification_21 | validate Upload functionality | Selected file format is not supported | File size must be less than 2MB | DRC Test Data.xlsx | No file selected | certificate.pdf | test img.PNG | test word.docx | SampleXLSFile.xls | DRC Test Data.xlsx |
 
   # submit file
   @TC_24_DV_2390_Declaration_with_verification

@@ -15,42 +15,42 @@ Feature: Verify the IT support Admin functionality
     #Then click on cross button
     And select the files "<file>"
     Then click on IT support submit button
-    Then validation message is displayed "<message>"
+    And successfull "<ToastMessage>" display on given page
 
     Examples: 
       | TC_ITSAid    | issue | title | description                                         | comments     | file        | message                    |
       | TCITSA_01_04 | Bug   | Issue | The enviroment for IT support windows 10 and Mac OS | Uploadedfile | capture.pdf | Record Added Successfully. |
 
-  @TC_ITSA_06
-  Scenario Outline: verify the fields labels dropdown present on the screen - itadminuser
-    And user click on Add button
-    Then user should redirect to the add issue with following
-
-    Examples: 
-      | TC_ITSAid    |
-      | TCITSA_01_04 |
+  #@TC_ITSA_06
+  #Scenario Outline: verify the fields labels dropdown present on the screen - itadminuser
+    #And user click on Add button
+    #Then user should redirect to the add issue with following
+#
+    #Examples: 
+      #| TC_ITSAid    |
+      #| TCITSA_01_04 |
 
   @TC_ITSA_07_08
   Scenario Outline: validate the create issue functionality with description field is blank - itadminuser
     And user click on Add button
     And enter the required details "<issue>" "<title>"
     Then click on IT support submit button
-    Then validation message is displayed "<message>"
+    Then successfull "<ToastMessage>" display on given page
 
     Examples: 
       | TC_ITSAid | issue       | title        | description | message                       |
       | TCITSA01  | Enhancement | test support |             | Description field is required |
 
-  @TC_ITSA_09_10
-  Scenario Outline: validate the create issue functionality with blank mandatory fields and multiple click event on the submit button - itadminuser
-    And user click on Add button
-    Then user do not enter anything or select anything
-    Then click on IT support submit button
-    Then validation message is displayed "<message>"
-
-    Examples: 
-      | TC_ITSAid      | message                                                                        |
-      | TCITSATCITSA01 | Title field is required Description field is required Please select Issue Type |
+  #@TC_ITSA_09_10
+  #Scenario Outline: validate the create issue functionality with blank mandatory fields and multiple click event on the submit button - itadminuser
+    #And user click on Add button
+    #Then user do not enter anything or select anything
+    #Then click on IT support submit button
+    #Then successfull "<ToastMessage>" display on given page
+#
+    #Examples: 
+      #| TC_ITSAid      | message                                                                        |
+      #| TCITSATCITSA01 | Title field is required Description field is required Please select Issue Type |
 
   @TC_ITSA_011
   Scenario Outline: Validate the cancel button functionality - itadminuser
@@ -82,18 +82,18 @@ Feature: Verify the IT support Admin functionality
     #And click on attach icon choose file section window is displayed
     #And select the files "<file>"
     Then click on IT support submit button
-    Then validation message is displayed "<message>"
+    Then successfull "<ToastMessage>" display on given page
 
     Examples: 
       | TC_ITSAid | comments     | file        | message                      |
       | TCITSA01  | File updated | capture.pdf | Record Updated Successfully. |
 
-  @TC_ITSA_016
-  Scenario: Validate page navigation functionality on admin dashboard page - itadminuser
-    Then click on backward icon
-    Then should displayed the relevant page
-    Then click on forward icon
-    Then should displayed the relevant page
+  #@TC_ITSA_016
+  #Scenario: Validate page navigation functionality on admin dashboard page - itadminuser
+    #Then click on backward icon
+    #Then should displayed the relevant page
+    #Then click on forward icon
+    #Then should displayed the relevant page
 
   @TC_ITSA_017_018
   Scenario Outline: validation the communication functionality - itadminuser
@@ -104,7 +104,7 @@ Feature: Verify the IT support Admin functionality
     Then click on download icon on any file
     Then file should get the download
     Then click on IT support submit button
-    Then validation message is displayed "<message>"
+    Then successfull "<ToastMessage>" display on given page
 
     Examples: 
       | TC_ITSAid | comments     | file        | message                      |

@@ -33,9 +33,7 @@ public class DV_2063_FX_Management_Supervisior
 	
 	@And("^User enter credencial for DGI Officer and update the currency$")
 	public void user_enter_credencial_for_DGI_Officer_and_update_the_currency() throws Throwable 
-	{
-		
-		
+	{	
 		sleepWait(1000);
 		//wd.quit();
 		wd = new ChromeDriver();
@@ -60,9 +58,7 @@ public class DV_2063_FX_Management_Supervisior
 		if(wd.findElement(By.xpath(obj.getProperty("txt_ApprovalRequired"))).isDisplayed())
 		{
 			assertTrue(true);
-		}
-		
-		
+		}			
 	//	wd.quit();
 
 	}

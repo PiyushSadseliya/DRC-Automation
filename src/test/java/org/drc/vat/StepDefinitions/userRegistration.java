@@ -98,34 +98,34 @@ public class userRegistration {
 				+ "         ,[UserClient]                                       "
 				+ "         ,[UserName]                                         "
 				+ "         ,[TokenExpiration]                                  "
-				+ "         ,[FullName])                                        "
+				+ "         ,[FullName],[DateRegistered])                                        "
 				+ "   VALUES                                                    "
 				+ "         (NEWID(),                                           "
 				+ "         0                                                   "
 				+ "         ,NEWID()                                            " + "         ,CONCAT('"
-				+ EmailUsername + "','@mt2015.com')              "
+				+ EmailUsername + "','@yopmail.com')              "
 				// +",'"+UserName+"'"
 				+ "         ,1                                                  "
 				+ "         ,0                                                  "
 				+ "         ,NULL                                               "
 				/*
-				 * +"         ,CONCAT('AutomationUser',@a,'@mt2015.com')              "
-				 * +"         ,CONCAT('AutomationUser',@a,'@mt2015.com')              "
+				 * +"         ,CONCAT('AutomationUser',@a,'@yopmail.com')              "
+				 * +"         ,CONCAT('AutomationUser',@a,'@yopmail.com')              "
 				 */
-				 + "        ,CONCAT('" + EmailCapsUsername + "','@mt2015.com')              "
-				 + "         ,CONCAT('" + EmailCapsUsername + "','@mt2015.com')              "
+				 + "        ,CONCAT('" + EmailCapsUsername + "','@yopmail.com')              "
+				 + "         ,CONCAT('" + EmailCapsUsername + "','@yopmail.com')              "
 				 + "         ,'AQAAAAEAACcQAAAAEM/wSgVN/nG79PYxp2X4xCzrtdQcsTEYE911sxUm9sniuJtbzybplBD6TYP+BnxhDg=='  "
 				 + "         ,'+919999999999'                                                                         "
 				 + "         ,1                                                                                       "
 				 + "          , NEWID()                                                                               "
 				 + "          ,0                                                                                      "
 				 + "          ,'TaxPortal'                                                                            "
-				 // +" ,CONCAT('AutomationUser',@a,'@mt2015.com') "
+				 // +" ,CONCAT('AutomationUser',@a,'@yopmail.com') "
 				 + "          ,CONCAT('" + EmailCapsUsername
-				 + "','@mt2015.com')                                                  "
+				 + "','@yopmail.com')                                                  "
 				 + "          ,CURRENT_TIMESTAMP                                                                      "
 				 // +" ,CONCAT('AutomationUser',@a)) ";
-				 + "          ,'" + UserName + "') ";
+				 + "          ,'" + UserName + "',getdate())  ";
 
 		CD.sta.executeUpdate(user);
 	}
@@ -141,11 +141,11 @@ public class userRegistration {
 				// +
 				"declare  @emailvalue Nvarchar(500) "
 				+ "Set @emailvalue = (select ID from  [1AuthoritySTS].[dbo].[AspNetUsers] "
-				+ "where Email = CONCAT('" + EmailUsername + "','@mt2015.com'))               "
+				+ "where Email = CONCAT('" + EmailUsername + "','@yopmail.com'))               "
 				+ "insert into [DRC-QA].[Ref].[RegisteredUsers] values                             "
 				+ "  (@emailvalue                                                          "
 				+ "  ,1                                                                   " + "  ,'" + Username
-				+ "'" + "  ,CONCAT('" + EmailUsername + "','@mt2015.com')                              "
+				+ "'" + "  ,CONCAT('" + EmailUsername + "','@yopmail.com')                              "
 				+ "  ,CURRENT_TIMESTAMP                                                   "
 				+ "  ,NULL                                                                "
 				+ "  ,CURRENT_TIMESTAMP                                                   "
@@ -166,12 +166,11 @@ public class userRegistration {
 				// email like 'dfdj%')"
 				" declare  @emailvalue Nvarchar(500)"
 				+ " set @emailvalue = (select ID from  [1AuthoritySTS].[dbo].[AspNetUsers] "
-				+ " where Email = CONCAT('" + EmailUsername + "','@mt2015.com'))"
+				+ " where Email = CONCAT('" + EmailUsername + "','@yopmail.com'))"
 				+ " insert into [1AuthoritySTS].[dbo].[AspNetUserRoles] ([UserId],[RoleId]) VALUES  (@emailvalue,'B828372F-B0AD-40DF-B8BB-5C6E11A8682E')";
 
 		// System.out.println("test");
 		CD.sta.executeUpdate(roles);
-
 	}
 
 	@When("^User Clicks on Register$")

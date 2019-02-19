@@ -36,7 +36,7 @@ Feature: Update and Appove or Reject the Fuel Rate.
   Scenario Outline: Validate the close(X) icon,Effective date functionality on update fuel rate popup
     Given The officer has logged in "<TestcaseID>""<Description>"
     When the user click on Fuel Rate Management
-    Then user is on "Fuel Management"
+    Then user is on "Fuel Management"	
     Then Click on Update button to update the fuel rate
     Then close the pop up
 

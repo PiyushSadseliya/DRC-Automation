@@ -20,7 +20,7 @@ Feature: User is on e file landing screen and click on Preview button
     And User validate Operations Performed Section
     And User validate Tax Deductible On
     And User validate Adjustment
-    And User click on download button and user validate file should get downloaded
+    #And User click on download button and user validate file should get downloaded
 
     Examples: 
       | TestcaseID                       | Description                                                                                                      |      1 |    2 |  2.1 |   3 |   4 |   5 |   6 |   7 |   8 |  10 | 10.1 |  11 | 11.1 |  12 | 12.1 |  13 | 13.1 |  17 |  18 |  19 |  20 |     26 |

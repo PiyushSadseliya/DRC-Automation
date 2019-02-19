@@ -3,24 +3,13 @@ package org.drc.vat.StepDefinitions;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import freemarker.template.SimpleDate;
-
 import static org.drc.vat.appmanager.HelperBase.clickOn;
 import static org.drc.vat.appmanager.HelperBase.elementText;
 import static org.drc.vat.appmanager.HelperBase.datePicker;
-import static org.drc.vat.appmanager.HelperBase.logout;
 import static org.drc.vat.appmanager.HelperBase.sleepWait;
 import static org.drc.vat.appmanager.HelperBase.type;
 import static org.drc.vat.appmanager.HelperBase.getvalue;
-import org.testng.asserts.SoftAssert;
-
-import bsh.org.objectweb.asm.Type;
-
-import static org.drc.vat.appmanager.HelperBase.waitUntilElementFound;
-import static org.drc.vat.appmanager.HelperBase.pageSource;
-
 import static org.drc.vat.appmanager.HelperBase.wd;
-import static org.junit.Assert.assertArrayEquals;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertNotEquals;
 
@@ -31,13 +20,9 @@ import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
-import java.util.Map;
-
-import org.drc.vat.appmanager.ConnectDatabase;
-import org.json.simple.JSONArray;
+import org.drc.vat.appmanager.*;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.openqa.selenium.By;

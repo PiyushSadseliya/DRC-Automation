@@ -58,7 +58,7 @@ Feature: EFD Vendor Module TestSuite
   @TC_Searchvalid
   Scenario Outline: Validate 'Filter By' functionality for all categories with invalid data - efd-manufacturerportal
     And User landed on dashboard
-    And Click on EFD Registration button
+    Then Click on vendor registration tab
     And select "<Filter>" option and "<Fvalue>"
     And Clicks on Search Button
     And User see result "<Fvalue>"

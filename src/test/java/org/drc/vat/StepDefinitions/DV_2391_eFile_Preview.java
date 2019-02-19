@@ -49,8 +49,7 @@ public class DV_2391_eFile_Preview
 	@And("^User click on download button and user validate file should get downloaded$")
 	public void user_click_on_download_button_and_user_validate_file_should_get_downloaded() throws Throwable 
 	{
-		sleepWait(1000);							
-
+		sleepWait(1000);
 		clickOn("btnDownloadEfile", "");
 		sleepWait(3000);				
 		verifyDownload("EfilingDetails.pdf");
@@ -59,11 +58,8 @@ public class DV_2391_eFile_Preview
 
 	@Then("^clicks on e-filing to fill data$")
 	public void clicks_on_e_filing_to_fill_data() throws Throwable 
-	{				
-
-		sleepWait(10000);	
-
-
+	{
+		sleepWait(10000);
 		for(int i =1;i<=12;i++)
 		{
 			String first_part = "(//div[@class='list-item-th text-left'])[";
@@ -101,7 +97,6 @@ public class DV_2391_eFile_Preview
 	@And("^User click on Preview$")
 	public void user_click_on_Preview() throws Throwable 
 	{
-
 		sleepWait(1000);							
 		wd.findElement(By.xpath(StoreMonth)).click();			
 		sleepWait(1000);			
@@ -143,7 +138,6 @@ public class DV_2391_eFile_Preview
 	@And("^User entered value \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" for Operation Performed on preview$")
 	public void user_entered_value_for_Operation_Performed_on_preview(String DG, String DS1, String DS2, String DGI, String DSI, String FPP, String Export, String Exempt, String Nontaxable) throws Throwable 
 	{
-
 		sleepWait(10000);				
 		sleepWait(200);
 		type("txt_Delivery_goods", DG);
@@ -174,7 +168,6 @@ public class DV_2391_eFile_Preview
 		VAT_Store_Export =Export;
 		VAT_Store_Exempt =Exempt;
 		VAT_Store_Nontaxable =Nontaxable;
-
 	}
 
 	@And("^User entered value \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" for Tax Deductible On preview$")

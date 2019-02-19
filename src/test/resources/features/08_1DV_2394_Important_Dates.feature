@@ -1,8 +1,5 @@
 Feature: Use is on e-Filing page and see Important Dates
 
-
-
-
   @TC_002_ImportantDates
   Scenario Outline: Validate the functionality of important Dates.
     Given User is on Vat e-Filing Page "<TestcaseID>" "<Description>"        

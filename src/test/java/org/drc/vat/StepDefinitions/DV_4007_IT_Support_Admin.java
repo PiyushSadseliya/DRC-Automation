@@ -7,6 +7,9 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import static org.drc.vat.appmanager.HelperBase.*;
+import static org.testng.Assert.assertTrue;
+
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -134,11 +137,18 @@ public class DV_4007_IT_Support_Admin {
 		sleepWait(2000);
 		clickOn("btn_Help_Submit", "");
 	}
+	
+	@Then("^successfull \"([^\"]*)\" display on given page$")
+	public void successfull_display_on_given_page(String tostmessage) throws Throwable {
+		if(wd.findElement(By.xpath("//*[contains(text(),'" + tostmessage + "')]")).isDisplayed() )
+        {
+			assertTrue(true);
+        }
+	}
 
 	@Given("^user click on Add button$")
 	public void user_click_on_Add_button() throws Throwable {
 		clickOn("btn_Add_New_Issue", "");
-
 	}
 
 	@Then("^user should redirect to the add issue with following$")
@@ -163,7 +173,7 @@ public class DV_4007_IT_Support_Admin {
 
 	@Then("^validation message is displayed \"([^\"]*)\"$")
 	public void validation_message_is_displayed(String arg1) throws Throwable {
-
+		
 	}
 
 	@Then("^user do not enter anything or select anything$")
@@ -215,7 +225,6 @@ public class DV_4007_IT_Support_Admin {
 
 	@Then("^enter any text on the dashboard page \"([^\"]*)\"$")
 	public void enter_any_text_on_the_dashboard_page(String searchelement) throws Throwable {
-
 		type("Search_issue", searchelement);
 		sleepWait(2000);
 	}

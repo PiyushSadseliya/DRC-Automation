@@ -1,7 +1,5 @@
 package org.drc.vat.StepDefinitions;
 
-import org.testng.asserts.SoftAssert;
-
 import static org.drc.vat.appmanager.HelperBase.elementText;
 import static org.drc.vat.appmanager.HelperBase.clickOn;
 import static org.drc.vat.appmanager.HelperBase.type;
@@ -11,16 +9,11 @@ import static org.testng.Assert.assertEquals;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
-
 import static org.drc.vat.appmanager.HelperBase.UploadImage;
-import static org.drc.vat.appmanager.HelperBase.pageSource;
 import static org.drc.vat.appmanager.HelperBase.sleepWait;
 import static org.drc.vat.appmanager.HelperBase.frenchToIndian;
-import static org.drc.vat.StepDefinitions.DebtManagementAssignedDebtList.recordNo;
-import static org.drc.vat.StepDefinitions.DebtManagementUnassignedDebt.totalDebtAmount;
 
-import org.drc.vat.appmanager.ConnectDatabase;
+import org.drc.vat.appmanager.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
