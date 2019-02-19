@@ -15,7 +15,7 @@ import cucumber.api.java.en.And;
 
 public class DV_2253_TaxPayer_Portal_objection_appeal 
 {
-	public static String Storereference_value; 
+	public static String Storereference_value;
 	public String Noticeperiod;
 
 	@And("^user click on VAT menu$")

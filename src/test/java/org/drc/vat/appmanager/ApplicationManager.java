@@ -94,9 +94,10 @@ public class ApplicationManager {
 	/**
 	 * Ketan.prajapati internal portal
 	 */
-	public void callinternalportal() throws AWTException, InterruptedException, IOException {
-		if (wd.getCurrentUrl().contains("8068") || wd.getCurrentUrl().contains("8042")) {
-
+	public void callinternalportal() throws AWTException, InterruptedException, IOException 
+	{
+		if (wd.getCurrentUrl().contains("8068") || wd.getCurrentUrl().contains("8042")) 
+		{
 			wd.close();
 			Thread.sleep(2000);
 			wd = new ChromeDriver();
@@ -127,7 +128,6 @@ public class ApplicationManager {
 		}
 	}
 
-
 	public void EFDinternalportal() throws AWTException, InterruptedException, IOException {
 		if (wd.getCurrentUrl().contains("8057")) {
 			wd.close();
@@ -136,14 +136,15 @@ public class ApplicationManager {
 			wd.manage().window().maximize();
 			wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 			wd.get("http://103.249.120.58:8044");
-			Runtime.getRuntime()
-			.exec(System.getProperty("user.dir") + "\\src\\test\\resources\\authusers\\autoitsample.exe");
+			Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\QA_Internal_Portal_Login\\autoitsample.exe");
 			wd.findElement(By.xpath(obj.getProperty("btn_windowsClick"))).click();
 			Thread.sleep(1000);
 		}
 	}
 
-	public void callmanufacturerportal() throws AWTException, InterruptedException, IOException {
+	public void callmanufacturerportal() throws AWTException, InterruptedException, IOException 
+	{
+		wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		wd.get("http://103.249.120.58:8057");
 	}
 
@@ -151,10 +152,10 @@ public class ApplicationManager {
 		wd.get("http://103.249.120.58:8012");
 	}
 
-
-	public void calltaxpayerportal() throws AWTException, InterruptedException, IOException {
-		if (wd.getCurrentUrl().contains("8068")) {
-
+	public void calltaxpayerportal() throws AWTException, InterruptedException, IOException 
+	{				
+		if (wd.getCurrentUrl().contains("8068")) 
+		{
 			sleepWait(1500);
 			wd.close();
 			Thread.sleep(1000);
@@ -165,6 +166,22 @@ public class ApplicationManager {
 			Thread.sleep(1000);
 		}
 	}
+	
+	/** 
+	 * Arun creted
+	 */
+	/*public void calltaxpayerportal() throws AWTException, InterruptedException, IOException 
+	{				
+		sleepWait(1500);
+		wd.close();
+		Thread.sleep(1000);
+		wd = new ChromeDriver();
+		wd.manage().window().maximize();
+		wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		wd.get("http://103.249.120.58:8042");	
+		Thread.sleep(1000);			
+	}*/
+
 
 	/** 
 	 * Arun creted

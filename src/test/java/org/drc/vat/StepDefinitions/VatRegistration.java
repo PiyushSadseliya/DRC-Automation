@@ -14,7 +14,7 @@ import java.util.Properties;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
-import org.drc.vat.appmanager.ApplicationManager;
+import org.drc.vat.appmanager.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
@@ -485,6 +485,7 @@ public class VatRegistration {
 		sleepWait(500);
 		clickOn("span", "[contains(text(),'" + Filter + "')]");
 		type("txt_search", Searchelement);
+		
 	}
 
 	@Then("^clicks on manage button and select \"([^\"]*)\"$")

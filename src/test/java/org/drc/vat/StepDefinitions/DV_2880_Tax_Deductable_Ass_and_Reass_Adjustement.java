@@ -60,6 +60,7 @@ public class DV_2880_Tax_Deductable_Ass_and_Reass_Adjustement
 	@And("^User type \"([^\"]*)\" and click on search button$")
 	public void user_type_and_click_on_search_button(String taxpayer) throws Throwable 
 	{
+		sleepWait(1000);
 		type("txtbox_TypeHere", taxpayer);
 		sleepWait(1000);
 		clickOn("btn_TypeHere_click", "");

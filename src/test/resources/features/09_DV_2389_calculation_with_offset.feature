@@ -9,6 +9,16 @@ Feature: User is on Tax Calculation
   #Examples:
   #| TestcaseID       | Description          | email                           | password |
   #| e-file_Login_001 | Login into tax payer | Automationtwentyfour@mt2015.com | Test@123 |
+  @TC_01_Login
+  Scenario Outline: DRC Tax Portal Login 
+    Given User Login "<TestcaseID>" "<Description>"
+    And User Enter email "<email>" and  password "<password>"
+    And User Click on SignIn
+
+    Examples: 
+      | TestcaseID       | Description          | email                        | password  |
+      | e-file_Login_001 | Login into tax payer | approveddduser@mailinator.com | Test@123 |
+
   @TC_02_12
   Scenario Outline: Validate proceed button functionality
     Given User is on Vat e-Filing Page "<TestcaseID>" "<Description>"

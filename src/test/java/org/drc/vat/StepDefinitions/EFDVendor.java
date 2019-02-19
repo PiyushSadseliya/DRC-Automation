@@ -110,7 +110,8 @@ public class EFDVendor {
 	@Then("^Enter the NITVA \"([^\"]*)\"$")
 	public void enter_the_NITVA(String NitvaNo1) throws Throwable {
 		// NitvaNo = NitvaNo + times;
-		type("EDFNitva", NitvaNo);
+		//type("EDFNitva", NitvaNo);
+		type("EDFNitva", NitvaNo1);
 		System.out.println(NitvaNo);
 	}
 

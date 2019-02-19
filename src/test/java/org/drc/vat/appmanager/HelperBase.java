@@ -31,6 +31,8 @@ import java.io.IOException;
 import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.temporal.ChronoUnit;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -735,7 +737,7 @@ public class HelperBase {
 		}
 
 	}
-
+ 
 
 	public static void datePicker(String date) {
 		try {
@@ -943,11 +945,11 @@ public class HelperBase {
 			Date date1 = myFormat.parse(Date1);
 			Date date2 = myFormat.parse(Date2);
 			diff = date2.getTime() - date1.getTime();
-			System.out.println("Days: " + TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS));
+			//System.out.println("Days: " + TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS));
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-		return diff;
+		return TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
 
 	}
 
@@ -1045,7 +1047,6 @@ public class HelperBase {
 				.until(ExpectedConditions.presenceOfElementLocated(By.xpath(obj.getProperty(object))));
 	}
 
-
 	public static boolean waitTillElementDisappear(String object) {
 
 		WebDriverWait wait = new WebDriverWait(wd, 100);
@@ -1053,22 +1054,3 @@ public class HelperBase {
 		return wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(object)));
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

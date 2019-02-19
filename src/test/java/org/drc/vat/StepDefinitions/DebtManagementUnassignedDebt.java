@@ -25,6 +25,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.asserts.SoftAssert;
+import static org.drc.vat.appmanager.HelperBase.*;
 /*
  * Based on the selection of the Pending Amount of age brackets the officer can 
  * assign the pending VAT amount to be collected to the Collection officer
@@ -66,21 +67,17 @@ public class DebtManagementUnassignedDebt {
 	}
 		  sleepWait(5000);*/
 
-	}
+	} 
 	
 
 	@When("^Clicked on pending amount for \"([^\"]*)\"$")
 	public void clicked_on_pending_amount_for(String arg1) throws Throwable {
 		//By pending_href =By.xpath("//td[1]/div[text()='0-3 Months']/following::a");
 		sleepWait(2000);
-		WebElement pendinglink=wd.findElement(By.xpath("//td/div[text()='0-3 Months']/following::a"));
+		WebElement pendinglink=wd.findElement(By.xpath("//td/div[text()='0-3 Months']/following::a"));		
 		pendingamount=pendinglink.getText();
 		pendinglink.click();
-
-
-
 	}
-
 
 	@Then("^user is on Pending debts$")
 	public void user_is_on_Pending_debts() throws Throwable {
@@ -234,12 +231,14 @@ public class DebtManagementUnassignedDebt {
 
 	@Then("^Search by TaxPayer Name \"([^\"]*)\" and Records should be displayed$")
 	public void search_by_TaxPayer_Name_and_Records_should_be_displayed(String arg1) throws Throwable {
+		
 		clickOn("drpdwnfilterby_txpayer", "");
 		clickOn("filterbytpayer", "");
 		String taxpayername=elementText("txt_particulars","");
 		type("input_search_tpprofile",taxpayername);
+
 		clickOn("btn_searchage","");		
-		
+
 		sleepWait(5000);
 		waitUntilElementFound("vchkbx_selectall", "");
 		List <WebElement> records = wd.findElements(By.xpath("//tbody/tr"));
@@ -515,6 +514,9 @@ public void click_on_save_button_It_should_be_disabled() throws Throwable {
 
 @Then("^Search by TaxPayer Name \"([^\"]*)\" and assigns to officer and is on Case Management$")
 public void search_by_TaxPayer_Name_and_assigns_to_officer_and_is_on_Case_Management(String arg1)throws Throwable {
+	
+	sleepWait(1000);
+	waitFor("btn_filter");
 	clickOn("btn_filter","");
 	clickOn("drpdwnfilterby_txpayer", "");
 	sleepWait(2000);

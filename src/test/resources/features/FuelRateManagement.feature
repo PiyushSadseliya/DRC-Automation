@@ -32,7 +32,7 @@ Feature: Update and Appove or Reject the Fuel Rate.
       | TestcaseID                      | Description                                      |
       | DRC_ATC_FuelManagement_Admin_01 | Validate the Change rate column- internal portal |
 
- @admin @tc38
+  @admin @tc38
   Scenario Outline: Validate the close(X) icon,Effective date functionality on update fuel rate popup
     Given The officer has logged in "<TestcaseID>""<Description>"
     When the user click on Fuel Rate Management
@@ -43,31 +43,34 @@ Feature: Update and Appove or Reject the Fuel Rate.
     Examples: 
       | TestcaseID                      | Description                                                          |
       | DRC_ATC_FuelManagement_Admin_02 | Validate the close(X) icon functionality on update fuel rate popup.. |
-      
-  @admin @tc39 @tc40 @tc42 @tc43 @tc44 @tc45 @tc46
-  Scenario Outline: Validate the Excise,VAT,Fuel Rate,Royalty,Total are getting calculated on Save of Update fuel rate popup Approval Required Rejected
+
+  @admin @tc39 @tc40 @tc42 @tc43 @tc44 @tc45 @tc46 @rejection
+  Scenario Outline: Validate the Excise,VAT,Fuel Rate,Royalty,Total are getting calculated on Save of Update fuel rate popup Approval Required Rejected internal portal
     Given The officer has logged in "<TestcaseID>""<Description>"
     When the user click on Fuel Rate Management
     Then user is on "Fuel Management"
     Then Contains Header Previous Rate
     Then Contains header Current Rates
-    # Then The Change in Rate (CDF) column should be Previous Rate-Current Rate
+    Then The Change in Rate (CDF) column should be Previous Rate-Current Rate
     Then Click on Update button to update the fuel rate
     Then Selects effective date of future date
     Then enter Fuel Rates of Petrol in basic"<basicpetrolrate>" Rates are Excise"<Excise>" ,VAT"<VAT>",Fuel Tax"<Fuel>",Royalty"<Royalty>" and does Total
     Then enter Fuel Rates of Diesel in basic"<basicdieselrate>" Rates are Excise"<Excise>" ,VAT"<VAT>",Fuel Tax"<Fuel>",Royalty"<Royalty>" and does Total
     Then enter Fuel Rates of Kerosene in basic"<basickerosenerate>" Rates are Excise"<Excise>" ,VAT"<VAT>",Fuel Tax"<Fuel>",Royalty"<Royalty>" and does Total
-    Then click on Save button on update fuel rate popup.
-    Then Message of "Fuel price Accepted sucessfully" should be displayed
-    Then Fuel Rates List the page should get displayed with caption "Approval Required"
+    Then enter Fuel Rates of CNG in basic"<basiccngrate>" Rates are Excise"<Excise>" ,VAT"<VAT>",Fuel Tax"<Fuel>",Royalty"<Royalty>" and does Total
+    Then enter Fuel Rates of Methanol in basic"<basicmethanolrate>" Rates are Excise"<Excise>" ,VAT"<VAT>",Fuel Tax"<Fuel>",Royalty"<Royalty>" and does Total
+    Then enter Fuel Rates of Gasoline in basic"<basicgasolinerate>" Rates are Excise"<Excise>" ,VAT"<VAT>",Fuel Tax"<Fuel>",Royalty"<Royalty>" and does Total
+    #Then click on Save button on update fuel rate popup.
+    #Then Message of "Fuel price Accepted sucessfully" should be displayed
+    #Then Fuel Rates List the page should get displayed with caption "Approval Required"
     #Then Current Rate should be dispayed
     #And New Rate with the effective date as well should be displayed
     #Then The Change in Rate (CDF) column should be New Rate -Current Rate
-    Then Admin should not approve or reject the self-updated rates
+    #Then Admin should not approve or reject the self-updated rates
 
     Examples: 
-      | TestcaseID                      | Description                                                                                         | Excise | VAT | Fuel | Royalty | basicpetrolrate | basicdieselrate | basickerosenerate |
-      | DRC_ATC_FuelManagement_Admin_03 | Validate the close(X) icon functionality on update fuel rate popup  Approval Required admin update. |     10 |   0 |    5 |      12 |             100 |             100 |               100 |
+      | TestcaseID                      | Description                                                                                         | Excise | VAT | Fuel | Royalty | basicpetrolrate | basicdieselrate | basickerosenerate | basiccngrate | basicmethanolrate | basicgasolinerate |
+      | DRC_ATC_FuelManagement_Admin_03 | Validate the close(X) icon functionality on update fuel rate popup  Approval Required admin update. |     10 |   0 |    5 |      12 |             100 |             100 |               100 |          100 |               100 |               100 |
 
   @TC_01
   Scenario Outline: Verify the cancelation of Reject fuel rate functionality - supervisor
