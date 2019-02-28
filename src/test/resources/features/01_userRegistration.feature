@@ -11,25 +11,21 @@ Feature: User Registration for the steps involved in creating a user account for
     Examples: 
 
       | Test Case ID                  | Description              | username               |
-      #| DRC_ATC_Valid_Registration_01 | Register with valid data | Automation TwentyOne   |
-      #| DRC_ATC_Valid_Registration_02 | Register with valid data | Automation TwentyTwo   |
-      #| DRC_ATC_Valid_Registration_03 | Register with valid data | Automation TwentyThree |
-      #| DRC_ATC_Valid_Registration_04 | Register with valid data | Automation TwentyFour  |
-      #| DRC_ATC_Valid_Registration_01 | Register with valid data | Automation TwentyFive  |
-      #| DRC_ATC_Valid_Registration_01 | Register with valid data | Automation TwentySix   |
-      #| DRC_ATC_Valid_Registration_02 | Register with valid data | Automation TwentySeven |
-      #| DRC_ATC_Valid_Registration_03 | Register with valid data | Automation TwentyEight |
-      #| DRC_ATC_Valid_Registration_04 | Register with valid data | Automation TwentyNine  |
-      #| DRC_ATC_Valid_Registration_04 | Register with valid data | Automation Thirty      |
-      #| DRC_ATC_Valid_Registration_04 | Register with valid data | Automation Thirtyone   |
-      #| DRC_ATC_Valid_Registration_04 | Register with valid data | Automation Thirtytwo   |
-      #| DRC_ATC_Valid_Registration_04 | Register with valid data | Automation Thirtythree |
-      #| DRC_ATC_Valid_Registration_04 | Register with valid data | Automation Thirtyfour  |
-      #| DRC_ATC_Valid_Registration_04 | Register with valid data | Automation Thirtyfive  |
-      #| DRC_ATC_Valid_Registration_04 | Register with valid data | Automation Thirtysix   |
-       | DRC_ATC_Valid_Registration_04 | Register with valid data | Automation TestFour   |
-       | DRC_ATC_Valid_Registration_05 | Register with valid data | Automation TestFive   |
-      
+      | DRC_ATC_Valid_Registration_04 | Register with valid data | Automation Seventyone   |
+      | DRC_ATC_Valid_Registration_04 | Register with valid data | Automation Seventytwo   |
+      | DRC_ATC_Valid_Registration_04 | Register with valid data | Automation Seventythree |
+      | DRC_ATC_Valid_Registration_04 | Register with valid data | Automation Seventyfour  |
+      | DRC_ATC_Valid_Registration_04 | Register with valid data | Automation Seventyfive  |
+      | DRC_ATC_Valid_Registration_04 | Register with valid data | Automation Seventysix   |
+      | DRC_ATC_Valid_Registration_04 | Register with valid data | Automation Seventyseven  |
+      | DRC_ATC_Valid_Registration_04 | Register with valid data | Automation Seventyeight  |
+      | DRC_ATC_Valid_Registration_04 | Register with valid data | Automation Seventynine   |
+      | DRC_ATC_Valid_Registration_04 | Register with valid data | Automation Eighty |
+      | DRC_ATC_Valid_Registration_04 | Register with valid data | Automation Eightyone |
+      | DRC_ATC_Valid_Registration_04 | Register with valid data | Automation Eightytwo |
+      | DRC_ATC_Valid_Registration_04 | Register with valid data | Automation Eightythree |
+      | DRC_ATC_Valid_Registration_04 | Register with valid data | Automation Eightyfour |
+      | DRC_ATC_Valid_Registration_04 | Register with valid data | Automation Eightyfive |
 
 
   @Invalid_Registration @mtc3 @mtc4 @mtc5 @mtc6 @mtc8 @mtc9 @Sprint3

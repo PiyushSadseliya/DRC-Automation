@@ -1,6 +1,5 @@
 Feature: E-filing -> Filing -> Declaration with verification and confirmation of e-declaration
 
-
   @TC_02_DV_2390_Declaration_with_verification
   Scenario Outline: Validate whether the tax payer is able to e-file
     Given User is on Vat e-Filing Page "<TestcaseID>" "<Description>"
@@ -22,7 +21,6 @@ Feature: E-filing -> Filing -> Declaration with verification and confirmation of
       | TestcaseID                  | Description                                           |     1 |    2 |  2.1 |   3 |   4 |   5 |   6 |   7 |   8 |  10 | 10.1 |  11 | 11.1 |  12 | 12.1 |  13 | 13.1 |  17 |  18 |  19 |  20 |    26 | uploadFile         |
       | Declaration_Verification_02 | validate tax payer is able to e-file and period field | 10000 | 7000 | 5000 | 500 | 500 | 500 | 500 | 500 | 500 | 500 |  500 | 500 |  500 | 500 |  500 | 500 |  500 | 500 | 500 | 500 | 500 | 10000 | DRC Test Data.xlsx |
 
-
   @TC_03_DV_2390_Declaration_with_verification
   Scenario Outline: Validate the text fields on e-filing declaration page.
     Given User is on Vat e-Filing Page "<TestcaseID>" "<Description>"
@@ -39,19 +37,17 @@ Feature: E-filing -> Filing -> Declaration with verification and confirmation of
       | Declaration_Verification_03_1 | Validate the text fields | -10000 | -7000 | -5000 | -500 | -500 | -500 | -500 | -500 | -500 | -500 | -500 | -500 | -500 | -500 | -500 | -500 | -500 | -500 | -500 | 500 | 500 | 10000 | March, 2018 | DRC Test Data.xlsx |
       | Declaration_Verification_03_2 | Validate the text fields | A0b00  | b000  | c000  | d00  | e00  | s00  | h00  | a00  | sd0  | j00  | f00  | h00  | h00  | a00  | h00  | h00  | h00  | gh00 | h00  | g00 | f00 | h000  | March, 2018 | DRC Test Data.xlsx |
 
- #@TC_04_DV_2390_Declaration_with_verification
+  #@TC_04_DV_2390_Declaration_with_verification
   #Scenario Outline: Validate the Period field.
-   # Given User is on Vat e-Filing Page "<TestcaseID>" "<Description>"
-   # And User click on Dashboard
-   # And User click on Tab
-    #And User click on collpase icon for filing "<month>"
-    #And User click on file button "<file>" and navigate to e-declaration page
-    #And User verify period "<period>" for Tax Calculation
-
-#    Examples: 
- #     | TestcaseID                  | Description               | month | file  | period         |
- #     | Declaration_Verification_04 | Validate the Period field | eDec  | eDecC | December, 2018 |
-
+  # Given User is on Vat e-Filing Page "<TestcaseID>" "<Description>"
+  # And User click on Dashboard
+  # And User click on Tab
+  #And User click on collpase icon for filing "<month>"
+  #And User click on file button "<file>" and navigate to e-declaration page
+  #And User verify period "<period>" for Tax Calculation
+  #    Examples:
+  #     | TestcaseID                  | Description               | month | file  | period         |
+  #     | Declaration_Verification_04 | Validate the Period field | eDec  | eDecC | December, 2018 |
   @TC_05_06_DV_2390_Declaration_with_verification
   Scenario Outline: Validate the delivery of services field under Turnover realized column
     Given User is on Vat e-Filing Page "<TestcaseID>" "<Description>"
@@ -94,7 +90,7 @@ Feature: E-filing -> Filing -> Declaration with verification and confirmation of
     And User entered value "<17>" "<18>" "<19>" "<20>" for Adjustment calculation
     And calculate tax calculations and enter "<VAT3Party>"
     And User click on check box and click on submit button
-     And User click on Yes button
+    And User click on Yes button
     And Enter OTP and click on verify button and click on Ok button
 
     # need to add submit
@@ -118,25 +114,25 @@ Feature: E-filing -> Filing -> Declaration with verification and confirmation of
 
   #@TC_21_DV_2390_Declaration_with_verification
   #Scenario Outline: Validate the e-filing schedule Upload functionality
-    #Given User is on Vat e-Filing Page "<TestcaseID>" "<Description>"
-    #And User click on Dashboard
-    #And User click on Tab
-    #And clicks on e-filing to fill data
-    #And User click on browse button
-    #And User select file format pdf "<pdf>" and see message "<Mess>"
-    #And User click on browse button
-    #And User select file format image "<imj>" and see message "<Mess>"
-    #And User click on browse button
-    #And User select file format word "<word>" and see message "<Mess>"
-    #And User click on browse button and upload file more than two mp "<mb>" and validate mess "<mbMess>"
-    #And User click on browse button and upload file less than two mp "<lessMB>" and user see file name "<name>"
-    #And User click on cancel button and excel file gets removed and user see "<removed>"
-#
-    #Examples: 
-      #| TestcaseID                  | Description                   | Mess                                  | mbMess                          | name               | removed          | pdf             | imj          | word           | mb                | lessMB             |
-      #| Declaration_Verification_21 | validate Upload functionality | Selected file format is not supported | File size must be less than 2MB | DRC Test Data.xlsx | No file selected | certificate.pdf | test img.PNG | test word.docx | SampleXLSFile.xls | DRC Test Data.xlsx |
-
+  #Given User is on Vat e-Filing Page "<TestcaseID>" "<Description>"
+  #And User click on Dashboard
+  #And User click on Tab
+  #And clicks on e-filing to fill data
+  #And User click on browse button
+  #And User select file format pdf "<pdf>" and see message "<Mess>"
+  #And User click on browse button
+  #And User select file format image "<imj>" and see message "<Mess>"
+  #And User click on browse button
+  #And User select file format word "<word>" and see message "<Mess>"
+  #And User click on browse button and upload file more than two mp "<mb>" and validate mess "<mbMess>"
+  #And User click on browse button and upload file less than two mp "<lessMB>" and user see file name "<name>"
+  #And User click on cancel button and excel file gets removed and user see "<removed>"
+  #
+  #Examples:
+  #| TestcaseID                  | Description                   | Mess                                  | mbMess                          | name               | removed          | pdf             | imj          | word           | mb                | lessMB             |
+  #| Declaration_Verification_21 | validate Upload functionality | Selected file format is not supported | File size must be less than 2MB | DRC Test Data.xlsx | No file selected | certificate.pdf | test img.PNG | test word.docx | SampleXLSFile.xls | DRC Test Data.xlsx |
   # submit file
+  
   @TC_24_DV_2390_Declaration_with_verification
   Scenario Outline: Validate the Save Draft button functionality.
     Given User is on Vat e-Filing Page "<TestcaseID>" "<Description>"
@@ -190,11 +186,11 @@ Feature: E-filing -> Filing -> Declaration with verification and confirmation of
     And User enter invalid data special character "<special>" and click on verify and see mess "<InvalidMess>"
     And User enter Alpha numeric "<Alphanumeric>" and click on verify and see mess "<InvalidMess>"
     And User click on close icon
-    And User again click on submit button
-    And User click on Yes button
-    And User waits for more than two min and click on verify button and see message "<mess>"    
-    And User click on close icon on pop up 
+    #And User again click on submit button
+    #And User click on Yes button
+    #And User waits for more than two min and click on verify button and see message "<mess>"
+    #And User click on close icon on pop up
 
     Examples: 
       | TestcaseID                              | Description           |     1 |    2 |  2.1 |   3 |   4 |   5 |   6 |   7 |   8 |  10 | 10.1 |  11 | 11.1 |  12 | 12.1 |  13 | 13.1 |  17 |  18 |  19 |  20 |    26 | mess                    | InvalidMess            | numeric | special | Alphanumeric | ExiMess                |
-      | Declaration_Verification_22_23_25_26_27 | validate period field | 10000 | 7000 | 5000 | 500 | 500 | 500 | 500 | 500 | 500 | 500 |  500 | 500 |  500 | 500 |  500 | 500 |  500 | 500 | 500 | 500 | 500 | 10000 | Enter Verification Code | Please enter valid OTP |  123456 | !@$@$3^ | asd1123      | Please enter valid OTP |
+      | Declaration_Verification_22_23_25_26_27 | validate period field | 10000 | 7000 | 5000 | 500 | 500 | 500 | 500 | 500 | 500 | 500 |  500 | 500 |  500 | 500 |  500 | 500 |  500 | 500 | 500 | 500 | 500 | 10000 | Enter Verification Code | Please enter valid OTP |  123345 | !@$@$3^ | asd1123      | Please enter valid OTP |

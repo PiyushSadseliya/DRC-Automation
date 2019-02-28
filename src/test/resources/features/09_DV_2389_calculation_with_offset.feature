@@ -9,21 +9,22 @@ Feature: User is on Tax Calculation
   #Examples:
   #| TestcaseID       | Description          | email                           | password |
   #| e-file_Login_001 | Login into tax payer | Automationtwentyfour@mt2015.com | Test@123 |
-  @TC_01_Login
-  Scenario Outline: DRC Tax Portal Login 
-    Given User Login "<TestcaseID>" "<Description>"
-    And User Enter email "<email>" and  password "<password>"
-    And User Click on SignIn
-
-    Examples: 
-      | TestcaseID       | Description          | email                        | password  |
-      | e-file_Login_001 | Login into tax payer | approveddduser@mailinator.com | Test@123 |
+  
+  #@TC_01_Login
+  #Scenario Outline: DRC Tax Portal Login
+    #Given User Login "<TestcaseID>" "<Description>"
+    #And User Enter email "<email>" and  password "<password>"
+    #And User Click on SignIn
+#
+    #Examples: 
+      #| TestcaseID       | Description          | email                         | password |
+      #| e-file_Login_001 | Login into tax payer | AutomationfIftyone@mt2015.com | Test@123 |
 
   @TC_02_12
   Scenario Outline: Validate proceed button functionality
     Given User is on Vat e-Filing Page "<TestcaseID>" "<Description>"
     And User Enter email "<email>" and  password "<password>"
-    #And User click on Dashboard
+    And User Click on SignIn
     And User click on Tab
     And clicks on e-filing to fill data
     And User click on check box and click on submit button
@@ -34,8 +35,8 @@ Feature: User is on Tax Calculation
     And User see pop up for offset successful
 
     Examples: 
-      | TestcaseID    | Description                                   | email                            | password |
-      | Tax_Cal_02,12 | validate proceed functionality and see offset | Automationtwentyone@mt2015.com | Test@123 |
+      | TestcaseID    | Description                                   | email                          | password |
+      | Tax_Cal_02,12 | validate proceed functionality and see offset | AutomationfIftysix@mt2015.com | Test@123 |
 
   # @TC_03
   # Scenario Outline: Validate the Period field.

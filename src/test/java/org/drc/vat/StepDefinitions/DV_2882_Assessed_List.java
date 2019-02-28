@@ -353,7 +353,7 @@ public class DV_2882_Assessed_List
 	public void user_see_the_status_is_changed_to(String status) throws Throwable
 	{
 		sleepWait(500);
-		if(wd.findElement(By.xpath("(//tbody//td)[5]//*[contains(text(),'" + status + "')]")).isDisplayed() )
+		if(wd.findElement(By.xpath("//*[contains(text(),'" + status + "')]")).isDisplayed() )
 		{					
 			assertTrue(true);
 		}

@@ -5,10 +5,13 @@ import static org.drc.vat.appmanager.HelperBase.clickOn;
 import static org.drc.vat.appmanager.HelperBase.type;
 import static org.drc.vat.appmanager.HelperBase.waitFor;
 import static org.drc.vat.appmanager.HelperBase.wd;
+import static org.drc.vat.appmanager.HelperBase.minutespattern;
 import static org.testng.Assert.assertEquals;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
+
 import static org.drc.vat.appmanager.HelperBase.UploadImage;
 import static org.drc.vat.appmanager.HelperBase.sleepWait;
 import static org.drc.vat.appmanager.HelperBase.frenchToIndian;
@@ -93,7 +96,7 @@ public class DebtCollectionCaseScreen {
 			System.out.println(paymentnotcompleted);
 
 		   ConnectDatabase.sta.executeUpdate(paymentnotcompleted);
-			sleepWait(320000);
+		   sleepWait((5-Integer.parseInt(minutespattern.format(new Date()))%5)*60*1000);
 		}
 
 	}

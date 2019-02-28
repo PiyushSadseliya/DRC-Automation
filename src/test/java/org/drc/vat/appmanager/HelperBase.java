@@ -49,13 +49,14 @@ public class HelperBase {
 	private static String currentWindow = null;
 	static int i = 0;
 	public static int no_window;
+	public static SimpleDateFormat minutespattern =new SimpleDateFormat("mm");
 
 	public static Boolean login=true;
 	public static String[] monthName = 
 		{ "January", "February", "March", "April", "May", "June", "July",
 				"August", "September", "October", "November", "December" };
 
-	public static String[] yearName = {"2019","2018","2017"};			
+	public static String[] yearName = {"2019","2018","2017"};
 	public static String emailid;
 
 

@@ -21,7 +21,7 @@ Feature: Login Module
       | Invalid_DRC_ATC_LoginTaxPortal_11 | Invalid Email id  (Multiple Dots from start and end) | franky.@storiqax.com                                                                                                                                                                           | Arun123  | Email is not verified. |
       | Invalid_DRC_ATC_LoginTaxPortal_12 | Invalid Email id  (Multiple Dots)                    | franky..@storiqax.com                                                                                                                                                                          | Arun123  | Email is not verified. |
       | Invalid_DRC_ATC_LoginTaxPortal_13 | Invalid Email id name with last                      | franky@storiqax.com(Franky Mehta)                                                                                                                                                              | Arun123  | Email is not valid.    |
-      | Invalid_DRC_ATC_LoginTaxPortal_14 | Invalid Email id without domain                      | franky@storiqax                                                                                                                                                                                | Arun123  | Email is not valid.    |
+      #| Invalid_DRC_ATC_LoginTaxPortal_14 | Invalid Email id without domain                      | franky@storiqax                                                                                                                                                                                | Arun123  | Email is not valid.    |
       | Invalid_DRC_ATC_LoginTaxPortal_15 | Invalid Email id   with hypen                        | franky@-storiqax.com                                                                                                                                                                           | Arun123  | Email is not verified. |
       | Invalid_DRC_ATC_LoginTaxPortal_16 | Invalid Email id   .web domain                       | franky@-storiqax.web                                                                                                                                                                           | Arun123  | Email is not verified. |
       | Invalid_DRC_ATC_LoginTaxPortal_17 | Invalid Email id (IP )                               | franky@111.222.333.4444                                                                                                                                                                        | Arun123  | Email is not valid.    |
@@ -38,7 +38,8 @@ Feature: Login Module
     Given User is on DRC Tax Portal and login
     When User Enter Data: "<email>" "<password>"
     And User Click on SignIn
+
     #And User logout
     Examples: 
-      | TestcaseID                      | email                            | password |
-      | Valid_DRC_ATC_LoginTaxPortal_01 | automationtwentythree@mt2015.com | Test@123 |
+      | TestcaseID                      | email                           | password |
+      | Valid_DRC_ATC_LoginTaxPortal_01 | Automationseventyone@mt2015.com | Test@123 |

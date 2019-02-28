@@ -15,7 +15,7 @@ public class DV_2254_Internal_Portal_objection_appeal
 	public void user_click_on_Dashboard_and_click_on_pin_button() throws Throwable {
 	    clickOn("txt_dashboard", "");
 	    sleepWait(200);
-	    clickOn("label_pin", "");	    
+//	    clickOn("label_pin", "");	    
 	}
 	
 	@And("^User click on case management$")
@@ -130,7 +130,7 @@ public class DV_2254_Internal_Portal_objection_appeal
 
 	@And("^User see validation message for changing priority \"([^\"]*)\"$")
 	public void user_see_validation_message_for_changing_priority(String Mess) throws Throwable 
-	{
+	{sleepWait(1000);
 		if(wd.findElement(By.xpath("//*[contains(text(),'" + Mess + "')]")).isDisplayed() )
 		{		
 			assertTrue(true);
@@ -142,6 +142,7 @@ public class DV_2254_Internal_Portal_objection_appeal
 	public void user_click_on_select_action() throws Throwable 
 	{
 		clickOn("txt_Select_Action", "");
+		sleepWait(2000);
 	}
 
 	@And("^User select reject$")

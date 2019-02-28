@@ -51,31 +51,20 @@ public class DV_4007_IT_Support_Admin {
 		System.out.println("redirect to 1TrakIT issue page  ");
 
 	}
-
-	@Then("^user click on click here link$")
-	public void user_click_on_click_here_link() throws Throwable {
-
-	}
-
 	@Then("^user should redirect to add issue page$")
 	public void user_should_redirect_to_add_issue_page() throws Throwable {
 		System.out.println("user redirect to 1TrakIT add issue page  ");
 		clickOn("btn_Add_New_Issue", "");
+		sleepWait(2000);
 
 	}
 
 	@Then("^enter the required details \"([^\"]*)\" \"([^\"]*)\"$")
 	public void enter_the_required_details(String issue, String title) throws Throwable {
 
-		clickOn("drp_Select_Issue", "");
-		clickOn("option", "[contains(text(),'" + issue + "')]");
-		clickOn("txtboxtitle", "");
-		// String issuetype = elementText("//option[contains(text(),'" + issue +
-		// "')]");
-		// String textran = title + " ";
-		String ranstring = RandomStringUtils.randomAlphabetic(20).toUpperCase();
-		type("txtboxtitle", ranstring + "#" + times);
-		// String Title = elementText("txtboxtitle");
+		
+		drp_select("drp_Select_Issue",issue);		
+		type("txtboxtitle", title);
 
 	}
 
@@ -88,7 +77,6 @@ public class DV_4007_IT_Support_Admin {
 	public void Enter_the_comments(String comments) throws Throwable {
 		// sleepWait(1000);
 		waitFor("clickcommentsection");
-		clickOn("txt_Communication_Session", "");
 		type("txt_Communication_Session", comments + " " + times);
 	}
 
@@ -96,7 +84,6 @@ public class DV_4007_IT_Support_Admin {
 	public void add_the_comment_in_comment_section(String comments) throws Throwable {
 		wd.switchTo().defaultContent();
 		sleepWait(1000);
-		clickOn("txt_Communication_Session", "");
 		type("txt_Communication_Session", comments + " " + times);
 	}
 
@@ -104,11 +91,6 @@ public class DV_4007_IT_Support_Admin {
 	public void click_on_attach_icon_choose_file_section_window_is_displayed() throws Throwable {
 		JavascriptExecutor jse = (JavascriptExecutor) wd;
 		jse.executeScript("scroll(0, 250)");
-		/*
-		 * WebElement scroll = wd.findElement(By.xpath(
-		 * "(//*[contains(@class,'nicescroll-cursors')])[4]"));
-		 * scroll.sendKeys(Keys.PAGE_DOWN);
-		 */
 		waitFor("Iconupload");
 		clickOn("Iconupload", "");
 
@@ -140,10 +122,12 @@ public class DV_4007_IT_Support_Admin {
 	
 	@Then("^successfull \"([^\"]*)\" display on given page$")
 	public void successfull_display_on_given_page(String tostmessage) throws Throwable {
+		sleepWait(1000);
 		if(wd.findElement(By.xpath("//*[contains(text(),'" + tostmessage + "')]")).isDisplayed() )
         {
 			assertTrue(true);
         }
+	sleepWait(2000);
 	}
 
 	@Given("^user click on Add button$")
@@ -151,64 +135,9 @@ public class DV_4007_IT_Support_Admin {
 		clickOn("btn_Add_New_Issue", "");
 	}
 
-	@Then("^user should redirect to the add issue with following$")
-	public void user_should_redirect_to_the_add_issue_with_following() throws Throwable {
-
-	}
-
-	@Then("^user select the \"([^\"]*)\"$")
-	public void user_select_the(String arg1) throws Throwable {
-
-	}
-
-	@Then("^Enter the required details \"([^\"]*)\"$")
-	public void enter_the_required_details(String arg1) throws Throwable {
-
-	}
-
-	@Then("^keep the description field blank\"([^\"]*)\"$")
-	public void keep_the_description_field_blank(String arg1) throws Throwable {
-
-	}
-
-	@Then("^validation message is displayed \"([^\"]*)\"$")
-	public void validation_message_is_displayed(String arg1) throws Throwable {
-		
-	}
-
-	@Then("^user do not enter anything or select anything$")
-	public void user_do_not_enter_anything_or_select_anything() throws Throwable {
-
-	}
-
-	@Then("^validation message is displayed$")
-	public void validation_message_is_displayed() throws Throwable {
-
-	}
-
-	@Then("^add the new issue with all mandatory fields$")
-	public void add_the_new_issue_with_all_mandatory_fields() throws Throwable {
-
-	}
-
-	@Then("^issue should be create twice$")
-	public void issue_should_be_create_twice() throws Throwable {
-
-	}
-
-	@Then("^user select the issue type from test data \"([^\"]*)\"$")
-	public void user_select_the_issue_type_from_test_data(String arg1) throws Throwable {
-
-	}
-
-	@Then("^Enter the title \"([^\"]*)\"$")
-	public void enter_the_title(String arg1) throws Throwable {
-
-	}
 
 	@Then("^Enter the description \"([^\"]*)\"$")
-	public void enter_the_description(String description) throws Throwable {
-		clickOn("txtareadescription", "");
+	public void enter_the_description(String description) throws Throwable {	
 		type("txtareadescription", description + " #" + times);
 		sleepWait(2000);
 	}
@@ -229,11 +158,7 @@ public class DV_4007_IT_Support_Admin {
 		sleepWait(2000);
 	}
 
-	@Then("^click on enter$")
-	public void click_on_enter() throws Throwable {
-
-	}
-
+	
 	@Then("^click on cross button or clear the filter given in the textbox for cancel the search$")
 	public void click_on_cross_button_or_clear_the_filter_given_in_the_textbox_for_cancel_the_search()
 			throws Throwable {
@@ -250,82 +175,7 @@ public class DV_4007_IT_Support_Admin {
 	@Then("^user should redirected to edit screen$")
 	public void user_should_redirected_to_edit_screen() throws Throwable {
 		System.out.println("user on edit screen");
-	}
-
-	@Then("^verify the issuetype, title, currentstatus, description, referid$")
-	public void verify_the_issue_type_title_current_status_description() throws Throwable {
-		String issuetype = getValue("label_VATpaid");
-		String title = getValue("label_VATcredit");
-		String currentstatus = getValue("label_VATforward");
-		String description = getValue("label_VATrefund");
-		String referid = getValue("label_VATprocurement");
-	}
-
-	@Then("^click on comments textbox$")
-	public void click_on_comments_textbox() throws Throwable {
-
-	}
-
-	@Then("^click on choose file option select the another file to replace existing one$")
-	public void click_on_choose_file_option_select_the_another_file_to_replace_existing_one() throws Throwable {
-
-	}
-
-	/*
-	 * @Then("^click on edit issue button$") public void
-	 * click_on_edit_issue_button() throws Throwable { sleepWait(1000);
-	 * waitFor("EditIcon"); clickOn("EditIcon", ""); sleepWait(1000); }
-	 */
-
-	@Then("^open another issue$")
-	public void open_another_issue() throws Throwable {
-
-	}
-
-	@Then("^current issue details should be displayed$")
-	public void current_issue_details_should_be_displayed() throws Throwable {
-
-	}
-
-	@Then("^click on backward icon$")
-	public void click_on_backward_icon() throws Throwable {
-
-	}
-
-	@Then("^should displayed the relevant page$")
-	public void should_displayed_the_relevant_page() throws Throwable {
-
-	}
-
-	@Then("^click on forward icon$")
-	public void click_on_forward_icon() throws Throwable {
-
-	}
-
-	@Then("^click on edit icon on any of the issue displaying in the grid$")
-	public void click_on_edit_icon_on_any_of_the_issue_displaying_in_the_grid() throws Throwable {
-
-	}
-
-	@Then("^add the comment$")
-	public void add_the_comment() throws Throwable {
-
-	}
-
-	@Then("^click on attachment icon select the file$")
-	public void click_on_attachment_icon_select_the_file() throws Throwable {
-
-	}
-
-	@Then("^click on open$")
-	public void click_on_open() throws Throwable {
-
-	}
-
-	@Then("^click on edit icon on any issue displaying in the issue grid$")
-	public void click_on_edit_icon_on_any_issue_displaying_in_the_issue_grid() throws Throwable {
-
-	}
+	}	
 
 	@Then("^click on download icon on any file$")
 	public void click_on_download_icon_on_any_file() throws Throwable {

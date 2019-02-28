@@ -541,7 +541,7 @@ AssestRight=//*[@class="fa fa-caret-right"]
 First1=//a[contains(text(),'1')]
 Second2=//a[contains(text(),'2')]
 
-AssestNoRecordFount=//*[text()=" No records found "]
+AssestNoRecordFount=//*[text()=" No records found"]
 #################################################################
 ####Navigationbar
 navlink_assessment_href=//a[@href='/assessment/manual-assessment']
@@ -1207,7 +1207,7 @@ btn_remove=//tr//button
 drpdwn_accadjst=//*[name()='ng-select' and @formcontrolname='searchKey']//span[contains(@class,'ng-arrow')]
 drpdwnby_caseid=//*[name()='ng-dropdown-panel']//span[contains(text(),'Case')]
 btn_viewdebt=//td[10]//button
-records_objectionAdjustment=//*[contains(text(),'Statement of Transaction')]//following::tbody//tr
+
 #####################################################AC ADJSTMT CASE Managemet Objection
 btn_CaseView=//a[text()='View']
 btn_adjstApprove=//button[text()='Approve']
@@ -1225,7 +1225,7 @@ txt_rec8=//tr/td[8]
 txt_rec9=//tr/td[9]
 txt_rec10=//tr/td[10]//button
 btn_caseManage=//td//button
-caseRefId=//*[name()='trakit-issue-edit']//label[contains(text(),'Reference ID')]/following::span
+caseRefId=//input[@formcontrolname='issueReferenceId']
 drpdwn_CAseaction=//select[@formcontrolname='transition']
 btn_CaseSubmit=//button[@title='Submit']
 iframe_CaseMgmtAction=//iframe[@id='iframe']
@@ -2116,7 +2116,7 @@ btn_LogoutVerify=//*[contains(text(),'You have been successfully logged out')]
 btn_ApproveFX=//button[@title='Approve']
 btn_RejectFX=//button[@class='btn btn-danger mr-2 ng-star-inserted']
 
-drp_SelectOptionFX=(//*[contains(text(),'Currency')])[1]//following::div
+drp_SelectOptionFX=(//div[contains(text(),'Currency')])[1]//following::div
 
 txt_AddNewCurrency=//span[contains(text(),'Add new Currency')]
 txt_RemoveCurrency=//span[contains(text(),'Remove Currency')]
@@ -2217,7 +2217,7 @@ drp_CaseType_2=(//*[@role="listbox"])[3]/div
 
 drp_ObjectionAndAppeal=(//*[@role="option"])[1]
 drp_Debt=(//*[@role="option"])[2]
-drp_PA1=(//*[@role="option"])[3]
+drp_PA=(//*[@role="option"])[3]
 drp_Audit=(//*[@role="option"])[4]
 
 drp_Officer_Click=(//*[@role="option"])[5]
@@ -2671,7 +2671,7 @@ txt_NA_sort=//span[contains(text(),'Net Amount')]
 txt_2018_Period=//*[@role="option"]//span[text()="2018"]
 txt_2019_Period=//*[@role="option"]//span[text()="2019"]
 
-txt_dashboard=//*[contains(@href,'das')] 
+txt_dashboard=//*[@title="Dashboard"]
 label_pin = //*[@title="Pin/Unpin"]
 
 txt_check_PaymentSummary=//*[contains(text(),'Liability Calculation')]
@@ -2775,7 +2775,7 @@ txt_Helpdesk_Menu=//*[@href="/help-desk"]
 txt_Helpdesk_page_title=//h3[contains(text(),'Helpdesk')]
 txt_First_Click_Here=//strong[contains(text(),'Click')]
 btn_Add_New_Issue=//a[@title="Add new"]
-drp_Select_Issue=//select[@formcontrolname='issueTypeId']
+drp_Select_Issue=//select[@formcontrolname='projectId']
 drp_Select_Issue_text=//*[@formcontrolname='issueTypeId']//following::option
 
 
@@ -2873,7 +2873,7 @@ drp_Next_Status=//*[@formcontrolname="transition"]
 drp_UR=//option[contains(text(),'Under Review')]
 drp_RA=//option[contains(text(),'Request adjustment')]
 drp_RI=//option[contains(text(),'Request Information')]
-drp_PA=//option[contains(text(),'Payment Agreement')]			
+drp_PA=//option[contains(text(),'Perform Adjustment')]			
 drp_close=//option[contains(text(),'Close')]	
 
 Status_check=//div[@class="status-btn"]
@@ -3119,118 +3119,3 @@ txt_updatedon=//td[4]
 txt_fuelRejectionmsg=//*[contains(text(),'Reason for Rejection')]/following::p
 select_rejected=(//span[contains(text(),'Rejected')])[
 fuelbtn_approvesup=//button[contains(text(),'Approve')]
-
-
-##########################################################################################################################################################################
-##################################################---Reconciliation---#################################################################################################### 
-txt_Account=//*[@href="/accounts/reconciliation"]
-
-txt_Reconciliation=//*[contains(text(),'Reconciliation of Payment')]
-
-drp_FilterBy_Recon=//*[contains(text(),'Filter by')]//following::input
-
-drp_Filter_click_Re=//*[@role="option"]
-#clickOn("drp_Filter_click_Re", "/span[contains(text(),'" +value + "');
-
-#//*[@role="option"]/span[contains(text(),'DOC Type')]
-#//*[@role="option"]/span[contains(text(),'Doc.No.')]
-#//*[@role="option"]/span[contains(text(),'NITVA')]
-#//*[@role="option"]/span[contains(text(),'Transaction No.')]
-#//*[@role="option"]/span[contains(text(),'Period')]
-
-######## if click on DOC Type #########################################
-
-drp_SelectDocType=//*[contains(text(),'Select Doc Type')]
-drp_E_filing_Re=//*[@role="option"][1]
-drp_Assessement_Re=//*[@role="option"][2]
-######################################################################
-# if data not found use  # NoRecord=//*[contains(text(),'No records found')]
-######################################################################
-
-
-txt_search_Re=//input[@type='search']
-txt_search_Button_Re=//input[@type='search']//following::button
-
-txt_Date_Re=//label[contains(text(),'Date')]//following::input
-
-txt_TotalAmount_Re=//*[contains(text(),'Reconciled')]//preceding::span[2]
-txt_Reconciled_Re=//*[contains(text(),'Reconciled')]//preceding::span[1]
-txt_Unreconciled_Re=//*[contains(text(),'Unreconciled')]//preceding::span[1]
-
-####################----Sorting---------##########################################
-txt_Sort_DOC_Type_Re=//thead//span[contains(text(),'DOC Type')]
-txt_Sort_Institute_Name_Re=//thead//span[contains(text(),'Institution Name')]
-txt_Sort_Amount_Re=//thead//span[contains(text(),'Amount')]
-txt_Sort_Status_Re=//thead//span[contains(text(),'Status')]
-################################################################################
-
-#############--Reconciled-#############################
-txt_Date_of_Payment_Re=//tbody//tr//td[1]/div
-txt_DocType_Re=//tbody//tr//td[2]/div
-txt_DocNo_Re=//tbody//tr//td[3]/div
-txt_Nitva_Re=//tbody//tr//td[4]/div
-txt_Transaction_Re=//tbody//tr//td[5]/div
-txt_Period_Re=//tbody//tr//td[6]/div
-txt_Account_No_Re=//tbody//tr//td[7]/div
-txt_TaxPayer_Re=//tbody//tr//td[8]/div
-txt_InstituteName_Re=//tbody//tr//td[9]/div
-txt_Amount_Re=//tbody//tr//td[10]/div
-txt_Reason_Re=//tbody//tr//td[11]/div
-txt_Status_Re=//tbody//tr//td[12]/div//following::span
-##########################################
-
-#############--Unreconciled-#############################
-txt_Date_of_Payment_Re=//tbody//tr//td[2]/div
-txt_DocType_Re=//tbody//tr//td[3]/div
-txt_DocNo_Re=//tbody//tr//td[4]/div
-txt_Nitva_Re=//tbody//tr//td[5]/div
-txt_Transaction_Re=//tbody//tr//td[6]/div
-txt_Period_Re=//tbody//tr//td[7]/div
-txt_Account_Re=//tbody//tr//td[8]/div
-txt_TaxPayer_Re=//tbody//tr//td[9]/div
-txt_InstituteName_Re=//tbody//tr//td[10]/div
-txt_Amount_Re=//tbody//tr//td[11]/div
-txt_Reason_Re=//tbody//tr//td[12]/div
-txt_Status_Re=//tbody//tr//td[13]/div
-
-# id status is click than  
-drp_SelectStatus_Re=//*[contains(text(),'Select status')]
-drp_Warning=//*[@role="option"]//*[contains(text(),'Warning')]
-drp_Error=//*[@role="option"]//*[contains(text(),'Error')]
-drp_Reconciled=//*[@role="option"]//*[contains(text(),'Reconciled')]
-drp_Processed=//*[@role="option"]//*[contains(text(),'Processed')]
-
-####################################################################################
-
-ing_Edit_Re=//*[@title="Edit"]
-
-txt_DocNo_Re=//*[@formcontrolname="docNo"]
-txt_Nitva_Re=//*[@formcontrolname="nitva"]
-txt_Date_Re=//*[@formcontrolname="nitva"]/following::div
-
-
-txt_Validate_DocNo_Re=//span[contains(text(),'DOC No is required')]
-txt_Validate_NITVA_Re=//span[contains(text(),'NITVA is required')]
-
-btn_Cancel_Re=//button[@title="Cancel"]
-btn_Update_Re=//button[@title="Update"]
-
-# id enter in correct than mess -> DOC and NITVA mismatch
-
-####### Reason ######
-txt_Reason_Doc_Mismatch=(//*[contains(text(),'Doc number mismatch')])[1]
-txt_Reason_Nitva_Mishmatch=(//*[contains(text(),'Nitva mismatch')])[1]
-
-#################
-
-chBox_Un_Re=(//input[@type="checkbox"])[3]
-btn_Reprocess_Re=//button[@title="Reprocess"]
-btn_Download_Re=//button[@title="Download"]
-
-txt_Process_Succ_Mess_Re=//*[contains(text(),'Processed Successfully')]
-btn_OK_Re=//button[@title="OK"]
-
-txt_Click_Reconciled=(//*[@href="javascript:void(0);"])[1]
-txt_Click_Unreconciled=(//*[@href="javascript:void(0);"])[2]
-
-##########################################################################################################################################################################

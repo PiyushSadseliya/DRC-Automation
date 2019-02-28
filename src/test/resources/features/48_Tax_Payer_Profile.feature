@@ -10,6 +10,7 @@ Feature: E-filing -> Filing -> Declaration with verification and confirmation of
 
     Examples: 
       | TestcaseID                          | Description     | Filters | Value             |
+
       | Valid_TaxpayerProfile_Reg_Filter_01 | Filter Priority | NITVA   | 20190216033103929 |
 
   Scenario Outline: Validate Filter Functionality with valid data
@@ -20,13 +21,14 @@ Feature: E-filing -> Filing -> Declaration with verification and confirmation of
     And User see output "<Value>"
 
     Examples: 
-      | TestcaseID                          | Description     | Filters  | Value                             |
-      | Valid_TaxpayerProfile_Reg_Filter_01 | Filter Priority | NITVA    |                 20190216033103929 |
-      | Valid_TaxpayerProfile_Reg_Filter_01 | Filter Priority | NIF      | 1521111702211ABCDFE001004         |
-      | Valid_TaxpayerProfile_Reg_Filter_01 | Filter Priority | TaxPayer | Automation User 21                |
-      #  | Valid_TaxpayerProfile_Reg_Filter_01 | Filter Priority | Business type    | Manufacturing       |
-      #   | Valid_TaxpayerProfile_Reg_Filter_01 | Filter Priority | TaxPayerCategory | Legal Entity        |
-      | Valid_TaxpayerProfile_Reg_Filter_01 | Filter Priority | Location | Dharamdas Chamber, Near Axis Bank |
+      | TestcaseID                          | Description     | Filters  | Value                     |
+      | Valid_TaxpayerProfile_Reg_Filter_01 | Filter Priority | NITVA    |         20190219041910569 |
+      | Valid_TaxpayerProfile_Reg_Filter_01 | Filter Priority | NIF      | 1544081702254ABCDFE001004 |
+      | Valid_TaxpayerProfile_Reg_Filter_01 | Filter Priority | TaxPayer | Automation User 54        |
+      #| Valid_TaxpayerProfile_Reg_Filter_01 | Filter Priority | Business type    | Manufacturing       |
+      #| Valid_TaxpayerProfile_Reg_Filter_01 | Filter Priority | TaxPayerCategory | Legal Entity        |
+      | Valid_TaxpayerProfile_Reg_Filter_01 | Filter Priority | Location | Aketi                     |
+
 
   @invalid_scenario
   Scenario Outline: Validate Filter Functionality with invalid data

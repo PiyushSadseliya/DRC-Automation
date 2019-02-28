@@ -355,16 +355,22 @@ public class AccountAdjustmentStmtofTransac {
 			String Tltfee = null;
 			String Tpenalty = null;
 			String Tint=null;
-			vatT = String.format("%.2f", vat + Double.parseDouble(advatliabil));
+
 			Tltfee = String.format("%.2f", ltfee + Double.parseDouble(adjstlatefee));
 			Tpenalty = String.format("%.2f", penalty + Double.parseDouble(adjstpenalty));
 
 			Tint=String.format("%.2f", Double.parseDouble(elementText("txt_oldintRec", ""))+interestAdjust);
-			assertEquals(elementText("txt_Tvatliab", ""), vatT);
+		
 			assertEquals(elementText("txt_Tltfee", ""), Tltfee);
 			assertEquals(elementText("txt_Tint", ""),Tint );
 			assertEquals(elementText("txt_Tpen", ""), Tpenalty);
-
+			if(source.equalsIgnoreCase("objection")) {
+				vatT = String.format("%.2f", vat);
+				
+			}else {
+				vatT=String.format("%.0f", vat + Double.parseDouble(advatliabil));
+			}
+			assertEquals(elementText("txt_Tvatliab", ""), vatT);
 		}
 	}
 
@@ -593,7 +599,7 @@ public class AccountAdjustmentStmtofTransac {
 
 		wd.switchTo().frame(wd.findElement(By.xpath("//iframe")));
 		sleepWait(10000);
-		assertEquals(getvalue("caseRefId", ""), CaseMObjectionid);
+		assertEquals(elementText("caseRefId", ""), CaseMObjectionid);
 		drp_select("drpdwn_CAseaction", action);
 		sleepWait(2000);
 	}
@@ -626,6 +632,10 @@ public class AccountAdjustmentStmtofTransac {
 
 	@Then("^click on Add button and selects the Assessment id\"([^\"]*)\" for adjustment$")
 	public void click_on_Add_button_and_selects_the_Assessment_id_for_adjustment(String AssessmentId) throws Throwable {
+		if(source.equals("")) {
+			List <WebElement>Objectioncaserecord=wd.findElements(By.xpath("//*[contains(text(),'Statement of Transaction')]//following::tbody//tr"));
+			assertEquals(Objectioncaserecord.size(), 1);
+		}	
 		sleepWait(2000);
 		clickOn("btn_add", "");
 		sleepWait(3000);
@@ -635,11 +645,12 @@ public class AccountAdjustmentStmtofTransac {
 		sleepWait(2000);
 		type("input_searchTrans", AssessmentId);
 		sleepWait(2000);
-		clickOn("btn_searchFiterTransac", "");
-		sleepWait(3000);
+		//clickOn("btn_searchFiterTransac", "");
+		//sleepWait(3000);
 		clickOn("radio_stmtrecords", "");
 		clickOn("btn_selectRec", "");
 		sleepWait(3000);
+	
 	}
 
 	@Then("^user is Case Management with Status \"([^\"]*)\" and Case id\"([^\"]*)\"$")

@@ -45,8 +45,8 @@ public class DV_2394_landing_screen
 	public void user_click_on_Download_Template() throws Throwable 
 	{
 		sleepWait(5000);
-		
-		
+
+
 		clickOn("bDownloadTemplate", "");
 
 		verifyDownload("e-filingScheduleTemplate.xlsx");	   
@@ -67,7 +67,7 @@ public class DV_2394_landing_screen
 		clickOn("menu_vat-e-filing", "");		
 		sleepWait(10000);		
 
-	/*	if (wd.findElement(By.xpath("//h3[contains(text(),'VAT')]")).isDisplayed()) {
+		/*	if (wd.findElement(By.xpath("//h3[contains(text(),'VAT')]")).isDisplayed()) {
 			clickOn("tile_vat", "");
 			sleepWait(2000);
 			clickOn("a_sure", "");
@@ -89,10 +89,10 @@ public class DV_2394_landing_screen
 	public void clicks_on_e_filing_to_check() throws Throwable 
 	{
 
-		
-		
+
+
 		sleepWait(10000);
-		
+
 		sleepWait(2000);
 		for(int i =1;i<=12;i++)
 		{
@@ -147,7 +147,7 @@ public class DV_2394_landing_screen
 	public void user_see_all_month_record_from_that_year_to(String TextJan, String TextDec) throws Throwable 
 	{
 		sleepWait(10000);
-		
+
 		sleepWait(1000);
 		WebElement we,we1;
 		we=wd.findElement(By.xpath(obj.getProperty(TextJan)));
@@ -259,8 +259,8 @@ public class DV_2394_landing_screen
 		sleepWait(500);
 		clickOn("btn_efile_submit", "");
 		sleepWait(2000);
-		
-		
+
+
 	}
 
 
@@ -504,8 +504,8 @@ public class DV_2394_landing_screen
 		clickOn("txt_BankName_Central", "");
 		sleepWait(1000);
 		clickOn("btn_paynow", "");
-		
-		
+
+
 	}
 
 	@And("^User navigate to selected bank page$")
@@ -558,7 +558,7 @@ public class DV_2394_landing_screen
 		sleepWait(500);
 		clickOn("rad_OverTheCounter", "");
 	}
- 
+
 	@And("^User see Tax Payment bill$")
 	public void user_see_Tax_Payment_bill() throws Throwable 
 	{
@@ -594,16 +594,12 @@ public class DV_2394_landing_screen
 
 	@Then("^Execute query for payment$")
 	public void execute_query_for_payment() throws Throwable 
-	{		
-
-		sleepWait(3000);
+	{
+		sleepWait(3000);		
 		xls_file.xls();
 		sleepWait(8000);
 	}
-
-
-
-
+	
 	/**
 	 * Important dates 
 	 */
@@ -718,16 +714,12 @@ public class DV_2394_landing_screen
 	{
 		sleepWait(1000);
 		clickOn("btn_efilling", "");
-		sleepWait(8000);
-		
-		
+		sleepWait(8000);		
 	}
-	
+
 	@And("^User click on close icon on pop up$")
 	public void user_click_on_close_icon_on_pop_up() throws Throwable 
 	{
 		clickOn("btn_close_otp", "");
-	}
-
-	
+	}	
 }

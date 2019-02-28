@@ -21,6 +21,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import static org.drc.vat.appmanager.HelperBase.softAssert;
 
+
 @CucumberOptions(features = {
 		//"classpath:features/01_userRegistration.feature",
 		//"classpath:features/02_01_Login.feature",
@@ -50,6 +51,7 @@ import static org.drc.vat.appmanager.HelperBase.softAssert;
 glue = "org.drc.vat.StepDefinitions",
 plugin = {"com.cucumber.listener.ExtentCucumberFormatter:","html:test-output/cucumber-report"}
 //,tags= {"@TC_08"}		
+
 )
 
 public class TestRunner extends AbstractTestNGCucumberTests {

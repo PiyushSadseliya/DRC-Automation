@@ -57,8 +57,8 @@ Feature: User is on FX Management Page Tax Officer
     And User click on cancel button on pop up
 
     Examples: 
-      | TestcaseID               | Description                     | verifyCurrency   | currency           |
-      | FX_Management_Officer_14 | Verify Target Currencies column | GBP - Pound      | GBP - Pound |
+      | TestcaseID               | Description                     | verifyCurrency | currency    |
+      | FX_Management_Officer_14 | Verify Target Currencies column | GBP - Pound    | GBP - Pound |
 
   @TC_07
   Scenario Outline: Validate the Historical FX Rates button functionality
@@ -72,7 +72,6 @@ Feature: User is on FX Management Page Tax Officer
       | TestcaseID               | Description                                     |
       | FX_Management_Officer_07 | Verify Historical FX Rates button functionality |
 
- 
   @TC_09
   Scenario Outline: Validate the Pagination on the FX management page with historic data
     Given User is on FX Management "<TestcaseID>" "<Description>"
@@ -103,7 +102,7 @@ Feature: User is on FX Management Page Tax Officer
       | FX_Management_Officer_10 | Verify previous button functionality |
 
   @TC_04_06_11_12
-  Scenario Outline: Validate the Update and Cancel currency functionality on Update currency rate popup and New conversion rate and Approved rate column data 
+  Scenario Outline: Validate the Update and Cancel currency functionality on Update currency rate popup and New conversion rate and Approved rate column data
     Given User is on FX Management "<TestcaseID>" "<Description>"
     And User click on Dashboard
     And User click on FX Management tab
@@ -156,9 +155,8 @@ Feature: User is on FX Management Page Tax Officer
   #   Examples:
   #     | TestcaseID               | Description                               |
   #     | FX_Management_Officer_13 | Verify New Conversion Rate(approval rate) |
-  
-   @TC_08
-  Scenario Outline: Validate the from and to date search functionality on the FX management page with historic data 
+  @TC_08
+  Scenario Outline: Validate the from and to date search functionality on the FX management page with historic data
     Given User is on FX Management "<TestcaseID>" "<Description>"
     And User click on Dashboard
     And User click on FX Management tab
@@ -171,10 +169,9 @@ Feature: User is on FX Management Page Tax Officer
     And User see message no record found for date
 
     Examples: 
-      | TestcaseID               | Description                      | TodayDate  | ToDate     | DisplayDate | NoCurrencyFromDate| NoCurrencyToDate |
-      | FX_Management_Officer_08 | Verify date search functionality | 2019-02-27 | 2019-02-27 | 02/27/2019  | 2019-02-01        | 2019-02-01       |
-  
-  
+      | TestcaseID               | Description                      | TodayDate  | ToDate     | DisplayDate | NoCurrencyFromDate | NoCurrencyToDate |
+      | FX_Management_Officer_08 | Verify date search functionality | 2019-02-27 | 2019-02-27 | 02/27/2019  | 2019-02-01         | 2019-02-01       |
+
   @TC_16
   Scenario Outline: Validate the log out functionality on FX Management landing and Historical FX Rates page
     Given User is on FX Management "<TestcaseID>" "<Description>"
