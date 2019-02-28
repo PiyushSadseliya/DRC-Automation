@@ -16,6 +16,7 @@ import org.openqa.selenium.Proxy;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
@@ -27,6 +28,7 @@ import static org.drc.vat.appmanager.HelperBase.*;
 
 public class ApplicationManager {
 	private final Properties properties;
+	private ChromeDriverService services;
 	private String browser;
 
 	private HelperBase helperBase;
@@ -46,17 +48,18 @@ public class ApplicationManager {
 				wd = new InternetExplorerDriver();
 
 			} else if (browser.equals(BrowserType.CHROME)) {
-				System.setProperty("webdriver.CHROME.driver", System.getProperty("user.dir") + "\\chromedriver.exe");
-
-				ChromeOptions options = new ChromeOptions();
-				options.setExperimentalOption("plugins.always_open_pdf_externally", true);
+				//System.setProperty("webdriver.CHROME.driver", System.getProperty("user.dir") + "\\chromedriver.exe");		
 
 				ChromeOptions co = new ChromeOptions();
 				Map<String, Object> prefs = new HashMap<>();
 				prefs.put("plugins.always_open_pdf_externally", true);
 				co.setExperimentalOption("prefs", prefs);
 
-				wd = new ChromeDriver(co);
+				//wd = new ChromeDriver(co);
+				services = new ChromeDriverService.Builder().usingDriverExecutable(new File("./chromedriver.exe"))
+						.usingAnyFreePort().build();
+				services.start();
+				wd = new RemoteWebDriver(services.getUrl(), co);
 			} else if (browser.equals(BrowserType.FIREFOX)) {
 				System.setProperty("webdriver.gecko.driver", "F:\\DRC\\Automation\\drc_vat\\DRC_VAT\\geckodriver.exe");
 				wd = new FirefoxDriver();
@@ -76,7 +79,8 @@ public class ApplicationManager {
 
 	public void stop() {
 		wd.quit();
-		wd = null;
+	//	wd = null;
+		services.stop();
 	}
 
 	public HelperBase helperBase() {
@@ -402,10 +406,11 @@ public class ApplicationManager {
 
 	public void call1trackitadminUser() throws AWTException, InterruptedException, IOException {
 
-		wd.close();
-		wd = new ChromeDriver();
+		wd.quit();
+		//wd = new ChromeDriver();
 		wd.manage().window().maximize();
-		wd.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		//wd.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		wd = new RemoteWebDriver(services.getUrl(), new ChromeOptions());
 		wd.get("http://103.249.120.58:8027");
 		Thread.sleep(3000);
 		Runtime.getRuntime().exec(System.getProperty("user.dir") + "\\QA_Internal_Portal_Login\\itsupportadmin.exe");
@@ -413,10 +418,12 @@ public class ApplicationManager {
 	}
 
 	public void call1trackituser() throws AWTException, InterruptedException, IOException {
-		wd.close();
-		wd = new ChromeDriver();
+		wd.quit();
+		wd = new RemoteWebDriver(services.getUrl(), new ChromeOptions());
+		//wd = new ChromeDriver();
 		wd.manage().window().maximize();
-		wd.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+
+	//	wd.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 		wd.get("http://103.249.120.58:8027");
 		Thread.sleep(4000);
 	}

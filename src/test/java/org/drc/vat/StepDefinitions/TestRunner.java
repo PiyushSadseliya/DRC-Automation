@@ -22,7 +22,8 @@ import java.util.Date;
 import static org.drc.vat.appmanager.HelperBase.softAssert;
 @CucumberOptions(features = {	
 	
-		"classpath:features/DV_4007_IT_Support_Admin.feature"		
+		"classpath:features/DV_4007_IT_Support_Admin.feature",
+		 "classpath:features/DV_4007_IT_Support_User1.feature"
 },
 glue = "org.drc.vat.StepDefinitions",
 plugin = {"com.cucumber.listener.ExtentCucumberFormatter:","html:test-output/cucumber-report"}

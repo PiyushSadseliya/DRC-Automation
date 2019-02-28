@@ -19,7 +19,7 @@ Feature: List of Debt Cases Assigned to the Collection Officer – Reassign
     # Then Verifies the balance amount"<Bamount>"
     Examples: 
       | Test Case ID                               | Description                                                  | officername  | uname           | password | ageing5    | month5 | caseid          | RecoverAmount | Rpercent | PerRec | RecAmount | tpayer | totaldue | Areceived | Bamount  |
-      | DRC_ATC_AssignedDebt_TotalArrears_PopUp_01 | Validate the Expected recovery and Percentage functionality. | Jainik Patel | ketan.prajapati | admin    | 0-3 Months | amount | R18112900000003 |       8000,00 |       60 |     60 |       100 |Automation User 57 | 8.000,00 |      0,00 | 8.000,00 |
+      | DRC_ATC_AssignedDebt_TotalArrears_PopUp_01 | Validate the Expected recovery and Percentage functionality. | Jainik Patel | ketan.prajapati | admin    | 0-3 Months | amount | R18112900000003 |       8000,00 |       60 |     60 |       100 |Automation debttwo| 8.000,00 |      0,00 | 8.000,00 |
 
   ###
   ###Requires two records
@@ -75,4 +75,4 @@ Feature: List of Debt Cases Assigned to the Collection Officer – Reassign
 
     Examples: 
       | Test Case ID                               | Description                         | officername  | uname           | password | ageing5    | fdate      | todate     | RecoverAmount | Rpercent | PerRec | RecAmount | path        | Areceived | Bamount  | tpayer | PerRec | RecAmount | comment                                      |
-      | DRC_ATC_AssignedDebt_TotalArrears_PopUp_03 | Validate actions payment requested. | Jainik Patel | ketan.prajapati | admin    | 0-3 Months | 2018-09-20 | 2018-09-20 |     6000|       60 |     60 |           | Capture.PNG |         0 | 8.000,00 |Automation User 57 |    100 |      0,00 | Please pay the pending debts at the earliest |
+      | DRC_ATC_AssignedDebt_TotalArrears_PopUp_03 | Validate actions payment requested. | Jainik Patel | ketan.prajapati | admin    | 0-3 Months | 2018-09-20 | 2018-09-20 |     6000|       60 |     60 |           | Capture.PNG |         0 | 8.000,00 |Automation debttwo|    100 |      0,00 | Please pay the pending debts at the earliest |

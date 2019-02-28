@@ -51,16 +51,11 @@ public class DV_4007_IT_Support_Admin {
 		System.out.println("redirect to 1TrakIT issue page  ");
 
 	}
-
-	@Then("^user click on click here link$")
-	public void user_click_on_click_here_link() throws Throwable {
-
-	}
-
 	@Then("^user should redirect to add issue page$")
 	public void user_should_redirect_to_add_issue_page() throws Throwable {
 		System.out.println("user redirect to 1TrakIT add issue page  ");
 		clickOn("btn_Add_New_Issue", "");
+		sleepWait(2000);
 
 	}
 
@@ -69,8 +64,7 @@ public class DV_4007_IT_Support_Admin {
 
 		
 		drp_select("drp_Select_Issue",issue);		
-		String ranstring = RandomStringUtils.randomAlphabetic(20).toUpperCase();
-		type("txtboxtitle", ranstring + "#" + times);
+		type("txtboxtitle", title);
 
 	}
 
@@ -128,10 +122,12 @@ public class DV_4007_IT_Support_Admin {
 	
 	@Then("^successfull \"([^\"]*)\" display on given page$")
 	public void successfull_display_on_given_page(String tostmessage) throws Throwable {
+		sleepWait(1000);
 		if(wd.findElement(By.xpath("//*[contains(text(),'" + tostmessage + "')]")).isDisplayed() )
         {
 			assertTrue(true);
         }
+	sleepWait(2000);
 	}
 
 	@Given("^user click on Add button$")

@@ -26,7 +26,7 @@ Feature: Debt Record in 0-3 Months age bracket
 
     Examples: 
       | TestcaseID       | Description          | email              | password |
-      | e-file_Login_001 | Login into tax payer |  Automationtwentyseven@mt2015.com| Test@123 |
+      | e-file_Login_001 | Login into tax payer |  Automation debttwo @yopmail.com| Test@123 |
 
   @TC_02_debtMan
   Scenario Outline: E-filing in the age bracket of 0-3 Months for debt
@@ -38,4 +38,4 @@ Feature: Debt Record in 0-3 Months age bracket
 
     Examples: 
       | Description                               |     1 | email              |
-      | E-filing in the age bracket of 0-3 Months | 50000 |  Automationtwentyseven@mt2015.com |
+      | E-filing in the age bracket of 0-3 Months | 50000 |  Automation debttwo @yopmail.com |

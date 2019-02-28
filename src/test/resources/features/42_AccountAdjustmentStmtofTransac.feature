@@ -76,13 +76,13 @@ Feature: Account Adjustment Statement of Transaction TaxPayer Profile & Objectio
       | DRC_ATC_ACCAdjstmt_04 | Validate the actions type,reason type,cancel button,cross button in statement pop up,same records selection,Remove adjustment Records(Action -Reverse) | ketan | ketan.prajapati | January Eight | Reverse | Ketan | Internal adjustment | Akib     | System Error | Test Ref | DT18101600010 | 2018-10-16 | 2018-10-16 | System Error | The amount would is adjusted |
 
   @1882Objection @1882mtc5
-  Scenario Outline: Validate the Account Adjustment with valid data through objection management
+  Scenario Outline: Validate the Account Adjustment with valid data through objection management internal portal
     Given "<Test Case Id>""<Description>"The officer has logged in with Uname"<uname>"Password"<pwd>"
     When user click on Case Management
     Then user performs the Account adjustment for taxpayer"<tpayer>"CaseId"<cid>"
     Then officer the performs the action "Under Review"
     Then click on submit button on Case Management
-    Then officer the performs the action "Request adjustment"
+   Then officer the performs the action "Request adjustment"
     Then click on submit button on Case Management
     Then officer the performs the action "Perform Adjustment"
     Then click on submit button on Case Management
@@ -105,7 +105,7 @@ Feature: Account Adjustment Statement of Transaction TaxPayer Profile & Objectio
 
     Examples: 
       | Test Case Id          | Description                                                                                      | uname           | pwd   | tpayer  | action  | user  | src       | ApproveO | reason    | transid       | comments                     | charge | total | ltfee | pen  | cid             |
-      | DRC_ATC_ACCAdjstmt_05 | Validate the Account Adjustment with valid data for General from Tax Payer Profile(charge Debit) | ketan.prajapati | admin | ak holi | General | Ketan | Objection | Akib     | Objection | CT18110600002 | The amount would is adjusted | Debit  | plus  |  5000 | 5000 | O19011500000001 |
+      | DRC_ATC_ACCAdjstmt_05 | Validate the Account Adjustment with valid data for General from Tax Payer Profile(charge Debit) | ketan.prajapati | admin |Automation debttwo | General | Ketan | Objection | Akib     | Objection | CT18110600002 | The amount would is adjusted | Debit  | plus  |  5000 | 5000 | O19022100000013 |
 
   @2825DebtManagemnet
   Scenario Outline: Validate the Account Adjustment with valid data through debt

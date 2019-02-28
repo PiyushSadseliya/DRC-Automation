@@ -87,7 +87,7 @@ public class VatRegistration {
 				+ "         ,CONCAT('ATUSER',@a,'@MAILINATOR.COM')              "
 				+ "         ,CONCAT('ATUSER',@a,'@MAILINATOR.COM')              "
 				+ "         ,'AQAAAAEAACcQAAAAEM/wSgVN/nG79PYxp2X4xCzrtdQcsTEYE911sxUm9sniuJtbzybplBD6TYP+BnxhDg=='  "
-				+ "         ,'+919999999999'                                                                         "
+				+ "         ,'+919999999998'                                                                         "
 				+ "         ,1                                                                                       "
 				+ "          , NEWID()                                                                               "
 				+ "          ,0                                                                                      "

@@ -8,7 +8,6 @@ import static org.drc.vat.appmanager.HelperBase.checkElement;
 import static org.drc.vat.appmanager.HelperBase.type;
 import static org.drc.vat.appmanager.HelperBase.internalPortal;
 import static org.drc.vat.appmanager.HelperBase.user_Enter_Valid;
-import org.drc.vat.appmanager.OneAuthorityLogin;
 import org.testng.Assert;
 
 import static org.drc.vat.appmanager.HelperBase.elementText;

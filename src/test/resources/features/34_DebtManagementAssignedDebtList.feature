@@ -18,7 +18,7 @@ Feature: DGI employee should be able to do following
 
     Examples: 
       | Test Case ID                       | Description                                                                                | officername  | uname           | password | ageing     | tpayer        | Moption1 | Moption2 |
-      | DRC_ATC_DebtManagement_Assigned_01 | Validate whether collection officer is able to view the case for the particular tax payer. | Urvish Patel | ketan.prajapati | admin    | 0-3 Months | Automation User 57| View     | Reassign |
+      | DRC_ATC_DebtManagement_Assigned_01 | Validate whether collection officer is able to view the case for the particular tax payer. | Urvish Patel | ketan.prajapati | admin    | 0-3 Months |Automation debttwo| View     | Reassign |
 
 
   @mtc7 @ManageReassign @execute

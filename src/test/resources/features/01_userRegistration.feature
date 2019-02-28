@@ -27,7 +27,7 @@ Feature: User Registration for the steps involved in creating a user account for
       #| DRC_ATC_Valid_Registration_04 | Register with valid data | Automation Thirtyfive  |
       #| DRC_ATC_Valid_Registration_04 | Register with valid data | Automation Thirtysix   |
       
-      | DRC_ATC_Valid_Registration_04 | Register with valid data | Automation TestOne   |
+      | DRC_ATC_Valid_Registration_04 | Register with valid data | Automation two   |
       #| DRC_ATC_Valid_Registration_04 | Register with valid data | Automation Thirtyeight   | 
 
   @Invalid_Registration @mtc3 @mtc4 @mtc5 @mtc6 @mtc8 @mtc9 @Sprint3
