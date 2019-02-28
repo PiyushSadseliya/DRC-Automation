@@ -24,5 +24,4 @@ public class ConnectDatabase {
 	{
 		sta.close();
 	}
-
 }

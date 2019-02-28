@@ -487,7 +487,7 @@ public class DV_2880_Tax_Deductable_Ass_and_Reass_Adjustement
 	public void user_click_on_Transaction_Received_button_and_validate() throws Throwable 
 	{
 		clickOn("btn_TransactionReceived", "");		
-		verifyDownloadCheck("TransactionReceived");
+		//verifyDownloadCheck("TransactionReceived");
 		//verifyDownload("TransactionReceived");
 		sleepWait(1000);
 	  

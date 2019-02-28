@@ -309,8 +309,7 @@ public class DV_2390_e_filing
 	    type("txt_OtherGoods1", OI);
 	    sleepWait(1000);
 	    type("txt_OtherGoods2", OL);
-	    sleepWait(1000);
-	    
+	    sleepWait(1000);	    
 	}
 
 	@And("^User entered value \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" for Adjustment$")
@@ -325,7 +324,7 @@ public class DV_2390_e_filing
 	@And("^User entered value \"([^\"]*)\" for Tax Calculation$")
 	public void user_entered_value_for_Tax_Calculation(String VAT3Party) throws Throwable 
 	{
-		type("txt_VatThird",VAT3Party);				
+		type("txt_VatThird",VAT3Party);
 	}
 
 
@@ -928,7 +927,7 @@ public class DV_2390_e_filing
 	{
 		sleepWait(180000);
 		clickOn("btn_efile_Verify", "");
-		if(wd.findElement(By.xpath("//div[contains(text(),'" + mess + "')]")).isDisplayed() )
+		if(wd.findElement(By.xpath("//div[contains(text(),'" + mess + "')]")).isDisplayed())
 		{					
 			assertTrue(true);
 		}

@@ -135,11 +135,11 @@ public class DV_2878_Assessment_Summary_Manual
 		sleepWait(2000);
 		clickOn("btn_eFile_Schedule", "");
 		sleepWait(1000);		
-		waitFor("toast_common");
+		/*waitFor("toast_common");
 		if(wd.findElement(By.xpath("//div[contains(text(),'" + mess + "')]")).isDisplayed() )
 		{					
 			assertTrue(true);
-		}	
+		}	*/
 		sleepWait(5000);
 
 	}

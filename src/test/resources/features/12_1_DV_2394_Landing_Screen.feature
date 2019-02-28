@@ -1,7 +1,6 @@
 Feature: User is on e-filing landing screen
 
-
-  @TC_02
+   @TC_02
   Scenario Outline: Validate the Download templates button functionality
     Given User is on Vat e-Filing Page "<TestcaseID>" "<Description>"
     And User click on Dashboard

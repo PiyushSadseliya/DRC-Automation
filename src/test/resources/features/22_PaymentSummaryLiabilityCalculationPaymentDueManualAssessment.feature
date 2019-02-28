@@ -12,7 +12,7 @@ Feature: Manual Assessment- Payment summary for Liability Calculation and Paymen
 
     Examples: 
       | Test Case ID          | Description                                                                                              | uname            | password | period   | year | msg                | penamt | efiledamount | NITVA | tpayer            |
-      | DRC_ATC_Assessment_01 | Validate the prev button,next button for no updation in manual assessment when efiling and pymt not done | laxman.prajapati | admin    | February | 2019 | Saved Successfully | 500000 |       800,00 |       | Automation User 10 |
+      | DRC_ATC_Assessment_01 | Validate the prev button,next button for no updation in manual assessment when efiling and pymt not done | laxman.prajapati | admin    | February | 2019 | Saved Successfully | 500000 |       800,00 |       | Automation User 55 |
 
   @567 @555
   Scenario Outline: Validate the Save,Previous button,Total Tiles,Additionality Liability column for No updation in manual assessment when efiling and pymt not done
@@ -31,7 +31,7 @@ Feature: Manual Assessment- Payment summary for Liability Calculation and Paymen
 
     Examples: 
       | Test Case ID          | Description                                                                                          | uname            | password | period   | year | msg                | penamt | efiledamount | NITVA | tpayer            | ltfee |
-      | DRC_ATC_Assessment_02 | Validate the Save,Previous button,prev button,next button Total Tiles,Additionality Liability column | laxman.prajapati | admin    | February | 2019 | Saved Successfully |  50000 |       310,00 |       | Automation User 10 |  0,00 |
+      | DRC_ATC_Assessment_02 | Validate the Save,Previous button,prev button,next button Total Tiles,Additionality Liability column | laxman.prajapati | admin    | February | 2019 | Saved Successfully |  50000 |       310,00 |       | Automation User 55 |  0,00 |
 
   @tc17
   Scenario Outline: Validate the download functionality of  e-filing schedule Button when e-file schedule file is not uploaded by tax paye
@@ -42,7 +42,7 @@ Feature: Manual Assessment- Payment summary for Liability Calculation and Paymen
 
     Examples: 
       | Test Case ID          | Description                                                                                                                                   | uname            | password | period  | year | msg                | penamt | efiledamount | NITVA             | tpayer            |
-      | DRC_ATC_Assessment_03 | Validate the download functionality of  e-filing schedule Button when e-file schedule file is not uploaded by tax payer from tax payer portal | laxman.prajapati | admin    | January | 2019 | Saved Successfully |  50000 |       800,00 | 20181127030648745 | Automation User 10 |
+      | DRC_ATC_Assessment_03 | Validate the download functionality of  e-filing schedule Button when e-file schedule file is not uploaded by tax payer from tax payer portal | laxman.prajapati | admin    | January | 2019 | Saved Successfully |  50000 |       800,00 | 20181127030648745 | Automation User 55 |
 
   @RaiseNotice
   Scenario Outline: Validate the tax assessment officer is able to raise notice for a particular period for no updation in manual assessment when efiling and pymt not done
@@ -53,5 +53,5 @@ Feature: Manual Assessment- Payment summary for Liability Calculation and Paymen
 
     Examples: 
       | Test Case ID          | Description                                                                                                                                             | uname            | password | period   | year | penamt | efiledamount | NITVA | tpayer            |
-      | DRC_ATC_Assessment_04 | Validate the tax assessment officer is able to raise notice for a particular period for no updation in manual assessment when efiling and pymt not done | laxman.prajapati | admin    | February | 2019 | 500000 |         0,00 |       | Automation User 10 |
-      | DRC_ATC_Assessment_05 | Validate the tax assessment officer is able to raise notice for a particular period for no updation in manual assessment when efiling and pymt not done | laxman.prajapati | admin    | January  | 2019 | 500000 |         0,00 |       | Automation User 10 |
+      | DRC_ATC_Assessment_04 | Validate the tax assessment officer is able to raise notice for a particular period for no updation in manual assessment when efiling and pymt not done | laxman.prajapati | admin    | February | 2019 | 500000 |         0,00 |       | Automation User 55 |
+      | DRC_ATC_Assessment_05 | Validate the tax assessment officer is able to raise notice for a particular period for no updation in manual assessment when efiling and pymt not done | laxman.prajapati | admin    | January  | 2019 | 500000 |         0,00 |       | Automation User 55 |

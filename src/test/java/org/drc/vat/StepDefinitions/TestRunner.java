@@ -24,11 +24,16 @@ import static org.drc.vat.appmanager.HelperBase.softAssert;
 	
 		"classpath:features/DV_4007_IT_Support_Admin.feature",
 		 "classpath:features/DV_4007_IT_Support_User1.feature"
+
+
+
+
 },
 glue = "org.drc.vat.StepDefinitions",
-plugin = {"com.cucumber.listener.ExtentCucumberFormatter:","html:test-output/cucumber-report"}
-
-		)
+plugin = {"com.cucumber.listener.ExtentCucumberFormatter:","html:test-output/cucumber-report", 
+		  "pretty","html:target/site/cucumber-pretty","json:target/cucumber/cucumber.json"}
+	//,tags= {"@Valid_Registration"}
+)
 
 
 public class TestRunner extends AbstractTestNGCucumberTests {

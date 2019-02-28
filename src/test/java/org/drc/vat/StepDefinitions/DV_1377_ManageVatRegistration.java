@@ -43,6 +43,7 @@ public class DV_1377_ManageVatRegistration
 	@And("^User see mess \"([^\"]*)\"$")
 	public void user_see_mess(String mess) throws Throwable 
 	{
+		sleepWait(2000);
 		if(wd.findElement(By.xpath(obj.getProperty("NoRecord"))).isDisplayed())
 		{
 			assertTrue(true);

@@ -10,7 +10,7 @@ Feature: E-filing -> Filing -> Declaration with verification and confirmation of
 
     Examples: 
       | TestcaseID                          | Description     | Filters | Value             |
-      | Valid_TaxpayerProfile_Reg_Filter_01 | Filter Priority | NITVA   | 20190118011835259 |
+      | Valid_TaxpayerProfile_Reg_Filter_01 | Filter Priority | NITVA   | 20190219041910569 |
 
   Scenario Outline: Validate Filter Functionality with valid data
     Given User is on Internal Portal "<TestcaseID>" "<Description>"
@@ -20,13 +20,13 @@ Feature: E-filing -> Filing -> Declaration with verification and confirmation of
     And User see output "<Value>"
 
     Examples: 
-      | TestcaseID                          | Description     | Filters  | Value               |
-      | Valid_TaxpayerProfile_Reg_Filter_01 | Filter Priority | NITVA    |   20190118011835259 |
-      | Valid_TaxpayerProfile_Reg_Filter_01 | Filter Priority | NIF      |          1234567890 |
-      | Valid_TaxpayerProfile_Reg_Filter_01 | Filter Priority | TaxPayer | sai samarth polytax |
+      | TestcaseID                          | Description     | Filters  | Value                     |
+      | Valid_TaxpayerProfile_Reg_Filter_01 | Filter Priority | NITVA    |         20190219041910569 |
+      | Valid_TaxpayerProfile_Reg_Filter_01 | Filter Priority | NIF      | 1544081702254ABCDFE001004 |
+      | Valid_TaxpayerProfile_Reg_Filter_01 | Filter Priority | TaxPayer | Automation User 54        |
       #| Valid_TaxpayerProfile_Reg_Filter_01 | Filter Priority | Business type    | Manufacturing       |
       #| Valid_TaxpayerProfile_Reg_Filter_01 | Filter Priority | TaxPayerCategory | Legal Entity        |
-      | Valid_TaxpayerProfile_Reg_Filter_01 | Filter Priority | Location | Aketi               |
+      | Valid_TaxpayerProfile_Reg_Filter_01 | Filter Priority | Location | Aketi                     |
 
   @invalid_scenario
   Scenario Outline: Validate Filter Functionality with invalid data
