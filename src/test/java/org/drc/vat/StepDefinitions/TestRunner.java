@@ -20,14 +20,34 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import static org.drc.vat.appmanager.HelperBase.softAssert;
-@CucumberOptions(features = {	
-	
-		"classpath:features/DV_4007_IT_Support_Admin.feature"		
+
+
+@CucumberOptions(features = {
+		//"classpath:features/01_userRegistration.feature",
+		"classpath:features/04_DV_1377_ManageVatRegistration.feature",
+		//"classpath:features/03_02VATRegistration.feature",
+		//"classpath:features/FuelManagement_Supervisor.feature",
+		//"classpath:features/04_DV_1377_ManageVatRegistration.feature",
+		//"classpath:features/05_DV_1376_AcceptRejectAdditionalClarification.feature",
+		
+//		"classpath:features/23_02_DV_2882_Assessed_List.feature",
+//		"classpath:features/24_04_DV_2881_OP_TD_Ad_with_Ass_and_Reass_AssessedList.feature",
+//		"classpath:features/25_06_DV_2880_Tax_Deductable_Ass_and_Reass_Adjustement_Assessed_List.feature",	
+//		"classpath:features/26_08_DV_2879_Assessed.feature",
+//		"classpath:features/27_10_DV_2878_Assessment_Summary_Assessed.feature",
+		//"classpath:features/29_PaymentSummaryLiabilityCalculationPaymentDueManualReAssessment.feature",
+		
+		//"classpath:features/15_01_TaxBillPayment.feature",
+		
+		//"classpath:features/30_TaxPayer_Portal_objection_appeal.feature",
+		//"classpath:features/DV_4007_IT_Support_Admin.feature"
+		//"classpath:features/48_Tax_Payer_Profile.feature"
 },
 glue = "org.drc.vat.StepDefinitions",
-plugin = {"com.cucumber.listener.ExtentCucumberFormatter:","html:test-output/cucumber-report"}
-
-		)
+plugin = {"com.cucumber.listener.ExtentCucumberFormatter:","html:test-output/cucumber-report", 
+		  "pretty","html:target/site/cucumber-pretty","json:target/cucumber/cucumber.json"}
+	//,tags= {"@Valid_Registration"}
+)
 
 
 public class TestRunner extends AbstractTestNGCucumberTests {

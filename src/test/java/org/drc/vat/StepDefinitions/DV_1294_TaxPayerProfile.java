@@ -55,7 +55,7 @@ public class DV_1294_TaxPayerProfile {
 		clickOn("txt_associatedBank","");
 		clickOn("btn_previous_associatedbank","");
 		clickOn("btn_previous_associatedbank","");
-		if(wd.findElement(By.xpath("//h6[contains(text(),'Filter by')]")).isDisplayed())
+		if(wd.findElement(By.xpath("//*[contains(text(),'Filter by')]")).isDisplayed())
 		{
 			assertTrue(true);
 		}		

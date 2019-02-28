@@ -2,13 +2,6 @@ package org.drc.vat.StepDefinitions;
 import static org.drc.vat.appmanager.HelperBase.*;
 import static org.testng.Assert.assertTrue;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-
-import org.drc.vat.StepDefinitions.DV_2390_e_filing;
-import org.drc.vat.appmanager.Read_OTP;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 
@@ -118,10 +111,10 @@ public class DV_2391_eFile_Preview
 	{	
 		try
 		{
-			Read_OTP RO = new Read_OTP();
-			String OTP=RO.ReadOTP(DV_2390_e_filing.emailid);
+			/*Read_OTP RO = new Read_OTP();
+			String OTP=RO.ReadOTP(DV_2390_e_filing.emailid);*/
 			sleepWait(1000);
-			wd.findElement(By.xpath("//*[@placeholder='Enter your OTP']")).sendKeys(OTP);
+			wd.findElement(By.xpath("//*[@placeholder='Enter your OTP']")).sendKeys("123456");
 			sleepWait(1000);
 			wd.findElement(By.xpath("//*[text()='Verify']")).click();
 			sleepWait(5000);

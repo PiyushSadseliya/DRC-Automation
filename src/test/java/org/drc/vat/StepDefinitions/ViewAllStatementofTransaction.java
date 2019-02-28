@@ -108,7 +108,6 @@ public class ViewAllStatementofTransaction {
 		// clickOn("btn_prev","");
 		// sleepWait(1000);
 		// clickOn("btn_prev","");
-
 	}
 
 	@Then("^Click on View All button$")
@@ -116,7 +115,6 @@ public class ViewAllStatementofTransaction {
 		sleepWait(1000);
 		clickOn("btn_viewall", "");
 		sleepWait(2000);
-
 	}
 
 	@Then("^Statemnt of Transaction should show the details of Date\"([^\"]*)\"\"([^\"]*)\"Period\"([^\"]*)\"\"([^\"]*)\"Particular\"([^\"]*)\"OpeningBalance\"([^\"]*)\"Liability Amount\"([^\"]*)\"Late Fee\"([^\"]*)\"Interest \"([^\"]*)\"Penalty\"([^\"]*)\"Total\"([^\"]*)\"$")

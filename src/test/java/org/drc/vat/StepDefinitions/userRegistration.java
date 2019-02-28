@@ -95,37 +95,37 @@ public class userRegistration {
 				+ "         ,[PhoneNumberConfirmed]                             "
 				+ "         ,[SecurityStamp]                                    "
 				+ "         ,[TwoFactorEnabled]                                 "
-				+ "         ,[UserClient]                                       "
+				+ "         ,[UserClient]                                       "				
 				+ "         ,[UserName]                                         "
 				+ "         ,[TokenExpiration]                                  "
-				+ "         ,[FullName],[DateRegistered])                                        "
+				+ "         ,[FullName],[DateRegistered])                       "
 				+ "   VALUES                                                    "
 				+ "         (NEWID(),                                           "
 				+ "         0                                                   "
 				+ "         ,NEWID()                                            " + "         ,CONCAT('"
-				+ EmailUsername + "','@yopmail.com')              "
+				+ EmailUsername + "','@mt2015.com')              "
 				// +",'"+UserName+"'"
 				+ "         ,1                                                  "
 				+ "         ,0                                                  "
 				+ "         ,NULL                                               "
 				/*
-				 * +"         ,CONCAT('AutomationUser',@a,'@yopmail.com')              "
-				 * +"         ,CONCAT('AutomationUser',@a,'@yopmail.com')              "
+				 * +"         ,CONCAT('AutomationUser',@a,'@mt2015.com')              "
+				 * +"         ,CONCAT('AutomationUser',@a,'@mt2015.com')              "
 				 */
-				 + "        ,CONCAT('" + EmailCapsUsername + "','@yopmail.com')              "
-				 + "         ,CONCAT('" + EmailCapsUsername + "','@yopmail.com')              "
+				 + "        ,CONCAT('" + EmailCapsUsername + "','@mt2015.com')              "
+				 + "         ,CONCAT('" + EmailCapsUsername + "','@mt2015.com')              "
 				 + "         ,'AQAAAAEAACcQAAAAEM/wSgVN/nG79PYxp2X4xCzrtdQcsTEYE911sxUm9sniuJtbzybplBD6TYP+BnxhDg=='  "
 				 + "         ,'+919999999999'                                                                         "
 				 + "         ,1                                                                                       "
 				 + "          , NEWID()                                                                               "
 				 + "          ,0                                                                                      "
 				 + "          ,'TaxPortal'                                                                            "
-				 // +" ,CONCAT('AutomationUser',@a,'@yopmail.com') "
+				 // +" ,CONCAT('AutomationUser',@a,'@mt2015.com') "
 				 + "          ,CONCAT('" + EmailCapsUsername
-				 + "','@yopmail.com')                                                  "
+				 + "','@mt2015.com')                                                  "
 				 + "          ,CURRENT_TIMESTAMP                                                                      "
 				 // +" ,CONCAT('AutomationUser',@a)) ";
-				 + "          ,'" + UserName + "',getdate())  ";
+				 + "          ,'" + UserName + "',getdate())  "; 
 
 		CD.sta.executeUpdate(user);
 	}
@@ -141,14 +141,16 @@ public class userRegistration {
 				// +
 				"declare  @emailvalue Nvarchar(500) "
 				+ "Set @emailvalue = (select ID from  [1AuthoritySTS].[dbo].[AspNetUsers] "
-				+ "where Email = CONCAT('" + EmailUsername + "','@yopmail.com'))               "
+				+ "where Email = CONCAT('" + EmailUsername + "','@mt2015.com'))               "
 				+ "insert into [DRC-QA].[Ref].[RegisteredUsers] values                             "
 				+ "  (@emailvalue                                                          "
-				+ "  ,1                                                                   " + "  ,'" + Username
-				+ "'" + "  ,CONCAT('" + EmailUsername + "','@yopmail.com')                              "
+				+ "  ,'en'                                                                   " + "  ,'" + Username
+				+ "'" + "  ,CONCAT('" + EmailUsername + "','@mt2015.com')                              "				
+				+ "  ,'9876543218'                                                                " //Mobile number
 				+ "  ,CURRENT_TIMESTAMP                                                   "
 				+ "  ,NULL                                                                "
 				+ "  ,CURRENT_TIMESTAMP                                                   "
+				+ "  ,NUll                                                                "
 				+ "  ,NUll                                                                "
 				+ "  ,null                                                                " + "  ) ";
 
@@ -166,7 +168,7 @@ public class userRegistration {
 				// email like 'dfdj%')"
 				" declare  @emailvalue Nvarchar(500)"
 				+ " set @emailvalue = (select ID from  [1AuthoritySTS].[dbo].[AspNetUsers] "
-				+ " where Email = CONCAT('" + EmailUsername + "','@yopmail.com'))"
+				+ " where Email = CONCAT('" + EmailUsername + "','@mt2015.com'))"
 				+ " insert into [1AuthoritySTS].[dbo].[AspNetUserRoles] ([UserId],[RoleId]) VALUES  (@emailvalue,'B828372F-B0AD-40DF-B8BB-5C6E11A8682E')";
 
 		// System.out.println("test");

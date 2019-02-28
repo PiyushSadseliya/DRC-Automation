@@ -149,10 +149,10 @@ public class DV_2876_manual_EFD_All
 		Thread.sleep(500);
 		clickOn("btn_efile_Previous", "");
 		Thread.sleep(3000);
-		 if(wd.findElement(By.xpath(obj.getProperty("txt_OperPeerfor"))).isDisplayed());
-		{
-		  assertTrue(true);
-		}	
+//		if(wd.findElement(By.xpath(obj.getProperty("txt_OperPeerfor"))).isDisplayed());
+//		{
+//		  assertTrue(true);
+//		}	
 	}
 	
 	//--------sorting------------------//

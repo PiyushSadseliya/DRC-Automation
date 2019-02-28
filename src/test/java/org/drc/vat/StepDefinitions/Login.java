@@ -46,7 +46,7 @@ public class Login {
 	}
 
 	@When("^User Enter Data: \"([^\"]*)\" \"([^\"]*)\"$")
-	public void i_Enter_Data(String email, String pwd) throws Throwable {
+	public void user_Enter_Data(String email, String pwd) throws Throwable {
 		login(email, pwd);
 	}
 

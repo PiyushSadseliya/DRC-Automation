@@ -15,7 +15,7 @@ Feature: User is on Assessed List Landing Screen
 
     Examples: 
       | TestcaseID       | Description              | Period        | statusChanged | Year            | TaxPayer           |
-      | Assessed List_08 | Validate Assessed status | txt_PeriodFeb | Assessed      | txt_2019_Period | Automation User 10 |
+      | Assessed List_08 | Validate Assessed status | txt_PeriodFeb | Reassess      | txt_2019_Period | Automation User 54 |
 
   #@TC_07_AssessedList_2882
   @TC_07_TC_03_AssessedList_2882
@@ -57,7 +57,7 @@ Feature: User is on Assessed List Landing Screen
   #      And User see notice
   #      Examples:
   #        | TestcaseID       | Description          | Period        | Filter          |TaxPayer          |Year            |
-  #        | Assessed List_02 | Validate View Notice | txt_PeriodJan | drp_ReferanceId |Automation User 10    |txt_2019_Period |
+  #        | Assessed List_02 | Validate View Notice | txt_PeriodJan | drp_ReferanceId |Automation User 54    |txt_2019_Period |
   #@TC_03_AssessedList_2882
   #Scenario Outline: Validate reassess option from manage dropdown
   #Given User is on Assessment Page "<TestcaseID>" "<Description>"
@@ -75,7 +75,7 @@ Feature: User is on Assessed List Landing Screen
   #
   #Examples:
   #| TestcaseID       | Description               | Period        | TaxPayer        | Year            |
-  #| Assessed List_03 | Validate Reassess Options | txt_PeriodFeb | Automation User 10 | txt_2019_Period |
+  #| Assessed List_03 | Validate Reassess Options | txt_PeriodFeb | Automation User 54 | txt_2019_Period |
   @TC_04_AssessedList_2882
   Scenario Outline: Validate ReferenceID generated is not duplicate
     Given User is on Assessment Page "<TestcaseID>" "<Description>"
@@ -113,18 +113,18 @@ Feature: User is on Assessed List Landing Screen
 
   #  @TC_09_AssessedList_2882
   #  Scenario Outline: Validate re-assessed status
-  @TC_10_AssessedList_2882
-  Scenario Outline: Validate Period Functionality
-    Given User is on Assessment Page "<TestcaseID>" "<Description>"
-    And User click on Dashboard
-    And User click on Assessment Tab
-    And User click on Assessed List
-    And User see the current month "<month>" and year "<year>" is shown
-
+  #@TC_10_AssessedList_2882
+  #Scenario Outline: Validate Period Functionality
+    #Given User is on Assessment Page "<TestcaseID>" "<Description>"
+    #And User click on Dashboard
+    #And User click on Assessment Tab
+    #And User click on Assessed List
+    #And User see the current month "<month>" and year "<year>" is shown
+#
     #   And User click on year and see no future year is display
-    Examples: 
-      | TestcaseID       | Description              | month         | year            |
-      | Assessed List_10 | Validate Assessed status | txt_PeriodJan | txt_2019_Period |
+    #Examples: 
+      #| TestcaseID       | Description              | month         | year            |
+      #| Assessed List_10 | Validate Assessed status | txt_PeriodJan | txt_2019_Period |
 
   @TC_11_ReferenceID_AssessedList_2882
   Scenario Outline: Validate whether user is able to filter by ReferenceID invalid
@@ -202,18 +202,18 @@ Feature: User is on Assessed List Landing Screen
       | TestcaseID         | Description         | Period        | Filter       | new | SpecialChar | Year            |
       | Assessed List_11_3 | Validate  Tax Payer | txt_PeriodFeb | txt_TaxPayer | xyz | !@#@#$@#    | txt_2019_Period |
 
-  @TC_11_4_Status_AssessedList_2882
-  Scenario Outline: Validate whether user is able to filter by Tax Payer
-    Given User is on Assessment Page "<TestcaseID>" "<Description>"
-    And User click on Dashboard
-    And User click on Assessment Tab
-    And User click on Assessed List
-    And User click on drop down "<Period>" on re assessed list
-    And User click on year "<Year>" and check
-    And User click on FilterBy "<Filter>" for assessed list
-    And User click on status and select "<SelectStatus>" and click on search
-    And USer check search record "<record>"
-
+  #@TC_11_4_Status_AssessedList_2882
+  #Scenario Outline: Validate whether user is able to filter by Tax Payer
+    #Given User is on Assessment Page "<TestcaseID>" "<Description>"
+    #And User click on Dashboard
+    #And User click on Assessment Tab
+    #And User click on Assessed List
+    #And User click on drop down "<Period>" on re assessed list
+    #And User click on year "<Year>" and check
+    #And User click on FilterBy "<Filter>" for assessed list
+    #And User click on status and select "<SelectStatus>" and click on search
+    #And USer check search record "<record>"
+#
     #And User type "<Data>"
     #And User click on type here and check for Tax Payer "<Data>"
     #And User now type invalid Tax Payer "<new>"
@@ -222,16 +222,17 @@ Feature: User is on Assessed List Landing Screen
     #And User refresh the page
     #And User go to extreme page
     #And User type "<FirstData>" and check record that was on first page for Tax Payer
-    Examples: 
-      | TestcaseID           | Description                 | Period        | Filter     | SelectStatus   | record      | Year            |
-      | Assessed List_11_3_1 | Validate search in progress | txt_PeriodJan | drp_Status | txt_InProgress | In Progress | txt_2019_Period |
-      | Assessed List_11_3_2 | Validate search Objection   | txt_PeriodJan | drp_Status | txt_Objection  | Objection   | txt_2019_Period |
+    #Examples: 
+      #| TestcaseID           | Description                 | Period        | Filter     | SelectStatus   | record      | Year            |
+      #| Assessed List_11_3_1 | Validate search in progress | txt_PeriodJan | drp_Status | txt_InProgress | In Progress | txt_2019_Period |
+      #| Assessed List_11_3_2 | Validate search Objection   | txt_PeriodJan | drp_Status | txt_Objection  | Objection   | txt_2019_Period |
 
   #   | Assessed List_11_3_2 | Validate search Assessed    | txt_PeriodJan | drp_Status | txt_Assessed   | Assessed    | txt_2019_Period |
   #   | Assessed List_11_3_4 | Validate search Re-Assed    | txt_PeriodJan | drp_Status | txt_ReAssessed | Re-Assessed | txt_2019_Period |
   # this scenario is of feature file 27
+  
   @TC_05_06_19_18_16_AssessedList_2878
-  Scenario Outline: Validate that the Total Reassessed(FC) tile amount when no any changes made in  re-assessment adjustment table for Operations Performed, Tax Deductible and Adjustment tab.
+  Scenario Outline: Validate that the Total Reassessed(FC) tile amount when no any changes made in  re-assessment adjustment table for Operations Performed, Tax Deductible and Adjustment tab. - internal portal
     Given User is on Manual Assessment "<TestcaseID>" "<Description>"
     And User click on Dashboard
     And User click on Assessment Tab
@@ -245,10 +246,10 @@ Feature: User is on Assessed List Landing Screen
     And User click on next button and navigate to Assessment Summary page
     And User check Total Reassessed amount is not changed
     And User validate Total Additional Liability on Assessment Summary page on Assessed List
-    And User see message "<mess>" when no changes done in adjustement
+    #And User see message "<mess>" when no changes done in adjustement
     And User click on e-filing schedule when tax payer did not uploaded file at the time of e-declaration and shows message "<FNF>"
     And User click on Transaction Received button
 
     Examples: 
       | TestcaseID            | Description                                                                | Period        | Year            | TaxPayer           | mess                                | FNF            |
-      | Ass_AS_05_06_19_18_16 | Validate Total Reassessed amount is same and check Additionality Liability | txt_PeriodJan | txt_2019_Period | Automation User 10 | No Modification made for Assessment | File not found |
+      | Ass_AS_05_06_19_18_16 | Validate Total Reassessed amount is same and check Additionality Liability | txt_PeriodFeb | txt_2019_Period | Automation User 54 | No Modification made for Assessment | File not found |
