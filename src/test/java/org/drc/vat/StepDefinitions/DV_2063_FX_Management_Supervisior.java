@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import cucumber.api.java.en.And;
+import cucumber.api.java.en.Then;
 
 public class DV_2063_FX_Management_Supervisior 
 {
@@ -61,6 +62,8 @@ public class DV_2063_FX_Management_Supervisior
 		}			
 	//	wd.quit();
 
+		
+		
 	}
 	
 	
@@ -208,5 +211,16 @@ public class DV_2063_FX_Management_Supervisior
 		}
 	}
 	
+	@Then("^User click on Historical FX Rates button and verify the base currency for supervisor$")
+	public void user_click_on_Historical_FX_Rates_button_and_verify_the_base_currency_for_supervisor() throws Throwable 
+	{
+		sleepWait(1000);
+		clickOn("btn_HistoricalFX", "");
+		sleepWait(1000);
+		if(BaseCurr.contains("1") && BaseCurrName.contains("Congolese Franc(FC)"))
+		{
+			assertTrue(true);
+		}		
+	}
 	
 }

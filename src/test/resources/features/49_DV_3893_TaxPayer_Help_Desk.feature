@@ -24,7 +24,7 @@ Feature: User is on Tax Payer Portal Help Desk
 
     Examples: 
       | TestcaseID           | Description                       | email                           | password | List           | title           | Description_1                 |
-      | TaxPayer_Helpdesk_01 | Verify System related issue extra | regressionthirty@mailinator.com | Test@123 | drp_Select_SRI | System Related4 | Creating System related issue |
+      | TaxPayer_Helpdesk_01 | Verify System related issue extra | automationfiftythree@mt2015.com | Test@123 | drp_Select_SRI | System Related4 | Creating System related issue |
 
   #0.1
   @TC_Extra_user_created_Payment_Related
@@ -49,7 +49,7 @@ Feature: User is on Tax Payer Portal Help Desk
 
     Examples: 
       | TestcaseID        | Description                  | List          | title            | Description_1                  | Tid       | Amount | date       |
-      | TaxPayer_Helpdesk | Verify Payment related extra | drp_Select_PR | Payment Related4 | Creating Payment related issue | T10012019 |  10000 | 2018-08-22 |
+      | TaxPayer_Helpdesk | Verify Payment related extra | drp_Select_PR | Payment Related4 | Creating Payment related issue | T10012019 |  10000 | 2018-08-10 |
 
   #1
   @TC_08_09_10_11_06_07_03
@@ -180,7 +180,7 @@ Feature: User is on Tax Payer Portal Help Desk
 
     Examples: 
       | TestcaseID           | Description                  | email                     | password | List          | title                  | Description_1         | Tid   | Amount | file          | date       |
-      | TaxPayer_Helpdesk_14 | Verify Payment Related Issue | arunkumar1@mailinator.com | Arun123  | drp_Select_PR | Payment Relatwed Issue | Payment Related Issue | PA001 |   5000 | BankFile.xlsx | 2018-08-22 |
+      | TaxPayer_Helpdesk_14 | Verify Payment Related Issue | arunkumar1@mailinator.com | Arun123  | drp_Select_PR | Payment Relatwed Issue | Payment Related Issue | PA001 |   5000 | BankFile.xlsx | 2018-08-10 |
 
   #5
   @TC_19_20_21_22
@@ -296,8 +296,8 @@ Feature: User is on Tax Payer Portal Help Desk
     #And User click on Dashboard
 
     Examples: 
-      | TestcaseID              | Description                                     | comments                        | email                           | password  | IR                   |
-      | TaxPayer_Helpdesk_28_01 | TaxOfficer comment for Information Received status | The Additional information are | regressionthirty@mailinator.com | Test@123  | Information Received |
+      | TestcaseID              | Description                                        | comments                       | email                           | password  | IR                   |
+      | TaxPayer_Helpdesk_28_01 | TaxOfficer comment for Information Received status | The Additional information are | automationfiftythree@mt2015.com | Test@123  | Information Received |
 
   @TC_28_part2
   Scenario Outline: Validate the Information Received status for the Helpdesk ticket -taxpayer portal    
@@ -321,7 +321,7 @@ Feature: User is on Tax Payer Portal Help Desk
 
     Examples: 
       | TestcaseID              | Description                                             | comment                        | email                           | password  | IR                   |
-      | TaxPayer_Helpdesk_28_02 | TaxPayer enter responce for Information Received status | The Additional information are | regressionthirty@mailinator.com | Test@123  | Information Received |
+      | TaxPayer_Helpdesk_28_02 | TaxPayer enter responce for Information Received status | The Additional information are | automationfiftythree@mt2015.com | Test@123  | Information Received |
 
 
   #10
@@ -523,7 +523,7 @@ Feature: User is on Tax Payer Portal Help Desk
     #And User click on browse button and select file "<file>"
     Examples: 
       | TestcaseID           | Description                                                     | email                          | password  | file                               | close_status |
-      | TaxPayer_Helpdesk_36 | Verify Communication functionality when current status is close |regressionthirty@mailinator.com | Test@123  | Officers List With Tax Center.xlsx | close        |
+      | TaxPayer_Helpdesk_36 | Verify Communication functionality when current status is close |automationfiftythree@mt2015.com | Test@123  | Officers List With Tax Center.xlsx | close        |
       
       
     #7

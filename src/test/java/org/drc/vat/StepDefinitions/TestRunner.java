@@ -24,7 +24,7 @@ import static org.drc.vat.appmanager.HelperBase.softAssert;
 @CucumberOptions(features = {
 		//"classpath:features/01_userRegistration.feature",
 		//"classpath:features/02_01_Login.feature",
-		"classpath:features/03_02VATRegistration.feature",
+		//"classpath:features/03_02VATRegistration.feature",
 		//"classpath:features/FuelManagement_Supervisor.feature",
 		//"classpath:features/04_DV_1377_ManageVatRegistration.feature",
 		//"classpath:features/05_DV_1376_AcceptRejectAdditionalClarification.feature",
@@ -38,18 +38,19 @@ import static org.drc.vat.appmanager.HelperBase.softAssert;
 //		"classpath:features/14_ViewAllStatementofTransaction.feature",
 //		"classpath:features/15_01_TaxBillPayment.feature",
 		
-		//"classpath:features/30_TaxPayer_Portal_objection_appeal.feature",
-
-		"classpath:features/01_userRegistration.feature"
+		
+		//"classpath:features/45_FX_Management_TaxOfficer.feature",
+		//"classpath:features/46_FX_Management_Supervisor.feature",
+		//"classpath:features/47_FX_Management_Admin.feature",
+		//"classpath:features/48_Tax_Payer_Profile.feature",
+		//"classpath:features/49_DV_3893_TaxPayer_Help_Desk.feature",
+		//"classpath:features/50_DV_3893_TaxOfficer_Help_Desk_Internal.feature",
+		
 },
 glue = "org.drc.vat.StepDefinitions",
 plugin = {"com.cucumber.listener.ExtentCucumberFormatter:","html:test-output/cucumber-report"}
-,tags= {"@Valid_Registration"}		)
-
-
-
-
-
+//,tags= {"@TC_08"}		
+)
 
 public class TestRunner extends AbstractTestNGCucumberTests {
 	private Logger logger = LoggerFactory.getLogger(TestRunner.class);
@@ -80,15 +81,12 @@ public class TestRunner extends AbstractTestNGCucumberTests {
 		if (scenario.getName().toLowerCase().contains("internal portal")) {
 			app.callinternalportal();
 
-		} else if (scenario.getName().toLowerCase().contains("taxpayer portal")) {
-
 		}
 		/**
 		 * taxpayer portal
 		 */
-
-		else if (scenario.getName().toLowerCase().contains("taxpayer portal")) {
-
+		else if (scenario.getName().toLowerCase().contains("taxpayer portal")) 
+		{
 			app.calltaxpayerportal();
 		} else if (scenario.getName().contains("EFDinternalportal")) {
 			app.EFDinternalportal();

@@ -10,7 +10,7 @@ Feature: E-filing -> Filing -> Declaration with verification and confirmation of
 
     Examples: 
       | TestcaseID                          | Description     | Filters | Value             |
-      | Valid_TaxpayerProfile_Reg_Filter_01 | Filter Priority | NITVA   | 20190118011835259 |
+      | Valid_TaxpayerProfile_Reg_Filter_01 | Filter Priority | NITVA   | 20190216033103929 |
 
   Scenario Outline: Validate Filter Functionality with valid data
     Given User is on Internal Portal "<TestcaseID>" "<Description>"
@@ -20,13 +20,13 @@ Feature: E-filing -> Filing -> Declaration with verification and confirmation of
     And User see output "<Value>"
 
     Examples: 
-      | TestcaseID                          | Description     | Filters  | Value               |
-      | Valid_TaxpayerProfile_Reg_Filter_01 | Filter Priority | NITVA    |   20190118011835259 |
-      | Valid_TaxpayerProfile_Reg_Filter_01 | Filter Priority | NIF      |          1234567890 |
-      | Valid_TaxpayerProfile_Reg_Filter_01 | Filter Priority | TaxPayer | sai samarth polytax |
-      #| Valid_TaxpayerProfile_Reg_Filter_01 | Filter Priority | Business type    | Manufacturing       |
-      #| Valid_TaxpayerProfile_Reg_Filter_01 | Filter Priority | TaxPayerCategory | Legal Entity        |
-      | Valid_TaxpayerProfile_Reg_Filter_01 | Filter Priority | Location | Aketi               |
+      | TestcaseID                          | Description     | Filters  | Value                             |
+      | Valid_TaxpayerProfile_Reg_Filter_01 | Filter Priority | NITVA    |                 20190216033103929 |
+      | Valid_TaxpayerProfile_Reg_Filter_01 | Filter Priority | NIF      | 1521111702211ABCDFE001004         |
+      | Valid_TaxpayerProfile_Reg_Filter_01 | Filter Priority | TaxPayer | Automation User 21                |
+      #  | Valid_TaxpayerProfile_Reg_Filter_01 | Filter Priority | Business type    | Manufacturing       |
+      #   | Valid_TaxpayerProfile_Reg_Filter_01 | Filter Priority | TaxPayerCategory | Legal Entity        |
+      | Valid_TaxpayerProfile_Reg_Filter_01 | Filter Priority | Location | Dharamdas Chamber, Near Axis Bank |
 
   @invalid_scenario
   Scenario Outline: Validate Filter Functionality with invalid data

@@ -112,11 +112,11 @@ public class ApplicationManager {
 		}
 		else {
 			if (!wd.getCurrentUrl().contains("8068")) {
-				wd.close();
+				/*wd.close();
 				Thread.sleep(1000);
 				wd = new ChromeDriver();
 				wd.manage().window().maximize();
-				Thread.sleep(1000);
+				Thread.sleep(1000);*/
 				wd.get("http://103.249.120.58:8044");
 				Thread.sleep(500);
 				Runtime.getRuntime()

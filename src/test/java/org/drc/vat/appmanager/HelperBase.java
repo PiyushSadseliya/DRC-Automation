@@ -381,7 +381,7 @@ public class HelperBase {
 		 * System.out.println("Message Validated"); }
 		 * //text(By.xpath("//*[@class='toast-top-right toast-container']"));
 		 */
-		return text(By.xpath("//div[@class='toast-message ng-star-inserted']"));
+		return text(By.xpath("//*[@class='toast-message ng-star-inserted']"));
 		//return text(By.xpath("//*[@role='alertdialog']"));
 	}
 

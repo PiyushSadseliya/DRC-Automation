@@ -6,7 +6,8 @@ Feature: User is on FX Management Page DGI Supervisor
     And User click on Dashboard
     And User click on FX Management tab
     And User verify the Base currency on the FX management is Congolese France and its value is one for supervisor
-    And User click on Historical FX Rates button and verify the base currency
+    Then User click on Historical FX Rates button and verify the base currency for supervisor
+    
 
     Examples: 
       | TestcaseID                   | Description          |
@@ -54,7 +55,7 @@ Feature: User is on FX Management Page DGI Supervisor
 
     Examples: 
       | TestcaseID                   | Description                      | TodayDate  | ToDate     | DisplayDate | NoCurrencyFromDate | NoCurrencyToDate |
-      | FX_Management_Supervisior_10 | Verify date search functionality | 2019-02-18 | 2019-02-18 | 02/18/2019  | 2019-02-18         | 2019-02-18       |
+      | FX_Management_Supervisior_10 | Verify date search functionality | 2019-02-27 | 2019-02-27 | 02/27/2019  | 2019-02-01        | 2019-02-01       |
 
   #@TC_11
   #Scenario Outline: Validate the Pagination on the FX management page with historic data
@@ -94,11 +95,11 @@ Feature: User is on FX Management Page DGI Supervisor
     And User verify already added currencies "<verifyCurrency>" on FX management module
 
     Examples: 
-      | TestcaseID                   | Description                     | verifyCurrency     |
-      | FX_Management_Supervisior_13 | Verify Target Currencies column | INR - Indian Rupee |
+      | TestcaseID                   | Description                     | verifyCurrency  |
+      | FX_Management_Supervisior_13 | Verify Target Currencies column | GBP - Pound     |
 
   @TC_14_15_06
-  Scenario Outline: Validate the Approved rate column data and Supervisior approve currency rate if DGI Officer has update the currency
+  Scenario Outline: Validate the Approved rate column data and Supervisior approve currency rate if DGI Officer has update the currency 
     Given User is on FX Management "<TestcaseID>" "<Description>"
     And User click on Dashboard
     And User click on FX Management tab

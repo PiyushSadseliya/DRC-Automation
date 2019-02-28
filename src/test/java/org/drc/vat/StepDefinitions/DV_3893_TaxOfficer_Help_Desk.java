@@ -161,7 +161,11 @@ public class DV_3893_TaxOfficer_Help_Desk
 	@And("^User see file \"([^\"]*)\" is uploaded and click on download button and verify$")
 	public void user_see_file_is_uploaded_and_click_on_download_button_and_verify(String file) throws Throwable
 	{		
-		String Check_file_Name = elementText("upload_file_name_check");		
+			
+		sleepWait(4000);
+		//String Check_file_Name = elementText("upload_file_name_check");				
+		String Check_file_Name = elementText("uploaded_file_name");	
+		sleepWait(3000);			
 		assertEquals(Check_file_Name, file);	   		
 		verifyDownloadCheck(file);
 	}
@@ -169,6 +173,10 @@ public class DV_3893_TaxOfficer_Help_Desk
 	@And("^User click on Re-Asign to and select another officer \"([^\"]*)\"$")
 	public void user_click_on_Re_Asign_to_and_select_another_officer(String officer) throws Throwable 
 	{
+		sleepWait(1000);
+		waitFor("drp_Assign_to");
+		sleepWait(1000);
+		waitFor("drp_Assign_to");
 	   clickOn("drp_Assign_to", ""); 
 	   sleepWait(1000);
 	   clickOn(officer, "");
@@ -348,8 +356,14 @@ public class DV_3893_TaxOfficer_Help_Desk
 	@And("^User click on Submit button internal portal officer$")
 	public void user_click_on_Submit_button_internal_portal_officer() throws Throwable 
 	{
-		clickOn("btn_Help_Submit", "");
+		sleepWait(1000);
 		waitFor("btn_Help_Submit");
+		sleepWait(1000);
+		waitFor("btn_Help_Submit");
+		clickOn("btn_Help_Submit", "");
+		sleepWait(1000);
+		waitFor("btn_Help_Submit");
+		sleepWait(1000);
 	}
 
 	@And("^User type comment for Request Information \"([^\"]*)\"$")

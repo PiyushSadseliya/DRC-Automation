@@ -21,7 +21,7 @@ Feature: User is on Manual Assessement Landing Screen
     And User will navigate to user manual assessement page
 
     Examples: 
-      | TestcaseID           | Description                        | Period        | Year            | Filter               | Data              | DropdownOfficer                | FilterOfficer                 | officerdata |
+      | TestcaseID           | Description                        | Period        | Year            | Filter               | Data               | DropdownOfficer                | FilterOfficer                 | officerdata |
       | Manual_Assessment_02 | validating all clickable compoment | txt_PeriodJan | txt_2019_Period | txt_AsestFilterNitva | Automation User 10 | drp_AssestChangedOfficerRitesh | txt_AssestFilterAssestOfficer | Laxman      |
 
   @TC_03
