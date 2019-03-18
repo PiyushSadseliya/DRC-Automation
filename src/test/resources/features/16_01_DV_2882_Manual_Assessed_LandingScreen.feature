@@ -24,6 +24,7 @@ Feature: User is on Manual Assessement Landing Screen
       | TestcaseID           | Description                        | Period        | Year            | Filter               | Data               | DropdownOfficer                | FilterOfficer                 | officerdata |
       | Manual_Assessment_02 | validating all clickable compoment | txt_PeriodJan | txt_2019_Period | txt_AsestFilterNitva | Regression MarchMons| drp_AssestChangedOfficerRitesh | txt_AssestFilterAssestOfficer | Laxman      |
 
+
   @TC_03
   Scenario Outline: Validate whether user can reassign the assessment officer whose status is Pending and in progress.
     Given User is on Assessment Page "<TestcaseID>" "<Description>"

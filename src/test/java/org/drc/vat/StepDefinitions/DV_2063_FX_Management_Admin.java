@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import cucumber.api.java.en.And;
+import cucumber.api.java.en.Then;
 
 public class DV_2063_FX_Management_Admin 
 {
@@ -241,7 +242,26 @@ public class DV_2063_FX_Management_Admin
 	}
 	
 	
-	
+	@And("^User logout fx admin$")
+	public void user_logout_fx_admin() throws Throwable 
+	{
+		sleepWait(1000);
+		wd.navigate().refresh();
+		sleepWait(1000);
+	}
+
+	@Then("^User logout and verify admin$")
+	public void user_logout_and_verify_admin() throws Throwable 
+	{
+		sleepWait(1000);
+		wd.navigate().refresh();
+		sleepWait(1000);
+		if(wd.findElement(By.xpath(obj.getProperty("txt_logout_check"))).isDisplayed())
+		{
+			assertTrue(true);
+		}	
+		
+	}
 
 	
 	

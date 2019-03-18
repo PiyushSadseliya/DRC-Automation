@@ -34,10 +34,10 @@ public class DV_1377_ManageVatRegistration
 	public static int Storesum;
 
 	@Given("^User is on Internal Portal \"([^\"]*)\" \"([^\"]*)\"$")
-	public void user_is_on_Internal_Portal(String arg1, String arg2) throws Throwable 
+	public void user_is_on_Internal_Portal(String id, String des) throws Throwable 
 	{		
-		System.out.println(arg1);
-		System.out.println(arg1);		
+		System.out.println(id);
+		System.out.println(des);		
 	}			
 
 	@And("^User see mess \"([^\"]*)\"$")

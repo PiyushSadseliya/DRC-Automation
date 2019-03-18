@@ -89,7 +89,7 @@ public class DV_2881_OP_TD_Ad_with_Ass_and_Reass
 		    String Total_VCT = getValue("txt_Total2_disable1");
 		    if(Total_VC==Float.parseFloat(Total_VCT))
 		    {
-		    	assertTrue(true);	
+		    	assertTrue(true);	 
 		    }
 		    /*
 		     * Total Taxable Turnover(FC)

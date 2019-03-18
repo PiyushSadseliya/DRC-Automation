@@ -1,8 +1,13 @@
 package org.drc.vat.StepDefinitions;
 
+import static org.drc.vat.StepDefinitions.DV_2253_TaxPayer_Portal_objection_appeal.Storereference_value;
 import static org.drc.vat.appmanager.HelperBase.*;
+import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -140,9 +145,13 @@ public class DV_2253_TaxPayer_Portal_objection_appeal
 	@And("^User click on Object on notice page$")
 	public void user_click_on_Object_on_notice_page() throws Throwable 
 	{
-		sleepWait(2000);
+		sleepWait(1000);
+		waitFor("btn_object_notice");
+		sleepWait(1000);
+		waitFor("btn_object_notice");
+		sleepWait(1000);
 		clickOn("btn_object_notice", "");
-		sleepWait(8000);
+		sleepWait(8000); 
 	}	
 
 	@And("^User click on Objection Type and select \"([^\"]*)\"$")
@@ -152,6 +161,14 @@ public class DV_2253_TaxPayer_Portal_objection_appeal
 		WebElement element1 = wd.findElement(By.id("iframe"));
 		wd.switchTo().frame(element1);
 		sleepWait(1000);
+		
+		waitFor("drp_ObjectionType");
+		sleepWait(1000);
+		waitFor("drp_ObjectionType");
+		sleepWait(1000);
+		waitFor("drp_ObjectionType");
+		sleepWait(1000);
+		
 		clickOn("drp_ObjectionType","");
 		sleepWait(1000);
 		clickOn(value, "");
@@ -318,26 +335,77 @@ public class DV_2253_TaxPayer_Portal_objection_appeal
 	@And("^User click on submit button on notice page$")
 	public void user_click_on_submit_button_on_notice_page() throws Throwable 
 	{
+		sleepWait(2000);
 		clickOn("btn_Obj_Submit", "");
 		sleepWait(2000);
 		
-		if (wd.findElement(By.xpath("//h3[contains(text(),'Cases')]")).isDisplayed()) {			
+		waitFor("txt_ClickSubmit_Navigate");
+		sleepWait(1000);
+		waitFor("txt_ClickSubmit_Navigate");
+		sleepWait(1000);
+		if(wd.findElement(By.xpath(obj.getProperty("txt_ClickSubmit_Navigate"))).isDisplayed())
+		{
 			Storereference_value = elementText("text_storereference_value");
+			System.out.println("Storereference_value");
 		}
+		
+		/*if (wd.findElement(By.xpath("//h3[contains(text(),'Cases')]")).isDisplayed()) 
+		{			
+			Storereference_value = elementText("text_storereference_value");
+			System.out.println("Storereference_value");
+		}*/
 	}	
 
+	
+	@And("^User type case id$")
+	public void user_type_case_id() throws Throwable 
+	{
+		sleepWait(1000);		
+		type("TypeHere", Storereference_value);
+		sleepWait(1000);
+		System.out.println("Storereference_value");
+		
+	}
+
+	
+	
 	@And("^User see period on notice$")
 	public void user_see_period_on_notice() throws Throwable 
 	{
 		sleepWait(2000);
+		waitFor("txt_Period_Notice");
 		Noticeperiod = elementText("txt_Period_Notice");
+		sleepWait(3000);
 	}
 
+	
+	/**
+	 *  bug id DV-2968 
+	 *  locator to find 
+	 */
 	@And("^User verify the period field on objection page$")
 	public void user_verify_the_period_field_on_objection_page() throws Throwable 
 	{
-		/**
-		 *  bug locator to find 
-		 */
+		sleepWait(5000);
+		String DataCheck= elementText("");
+		
+		Calendar cal = Calendar.getInstance();
+	    cal.add(Calendar.DATE,0);
+	    Date date = cal.getTime();             
+	    SimpleDateFormat format1 = new SimpleDateFormat("MM/dd/YYYY");
+	    String date1 = format1.format(date);		
+		
+	    assertEquals(DataCheck, date1);
+		
+		/*
+		if(wd.findElement(By.xpath(obj.getProperty(""))).isDisplayed())
+		{
+			assertTrue(true);
+		}
+		else
+		{
+			assertTrue(true);
+		}*/
+		
 	}
 }

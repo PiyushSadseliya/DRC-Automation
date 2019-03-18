@@ -51,8 +51,8 @@ public class DV_1294_TaxPayerProfile {
 	public void user_click_on_Associated_risk_button() throws Throwable {
 		sleepWait(1000);
 		clickOn("btn_associatedRisk","");
-		sleepWait(2000);
-		clickOn("txt_associatedBank","");
+		sleepWait(1000);
+		//clickOn("txt_associatedBank","");
 		clickOn("btn_previous_associatedbank","");
 		clickOn("btn_previous_associatedbank","");
 		if(wd.findElement(By.xpath("//*[contains(text(),'Filter by')]")).isDisplayed())

@@ -61,7 +61,7 @@ Feature: User is on FX Management Page DGI Admin
       | FX_Management_Officer_05_4 | currency rate ending with dot         |        2500. | Invalid currency rate! |
 
   @TC_06_07
-  Scenario Outline: Validate add new currency and remove currency functionality under currency dropdown
+  Scenario Outline: Validate add new currency and remove currency functionality under currency dropdown 
     Given User is on FX Management "<TestcaseID>" "<Description>"
     And User click on Dashboard
     And User click on FX Management tab
@@ -102,8 +102,8 @@ Feature: User is on FX Management Page DGI Admin
     And User see message no record found for date
 
     Examples: 
-      | TestcaseID             | Description                      | TodayDate  | ToDate     | DisplayDate | NoCurrencyFromDate | NoCurrencyToDate |
-      | FX_Management_Admin_15 | Verify date search functionality | 2019-02-18 | 2019-02-18 | 02/18/2019  | 2019-02-18         | 2019-02-18       |
+      | TestcaseID             | Description                      | TodayDate  | ToDate    | DisplayDate | NoCurrencyFromDate | NoCurrencyToDate |
+      | FX_Management_Admin_15 | Verify date search functionality |2019-03-12 | 2019-03-12 | 03/12/2019  | 2019-02-02         | 2019-02-02       |
 
   @TC_16
   Scenario Outline: Validate the Pagination on the FX management page with historic data
@@ -161,7 +161,7 @@ Feature: User is on FX Management Page DGI Admin
       | FX_Management_Admin_19_20 | Verify New conversion rate | New currency rates has been approved successfully |
 
   @TC_12_04
-  Scenario Outline: Validate the Reject button and logout functionality
+  Scenario Outline: Validate the Reject button and logout functionality 
     Given User is on FX Management "<TestcaseID>" "<Description>"
     And User click on Dashboard
     And User click on FX Management tab
@@ -171,18 +171,18 @@ Feature: User is on FX Management Page DGI Admin
     And User enter credencial for DGI Admin and verify Reject and user see toast mess "<mess>"
     And User click on Dashboard
     And User click on FX Management tab
-    Then User logout fx
+    Then User logout fx admin
     And User again log in
     And User click on FX Management tab
     And User Click on Historical FX Rates button
-    Then User logout and verify
+    Then User logout and verify admin
 
     Examples: 
       | TestcaseID                | Description                                   | mess                                              |
       | FX_Management_Admin_12_04 | Verify Reject button and logout functionality | New currency rates has been rejected successfully |
 
   @TC_09
-  Scenario Outline: Validate the Update currency functionality with valid data
+  Scenario Outline: Validate the Update currency functionality with valid data -internal portal
     Given User is on FX Management "<TestcaseID>" "<Description>"
     And User click on Dashboard
     And User enter credencial for admin
@@ -200,6 +200,3 @@ Feature: User is on FX Management Page DGI Admin
     Examples: 
       | TestcaseID             | Description                                        | data | mess                                  |
       | FX_Management_Admin_09 | Verify Update currency functionality functionality |   50 | FX currency rate updated successfully |
-#    Examples: 
-#      | TestcaseID             | Description                  |
-#      | FX_Management_Admin_04 | Verify Log out functionality |

@@ -280,7 +280,7 @@ public class DV_2880_Tax_Deductable_Ass_and_Reass_Adjustement_Assessed_List
 		 String FC1 = total_Diff.replaceAll("[A-Z]", "");	
 		 String	FC2 = FC1.replace("." ,"");		
 		 String FC3 = FC2.replace("," ,".");
-		 System.out.println(FC3);	
+		 System.out.println(FC3);	 
 		 
 		  if(Float.parseFloat(FC3)==check)
 		   {

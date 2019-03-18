@@ -18,6 +18,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import java.util.Date;
+import java.util.Set;
 import java.awt.Robot;
 import java.io.File;
 import java.text.SimpleDateFormat;
@@ -129,10 +130,23 @@ public class DV_4007_IT_Support_Admin {
         }
 	sleepWait(2000);
 	}
+	@And("^User switch to tab$")
+	public void user_switch_to_tab() throws Throwable 
+	{
+		 Set<String> windowHandle = wd.getWindowHandles();		
+		 for(String handle:wd.getWindowHandles()) 
+		 {
+			 wd.switchTo().window(handle).getWindowHandle();
+		 }
+	}
 
 	@Given("^user click on Add button$")
-	public void user_click_on_Add_button() throws Throwable {
+	public void user_click_on_Add_button() throws Throwable 
+	{	
+		//sleepWait(1000);
 		clickOn("btn_Add_New_Issue", "");
+		sleepWait(1000);
+		
 	}
 
 

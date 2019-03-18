@@ -70,6 +70,7 @@ public class HelperBase {
 	private static String cwd = System.getProperty("user.dir");
 	public static String filedoc = cwd + "\\src\\test\\resources\\docs\\";
 	private static File dir = new File(System.getProperty("user.home") + "/Pictures");
+	
 
 	/**
 	 *  For Download file location
@@ -382,7 +383,7 @@ public class HelperBase {
 		 * System.out.println("Message Validated"); }
 		 * //text(By.xpath("//*[@class='toast-top-right toast-container']"));
 		 */
-		return text(By.xpath("//div[@class='toast-message ng-star-inserted']"));
+		return text(By.xpath("//*[@class='toast-message ng-star-inserted']"));
 		//return text(By.xpath("//*[@role='alertdialog']"));
 	}
 
@@ -866,14 +867,14 @@ public class HelperBase {
 
 	}
 
-	public static File getLatestFilefromDir() {
-
+	public static File getLatestFilefromDir() 
+	{
 		File[] files = dir.listFiles();
+		//File[] files = dir1.listFiles();
 		// System.out.println(files.length);
 		if (files == null || files.length == 0) {
 			return null;
 		}
-
 		File lastModifiedFile = files[0];
 		for (int i = 1; i < files.length; i++) {
 			if (lastModifiedFile.lastModified() < files[i].lastModified()) {
@@ -884,6 +885,38 @@ public class HelperBase {
 		return lastModifiedFile;
 	}
 
+	/**
+	 *  For Account Reconciled Notice 
+	 */
+	public static File getLatestFilefromDir1() 
+	{
+		File[] files = dir1.listFiles();
+		if (files == null || files.length == 0) 
+		{
+			return null;
+		}
+		File lastModifiedFile = files[0];
+		for (int i = 1; i < files.length; i++) {
+			if (lastModifiedFile.lastModified() < files[i].lastModified()) 
+			{
+				lastModifiedFile = files[i];
+				System.out.println(lastModifiedFile.getName());
+			}
+		}
+		return lastModifiedFile;
+	}
+
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	/**
 	 * Select the value from the Drop Down
 	 * 
@@ -1022,6 +1055,7 @@ public class HelperBase {
 
 	/**
 	 *  Date Pattern DD-MMM-YYYY
+	 * 
 	 */
 	public static boolean isValidDate(String dateMatch) 
 	{

@@ -1,7 +1,7 @@
 Feature: User is on Tax Officer internal Portal Help Desk
 
   @TC_01_04_05_06_07_08_TaxOfficer_3893
-  Scenario Outline: Validate the Help Desk sub menu functionality and date format and valid and invalid search functionality 
+  Scenario Outline: Validate the Help Desk sub menu functionality and date format and valid and invalid search functionality
     Given User click on Helpdesk menu on internal portal "<TestcaseID>" "<Description>"
     And User navigate to helpdesk page
     And User enter in add new button frame
@@ -44,7 +44,7 @@ Feature: User is on Tax Officer internal Portal Help Desk
 
   # 15 covered in tax payer
   @TC_13_14_16_TaxOfficer_3893
-  Scenario Outline: Verify Under Review , Request information, close  
+  Scenario Outline: Verify Under Review , Request information, close
     Given User click on Helpdesk menu on internal portal "<TestcaseID>" "<Description>"
     And User enter in add new button frame
     And User type "<Data>" on internal
@@ -56,14 +56,15 @@ Feature: User is on Tax Officer internal Portal Help Desk
     And User type ticket id
     And User see status changed to "<UR>"
     And User click on edit buton internal portal
-    And User click on Next status and click on Request Information    
-    And User click on comments and Attachments     
+    And User click on Next status and click on Request Information
+    And User click on comments and Attachments
     And User type comment for Request Information "<comment>"
     And User click on Submit button internal portal officer
     And User click on cancel button
     And User type ticket id
     And User see status changed to "<RI>"
     And User click on edit buton internal portal
+    And User click on comments and Attachments and press page up
     And User click on Next status and click on close status
     And User click on Submit button internal portal officer
     And User click on cancel button
@@ -76,20 +77,24 @@ Feature: User is on Tax Officer internal Portal Help Desk
       | TestcaseID                      | Description              | Data | UR           | RI                  | Cl    | comment               |
       | TaxOfficer_Helpdesk_TC_13_14_16 | Verify EFD Related issue | Open | Under Review | Request Information | Close | Need more information |
 
+  ########################################################################################################################################################################
   # For this the paymemnt of should be done for another user using another tax payer name (i.e through ETL)
   # When creating ticket it should be same data as enter in etl for payment (i.e Transaction id , Amount and Date )
   @TC_17_19_TaxOfficer_3893
-  Scenario Outline: Validate the status Request Adjustment when issue type is Payment related and Adjustment In Progress to Close  
+  Scenario Outline: Validate the status Request Adjustment when issue type is Payment related and Adjustment In Progress to Close  - internal portal
     Given User click on Helpdesk menu on internal portal "<TestcaseID>" "<Description>"
     And User enter in add new button frame
-    # before make a payment for tax payer one (for anothe via ETL)
-    # than create issue ticket of tax payer two(generate issue id) and type in data
+    #before make a payment for tax payer one (for anothe via ETL)
+    #than create issue ticket of tax payer two(generate issue id) and type in data
     And User type "<Data>" on internal
     And User get request adj id
     And User click on edit buton internal portal
     And User click on Next status and click on under review
     And User click on Submit button internal portal officer
     And User click on Next status and click on Request Adjustement
+    And User click on Submit button for Request Adjustement
+    #And User click on Next status and click on Perform Adjustement
+    And User click on Next status and click on Perform Adjustment
     And User click on Submit button internal portal and navigate to Account Adjustement
     And User click on Approved by and select officier "<officier>"
     And User type data in "<nitva>" account adjustement and clik on search button
@@ -107,25 +112,26 @@ Feature: User is on Tax Officer internal Portal Help Desk
     And User enter in add new button frame
     And User type request adj id
     And User see status changed to "<CL>"
-    And User see frame is default in internal
-    And User click on Dashboard
 
+    #  And User see frame is default in internal
+    #  And User click on Dashboard
     Examples: 
-      | TestcaseID                   | Description              | Data            | officier | nitva             | AIP                    | CL    |
-      | TaxOfficer_Helpdesk_TC_17_19 | Verify EFD Related issue | H19020100000011 | drp_off1 | 20190118050708529 | Adjustment In Progress | Close |
+      | TestcaseID                   | Description    | Data            | officier | nitva             | AIP                    | CL     |
+      | TaxOfficer_Helpdesk_TC_17_19 | Verify Payment | H19031400000005 | drp_off1 | 20190218033131548 | Adjustment In Progress | Closed |
 
+  ########################################################################################################################################################################
   @TC_18_TaxOfficer_3893
   Scenario Outline: Validate the Next status change from Request Adjustment to Perform Adjustment
     Given User click on Helpdesk menu on internal portal "<TestcaseID>" "<Description>"
     And User enter in add new button frame
     And User type "<Data>" on internal
     And User get request adj id
-    #   And User click on edit buton internal portal
-    #   And User click on Next status and click on under review
-    #    And User click on Submit button internal portal
-    #    And User click on Helpdesk
-    #    And User enter in add new button frame
-    #    And User type "<Data>" on internal
+    #And User click on edit buton internal portal
+    #And User click on Next status and click on under review
+    #And User click on Submit button internal portal
+    #And User click on Helpdesk
+    #And User enter in add new button frame
+    #And User type "<Data>" on internal
     And User click on edit buton internal portal
     And User click on Next status and click on Perform Adjustment
     And User click on Submit button internal portal officer
@@ -149,18 +155,21 @@ Feature: User is on Tax Officer internal Portal Help Desk
     And User click on edit buton internal portal
     And User click on Priority and select "<prio>"
     And User click on Submit button internal portal officer
+    And User see frame is default in internal
     And User verify mess "<VerifyMess>"
+    And User enter in add new button frame
+    And User click on comments and Attachments
     And User type comment "<comm>"
     And User click on chat "<public>"
     And User click on browse button and select file on internal "<file>"
     And User click on Submit button internal portal officer
     And User see file "<file>" is uploaded and click on download button and verify
+    And User click on comments and Attachments and press page up
     And User click on Re-Asign to and select another officer "<officier>"
     And User click on Submit button internal portal officer
     And User click on cancel button
     And User type ticket id and see mess and verify mess " No records found."
 
     Examples: 
-      | TestcaseID                         | Description              | Data | prio    | comm             | public     | file          | officier  | mess              | VerifyMess                        |
-      | TaxOfficer_Helpdesk_TC_22_23_24_21 | Verify EFD Related issue | open | drp_Low | Priority Changed | rad_public | BankFile.xlsx | drp_op_DJ | No records found. | Issue Ticket updated successfully |
-      
+      | TestcaseID                         | Description              | Data  | prio    | comm             | public     | file          | officier  | mess              | VerifyMess                        |
+      | TaxOfficer_Helpdesk_TC_22_23_24_21 | Verify EFD Related issue | close | drp_Low | Priority Changed | rad_public | BankFile.xlsx | drp_op_DJ | No records found. | Issue Ticket updated successfully |

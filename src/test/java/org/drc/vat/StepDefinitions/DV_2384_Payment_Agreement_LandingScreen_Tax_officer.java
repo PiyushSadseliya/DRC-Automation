@@ -114,7 +114,7 @@ public class DV_2384_Payment_Agreement_LandingScreen_Tax_officer
 	@And("^User click on discount radio button$")
 	public void user_click_on_discount_radio_button() throws Throwable 
 	{
-		sleepWait(1000);
+		sleepWait(2000);
 		clickOn("rad_Discount_Amount", "");	    
 	}
 
@@ -1228,7 +1228,11 @@ public class DV_2384_Payment_Agreement_LandingScreen_Tax_officer
 	@And("^User verify the Regards field$")
 	public void user_verify_the_Regards_field() throws Throwable
 	{
+		sleepWait(3000);
 		String Regards_PA = elementText("txt_Regards_check");
+		sleepWait(2000);
+		System.out.println(StoreAssignedTo);
+		System.out.println(Regards_PA);
 		assertEquals(StoreAssignedTo, Regards_PA);
 	}
 

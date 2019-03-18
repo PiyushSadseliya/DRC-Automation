@@ -31,6 +31,7 @@ public class DV_2063_FX_Management_TaxOfficer
 	public static String BaseCurrCheck;
 	public static String StoreCurrency;
 	public static String ToDate;
+	public static String toCheckDate;
 	
 	@And("^User is on FX Management \"([^\"]*)\" \"([^\"]*)\"$")
 	public void user_is_on_FX_Management(String value, String value1) throws Throwable
@@ -273,8 +274,9 @@ public class DV_2063_FX_Management_TaxOfficer
 		datePicker(To);	
 		clickOn("ToDateSelect", "");		
 		datePicker(From);		
-		String ToCheck = getValue("txtBoxTo");
-		assertEquals(ToDate, ToCheck);		
+		String ToCheck = getValue("txtBoxTo");		
+		assertEquals(ToDate, ToCheck);	
+
 		String FromCheck = getValue("txtBoxFrom");		
 		Calendar cal = Calendar.getInstance();
 	    cal.add(Calendar.DATE,0);
@@ -288,12 +290,17 @@ public class DV_2063_FX_Management_TaxOfficer
 	@And("^User click on search icon and today date should display \"([^\"]*)\"$")
 	public void user_click_on_search_icon_and_today_date_should_display(String value) throws Throwable 
 	{
+		sleepWait(1000);
 		clickOn("btn_SearchFX", "");
-		sleepWait(1000);				
-		if(wd.findElement(By.xpath("(//div[contains(text(),'" + value + "')])[1]")).isDisplayed() )
+		sleepWait(1000);
+		if(wd.findElement(By.xpath("(//div[contains(text(),'" + value + "')])[1]")).isDisplayed())
 		{					
 			assertTrue(true);
-		}			
+		}		
+		else
+		{
+			assertTrue(false);
+		}
 	}
 
 	
@@ -393,8 +400,10 @@ public class DV_2063_FX_Management_TaxOfficer
 		if(wd.findElement(By.xpath(obj.getProperty("txt_ApprovalRequired"))).isDisplayed())
 		{
 			assertTrue(true);
-		}	
-		wd.findElement(By.xpath(obj.getProperty("btn_LogoutFX"))).click();				
+		}
+		wd.navigate().refresh();
+		sleepWait(1000);
+		//wd.findElement(By.xpath(obj.getProperty("btn_LogoutFX"))).click();				
 		//wd.close();
 	}
 
@@ -580,6 +589,8 @@ public class DV_2063_FX_Management_TaxOfficer
 	public void user_again_log_in() throws Throwable 
 	{
 		sleepWait(1000);
+		waitFor("txt_Click");
+		sleepWait(2000);		
 		clickOn("txt_Click", "");
 		sleepWait(1000);
 		clickOn("btn_windowsClick", "");
