@@ -49,18 +49,11 @@ public class test
 		String inc = Nit.substring(0,16).concat("A"); //No.concat("0");
 		System.out.println(inc);
 		
-		
-		
-		
-		
 		/*wd = new ChromeDriver();
 		wd.manage().window().maximize();
 		wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		wd.get("chrome://settings/content/pdfDocuments");
 	*/
-		
-		
-		
 		
 		
         //Get shadow root element
