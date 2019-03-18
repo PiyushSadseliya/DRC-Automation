@@ -1,21 +1,3 @@
-#Author: your.email@your.domain.com
-#Keywords Summary :
-#Feature: List of scenarios.
-#Scenario: Business rule through list of steps with arguments.
-#Given: Some precondition step
-#When: Some key actions
-#Then: To observe outcomes or validation
-#And,But: To enumerate more Given,When,Then steps
-#Scenario Outline: List of steps for data-driven as an Examples and <placeholder>
-#Examples: Container for s table
-#Background: List of steps run before each of the scenarios
-#""" (Doc Strings)
-#| (Data Tables)
-#@ (Tags/Labels):To group Scenarios
-#<> (placeholder)
-#""
-## (Comments)
-#Sample Feature Definition Template
 Feature: Debt Record in 0-3 Months age bracket
 
   @TC_01_Login
@@ -25,8 +7,8 @@ Feature: Debt Record in 0-3 Months age bracket
     And User Click on SignIn
 
     Examples: 
-      | TestcaseID       | Description          | email              | password |
-      | e-file_Login_001 | Login into tax payer |  Automation debttwo @yopmail.com| Test@123 |
+      | TestcaseID       | Description          | email                            | password |
+      | e-file_Login_001 | Login into tax payer |RegressionMarchde@mt2015.com | Test@123 |
 
   @TC_02_debtMan
   Scenario Outline: E-filing in the age bracket of 0-3 Months for debt
@@ -37,5 +19,5 @@ Feature: Debt Record in 0-3 Months age bracket
     And Enter OTP and click on verify button and click on Ok button
 
     Examples: 
-      | Description                               |     1 | email              |
-      | E-filing in the age bracket of 0-3 Months | 50000 |  Automation debttwo @yopmail.com |
+      | Description                               |     1 | email                            |  
+      | E-filing in the age bracket of 0-3 Months | 50000 | RegressionMarchde@mt2015.com | 

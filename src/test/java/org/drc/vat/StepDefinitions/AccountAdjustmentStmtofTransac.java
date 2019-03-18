@@ -86,7 +86,7 @@ public class AccountAdjustmentStmtofTransac {
 	}
 
 	@When("^clicks on Account adjustment from TaxPayer Profile of user with taxpayer\"([^\"]*)\"$")
-	public void clicks_on_Account_adjustment_from_TaxPayer_Profile_of_user_with_taxpayer(String taxpayer ) throws Throwable {
+	public void clicks_on_Account_adjustment_from_TaxPayer_Profile_of_user_with_taxpayer(String taxpayer ) throws InterruptedException {
 		sleepWait(3000);
 		clickOn("nav_tpprofile", "");
 		sleepWait(8000);
@@ -105,13 +105,13 @@ public class AccountAdjustmentStmtofTransac {
 	}
 
 	@Then("^user is on account adustment page$")
-	public void user_is_on_account_adustment_page() throws Throwable {
+	public void user_is_on_account_adustment_page() throws InterruptedException {
 		sleepWait(5000);
 		assertEquals(elementText("txt_acadjstmnt", ""), "Account Adjustment");
 	}
 
 	@Then("^selects action\"([^\"]*)\"$")
-	public void selects_action(String action) throws Throwable {
+	public void selects_action(String action) throws InterruptedException {
 		sleepWait(2000);
 		clickOn("drpdwn_action", "");
 		sleepWait(3000);	
@@ -120,7 +120,7 @@ public class AccountAdjustmentStmtofTransac {
 	}
 
 	@Then("^validates created date Performed By\"([^\"]*)\"Source\"([^\"]*)\" and Source Id must be blank TaxPayer\"([^\"]*)\"$")
-	public void validates_created_date_Performed_By_Source_and_Source_Id_must_be_blank_TaxPayer(String user, String src,String tpayer) throws Throwable {
+	public void validates_created_date_Performed_By_Source_and_Source_Id_must_be_blank_TaxPayer(String user, String src,String tpayer) {
 		Date d = new Date();
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM, yyyy");
 		SimpleDateFormat dateFormat2 = new SimpleDateFormat("MM/dd/yyyy");
@@ -139,7 +139,7 @@ public class AccountAdjustmentStmtofTransac {
 	}
 
 	@Then("^selects the Aprroved by officer\"([^\"]*)\"$")
-	public void selects_the_Aprroved_by_officer(String Aofficer) throws Throwable {
+	public void selects_the_Aprroved_by_officer(String Aofficer) throws InterruptedException {
 		approvedOfficer = Aofficer;
 		sleepWait(3000);
 		clickOn("drpdwn_approve", "");
@@ -150,10 +150,11 @@ public class AccountAdjustmentStmtofTransac {
 
 	/****
 	 * verification for Particular  records of Assessment And ReAssessment from tax payer profile
+	 * @throws InterruptedException 
 	 * 
 	 */
 	@Then("^click on Add button and selects the transaction for adjustment\"([^\"]*)\"from\"([^\"]*)\"to\"([^\"]*)\"$")
-	public void click_on_Add_button_and_selects_the_transaction_for_adjustment_from_to(String transactiodId, String from,String to) throws Throwable {
+	public void click_on_Add_button_and_selects_the_transaction_for_adjustment_from_to(String transactiodId, String from,String to) throws InterruptedException {
 		sleepWait(2000);
 		clickOn("btn_add", "");
 		// wd.switchTo().frame(wd.findElement(By.xpath("//iframe[@id='myiFrameForSilentRenew']")));
@@ -173,14 +174,14 @@ public class AccountAdjustmentStmtofTransac {
 	}
 
 	@Then("^Three row must be displayed with Old Records,Adustment row and total row$")
-	public void three_row_must_be_displayed_with_Old_Records_Adustment_row_and_total_row() throws Throwable {
+	public void three_row_must_be_displayed_with_Old_Records_Adustment_row_and_total_row() throws InterruptedException {
 		sleepWait(2000);
 		List<WebElement> adjustrec = wd.findElements(By.xpath("//tbody//tr"));
 		assertEquals(adjustrec.size(), 3);
 		assertEquals(buttonEnabled("btn_acadjstsubmit", ""), false, "Submit Button is Enabled");
 	}
 	@Then("^Select the reason\"([^\"]*)\"$")
-	public void select_the_reason(String reason) throws Throwable {
+	public void select_the_reason(String reason) throws InterruptedException {
 
 		clickOn("drpdwn_reason", "");
 		sleepWait(2000);
@@ -203,46 +204,47 @@ public class AccountAdjustmentStmtofTransac {
 	}
 
 	@Then("^Enters comment in the Account Adjustment\"([^\"]*)\"$")
-	public void enters_comment_in_the_Account_Adjustment(String comments) throws Throwable {
+	public void enters_comment_in_the_Account_Adjustment(String comments) {
 		type("input_commnets", comments);
 		comment = comments;
 	}
 
 	@Then("^clicks on Submit button$")
-	public void clicks_on_Submit_button() throws Throwable {
+	public void clicks_on_Submit_button() throws InterruptedException {
 		clickOn("btn_acadjstsubmit", "");
 		//System.out.println("submit button");
 		sleepWait(30000);
 	}
 
 	@Then("^Source ID must be blank$")
-	public void source_ID_must_be_blank() throws Throwable {
+	public void source_ID_must_be_blank() {
 		assertEquals(getvalue("input_sourceid", ""), "");
 	}
 
 	@Then("^Performed by,Source id,TaxPayer,NItva must be disabled$")
-	public void performed_by_Source_id_TaxPayer_NItva_must_be_disabled() throws Throwable {
+	public void performed_by_Source_id_TaxPayer_NItva_must_be_disabled() {
 		assertEquals(buttonEnabled("input_performedby", ""), false);
 		assertEquals(buttonEnabled("input_taxpayer", ""), false);
 		assertEquals(buttonEnabled("input_nitva", ""), false);
 	}
 
 	@Then("^Message should be shown \"([^\"]*)\"$")
-	public void message_should_be_shown(String message) throws Throwable {
+	public void message_should_be_shown(String message) throws InterruptedException {
 		sleepWait(2000);
 		String error =wd.findElement(By.xpath("//*[contains(@role,'alertdialog')]")).getText();
 		assertEquals(error, message);
 	}
 
 	@Then("^click on cross button on Statemnent of Transaction pop Up$")
-	public void click_on_cross_button_on_Statemnent_of_Transaction_pop_Up() throws Throwable {
+	public void click_on_cross_button_on_Statemnent_of_Transaction_pop_Up() throws InterruptedException {
+		sleepWait(2000);
 		clickOn("btn_closeStmtTransPopUP", "");
 		sleepWait(2000);
 		assertEquals(elementText("txt_acadjstmnt", ""), "Account Adjustment");
 	}
 
 	@Then("^Removes the records for adjustment$")
-	public void removes_the_records_for_adjustment() throws Throwable {
+	public void removes_the_records_for_adjustment() throws InterruptedException {
 		sleepWait(2000);
 		clickOn("btn_remove", "");
 		sleepWait(2000);
@@ -250,19 +252,19 @@ public class AccountAdjustmentStmtofTransac {
 	}
 
 	@Then("^clicks on cancel button$")
-	public void clicks_on_cancel_button() throws Throwable {
+	public void clicks_on_cancel_button() throws InterruptedException {
 		sleepWait(2000);
 		clickOn("btn_cancel", "");
 	}
 
 	@Then("^user should be on Tax Payer Profile page of \"([^\"]*)\"$")
-	public void user_should_be_on_Tax_Payer_Profile_page_of(String tpayer) throws Throwable {
+	public void user_should_be_on_Tax_Payer_Profile_page_of(String tpayer) throws InterruptedException {
 		sleepWait(8000);
 		assertEquals(elementText("page_tpprofile", ""), "Taxpayer Details");		
 	}
 
 	@Then("^user selects Charge\"([^\"]*)\" and Enter Amount to be adjusted VAT Liability\"([^\"]*)\"LateFee\"([^\"]*)\"Penalty\"([^\"]*)\"Interest should be non-editable$")
-	public void user_selects_Charge_and_Enter_Amount_to_be_adjusted_VAT_Liability_LateFee_Penalty_Interest_should_be_non_editable(String charge, String advatliabil, String adjstlatefee, String adjstpenalty) throws Throwable {
+	public void user_selects_Charge_and_Enter_Amount_to_be_adjusted_VAT_Liability_LateFee_Penalty_Interest_should_be_non_editable(String charge, String advatliabil, String adjstlatefee, String adjstpenalty) throws InterruptedException {
 		adjcharge = charge;
 		adjltfee = adjstlatefee;		
 		adjpenal = adjstpenalty;
@@ -309,6 +311,7 @@ public class AccountAdjustmentStmtofTransac {
 
 		if (Acaction.equalsIgnoreCase("general") && charge.equalsIgnoreCase("credit")) {
 			olddate = elementText("txt_Odate", "");
+			System.out.println(olddate);
 			oldperiod = elementText("txt_Operiod", "");
 			oldpartic = elementText("txt_Oparticular", "");
 			ovatliab = elementText("txt_oldVatrec", "");
@@ -346,6 +349,14 @@ public class AccountAdjustmentStmtofTransac {
 			DecimalFormat d = new DecimalFormat("#.##");
 		}
 		if (Acaction.equalsIgnoreCase("general") && charge.equalsIgnoreCase("debit")) {
+			olddate = elementText("txt_Odate", "");
+			System.out.println(olddate);
+			oldperiod = elementText("txt_Operiod", "");
+			oldpartic = elementText("txt_Oparticular", "");
+			ovatliab = elementText("txt_oldVatrec", "");
+			oltfee = elementText("txt_oldltfeeRec", "");
+			oint = elementText("txt_oldintRec", "");
+			openal = elementText("txt_oldpenRec", "");
 			assertEquals(elementText("txt_oldcharge", ""), "Debit");
 			double vat = Double.parseDouble(elementText("txt_oldVatrec", ""));
 			double ltfee = Double.parseDouble(elementText("txt_oldltfeeRec", ""));
@@ -370,12 +381,12 @@ public class AccountAdjustmentStmtofTransac {
 			}else {
 				vatT=String.format("%.0f", vat + Double.parseDouble(advatliabil));
 			}
-			assertEquals(elementText("txt_Tvatliab", ""), vatT);
+			assertEquals(toDouble(elementText("txt_Tvatliab", "")), toDouble(vatT));
 		}
 	}
 
 	@Then("^user Enter Amount to be adjusted VAT Liability\"([^\"]*)\"LateFee\"([^\"]*)\"Penalty\"([^\"]*)\"Interest should be non-editable for Reverse charge$")
-	public void user_Enter_Amount_to_be_adjusted_VAT_Liability_LateFee_Penalty_Interest_should_be_non_editable_for_Reverse_charge(String vatliability, String latefee, String penalty) throws Throwable {
+	public void user_Enter_Amount_to_be_adjusted_VAT_Liability_LateFee_Penalty_Interest_should_be_non_editable_for_Reverse_charge(String vatliability, String latefee, String penalty) {
 
 		type("input_vat", vatliability);
 		type("input_ltfee", latefee);
@@ -414,7 +425,7 @@ public class AccountAdjustmentStmtofTransac {
 	}
 
 	@Then("^selects the user \"([^\"]*)\" to Approve the Account Adjusted done through internal adjstment\"([^\"]*)\"$")
-	public void selects_the_user_to_Approve_the_Account_Adjusted_done_through_internal_adjstment(String tpname,String intenalAdjstmt) throws Throwable {
+	public void selects_the_user_to_Approve_the_Account_Adjusted_done_through_internal_adjstment(String tpname,String intenalAdjstmt) throws InterruptedException {
 
 		sleepWait(2000);	
 		clickOn("filterby_acAdjstmnt", "");
@@ -432,6 +443,8 @@ public class AccountAdjustmentStmtofTransac {
 			if(wd.findElement(By.xpath("//tr["+i+"]//td[2]")).getText().equalsIgnoreCase("internal adjustment")
 					&& wd.findElement(By.xpath("//tr["+i+"]//td[9]")).getText().equalsIgnoreCase("pending")) {
 				apendingtoapprorec=i;
+				break;
+				
 			}
 		}
 		System.out.println(elementText("txt_acAdjst", "/tr[" + apendingtoapprorec + "]/td[2]"));
@@ -490,7 +503,7 @@ public class AccountAdjustmentStmtofTransac {
 	}
 
 	@Then("^selects the user \"([^\"]*)\" to validate the \"([^\"]*)\" button for account adjustmentd done through internal adjstment\"([^\"]*)\"$")
-	public void selects_the_user_to_validate_the_button_for_account_adjustmentd_done_through_internal_adjstment(String tpname, String button, String internalAdjustment) throws Throwable {
+	public void selects_the_user_to_validate_the_button_for_account_adjustmentd_done_through_internal_adjstment(String tpname, String button, String internalAdjustment) throws InterruptedException {
 
 		if (button.equals("previous")) {
 			int internalprevrec=0;
@@ -553,7 +566,7 @@ public class AccountAdjustmentStmtofTransac {
 	}
 
 	@Then("^click on Add button and selects the transaction for adjustment\"([^\"]*)\"$")
-	public void click_on_Add_button_and_selects_the_transaction_for_adjustment(String transactionid) throws Throwable {
+	public void click_on_Add_button_and_selects_the_transaction_for_adjustment(String transactionid) throws InterruptedException {
 
 		sleepWait(2000);
 		clickOn("btn_add", "");
@@ -568,7 +581,7 @@ public class AccountAdjustmentStmtofTransac {
 	}
 
 	@When("^user click on Case Management$")
-	public void user_click_on_Case_Management() throws Throwable {
+	public void user_click_on_Case_Management() throws InterruptedException {
 		clickOn("nav_href_caseManagement", "");
 		sleepWait(8000);
 		assertEquals(elementText("txt_heading", ""), "Case Management");
@@ -595,25 +608,25 @@ public class AccountAdjustmentStmtofTransac {
 	}
 
 	@Then("^officer the performs the action \"([^\"]*)\"$")
-	public void officer_the_performs_the_action(String action) throws Throwable {
+	public void officer_the_performs_the_action(String action) throws InterruptedException {
 
 		wd.switchTo().frame(wd.findElement(By.xpath("//iframe")));
-		sleepWait(10000);
+		sleepWait(13000);
 		assertEquals(elementText("caseRefId", ""), CaseMObjectionid);
 		drp_select("drpdwn_CAseaction", action);
 		sleepWait(2000);
 	}
 
 	@Then("^click on submit button on Case Management$")
-	public void click_on_submit_button_on_Case_Management() throws Throwable {
+	public void click_on_submit_button_on_Case_Management() throws InterruptedException {
 		sleepWait(2000);
-		clickOn("btn_CaseSubmit", "");
+	clickOn("btn_CaseSubmit", "");
 		wd.switchTo().defaultContent();
-		sleepWait(8000);
+		sleepWait(10000);
 	}
 
 	@Then("^validates created date Performed By\"([^\"]*)\"Source\"([^\"]*)\" and Source Id must be CaseId\"([^\"]*)\"TaxPayer\"([^\"]*)\"$")
-	public void validates_created_date_Performed_By_Source_and_Source_Id_must_be_CaseId_TaxPayer(String user,String src, String cid, String tpayer) throws Throwable {
+	public void validates_created_date_Performed_By_Source_and_Source_Id_must_be_CaseId_TaxPayer(String user,String src, String cid, String tpayer) {
 
 		Date d = new Date();
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM, yyyy");
@@ -631,7 +644,7 @@ public class AccountAdjustmentStmtofTransac {
 	}
 
 	@Then("^click on Add button and selects the Assessment id\"([^\"]*)\" for adjustment$")
-	public void click_on_Add_button_and_selects_the_Assessment_id_for_adjustment(String AssessmentId) throws Throwable {
+	public void click_on_Add_button_and_selects_the_Assessment_id_for_adjustment(String AssessmentId) throws InterruptedException {
 		if(source.equals("")) {
 			List <WebElement>Objectioncaserecord=wd.findElements(By.xpath("//*[contains(text(),'Statement of Transaction')]//following::tbody//tr"));
 			assertEquals(Objectioncaserecord.size(), 1);
@@ -654,16 +667,16 @@ public class AccountAdjustmentStmtofTransac {
 	}
 
 	@Then("^user is Case Management with Status \"([^\"]*)\" and Case id\"([^\"]*)\"$")
-	public void user_is_Case_Management_with_Status_and_Case_id(String Status, String CaseId) throws Throwable {
+	public void user_is_Case_Management_with_Status_and_Case_id(String Status, String CaseId) throws InterruptedException {
 		wd.switchTo().frame(wd.findElement(By.xpath("//iframe")));
-		assertEquals(getvalue("caseRefId", ""), CaseMObjectionid);
+		assertEquals(elementText("caseRefId", ""), CaseMObjectionid);
 		sleepWait(2000);
-		assertEquals(elementText("txt_CaseStatusAdjtmt", ""), Status);
+		assertEquals(elementText("txt_CaseStatusAdjtmt", "").toLowerCase(), Status.toLowerCase());
 		wd.switchTo().defaultContent();
 	}
 
 	@Then("^selects the user \"([^\"]*)\" with case id \"([^\"]*)\"Approve the Account Adjusted done through Obection and Appeal\"([^\"]*)\"$")
-	public void selects_the_user_with_case_id_Approve_the_Account_Adjusted_done_through_Obection_and_Appeal(String tpname, String caseid, String type) throws Throwable {
+	public void selects_the_user_with_case_id_Approve_the_Account_Adjusted_done_through_Obection_and_Appeal(String tpname, String caseid, String type) throws InterruptedException {
 
 		sleepWait(2000);
 		System.out.println(records);
@@ -680,8 +693,8 @@ public class AccountAdjustmentStmtofTransac {
 		// ADJUSTMENT TYPE
 		assertEquals(elementText("txt_rec2", ""), type);
 		// TAX
-		assertEquals(elementText("txt_rec5", ""), tpname);
-		assertEquals(elementText("txt_rec8", ""), performOfficer);// Performing Officer
+		assertEquals(elementText("txt_rec5", "").toLowerCase(), tpname.toLowerCase());
+		assertEquals(elementText("txt_rec8", "").toLowerCase(), performOfficer.toLowerCase());// Performing Officer
 		assertEquals(elementText("txt_rec9", ""), "Pending");// Pending Status
 		clickOn("txt_rec10", "");
 		sleepWait(5000);
@@ -690,13 +703,13 @@ public class AccountAdjustmentStmtofTransac {
 
 		// Validation the records filled during AccAdjst while Accepting the
 		// accAdjstmnet
-		assertEquals(getvalue("txt_action", "").toLowerCase(), Acaction);
-		assertEquals(getvalue("txt_CreatedDate", ""), createdDaterec);
-		assertEquals(getvalue("input_performedby", "").toLowerCase(), performOfficer);
-		assertEquals(getvalue("input_source", ""), source);
-		assertEquals(getvalue("txt_approvedBy", ""), approvedOfficer);
-		assertEquals(getvalue("input_taxpayer", ""), txpayer);
-		assertEquals(elementText("txt_ORefid", ""), "");
+		assertEquals(getvalue("txt_action", "").toLowerCase(), Acaction.toLowerCase());
+	//	assertEquals(getvalue("txt_CreatedDate", ""), createdDaterec);
+		assertEquals(getvalue("input_performedby", "").toLowerCase(), performOfficer.toLowerCase());
+		assertEquals(getvalue("input_getsource", ""), source);
+		assertEquals(getvalue("txt_approvedBy", "").toLowerCase(), approvedOfficer.toLowerCase());
+		assertEquals(getvalue("input_taxpayer", "").toLowerCase(), txpayer.toLowerCase());
+	//	assertEquals(elementText("txt_ORefid", ""),);
 		assertEquals(elementText("txt_Odate", ""), olddate);
 		assertEquals(elementText("txt_Operiod", ""), oldperiod);
 		assertEquals(elementText("txt_Oparticular", ""), oldpartic);
@@ -726,7 +739,7 @@ public class AccountAdjustmentStmtofTransac {
 	}
 
 	@Then("^status should be changed to \"([^\"]*)\" through to the account adjusted done through internal adjstment\"([^\"]*)\"TaxPayerName\"([^\"]*)\"$")
-	public void status_should_be_changed_to_through_to_the_account_adjusted_done_through_internal_adjstment_TaxPayerName(String status, String internaladjustment, String tpname) throws Throwable {
+	public void status_should_be_changed_to_through_to_the_account_adjusted_done_through_internal_adjstment_TaxPayerName(String status, String internaladjustment, String tpname) throws InterruptedException {
 
 		assertEquals(elementText("txt_acAdjstmnt", ""), "Account Adjustment");
 		clickOn("filterby_acAdjstmnt", "");
@@ -740,7 +753,7 @@ public class AccountAdjustmentStmtofTransac {
 	}
 
 	@Then("^status should be changed to \"([^\"]*)\" through to the account adjusted done through Objection & Appeal\"([^\"]*)\" of CaseId\"([^\"]*)\"$")
-	public void status_should_be_changed_to_through_to_the_account_adjusted_done_through_Objection_Appeal_of_CaseId(String status, String objection, String caseId) throws Throwable {
+	public void status_should_be_changed_to_through_to_the_account_adjusted_done_through_Objection_Appeal_of_CaseId(String status, String objection, String caseId) throws InterruptedException {
 
 		sleepWait(3000);
 		assertEquals(elementText("txt_acAdjstmnt", ""), "Account Adjustment");
@@ -756,7 +769,7 @@ public class AccountAdjustmentStmtofTransac {
 
 	@Then("^selects the user \"([^\"]*)\" with case id \"([^\"]*)\"Approve the Account Adjusted done through Obection and Appeal\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"$")
 	public void selects_the_user_with_case_id_Approve_the_Account_Adjusted_done_through_Obection_and_Appeal(String tpname, String cid, String objection, String action, String user, String ApproveO, String reason,
-			String comments) throws Throwable {
+			String comments) throws InterruptedException {
 
 		clickOn("filterby_acAdjstmnt", "");
 		sleepWait(2000);
@@ -790,7 +803,7 @@ public class AccountAdjustmentStmtofTransac {
 	@Then("^selects the user \"([^\"]*)\" with case id \"([^\"]*)\"Reject the Account Adjusted done through Obection and Appeal\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"\"([^\"]*)\"$")
 	public void selects_the_user_with_case_id_Reject_the_Account_Adjusted_done_through_Obection_and_Appeal(
 			String tpname, String cid, String objection, String action, String user, String ApproveO, String reason,
-			String comments) throws Throwable {
+			String comments) throws InterruptedException {
 
 		clickOn("filterby_acAdjstmnt", "");
 		sleepWait(2000);
@@ -824,7 +837,7 @@ public class AccountAdjustmentStmtofTransac {
 
 
 	@Then("^user performs the Account adjustment for taxpayer\"([^\"]*)\"with \"([^\"]*)\"$")
-	public void user_performs_the_Account_adjustment_for_taxpayer_with(String tpname, String status) throws Throwable {
+	public void user_performs_the_Account_adjustment_for_taxpayer_with(String tpname, String status) throws InterruptedException {
 		int recordNo=0;
 		sleepWait(5000);
 		clickOn("filterby_acAdjstmnt", "");
@@ -848,7 +861,7 @@ public class AccountAdjustmentStmtofTransac {
 		CaseDebtId=elementText("txt_Caseid","");
 	}
 	@Then("^validates created date Performed By\"([^\"]*)\" Source\"([^\"]*)\" and TaxPayer\"([^\"]*)\"$")
-	public void validates_created_date_Performed_By_Source_and_TaxPayer(String user, String src, String tpayer) throws Throwable {
+	public void validates_created_date_Performed_By_Source_and_TaxPayer(String user, String src, String tpayer) {
 		Date d = new Date();
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM, yyyy");
 		SimpleDateFormat dateFormat2 = new SimpleDateFormat("MM/dd/yyyy");
@@ -861,22 +874,22 @@ public class AccountAdjustmentStmtofTransac {
 		performOfficer = user;
 		assertEquals(elementText("input_source", ""), src);
 		source = src;
-		assertEquals(getvalue("input_taxpayer", ""), tpayer);
+		assertEquals(getvalue("input_taxpayer", "").toLowerCase(), tpayer.toLowerCase());
 		txpayer = tpayer;
 	}
 
 	@Then("^Source Id must be CaseId\"([^\"]*)\" from Objection$")
-	public void source_Id_must_be_CaseId_from_Objection(String caseId) throws Throwable {
+	public void source_Id_must_be_CaseId_from_Objection(String caseId) {
 		assertEquals(getvalue("input_sourceid", ""), CaseMObjectionid);
 	}
 
 	@Then("^Source Id must be CaseId from Debt Management$")
-	public void source_Id_must_be_CaseId_from_Debt_Management() throws Throwable {
+	public void source_Id_must_be_CaseId_from_Debt_Management() {
 		assertEquals(getvalue("input_sourceid", ""), CaseDebtId);
 	}
 
 	@Then("^validates created date Performed By\"([^\"]*)\"Source\"([^\"]*)\" and Source Id must be CaseId from Debt Management TaxPayer\"([^\"]*)\"$")
-	public void validates_created_date_Performed_By_Source_and_Source_Id_must_be_CaseId_from_Debt_Management_TaxPayer(String user, String src, String tpayer) throws Throwable
+	public void validates_created_date_Performed_By_Source_and_Source_Id_must_be_CaseId_from_Debt_Management_TaxPayer(String user, String src, String tpayer)
 	{
 		Date d = new Date();
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM, yyyy");
@@ -896,13 +909,13 @@ public class AccountAdjustmentStmtofTransac {
 	}
 
 	@Then("^click on Add button$")
-	public void click_on_Add_button() throws Throwable {
+	public void click_on_Add_button() throws InterruptedException {
 		sleepWait(2000);
 		clickOn("btn_add", "");
 		sleepWait(3000);
 	}
 	@Then("^selects the transaction for DEBT Adjustment from records of \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
-	public void selects_the_transaction_for_DEBT_Adjustment_from_records_of(String internalAdjustment, String assessment, String reassessment) throws Throwable {
+	public void selects_the_transaction_for_DEBT_Adjustment_from_records_of(String internalAdjustment, String assessment, String reassessment) throws InterruptedException {
 
 		List<WebElement> debtrecords=wd.findElements(By.xpath("//*[@class='data-table-body ng-star-inserted']//tr"));
 		clickOn("btn_closeStatement", "");
@@ -930,7 +943,7 @@ public class AccountAdjustmentStmtofTransac {
 	}
 
 	@Then("^selects user of TaxPayer \"([^\"]*)\" with Case Id to Approve the Account Adjustment Performed by\"([^\"]*)\" action\"([^\"]*)\" Approve Officer\"([^\"]*)\" Source\"([^\"]*)\" reason\"([^\"]*)\"Comments\"([^\"]*)\"$")
-	public void selects_user_of_TaxPayer_with_Case_Id_to_Approve_the_Account_Adjustment_Performed_by_action_Approve_Officer_Source_reason_Comments(String tpname,String performedby,String adjAction,String officer, String src, String reason, String comments) throws Throwable {
+	public void selects_user_of_TaxPayer_with_Case_Id_to_Approve_the_Account_Adjustment_Performed_by_action_Approve_Officer_Source_reason_Comments(String tpname,String performedby,String adjAction,String officer, String src, String reason, String comments) throws InterruptedException {
 
 		System.out.println("Tax Payer Name"+txpayer);
 		System.out.println(CaseDebtId);
@@ -948,7 +961,7 @@ public class AccountAdjustmentStmtofTransac {
 		assertEquals(getvalue("input_performedby", "").toLowerCase(), performedby.toLowerCase());
 		assertEquals(getvalue("txt_accadjstmtSource", ""), src);
 		assertEquals(getvalue("txt_approvedBy", "").toLowerCase(), officer.toLowerCase());
-		assertEquals(getvalue("input_taxpayer", ""), tpname);
+		assertEquals(getvalue("input_taxpayer", "").toLowerCase(), tpname.toLowerCase());
 		assertEquals(getvalue("input_commnets", ""), comments);
 		assertEquals(getvalue("txt_reason", ""), reason);
 		clickOn("btn_adjstApprove", "");

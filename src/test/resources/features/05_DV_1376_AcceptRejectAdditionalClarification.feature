@@ -32,7 +32,7 @@ Feature: User is on Manage VAT Registration and user perform opertations
     #Then user see the certificate and click on download
     Examples: 
       | TestcaseID                              | Description                                                                | Filters        | Value              |
-      | Valid_Manage_VAT_Creation_Cerificate_01 | Validating file view certificate, download certificate and approval of VAT | Applicant Name | Automation User 60 |
+      | Valid_Manage_VAT_Creation_Cerificate_01 | Validating file view certificate, download certificate and approval of VAT | Applicant Name | Regression MarchMons|
 
   #TC_04   Note:  #1. Tax Officer should be logged out from the Internal Portal.
   #2. DGI Admin should be logged in to the Internal Portal Successfully.  Future Part
@@ -50,7 +50,7 @@ Feature: User is on Manage VAT Registration and user perform opertations
 
     Examples: 
       | TestcaseID                          | Description                       | Filters        | Value              | Reason                                |
-      | Valid_Manage_VAT_Creation_Reject_01 | user click on reject with comment | Applicant Name | Automation User 58 | You have not provided proper document |
+      | Valid_Manage_VAT_Creation_Reject_01 | user click on reject with comment | Applicant Name |Regression MarchMone | You have not provided proper document |
 
   #TC_06  Need to discuss integration part
   @TC_06_ManageVATRegistration_DV-1376 @OnholdUser
@@ -67,4 +67,4 @@ Feature: User is on Manage VAT Registration and user perform opertations
 
     Examples: 
       | TestcaseID                                           | Description                          | Filters        | Value              | document                                        |
-      | Valid_Manage_VAT_Creation_AdditionalClarification_01 | user enter comment and click on hold | Applicant Name | Automation User 59 | Your Address is not matching with your passport |
+      | Valid_Manage_VAT_Creation_AdditionalClarification_01 | user enter comment and click on hold | Applicant Name | Regression MarchLone  | Your Address is not matching with your passport |

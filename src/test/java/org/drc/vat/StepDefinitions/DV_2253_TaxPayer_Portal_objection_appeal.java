@@ -41,7 +41,7 @@ public class DV_2253_TaxPayer_Portal_objection_appeal
 	{
 		sleepWait(1000);
 		clickOn("menu_vat-e-filing", "");
-		sleepWait(500);
+		sleepWait(1000);
 	}
 	
 	@And("^User click on Dashboard and click on VAT e-filling button$")
@@ -197,10 +197,10 @@ public class DV_2253_TaxPayer_Portal_objection_appeal
 	@And("^User click on submit button on notice page and see message \"([^\"]*)\"$")
 	public void user_click_on_submit_button_on_notice_page_and_see_message(String mess) throws Throwable 
 	{
-		sleepWait(500);
+		sleepWait(1000);
 		clickOn("btn_Obj_Submit", "");		
 		wd.switchTo().defaultContent();
-		sleepWait(500);
+		sleepWait(1000);
 		if(wd.findElement(By.xpath("//*[contains(text(),'" + mess + "')]")).isDisplayed())
 		{			
 			assertTrue(true);
@@ -210,11 +210,11 @@ public class DV_2253_TaxPayer_Portal_objection_appeal
 	@And("^User again enter data \"([^\"]*)\" in title for objection page$")
 	public void user_again_enter_data_in_title_for_objection_page(String title) throws Throwable 
 	{
-		sleepWait(500);
+		sleepWait(1000);
 		WebElement element1 = wd.findElement(By.id("iframe"));
 		wd.switchTo().frame(element1);
 		type("txt_Objection_Title", title);		
-		sleepWait(500);
+		sleepWait(1000);
 		String titlecheck = elementText("txt_Objection_Title");
 		if(title.contains(titlecheck))
 		{
@@ -270,11 +270,11 @@ public class DV_2253_TaxPayer_Portal_objection_appeal
 	@And("^User select file format zip \"([^\"]*)\" and see message \"([^\"]*)\" on objection page$")
 	public void user_select_file_format_zip_and_see_message_on_objection_page(String ZIP, String Mess) throws Throwable 
 	{
-		sleepWait(500);
+		sleepWait(1000);
 		wd.findElement(By.xpath("//*[@for='File-Upload']")).click();
-		sleepWait(500);
+		sleepWait(1000);
 		UploadImage("", ZIP);
-		sleepWait(500);
+		sleepWait(1000);
 //		if(wd.findElement(By.xpath("//*[contains(text(),'" + Mess + "')]")).isDisplayed())
 //		{					
 //			assertTrue(true);

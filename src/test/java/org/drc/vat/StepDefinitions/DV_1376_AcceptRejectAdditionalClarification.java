@@ -106,7 +106,7 @@ public class DV_1376_AcceptRejectAdditionalClarification
 	{
 		sleepWait(1000);
 		clickOn("btn_BHold","");
-		sleepWait(500);		
+		sleepWait(5000);		
 		if(wd.findElement(By.xpath(obj.getProperty("txt_BHoldCommentPopup"))).isDisplayed())
 		{
 			assertTrue(true);

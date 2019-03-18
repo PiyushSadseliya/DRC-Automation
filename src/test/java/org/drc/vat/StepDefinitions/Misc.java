@@ -5,12 +5,15 @@ import cucumber.api.java.en.Then;
 import static com.jayway.restassured.RestAssured.given;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Timer;
 import java.util.concurrent.TimeUnit;
+import org.drc.vat.appmanager.ConnectDatabase;
 
 import org.apache.commons.collections.functors.SwitchClosure;
+import org.drc.vat.appmanager.ConnectDatabase;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.html5.WebStorage;
@@ -29,10 +32,10 @@ public class Misc {
 	}
 
 
-@Then("^For efiling Records user hits API$")
-public void for_efiling_Records_user_hits_API() throws IOException, InterruptedException {
-	Date d =new Date();
-	wd = new ChromeDriver();
+	@Then("^For efiling Records user hits API\"([^\"]*)\"$")
+	public void for_efiling_Records_user_hits_API(String Username)throws IOException, InterruptedException, ClassNotFoundException, SQLException {
+	
+/*	wd = new ChromeDriver();
 	wd.manage().window().maximize();
 	wd.get("http://103.249.120.58:8044");
 	Runtime.getRuntime().exec(System.getProperty("user.dir") + "\\QA_Internal_Portal_Login\\autoitsample.exe");
@@ -50,19 +53,50 @@ public void for_efiling_Records_user_hits_API() throws IOException, InterruptedE
 
 String accessToken[]=tokenPart[1].split("\"");
 System.out.println(accessToken[0]);
-	wd.quit();
+
 
 	
 	
 	
 	for(int i=1;i<=12;i++) {
+		String month="103.249.120.58:8067/api/VatForms/EfileProcess?month="+i+"&year="+	Calendar.getInstance().get(Calendar.YEAR);;
+		System.out.println(month);
 		given()
 		.auth().oauth2(accessToken[0])
 		.contentType(ContentType.JSON)
 		.accept(ContentType.JSON)
-		.when().post("103.249.120.58:8067/api/VatForms/EfileProcess?month="+i+"&year="+	d.getYear()).then().log().everything();	
+		.when().post(month).then().log().everything();	
 		//ResponseAPI("103.249.120.58:8067/api/VatForms/EfileProcess?month="+i+"&year="+	d.getYear());
-	}
+	}*/
+	
+	ConnectDatabase CD = new ConnectDatabase();
+	ConnectDatabase.opendb();
+for(int i=1;i<=12;i++) {
+	String sql = "declare @month int;" + "set @month ="+i+";" + "insert into [DRC-QA].vat.VfVateFile"
+			+ "(VuUserId,FinancialYear,FinancialMonth,PaymentDueDate,TotalAmount,DueAmount,VfDueDate,CreatedDate)"
+			+ "values ((select VuUserId from [DRC-QA].Vat.VuUsers"
+			+ "  where RegisteredUserId in (select RegisteredUserId from [DRC-QA].ref.RegisteredUsers"
+			+ "  where Email='" + Username + "')),(select YEAR(GETDATE())),@month,"
+			+ "(select DATEADD(mm,@month,'2019/01/20')),0.00,0.00,"
+			+ "(select DATEADD(mm,@month,'2019/01/15')),GETDATE())";
+	System.out.println("a");
+	CD.sta.executeUpdate(sql);
+
+	String Sql1 = "declare @FY int;" + "set @FY="+i+";" + "insert into [DRC-QA].vat.VfVateFileActivity"
+			+ "(VfVateFileId,VfActivityId,VfStatusId,CreatedDate)" + "values"
+			+ "((select VfVateFileId from [DRC-QA].vat.VfVateFile where FinancialMonth=@FY and VuUserId in (select VuUserId from [DRC-QA].Vat.VuUsers"
+			+ " where RegisteredUserId in (select RegisteredUserId from [DRC-QA].ref.RegisteredUsers"
+			+ " where Email='" + Username + "'))),1,2,getdate()),"
+			+ "((select VfVateFileId from [DRC-QA].vat.VfVateFile where FinancialMonth=@FY and VuUserId in (select VuUserId from [DRC-QA].Vat.VuUsers"
+			+ " where RegisteredUserId in (select RegisteredUserId from [DRC-QA].ref.RegisteredUsers"
+			+ " where Email='" + Username + "'))),2,2,getdate()),"
+			+ "((select VfVateFileId from [DRC-QA].vat.VfVateFile where FinancialMonth=@FY and VuUserId in (select VuUserId from [DRC-QA].Vat.VuUsers"
+			+ " where RegisteredUserId in (select RegisteredUserId from [DRC-QA].ref.RegisteredUsers"
+			+ " where Email='" + Username + "'))),3,2,getdate())";
+	System.out.println("a");
+	CD.sta.executeUpdate(Sql1);
+}
+
 }
 @Given("^After Efiling Wait for Five Minutes$")
 public void after_Efiling_Wait_for_Five_Minutes() throws Throwable {

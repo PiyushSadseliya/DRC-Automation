@@ -102,7 +102,7 @@ public class ApplicationManager {
 	{
 		if (wd.getCurrentUrl().contains("8068") || wd.getCurrentUrl().contains("8042") || wd.getCurrentUrl().contains("8066")) 
 		{
-			wd.close();
+			wd.quit();
 			Thread.sleep(2000);
 			wd = new ChromeDriver();
 			wd.manage().window().maximize();
@@ -115,7 +115,11 @@ public class ApplicationManager {
 		}
 		else {
 			if (!wd.getCurrentUrl().contains("8068")) {
+
+				wd.quit();
+
 				/*wd.close();
+>>>>>>> 328469f7bb9ed611df1a391402f01548a7c6865f
 				Thread.sleep(1000);
 				wd = new ChromeDriver();
 				wd.manage().window().maximize();
@@ -132,7 +136,7 @@ public class ApplicationManager {
 
 	public void EFDinternalportal() throws AWTException, InterruptedException, IOException {
 		if (wd.getCurrentUrl().contains("8057")) {
-			wd.close();
+			wd.quit();
 			Thread.sleep(1000);
 			wd = new ChromeDriver();
 			wd.manage().window().maximize();
@@ -159,7 +163,7 @@ public class ApplicationManager {
 		if (wd.getCurrentUrl().contains("8068")) 
 		{
 			sleepWait(1500);
-			wd.close();
+			wd.quit();
 			Thread.sleep(1000);
 			wd = new ChromeDriver();
 			wd.manage().window().maximize();
@@ -207,7 +211,7 @@ public class ApplicationManager {
 	 */
 	public void callinternalportal_TaxOfficer() throws AWTException, InterruptedException, IOException {
 		if (wd.getCurrentUrl().contains("8068")) {
-			wd.close();
+			wd.quit();
 			wd = new ChromeDriver();
 			wd.manage().window().maximize();
 			wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
@@ -234,7 +238,7 @@ public class ApplicationManager {
 	public void callinternalportal_Supervisor() throws AWTException, InterruptedException, IOException {
 
 		if (wd.getCurrentUrl().contains("8068")) {
-			wd.close();
+			wd.quit();
 			wd = new ChromeDriver();
 			wd.manage().window().maximize();
 			wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
@@ -260,7 +264,7 @@ public class ApplicationManager {
 	 */
 	public void callinternalportal_Assessment_Officer() throws AWTException, InterruptedException, IOException {
 		if (wd.getCurrentUrl().contains("8068")) {
-			wd.close();
+			wd.quit();
 			WebDriver wd = new ChromeDriver();
 			wd = new ChromeDriver();
 			wd.manage().window().maximize();
@@ -305,6 +309,13 @@ public class ApplicationManager {
 			wd.get(properties.getProperty("web.Url"));
 		}
 	}
+	public void templogout() {
+		wd.quit();		
+		wd = new ChromeDriver();
+		wd.manage().window().maximize();
+		wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		wd.get("http://103.249.120.58:8042");
+	}
 
 	/**
 	 * For Demo Environment
@@ -315,7 +326,7 @@ public class ApplicationManager {
 	 */
 	public void callinternalportal_ketan_demo() throws AWTException, InterruptedException, IOException {
 		if (wd.getCurrentUrl().contains("8031")) {
-			wd.close();
+			wd.quit();
 			Thread.sleep(1000);
 			WebDriver wd = new ChromeDriver();
 			wd.manage().window().maximize();
@@ -340,7 +351,7 @@ public class ApplicationManager {
 	 */
 	public void callinternalportal_TaxOfficer_demo() throws AWTException, InterruptedException, IOException {
 		if (wd.getCurrentUrl().contains("8031")) {
-			wd.close();
+			wd.quit();
 			WebDriver wd = new ChromeDriver();
 			wd = new ChromeDriver();
 			wd.manage().window().maximize();

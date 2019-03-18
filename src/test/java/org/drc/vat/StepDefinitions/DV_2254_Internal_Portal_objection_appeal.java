@@ -40,7 +40,7 @@ public class DV_2254_Internal_Portal_objection_appeal
 	{
 		sleepWait(1000);
 		waitFor("drp_FilterByMVT");
-		sleepWait(500);
+		sleepWait(1000);
 		clickOn("drp_FilterByMVT", "");
 		sleepWait(1000);
 		clickOn(value, "");
@@ -66,7 +66,7 @@ public class DV_2254_Internal_Portal_objection_appeal
 	@And("^User type status \"([^\"]*)\"$")
 	public void user_type_status(String status) throws Throwable {
 		type("TypeHere",status);
-		sleepWait(500);
+		sleepWait(1000);
 		clickOn("btn_SearchFX", "");
 	}
 

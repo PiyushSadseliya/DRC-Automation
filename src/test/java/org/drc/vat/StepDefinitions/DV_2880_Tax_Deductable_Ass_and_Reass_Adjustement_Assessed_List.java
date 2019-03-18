@@ -30,7 +30,7 @@ public class DV_2880_Tax_Deductable_Ass_and_Reass_Adjustement_Assessed_List
 	  sleepWait(2000);
 	  waitFor("drp_month");
 	  clickOn("drp_month", "");
-	  sleepWait(500);
+	  sleepWait(1000);
 	  clickOn(period, "");
 	    
 	}

@@ -21,7 +21,7 @@ Feature: User is on Tax Calculation
       #| e-file_Login_001 | Login into tax payer | AutomationfIftyone@mt2015.com | Test@123 |
 
   @TC_02_12
-  Scenario Outline: Validate proceed button functionality
+  Scenario Outline: Validate proceed button functionality temp logout
     Given User is on Vat e-Filing Page "<TestcaseID>" "<Description>"
     And User Enter email "<email>" and  password "<password>"
     And User Click on SignIn
@@ -36,7 +36,7 @@ Feature: User is on Tax Calculation
 
     Examples: 
       | TestcaseID    | Description                                   | email                          | password |
-      | Tax_Cal_02,12 | validate proceed functionality and see offset | AutomationfIftysix@mt2015.com | Test@123 |
+      | Tax_Cal_02,12 | validate proceed functionality and see offset | Regression MarchMons@mt2015.com| Test@123 |
 
   # @TC_03
   # Scenario Outline: Validate the Period field.

@@ -53,7 +53,7 @@ public class PaymentSummaryLiabilityCalculationPaymentDueManualReAssessment {
 		clickOn("drp_year", "");
 		sleepWait(500);
 		clickOn("txt_2019_Period", "");
-		sleepWait(1000);
+		sleepWait(2000);
 		
 		clickOn("drp_mafilterby", "");
 		sleepWait(500);
@@ -93,7 +93,7 @@ public class PaymentSummaryLiabilityCalculationPaymentDueManualReAssessment {
 		assertEquals(elementText("txt_name_A", ""), txpayer);
 		sleepWait(2000);
 		clickOn("btn_maassessNext", "");
-		sleepWait(2000);
+		sleepWait(4000);
 		assertEquals(elementText("txt_name_A", ""), txpayer);
 
 
@@ -107,7 +107,7 @@ public class PaymentSummaryLiabilityCalculationPaymentDueManualReAssessment {
 		sleepWait(2000);
 		
 		//assertEquals(validationMessage(), arg1);
-		assertEquals(validationMessage(), arg1);
+		//assertEquals(validationMessage(), arg1);
 		if(wd.findElement(By.xpath("//*[contains(text(),'" + arg1 + "')]")).isDisplayed() )
 		{					
 			assertTrue(true);
@@ -122,6 +122,7 @@ public class PaymentSummaryLiabilityCalculationPaymentDueManualReAssessment {
 	public void user_click_Raise_Notice_button_on_Payment_Summary_page_from_ReAssessment_module_and_Notice_is_generated_as_per_the_Liability_Calculation_Table_and_Payment_Due_Table() throws Throwable 
 	{
 		//String per = "Period: " + Rperiod.substring(0, 3) + "-" + Ryear;
+		sleepWait(3000);
 		String per = Rperiod.substring(0, 3);
 
 		System.out.println(per);
@@ -152,7 +153,7 @@ public class PaymentSummaryLiabilityCalculationPaymentDueManualReAssessment {
 		String[] Ppen = elementText("txt_Ppena", "").split("\\r?\\n");// System.out.println(Ppen);
 		String[] Pamt = elementText("txt_Pamounttopay", "").split("\\r?\\n");// System.out.println(Pamt);
 
-		clickOn("btn_maRaiseNotice", "");
+	clickOn("btn_maRaiseNotice", "");
 		sleepWait(20000);
 		
 		/**
@@ -413,7 +414,7 @@ public class PaymentSummaryLiabilityCalculationPaymentDueManualReAssessment {
 
 	@Then("^user clicks on Prev button and it should be on ReAssessement Summary Tab$")
 	public void user_clicks_on_Prev_button_and_it_should_be_on_ReAssessement_Summary_Tab() throws Throwable {
-		sleepWait(2000);
+		sleepWait(3000);
 		clickOn("btn_maPrevioustab", "");
 		sleepWait(2000);
 
@@ -448,13 +449,14 @@ public class PaymentSummaryLiabilityCalculationPaymentDueManualReAssessment {
 		if (!month.equalsIgnoreCase(period)) 
 		{
 			clickOn("drp_manualAssessmnetPeriod", "");
+			sleepWait(2000);
 			clickOn("span", "[contains(text(),'" + period + "')]");
 			sleepWait(2000);
 		}		
 		
-		sleepWait(500);
+		sleepWait(1000);
 		clickOn("drp_year", "");
-		sleepWait(500);
+		sleepWait(1000);
 		clickOn("txt_2019_Period", "");
 		
 		sleepWait(3000);

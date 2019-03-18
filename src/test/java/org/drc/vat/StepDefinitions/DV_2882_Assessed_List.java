@@ -34,7 +34,7 @@ public class DV_2882_Assessed_List
 	{
 		sleepWait(1000);
 		clickOn("drp_FilterBy", "");
-		sleepWait(500);
+		sleepWait(1000);
 		clickOn("drp_NITVA", "");
 	}
 

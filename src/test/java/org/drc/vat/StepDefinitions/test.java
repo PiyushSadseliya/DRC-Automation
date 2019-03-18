@@ -18,8 +18,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-
-
 public class test 
 {
 	/*static WebDriver driver;
@@ -80,10 +78,7 @@ public class test
 		//get shadow root - the third shadow root
 		WebElement shadowRoot3= expandRootElement(paper);
 		WebElement username = shadowRoot3.FindElement(By.Id("input"));*/
-
-		
-		
-		
+	
 		/*String Total_Amount_Reconciled= "11.200,00";		
 	    String Remove_Dot1 = Total_Amount_Reconciled.replace("." ,"");	
 	    Remove_Dot1 = Remove_Dot1.replace("," ,".");		    		    	 	

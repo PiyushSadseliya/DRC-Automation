@@ -18,7 +18,7 @@ Feature: DGI employee should be able to do following
 
     Examples: 
       | Test Case ID                       | Description                                                                                | officername  | uname           | password | ageing     | tpayer        | Moption1 | Moption2 |
-      | DRC_ATC_DebtManagement_Assigned_01 | Validate whether collection officer is able to view the case for the particular tax payer. | Urvish Patel | ketan.prajapati | admin    | 0-3 Months |Automation debttwo| View     | Reassign |
+      | DRC_ATC_DebtManagement_Assigned_01 | Validate whether collection officer is able to view the case for the particular tax payer. | Urvish Patel | ketan.prajapati | admin    | 0-3 Months |Regression Marchde  | View     | Reassign |
 
 
   @mtc7 @ManageReassign @execute
@@ -33,7 +33,7 @@ Feature: DGI employee should be able to do following
 
     Examples: 
           | Test Case ID                       | Description                                                              | officername  | uname           | password | ageing     | tpayer        | Moption1 | Moption2 | reassign     |
-      | DRC_ATC_DebtManagement_Assigned_02 | Validate whether collection officer is able to reassign the tax officer. | Urvish Patel | ketan.prajapati | admin    | 0-3 Months |Automation User 57| View     | Reassign | Urvish Patel |
+      | DRC_ATC_DebtManagement_Assigned_02 | Validate whether collection officer is able to reassign the tax officer. | Urvish Patel | ketan.prajapati | admin    | 0-3 Months |Regression Marchde  | View     | Reassign | Urvish Patel |
 
 
   @mtc9 @FilterBy @execute
@@ -47,7 +47,7 @@ Feature: DGI employee should be able to do following
       | DRC_ATC_DebtManagement_Assigned_03 | Validate whether user is able to filter by using filter by option. | Urvish Patel | ketan.prajapati | admin    | 0-3 Months |
 
   @mtc10 @mtc11 @mtc12 @FilterBy @FilterValidation
-  Scenario Outline: Validate whether user is able to filter by using filter by option  
+  Scenario Outline: Validate whether user is able to filter by using filter by option 
     Given "<Test Case ID>""<Description>"DGI "<officername>""<uname>""<password>"should be logged in to the internal portal
     When clicked on Case Management Module must be on Case Management Module List of cases assigned to the officer should be displayed  
     Then user filter using "<dp1>" and from"2018-09-20" to date"2018-09-20"   
@@ -56,7 +56,7 @@ Feature: DGI employee should be able to do following
 
     Examples: 
       | Test Case ID                       | Description                                                                                   | officername  | uname           | password | ageing     | dp1         | typehere          | type    | msg              |
-      | DRC_ATC_DebtManagement_Assigned_04 | Validate whether user is able to filter by using filter by option.(Case id invalid data)      | Urvish Patel | ketan.prajapati | admin    | 0-3 Months | Case Id     | Burman            | invalid | No records found |
+     | DRC_ATC_DebtManagement_Assigned_04 | Validate whether user is able to filter by using filter by option.(Case id invalid data)      | Urvish Patel | ketan.prajapati | admin    | 0-3 Months | Case Id     | Burman            | invalid | No records found |
       | DRC_ATC_DebtManagement_Assigned_05 | Validate whether user is able to filter by using filter by option.(Priority valid data)       | Urvish Patel | ketan.prajapati | admin    | 0-3 Months | Priority    | Medium            | valid   |                  |
       | DRC_ATC_DebtManagement_Assigned_06 | Validate whether user is able to filter by using filter by option.(Priority invalid data)     | Urvish Patel | ketan.prajapati | admin    | 0-3 Months | Priority    | Highest           | invalid | No records found |
       | DRC_ATC_DebtManagement_Assigned_07 | Validate whether user is able to filter by using filter by option.(City valid data)           | Urvish Patel | ketan.prajapati | admin    | 0-3 Months | City        | Aketi             | valid   |                  |

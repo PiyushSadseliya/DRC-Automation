@@ -91,9 +91,9 @@ public class DV_2880_Tax_Deductable_Ass_and_Reass_Adjustement
 	@And("^User click on manage and click on assess$")
 	public void user_click_on_manage_and_click_on_assess() throws Throwable 
 	{
-		sleepWait(500);		
+		sleepWait(1000);		
 		clickOn("drp_AssestManage", "");
-		sleepWait(500);
+		sleepWait(1000);
 		clickOn("txt_AssestManageAssess", "");  
 		sleepWait(2000);
 	}
@@ -547,7 +547,7 @@ public class DV_2880_Tax_Deductable_Ass_and_Reass_Adjustement
 	{
 		sleepWait(1000);
 		clickOn("btn_Prev_m", "");
-		sleepWait(500);
+		sleepWait(1000);
 		if(wd.findElement(By.xpath(obj.getProperty("txt_check_Landing_Man"))).isDisplayed());
 		 {
 			 assertTrue(true);

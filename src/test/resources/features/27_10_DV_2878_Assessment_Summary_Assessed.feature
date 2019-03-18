@@ -19,7 +19,7 @@ Feature: User is on Assessment Summary Assessed List
 
     Examples: 
       | TestcaseID   | Description                    | Period        | TaxPayer           | Year            |
-      | Ass_AS_02_03 | validate nitva no,Period field | txt_PeriodFeb | Automation User 54 | txt_2019_Period |
+      | Ass_AS_02_03 | validate nitva no,Period field | txt_PeriodFeb | Regression MarchMons| txt_2019_Period |
 
   # Moved to feature file 23
   #  @TC_05_06_19_18_16_AssessedList_2878
@@ -55,7 +55,7 @@ Feature: User is on Assessment Summary Assessed List
 
     Examples: 
       | TestcaseID | Description         | Period        | Year            | TaxPayer           |   1 |  10 | 10.1 |  17 | SaveMess           | selectedRemark                    | SR             | selected                          |
-      | Ass_AS_07  | validate Happy Path | txt_PeriodFeb | txt_2019_Period | Automation User 54 | 101 | 101 |  101 | 101 | Saved Successfully | Verified through EFD transactions | Select remarks | Verified through EFD transactions |
+      | Ass_AS_07  | validate Happy Path | txt_PeriodFeb | txt_2019_Period | Regression MarchMons| 101 | 101 |  101 | 101 | Saved Successfully | Verified through EFD transactions | Select remarks | Verified through EFD transactions |
 
   @TC_14_08_09_10_11_12_13_AssessedList_2878
   Scenario Outline: Validate the Prev button functionality.
@@ -91,7 +91,7 @@ Feature: User is on Assessment Summary Assessed List
 
     Examples: 
       | TestcaseID                  | Description                 | Period        | Year            | TaxPayer           |   1 |  10 | 10.1 |  17 | SaveMess           | selectedRemark                    | SR             | selected                          |
-      | Ass_AS_14_08_09_10_11_12_13 | validate prev functionality | txt_PeriodFeb | txt_2019_Period | Automation User 54 | 110 | 110 |  110 | 111 | Saved Successfully | Verified through EFD transactions | Select remarks | Verified through EFD transactions |
+      | Ass_AS_14_08_09_10_11_12_13 | validate prev functionality | txt_PeriodFeb | txt_2019_Period | Regression MarchMons| 110 | 110 |  110 | 111 | Saved Successfully | Verified through EFD transactions | Select remarks | Verified through EFD transactions |
 
   @TC_15_AssessedList_2878
   Scenario Outline: Validate the Previous button functionality
@@ -133,7 +133,7 @@ Feature: User is on Assessment Summary Assessed List
 
     Examples: 
       | TestcaseID | Description                     | Period        | Year            | TaxPayer           |    1 |   10 | 10.1 | 17 | SaveMess           | selectedRemark                    | SR             | selected                          |
-      | Ass_AS_15  | validate previous functionality | txt_PeriodFeb | txt_2019_Period | Automation User 54 | 1011 | 1011 | 1011 | 11 | Saved Successfully | Verified through EFD transactions | Select remarks | Verified through EFD transactions |
+      | Ass_AS_15  | validate previous functionality | txt_PeriodFeb | txt_2019_Period | Regression MarchMons| 1011 | 1011 | 1011 | 11 | Saved Successfully | Verified through EFD transactions | Select remarks | Verified through EFD transactions |
 
   @TC_17_AssessedList_2878
   Scenario Outline: Validate the download functionality of e-filing schedule button when e-file schedule file is uploaded by tax payer from tax payer portal
@@ -151,7 +151,7 @@ Feature: User is on Assessment Summary Assessed List
 
     Examples: 
       | TestcaseID | Description                                                  | Period        | Year            | TaxPayer           |
-      | Ass_AS_17  | validate  download functionality of e-filing schedule button | txt_PeriodFeb | txt_2019_Period | Automation User 54 |
+      | Ass_AS_17  | validate  download functionality of e-filing schedule button | txt_PeriodFeb | txt_2019_Period | Regression MarchMons|
 
   @TC_24_AssessedList_2878
   Scenario Outline: Validate that the Total Additional Liability(FC) amount should be zero when Total Reassessed(FC)  amount should  be same as Total Assessed(FC) amount.
@@ -171,7 +171,7 @@ Feature: User is on Assessment Summary Assessed List
 
     Examples: 
       | TestcaseID | Description             | Period        | Year            | TaxPayer           |
-      | Ass_AS_24  | validate amount is same | txt_PeriodFeb | txt_2019_Period | Automation User 54 |
+      | Ass_AS_24  | validate amount is same | txt_PeriodFeb | txt_2019_Period | Regression MarchMons|
 
   @TC_25_26_AssessedList_2878
   Scenario Outline: Validate that the Total Additional Liability(FC) amount should be more than zero and less than zero when Total Reassessed(FC)  amount is more than Total Assessed(FC) amount.
@@ -214,7 +214,7 @@ Feature: User is on Assessment Summary Assessed List
 
     Examples: 
       | TestcaseID   | Description         | Period        | Year            | TaxPayer           | SaveMess           |      1 | 10 | 10.1 | 17 | again1 | again10 | again10.1 | again17 |
-      | Ass_AS_25_26 | validate Happy Path | txt_PeriodFeb | txt_2019_Period | Automation User 54 | Saved Successfully | 500000 |  1 |    0 | 10 |    400 |       5 |         5 |      10 |
+      | Ass_AS_25_26 | validate Happy Path | txt_PeriodFeb | txt_2019_Period | Regression MarchMons| Saved Successfully | 500000 |  1 |    0 | 10 |    400 |       5 |         5 |      10 |
 
   @TC_27_AssessedList_2878
   Scenario Outline: Validate that the Assessment Summary tab records should get auto populated with only those records whose changes made in Reassessment adjustment table for Operations Performed, Tax Deductible and Adjustment tab.
@@ -242,4 +242,4 @@ Feature: User is on Assessment Summary Assessed List
 
     Examples: 
       | TestcaseID | Description                                            | Year            | Period        | TaxPayer           |    1 | 10 | 10.1 |  17 |
-      | Ass_AS_27  | validate tabs auto populated in assessment adjustement | txt_2019_Period | txt_PeriodFeb | Automation User 54 | 5001 | 51 |   51 | 101 |
+      | Ass_AS_27  | validate tabs auto populated in assessment adjustement | txt_2019_Period | txt_PeriodFeb | Regression MarchMons| 5001 | 51 |   51 | 101 |

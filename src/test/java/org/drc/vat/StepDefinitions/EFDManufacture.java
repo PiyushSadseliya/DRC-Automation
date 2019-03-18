@@ -46,9 +46,9 @@ public class EFDManufacture {
 
 	@And("^user clicked on Testing logs from EFD firmware$")
 	public void user_clicked_on_Testing_logs_from_EFD_firmware() throws Throwable {
-		sleepWait(3000);
+		sleepWait(6000);
 		clickOn("EFDFirmwaretab", "");
-		sleepWait(1000);
+		sleepWait(4000);
 		clickOn("Testinglogstab", "");
 		sleepWait(1500);
 	}
