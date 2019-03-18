@@ -103,7 +103,7 @@ Feature: User is on FX Management Page DGI Admin
 
     Examples: 
       | TestcaseID             | Description                      | TodayDate  | ToDate    | DisplayDate | NoCurrencyFromDate | NoCurrencyToDate |
-      | FX_Management_Admin_15 | Verify date search functionality |2019-02-27 | 2019-02-27 | 02/27/2019  | 2019-02-01        | 2019-02-01       |
+      | FX_Management_Admin_15 | Verify date search functionality |2019-03-12 | 2019-03-12 | 03/12/2019  | 2019-02-02         | 2019-02-02       |
 
   @TC_16
   Scenario Outline: Validate the Pagination on the FX management page with historic data

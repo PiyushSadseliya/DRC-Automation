@@ -41,7 +41,7 @@ Feature: User is on FX Management Page DGI Supervisor
       | FX_Management_Supervisior_08 | Verify Historical FX Rates button functionality |
 
   @TC_10
-  Scenario Outline: Validate the from and to date search functionality on the FX management page with historic data -supervisor
+  Scenario Outline: Validate the from and to date search functionality on the FX management page with historic data 
     Given User is on FX Management "<TestcaseID>" "<Description>"
     And User click on Dashboard
     And User click on FX Management tab
@@ -55,7 +55,7 @@ Feature: User is on FX Management Page DGI Supervisor
 
     Examples: 
       | TestcaseID                   | Description                      | TodayDate  | ToDate     | DisplayDate | NoCurrencyFromDate | NoCurrencyToDate |
-      | FX_Management_Supervisior_10 | Verify date search functionality | 2019-02-27 | 2019-02-27 | 02/27/2019  | 2019-02-01        | 2019-02-01       |
+      | FX_Management_Supervisior_10 | Verify date search functionality | 2019-03-12 | 2019-03-12 | 03/12/2019  | 2019-02-02         | 2019-02-02       |
 
   #@TC_11
   #Scenario Outline: Validate the Pagination on the FX management page with historic data
@@ -112,7 +112,7 @@ Feature: User is on FX Management Page DGI Supervisor
       | FX_Management_Supervisior_14_15_06 | Verify Approved rate column data and approve currency | New currency rates has been approved successfully |
 
   @TC_06
-  Scenario Outline: Validate the Approve button functionality
+  Scenario Outline: Validate the Approve button functionality 
     Given User is on FX Management "<TestcaseID>" "<Description>"
     And User click on Dashboard
     And User click on FX Management tab

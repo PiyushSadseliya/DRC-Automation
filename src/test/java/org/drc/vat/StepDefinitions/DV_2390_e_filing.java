@@ -482,7 +482,7 @@ public class DV_2390_e_filing
 	    String VAT_VD = getValue("txt_VatDeducted");
 	    String VAT_PC = getValue("txt_Recovery");
 	    
-	 
+	  
 	    Float VAT_Float_VRC= Float.parseFloat(VAT_VRC);
 	    Float VAT_Float_SDC= Float.parseFloat(VAT_SD);
 	    Float VAT_Float_VDC= Float.parseFloat(VAT_VD);

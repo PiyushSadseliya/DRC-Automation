@@ -843,6 +843,23 @@ public class DV_3893_TaxPayer_Help_Desk
 		
 	    
 	}
+	
+	
+/*@And("^User click on Next status and click on Perform Adjustement$")
+public void user_click_on_Next_status_and_click_on_Perform_Adjustement() throws Throwable 
+{
+	sleepWait(1000);
+	waitFor("drp_Next_Status");
+	sleepWait(2000);
+	waitFor("drp_Next_Status");
+	sleepWait(2000);
+	clickOn("drp_Next_Status", "");
+	sleepWait(1000);
+	clickOn("drp_Per_Adj", "");
+	sleepWait(1000);
+}
+*/
+	
 
 	@And("^User click on Next status and click on Request Information$")
 	public void user_click_on_Next_status_and_click_on_Request_Information() throws Throwable
@@ -956,7 +973,7 @@ public class DV_3893_TaxPayer_Help_Desk
 		sleepWait(1000);
 		WebElement element1 = wd.findElement(By.id("iframe"));
 		wd.switchTo().frame(element1);
-		//sleepWait(1000);		
+		sleepWait(3000);		
 	}
 
 	@And("^User enter again in add new button frame$")

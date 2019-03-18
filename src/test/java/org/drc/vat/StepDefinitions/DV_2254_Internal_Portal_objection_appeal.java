@@ -13,7 +13,13 @@ public class DV_2254_Internal_Portal_objection_appeal
 {
 	@And("^User click on Dashboard and click on pin button$")
 	public void user_click_on_Dashboard_and_click_on_pin_button() throws Throwable {
-	    clickOn("txt_dashboard", "");
+	    
+		sleepWait(1000);
+		waitFor("txt_dashboard");
+		sleepWait(1000);
+		waitFor("txt_dashboard");
+		sleepWait(1000);
+		clickOn("txt_dashboard", "");
 	    sleepWait(200);
 //	    clickOn("label_pin", "");	    
 	}
@@ -80,6 +86,7 @@ public class DV_2254_Internal_Portal_objection_appeal
 	@And("^User Type id \"([^\"]*)\"$")
 	public void user_Type_id(String id) throws Throwable 
 	{	
+		sleepWait(1000);
 		type("TypeHere", Storereference_value);
 	}
 
@@ -103,6 +110,17 @@ public class DV_2254_Internal_Portal_objection_appeal
 		sleepWait(3000);
 	}
 
+	@And("^User click on manage drop down and click on view when status is open$")
+	public void user_click_on_manage_drop_down_and_click_on_view_when_status_is_open() throws Throwable 
+	{
+		sleepWait(1000);
+		clickOn("drp_Open_Status", "");
+		sleepWait(1000);
+		clickOn("drp_view_click_new", "");
+		sleepWait(3000);
+	}
+	
+	
 	@And("^User click on priority$")
 	public void user_click_on_priority() throws Throwable
 	{
@@ -121,16 +139,24 @@ public class DV_2254_Internal_Portal_objection_appeal
 	@And("^User click on submit button$")
 	public void user_click_on_submit_button() throws Throwable
 	{
-		clickOn("btn_Obj_Submit", "");
+		/*clickOn("btn_Obj_Submit", "");
 		{
 			assertTrue(true);
-		}
-		sleepWait(1500);
+		}*/
+		
+		sleepWait(1000);
+		waitFor("btn_Obj_Submit");		
+		clickOn("btn_Obj_Submit", "");		
+		sleepWait(1000);
+		waitFor("btn_Obj_Submit");
+		sleepWait(1000);
+		
 	}
 
 	@And("^User see validation message for changing priority \"([^\"]*)\"$")
 	public void user_see_validation_message_for_changing_priority(String Mess) throws Throwable 
-	{sleepWait(1000);
+	{								
+		waitFor("txt_wait_popup");
 		if(wd.findElement(By.xpath("//*[contains(text(),'" + Mess + "')]")).isDisplayed() )
 		{		
 			assertTrue(true);
@@ -138,12 +164,37 @@ public class DV_2254_Internal_Portal_objection_appeal
 	}
 
 
+	@And("^User enter in iframe$")
+	public void user_enter_in_iframe() throws Throwable 
+	{
+		WebElement element1 = wd.findElement(By.id("iframe"));		
+		wd.switchTo().frame(element1);
+	
+	}
+	
 	@And("^User click on select action$")
 	public void user_click_on_select_action() throws Throwable 
 	{
+	
+		sleepWait(1000);
+		waitFor("txt_Select_Action");
+		sleepWait(1000);
 		clickOn("txt_Select_Action", "");
-		sleepWait(2000);
+		//sleepWait(2000);
 	}
+	
+	@And("^User again click on select action$")
+	public void user_again_click_on_select_action() throws Throwable 
+	{
+		sleepWait(3000);
+		waitFor("btn_Obj_Submit");
+		sleepWait(3000);
+		waitFor("txt_Select_Action");
+		sleepWait(1000);
+		clickOn("txt_Select_Action", "");
+		sleepWait(1000);
+	}
+	
 
 	@And("^User select reject$")
 	public void user_select_reject() throws Throwable 
@@ -160,6 +211,8 @@ public class DV_2254_Internal_Portal_objection_appeal
 	public void user_click_on_Transaction_Detail_button() throws Throwable
 	{
 		sleepWait(5000);
+		waitFor("btn_TransactionDetails");
+		sleepWait(2000);
 		clickOn("btn_TransactionDetails", "");
 		sleepWait(2000);
 	}
@@ -167,10 +220,14 @@ public class DV_2254_Internal_Portal_objection_appeal
 	@And("^User navigate to Statement of transaction page$")
 	public void user_navigate_to_Statement_of_transaction_page() throws Throwable 
 	{
-		if(wd.findElement(By.xpath(obj.getProperty("txt_NoticePage"))).isDisplayed())
+		if(wd.findElement(By.xpath(obj.getProperty("txt_check_Landing_Man"))).isDisplayed())
 		{
 			assertTrue(true);
 		}
+		/*if(wd.findElement(By.xpath(obj.getProperty("txt_NoticePage"))).isDisplayed())
+		{
+			assertTrue(true);
+		}*/
 	}
 
 	@And("^User click on previous button on objection page$")

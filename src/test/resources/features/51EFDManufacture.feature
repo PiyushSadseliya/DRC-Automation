@@ -36,7 +36,8 @@ Feature: EFD Manufacture TestSuite
 
     Examples: 
       | TestCase_Id        | Description                   | Tfilter  | Tstatusname             |
-      | DRC_Manufacturer03 | Manufacture Test New Firmware | EFD Type | Electronic Tax Register |
+      #| DRC_Manufacturer03 | Manufacture Test New Firmware | EFD Type | Electronic Tax Register |
+      | DRC_Manufacturer03 | Manufacture Test New Firmware | EFD Type | Electronic |
 
   #@TC_04
   #Scenario Outline: Validate the sorting functionality on Released Firmware and Testing Log modules landing page - efd-manufacturerportal

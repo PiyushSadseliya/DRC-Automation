@@ -15,9 +15,9 @@ Feature: User is on internal Portal for objection and appeal
   # | Priority_2 | Verify date filteration functionalityt | drp_Priority_Click | Medium | Medium    |
   # | Priority_3 | Verify date filteration functionalityt | drp_Priority_Click | Low    | Low       |
   @TC_03_CaseType
-  Scenario Outline: Verify the Filter by Functionality based on filter option Case Type Status Priority Tax Officer 
+  Scenario Outline: Verify the Filter by Functionality based on filter option Case Type Status Priority Tax Officer
     Given User is on Internal Portal "<TestcaseID>" "<Description>"
-    And User click on Dashboard and click on pin button
+    #And User click on Dashboard and click on pin button
     And User click on case management
     And User click on filter by on case management and click on "<filter>"
     And User user click on case type "<CaseType>" and click on search button search result "<QaResult>" on case management
@@ -74,7 +74,7 @@ Feature: User is on internal Portal for objection and appeal
   #    | Case_Management_9_5 | validating first and left  | txt_PeriodJan | lbl_AssFirst    | lbl_AssestLeft  | first and left  |
   #    | Case_Management_9_6 | validating first and first | txt_PeriodJan | lbl_AssFirst    | lbl_AssFirst    | first and first |
   @TC_09
-  Scenario Outline: Validate the Reassign option functionality under view column 
+  Scenario Outline: Validate the Reassign option functionality under view column
     Given User is on Internal Portal "<TestcaseID>" "<Description>"
     And User click on Dashboard and click on pin button
     And User click on case management
@@ -86,8 +86,8 @@ Feature: User is on internal Portal for objection and appeal
     Then Tax Officier Changed and toast message display
 
     Examples: 
-      | TestcaseID       | Description                            | filter           | status | ChangeOfficer           |
-      | Case_Management_ | Verify date filteration functionalityt | drp_Status_Click | Open   | drp_SelectTaxOfficerOne |
+      | TestcaseID         | Description                            | filter           | status | ChangeOfficer           |
+      | Case_Management_09 | Verify date filteration functionalityt | drp_Status_Click | Open   | drp_SelectTaxOfficerOne |
 
   @TC_19
   Scenario Outline: Validate the functionality of Transaction Details button 
@@ -96,31 +96,45 @@ Feature: User is on internal Portal for objection and appeal
     And User click on case management
     And User click on filter by on case management and click on "<filter>"
     And User user click on case type "<CaseType>" and click on search button search result "<QaResult>" on case management
-    And User click on manage drop down and click on view
+    
+    And User click on manage drop down and click on view when status is open  
+    
+    #And User click on manage drop down and click on view
+    
     And User click on Transaction Detail button
     And User navigate to Statement of transaction page
 
     Examples: 
-      | TestcaseID       | Description                                     | ChangeOfficer           | CaseType               | QaResult             | filter |
-      | Case_Management_ | Verify date filteration functionalityt | drp_SelectTaxOfficerOne | drp_ObjectionAndAppeal | Objection and appeal |drp_CaseType        |
+      | TestcaseID         | Description                            | ChangeOfficer           | CaseType               | QaResult             | filter       |
+      | Case_Management_19 | Verify date filteration functionalityt | drp_SelectTaxOfficerOne | drp_ObjectionAndAppeal | Objection and appeal | drp_CaseType |
 
   @TC_21_17_18
-  Scenario Outline: Validate the previous and cancel button functionality
+  Scenario Outline: Validate the previous and cancel button functionality 
     Given User is on Internal Portal "<TestcaseID>" "<Description>"
     And User click on Dashboard and click on pin button
     And User click on case management
-    And User click on manage drop down and click on view
+    And User click on filter by on case management and click on "<filter>"
+    And User user click on case type "<CaseType>" and click on search button search result "<QaResult>" on case management
+    
+    And User click on manage drop down and click on view when status is open 
+    #And User click on manage drop down and click on view
+    
     And User click on previous button on objection page
     And User navigate to Case Management list page
-    And User click on manage drop down and click on view
+    
+    And User click on filter by on case management and click on "<filter>"
+    And User user click on case type "<CaseType>" and click on search button search result "<QaResult>" on case management    
+    And User click on manage drop down and click on view when status is open
+    
+    And User enter in iframe
+    And User click on cancel button on objection page
+    And User navigate to Case Management list page
 
-    #And User click on cancel button on objection page
-    #And User navigate to Case Management list page
     #And User click on manage drop down and click on view
     #And User click on comment section and type comment "<comment>" and see mess"<mess>"
     Examples: 
-      | TestcaseID       | Description                            | comment       | mess                           |
-      | Case_Management_ | Verify date filteration functionalityt | need document | Objection updated successfully |
+      | TestcaseID               | Description                            | comment       | mess                           | filter       | CaseType               | QaResult             |
+      | Case_Management_21_17_18 | Verify date filteration functionalityt | need document | Objection updated successfully | drp_CaseType | drp_ObjectionAndAppeal | Objection and appeal |
 
   @TC_08
   Scenario Outline: Validate the priority is set correctly for the individual tax payer
@@ -128,17 +142,20 @@ Feature: User is on internal Portal for objection and appeal
     And User click on Dashboard and click on pin button
     And User click on case management
     And User click on filter by on case management and click on "<filter>"
-    And User Type id "<id>"
+    And User type case id
+    #And User Type id "<id>"
     And User click on search button
     And User click on manage drop down and click on view
     And User click on priority
     And User select priority "<priority>"
     And User click on submit button
+    And User see frame is default in internal
+    And User see validation message for changing priority "<mess>"
 
-    #And User see validation message for changing priority "<mess>"
+    # And User enter in add new button frame
     Examples: 
-      | TestcaseID       | Description                            | filter     | id              | priority   | mess                           |
-      | Case_Management_ | Verify date filteration functionalityt | drp_CaseID | O19022200000004 | drp_P_High | Objection updated successfully |
+      | TestcaseID         | Description                            | filter     | id              | priority   | mess                           |
+      | Case_Management_08 | Verify date filteration functionalityt | drp_CaseID | O19030100000002 | drp_P_High | Objection updated successfully |
 
   #@TC_11
   #Scenario Outline: Validate Reject status
@@ -156,21 +173,27 @@ Feature: User is on internal Portal for objection and appeal
   #
   #Examples:
   #| TestcaseID                          | Description                   | filter     | id              | mess                           |
-  #| Objection_Appeal_internal_portal_15 | Verify Reassign functionality | drp_CaseID | O19022200000004 | Objection updated successfully |
+  #| Objection_Appeal_internal_portal_15 | Verify Reassign functionality | drp_CaseID | O19030100000002 | Objection updated successfully |
   @TC_11
-  Scenario Outline: Validate Reject status 
+  Scenario Outline: Validate Reject status
     Given User is on Internal Portal "<TestcaseID>" "<Description>"
     And User click on Dashboard and click on pin button
     And User click on case management
     And User click on filter by on case management and click on "<filter>"
-    And User Type id "<id>"
+    And User type case id
+    #And User Type id "<id>"
     And User click on search button
     And User click on manage drop down and click on view
+    And User enter in iframe
     And User click on select action
+    And User select under review
+    And User click on submit button
+    And User again click on select action
+    And User select reject
+    And User click on submit button
+    And User see frame is default in internal
+    And User see validation message for changing priority "<mess>"
 
-    #And User select under review
-    #And User click on submit button
-    #And User see validation message for changing priority "<mess>"
     Examples: 
       | TestcaseID                          | Description                   | filter     | id              | mess                           |
-      | Objection_Appeal_internal_portal_15 | Verify Reassign functionality | drp_CaseID | O19022200000004 | Objection updated successfully |
+      | Objection_Appeal_internal_portal_11 | Verify Reassign functionality | drp_CaseID | O19022700000003 | Objection updated successfully |

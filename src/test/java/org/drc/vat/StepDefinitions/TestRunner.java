@@ -39,18 +39,27 @@ import static org.drc.vat.appmanager.HelperBase.softAssert;
 //		"classpath:features/14_ViewAllStatementofTransaction.feature",
 //		"classpath:features/15_01_TaxBillPayment.feature",
 		
-		
+		//"classpath:features/30_TaxPayer_Portal_objection_appeal.feature",
+		//"classpath:features/31_Internal_Portal_objection_appeal.feature",
+		//"classpath:features/38_Payment_Agreement.feature",
 		//"classpath:features/45_FX_Management_TaxOfficer.feature",
 		//"classpath:features/46_FX_Management_Supervisor.feature",
 		//"classpath:features/47_FX_Management_Admin.feature",
 		//"classpath:features/48_Tax_Payer_Profile.feature",
 		//"classpath:features/49_DV_3893_TaxPayer_Help_Desk.feature",
 		//"classpath:features/50_DV_3893_TaxOfficer_Help_Desk_Internal.feature",
+		//"classpath:features/30_TaxPayer_Portal_objection_appeal.feature",
+		"classpath:features/DV_4316_Reconciliation.feature",
+		//"classpath:features/48_Tax_Payer_Profile.feature",
+		
+		//"classpath:features/DV_4007_IT_Support_Admin.feature",
+		//"classpath:features/DV_4007_IT_Support_User1.feature",
+		
 		
 },
 glue = "org.drc.vat.StepDefinitions",
 plugin = {"com.cucumber.listener.ExtentCucumberFormatter:","html:test-output/cucumber-report"}
-//,tags= {"@TC_08"}		
+,tags= {"@e-filing_payment"}		
 
 )
 

@@ -208,11 +208,19 @@ public class DV_3893_TaxOfficer_Help_Desk
 	   waitFor("txt_Search_Issue");		
 	   type("txt_Search_Issue", StoreTicketID);
 	}
+	
+	@And("^User click on Submit button for Request Adjustement$")
+	public void user_click_on_Submit_button_for_Request_Adjustement() throws Throwable 
+	{
+		clickOn("btn_Help_Submit", "");		
+		sleepWait(3000);		
+	}
+	
 	@And("^User click on Submit button internal portal and navigate to Account Adjustement$")
 	public void user_click_on_Submit_button_internal_portal_and_navigate_to_Account_Adjustement() throws Throwable 
 	{
 		clickOn("btn_Help_Submit", "");		
-		sleepWait(1000);
+		sleepWait(3000);
 		waitFor("txt_Req_Adj_Page");
 		if(wd.findElement(By.xpath(obj.getProperty("txt_Req_Adj_Page"))).isDisplayed())
 		{
@@ -324,9 +332,12 @@ public class DV_3893_TaxOfficer_Help_Desk
 	@And("^User click on Next status and click on Perform Adjustment$")
 	public void user_click_on_Next_status_and_click_on_Perform_Adjustment() throws Throwable 
 	{
-		clickOn("drp_Next_Status", "");
 		sleepWait(1000);
-		clickOn("drp_PA", "");
+		waitFor("drp_Next_Status");
+		sleepWait(1000);
+		waitFor("drp_Next_Status");
+		sleepWait(1000);		
+		clickOn("drp_Per_Adj", "");
 		sleepWait(1000);
 	}
 

@@ -100,7 +100,7 @@ public class ApplicationManager {
 	 */
 	public void callinternalportal() throws AWTException, InterruptedException, IOException 
 	{
-		if (wd.getCurrentUrl().contains("8068") || wd.getCurrentUrl().contains("8042")) 
+		if (wd.getCurrentUrl().contains("8068") || wd.getCurrentUrl().contains("8042") || wd.getCurrentUrl().contains("8066")) 
 		{
 			wd.close();
 			Thread.sleep(2000);
@@ -282,19 +282,26 @@ public class ApplicationManager {
 		}
 	}
 
-	public void callurl() throws AWTException, InterruptedException {
-		if (wd.getCurrentUrl().contains(":90")) {
+	public void callurl() throws AWTException, InterruptedException 
+	{
+		if (wd.getCurrentUrl().contains(":90")) 
+		{
 			wd.get(properties.getProperty("web.Url"));
-		} else if (wd.getCurrentUrl().contains(":8066")) {
+		} else if (wd.getCurrentUrl().contains(":8066")) 
+		{
 			sleepWait(500);
-		} else if (wd.getCurrentUrl().contains(":8068")) {
+		} else if (wd.getCurrentUrl().contains(":8068")) 
+		{
 			sleepWait(500);
-		} else if (wd.getCurrentUrl().contains(":8031")) {
+		} else if (wd.getCurrentUrl().contains(":8031")) 
+		{
 			sleepWait(500);
-		}else if(wd.getCurrentUrl().contains(":8027")){
+		}else if(wd.getCurrentUrl().contains(":8027"))
+		{
 			
 		}
-		else if (!wd.getCurrentUrl().contains(":8042")) {
+		else if (!wd.getCurrentUrl().contains(":8042")) 
+		{
 			wd.get(properties.getProperty("web.Url"));
 		}
 	}
@@ -402,27 +409,60 @@ public class ApplicationManager {
 		}
 	}
 
-	public void call1trackitadminUser() throws AWTException, InterruptedException, IOException {
-
-		wd.quit();
+	/**
+	 *  Nirmal 
+	 */
+	/*public void call1trackitadminUser() throws AWTException, InterruptedException, IOException 
+	{
+		wd.quit();	
 		//wd = new ChromeDriver();
-		wd.manage().window().maximize();
-		//wd.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		wd.manage().window().maximize(); 
 		wd = new RemoteWebDriver(services.getUrl(), new ChromeOptions());
 		wd.get("http://103.249.120.58:8027");
 		Thread.sleep(3000);
 		Runtime.getRuntime().exec(System.getProperty("user.dir") + "\\QA_Internal_Portal_Login\\itsupportadmin.exe");
 		clickOn("btn_windowsClick", "");
+	}*/
+	
+	/**
+	 *  Franky 
+	 */
+	public void call1trackitadminUser() throws AWTException, InterruptedException, IOException 
+	{
+		if (wd.getCurrentUrl().contains("8031")) 
+		{
+			wd.close();
+			Thread.sleep(1000);
+			WebDriver wd = new ChromeDriver();
+			wd.manage().window().maximize();
+			wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+			wd.get("http://103.249.120.58:8027");
+			Runtime.getRuntime()
+			.exec(System.getProperty("user.dir") + "\\QA_Internal_Portal_Login\\itsupportadmin.exe");
+			Thread.sleep(1000);
+		} else 
+		{
+			if (!wd.getCurrentUrl().contains("8027")) 
+			{
+				Thread.sleep(1000);
+				wd.get("http://103.249.120.58:8027");
+				Runtime.getRuntime()
+				.exec(System.getProperty("user.dir") + "\\QA_Internal_Portal_Login\\itsupportadmin.exe");
+				Thread.sleep(1000);
+			}
+		}		
 	}
 
-	public void call1trackituser() throws AWTException, InterruptedException, IOException {
+	/** 
+	 *  Nirmal
+	 */
+	public void call1trackituser() throws AWTException, InterruptedException, IOException 
+	{
 		wd.quit();
 		wd = new RemoteWebDriver(services.getUrl(), new ChromeOptions());
-		//wd = new ChromeDriver();
 		wd.manage().window().maximize();
-
-	//	wd.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 		wd.get("http://103.249.120.58:8027");
 		Thread.sleep(4000);
 	}
+
 }

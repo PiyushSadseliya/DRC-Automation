@@ -122,7 +122,7 @@ public class DV_2391_eFile_Preview
 			//String OTP=RO.ReadOTP(DV_2390_e_filing.emailid);
 
 			sleepWait(1000);
-			wd.findElement(By.xpath("//*[@placeholder='Enter your OTP']")).sendKeys("123456");
+			wd.findElement(By.xpath("//*[@placeholder='Enter OTP']")).sendKeys("123456");
 			sleepWait(1000);
 			wd.findElement(By.xpath("//*[text()='Verify']")).click();
 			sleepWait(5000);

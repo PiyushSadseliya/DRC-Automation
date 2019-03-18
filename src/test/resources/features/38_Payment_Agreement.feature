@@ -1,26 +1,26 @@
 Feature: User is on Payment Agreement Landing Screen (Tax-officer) with payment agreement pop up and Payment Agreement document and Payment Agreement Installment Status
 
   # 39_Installment_Schedule_Pop_up_show
-  @tc_001_Payment_Agreement_2384
-  Scenario Outline: User search taxpayer on Debt Management and assign taxofficer and navigate to Case Management  -internal portal
-    Given "<Test Case ID>""<Description>"DGI "<officer>""<uname>""<password>""<location>"should be logged in to the internal portal
-    When clicked on Debt Management Module must be on Debt Management Module
-    When Clicked on pending amount for "<ageing>"
-    Then User search TaxPayer name "<name>" and store TaxPayer name and address
-    And User click on Dashboard
-    When clicked on Debt Management Module must be on Debt Management Module
-    When Clicked on pending amount for "<ageing>"
-    Then Search by TaxPayer Name "<name>" and assigns to officer and is on Case Management
-
-    Examples: 
-      | Test Case ID                       | Description                                              | ageing     | name               | officer | uname           | password | location |
-      | Payment_Agrement_Tax_Officer_Login | User click on Debt Management and assign to tax offficer | 0-3 Months | Automation User 55 | admin   | ketan.prajapati | admin    | Aketi    |
+  #@tc_001_Payment_Agreement_2384
+  #Scenario Outline: User search taxpayer on Debt Management and assign taxofficer and navigate to Case Management  -internal portal
+    #Given "<Test Case ID>""<Description>"DGI "<officer>""<uname>""<password>""<location>"should be logged in to the internal portal
+    #When clicked on Debt Management Module must be on Debt Management Module
+    #When Clicked on pending amount for "<ageing>"
+    #Then User search TaxPayer name "<name>" and store TaxPayer name and address
+    #And User click on Dashboard
+    #When clicked on Debt Management Module must be on Debt Management Module
+    #When Clicked on pending amount for "<ageing>"
+    #Then Search by TaxPayer Name "<name>" and assigns to officer and is on Case Management
+#
+    #Examples: 
+      #| Test Case ID                       | Description                                              | ageing     | name                | officer | uname           | password | location |
+      #| Payment_Agrement_Tax_Officer_Login | User click on Debt Management and assign to tax offficer | 0-3 Months | Automation TestFive | admin   | ketan.prajapati | admin    | Aketi    |
 
   #@TC_02 at last
   #Payment_Agreement_Landing_Screen
   #@TC_03_NITVA_Number_TC_07_Validate_no_of_notificationP_TC_09_Total_Amount_48_49
   @TC_03_07_09_10_11_12_48_49_Payment_Agreement_2384
-  Scenario Outline: Validate NITVA number ,No of notification, Total amount field. ,initial amount ,Discount amount radio button ,Discount percentage radio button, open status ,Under review status.  -internal portal
+  Scenario Outline: Validate NITVA number ,No of notification, Total amount field. ,initial amount ,Discount amount radio button ,Discount percentage radio button, open status ,Under review status. -internal portal
     Given User is on Payment Agreement Landing Screen "<TestcaseID>" "<Description>"
     And User click on Dashboard
     And User click on case management
@@ -48,8 +48,8 @@ Feature: User is on Payment Agreement Landing Screen (Tax-officer) with payment 
     And User see discount amount is deselected
 
     Examples: 
-      | TestcaseID                      | Description                                                                                                                                                                       | filter                | TaxPayer           | StatusOpen | StatusUnderReview | Amount | Amount1      | message                                                          |
-      | Payment_Agrement_Tax_Officer_03 | Validate NITVA number ,No of notification, Total amount field. ,initial amount ,Discount amount radio button ,Discount percentage radio button, open status ,Under review status. | drp_CM_TaxPayer_Click | Automation User 55 | Open       | Under Review      |     10 | 100000000000 | Amount should be less than the difference of total and discount. |
+      | TestcaseID                      | Description                                                                                                                                                                       | filter                | TaxPayer            | StatusOpen | StatusUnderReview | Amount | Amount1      | message                                                          |
+      | Payment_Agrement_Tax_Officer_03 | Validate NITVA number ,No of notification, Total amount field. ,initial amount ,Discount amount radio button ,Discount percentage radio button, open status ,Under review status. | drp_CM_TaxPayer_Click | Automation TestFive | Open       | Under Review      |     10 | 100000000000 | Amount should be less than the difference of total and discount. |
 
   @TC_13_discount_amount_textbox_14_discount_percentage_textbox_Payment_Agreement_2384
   Scenario Outline: Validate the Discount amount textbox and discount percentage textbox.
@@ -70,8 +70,8 @@ Feature: User is on Payment Agreement Landing Screen (Tax-officer) with payment 
     And User see discount amount is calculated
 
     Examples: 
-      | TestcaseID                         | Description                                             | filter           | TaxPayer           | amount | per |
-      | Payment_Agrement_Tax_Officer_13_14 | Verify dicount textbox and discount percentage textbox. | drp_CaseID_Click | Automation User 55 |    100 |   5 |
+      | TestcaseID                         | Description                                             | filter           | TaxPayer            | amount | per |
+      | Payment_Agrement_Tax_Officer_13_14 | Verify dicount textbox and discount percentage textbox. | drp_CaseID_Click | Automation TestFive |    100 |   5 |
 
   ################################################################################################################################################
   #2385
@@ -206,7 +206,7 @@ Feature: User is on Payment Agreement Landing Screen (Tax-officer) with payment 
     And User store payment agreement creation date
     And User see current date generated and verify date format DD/MMM/YYYY and on payment agreement
     And User validate barcode on payment agreement
-    And User validate taxpayer name and address on payment agreement
+   #And User validate taxpayer name and address on payment agreement
     And User validate subject field "<paymentAgreement>"
     And User validate case id field format YYMMDD
     And User validate payment agreement id format YYMMDD

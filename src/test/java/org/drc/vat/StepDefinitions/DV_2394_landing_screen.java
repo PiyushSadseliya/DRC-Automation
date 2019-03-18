@@ -63,9 +63,12 @@ public class DV_2394_landing_screen
 	@And("^User click on Tab$")
 	public void user_click_on_Tab() throws Throwable 
 	{
-		sleepWait(5000);
+		//sleepWait(5000);
+		sleepWait(1000);
+		waitFor("menu_vat-e-filing");
+		sleepWait(1000);
 		clickOn("menu_vat-e-filing", "");		
-		sleepWait(10000);		
+		sleepWait(1000);		
 
 		/*	if (wd.findElement(By.xpath("//h3[contains(text(),'VAT')]")).isDisplayed()) {
 			clickOn("tile_vat", "");
@@ -519,7 +522,7 @@ public class DV_2394_landing_screen
 		Assert.assertTrue(title.contains("Banque Centrale du Congo"));
 		wd.close();
 		wd.switchTo().window(wd.getWindowHandles().toArray()[0].toString());		
-
+ 
 	}
 
 	/** 
@@ -571,7 +574,7 @@ public class DV_2394_landing_screen
 		sleepWait(1000);
 	}
 
-
+ 
 	/**
 	 *  For Payment 
 	 *  	

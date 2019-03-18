@@ -1,17 +1,18 @@
 Feature: Verify the IT support Admin functionality
 
   @TC_ITSA_01_04
-  Scenario Outline: validate the IT support sub menu functionality - Internal portal
+  Scenario Outline: validate the IT support sub menu functionality -internal portal
     Given user must be logged in and should be on dashboard
     And click on the IT support Sub menu
+    And User switch to tab 
     And user click on Add button
     And enter the required details "<issue>" "<title>"
     And User enter in description frame
     And Enter the description "<description>"
     And Add the comment in comment section "<comments>"
     And click on attach icon choose file section window is displayed
-    #And select the files "<file>"
-    #Then click on cross button
+    And select the files "<file>"
+    Then click on cross button
     And select the files "<file>"
     Then click on IT support submit button
     And successfull "<message>" display on given page
