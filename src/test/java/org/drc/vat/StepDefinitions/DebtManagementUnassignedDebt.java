@@ -96,7 +96,7 @@ public class DebtManagementUnassignedDebt {
 			wd.manage().timeouts().implicitlyWait(2,TimeUnit.SECONDS);
 			clickOn("select_officer","");
 			 assertEquals(wd.findElement(By.xpath("//input[@type='radio']")).isSelected(),true);
-			clickOn("btn_close","");
+			clickOn("btn_Oclose","");
 			wd.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
 			 assertEquals(elementText("txt_heading",""), "Debt Management");	    
 
@@ -105,7 +105,7 @@ public class DebtManagementUnassignedDebt {
 	}
 	@Then("^Date selection should be disabled and should be same as debt management$")
 	public void date_selection_should_be_disabled_and_should_be_same_as_debt_management() throws Throwable {
-		assertEquals(wd.findElement(By.xpath("//*[text()='Upto Date: ']/following::input")).isEnabled(),false);
+		assertEquals(wd.findElement(By.xpath("//*[contains(text(),'Date:')]/following::input")).isEnabled(),false);
 	}
 	@Then("^clicks on \"([^\"]*)\" column on Debt Management$")
 	public void clicks_on_column_on_Debt_Management(String arg1) throws Throwable {

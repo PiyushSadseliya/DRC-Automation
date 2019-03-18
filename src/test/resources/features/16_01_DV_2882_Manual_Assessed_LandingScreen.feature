@@ -22,7 +22,7 @@ Feature: User is on Manual Assessement Landing Screen
 
     Examples: 
       | TestcaseID           | Description                        | Period        | Year            | Filter               | Data               | DropdownOfficer                | FilterOfficer                 | officerdata |
-      | Manual_Assessment_02 | validating all clickable compoment | txt_PeriodJan | txt_2019_Period | txt_AsestFilterNitva | Automation User 54 | drp_AssestChangedOfficerRitesh | txt_AssestFilterAssestOfficer | Laxman      |
+      | Manual_Assessment_02 | validating all clickable compoment | txt_PeriodJan | txt_2019_Period | txt_AsestFilterNitva | Regression MarchMons| drp_AssestChangedOfficerRitesh | txt_AssestFilterAssestOfficer | Laxman      |
 
   @TC_03
   Scenario Outline: Validate whether user can reassign the assessment officer whose status is Pending and in progress.
@@ -94,7 +94,7 @@ Feature: User is on Manual Assessement Landing Screen
 
     Examples: 
       | TestcaseID           | Description                    | Period        | Filters                  | Value              | data | Year            |
-      | Manual_Assessment_07 | validate tyax payer  PeriodJan | txt_PeriodJan | txt_AssestFilterTaxPayer | Automation User 54 | Abx  | txt_2019_Period |
+      | Manual_Assessment_07 | validate tyax payer  PeriodJan | txt_PeriodJan | txt_AssestFilterTaxPayer | Regression MarchMons| Abx  | txt_2019_Period |
 
   @TC_07_NITVA
   Scenario Outline: Validate whether User is able to filter by NITVA
@@ -238,4 +238,4 @@ Feature: User is on Manual Assessement Landing Screen
 
     Examples: 
       | TestcaseID            | Description                                                              | Period        | TaxPayer           | mess                                   | FNF            | Year            |
-      | Mal_AS_05_06_19_18_16 | Validate Total Assessed amount is same and check Additionality Liability | txt_PeriodJan | Automation User 54 | No Modification made for e-declaration | File not found | txt_2019_Period |
+      | Mal_AS_05_06_19_18_16 | Validate Total Assessed amount is same and check Additionality Liability | txt_PeriodJan | Regression MarchMons| No Modification made for e-declaration | File not found | txt_2019_Period |

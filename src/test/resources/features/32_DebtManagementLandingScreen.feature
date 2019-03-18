@@ -116,7 +116,7 @@ Feature: Debt Management - Landing screen to show the grouped (according to dura
   # | Test Case ID             | Description                                                                                                  | officer | uname           | password | ageing     | bpendingamount | bassignedamount   | afterassigne      |
   #| DRC_ATC_DebtManagemnt_18 | Validate the Pending (FC) column amount for particular age bracket when objection is raised by the tax payer | Admin   | ketan.prajapati | admin    | 0-3 Months |        6142217 | 376317983878646.9 | 376317983883746.9 |
   @Mtc17
-  Scenario Outline: Validate the Pending (FC) amount hyper link for all age brackets
+  Scenario Outline: Validate the Pending (FC) amount hyper link for all age brackets 
     Given DGI "<officer>""<uname>""<password>""<location>"should be logged in to the internal portal
     When clicked on Debt Management Module must be on Debt Management Module
     Then click on the hyper link amount under pending (FC) column for "<pending>" age bracket
@@ -130,7 +130,7 @@ Feature: Debt Management - Landing screen to show the grouped (according to dura
       | DRC_ATC_DebtManagemnt_16 | Validate the Pending (FC) amount hyper link for all age brackets | Admin   | ketan.prajapati | admin    | 0-3 Months          |
 
   @Mtc18 @comp
-  Scenario Outline: Validate the amount in Total Debt (FC) for Total (FC),Pending (FC),and Assigned (FC) columns internal portal
+  Scenario Outline: Validate the amount in Total Debt (FC) for Total (FC),Pending (FC),and Assigned (FC) columns
     Given DGI "<officer>""<uname>""<password>""<location>"should be logged in to the internal portal
     When clicked on Debt Management Module must be on Debt Management Module
     Then Total Debt (FC) amount of Total (FC) column should be the sum of all amounts

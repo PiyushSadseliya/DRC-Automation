@@ -138,9 +138,7 @@ public class DebtCollectionCaseScreen {
 		sleepWait(2000);
 		double totaldebt=Double.parseDouble(frenchToIndian(elementText("href_totalamountDue", "")));
 		double per =Double.parseDouble(arg1);
-		double recamt=totaldebt*per/100;
-		
-		
+		double recamt=totaldebt*per/100;	
 		assertEquals(Double.parseDouble(perc), recamt);
 	}
 

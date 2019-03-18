@@ -368,7 +368,7 @@ public class DebtManagementLandingScreen {
 			if(!elementText("txt_4to6months","//following::a[1]").equals("0,00")) {
 				clickOn("txt_4to6months","//following::a[1]");
 				sleepWait(1500);
-				List <WebElement> ele=wd.findElements(By.xpath("//tr"));
+				List <WebElement> ele=wd.findElements(By.xpath("//tbody/tr"));
 				assertNotEquals(ele.size(), 0);
 				sleepWait(1500);
 				clickOn("btn_prev","");
@@ -377,7 +377,7 @@ public class DebtManagementLandingScreen {
 			if(!elementText("txt_4to6months","//following::a[2]").equals("0,00")) {
 				clickOn("txt_4to6months","//following::a[2]");
 				sleepWait(1500);
-				List <WebElement> ele=wd.findElements(By.xpath("//tr"));
+				List <WebElement> ele=wd.findElements(By.xpath("//tbody/tr"));
 				sleepWait(2000);
 				assertNotEquals(ele.size(), 0);
 				sleepWait(1500);
@@ -390,7 +390,7 @@ public class DebtManagementLandingScreen {
 			if(!elementText("txt_0to3months","//following::a[1]").equals("0,00")) {
 				clickOn("txt_0to3months","//following::a[1]");
 				sleepWait(3000);
-				List <WebElement> ele=wd.findElements(By.xpath("//tr"));
+				List <WebElement> ele=wd.findElements(By.xpath("//tbody/tr"));
 				assertNotEquals(ele.size(), 0);
 				sleepWait(2000);
 				clickOn("btn_prev","");
@@ -400,7 +400,7 @@ public class DebtManagementLandingScreen {
 				sleepWait(2000);
 				clickOn("txt_0to3months","//following::a[2]");
 				sleepWait(2000);
-				List <WebElement> ele=wd.findElements(By.xpath("//tr"));
+				List <WebElement> ele=wd.findElements(By.xpath("//tbody/tr"));
 				assertNotEquals(ele.size(), 0);			
 				sleepWait(2000);
 				clickOn("nav_debt","");

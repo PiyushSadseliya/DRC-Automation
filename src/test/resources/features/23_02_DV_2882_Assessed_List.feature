@@ -15,7 +15,7 @@ Feature: User is on Assessed List Landing Screen
 
     Examples: 
       | TestcaseID       | Description              | Period        | statusChanged | Year            | TaxPayer           |
-      | Assessed List_08 | Validate Assessed status | txt_PeriodFeb | Reassess      | txt_2019_Period | Automation User 54 |
+      | Assessed List_08 | Validate Assessed status | txt_PeriodFeb | Reassess      | txt_2019_Period | Regression MarchMons |
 
   #@TC_07_AssessedList_2882
   @TC_07_TC_03_AssessedList_2882
@@ -75,7 +75,7 @@ Feature: User is on Assessed List Landing Screen
   #
   #Examples:
   #| TestcaseID       | Description               | Period        | TaxPayer        | Year            |
-  #| Assessed List_03 | Validate Reassess Options | txt_PeriodFeb | Automation User 54 | txt_2019_Period |
+  #| Assessed List_03 | Validate Reassess Options | txt_PeriodFeb | Regression MarchMons | txt_2019_Period |
   @TC_04_AssessedList_2882
   Scenario Outline: Validate ReferenceID generated is not duplicate
     Given User is on Assessment Page "<TestcaseID>" "<Description>"
@@ -252,4 +252,4 @@ Feature: User is on Assessed List Landing Screen
 
     Examples: 
       | TestcaseID            | Description                                                                | Period        | Year            | TaxPayer           | mess                                | FNF            |
-      | Ass_AS_05_06_19_18_16 | Validate Total Reassessed amount is same and check Additionality Liability | txt_PeriodFeb | txt_2019_Period | Automation User 54 | No Modification made for Assessment | File not found |
+      | Ass_AS_05_06_19_18_16 | Validate Total Reassessed amount is same and check Additionality Liability | txt_PeriodFeb | txt_2019_Period | Regression MarchMons | No Modification made for Assessment | File not found |

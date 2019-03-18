@@ -110,14 +110,14 @@ public class HelperBase {
 	}
 
 	public static void clickOn(String object, String data) {
-		WebDriverWait wait = new WebDriverWait(wd, 60);
+		WebDriverWait wait = new WebDriverWait(wd, 80);
 		try {
 			obj.load(fis);
 		} catch (IOException e) {
 			e.printStackTrace(); 
 		}
 		By locator = By.xpath(obj.getProperty(object) + data);
-		wd.manage().timeouts().implicitlyWait(800, TimeUnit.MILLISECONDS);
+		wd.manage().timeouts().implicitlyWait(1000, TimeUnit.MILLISECONDS);
 		wait.until(ExpectedConditions.elementToBeClickable(locator)).click();
 	}
 

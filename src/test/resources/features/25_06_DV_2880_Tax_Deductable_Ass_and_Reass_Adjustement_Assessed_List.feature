@@ -19,7 +19,7 @@ Feature: User is on Tax Deductible Page Assessed List
 
     Examples: 
       | TestcaseID        | Description                    | Period        | TaxPayer           | Year            |
-      | Ass_Tax_Dec_02_03 | validate nitva no,Period field | txt_PeriodFeb | Automation User 54 | txt_2019_Period |
+      | Ass_Tax_Dec_02_03 | validate nitva no,Period field | txt_PeriodFeb | Regression MarchMons| txt_2019_Period |
 
   #04 same value from e filing
   @TC_05_06_07_AssessedList_2880
@@ -42,7 +42,7 @@ Feature: User is on Tax Deductible Page Assessed List
 
     Examples: 
       | TestcaseID           | Description                                                                       | Period        | Year            | TaxPayer           |  10 | 10.1 |  11 | 11.1 |  12 | 12.1 |  13 | 13.1 |
-      | Ass_Tax_Dec_05_06_07 | validate Total Assessed tile,Total Ressessed tile,Total Additional liability tile | txt_PeriodFeb | txt_2019_Period | Automation User 54 | 500 |  500 | 500 |  500 | 500 |  500 | 500 |  500 |
+      | Ass_Tax_Dec_05_06_07 | validate Total Assessed tile,Total Ressessed tile,Total Additional liability tile | txt_PeriodFeb | txt_2019_Period | Regression MarchMons| 500 |  500 | 500 |  500 | 500 |  500 | 500 |  500 |
 
   #09 same from e filing
   #10 scenario will not come need to update
@@ -68,7 +68,7 @@ Feature: User is on Tax Deductible Page Assessed List
 
     Examples: 
       | TestcaseID           | Description                                                                                                        | Period        | Year            | TaxPayer           | 10 | 10.1 | 11 | 11.1 | 12 | 12.1 | 13 | 13.1 | mes                |
-      | Ass_Tax_Dec_08_18_20 | validate Edit button functionality,next button when officer edit the fields on the page, Save button functionality | txt_PeriodFeb | txt_2019_Period | Automation User 54 |  5 |    5 |  0 |    0 |  0 |    0 |  0 |    0 | Saved Successfully |
+      | Ass_Tax_Dec_08_18_20 | validate Edit button functionality,next button when officer edit the fields on the page, Save button functionality | txt_PeriodFeb | txt_2019_Period | Regression MarchMons|  5 |    5 |  0 |    0 |  0 |    0 |  0 |    0 | Saved Successfully |
 
   @TC_11_12_AssessedList_2880
   Scenario Outline: Validate the view icon in transaction received table and Total of Difference field.
@@ -88,7 +88,7 @@ Feature: User is on Tax Deductible Page Assessed List
 
     Examples: 
       | TestcaseID        | Description                                                                    | Period        | TaxPayer           | Year            |
-      | Ass_Tax_Dec_11_12 | validate view icon in transaction received table and Total of Difference field | txt_PeriodFeb | Automation User 54 | txt_2019_Period |
+      | Ass_Tax_Dec_11_12 | validate view icon in transaction received table and Total of Difference field | txt_PeriodFeb | Regression MarchMons| txt_2019_Period |
 
   #13 same from efiling carried carry forward
   @TC_15_AssessedList_2880
@@ -107,7 +107,7 @@ Feature: User is on Tax Deductible Page Assessed List
 
     Examples: 
       | TestcaseID     | Description                                                  | Period        | TaxPayer           | Year            |
-      | Ass_Tax_Dec_15 | validate  download functionality of e-filing schedule button | txt_PeriodFeb | Automation User 54 | txt_2019_Period |
+      | Ass_Tax_Dec_15 | validate  download functionality of e-filing schedule button | txt_PeriodFeb | Regression MarchMons| txt_2019_Period |
 
   #@TC_14_16_17_19_21_AssessedList_2880
   #Scenario Outline: Validate the download functionality of Transaction Received button,download functionality of e-file schedule file is not uploaded,next and Prev button functionality and  Previous button functionality
@@ -131,7 +131,7 @@ Feature: User is on Tax Deductible Page Assessed List
 #
     #Examples: 
       #| TestcaseID                 | Description                                                                    | Period        | TaxPayer           | mes            | Year            |
-      #| Ass_Tax_Dec_14_16_17_19_21 | validate view icon in transaction received table and Total of Difference field | txt_PeriodFeb | Automation User 54 | File not found | txt_2019_Period |
+      #| Ass_Tax_Dec_14_16_17_19_21 | validate view icon in transaction received table and Total of Difference field | txt_PeriodFeb | Regression MarchMons| File not found | txt_2019_Period |
 
   @TC_Negative_Scenario_field_length_AssessedList_2880
   Scenario Outline: Validate Negative Scenario for all fields
@@ -150,7 +150,7 @@ Feature: User is on Tax Deductible Page Assessed List
 
     Examples: 
       | TestcaseID               | Description               | Period        | Year            | TaxPayer           |               10 |             10.1 |               11 |             11.1 |               12 |             12.1 |               13 |             13.1 |
-      | Ass_OP_NS_Field_Length_1 | Validate length of number | txt_PeriodFeb | txt_2019_Period | Automation User 54 | 1234567891011123 | 1234567891011123 | 1234567891011123 | 1234567891011123 | 1234567891011123 | 1234567891011123 | 1234567891011123 | 1234567891011123 |
+      | Ass_OP_NS_Field_Length_1 | Validate length of number | txt_PeriodFeb | txt_2019_Period | Regression MarchMons| 1234567891011123 | 1234567891011123 | 1234567891011123 | 1234567891011123 | 1234567891011123 | 1234567891011123 | 1234567891011123 | 1234567891011123 |
 
   @TC_Negative_Scenario_AssessedList_2880
   Scenario Outline: Validate Negative Scenario for all fields
@@ -169,5 +169,5 @@ Feature: User is on Tax Deductible Page Assessed List
 
     Examples: 
       | TestcaseID  | Description                 | Period        | TaxPayer           |   10 | 10.1 |   11 | 11.1 |   12 | 12.1 |   13 | 13.1 | Year            |
-      | Ass_OP_NS_1 | Validate special chatracter | txt_PeriodFeb | Automation User 54 | @!@$ | @!@$ | @!@$ | @!@$ | @!@$ | @!@$ | @!@$ | @!@$ | txt_2019_Period |
-      | Ass_OP_NS_2 | Validate alpha numeric      | txt_PeriodFeb | Automation User 54 | A12  | B465 | C465 | D234 | E234 | F123 | G123 | H123 | txt_2019_Period |
+      | Ass_OP_NS_1 | Validate special chatracter | txt_PeriodFeb | Regression MarchMons| @!@$ | @!@$ | @!@$ | @!@$ | @!@$ | @!@$ | @!@$ | @!@$ | txt_2019_Period |
+      | Ass_OP_NS_2 | Validate alpha numeric      | txt_PeriodFeb | Regression MarchMons| A12  | B465 | C465 | D234 | E234 | F123 | G123 | H123 | txt_2019_Period |

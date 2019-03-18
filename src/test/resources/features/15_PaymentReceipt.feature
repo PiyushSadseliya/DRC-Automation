@@ -11,7 +11,7 @@ Feature: Payment Receipt
 
     Examples: 
       | Test Case ID              | Description                                                                                                        | uname                           | password | bankname    | name              | Nitva             | emailid                         | mobileno   | add                                           | period1 | vat1       | int1 | pen1 | ltfee1 | tamount1 | twords        | mpay             | month |
-      | DRC_ATC_PaymentReceipt_01 | Validate the functionality of View button located on the statement of transaction section of e-filing landing page | regressiontwotwo@mailinator.com | Test@123 | Advans Bank | Regression User 4 | 20181215035842812 | regressiontwotwo@mailinator.com | 1234567890 | Dharamdas ChamberNear Axis Bank,444604, Aketi |         | 107.590,00 |    0 |    0 |      0 |   107.590,00 | One Hunderd seven Thousand Five Hunderd Ninety- Franc Congolais Only | Over the counter | June  |
+      | DRC_ATC_PaymentReceipt_01 | Validate the functionality of View button located on the statement of transaction section of e-filing landing page | regressiontwotwo@mailinator.com | Test@123 | Advans Bank | DecMon | 20181215035842812 | regressiontwotwo@mailinator.com | 1234567890 | Dharamdas ChamberNear Axis Bank,444604, Aketi |         | 107.590,00 |    0 |    0 |      0 |   107.590,00 | One Hunderd seven Thousand Five Hunderd Ninety- Franc Congolais Only | Over the counter | June  |
 
       
         # @tag2
