@@ -66,8 +66,9 @@ import static org.drc.vat.appmanager.HelperBase.softAssert;
 				//"classpath:features/42_AccountAdjustmentStmtofTransac.feature"
 				
 				
-				"classpath:features/51EFDManufacture.feature",
-				"classpath:features/52EFDVendor.feature"
+				//"classpath:features/51EFDManufacture.feature",
+				//"classpath:features/52EFDVendor.feature"
+		"classpath:features/SelectExample.feature"
 				
 				
 			

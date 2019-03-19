@@ -45,12 +45,15 @@ Feature: User is on Reconciliation Page
       | UnReconciliation_01 | Filter by, search and Download functionality | 2019-02-25 |        | No records found |
 
 
-  @TC_10_13
-  Scenario Outline: Validate that the tax officer should not perform Update operation on error record with invalid data(DOC No and NITVA).
+  @TC_10_13_08
+  Scenario Outline: Validate that the tax officer should not perform Update operation on error record with invalid data(DOC No and NITVA) and e-Filing payment record given by bank on Unreconciled button.
     Given User is on Reconciliation "<TestcaseID>" "<Description>"
     And User click on Dashboard
     And User click on Accounts
     #And User click on Date and select "<Date>"
+    
+    And User see the status is Error
+    
     When User click on Unreconciled Tile
     And User click on Edit pencil 
     And User click on Update button and see mess "<mess>"    
@@ -78,8 +81,8 @@ Feature: User is on Reconciliation Page
       | UnReconciliation_01 | Calculation Unreconciled | 2019-02-25 |        | No records found |NITVA is required|01230  |Doc No. and NITVA mismatch|@!@@%&^*	 |@!@@%&^*|
 
 
- @TC_09
-  Scenario Outline: Validate that the tax officer resolve error record with valid data(DOC No/NITVA) and functionality of check box 
+ @TC_09_12
+  Scenario Outline: Validate that the tax officer resolve error record with valid data(DOC No/NITVA) and functionality of check box and error records should be converted to reconcile
     Given User is on Reconciliation "<TestcaseID>" "<Description>"
     And User click on Dashboard
     And User click on Accounts
