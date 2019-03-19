@@ -11,30 +11,10 @@ Feature: User Registration for the steps involved in creating a user account for
     Examples: 
 
       | Test Case ID                  | Description              | username               |
-<<<<<<< HEAD
       | DRC_ATC_Valid_Registration_04 | Register with valid data |  Regression Marchde  |
      #| DRC_ATC_Valid_Registration_04 | Register with valid data | Regression MarchMone |
     # | DRC_ATC_Valid_Registration_04 | Register with valid data | Regression MarchLone |
 
-      
-=======
-      | DRC_ATC_Valid_Registration_04 | Register with valid data | Automation Seventyone   |
-      | DRC_ATC_Valid_Registration_04 | Register with valid data | Automation Seventytwo   |
-      | DRC_ATC_Valid_Registration_04 | Register with valid data | Automation Seventythree |
-      | DRC_ATC_Valid_Registration_04 | Register with valid data | Automation Seventyfour  |
-      | DRC_ATC_Valid_Registration_04 | Register with valid data | Automation Seventyfive  |
-      | DRC_ATC_Valid_Registration_04 | Register with valid data | Automation Seventysix   |
-      | DRC_ATC_Valid_Registration_04 | Register with valid data | Automation Seventyseven  |
-      | DRC_ATC_Valid_Registration_04 | Register with valid data | Automation Seventyeight  |
-      | DRC_ATC_Valid_Registration_04 | Register with valid data | Automation Seventynine   |
-      | DRC_ATC_Valid_Registration_04 | Register with valid data | Automation Eighty |
-      | DRC_ATC_Valid_Registration_04 | Register with valid data | Automation Eightyone |
-      | DRC_ATC_Valid_Registration_04 | Register with valid data | Automation Eightytwo |
-      | DRC_ATC_Valid_Registration_04 | Register with valid data | Automation Eightythree |
-      | DRC_ATC_Valid_Registration_04 | Register with valid data | Automation Eightyfour |
-      | DRC_ATC_Valid_Registration_04 | Register with valid data | Automation Eightyfive |
-
->>>>>>> 328469f7bb9ed611df1a391402f01548a7c6865f
 
   @Invalid_Registration @mtc3 @mtc4 @mtc5 @mtc6 @mtc8 @mtc9 @Sprint3
   Scenario Outline: User Should not be allowed to Register in DRC TAX Portal with InValid details.
