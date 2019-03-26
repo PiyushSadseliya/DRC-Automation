@@ -1,15 +1,15 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="SmokeSuit" verbose="1">
-	<listeners>
-		<listener class-name="com.cucumber.listener.Reporter" />
-		<listener class-name="com.vimalselvam.testng.listener.ExtentTestNgFormatter" />
-		<listener class-name="com.aventstack.extentreports.ExtentReporter" />
-	</listeners>
-	<parameter name="report.config" value="src/test/resources/extent-config.xml" />
-	<test name="Test">
-		<classes>
-			<class name="org.drc.vat.StepDefinitions.TestRunner" />
-		</classes>
-	</test>
+<suite name="Suite1" verbose="1" >
+    <listeners>
+        <listener class-name="com.cucumber.listener.Reporter" />
+        <listener class-name="com.vimalselvam.testng.listener.ExtentTestNgFormatter" />
+        <listener class-name="com.aventstack.extentreports.ExtentReporter" />
+    </listeners>
+    <parameter name="report.config" value="src/test/resources/extent-config.xml" />
+    <test name="Test">
+        <classes>
+            <class name="org.drc.vat.StepDefinitions.TestRunner" />
+        </classes>
+    </test>
 </suite>

@@ -4,7 +4,7 @@
         <theme>standard</theme>
         <encoding>UTF-8</encoding>
         <protocol>https</protocol>
-        <documentTitle>DRC</documentTitle>
+        <documentTitle>DRC-Demo</documentTitle>
         <reportName>
             <image id="image-zoom">
                 <![CDATA[
@@ -12,7 +12,7 @@
             ]]>
             </image>
         </reportName>
-        <reportHeadline>DRC</reportHeadline>
+        <reportHeadline>DRC-Demo</reportHeadline>
         <dateFormat>yyyy-MM-dd</dateFormat>
         <timeFormat>HH:mm:ss</timeFormat>
 

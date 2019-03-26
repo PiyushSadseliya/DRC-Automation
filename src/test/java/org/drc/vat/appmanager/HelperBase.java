@@ -1,5 +1,9 @@
 package org.drc.vat.appmanager;
 
+import static org.drc.vat.appmanager.HelperBase.*;
+import static org.drc.vat.appmanager.ApplicationManager.*;
+import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.Toolkit;
@@ -10,10 +14,17 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.text.NumberFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
+import java.util.Locale;
 import java.util.Objects;
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
+import org.apache.log4j.xml.DOMConfigurator;
 import javax.xml.bind.DatatypeConverter;
 
 import org.openqa.selenium.By;
@@ -30,8 +41,11 @@ public class HelperBase {
 	public static Properties obj = new Properties();
 	private static Properties properties;
 	private static FileInputStream fis;
+	public static String cwd = System.getProperty("user.dir");
+	public static String filedoc = cwd + "\\src\\test\\resources\\";
 	private static File dir = new File(System.getProperty("user.home") + "/Downloads");
 	public static boolean flag = false;
+	public static SimpleDateFormat minutespattern = new SimpleDateFormat("mm");
 
 	HelperBase(WebDriver wd) {
 		HelperBase.wd = wd;
@@ -46,17 +60,12 @@ public class HelperBase {
 	}
 
 	public static void waitFor(String object) {
-		WebDriverWait wait = new WebDriverWait(wd, 60);
+		WebDriverWait wait = new WebDriverWait(wd, 120);
 		By locator = By.xpath(obj.getProperty(object));
 		wait.until(ExpectedConditions.elementToBeClickable(locator));
 	}
 
-	public static void sleepWait(long wait) throws InterruptedException {
-		Thread.sleep(wait);
-	}
-
 	public static void clickOn(String object, String data) throws InterruptedException {
-		//
 		try {
 			obj.load(fis);
 		} catch (IOException e) {
@@ -66,6 +75,10 @@ public class HelperBase {
 		wd.findElement(By.xpath(obj.getProperty(object) + data)).click();
 	}
 
+	public static void sleepWait(long wait) throws InterruptedException {
+		Thread.sleep(wait);
+	}
+
 	public static String getValue(String object) throws InterruptedException {
 		try {
 			obj.load(fis);
@@ -73,7 +86,6 @@ public class HelperBase {
 			e.printStackTrace();
 		}
 		By locator = By.xpath(obj.getProperty(object));
-		// String text;
 		return wd.findElement(locator).getAttribute("value");
 
 	}
@@ -97,7 +109,7 @@ public class HelperBase {
 
 	public static String toastMessage() {
 		waitFor("toast_message");
-		return text(By.xpath("(//*[contains(@class,'toast-content')])[last()]"));
+		return text(By.xpath("(//*[contains(@class,'toast-top-right toast-container')])[last()]"));
 	}
 
 	public static void saveFile() throws AWTException {
@@ -142,7 +154,7 @@ public class HelperBase {
 	}
 
 	public static void logout() throws Exception {
-		WebDriverWait wait = new WebDriverWait(wd, 60);
+		WebDriverWait wait = new WebDriverWait(wd, 10);
 		wait.until(ExpectedConditions
 				.invisibilityOfElementLocated(By.xpath("(//*[contains(@class,'toast-content')])[last()]")));
 		clickOn("span", "[@class='fa fa-power-off']");
@@ -169,12 +181,15 @@ public class HelperBase {
 			} else {
 				if (bodyMessage.toLowerCase().contains(expectedMessage.toLowerCase())) {
 					flag = true;
+
 				} else {
 					flag = false;
+
 				}
 			}
 
 		} catch (Exception e) {
+
 			System.out.println("Body message not verified successfully " + e);
 		}
 	}
@@ -186,8 +201,9 @@ public class HelperBase {
 			;
 			m = date.substring(5, 7);
 			y = date.substring(0, 4);
-			clickOn("span", "[contains(text(),'2018')]");
-			clickOn("span", "[contains(text(),'" + y + "')]");
+			clickOn("span", "[contains(text(),'2019')]");
+			clickOn("tabletd", "//span[contains(text(),'" + y + "')]");
+
 			if (m.equals("01")) {
 				clickOn("span", "[contains(text(),'January')]");
 			} else if (m.equals("02")) {
@@ -231,22 +247,48 @@ public class HelperBase {
 	}
 
 	public static String validationMessage(String messages) {
+
 		String body_Message = wd.findElement(By.tagName("body")).getText();
 		if (body_Message.contains(messages.toLowerCase())) {
 			System.out.println("Message Validated");
 		}
+
 		return text(By.xpath("//*[@class='text-danger position-absolute error-msg']"));
 
 	}
 
-	public static String elementText(String object) {
+	public static String getvalue(String object, String data) {
 		try {
 			obj.load(fis);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		By locator = By.xpath(obj.getProperty(object));
-		// String text;
+
+		By locator = By.xpath(obj.getProperty(object) + data);
+
+		return wd.findElement(locator).getAttribute("value");
+
+	}
+	public static String elementText(String object) {
+	   	 try {
+	   		Add_Log.info("Selecting text in Web element "+ object);
+	         obj.load(fis);
+	     } catch (IOException e) {
+	    	 Add_Log.error("Not able to enter --- " + e.getMessage());
+	         e.printStackTrace();
+	     }
+	    By locator = By.xpath(obj.getProperty(object));
+	   // String text;
+	    return wd.findElement(locator).getText();
+	    }
+
+	public static String elementText(String object, String data) {
+		try {
+			obj.load(fis);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		By locator = By.xpath(obj.getProperty(object) + data);
 		return wd.findElement(locator).getText();
 	}
 
@@ -260,13 +302,16 @@ public class HelperBase {
 		try {
 
 			bodyMessage = wd.findElement(By.tagName("body")).getText();
+
 			Thread.sleep(2000);
 			if (bodyMessage.equals(null) || bodyMessage.equals("")) {
 				System.out.println("Fail");
 			} else {
 				if (bodyMessage.toLowerCase().contains(expectedMessage.toLowerCase())) {
+
 					System.out.println("Validation message verified successfully " + expectedMessage);
 				} else {
+
 					System.out.println("Validation message  not verified successfully " + expectedMessage);
 				}
 			}
@@ -331,7 +376,8 @@ public class HelperBase {
 	public static void UploadImage(String object, String data) throws Exception {
 		try {
 
-			StringSelection stringSelection_filepath = new StringSelection(data);
+			
+			StringSelection stringSelection_filepath = new StringSelection(filedoc + data);
 			Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection_filepath, null);
 			Thread.sleep(500);
 			Robot robot = new Robot();
@@ -359,4 +405,99 @@ public class HelperBase {
 		}
 	}
 
+	public static String pageSource() {
+		return wd.getPageSource();
+	}
+
+	public static void waitUntilElementFound(String object, String data) {
+		try {
+			obj.load(fis);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		By locator = By.xpath(obj.getProperty(object) + data);
+		WebDriverWait wait = new WebDriverWait(wd, 10);
+
+		wait.until(ExpectedConditions.elementToBeClickable(locator));
+	}
+
+	public static String frenchToIndian(String text) {
+
+		return text.replace(".", "").replace(",", ".");
+
+	}
+
+	public static double frenchtoDouble(String text) {
+		return Double.parseDouble(frenchToIndian(text));
+	}
+
+	public static String tofrench(Double d) {
+		NumberFormat nf = NumberFormat.getNumberInstance(Locale.ITALY);
+
+		return nf.format(d);
+	}
+
+	public static String appendfrenchsys(String frenchNo) {
+		String frenchnum;
+		if (!frenchNo.contains(",")) {
+			frenchNo = frenchNo + ",00";
+		}
+		return frenchNo;
+	}
+	public static boolean buttonEnabled(String object, String data) {
+		try {
+			obj.load(fis);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		By locator = By.xpath(obj.getProperty(object) + data);
+		return wd.findElement(locator).isEnabled();
+	}
+	public static File getLatestFilefromDir() {
+
+		File[] files = dir.listFiles();
+		// System.out.println(files.length);
+		if (files == null || files.length == 0) {
+			return null;
+		}
+
+		File lastModifiedFile = files[0];
+		for (int i = 1; i < files.length; i++) {
+			if (lastModifiedFile.lastModified() < files[i].lastModified()) {
+				lastModifiedFile = files[i];
+				System.out.println(lastModifiedFile.getName());
+			}
+		}
+		return lastModifiedFile;
+	}
+	public static boolean isValidDate(String dateMatch) 
+	{
+		boolean validDate = true;			
+		try
+		{
+			org.joda.time.format.DateTimeFormatter formatter = DateTimeFormat.forPattern("dd-MMM-yyyy");
+			DateTime dob = formatter.parseDateTime(dateMatch);		
+		}
+		catch(Exception e)
+		{
+			validDate = false;
+		}		
+		return validDate; 
+
+	}
+	public static long countDays(String dFormat, String Date1, String Date2) {
+		long diff = 0;
+		SimpleDateFormat myFormat = new SimpleDateFormat(dFormat);
+
+		try {
+			Date date1 = myFormat.parse(Date1);
+			Date date2 = myFormat.parse(Date2);
+			diff = date2.getTime() - date1.getTime();
+			//System.out.println("Days: " + TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS));
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		return TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
+
+	}
 }
