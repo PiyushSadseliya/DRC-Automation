@@ -113,7 +113,7 @@ public class VatRegistration {
 				+ "BEGIN                                                                  "
 				+ "Set @emailvalue = (select ID from  [1AuthoritySTS].[dbo].[AspNetUsers] "
 				+ "where Email = CONCAT('ATUSER',@a,'@mt2015.com'))               "
-				+ "insert into [DRC-QA].[Ref].[RegisteredUsers] values                             "
+				+ "insert into [DRC-Demo].[Ref].[RegisteredUsers] values                             "
 				+ "  (@emailvalue                                                          "
 				+ "  ,1                                                                   "
 				+ "  ,Concat ('atuser',@a)                                               "

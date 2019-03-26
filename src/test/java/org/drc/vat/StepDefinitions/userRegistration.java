@@ -78,9 +78,9 @@ public class userRegistration {
 
 		ConnectDatabase CD = new ConnectDatabase();
 		CD.opendb();
-		String user = // "DECLARE @a int = (select count(*)+1 from [1AuthoritySTS].dbo.aspnetusers
+		String user = // "DECLARE @a int = (select count(*)+1 from [1AuthoritySTS-Demo].dbo.aspnetusers
 				// where email like 'AutomationUser%')"
-				"INSERT INTO [1AuthoritySTS].[dbo].[AspNetUsers]            "
+				"INSERT INTO [1AuthoritySTS-Demo].[dbo].[AspNetUsers]            "
 				+ "         (Id,                                                "
 				+ "         [AccessFailedCount]                                 "
 				+ "         ,[ConcurrencyStamp]                                 "
@@ -136,13 +136,13 @@ public class userRegistration {
 		ConnectDatabase CD = new ConnectDatabase();
 		CD.opendb();
 
-		String Reguser = // "DECLARE @a int = (select count(*) from [1AuthoritySTS].dbo.aspnetusers where
+		String Reguser = // "DECLARE @a int = (select count(*) from [1AuthoritySTS-Demo].dbo.aspnetusers where
 				// email like 'AutomationUser%')"
 				// +
 				"declare  @emailvalue Nvarchar(500) "
-				+ "Set @emailvalue = (select ID from  [1AuthoritySTS].[dbo].[AspNetUsers] "
+				+ "Set @emailvalue = (select ID from  [1AuthoritySTS-Demo].[dbo].[AspNetUsers] "
 				+ "where Email = CONCAT('" + EmailUsername + "','@mt2015.com'))               "
-				+ "insert into [DRC-QA].[Ref].[RegisteredUsers] values                             "
+				+ "insert into [DRC-Demo].[Ref].[RegisteredUsers] values                             "
 				+ "  (@emailvalue                                                          "
 				+ "  ,'en'                                                                   " + "  ,'" + Username
 				+ "'" + "  ,CONCAT('" + EmailUsername + "','@mt2015.com')                              "				
@@ -164,12 +164,12 @@ public class userRegistration {
 		ConnectDatabase CD = new ConnectDatabase();
 		CD.opendb();
 
-		String roles = // "declare @i int = (select count(*) from [1AuthoritySTS].dbo.aspnetusers where
+		String roles = // "declare @i int = (select count(*) from [1AuthoritySTS-Demo].dbo.aspnetusers where
 				// email like 'dfdj%')"
 				" declare  @emailvalue Nvarchar(500)"
-				+ " set @emailvalue = (select ID from  [1AuthoritySTS].[dbo].[AspNetUsers] "
+				+ " set @emailvalue = (select ID from  [1AuthoritySTS-Demo].[dbo].[AspNetUsers] "
 				+ " where Email = CONCAT('" + EmailUsername + "','@mt2015.com'))"
-				+ " insert into [1AuthoritySTS].[dbo].[AspNetUserRoles] ([UserId],[RoleId]) VALUES  (@emailvalue,'B828372F-B0AD-40DF-B8BB-5C6E11A8682E')";
+				+ " insert into [1AuthoritySTS-Demo].[dbo].[AspNetUserRoles] ([UserId],[RoleId]) VALUES  (@emailvalue,'B828372F-B0AD-40DF-B8BB-5C6E11A8682E')";
 
 		// System.out.println("test");
 		CD.sta.executeUpdate(roles);
