@@ -1,0 +1,781 @@
+2019-03-20 11:50:29,815 INFO  [TestRunner] Start scenario: Validate functionality of VAT Registration Dashboard - tax payer portal 
+2019-03-20 11:50:30,011 INFO  [rootLogger] Successfully executed step:  user_is_on_VAT_Registration_Dashboard 
+2019-03-20 11:50:30,357 INFO  [rootLogger] Successfully executed step:  establish_a_connection_with_data_base_and_execute_query_to_create_user 
+2019-03-20 11:50:30,446 INFO  [rootLogger] Successfully executed step update_data_in_another_table_based_on_created_user 
+2019-03-20 11:50:30,539 INFO  [rootLogger] Successfully executed step update_data_in_roles_table 
+2019-03-20 11:50:38,978 INFO  [rootLogger] Successfully executed step login_with_created_username_and_password 
+2019-03-20 11:50:55,382 INFO  [rootLogger] Successfully executed step user_clicks_on_VAT_Getting_Started_Guide_CheckBox 
+2019-03-20 11:50:59,561 INFO  [rootLogger] Successfully executed step clicks_on_Register_for_Vat_button 
+2019-03-20 11:51:06,849 INFO  [rootLogger] Successfully executed step clicks_on_Continue_button_of_Instructions_Page 
+2019-03-20 11:51:14,441 INFO  [rootLogger] Successfully executed step selects_Taxpayer_Category_SubCategory 
+2019-03-20 11:51:20,821 INFO  [rootLogger] Successfully executed step enters_NIF_number_Full_Name_Of_Business_Number_of_COI_Last_Year_Revenue 
+2019-03-20 11:51:40,511 INFO  [rootLogger] Successfully executed step enters_NIF_Registration_Date_Date_of_Incorporation_Type_Of_Business 
+2019-03-20 11:51:48,455 INFO  [rootLogger] Successfully executed step enters_Business_Start_Date_Company_Size_Last_Year_Revenue 
+2019-03-20 11:51:59,299 INFO  [rootLogger] Successfully executed step enters_Address_Details 
+2019-03-20 11:52:13,490 INFO  [rootLogger] Successfully executed step enters_Business_details 
+2019-03-20 11:52:21,710 INFO  [rootLogger] Successfully executed step select_Authorization_signature_with_Job_Title_Full_Name_Email_Mobile_Number 
+2019-03-20 11:52:22,858 INFO  [rootLogger] Successfully executed step clicks_on_VAT_Registration_Page_Continue_Button 
+2019-03-20 11:52:27,631 INFO  [rootLogger] Successfully executed step enters_Bank_Details_with_Account_Number_Account_Holder_Name_Bank_Name_Branch 
+2019-03-20 11:52:28,791 INFO  [rootLogger] Successfully executed step clicks_on_Bank_details_Continue_Button 
+2019-03-20 11:52:41,367 INFO  [rootLogger] Successfully executed step select_Address_Proof_of_Registered_Place_of_Business_for 
+2019-03-20 11:52:53,857 INFO  [rootLogger] Successfully executed step select_Bank_Account_Proof_for 
+2019-03-20 11:53:06,286 INFO  [rootLogger] Successfully executed step select_Certificate_of_Incorporation_for 
+2019-03-20 11:53:18,688 INFO  [rootLogger] Successfully executed step select_Law_or_Degree_of_Establishment_for 
+2019-03-20 11:53:31,160 INFO  [rootLogger] Successfully executed step select_Letter_of_Authorization_Board_Resolution_for_Authorized_Signatory_Download_Template_for 
+2019-03-20 11:53:43,637 INFO  [rootLogger] Successfully executed step select_Proof_of_Last_Year_Revenue_for 
+2019-03-20 11:53:47,987 INFO  [rootLogger] Successfully executed step clicks_on_document_required_Continue_Button 
+2019-03-20 11:54:06,400 INFO  [rootLogger] Successfully executed step clicks_on_Acknowledgement_checkbox_and_continue_button 
+2019-03-20 11:54:10,592 INFO  [rootLogger] Successfully executed step click_on_Ok_button_on_alert_page 
+2019-03-20 11:54:10,638 INFO  [rootLogger] Successfully executed step successfull_display_on_given_page 
+2019-03-20 11:54:11,390 INFO  [TestRunner] Stop scenario: Validate functionality of VAT Registration Dashboard - tax payer portal 
+2019-03-20 11:54:52,552 INFO  [TestRunner] Start scenario: Validate  functionality of Manage Vat Registartion - Internal Portal 
+2019-03-20 11:54:56,668 INFO  [rootLogger] Successfully executed step user_login_in_Internal_portal 
+2019-03-20 11:55:00,811 INFO  [rootLogger] Successfully executed step click_on_Manage_Vat_Registartion 
+2019-03-20 11:55:09,629 INFO  [rootLogger] Successfully executed step select_option_and 
+2019-03-20 11:55:22,885 INFO  [rootLogger] Successfully executed step clicks_on_manage_button_and_select 
+2019-03-20 11:55:41,146 INFO  [rootLogger] Successfully executed step redirect_to_confirmation_page_and_click_on 
+2019-03-20 11:55:45,304 INFO  [rootLogger] Successfully executed step clicks_on_Close_Button 
+2019-03-20 11:55:46,158 INFO  [TestRunner] Stop scenario: Validate  functionality of Manage Vat Registartion - Internal Portal 
+2019-03-20 11:56:02,982 INFO  [TestRunner] Start scenario: Validate functionality of E-filling - Tax Payer Portal 
+2019-03-20 11:56:25,750 INFO  [rootLogger] Successfully executed step user_is_on_Tax_Payer_Portal 
+2019-03-20 11:56:25,894 INFO  [rootLogger] Successfully executed step connect_database_and_execute_query_and_run_successfully 
+2019-03-20 11:56:31,116 INFO  [rootLogger] Successfully executed step clicks_on_Vat_E_filling_option_on_left_panel 
+2019-03-20 11:58:05,929 INFO  [rootLogger] Successfully executed step clicks_on_e_filing_to_fill_data 
+2019-03-20 11:58:07,986 INFO  [rootLogger] Successfully executed step enter_data_in_Operation_Performed 
+2019-03-20 11:58:09,541 INFO  [rootLogger] Successfully executed step enter_data_in_Deduction 
+2019-03-20 11:58:13,563 INFO  [rootLogger] Successfully executed step calculate_tax_calculations_and_enter 
+2019-03-20 11:58:24,936 INFO  [rootLogger] Successfully executed step upload_Efile_schedule 
+2019-03-20 11:58:34,383 INFO  [rootLogger] Successfully executed step check_for_Confirmation_and_choose_authorized_signatory 
+2019-03-20 11:58:39,493 INFO  [rootLogger] Successfully executed step clicks_on_submit_button_on_E_filling_page 
+2019-03-20 12:00:10,658 INFO  [TestRunner] Stop scenario: Validate functionality of E-filling - Tax Payer Portal 
+2019-03-20 12:01:44,574 INFO  [TestRunner] Start scenario: Validate functionality of FX management admin role - Internal portal 
+2019-03-20 12:01:45,641 INFO  [rootLogger] Successfully executed step user_Login_with_Admin_s_credentials 
+2019-03-20 12:01:50,735 INFO  [rootLogger] Selecting text in Web element txt_BaseCurrency_1 
+2019-03-20 12:01:50,797 INFO  [rootLogger] Selecting text in Web element txt_BaseCurrency_Name 
+2019-03-20 12:01:50,831 INFO  [rootLogger] Successfully executed step click_on_Fx_management_tab_and_check_for_the_base_currency 
+2019-03-20 12:01:55,976 INFO  [rootLogger] Selecting text in Web element txt_Currencyrate 
+2019-03-20 12:01:56,055 INFO  [rootLogger] Selecting text in Web element txt_Currencyname 
+2019-03-20 12:01:56,086 INFO  [rootLogger] Successfully executed step click_on_Historical_data_and_check_for_the_base_currency 
+2019-03-20 12:01:59,235 INFO  [rootLogger] Successfully executed step click_on_previous_button 
+2019-03-20 12:02:02,448 INFO  [rootLogger] Successfully executed step click_on_Update_button_and_check_for_the_base_currency 
+2019-03-20 12:02:08,603 INFO  [rootLogger] Successfully executed step update_the_and_click_on_save_button 
+2019-03-20 12:02:09,151 INFO  [rootLogger] Successfully executed step successfull_display_on_given_page 
+2019-03-20 12:02:10,007 INFO  [TestRunner] Stop scenario: Validate functionality of FX management admin role - Internal portal 
+2019-03-20 12:02:47,109 INFO  [TestRunner] Start scenario: Validate functionality of FX management admin role - Internal portal 
+2019-03-20 12:02:48,223 INFO  [rootLogger] Successfully executed step user_Login_with_Admin_s_credentials 
+2019-03-20 12:02:51,304 INFO  [rootLogger] Successfully executed step click_on_Fx_management_tab 
+2019-03-20 12:03:11,143 INFO  [rootLogger] Successfully executed step select_from_the_drop_down 
+2019-03-20 12:03:11,513 INFO  [rootLogger] Successfully executed step successfull_display_on_given_page 
+2019-03-20 12:03:12,308 INFO  [TestRunner] Stop scenario: Validate functionality of FX management admin role - Internal portal 
+2019-03-20 12:03:49,031 INFO  [TestRunner] Start scenario: Validate functionality of FX management admin role - Internal portal 
+2019-03-20 12:03:50,136 INFO  [rootLogger] Successfully executed step user_Login_with_Admin_s_credentials 
+2019-03-20 12:03:53,272 INFO  [rootLogger] Successfully executed step click_on_Fx_management_tab 
+2019-03-20 12:04:12,858 INFO  [rootLogger] Successfully executed step select_from_the_drop_down 
+2019-03-20 12:04:13,223 INFO  [rootLogger] Successfully executed step successfull_display_on_given_page 
+2019-03-20 12:04:13,983 INFO  [TestRunner] Stop scenario: Validate functionality of FX management admin role - Internal portal 
+2019-03-20 12:04:55,013 INFO  [TestRunner] Start scenario: Validate functionality of FX- management with supervisor role - Internal portal 
+2019-03-20 12:04:56,104 INFO  [rootLogger] Successfully executed step user_Login_with_Admin_s_credentials 
+2019-03-20 12:04:59,187 INFO  [rootLogger] Successfully executed step click_on_Fx_management_tab 
+2019-03-20 12:05:02,305 INFO  [rootLogger] Successfully executed step select_for_confirmation 
+2019-03-20 12:05:03,109 INFO  [rootLogger] Successfully executed step successfull_display_on_given_page 
+2019-03-20 12:05:03,927 INFO  [TestRunner] Stop scenario: Validate functionality of FX- management with supervisor role - Internal portal 
+2019-03-20 12:05:42,347 INFO  [TestRunner] Start scenario: Validate functionality of Assessment - Internal Portal 
+2019-03-20 12:07:46,467 INFO  [rootLogger] Successfully executed step user_login_with_tax_offcer_s_credentials 
+2019-03-20 12:07:59,727 INFO  [rootLogger] Successfully executed step click_on_option 
+2019-03-20 12:08:13,248 INFO  [rootLogger] Successfully executed step tax_officer_search_for_the_records_using 
+2019-03-20 12:09:42,499 INFO  [TestRunner] Stop scenario: Validate functionality of Assessment - Internal Portal 
+2019-03-20 12:11:36,524 INFO  [TestRunner] Start scenario: Validate functionality of Assessment - Internal Portal 
+2019-03-20 12:13:40,631 INFO  [rootLogger] Successfully executed step user_login_with_tax_offcer_s_credentials 
+2019-03-20 12:13:53,881 INFO  [rootLogger] Successfully executed step click_on_option 
+2019-03-20 12:14:07,474 INFO  [rootLogger] Successfully executed step tax_officer_search_for_the_records_using 
+2019-03-20 12:15:37,029 INFO  [TestRunner] Stop scenario: Validate functionality of Assessment - Internal Portal 
+2019-03-20 12:16:06,721 INFO  [TestRunner] Start scenario: Validate functionality of Objection & Appeal Module - Tax Payer Portal 
+2019-03-20 12:16:15,416 INFO  [rootLogger] Successfully executed step user_login_with_Tax_payers_credentials 
+2019-03-20 12:16:40,723 INFO  [rootLogger] Successfully executed step clicks_on_e_filling_tab 
+2019-03-20 12:16:50,900 INFO  [rootLogger] Successfully executed step clicks_on_assessment_icon_view_button 
+2019-03-20 12:18:12,721 INFO  [TestRunner] Stop scenario: Validate functionality of Objection & Appeal Module - Tax Payer Portal 
+2019-03-20 12:20:46,860 INFO  [TestRunner] Start scenario: Validate functionality of Objection & Appeal Module - Internal Portal 
+2019-03-20 12:20:50,953 INFO  [rootLogger] Successfully executed step clicks_on_case_management_tab 
+2019-03-20 12:21:08,864 INFO  [rootLogger] Successfully executed step apply_filter_option_and_click_on_search 
+2019-03-20 12:22:33,620 INFO  [TestRunner] Stop scenario: Validate functionality of Objection & Appeal Module - Internal Portal 
+2019-03-20 12:23:20,967 INFO  [TestRunner] Start scenario: Validate functionality of assign officer Debt Management 
+2019-03-20 12:23:20,973 INFO  [rootLogger] Successfully executed step dgi_should_be_logged_in_to_the_internal_portal 
+2019-03-20 12:23:44,927 INFO  [rootLogger] Successfully executed step select_Up_to_date 
+2019-03-20 12:23:49,085 INFO  [rootLogger] Successfully executed step click_on_zero_to_three_months_Pending_amount_Link 
+2019-03-20 12:24:12,090 INFO  [rootLogger] Failed step search_by_nitva_number_and_assigns_to_officer_and_is_on_Case_Management 
+2019-03-20 12:24:12,090 ERROR [rootLogger] Not able to execute  --- unknown error: Element <label _ngcontent-c17="" for="exampleCheck0"></label> is not clickable at point (321, 369). Other element would receive the click: <div _ngcontent-c0="" class="loader d-flex align-items-center justify-content-center ng-star-inserted">...</div>
+  (Session info: chrome=72.0.3626.121)
+  (Driver info: chromedriver=2.38.552522 (437e6fbedfa8762dec75e2c5b3ddb86763dc9dcb),platform=Windows NT 10.0.17134 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+Build info: version: '3.11.0', revision: 'e59cfb3', time: '2018-03-11T20:26:55.152Z'
+System info: host: 'LP101', ip: '172.16.2.183', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_191'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.38.552522 (437e6fbedfa876..., userDataDir: C:\Users\NIRMAL~1.PAT\AppDa...}, cssSelectorsEnabled: true, databaseEnabled: false, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 72.0.3626.121, webStorageEnabled: true}
+Session ID: 6913b83172367c7e8d37719ef59966f0 
+2019-03-20 12:24:12,843 INFO  [TestRunner] Stop scenario: Validate functionality of assign officer Debt Management 
+2019-03-20 12:24:30,465 INFO  [TestRunner] Start scenario: Validate functionality of EFD module - manufactorer portal 
+2019-03-20 12:24:38,663 INFO  [rootLogger] Successfully executed step user_Login_with_Manufacturer_credentials 
+2019-03-20 12:24:57,355 INFO  [rootLogger] Successfully executed step click_on_Vendor_registartion_tab 
+2019-03-20 12:25:01,595 INFO  [rootLogger] Successfully executed step click_on_Register_Vendor_Button 
+2019-03-20 12:25:20,213 INFO  [rootLogger] Successfully executed step fill_the_Details_of_Vendor 
+2019-03-20 12:25:29,909 INFO  [rootLogger] Successfully executed step fill_the_Details_of_contact_person 
+2019-03-20 12:25:42,593 INFO  [rootLogger] Successfully executed step fill_Address_detals 
+2019-03-20 12:25:43,327 INFO  [TestRunner] Stop scenario: Validate functionality of EFD module - manufactorer portal 
+2019-03-20 12:25:59,930 INFO  [TestRunner] Start scenario: Validate functionality of Help-Desk Module - Tax Payer Portal 
+2019-03-20 12:26:08,011 INFO  [rootLogger] Successfully executed step user_login_with_Tax_payers_credentials 
+2019-03-20 12:28:08,280 INFO  [rootLogger] Successfully executed step fill_the_details 
+2019-03-20 12:28:14,448 INFO  [rootLogger] Successfully executed step clicks_on_submit_button_on_helpdesk 
+2019-03-20 12:28:15,355 INFO  [TestRunner] Stop scenario: Validate functionality of Help-Desk Module - Tax Payer Portal 
+2019-03-20 12:29:04,712 INFO  [TestRunner] Start scenario: Validate functionality of Help-Desk Module - Internal Portal 
+2019-03-20 12:29:08,819 INFO  [rootLogger] Successfully executed step user_login_in_Internal_portal 
+2019-03-20 12:29:12,969 INFO  [rootLogger] Selecting text in Web element label_referenceid 
+2019-03-20 12:30:33,835 INFO  [rootLogger] Failed step search_for_Registered_TicketId 
+2019-03-20 12:30:33,835 ERROR [rootLogger] Not able to execute  --- no such element: Unable to locate element: {"method":"xpath","selector":"//div[@class="issue-head-text"]/div"}
+  (Session info: chrome=72.0.3626.121)
+  (Driver info: chromedriver=2.38.552522 (437e6fbedfa8762dec75e2c5b3ddb86763dc9dcb),platform=Windows NT 10.0.17134 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.11.0', revision: 'e59cfb3', time: '2018-03-11T20:26:55.152Z'
+System info: host: 'LP101', ip: '172.16.2.183', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_191'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.38.552522 (437e6fbedfa876..., userDataDir: C:\Users\NIRMAL~1.PAT\AppDa...}, cssSelectorsEnabled: true, databaseEnabled: false, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 72.0.3626.121, webStorageEnabled: true}
+Session ID: ea2640764a6431aebba86c98be0d381f
+*** Element info: {Using=xpath, value=//div[@class="issue-head-text"]/div} 
+2019-03-20 12:31:58,768 INFO  [TestRunner] Stop scenario: Validate functionality of Help-Desk Module - Internal Portal 
+2019-03-20 12:32:41,808 INFO  [TestRunner] Start scenario: Validate functionality of Tax-Payer Profile - Internal Portal 
+2019-03-20 12:32:45,884 INFO  [rootLogger] Successfully executed step user_login_in_Internal_portal 
+2019-03-20 12:32:49,969 INFO  [rootLogger] Successfully executed step click_on_Tax_payer_profile_tab 
+2019-03-20 12:33:07,907 INFO  [rootLogger] Successfully executed step click_on_View_icon 
+2019-03-20 12:33:07,908 INFO  [rootLogger] Selecting text in Web element label_category 
+2019-03-20 12:33:07,966 INFO  [rootLogger] Selecting text in Web element label_lastyearrevenue 
+2019-03-20 12:33:08,000 INFO  [rootLogger] Selecting text in Web element label_taxoffice 
+2019-03-20 12:33:08,033 INFO  [rootLogger] Selecting text in Web element label_addressline1 
+2019-03-20 12:33:08,064 INFO  [rootLogger] Selecting text in Web element label_addressline2 
+2019-03-20 12:33:08,097 INFO  [rootLogger] Selecting text in Web element label_province 
+2019-03-20 12:33:08,126 INFO  [rootLogger] Selecting text in Web element label_city 
+2019-03-20 12:33:08,154 INFO  [rootLogger] Selecting text in Web element label_zipcode 
+2019-03-20 12:33:08,186 INFO  [rootLogger] Selecting text in Web element label_mobilenumber 
+2019-03-20 12:33:08,218 INFO  [rootLogger] Selecting text in Web element label_businessname 
+2019-03-20 12:33:08,253 INFO  [rootLogger] Selecting text in Web element label_baddressline1 
+2019-03-20 12:33:08,282 INFO  [rootLogger] Selecting text in Web element label_baddressline2 
+2019-03-20 12:33:08,314 INFO  [rootLogger] Selecting text in Web element label_bprovince 
+2019-03-20 12:33:08,340 INFO  [rootLogger] Selecting text in Web element label_bcity 
+2019-03-20 12:33:08,372 INFO  [rootLogger] Selecting text in Web element label_bmobilenumber 
+2019-03-20 12:33:08,396 INFO  [rootLogger] Selecting text in Web element label_email 
+2019-03-20 12:33:09,522 INFO  [rootLogger] Successfully executed step check_Data_for_General_details 
+2019-03-20 12:33:12,444 INFO  [TestRunner] Stop scenario: Validate functionality of Tax-Payer Profile - Internal Portal 
+2019-03-20 12:33:57,996 INFO  [TestRunner] Start scenario: Validate functionalioty of IT-support Admin module - Internal Portal 
+2019-03-20 12:34:02,108 INFO  [rootLogger] Successfully executed step user_login_in_Internal_portal 
+2019-03-20 12:34:11,257 INFO  [rootLogger] Successfully executed step click_on_IT_Support_tab 
+2019-03-20 12:34:17,657 INFO  [rootLogger] Successfully executed step click_on_icon_to_create_new_issue 
+2019-03-20 12:35:52,354 INFO  [rootLogger] Successfully executed step fill_the_details 
+2019-03-20 12:35:59,569 INFO  [rootLogger] Successfully executed step clicks_on_Save_Button 
+2019-03-20 12:35:59,625 INFO  [rootLogger] Successfully executed step successfull_display_on_given_page 
+2019-03-20 12:36:00,358 INFO  [TestRunner] Stop scenario: Validate functionalioty of IT-support Admin module - Internal Portal 
+2019-03-20 12:36:17,085 INFO  [TestRunner] Start scenario: Validate the IT support User's functionality - ituser 
+2019-03-20 12:36:30,883 INFO  [rootLogger] Successfully executed step user_should_enter_Username_and_Password 
+2019-03-20 12:36:39,881 INFO  [rootLogger] Successfully executed step user_clicks_on_Search_textbox_and_enters_the_text 
+2019-03-20 12:38:01,593 INFO  [TestRunner] Stop scenario: Validate the IT support User's functionality - ituser 
+2019-03-20 12:38:34,245 INFO  [TestRunner] Start scenario: Validate the IT support User's functionality - ituser 
+2019-03-20 12:38:51,867 INFO  [rootLogger] Successfully executed step user_should_enter_Username_and_Password 
+2019-03-20 12:39:08,085 INFO  [rootLogger] Successfully executed step user_clicks_on_Search_textbox_and_enters_the_text 
+2019-03-20 12:40:29,866 INFO  [TestRunner] Stop scenario: Validate the IT support User's functionality - ituser 
+2019-03-20 12:41:11,683 INFO  [TestRunner] Start scenario: Validate the IT support User's functionality - ituser 
+2019-03-20 12:42:03,521 INFO  [rootLogger] Successfully executed step user_should_enter_Username_and_Password 
+2019-03-20 12:42:29,356 INFO  [rootLogger] Successfully executed step user_clicks_on_Search_textbox_and_enters_the_text 
+2019-03-20 12:43:51,111 INFO  [TestRunner] Stop scenario: Validate the IT support User's functionality - ituser 
+2019-03-20 13:30:36,051 INFO  [TestRunner] Start scenario: Validate functionality of VAT Registration Dashboard - tax payer portal 
+2019-03-20 13:30:36,790 INFO  [rootLogger] Successfully executed step:  user_is_on_VAT_Registration_Dashboard 
+2019-03-20 13:30:38,695 INFO  [rootLogger] Successfully executed step:  establish_a_connection_with_data_base_and_execute_query_to_create_user 
+2019-03-20 13:30:38,794 INFO  [rootLogger] Successfully executed step update_data_in_another_table_based_on_created_user 
+2019-03-20 13:30:38,885 INFO  [rootLogger] Successfully executed step update_data_in_roles_table 
+2019-03-20 13:30:47,457 INFO  [rootLogger] Successfully executed step login_with_created_username_and_password 
+2019-03-20 13:31:03,843 INFO  [rootLogger] Successfully executed step user_clicks_on_VAT_Getting_Started_Guide_CheckBox 
+2019-03-20 13:31:08,045 INFO  [rootLogger] Successfully executed step clicks_on_Register_for_Vat_button 
+2019-03-20 13:31:15,331 INFO  [rootLogger] Successfully executed step clicks_on_Continue_button_of_Instructions_Page 
+2019-03-20 13:31:22,885 INFO  [rootLogger] Successfully executed step selects_Taxpayer_Category_SubCategory 
+2019-03-20 13:31:29,350 INFO  [rootLogger] Successfully executed step enters_NIF_number_Full_Name_Of_Business_Number_of_COI_Last_Year_Revenue 
+2019-03-20 13:31:48,840 INFO  [rootLogger] Successfully executed step enters_NIF_Registration_Date_Date_of_Incorporation_Type_Of_Business 
+2019-03-20 13:31:56,741 INFO  [rootLogger] Successfully executed step enters_Business_Start_Date_Company_Size_Last_Year_Revenue 
+2019-03-20 13:32:07,413 INFO  [rootLogger] Successfully executed step enters_Address_Details 
+2019-03-20 13:32:21,593 INFO  [rootLogger] Successfully executed step enters_Business_details 
+2019-03-20 13:32:29,887 INFO  [rootLogger] Successfully executed step select_Authorization_signature_with_Job_Title_Full_Name_Email_Mobile_Number 
+2019-03-20 13:32:31,038 INFO  [rootLogger] Successfully executed step clicks_on_VAT_Registration_Page_Continue_Button 
+2019-03-20 13:32:35,925 INFO  [rootLogger] Successfully executed step enters_Bank_Details_with_Account_Number_Account_Holder_Name_Bank_Name_Branch 
+2019-03-20 13:32:37,052 INFO  [rootLogger] Successfully executed step clicks_on_Bank_details_Continue_Button 
+2019-03-20 13:32:50,003 INFO  [rootLogger] Successfully executed step select_Address_Proof_of_Registered_Place_of_Business_for 
+2019-03-20 13:33:02,528 INFO  [rootLogger] Successfully executed step select_Bank_Account_Proof_for 
+2019-03-20 13:33:14,986 INFO  [rootLogger] Successfully executed step select_Certificate_of_Incorporation_for 
+2019-03-20 13:33:27,463 INFO  [rootLogger] Successfully executed step select_Law_or_Degree_of_Establishment_for 
+2019-03-20 13:33:39,946 INFO  [rootLogger] Successfully executed step select_Letter_of_Authorization_Board_Resolution_for_Authorized_Signatory_Download_Template_for 
+2019-03-20 13:33:52,410 INFO  [rootLogger] Successfully executed step select_Proof_of_Last_Year_Revenue_for 
+2019-03-20 13:33:56,628 INFO  [rootLogger] Successfully executed step clicks_on_document_required_Continue_Button 
+2019-03-20 13:34:15,046 INFO  [rootLogger] Successfully executed step clicks_on_Acknowledgement_checkbox_and_continue_button 
+2019-03-20 13:34:19,267 INFO  [rootLogger] Successfully executed step click_on_Ok_button_on_alert_page 
+2019-03-20 13:34:19,309 INFO  [rootLogger] Successfully executed step successfull_display_on_given_page 
+2019-03-20 13:34:20,157 INFO  [TestRunner] Stop scenario: Validate functionality of VAT Registration Dashboard - tax payer portal 
+2019-03-20 13:35:00,769 INFO  [TestRunner] Start scenario: Validate  functionality of Manage Vat Registartion - Internal Portal 
+2019-03-20 13:35:04,917 INFO  [rootLogger] Successfully executed step user_login_in_Internal_portal 
+2019-03-20 13:35:09,044 INFO  [rootLogger] Successfully executed step click_on_Manage_Vat_Registartion 
+2019-03-20 13:35:17,965 INFO  [rootLogger] Successfully executed step select_option_and 
+2019-03-20 13:35:31,191 INFO  [rootLogger] Successfully executed step clicks_on_manage_button_and_select 
+2019-03-20 13:35:49,501 INFO  [rootLogger] Successfully executed step redirect_to_confirmation_page_and_click_on 
+2019-03-20 13:35:53,665 INFO  [rootLogger] Successfully executed step clicks_on_Close_Button 
+2019-03-20 13:35:54,500 INFO  [TestRunner] Stop scenario: Validate  functionality of Manage Vat Registartion - Internal Portal 
+2019-03-20 13:36:11,897 INFO  [TestRunner] Start scenario: Validate functionality of E-filling - Tax Payer Portal 
+2019-03-20 13:36:34,720 INFO  [rootLogger] Successfully executed step user_is_on_Tax_Payer_Portal 
+2019-03-20 13:36:34,903 INFO  [rootLogger] Successfully executed step connect_database_and_execute_query_and_run_successfully 
+2019-03-20 13:36:40,153 INFO  [rootLogger] Successfully executed step clicks_on_Vat_E_filling_option_on_left_panel 
+2019-03-20 13:38:14,653 INFO  [rootLogger] Successfully executed step clicks_on_e_filing_to_fill_data 
+2019-03-20 13:38:16,688 INFO  [rootLogger] Successfully executed step enter_data_in_Operation_Performed 
+2019-03-20 13:38:18,169 INFO  [rootLogger] Successfully executed step enter_data_in_Deduction 
+2019-03-20 13:38:22,170 INFO  [rootLogger] Successfully executed step calculate_tax_calculations_and_enter 
+2019-03-20 13:38:33,503 INFO  [rootLogger] Successfully executed step upload_Efile_schedule 
+2019-03-20 13:38:42,976 INFO  [rootLogger] Successfully executed step check_for_Confirmation_and_choose_authorized_signatory 
+2019-03-20 13:38:48,122 INFO  [rootLogger] Successfully executed step clicks_on_submit_button_on_E_filling_page 
+2019-03-20 13:40:18,566 INFO  [TestRunner] Stop scenario: Validate functionality of E-filling - Tax Payer Portal 
+2019-03-20 13:41:01,705 INFO  [TestRunner] Start scenario: Validate functionality of FX management admin role - Internal portal 
+2019-03-20 13:41:02,819 INFO  [rootLogger] Successfully executed step user_Login_with_Admin_s_credentials 
+2019-03-20 13:41:07,924 INFO  [rootLogger] Selecting text in Web element txt_BaseCurrency_1 
+2019-03-20 13:41:07,984 INFO  [rootLogger] Selecting text in Web element txt_BaseCurrency_Name 
+2019-03-20 13:41:08,018 INFO  [rootLogger] Successfully executed step click_on_Fx_management_tab_and_check_for_the_base_currency 
+2019-03-20 13:41:13,170 INFO  [rootLogger] Selecting text in Web element txt_Currencyrate 
+2019-03-20 13:41:13,208 INFO  [rootLogger] Selecting text in Web element txt_Currencyname 
+2019-03-20 13:41:13,232 INFO  [rootLogger] Successfully executed step click_on_Historical_data_and_check_for_the_base_currency 
+2019-03-20 13:41:16,402 INFO  [rootLogger] Successfully executed step click_on_previous_button 
+2019-03-20 13:41:19,580 INFO  [rootLogger] Successfully executed step click_on_Update_button_and_check_for_the_base_currency 
+2019-03-20 13:41:25,749 INFO  [rootLogger] Successfully executed step update_the_and_click_on_save_button 
+2019-03-20 13:41:26,343 INFO  [rootLogger] Successfully executed step successfull_display_on_given_page 
+2019-03-20 13:41:27,180 INFO  [TestRunner] Stop scenario: Validate functionality of FX management admin role - Internal portal 
+2019-03-20 13:42:04,802 INFO  [TestRunner] Start scenario: Validate functionality of FX management admin role - Internal portal 
+2019-03-20 13:42:05,885 INFO  [rootLogger] Successfully executed step user_Login_with_Admin_s_credentials 
+2019-03-20 13:42:09,005 INFO  [rootLogger] Successfully executed step click_on_Fx_management_tab 
+2019-03-20 13:42:28,715 INFO  [rootLogger] Successfully executed step select_from_the_drop_down 
+2019-03-20 13:42:29,149 INFO  [rootLogger] Successfully executed step successfull_display_on_given_page 
+2019-03-20 13:42:29,955 INFO  [TestRunner] Stop scenario: Validate functionality of FX management admin role - Internal portal 
+2019-03-20 13:43:09,135 INFO  [TestRunner] Start scenario: Validate functionality of FX management admin role - Internal portal 
+2019-03-20 13:43:10,245 INFO  [rootLogger] Successfully executed step user_Login_with_Admin_s_credentials 
+2019-03-20 13:43:13,357 INFO  [rootLogger] Successfully executed step click_on_Fx_management_tab 
+2019-03-20 13:43:32,859 INFO  [rootLogger] Successfully executed step select_from_the_drop_down 
+2019-03-20 13:43:33,195 INFO  [rootLogger] Successfully executed step successfull_display_on_given_page 
+2019-03-20 13:43:33,984 INFO  [TestRunner] Stop scenario: Validate functionality of FX management admin role - Internal portal 
+2019-03-20 13:44:14,217 INFO  [TestRunner] Start scenario: Validate functionality of FX- management with supervisor role - Internal portal 
+2019-03-20 13:44:15,297 INFO  [rootLogger] Successfully executed step user_Login_with_Admin_s_credentials 
+2019-03-20 13:44:18,454 INFO  [rootLogger] Successfully executed step click_on_Fx_management_tab 
+2019-03-20 13:44:21,618 INFO  [rootLogger] Successfully executed step select_for_confirmation 
+2019-03-20 13:44:22,145 INFO  [rootLogger] Successfully executed step successfull_display_on_given_page 
+2019-03-20 13:44:22,922 INFO  [TestRunner] Stop scenario: Validate functionality of FX- management with supervisor role - Internal portal 
+2019-03-20 13:45:01,142 INFO  [TestRunner] Start scenario: Validate functionality of Assessment - Internal Portal 
+2019-03-20 13:47:05,260 INFO  [rootLogger] Successfully executed step user_login_with_tax_offcer_s_credentials 
+2019-03-20 13:47:18,508 INFO  [rootLogger] Successfully executed step click_on_option 
+2019-03-20 13:47:32,072 INFO  [rootLogger] Successfully executed step tax_officer_search_for_the_records_using 
+2019-03-20 13:49:01,437 INFO  [TestRunner] Stop scenario: Validate functionality of Assessment - Internal Portal 
+2019-03-20 13:49:39,310 INFO  [TestRunner] Start scenario: Validate functionality of Assessment - Internal Portal 
+2019-03-20 13:51:43,422 INFO  [rootLogger] Successfully executed step user_login_with_tax_offcer_s_credentials 
+2019-03-20 13:51:56,697 INFO  [rootLogger] Successfully executed step click_on_option 
+2019-03-20 13:52:10,312 INFO  [rootLogger] Successfully executed step tax_officer_search_for_the_records_using 
+2019-03-20 13:53:39,693 INFO  [TestRunner] Stop scenario: Validate functionality of Assessment - Internal Portal 
+2019-03-20 13:53:58,814 INFO  [TestRunner] Start scenario: Validate functionality of Objection & Appeal Module - Tax Payer Portal 
+2019-03-20 13:54:07,031 INFO  [rootLogger] Successfully executed step user_login_with_Tax_payers_credentials 
+2019-03-20 13:54:25,718 INFO  [rootLogger] Successfully executed step clicks_on_e_filling_tab 
+2019-03-20 13:54:35,929 INFO  [rootLogger] Successfully executed step clicks_on_assessment_icon_view_button 
+2019-03-20 13:55:57,686 INFO  [TestRunner] Stop scenario: Validate functionality of Objection & Appeal Module - Tax Payer Portal 
+2019-03-20 13:56:35,150 INFO  [TestRunner] Start scenario: Validate functionality of Objection & Appeal Module - Internal Portal 
+2019-03-20 13:56:39,296 INFO  [rootLogger] Successfully executed step clicks_on_case_management_tab 
+2019-03-20 13:56:57,114 INFO  [rootLogger] Successfully executed step apply_filter_option_and_click_on_search 
+2019-03-20 13:58:21,946 INFO  [TestRunner] Stop scenario: Validate functionality of Objection & Appeal Module - Internal Portal 
+2019-03-20 13:58:59,198 INFO  [TestRunner] Start scenario: Validate functionality of assign officer Debt Management 
+2019-03-20 13:58:59,204 INFO  [rootLogger] Successfully executed step dgi_should_be_logged_in_to_the_internal_portal 
+2019-03-20 13:59:23,116 INFO  [rootLogger] Successfully executed step select_Up_to_date 
+2019-03-20 13:59:27,296 INFO  [rootLogger] Successfully executed step click_on_zero_to_three_months_Pending_amount_Link 
+2019-03-20 14:01:10,278 INFO  [rootLogger] Failed step search_by_nitva_number_and_assigns_to_officer_and_is_on_Case_Management 
+2019-03-20 14:01:10,278 ERROR [rootLogger] Not able to execute  --- no such element: Unable to locate element: {"method":"xpath","selector":"//tr/td//label"}
+  (Session info: chrome=72.0.3626.121)
+  (Driver info: chromedriver=2.38.552522 (437e6fbedfa8762dec75e2c5b3ddb86763dc9dcb),platform=Windows NT 10.0.17134 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.11.0', revision: 'e59cfb3', time: '2018-03-11T20:26:55.152Z'
+System info: host: 'LP101', ip: '172.16.2.183', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_191'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.38.552522 (437e6fbedfa876..., userDataDir: C:\Users\NIRMAL~1.PAT\AppDa...}, cssSelectorsEnabled: true, databaseEnabled: false, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 72.0.3626.121, webStorageEnabled: true}
+Session ID: 4d759647bd3047e9987478457b329324
+*** Element info: {Using=xpath, value=//tr/td//label} 
+2019-03-20 14:01:11,073 INFO  [TestRunner] Stop scenario: Validate functionality of assign officer Debt Management 
+2019-03-20 14:01:29,772 INFO  [TestRunner] Start scenario: Validate functionality of EFD module - manufactorer portal 
+2019-03-20 14:01:38,018 INFO  [rootLogger] Successfully executed step user_Login_with_Manufacturer_credentials 
+2019-03-20 14:01:55,826 INFO  [rootLogger] Successfully executed step click_on_Vendor_registartion_tab 
+2019-03-20 14:02:00,035 INFO  [rootLogger] Successfully executed step click_on_Register_Vendor_Button 
+2019-03-20 14:02:18,743 INFO  [rootLogger] Successfully executed step fill_the_Details_of_Vendor 
+2019-03-20 14:02:28,446 INFO  [rootLogger] Successfully executed step fill_the_Details_of_contact_person 
+2019-03-20 14:02:41,079 INFO  [rootLogger] Successfully executed step fill_Address_detals 
+2019-03-20 14:02:41,820 INFO  [TestRunner] Stop scenario: Validate functionality of EFD module - manufactorer portal 
+2019-03-20 14:02:59,561 INFO  [TestRunner] Start scenario: Validate functionality of Help-Desk Module - Tax Payer Portal 
+2019-03-20 14:03:07,801 INFO  [rootLogger] Successfully executed step user_login_with_Tax_payers_credentials 
+2019-03-20 14:05:08,534 INFO  [rootLogger] Successfully executed step fill_the_details 
+2019-03-20 14:05:14,698 INFO  [rootLogger] Successfully executed step clicks_on_submit_button_on_helpdesk 
+2019-03-20 14:05:15,631 INFO  [TestRunner] Stop scenario: Validate functionality of Help-Desk Module - Tax Payer Portal 
+2019-03-20 14:05:53,809 INFO  [TestRunner] Start scenario: Validate functionality of Help-Desk Module - Internal Portal 
+2019-03-20 14:05:57,932 INFO  [rootLogger] Successfully executed step user_login_in_Internal_portal 
+2019-03-20 14:06:04,070 INFO  [rootLogger] Selecting text in Web element label_referenceid 
+2019-03-20 14:07:25,043 INFO  [rootLogger] Failed step search_for_Registered_TicketId 
+2019-03-20 14:07:25,043 ERROR [rootLogger] Not able to execute  --- no such element: Unable to locate element: {"method":"xpath","selector":"//div[@class="issue-head-text"]/div"}
+  (Session info: chrome=72.0.3626.121)
+  (Driver info: chromedriver=2.38.552522 (437e6fbedfa8762dec75e2c5b3ddb86763dc9dcb),platform=Windows NT 10.0.17134 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.11.0', revision: 'e59cfb3', time: '2018-03-11T20:26:55.152Z'
+System info: host: 'LP101', ip: '172.16.2.183', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_191'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.38.552522 (437e6fbedfa876..., userDataDir: C:\Users\NIRMAL~1.PAT\AppDa...}, cssSelectorsEnabled: true, databaseEnabled: false, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 72.0.3626.121, webStorageEnabled: true}
+Session ID: 02d4591267e5ecf54876e9ce6edc008b
+*** Element info: {Using=xpath, value=//div[@class="issue-head-text"]/div} 
+2019-03-20 14:08:49,877 INFO  [TestRunner] Stop scenario: Validate functionality of Help-Desk Module - Internal Portal 
+2019-03-20 14:12:18,425 INFO  [TestRunner] Start scenario: Validate functionality of Tax-Payer Profile - Internal Portal 
+2019-03-20 14:12:22,541 INFO  [rootLogger] Successfully executed step user_login_in_Internal_portal 
+2019-03-20 14:12:26,656 INFO  [rootLogger] Successfully executed step click_on_Tax_payer_profile_tab 
+2019-03-20 14:12:44,654 INFO  [rootLogger] Successfully executed step click_on_View_icon 
+2019-03-20 14:12:44,656 INFO  [rootLogger] Selecting text in Web element label_category 
+2019-03-20 14:12:44,741 INFO  [rootLogger] Selecting text in Web element label_lastyearrevenue 
+2019-03-20 14:12:44,778 INFO  [rootLogger] Selecting text in Web element label_taxoffice 
+2019-03-20 14:12:44,808 INFO  [rootLogger] Selecting text in Web element label_addressline1 
+2019-03-20 14:12:44,839 INFO  [rootLogger] Selecting text in Web element label_addressline2 
+2019-03-20 14:12:44,871 INFO  [rootLogger] Selecting text in Web element label_province 
+2019-03-20 14:12:44,903 INFO  [rootLogger] Selecting text in Web element label_city 
+2019-03-20 14:12:44,936 INFO  [rootLogger] Selecting text in Web element label_zipcode 
+2019-03-20 14:12:44,971 INFO  [rootLogger] Selecting text in Web element label_mobilenumber 
+2019-03-20 14:12:45,001 INFO  [rootLogger] Selecting text in Web element label_businessname 
+2019-03-20 14:12:45,037 INFO  [rootLogger] Selecting text in Web element label_baddressline1 
+2019-03-20 14:12:45,063 INFO  [rootLogger] Selecting text in Web element label_baddressline2 
+2019-03-20 14:12:45,087 INFO  [rootLogger] Selecting text in Web element label_bprovince 
+2019-03-20 14:12:45,112 INFO  [rootLogger] Selecting text in Web element label_bcity 
+2019-03-20 14:12:45,139 INFO  [rootLogger] Selecting text in Web element label_bmobilenumber 
+2019-03-20 14:12:45,166 INFO  [rootLogger] Selecting text in Web element label_email 
+2019-03-20 14:12:46,306 INFO  [rootLogger] Successfully executed step check_Data_for_General_details 
+2019-03-20 14:12:49,222 INFO  [TestRunner] Stop scenario: Validate functionality of Tax-Payer Profile - Internal Portal 
+2019-03-20 14:20:02,048 INFO  [TestRunner] Stop scenario: Validate functionalioty of IT-support Admin module - Internal Portal 
+2019-03-20 14:20:50,271 INFO  [TestRunner] Start scenario: Validate the IT support User's functionality - ituser 
+2019-03-20 14:21:16,704 INFO  [rootLogger] Successfully executed step user_should_enter_Username_and_Password 
+2019-03-20 14:21:50,141 INFO  [rootLogger] Successfully executed step user_clicks_on_Search_textbox_and_enters_the_text 
+2019-03-20 14:23:11,923 INFO  [TestRunner] Stop scenario: Validate the IT support User's functionality - ituser 
+2019-03-20 14:23:28,840 INFO  [TestRunner] Start scenario: Validate the IT support User's functionality - ituser 
+2019-03-20 14:23:42,498 INFO  [rootLogger] Successfully executed step user_should_enter_Username_and_Password 
+2019-03-20 14:23:48,629 INFO  [rootLogger] Successfully executed step user_clicks_on_Search_textbox_and_enters_the_text 
+2019-03-20 14:25:10,443 INFO  [TestRunner] Stop scenario: Validate the IT support User's functionality - ituser 
+2019-03-20 14:25:28,608 INFO  [TestRunner] Start scenario: Validate the IT support User's functionality - ituser 
+2019-03-20 14:25:42,218 INFO  [rootLogger] Successfully executed step user_should_enter_Username_and_Password 
+2019-03-20 14:25:48,342 INFO  [rootLogger] Successfully executed step user_clicks_on_Search_textbox_and_enters_the_text 
+2019-03-20 14:27:10,510 INFO  [TestRunner] Stop scenario: Validate the IT support User's functionality - ituser 
+2019-03-20 15:01:26,420 INFO  [TestRunner] Start scenario: Validate functionality of VAT Registration Dashboard - tax payer portal 
+2019-03-20 15:01:26,847 INFO  [rootLogger] Successfully executed step:  user_is_on_VAT_Registration_Dashboard 
+2019-03-20 15:01:27,470 INFO  [rootLogger] Successfully executed step:  establish_a_connection_with_data_base_and_execute_query_to_create_user 
+2019-03-20 15:01:27,544 INFO  [rootLogger] Successfully executed step update_data_in_another_table_based_on_created_user 
+2019-03-20 15:01:27,614 INFO  [rootLogger] Successfully executed step update_data_in_roles_table 
+2019-03-20 15:01:36,304 INFO  [rootLogger] Successfully executed step login_with_created_username_and_password 
+2019-03-20 15:01:53,377 INFO  [rootLogger] Successfully executed step user_clicks_on_VAT_Getting_Started_Guide_CheckBox 
+2019-03-20 15:01:57,594 INFO  [rootLogger] Successfully executed step clicks_on_Register_for_Vat_button 
+2019-03-20 15:02:04,883 INFO  [rootLogger] Successfully executed step clicks_on_Continue_button_of_Instructions_Page 
+2019-03-20 15:02:12,429 INFO  [rootLogger] Successfully executed step selects_Taxpayer_Category_SubCategory 
+2019-03-20 15:02:18,890 INFO  [rootLogger] Successfully executed step enters_NIF_number_Full_Name_Of_Business_Number_of_COI_Last_Year_Revenue 
+2019-03-20 15:02:38,452 INFO  [rootLogger] Successfully executed step enters_NIF_Registration_Date_Date_of_Incorporation_Type_Of_Business 
+2019-03-20 15:02:46,318 INFO  [rootLogger] Successfully executed step enters_Business_Start_Date_Company_Size_Last_Year_Revenue 
+2019-03-20 15:02:57,094 INFO  [rootLogger] Successfully executed step enters_Address_Details 
+2019-03-20 15:03:11,213 INFO  [rootLogger] Successfully executed step enters_Business_details 
+2019-03-20 15:03:19,461 INFO  [rootLogger] Successfully executed step select_Authorization_signature_with_Job_Title_Full_Name_Email_Mobile_Number 
+2019-03-20 15:03:20,648 INFO  [rootLogger] Successfully executed step clicks_on_VAT_Registration_Page_Continue_Button 
+2019-03-20 15:03:25,396 INFO  [rootLogger] Successfully executed step enters_Bank_Details_with_Account_Number_Account_Holder_Name_Bank_Name_Branch 
+2019-03-20 15:03:26,571 INFO  [rootLogger] Successfully executed step clicks_on_Bank_details_Continue_Button 
+2019-03-20 15:03:42,431 INFO  [rootLogger] Successfully executed step select_Address_Proof_of_Registered_Place_of_Business_for 
+2019-03-20 15:03:54,933 INFO  [rootLogger] Successfully executed step select_Bank_Account_Proof_for 
+2019-03-20 15:04:07,416 INFO  [rootLogger] Successfully executed step select_Certificate_of_Incorporation_for 
+2019-03-20 15:04:19,909 INFO  [rootLogger] Successfully executed step select_Law_or_Degree_of_Establishment_for 
+2019-03-20 15:04:32,378 INFO  [rootLogger] Successfully executed step select_Letter_of_Authorization_Board_Resolution_for_Authorized_Signatory_Download_Template_for 
+2019-03-20 15:04:44,902 INFO  [rootLogger] Successfully executed step select_Proof_of_Last_Year_Revenue_for 
+2019-03-20 15:04:49,097 INFO  [rootLogger] Successfully executed step clicks_on_document_required_Continue_Button 
+2019-03-20 15:05:07,485 INFO  [rootLogger] Successfully executed step clicks_on_Acknowledgement_checkbox_and_continue_button 
+2019-03-20 15:05:11,674 INFO  [rootLogger] Successfully executed step click_on_Ok_button_on_alert_page 
+2019-03-20 15:05:11,723 INFO  [rootLogger] Successfully executed step successfull_display_on_given_page 
+2019-03-20 15:05:12,674 INFO  [TestRunner] Stop scenario: Validate functionality of VAT Registration Dashboard - tax payer portal 
+2019-03-20 15:09:41,345 INFO  [TestRunner] Start scenario: Validate  functionality of Manage Vat Registartion - Internal Portal 
+2019-03-20 15:09:45,452 INFO  [rootLogger] Successfully executed step user_login_in_Internal_portal 
+2019-03-20 15:09:49,582 INFO  [rootLogger] Successfully executed step click_on_Manage_Vat_Registartion 
+2019-03-20 15:09:51,820 INFO  [TestRunner] Stop scenario: Validate  functionality of Manage Vat Registartion - Internal Portal 
+2019-03-20 15:10:45,537 INFO  [TestRunner] Start scenario: Validate functionality of E-filling - Tax Payer Portal 
+2019-03-20 15:12:26,093 INFO  [TestRunner] Stop scenario: Validate functionality of E-filling - Tax Payer Portal 
+2019-03-20 15:51:09,273 INFO  [TestRunner] Start scenario: Validate functionality of VAT Registration Dashboard - tax payer portal 
+2019-03-20 15:51:09,496 INFO  [rootLogger] Successfully executed step:  user_is_on_VAT_Registration_Dashboard 
+2019-03-20 15:51:09,882 INFO  [rootLogger] Successfully executed step:  establish_a_connection_with_data_base_and_execute_query_to_create_user 
+2019-03-20 15:51:09,958 INFO  [rootLogger] Successfully executed step update_data_in_another_table_based_on_created_user 
+2019-03-20 15:51:10,031 INFO  [rootLogger] Successfully executed step update_data_in_roles_table 
+2019-03-20 15:51:18,352 INFO  [rootLogger] Successfully executed step login_with_created_username_and_password 
+2019-03-20 15:51:34,732 INFO  [rootLogger] Successfully executed step user_clicks_on_VAT_Getting_Started_Guide_CheckBox 
+2019-03-20 15:51:38,917 INFO  [rootLogger] Successfully executed step clicks_on_Register_for_Vat_button 
+2019-03-20 15:51:46,210 INFO  [rootLogger] Successfully executed step clicks_on_Continue_button_of_Instructions_Page 
+2019-03-20 15:51:53,807 INFO  [rootLogger] Successfully executed step selects_Taxpayer_Category_SubCategory 
+2019-03-20 15:52:00,283 INFO  [rootLogger] Successfully executed step enters_NIF_number_Full_Name_Of_Business_Number_of_COI_Last_Year_Revenue 
+2019-03-20 15:52:19,862 INFO  [rootLogger] Successfully executed step enters_NIF_Registration_Date_Date_of_Incorporation_Type_Of_Business 
+2019-03-20 15:52:27,751 INFO  [rootLogger] Successfully executed step enters_Business_Start_Date_Company_Size_Last_Year_Revenue 
+2019-03-20 15:52:38,486 INFO  [rootLogger] Successfully executed step enters_Address_Details 
+2019-03-20 15:52:52,755 INFO  [rootLogger] Successfully executed step enters_Business_details 
+2019-03-20 15:53:01,034 INFO  [rootLogger] Successfully executed step select_Authorization_signature_with_Job_Title_Full_Name_Email_Mobile_Number 
+2019-03-20 15:53:03,309 INFO  [rootLogger] Successfully executed step clicks_on_VAT_Registration_Page_Continue_Button 
+2019-03-20 15:53:08,199 INFO  [rootLogger] Successfully executed step enters_Bank_Details_with_Account_Number_Account_Holder_Name_Bank_Name_Branch 
+2019-03-20 15:53:09,372 INFO  [rootLogger] Successfully executed step clicks_on_Bank_details_Continue_Button 
+2019-03-20 15:53:21,909 INFO  [rootLogger] Successfully executed step select_Address_Proof_of_Registered_Place_of_Business_for 
+2019-03-20 15:53:34,411 INFO  [rootLogger] Successfully executed step select_Bank_Account_Proof_for 
+2019-03-20 15:53:46,861 INFO  [rootLogger] Successfully executed step select_Certificate_of_Incorporation_for 
+2019-03-20 15:53:59,353 INFO  [rootLogger] Successfully executed step select_Law_or_Degree_of_Establishment_for 
+2019-03-20 15:54:11,876 INFO  [rootLogger] Successfully executed step select_Letter_of_Authorization_Board_Resolution_for_Authorized_Signatory_Download_Template_for 
+2019-03-20 15:54:24,336 INFO  [rootLogger] Successfully executed step select_Proof_of_Last_Year_Revenue_for 
+2019-03-20 15:54:28,552 INFO  [rootLogger] Successfully executed step clicks_on_document_required_Continue_Button 
+2019-03-20 15:54:46,951 INFO  [rootLogger] Successfully executed step clicks_on_Acknowledgement_checkbox_and_continue_button 
+2019-03-20 15:54:51,149 INFO  [rootLogger] Successfully executed step click_on_Ok_button_on_alert_page 
+2019-03-20 15:54:51,185 INFO  [rootLogger] Successfully executed step successfull_display_on_given_page 
+2019-03-20 15:54:51,965 INFO  [TestRunner] Stop scenario: Validate functionality of VAT Registration Dashboard - tax payer portal 
+2019-03-20 15:58:41,807 INFO  [TestRunner] Start scenario: Validate  functionality of Manage Vat Registartion - Internal Portal 
+2019-03-20 15:58:45,915 INFO  [rootLogger] Successfully executed step user_login_in_Internal_portal 
+2019-03-20 15:58:50,035 INFO  [rootLogger] Successfully executed step click_on_Manage_Vat_Registartion 
+2019-03-20 15:58:57,988 INFO  [rootLogger] Successfully executed step select_option_and 
+2019-03-20 15:59:11,174 INFO  [rootLogger] Successfully executed step clicks_on_manage_button_and_select 
+2019-03-20 15:59:30,329 INFO  [rootLogger] Successfully executed step redirect_to_confirmation_page_and_click_on 
+2019-03-20 15:59:34,461 INFO  [rootLogger] Successfully executed step clicks_on_Close_Button 
+2019-03-20 15:59:35,243 INFO  [TestRunner] Stop scenario: Validate  functionality of Manage Vat Registartion - Internal Portal 
+2019-03-20 16:00:42,803 INFO  [TestRunner] Start scenario: Validate functionality of E-filling - Tax Payer Portal 
+2019-03-20 16:01:16,060 INFO  [rootLogger] Successfully executed step user_is_on_Tax_Payer_Portal 
+2019-03-20 16:01:17,434 INFO  [rootLogger] Successfully executed step connect_database_and_execute_query_and_run_successfully 
+2019-03-20 16:01:22,646 INFO  [rootLogger] Successfully executed step clicks_on_Vat_E_filling_option_on_left_panel 
+2019-03-20 16:03:00,279 INFO  [rootLogger] Successfully executed step clicks_on_e_filing_to_fill_data 
+2019-03-20 16:03:02,282 INFO  [rootLogger] Successfully executed step enter_data_in_Operation_Performed 
+2019-03-20 16:03:03,772 INFO  [rootLogger] Successfully executed step enter_data_in_Deduction 
+2019-03-20 16:03:07,792 INFO  [rootLogger] Successfully executed step calculate_tax_calculations_and_enter 
+2019-03-20 16:03:19,098 INFO  [rootLogger] Successfully executed step upload_Efile_schedule 
+2019-03-20 16:03:28,618 INFO  [rootLogger] Successfully executed step check_for_Confirmation_and_choose_authorized_signatory 
+2019-03-20 16:03:33,756 INFO  [rootLogger] Successfully executed step clicks_on_submit_button_on_E_filling_page 
+2019-03-20 16:03:42,105 INFO  [rootLogger] Successfully executed step enter_OTP_and_click_on_verify_button_and_click_on_Ok_button 
+2019-03-20 16:05:11,275 INFO  [TestRunner] Stop scenario: Validate functionality of E-filling - Tax Payer Portal 
+2019-03-20 16:20:24,815 INFO  [TestRunner] Start scenario: Validate functionality of VAT Registration Dashboard - tax payer portal 
+2019-03-20 16:20:25,091 INFO  [rootLogger] Successfully executed step:  user_is_on_VAT_Registration_Dashboard 
+2019-03-20 16:20:25,930 INFO  [rootLogger] Successfully executed step:  establish_a_connection_with_data_base_and_execute_query_to_create_user 
+2019-03-20 16:20:26,418 INFO  [rootLogger] Successfully executed step update_data_in_another_table_based_on_created_user 
+2019-03-20 16:20:26,496 INFO  [rootLogger] Successfully executed step update_data_in_roles_table 
+2019-03-20 16:20:35,334 INFO  [rootLogger] Successfully executed step login_with_created_username_and_password 
+2019-03-20 16:20:52,886 INFO  [rootLogger] Successfully executed step user_clicks_on_VAT_Getting_Started_Guide_CheckBox 
+2019-03-20 16:20:57,064 INFO  [rootLogger] Successfully executed step clicks_on_Register_for_Vat_button 
+2019-03-20 16:21:04,324 INFO  [rootLogger] Successfully executed step clicks_on_Continue_button_of_Instructions_Page 
+2019-03-20 16:21:11,913 INFO  [rootLogger] Successfully executed step selects_Taxpayer_Category_SubCategory 
+2019-03-20 16:21:18,311 INFO  [rootLogger] Successfully executed step enters_NIF_number_Full_Name_Of_Business_Number_of_COI_Last_Year_Revenue 
+2019-03-20 16:21:37,943 INFO  [rootLogger] Successfully executed step enters_NIF_Registration_Date_Date_of_Incorporation_Type_Of_Business 
+2019-03-20 16:21:45,875 INFO  [rootLogger] Successfully executed step enters_Business_Start_Date_Company_Size_Last_Year_Revenue 
+2019-03-20 16:21:56,585 INFO  [rootLogger] Successfully executed step enters_Address_Details 
+2019-03-20 16:22:10,860 INFO  [rootLogger] Successfully executed step enters_Business_details 
+2019-03-20 16:22:19,167 INFO  [rootLogger] Successfully executed step select_Authorization_signature_with_Job_Title_Full_Name_Email_Mobile_Number 
+2019-03-20 16:22:21,392 INFO  [rootLogger] Successfully executed step clicks_on_VAT_Registration_Page_Continue_Button 
+2019-03-20 16:22:26,130 INFO  [rootLogger] Successfully executed step enters_Bank_Details_with_Account_Number_Account_Holder_Name_Bank_Name_Branch 
+2019-03-20 16:22:27,270 INFO  [rootLogger] Successfully executed step clicks_on_Bank_details_Continue_Button 
+2019-03-20 16:22:39,892 INFO  [rootLogger] Successfully executed step select_Address_Proof_of_Registered_Place_of_Business_for 
+2019-03-20 16:22:52,389 INFO  [rootLogger] Successfully executed step select_Bank_Account_Proof_for 
+2019-03-20 16:23:04,818 INFO  [rootLogger] Successfully executed step select_Certificate_of_Incorporation_for 
+2019-03-20 16:23:17,292 INFO  [rootLogger] Successfully executed step select_Law_or_Degree_of_Establishment_for 
+2019-03-20 16:23:29,834 INFO  [rootLogger] Successfully executed step select_Letter_of_Authorization_Board_Resolution_for_Authorized_Signatory_Download_Template_for 
+2019-03-20 16:23:42,263 INFO  [rootLogger] Successfully executed step select_Proof_of_Last_Year_Revenue_for 
+2019-03-20 16:23:46,483 INFO  [rootLogger] Successfully executed step clicks_on_document_required_Continue_Button 
+2019-03-20 16:24:04,908 INFO  [rootLogger] Successfully executed step clicks_on_Acknowledgement_checkbox_and_continue_button 
+2019-03-20 16:24:09,079 INFO  [rootLogger] Successfully executed step click_on_Ok_button_on_alert_page 
+2019-03-20 16:24:09,119 INFO  [rootLogger] Successfully executed step successfull_display_on_given_page 
+2019-03-20 16:24:09,917 INFO  [TestRunner] Stop scenario: Validate functionality of VAT Registration Dashboard - tax payer portal 
+2019-03-20 16:27:46,751 INFO  [TestRunner] Start scenario: Validate  functionality of Manage Vat Registartion - Internal Portal 
+2019-03-20 16:27:50,869 INFO  [rootLogger] Successfully executed step user_login_in_Internal_portal 
+2019-03-20 16:27:54,990 INFO  [rootLogger] Successfully executed step click_on_Manage_Vat_Registartion 
+2019-03-20 16:28:03,025 INFO  [rootLogger] Successfully executed step select_option_and 
+2019-03-20 16:28:16,246 INFO  [rootLogger] Successfully executed step clicks_on_manage_button_and_select 
+2019-03-20 16:28:34,517 INFO  [rootLogger] Successfully executed step redirect_to_confirmation_page_and_click_on 
+2019-03-20 16:28:38,672 INFO  [rootLogger] Successfully executed step clicks_on_Close_Button 
+2019-03-20 16:28:39,606 INFO  [TestRunner] Stop scenario: Validate  functionality of Manage Vat Registartion - Internal Portal 
+2019-03-20 16:28:59,068 INFO  [TestRunner] Start scenario: Validate functionality of E-filling - Tax Payer Portal 
+2019-03-20 16:29:26,018 INFO  [rootLogger] Successfully executed step user_is_on_Tax_Payer_Portal 
+2019-03-20 16:29:29,294 INFO  [rootLogger] Successfully executed step connect_database_and_execute_query_and_run_successfully 
+2019-03-20 16:29:34,526 INFO  [rootLogger] Successfully executed step clicks_on_Vat_E_filling_option_on_left_panel 
+2019-03-20 16:31:10,222 INFO  [rootLogger] Successfully executed step clicks_on_e_filing_to_fill_data 
+2019-03-20 16:31:12,259 INFO  [rootLogger] Successfully executed step enter_data_in_Operation_Performed 
+2019-03-20 16:31:13,757 INFO  [rootLogger] Successfully executed step enter_data_in_Deduction 
+2019-03-20 16:31:17,747 INFO  [rootLogger] Successfully executed step calculate_tax_calculations_and_enter 
+2019-03-20 16:31:29,135 INFO  [rootLogger] Successfully executed step upload_Efile_schedule 
+2019-03-20 16:31:38,542 INFO  [rootLogger] Successfully executed step check_for_Confirmation_and_choose_authorized_signatory 
+2019-03-20 16:31:43,640 INFO  [rootLogger] Successfully executed step clicks_on_submit_button_on_E_filling_page 
+2019-03-20 16:31:52,012 INFO  [rootLogger] Successfully executed step enter_OTP_and_click_on_verify_button_and_click_on_Ok_button 
+2019-03-20 16:31:56,883 INFO  [TestRunner] Stop scenario: Validate functionality of E-filling - Tax Payer Portal 
+2019-03-20 16:35:28,536 INFO  [TestRunner] Start scenario: Validate functionality of FX management admin role - Internal portal 
+2019-03-20 16:35:29,676 INFO  [rootLogger] Successfully executed step user_Login_with_Admin_s_credentials 
+2019-03-20 16:35:34,818 INFO  [rootLogger] Selecting text in Web element txt_BaseCurrency_1 
+2019-03-20 16:35:34,881 INFO  [rootLogger] Selecting text in Web element txt_BaseCurrency_Name 
+2019-03-20 16:35:34,914 INFO  [rootLogger] Successfully executed step click_on_Fx_management_tab_and_check_for_the_base_currency 
+2019-03-20 16:35:40,062 INFO  [rootLogger] Selecting text in Web element txt_Currencyrate 
+2019-03-20 16:35:40,180 INFO  [rootLogger] Selecting text in Web element txt_Currencyname 
+2019-03-20 16:35:40,203 INFO  [rootLogger] Successfully executed step click_on_Historical_data_and_check_for_the_base_currency 
+2019-03-20 16:35:43,349 INFO  [rootLogger] Successfully executed step click_on_previous_button 
+2019-03-20 16:35:46,552 INFO  [rootLogger] Successfully executed step click_on_Update_button_and_check_for_the_base_currency 
+2019-03-20 16:35:52,723 INFO  [rootLogger] Successfully executed step update_the_and_click_on_save_button 
+2019-03-20 16:35:53,433 INFO  [rootLogger] Successfully executed step successfull_display_on_given_page 
+2019-03-20 16:35:54,226 INFO  [TestRunner] Stop scenario: Validate functionality of FX management admin role - Internal portal 
+2019-03-20 16:40:03,570 INFO  [TestRunner] Start scenario: Validate functionality of FX management admin role - Internal portal 
+2019-03-20 16:40:04,719 INFO  [rootLogger] Successfully executed step user_Login_with_Admin_s_credentials 
+2019-03-20 16:40:07,831 INFO  [rootLogger] Successfully executed step click_on_Fx_management_tab 
+2019-03-20 16:40:27,634 INFO  [rootLogger] Successfully executed step select_from_the_drop_down 
+2019-03-20 16:40:28,274 INFO  [rootLogger] Successfully executed step successfull_display_on_given_page 
+2019-03-20 16:40:29,068 INFO  [TestRunner] Stop scenario: Validate functionality of FX management admin role - Internal portal 
+2019-03-20 16:43:20,458 INFO  [TestRunner] Start scenario: Validate functionality of FX management admin role - Internal portal 
+2019-03-20 16:43:21,528 INFO  [rootLogger] Successfully executed step user_Login_with_Admin_s_credentials 
+2019-03-20 16:43:24,672 INFO  [rootLogger] Successfully executed step click_on_Fx_management_tab 
+2019-03-20 16:43:44,353 INFO  [rootLogger] Successfully executed step select_from_the_drop_down 
+2019-03-20 16:43:44,989 INFO  [rootLogger] Successfully executed step successfull_display_on_given_page 
+2019-03-20 16:43:45,880 INFO  [TestRunner] Stop scenario: Validate functionality of FX management admin role - Internal portal 
+2019-03-20 16:46:58,118 INFO  [TestRunner] Start scenario: Validate functionality of FX- management with supervisor role - Internal portal 
+2019-03-20 16:46:59,198 INFO  [rootLogger] Successfully executed step user_Login_with_Admin_s_credentials 
+2019-03-20 16:47:02,296 INFO  [rootLogger] Successfully executed step click_on_Fx_management_tab 
+2019-03-20 16:47:05,417 INFO  [rootLogger] Successfully executed step select_for_confirmation 
+2019-03-20 16:47:05,760 INFO  [rootLogger] Successfully executed step successfull_display_on_given_page 
+2019-03-20 16:47:06,535 INFO  [TestRunner] Stop scenario: Validate functionality of FX- management with supervisor role - Internal portal 
+2019-03-20 16:47:47,738 INFO  [TestRunner] Start scenario: Validate functionality of Assessment - Internal Portal 
+2019-03-20 16:49:51,855 INFO  [rootLogger] Successfully executed step user_login_with_tax_offcer_s_credentials 
+2019-03-20 16:50:05,082 INFO  [rootLogger] Successfully executed step click_on_option 
+2019-03-20 16:50:18,645 INFO  [rootLogger] Successfully executed step tax_officer_search_for_the_records_using 
+2019-03-20 16:50:30,260 INFO  [rootLogger] Successfully executed step serach_for_the_records_and_click_on_search_button 
+2019-03-20 16:50:34,376 INFO  [rootLogger] Successfully executed step click_on_the_option 
+2019-03-20 16:50:34,378 INFO  [rootLogger] Selecting text in Web element label_DG 
+2019-03-20 16:50:36,968 INFO  [rootLogger] Selecting text in Web element label_DSTT 
+2019-03-20 16:50:37,032 INFO  [rootLogger] Selecting text in Web element label_DSTR 
+2019-03-20 16:50:37,063 INFO  [rootLogger] Selecting text in Web element label_Export 
+2019-03-20 16:50:37,090 INFO  [rootLogger] Selecting text in Web element label_exempt 
+2019-03-20 16:50:37,116 INFO  [rootLogger] Selecting text in Web element label_nontax 
+2019-03-20 16:50:37,144 INFO  [rootLogger] Selecting text in Web element label_DGvat 
+2019-03-20 16:50:37,170 INFO  [rootLogger] Selecting text in Web element label_DSvat 
+2019-03-20 16:50:37,197 INFO  [rootLogger] Selecting text in Web element label_DiffTR 
+2019-03-20 16:50:37,225 INFO  [rootLogger] Selecting text in Web element label_TDG 
+2019-03-20 16:50:37,252 INFO  [rootLogger] Selecting text in Web element label_TDGvat 
+2019-03-20 16:50:37,279 INFO  [rootLogger] Selecting text in Web element label_TDSTR 
+2019-03-20 16:50:37,306 INFO  [rootLogger] Selecting text in Web element label_TDSTT 
+2019-03-20 16:50:37,332 INFO  [rootLogger] Selecting text in Web element label_TDSvat 
+2019-03-20 16:50:37,359 INFO  [rootLogger] Selecting text in Web element label_TExport 
+2019-03-20 16:50:37,388 INFO  [rootLogger] Selecting text in Web element label_Texempt 
+2019-03-20 16:50:37,414 INFO  [rootLogger] Selecting text in Web element label_Tnontax 
+2019-03-20 16:50:37,441 INFO  [rootLogger] Selecting text in Web element label_DiffTT 
+2019-03-20 16:50:37,467 INFO  [rootLogger] Selecting text in Web element label_DiffVC 
+2019-03-20 16:50:37,494 INFO  [rootLogger] Selecting text in Web element label_DGI 
+2019-03-20 16:50:37,519 INFO  [rootLogger] Selecting text in Web element label_DGIV 
+2019-03-20 16:50:37,547 INFO  [rootLogger] Selecting text in Web element label_DSI 
+2019-03-20 16:50:37,574 INFO  [rootLogger] Selecting text in Web element label_DSIV 
+2019-03-20 16:50:37,601 INFO  [rootLogger] Selecting text in Web element label_OR 
+2019-03-20 16:50:37,628 INFO  [rootLogger] Selecting text in Web element label_ORV 
+2019-03-20 16:50:37,653 INFO  [rootLogger] Selecting text in Web element label_total 
+2019-03-20 16:50:37,679 INFO  [rootLogger] Selecting text in Web element label_totalV 
+2019-03-20 16:50:41,921 INFO  [rootLogger] Successfully executed step verify_the_details_of_e_filing_operation_performed 
+2019-03-20 16:50:41,923 INFO  [rootLogger] Selecting text in Web element label_totalD 
+2019-03-20 16:50:43,160 INFO  [rootLogger] Selecting text in Web element label_TtotalD 
+2019-03-20 16:50:43,191 INFO  [rootLogger] Selecting text in Web element label_D 
+2019-03-20 16:50:43,216 INFO  [rootLogger] Selecting text in Web element label_asset1 
+2019-03-20 16:50:43,242 INFO  [rootLogger] Selecting text in Web element label_asset2 
+2019-03-20 16:50:43,268 INFO  [rootLogger] Selecting text in Web element label_asset3 
+2019-03-20 16:50:43,294 INFO  [rootLogger] Selecting text in Web element label_good1 
+2019-03-20 16:50:43,321 INFO  [rootLogger] Selecting text in Web element label_good2 
+2019-03-20 16:50:43,347 INFO  [rootLogger] Selecting text in Web element label_good3 
+2019-03-20 16:50:43,374 INFO  [rootLogger] Selecting text in Web element label_raw1 
+2019-03-20 16:50:43,401 INFO  [rootLogger] Selecting text in Web element label_raw2 
+2019-03-20 16:50:43,427 INFO  [rootLogger] Selecting text in Web element label_raw3 
+2019-03-20 16:50:43,455 INFO  [rootLogger] Selecting text in Web element label_others1 
+2019-03-20 16:50:43,480 INFO  [rootLogger] Selecting text in Web element label_others2 
+2019-03-20 16:50:43,507 INFO  [rootLogger] Selecting text in Web element label_others3 
+2019-03-20 16:50:47,664 INFO  [rootLogger] Successfully executed step verify_the_detailds_of_Tax_deductible 
+2019-03-20 16:50:47,666 INFO  [rootLogger] Selecting text in Web element label_eadjsup 
+2019-03-20 16:50:48,734 INFO  [rootLogger] Selecting text in Web element label_eadjvat 
+2019-03-20 16:50:48,760 INFO  [rootLogger] Selecting text in Web element label_tadjsup 
+2019-03-20 16:50:48,788 INFO  [rootLogger] Selecting text in Web element label_tadjvat 
+2019-03-20 16:50:48,816 INFO  [rootLogger] Selecting text in Web element label_adjdif 
+2019-03-20 16:50:48,839 INFO  [rootLogger] Selecting text in Web element label_othvat 
+2019-03-20 16:50:48,866 INFO  [rootLogger] Selecting text in Web element label_othreco 
+2019-03-20 16:50:53,041 INFO  [rootLogger] Successfully executed step verify_the_details_of_Adjustmnet 
+2019-03-20 16:50:57,151 INFO  [rootLogger] Successfully executed step verify_the_details_of_Assessment_Summary 
+2019-03-20 16:51:05,348 INFO  [rootLogger] Successfully executed step successfull_display_on_given_page 
+2019-03-20 16:51:06,089 INFO  [TestRunner] Stop scenario: Validate functionality of Assessment - Internal Portal 
+2019-03-20 16:51:45,219 INFO  [TestRunner] Start scenario: Validate functionality of Assessment - Internal Portal 
+2019-03-20 16:53:49,357 INFO  [rootLogger] Successfully executed step user_login_with_tax_offcer_s_credentials 
+2019-03-20 16:54:02,669 INFO  [rootLogger] Successfully executed step click_on_option 
+2019-03-20 16:54:16,292 INFO  [rootLogger] Successfully executed step tax_officer_search_for_the_records_using 
+2019-03-20 16:54:27,893 INFO  [rootLogger] Successfully executed step serach_for_the_records_and_click_on_search_button 
+2019-03-20 16:54:31,986 INFO  [rootLogger] Successfully executed step click_on_the_option 
+2019-03-20 16:54:31,989 INFO  [rootLogger] Selecting text in Web element label_DG 
+2019-03-20 16:54:34,048 INFO  [rootLogger] Selecting text in Web element label_DSTT 
+2019-03-20 16:54:34,124 INFO  [rootLogger] Selecting text in Web element label_DSTR 
+2019-03-20 16:54:34,152 INFO  [rootLogger] Selecting text in Web element label_Export 
+2019-03-20 16:54:34,179 INFO  [rootLogger] Selecting text in Web element label_exempt 
+2019-03-20 16:54:34,206 INFO  [rootLogger] Selecting text in Web element label_nontax 
+2019-03-20 16:54:34,232 INFO  [rootLogger] Selecting text in Web element label_DGvat 
+2019-03-20 16:54:34,259 INFO  [rootLogger] Selecting text in Web element label_DSvat 
+2019-03-20 16:54:34,285 INFO  [rootLogger] Selecting text in Web element label_DiffTR 
+2019-03-20 16:54:34,313 INFO  [rootLogger] Selecting text in Web element label_TDG 
+2019-03-20 16:54:34,341 INFO  [rootLogger] Selecting text in Web element label_TDGvat 
+2019-03-20 16:54:34,367 INFO  [rootLogger] Selecting text in Web element label_TDSTR 
+2019-03-20 16:54:34,395 INFO  [rootLogger] Selecting text in Web element label_TDSTT 
+2019-03-20 16:54:34,421 INFO  [rootLogger] Selecting text in Web element label_TDSvat 
+2019-03-20 16:54:34,450 INFO  [rootLogger] Selecting text in Web element label_TExport 
+2019-03-20 16:54:34,476 INFO  [rootLogger] Selecting text in Web element label_Texempt 
+2019-03-20 16:54:34,505 INFO  [rootLogger] Selecting text in Web element label_Tnontax 
+2019-03-20 16:54:34,532 INFO  [rootLogger] Selecting text in Web element label_DiffTT 
+2019-03-20 16:54:34,559 INFO  [rootLogger] Selecting text in Web element label_DiffVC 
+2019-03-20 16:54:34,586 INFO  [rootLogger] Selecting text in Web element label_DGI 
+2019-03-20 16:54:34,614 INFO  [rootLogger] Selecting text in Web element label_DGIV 
+2019-03-20 16:54:34,640 INFO  [rootLogger] Selecting text in Web element label_DSI 
+2019-03-20 16:54:34,668 INFO  [rootLogger] Selecting text in Web element label_DSIV 
+2019-03-20 16:54:34,694 INFO  [rootLogger] Selecting text in Web element label_OR 
+2019-03-20 16:54:34,720 INFO  [rootLogger] Selecting text in Web element label_ORV 
+2019-03-20 16:54:34,747 INFO  [rootLogger] Selecting text in Web element label_total 
+2019-03-20 16:54:34,774 INFO  [rootLogger] Selecting text in Web element label_totalV 
+2019-03-20 16:54:39,028 INFO  [rootLogger] Successfully executed step verify_the_details_of_e_filing_operation_performed 
+2019-03-20 16:54:39,030 INFO  [rootLogger] Selecting text in Web element label_totalD 
+2019-03-20 16:54:40,677 INFO  [rootLogger] Selecting text in Web element label_TtotalD 
+2019-03-20 16:54:40,706 INFO  [rootLogger] Selecting text in Web element label_D 
+2019-03-20 16:54:40,730 INFO  [rootLogger] Selecting text in Web element label_asset1 
+2019-03-20 16:54:40,756 INFO  [rootLogger] Selecting text in Web element label_asset2 
+2019-03-20 16:54:40,782 INFO  [rootLogger] Selecting text in Web element label_asset3 
+2019-03-20 16:54:40,808 INFO  [rootLogger] Selecting text in Web element label_good1 
+2019-03-20 16:54:40,835 INFO  [rootLogger] Selecting text in Web element label_good2 
+2019-03-20 16:54:40,862 INFO  [rootLogger] Selecting text in Web element label_good3 
+2019-03-20 16:54:40,888 INFO  [rootLogger] Selecting text in Web element label_raw1 
+2019-03-20 16:54:40,917 INFO  [rootLogger] Selecting text in Web element label_raw2 
+2019-03-20 16:54:40,945 INFO  [rootLogger] Selecting text in Web element label_raw3 
+2019-03-20 16:54:40,973 INFO  [rootLogger] Selecting text in Web element label_others1 
+2019-03-20 16:54:40,999 INFO  [rootLogger] Selecting text in Web element label_others2 
+2019-03-20 16:54:41,030 INFO  [rootLogger] Selecting text in Web element label_others3 
+2019-03-20 16:54:45,160 INFO  [rootLogger] Successfully executed step verify_the_detailds_of_Tax_deductible 
+2019-03-20 16:54:45,161 INFO  [rootLogger] Selecting text in Web element label_eadjsup 
+2019-03-20 16:54:46,783 INFO  [rootLogger] Selecting text in Web element label_eadjvat 
+2019-03-20 16:54:46,812 INFO  [rootLogger] Selecting text in Web element label_tadjsup 
+2019-03-20 16:54:46,840 INFO  [rootLogger] Selecting text in Web element label_tadjvat 
+2019-03-20 16:54:46,867 INFO  [rootLogger] Selecting text in Web element label_adjdif 
+2019-03-20 16:54:46,890 INFO  [rootLogger] Selecting text in Web element label_othvat 
+2019-03-20 16:54:46,917 INFO  [rootLogger] Selecting text in Web element label_othreco 
+2019-03-20 16:54:51,058 INFO  [rootLogger] Successfully executed step verify_the_details_of_Adjustmnet 
+2019-03-20 16:54:55,150 INFO  [rootLogger] Successfully executed step verify_the_details_of_Assessment_Summary 
+2019-03-20 16:55:04,280 INFO  [rootLogger] Successfully executed step successfull_display_on_given_page 
+2019-03-20 16:55:05,018 INFO  [TestRunner] Stop scenario: Validate functionality of Assessment - Internal Portal 
+2019-03-20 16:55:44,905 INFO  [TestRunner] Start scenario: Validate functionality of Objection & Appeal Module - Tax Payer Portal 
+2019-03-20 16:55:53,538 INFO  [rootLogger] Successfully executed step user_login_with_Tax_payers_credentials 
+2019-03-20 16:56:15,388 INFO  [rootLogger] Successfully executed step clicks_on_e_filling_tab 
+2019-03-20 16:56:25,643 INFO  [rootLogger] Successfully executed step clicks_on_assessment_icon_view_button 
+2019-03-20 16:56:38,911 INFO  [rootLogger] Successfully executed step clicks_on 
+2019-03-20 16:57:05,614 INFO  [rootLogger] Successfully executed step clicks_on_submit_button 
+2019-03-20 16:57:06,334 INFO  [TestRunner] Stop scenario: Validate functionality of Objection & Appeal Module - Tax Payer Portal 
+2019-03-20 16:57:43,482 INFO  [TestRunner] Start scenario: Validate functionality of Objection & Appeal Module - Internal Portal 
+2019-03-20 16:57:47,614 INFO  [rootLogger] Successfully executed step clicks_on_case_management_tab 
+2019-03-20 16:58:05,386 INFO  [rootLogger] Successfully executed step apply_filter_option_and_click_on_search 
+2019-03-20 16:58:17,942 INFO  [rootLogger] Successfully executed step clicks_on_manage_icon_and_option 
+2019-03-20 16:58:37,414 INFO  [rootLogger] Successfully executed step clicks_on_option_and_click_on_submit_button 
+2019-03-20 16:58:38,184 INFO  [TestRunner] Stop scenario: Validate functionality of Objection & Appeal Module - Internal Portal 
+2019-03-20 16:59:17,780 INFO  [TestRunner] Start scenario: Validate functionality of assign officer Debt Management 
+2019-03-20 16:59:17,787 INFO  [rootLogger] Successfully executed step dgi_should_be_logged_in_to_the_internal_portal 
+2019-03-20 16:59:41,728 INFO  [rootLogger] Successfully executed step select_Up_to_date 
+2019-03-20 16:59:45,904 INFO  [rootLogger] Successfully executed step click_on_zero_to_three_months_Pending_amount_Link 
+2019-03-20 17:00:32,969 INFO  [TestRunner] Stop scenario: Validate functionality of assign officer Debt Management 
+2019-03-20 17:00:50,636 INFO  [TestRunner] Start scenario: Validate functionality of EFD module - manufactorer portal 
+2019-03-20 17:00:59,078 INFO  [rootLogger] Successfully executed step user_Login_with_Manufacturer_credentials 
+2019-03-20 17:01:17,323 INFO  [rootLogger] Successfully executed step click_on_Vendor_registartion_tab 
+2019-03-20 17:01:21,532 INFO  [rootLogger] Successfully executed step click_on_Register_Vendor_Button 
+2019-03-20 17:01:40,220 INFO  [rootLogger] Successfully executed step fill_the_Details_of_Vendor 
+2019-03-20 17:01:49,894 INFO  [rootLogger] Successfully executed step fill_the_Details_of_contact_person 
+2019-03-20 17:02:02,487 INFO  [rootLogger] Successfully executed step fill_Address_detals 
+2019-03-20 17:02:03,230 INFO  [TestRunner] Stop scenario: Validate functionality of EFD module - manufactorer portal 
+2019-03-20 17:02:20,559 INFO  [TestRunner] Start scenario: Validate functionality of Help-Desk Module - Tax Payer Portal 
+2019-03-20 17:02:28,733 INFO  [rootLogger] Successfully executed step user_login_with_Tax_payers_credentials 
+2019-03-20 17:04:28,546 INFO  [rootLogger] Successfully executed step fill_the_details 
+2019-03-20 17:04:34,704 INFO  [rootLogger] Successfully executed step clicks_on_submit_button_on_helpdesk 
+2019-03-20 17:04:35,589 INFO  [TestRunner] Stop scenario: Validate functionality of Help-Desk Module - Tax Payer Portal 
+2019-03-20 17:05:14,607 INFO  [TestRunner] Start scenario: Validate functionality of Help-Desk Module - Internal Portal 
+2019-03-20 17:05:18,693 INFO  [rootLogger] Successfully executed step user_login_in_Internal_portal 
+2019-03-20 17:05:24,832 INFO  [rootLogger] Selecting text in Web element label_referenceid 
+2019-03-20 17:06:45,097 INFO  [rootLogger] Failed step search_for_Registered_TicketId 
+2019-03-20 17:06:45,102 ERROR [rootLogger] Not able to execute  --- no such element: Unable to locate element: {"method":"xpath","selector":"//div[@class="issue-head-text"]/div"}
+  (Session info: chrome=72.0.3626.121)
+  (Driver info: chromedriver=2.38.552522 (437e6fbedfa8762dec75e2c5b3ddb86763dc9dcb),platform=Windows NT 10.0.17134 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.11.0', revision: 'e59cfb3', time: '2018-03-11T20:26:55.152Z'
+System info: host: 'LP101', ip: '172.16.2.183', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_191'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.38.552522 (437e6fbedfa876..., userDataDir: C:\Users\NIRMAL~1.PAT\AppDa...}, cssSelectorsEnabled: true, databaseEnabled: false, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 72.0.3626.121, webStorageEnabled: true}
+Session ID: 8c4a6dd1b4f5d546ed13b0560360b593
+*** Element info: {Using=xpath, value=//div[@class="issue-head-text"]/div} 
+2019-03-20 17:08:09,917 INFO  [TestRunner] Stop scenario: Validate functionality of Help-Desk Module - Internal Portal 
+2019-03-20 17:10:30,962 INFO  [TestRunner] Start scenario: Validate functionality of Tax-Payer Profile - Internal Portal 
+2019-03-20 17:10:35,033 INFO  [rootLogger] Successfully executed step user_login_in_Internal_portal 
+2019-03-20 17:10:39,121 INFO  [rootLogger] Successfully executed step click_on_Tax_payer_profile_tab 
+2019-03-20 17:10:56,947 INFO  [rootLogger] Successfully executed step click_on_View_icon 
+2019-03-20 17:10:56,949 INFO  [rootLogger] Selecting text in Web element label_category 
+2019-03-20 17:10:57,007 INFO  [rootLogger] Selecting text in Web element label_lastyearrevenue 
+2019-03-20 17:10:57,039 INFO  [rootLogger] Selecting text in Web element label_taxoffice 
+2019-03-20 17:10:57,074 INFO  [rootLogger] Selecting text in Web element label_addressline1 
+2019-03-20 17:10:57,109 INFO  [rootLogger] Selecting text in Web element label_addressline2 
+2019-03-20 17:10:57,147 INFO  [rootLogger] Selecting text in Web element label_province 
+2019-03-20 17:10:57,182 INFO  [rootLogger] Selecting text in Web element label_city 
+2019-03-20 17:10:57,219 INFO  [rootLogger] Selecting text in Web element label_zipcode 
+2019-03-20 17:10:57,253 INFO  [rootLogger] Selecting text in Web element label_mobilenumber 
+2019-03-20 17:10:57,290 INFO  [rootLogger] Selecting text in Web element label_businessname 
+2019-03-20 17:10:57,327 INFO  [rootLogger] Selecting text in Web element label_baddressline1 
+2019-03-20 17:10:57,354 INFO  [rootLogger] Selecting text in Web element label_baddressline2 
+2019-03-20 17:10:57,381 INFO  [rootLogger] Selecting text in Web element label_bprovince 
+2019-03-20 17:10:57,407 INFO  [rootLogger] Selecting text in Web element label_bcity 
+2019-03-20 17:10:57,434 INFO  [rootLogger] Selecting text in Web element label_bmobilenumber 
+2019-03-20 17:10:57,461 INFO  [rootLogger] Selecting text in Web element label_email 
+2019-03-20 17:10:58,543 INFO  [rootLogger] Successfully executed step check_Data_for_General_details 
+2019-03-20 17:11:03,744 INFO  [rootLogger] Successfully executed step check_Data_for_Declaration 
+2019-03-20 17:11:03,746 INFO  [rootLogger] Selecting text in Web element label_DG 
+2019-03-20 17:11:03,798 INFO  [rootLogger] Selecting text in Web element label_DSTT 
+2019-03-20 17:11:03,828 INFO  [rootLogger] Selecting text in Web element label_DSTR 
+2019-03-20 17:11:03,857 INFO  [rootLogger] Selecting text in Web element label_Export 
+2019-03-20 17:11:03,886 INFO  [rootLogger] Selecting text in Web element label_exempt 
+2019-03-20 17:11:03,914 INFO  [rootLogger] Selecting text in Web element label_nontax 
+2019-03-20 17:11:03,946 INFO  [rootLogger] Selecting text in Web element label_DGvat 
+2019-03-20 17:11:03,974 INFO  [rootLogger] Selecting text in Web element label_DSvat 
+2019-03-20 17:11:04,002 INFO  [rootLogger] Selecting text in Web element label_DGI 
+2019-03-20 17:11:04,030 INFO  [rootLogger] Selecting text in Web element label_DGIV 
+2019-03-20 17:11:04,060 INFO  [rootLogger] Selecting text in Web element label_DSI 
+2019-03-20 17:11:04,091 INFO  [rootLogger] Selecting text in Web element label_DSIV 
+2019-03-20 17:11:04,121 INFO  [rootLogger] Selecting text in Web element label_OR 
+2019-03-20 17:11:04,148 INFO  [rootLogger] Selecting text in Web element label_ORV 
+2019-03-20 17:11:04,181 INFO  [rootLogger] Selecting text in Web element label_total 
+2019-03-20 17:11:04,208 INFO  [rootLogger] Selecting text in Web element label_totalV 
+2019-03-20 17:11:07,236 INFO  [rootLogger] Selecting text in Web element label_asset1 
+2019-03-20 17:11:07,267 INFO  [rootLogger] Selecting text in Web element label_asset2 
+2019-03-20 17:11:07,300 INFO  [rootLogger] Selecting text in Web element label_asset3 
+2019-03-20 17:11:07,333 INFO  [rootLogger] Selecting text in Web element label_good1 
+2019-03-20 17:11:07,379 INFO  [rootLogger] Selecting text in Web element label_good2 
+2019-03-20 17:11:07,415 INFO  [rootLogger] Selecting text in Web element label_good3 
+2019-03-20 17:11:07,458 INFO  [rootLogger] Selecting text in Web element label_raw1 
+2019-03-20 17:11:07,506 INFO  [rootLogger] Selecting text in Web element label_raw2 
+2019-03-20 17:11:07,565 INFO  [rootLogger] Selecting text in Web element label_raw3 
+2019-03-20 17:11:07,600 INFO  [rootLogger] Selecting text in Web element label_others1 
+2019-03-20 17:11:07,634 INFO  [rootLogger] Selecting text in Web element label_others2 
+2019-03-20 17:11:07,661 INFO  [rootLogger] Selecting text in Web element label_others3 
+2019-03-20 17:11:07,697 INFO  [rootLogger] Selecting text in Web element label_totalD 
+2019-03-20 17:11:07,729 INFO  [rootLogger] Selecting text in Web element label_eadjsup 
+2019-03-20 17:11:07,779 INFO  [rootLogger] Selecting text in Web element label_eadjvat 
+2019-03-20 17:11:07,859 INFO  [rootLogger] Selecting text in Web element label_othvat 
+2019-03-20 17:11:07,935 INFO  [rootLogger] Selecting text in Web element label_othreco 
+2019-03-20 17:11:08,906 INFO  [TestRunner] Stop scenario: Validate functionality of Tax-Payer Profile - Internal Portal 
+2019-03-20 17:12:53,708 INFO  [TestRunner] Start scenario: Validate functionalioty of IT-support Admin module - Internal Portal 
+2019-03-20 17:12:57,827 INFO  [rootLogger] Successfully executed step user_login_in_Internal_portal 
+2019-03-20 17:13:06,953 INFO  [rootLogger] Successfully executed step click_on_IT_Support_tab 
+2019-03-20 17:13:13,305 INFO  [rootLogger] Successfully executed step click_on_icon_to_create_new_issue 
+2019-03-20 17:14:48,166 INFO  [rootLogger] Successfully executed step fill_the_details 
+2019-03-20 17:14:55,309 INFO  [rootLogger] Successfully executed step clicks_on_Save_Button 
+2019-03-20 17:14:55,369 INFO  [rootLogger] Successfully executed step successfull_display_on_given_page 
+2019-03-20 17:14:56,116 INFO  [TestRunner] Stop scenario: Validate functionalioty of IT-support Admin module - Internal Portal 
+2019-03-20 17:15:13,885 INFO  [TestRunner] Start scenario: Validate the IT support User's functionality - ituser 
+2019-03-20 17:15:27,490 INFO  [rootLogger] Successfully executed step user_should_enter_Username_and_Password 
+2019-03-20 17:15:35,487 INFO  [rootLogger] Successfully executed step user_clicks_on_Search_textbox_and_enters_the_text 
+2019-03-20 17:16:57,362 INFO  [TestRunner] Stop scenario: Validate the IT support User's functionality - ituser 
+2019-03-20 17:17:21,567 INFO  [TestRunner] Start scenario: Validate the IT support User's functionality - ituser 
+2019-03-20 17:17:55,008 INFO  [rootLogger] Successfully executed step user_should_enter_Username_and_Password 
+2019-03-20 17:18:10,687 INFO  [rootLogger] Successfully executed step user_clicks_on_Search_textbox_and_enters_the_text 
+2019-03-20 17:19:32,464 INFO  [TestRunner] Stop scenario: Validate the IT support User's functionality - ituser 
+2019-03-20 17:19:57,506 INFO  [TestRunner] Start scenario: Validate the IT support User's functionality - ituser 
+2019-03-20 17:20:20,136 INFO  [rootLogger] Successfully executed step user_should_enter_Username_and_Password 
+2019-03-20 17:20:36,937 INFO  [rootLogger] Successfully executed step user_clicks_on_Search_textbox_and_enters_the_text 
+2019-03-20 17:21:58,701 INFO  [TestRunner] Stop scenario: Validate the IT support User's functionality - ituser 

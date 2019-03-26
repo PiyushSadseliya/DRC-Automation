@@ -1,6 +1,5 @@
 <configuration>
     <timestamp key="bySecond" datePattern="'Date'MMddyyyy'Time'HHmmss"/>
-
     <appender name="FILE" class="ch.qos.logback.core.FileAppender">
         <file>${user.dir}/test-output/test.log</file>
         <append>true</append>

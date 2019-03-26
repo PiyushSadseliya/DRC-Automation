@@ -1,44 +1,54 @@
 package org.drc.vat.appmanager;
 
 import java.io.IOException;
-
+import java.util.List;
+import java.util.Properties;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class ReadUsername {
+	public static final String dir = System.getProperty("user.dir");
+	static Properties property;
+	static String Password;
 
-	public static String ReadUsername(String vendoremail) throws IOException, InterruptedException
-	{
-	System.setProperty("webdriver.chrome.driver", "D:\\DRC_Automation\\DRC-Automation-git\\DRC-Automation-develop-5e7fa7cde7bb4b3537a4b2c6dc3cf11a41792c36\\chromedriver.exe");
-    WebDriver driver = new ChromeDriver();
-   // driver.get("http://103.249.120.58:8044");
-    driver.get("https://www.mailinator.com/v3/#/#inboxpane");
-    //String A = "ateuser28@mailinator.com";
-    String email = vendoremail.substring(0, vendoremail.indexOf('@'));
-    WebElement wb = driver.findElement(By.xpath("//*[@id='inbox_field']"));
-    wb.sendKeys(email);
-    Thread.sleep(3000);
-    wb.sendKeys(Keys.ENTER);
-   // driver.findElement(By.xpath("//*[text()='Go!']")).click();
-    Thread.sleep(5000);
-    driver.findElement(By.xpath("//*[contains(text(),'1rivettest@gmail.com')]")).click();
-    //driver.switchTo().frame("msg_body");
-    driver.switchTo().frame(driver.findElement(By.id("msg_body")));
-    Thread.sleep(2000);
-    driver.findElement(By.xpath("//a[contains(text(),'Click')]")).click();
-String S = driver.findElement(By.xpath("/html/body")).getText();  
-String Keyword = "Password :";
-    String Password = S.substring(S.indexOf(Keyword)+11, S.indexOf(Keyword)+22);      
-    return Password;
-    
-    
-}
-	
-	public static void main(String args[]) throws IOException, InterruptedException
-	{
-		ReadUsername("082417jack@mailinator.com");
+	public static String ReadUsername(String vendoremail) throws IOException, InterruptedException {
+		System.setProperty("webdriver.chrome.driver", dir + "//chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+	    driver.get("http://www.mytrashmail.com/");
+	    //String email = vendoremail.substring(0, vendoremail.indexOf('@'));
+	    Thread.sleep(3000);
+	    driver.findElement(By.xpath("//input[@type='text']")).sendKeys(vendoremail);
+	    Thread.sleep(8000);
+	    driver.findElement(By.xpath("//input[contains(@value,'Ge')]")).click();
+	    Thread.sleep(8000);
+	    driver.findElement(By.xpath("//b//a")).click();
+	    Thread.sleep(8000);
+	    List <WebElement> body=driver.findElements(By.xpath("//body"));
+	    if (body.size()>0) {
+	    	if (body.get(0).getText().equalsIgnoreCase("502 bad gateway")) {
+	    		driver.navigate().refresh();
+	    		Thread.sleep(8000);
+	    		fetchUserName(driver);
+	    	}else {
+	    		//driver.switchTo().frame(driver.findElement(By.id("msg_body")));				 
+	    		fetchUserName(driver);			  
+	    	}
+
+	    }
+	    //String SP = S.substring(S.lastIndexOf(':')+2, S.length());  
+	    return Password;        
+	    }
+
+	    static void fetchUserName(WebDriver driver) {
+	    	String S = driver.findElement(By.xpath("/html/body")).getText();  
+	    	String Keyword = "Password :";
+	    	     Password = S.substring(S.indexOf(Keyword)+11, S.indexOf(Keyword)+22);      
+	    	   driver.close();
+	    }
+
+	    
+	    
 	}
-}
+		

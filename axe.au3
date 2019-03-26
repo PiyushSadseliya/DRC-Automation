@@ -1,5 +1,0 @@
-WinWaitActive("Sign-in")
-Send("username")
-Send("{TAB}")
-Send("pass")
-Send("{ENTER}")

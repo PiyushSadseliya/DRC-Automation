@@ -12,9 +12,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
-
-import javax.xml.bind.DatatypeConverter;
-
+import org.apache.log4j.Logger;
+import static org.drc.vat.appmanager.HelperBase.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -29,8 +28,8 @@ public class ApplicationManager {
 	private static Properties properties;
 	public WebDriver wd;
 	private String browser;
-
 	private HelperBase helperBase;
+	public static Logger Add_Log = null;
 
 	public ApplicationManager(String browser) {
 		this.browser = browser;
@@ -38,15 +37,13 @@ public class ApplicationManager {
 	}
 
 	public void initUrl() throws IOException, AWTException {
+		Add_Log = Logger.getLogger("rootLogger");
 		String target = System.getProperty("target", "local");
 		properties.load(new FileReader(new File(String.format("src/test/resources/%s.properties", target))));
 		if ("".equals(properties.getProperty("selenium.server"))) {
 			if (browser.equals(BrowserType.IE)) {
-				// System.setProperty("webdriver.ie.driver","D:\\AutomationFHLBNY\\AuditConfirmations\\IEDriverServer.exe");
 				wd = new InternetExplorerDriver();
-
 			} else if (browser.equals(BrowserType.CHROME)) {
-				// System.setProperty("webdriver.CHROME.driver","D:\\AutomationFHLBNY\\AuditConfirmations\\chromedriver.exe");
 				wd = new ChromeDriver();
 			}
 		} else {
@@ -55,13 +52,9 @@ public class ApplicationManager {
 			wd = new RemoteWebDriver(new URL(properties.getProperty("selenium.server")), capabilities);
 			System.out.println(wd);
 		}
-
 		wd.manage().window().maximize();
-		wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-		// wd.get(properties.getProperty("web.Url"));
-
+		wd.manage().timeouts().implicitlyWait(80, TimeUnit.SECONDS);
 		helperBase = new HelperBase(wd);
-		// helperBase.auth();
 	}
 
 	public void stop() {
@@ -79,25 +72,19 @@ public class ApplicationManager {
 	}
 
 	public void callinternalportaladmin() throws AWTException, InterruptedException, IOException {
-		
-		wd.get("http://103.249.120.58:8044");
-		// wd.findElement(By.xpath("//*[contains(@alt,'Windows
-		// Authentication')]")).click();
-		Runtime.getRuntime()
-		.exec(System.getProperty("user.dir") + "\\autoitsample.exe",
-				null, new File(
-						"D:\\Office\\DRC\\DRC_Smoke Suite\\DRC-Automation\\"));
-		wd.findElement(By.xpath("//*[contains(@alt,'Windows Authentication')]")).click();
-		Thread.sleep(5000);
 
-		// wd.get("http://103.249.120.58:8044");
-		Thread.sleep(8000);
+		wd.get("http://103.249.120.58:8044");
+		//wd.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		Runtime.getRuntime().exec(System.getProperty("user.dir") + "\\autoitsample.exe");
+				//, null,new File(System.getProperty("user.dir") + "\\DRC-Automation\\"));
+		wd.findElement(By.xpath("//*[contains(@alt,'Windows Authentication')]")).click();
+		Thread.sleep(3000);
 	}
 
 	public void callinternalportalsuper() throws AWTException, InterruptedException, IOException {
 		wd.get("http://103.249.120.58:8044");
-		Runtime.getRuntime().exec(
-				"\\super.exe");
+		//wd.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		Runtime.getRuntime().exec(System.getProperty("user.dir") + "\\super.exe");
 		wd.findElement(By.xpath("//*[contains(@alt,'Windows Authentication')]")).click();
 		Thread.sleep(5000);
 
@@ -111,6 +98,27 @@ public class ApplicationManager {
 		wd.get("http://103.249.120.58:8012");
 	}
 
+	public void callinternalportaltaxofficer() throws AWTException, InterruptedException, IOException {
+		wd.get("http://103.249.120.58:8044");
+		Runtime.getRuntime().exec(System.getProperty("user.dir") + "\\taxofficer.exe");
+		wd.findElement(By.xpath("//*[contains(@alt,'Windows Authentication')]")).click();
+		Thread.sleep(5000);
+	}
+
+	public void call1trackitadminUser() throws AWTException, InterruptedException, IOException {
+
+		wd.get("http://103.249.120.58:8027");
+		wd.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		Runtime.getRuntime().exec(System.getProperty("user.dir") + "\\QA_Internal_Portal_Login\\itsupportadmin.exe");
+		clickOn("btn_windowsClick", "");
+	}
+
+	public void call1trackituser() throws AWTException, InterruptedException, IOException {
+		// wd.close();
+		wd.get("http://103.249.120.58:8027");
+		// Thread.sleep(3000);
+	}
+
 	public byte[] takeScreenshot() {
 		return ((TakesScreenshot) wd).getScreenshotAs(OutputType.BYTES);
 	}
@@ -120,15 +128,12 @@ public class ApplicationManager {
 	}
 
 	public static void auth() throws AWTException {
-		// String decoded = new
-		// String(DatatypeConverter.parseBase64Binary(properties.getProperty("pw")));
-		Robot robot = new Robot();
 
+		Robot robot = new Robot();
 		robotType(robot, properties.getProperty("username"));
 		robot.keyPress(KeyEvent.VK_TAB);
 		robotType(robot, properties.getProperty("password"));
-		// robot.keyPress(KeyEvent.VK_TAB);
-		// robotType(robot, decoded);
+
 		robot.keyPress(KeyEvent.VK_ENTER);
 	}
 
