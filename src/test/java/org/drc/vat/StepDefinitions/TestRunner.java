@@ -20,8 +20,10 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import static org.drc.vat.appmanager.HelperBase.softAssert;
+
 @CucumberOptions(features = {					
 				"classpath:features/"
+
 		},
 		glue = "org.drc.vat.StepDefinitions",
 		plugin = {"com.cucumber.listener.ExtentCucumberFormatter:","html:test-output/cucumber-report", 
