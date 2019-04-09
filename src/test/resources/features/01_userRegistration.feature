@@ -7,11 +7,17 @@ Feature: User Registration for the steps involved in creating a user account for
     When Establish a connection with data base and execute query to create user"<username>".
     And Update data in another table based on created user
     And Update data in roles table
+    Then select  Business address one for "<A1Document Description>" , "<A1Status>"
+    And select  Business address two for "<A1Document Description>" , "<A1Status>"
+     And select  Business address three for "<A1Document Description>" , "<A1Status>"
+    
+    
+    
 
     Examples: 
 
       | Test Case ID                  | Description              | username               |
-      | DRC_ATC_Valid_Registration_04 | Register with valid data |  Regression Marchde  |
+      | DRC_ATC_Valid_Registration_04 | Register with valid data |  Regression Tu  |
      #| DRC_ATC_Valid_Registration_04 | Register with valid data | Regression MarchMone |
     # | DRC_ATC_Valid_Registration_04 | Register with valid data | Regression MarchLone |
 

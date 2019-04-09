@@ -144,7 +144,7 @@ public class userRegistration {
 				+ "where Email = CONCAT('" + EmailUsername + "','@mt2015.com'))               "
 				+ "insert into [DRC-QA].[Ref].[RegisteredUsers] values                             "
 				+ "  (@emailvalue                                                          "
-				+ "  ,'en'                                                                   " + "  ,'" + Username
+				+ "  ,'en-us'                                                                   " + "  ,'" + Username
 				+ "'" + "  ,CONCAT('" + EmailUsername + "','@mt2015.com')                              "				
 				+ "  ,'9876543218'                                                                " //Mobile number
 				+ "  ,CURRENT_TIMESTAMP                                                   "
