@@ -44,8 +44,8 @@ Feature: User is on FX Management Page Tax Officer
       | TestcaseID                 | Description                           | type1        | See                    |
       | FX_Management_Officer_05_1 | multiple dot in currency rate         | 7.15.10      | Invalid currency rate! |
       | FX_Management_Officer_05_2 | multiple dot in between currency rate | 14.......100 | Invalid currency rate! |
-      | FX_Management_Officer_05_3 | currency rate starting with dot       |        .2500 | Invalid currency rate! |
-      | FX_Management_Officer_05_4 | currency rate ending with dot         |        2500. | Invalid currency rate! |
+      | FX_Management_Officer_05_3 | currency rate starting with dot       |       ..2500 | Invalid currency rate! |
+      | FX_Management_Officer_05_4 | currency rate ending with dot         |        2500..| Invalid currency rate! |
 
   @TC_14
   Scenario Outline: Validate the Target Currencies column data
@@ -72,22 +72,22 @@ Feature: User is on FX Management Page Tax Officer
       | TestcaseID               | Description                                     |
       | FX_Management_Officer_07 | Verify Historical FX Rates button functionality |
 
-  #@TC_09
-  #Scenario Outline: Validate the Pagination on the FX management page with historic data
-    #Given User is on FX Management "<TestcaseID>" "<Description>"
-    #And User click on Dashboard
-    #And User click on FX Management tab
-    #And User Click on Historical FX Rates button
-    #And User click on page "<ClickPage>" and check page"<CheckPage>" "<option>"
-#
-    #Examples: 
-      #| TestcaseID                 | Description                | Period        | ClickPage       | CheckPage       | option          |
-      #| FX_Management_Officer_09_1 | validating last and right  | txt_PeriodJan | lbl_AssLast     | lbl_AssestRight | last and right  |
-      #| FX_Management_Officer_09_2 | validating last and left   | txt_PeriodJan | lbl_AssLast     | lbl_AssestLeft  | last and left   |
-      #| FX_Management_Officer_09_3 | validating right and left  | txt_PeriodJan | lbl_AssestRight | lbl_AssestLeft  | right and left  |
-      #| FX_Management_Officer_09_4 | validating right and first | txt_PeriodJan | lbl_AssestRight | lbl_AssFirst    | right and first |
-      #| FX_Management_Officer_09_5 | validating first and left  | txt_PeriodJan | lbl_AssFirst    | lbl_AssestLeft  | first and left  |
-      #| FX_Management_Officer_09_6 | validating first and first | txt_PeriodJan | lbl_AssFirst    | lbl_AssFirst    | first and first |
+  @TC_09
+  Scenario Outline: Validate the Pagination on the FX management page with historic data
+    Given User is on FX Management "<TestcaseID>" "<Description>"
+    And User click on Dashboard
+    And User click on FX Management tab
+    And User Click on Historical FX Rates button
+    And User click on page "<ClickPage>" and check page"<CheckPage>" "<option>"
+
+    Examples: 
+      | TestcaseID                 | Description                | Period        | ClickPage       | CheckPage       | option          |
+      | FX_Management_Officer_09_1 | validating last and right  | txt_PeriodJan | lbl_AssLast     | lbl_AssestRight | last and right  |
+      | FX_Management_Officer_09_2 | validating last and left   | txt_PeriodJan | lbl_AssLast     | lbl_AssestLeft  | last and left   |
+      | FX_Management_Officer_09_3 | validating right and left  | txt_PeriodJan | lbl_AssestRight | lbl_AssestLeft  | right and left  |
+      | FX_Management_Officer_09_4 | validating right and first | txt_PeriodJan | lbl_AssestRight | lbl_AssFirst    | right and first |
+      | FX_Management_Officer_09_5 | validating first and left  | txt_PeriodJan | lbl_AssFirst    | lbl_AssestLeft  | first and left  |
+      | FX_Management_Officer_09_6 | validating first and first | txt_PeriodJan | lbl_AssFirst    | lbl_AssFirst    | first and first |
 
   @TC_10
   Scenario Outline: Validate the previous button functionality on Historical FX Rates page
@@ -170,7 +170,7 @@ Feature: User is on FX Management Page Tax Officer
 
     Examples: 
       | TestcaseID               | Description                      | TodayDate  | ToDate     | DisplayDate | NoCurrencyFromDate | NoCurrencyToDate |
-      | FX_Management_Officer_08 | Verify date search functionality | 2019-03-11 | 2019-03-11 | 03/11/2019  | 2019-02-02         | 2019-02-02       |
+      | FX_Management_Officer_08 | Verify date search functionality | 2019-04-09 | 2019-04-09 | 04/09/2019  | 2019-02-02         | 2019-02-02       |
 
   @TC_16
   Scenario Outline: Validate the log out functionality on FX Management landing and Historical FX Rates page

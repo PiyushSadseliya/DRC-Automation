@@ -53,7 +53,7 @@ public class DV_2876_manual_EFD_All
 			assertTrue(true);
 		}
 	}
-
+ 
 	@And("^User calculate Total Gross Amount on Delivery of Goods$")
 	public void user_calculate_Total_Gross_Amount_on_Delivery_of_Goods() throws Throwable 
 	{ 

@@ -33,7 +33,7 @@ public class DV_2253_TaxPayer_Portal_objection_appeal
 			if (sure.size() > 0) {
 				sure.get(0).click();
 			}			
-		}
+		} 
 	}
 	
 	@And("^User is on Tax Payer portal Objection and Appeal and click on VAT e-Filing Tab \"([^\"]*)\" \"([^\"]*)\"$")
@@ -386,7 +386,13 @@ public class DV_2253_TaxPayer_Portal_objection_appeal
 	@And("^User verify the period field on objection page$")
 	public void user_verify_the_period_field_on_objection_page() throws Throwable 
 	{
-		sleepWait(5000);
+		sleepWait(1000);
+		waitFor("btn_Obj_Submit");
+		sleepWait(1000);
+		waitFor("btn_Obj_Submit");
+		sleepWait(1000);
+		waitFor("btn_Obj_Submit");
+		
 		String DataCheck= elementText("");
 		
 		Calendar cal = Calendar.getInstance();

@@ -60,8 +60,8 @@ Feature: E-filing -> Filing -> Declaration with verification and confirmation of
     And User see message "<mes>"
 
     Examples: 
-      | TestcaseID                     | Description                         |    2 |  2.1 | A2   | A2.1 | mes                                                     |
-      | Declaration_Verification_05_06 | validate delivery of services field | 5000 | 2000 | 2000 | 5000 | Turnover realized can not be less than taxable turnover |
+      | TestcaseID                     | Description                         |    2 |  2.1 | A2   | A2.1 | mes                                           |
+      | Declaration_Verification_05_06 | validate delivery of services field | 5000 | 2000 | 2000 | 5000 | Turnover cannot be less than taxable turnover |
 
   @TC_07_08_09_14_15_17_18_19_20_DV_2390_Declaration_with_verification
   Scenario Outline: Validate the amounts under VAT collected column (16%) , Total FC taxble turnover , total vat collected (16%) , Net VAT to be paid ,VAT Credit,Amount to Pay,VAT credit carried forward,  Vat on externally financed public procurement
@@ -132,7 +132,6 @@ Feature: E-filing -> Filing -> Declaration with verification and confirmation of
   #| TestcaseID                  | Description                   | Mess                                  | mbMess                          | name               | removed          | pdf             | imj          | word           | mb                | lessMB             |
   #| Declaration_Verification_21 | validate Upload functionality | Selected file format is not supported | File size must be less than 2MB | DRC Test Data.xlsx | No file selected | certificate.pdf | test img.PNG | test word.docx | SampleXLSFile.xls | DRC Test Data.xlsx |
   # submit file
-  
   @TC_24_DV_2390_Declaration_with_verification
   Scenario Outline: Validate the Save Draft button functionality.
     Given User is on Vat e-Filing Page "<TestcaseID>" "<Description>"
@@ -186,11 +185,11 @@ Feature: E-filing -> Filing -> Declaration with verification and confirmation of
     And User enter invalid data special character "<special>" and click on verify and see mess "<InvalidMess>"
     And User enter Alpha numeric "<Alphanumeric>" and click on verify and see mess "<InvalidMess>"
     And User click on close icon
+
     #And User again click on submit button
     #And User click on Yes button
     #And User waits for more than two min and click on verify button and see message "<mess>"
     #And User click on close icon on pop up
-
     Examples: 
-      | TestcaseID                              | Description           |     1 |    2 |  2.1 |   3 |   4 |   5 |   6 |   7 |   8 |  10 | 10.1 |  11 | 11.1 |  12 | 12.1 |  13 | 13.1 |  17 |  18 |  19 |  20 |    26 | mess                    | InvalidMess            | numeric | special | Alphanumeric | ExiMess                |
-      | Declaration_Verification_22_23_25_26_27 | validate period field | 10000 | 7000 | 5000 | 500 | 500 | 500 | 500 | 500 | 500 | 500 |  500 | 500 |  500 | 500 |  500 | 500 |  500 | 500 | 500 | 500 | 500 | 10000 | Enter Verification Code | Please enter valid OTP |  123345 | !@$@$3^ | asd1123      | Please enter valid OTP |
+      | TestcaseID                              | Description           |     1 |    2 |  2.1 |   3 |   4 |   5 |   6 |   7 |   8 |  10 | 10.1 |  11 | 11.1 |  12 | 12.1 |  13 | 13.1 |  17 |  18 |  19 |  20 |    26 | mess                    | InvalidMess              | numeric | special | Alphanumeric | ExiMess                  |
+      | Declaration_Verification_22_23_25_26_27 | validate period field | 10000 | 7000 | 5000 | 500 | 500 | 500 | 500 | 500 | 500 | 500 |  500 | 500 |  500 | 500 |  500 | 500 |  500 | 500 | 500 | 500 | 500 | 10000 | Enter Verification Code | Please enter a valid OTP |  123345 | !@$@$3^ | asd1123      | Please enter a valid OTP |

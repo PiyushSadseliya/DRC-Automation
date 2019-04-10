@@ -7,5 +7,5 @@ Feature: API Filing Records
     Then For efiling Records user hits API"<email>"
 
     Examples: 
-      | email                       |
-      | RegressionMarchde@mt2015.com  |
+      | email                            |
+      | RegressionAprilTOne@mt2015.com |

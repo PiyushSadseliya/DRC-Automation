@@ -346,7 +346,7 @@ public class HelperBase {
 		clickOn("drp_btn_logout", "");
 		clickOn("drp_Sign_out", "");		
 		//System.out.println("browser closed");
-		//		clickOn("link_clickhere", "");
+		//		clickOn("link_clickhere", ""); 
 		//		sleepWait(2000);
 	}
 
@@ -905,17 +905,6 @@ public class HelperBase {
 		}
 		return lastModifiedFile;
 	}
-
-	
-
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	/**
 	 * Select the value from the Drop Down
@@ -974,7 +963,6 @@ public class HelperBase {
 	public static long countDays(String dFormat, String Date1, String Date2) {
 		long diff = 0;
 		SimpleDateFormat myFormat = new SimpleDateFormat(dFormat);
-
 		try {
 			Date date1 = myFormat.parse(Date1);
 			Date date2 = myFormat.parse(Date2);

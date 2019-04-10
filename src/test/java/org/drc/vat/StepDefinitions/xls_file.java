@@ -24,6 +24,8 @@ public class xls_file {
 	public static String Document_No;
 	public static String NITVA;
 	public static String Tax_Payer;
+	public static String TransdactionNO;
+	public static String OverpaymentTran_No;
 	
 	public static void xls() throws IOException, InterruptedException 
 	{	
@@ -43,9 +45,9 @@ public class xls_file {
 		Thread.sleep(2000);*/
 		/**
 		 *  Account Number Static
-		 */
-		
-		String Account_No = "00112233440037";
+		 */ 
+	 	 
+		String Account_No = "00112233440042";
 		
 		String Taxpayer_name = wd.findElement(By.xpath("//span[contains(text(),'Taxpayer Name:')]//following::td/div")).getText();
 		Thread.sleep(2000);
@@ -58,6 +60,16 @@ public class xls_file {
 		//String newamount = amount.trim().replace(',', '.');
 		System.out.println(newamount);	        
 
+		
+		// For Adding Amount		
+		//String newamount = "2040.00";		
+		double ch_result = Double.parseDouble(newamount);	
+		System.out.println(ch_result);
+		double AM = ch_result + 10;
+		System.out.println(AM);
+		
+		
+		
 		String BankName = "Bank Name:";
 		String AdvansBank = "Advans Bank";	
 		String ReceivedDate = "Received Date:";
@@ -90,15 +102,19 @@ public class xls_file {
 		Cell cell2 = row.createCell(1); // Doc No.
 		cell2.setCellValue(Doc_no);
 		
-		Document_No = Doc_no;		
+		Document_No = cell2.getStringCellValue();
+		//Document_No = Doc_no;		
 		
 		Cell cell3 = row.createCell(2); // Nitva
 		cell3.setCellValue(Nitva_no);
-
-		NITVA = Nitva_no;
+		NITVA = cell3.getStringCellValue();
+		//NITVA = Nitva_no;
 		
 		Cell cell4 = row.createCell(3); // Tran No.
 		cell4.setCellValue(Doc_no);
+		
+		TransdactionNO = cell4.getStringCellValue();
+		//TransdactionNO = Doc_no;
 
 		/**
 		 *  Account Number Static
@@ -109,8 +125,8 @@ public class xls_file {
 		Cell cell6 = row.createCell(6); // Tax Payer Name
 		cell6.setCellValue(Taxpayer_name);
 		
-		
-		Tax_Payer = Taxpayer_name;
+		Tax_Payer = cell6.getStringCellValue();
+		//Tax_Payer = Taxpayer_name;
 
 		Cell cell7 = row.createCell(7); // Tax Payer Name
 		cell7.setCellValue(AdvansBank);	
@@ -127,15 +143,19 @@ public class xls_file {
 		cell01.setCellValue(currentDate);
 		
 		Cell cell02 = row01.createCell(1); // Doc No.
-		cell02.setCellValue(Doc_no.substring(0,12).concat("A"));
+		//cell02.setCellValue(Doc_no.substring(0,12).concat("A"));
+		cell02.setCellValue(Doc_no.substring(0,12).concat("X"));
 		
 		Cell cell03 = row01.createCell(2); // Nitva
-		cell03.setCellValue(Nitva_no);
+		cell03.setCellValue(Nitva_no); 
 		//NITVA = Nitva_no;
 		
+		
 		Cell cell04 = row01.createCell(3); // Tran No.
-		cell04.setCellValue(Doc_no.substring(0,12).concat("A"));
-
+		//cell04.setCellValue(Doc_no.substring(0,12).concat("A"));
+		cell04.setCellValue(Doc_no.substring(0,12).concat("X"));
+		 	
+		
 		/**
 		 *  Account Number Static
 		 */
@@ -166,11 +186,13 @@ public class xls_file {
 		cell_02.setCellValue(Doc_no);
 		
 		Cell cell_03 = row02.createCell(2); // Nitva
-		cell_03.setCellValue(Nitva_no.substring(0,16).concat("A"));
+		//cell_03.setCellValue(Nitva_no.substring(0,16).concat("A"));
+		cell_03.setCellValue(Nitva_no.substring(0,16).concat("X"));
 		//NITVA = Nitva_no;
 		
 		Cell cell_04 = row02.createCell(3); // Tran No.
-		cell_04.setCellValue(Doc_no.substring(0,12).concat("B"));
+		//cell_04.setCellValue(Doc_no.substring(0,12).concat("B"));
+		cell_04.setCellValue(Doc_no.substring(0,12).concat("Y"));
 
 		/**
 		 *  Account Number Static
@@ -189,7 +211,44 @@ public class xls_file {
 		Cell cell_08 = row02.createCell(8); // Amount
 		cell_08.setCellValue(newamount);		 				
 		
-		//--------------------------------------------------------------------------------------------------
+		//-----------------------------------Amount Greater than Filing---------------------------------------------------------------
+		
+		Row row03 = sheet.createRow(7);
+		Cell cell_011 = row03.createCell(0); 
+		cell_011.setCellType(cell_011.CELL_TYPE_STRING);
+		cell_011.setCellValue(currentDate);
+		
+		Cell cell_033 = row03.createCell(2); // Nitva
+		cell_033.setCellValue(Nitva_no);
+		//NITVA = Nitva_no;
+		
+		Cell cell_044 = row03.createCell(3); // Tran No.
+		//cell_044.setCellValue(Doc_no.substring(0,12).concat("D"));
+		cell_044.setCellValue(Doc_no.substring(0,12).concat("Z"));
+
+		OverpaymentTran_No = cell_044.getStringCellValue();		
+		System.out.println("Overpayment Transaction No");
+		System.out.println(OverpaymentTran_No);
+		
+		/**
+		 *  Account Number Static
+		 */
+		Cell cell_055 = row03.createCell(4); // A/c No.
+		cell_055.setCellValue(Account_No);
+
+		Cell cell_066 = row03.createCell(6); // Tax Payer Name
+		cell_066.setCellValue(Taxpayer_name);
+		//Tax_Payer = Taxpayer_name;
+
+		Cell cell_077 = row03.createCell(7); // Advans Bank
+		cell_077.setCellValue(AdvansBank);	
+		
+		
+		Cell cell_088 = row03.createCell(8); // Amount						 		
+		cell_088.setCellValue(AM);
+		System.out.println(AM);
+		
+		//-----------------------------------------------------------------------------------------------------
 		
 		
 		FileOutputStream fos = new FileOutputStream(filedoc+"BankFileTest.xlsx");

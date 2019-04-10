@@ -27,12 +27,11 @@ public class DV_2880_Tax_Deductable_Ass_and_Reass_Adjustement_Assessed_List
 	@And("^User click on drop down \"([^\"]*)\" for Assessed List$")
 	public void user_click_on_drop_down_for_Assessed_List(String period) throws Throwable 
 	{
-	  sleepWait(2000);
-	  waitFor("drp_month");
+	  sleepWait(1000);
 	  clickOn("drp_month", "");
 	  sleepWait(1000);
 	  clickOn(period, "");
-	    
+	  sleepWait(1000);
 	}
 
 	@And("^User click on manage and click on Reassess$")

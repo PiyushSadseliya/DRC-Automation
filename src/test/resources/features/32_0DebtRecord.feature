@@ -7,7 +7,7 @@ Feature: Debt Record in 0-3 Months age bracket
     And User Click on SignIn
 
     Examples: 
-      | TestcaseID       | Description          | email                            | password |
+      | TestcaseID       | Description          | email                       | password |
       | e-file_Login_001 | Login into tax payer |RegressionMarchde@mt2015.com | Test@123 |
 
   @TC_02_debtMan
@@ -19,5 +19,5 @@ Feature: Debt Record in 0-3 Months age bracket
     And Enter OTP and click on verify button and click on Ok button
 
     Examples: 
-      | Description                               |     1 | email                            |  
+      | Description                               |     1 | email                        |  
       | E-filing in the age bracket of 0-3 Months | 50000 | RegressionMarchde@mt2015.com | 

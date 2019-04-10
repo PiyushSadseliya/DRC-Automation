@@ -49,7 +49,7 @@ public class DV_2063_FX_Management_Supervisior
 		//clickOn("txt_FxManagement", "");				 
 		sleepWait(1000);
 		wd.findElement(By.xpath(obj.getProperty("btn_UpdateFX"))).click();
-		sleepWait(1000);				
+		sleepWait(3000);				
 		CurrencyBox = wd.findElement(By.xpath(obj.getProperty("txtBox_type_Currency"))).getAttribute("value");
 		
 		wd.findElement(By.xpath(obj.getProperty("btn_SaveFX"))).click();

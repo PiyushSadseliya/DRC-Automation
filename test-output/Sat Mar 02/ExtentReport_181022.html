@@ -1,0 +1,1832 @@
+
+<!DOCTYPE html>
+<html>
+
+
+<head>
+	<meta charset='utf-8' /> 
+	<meta name='description' content='' />
+	<meta name='robots' content='noodp, noydir' />
+	<meta name='viewport' content='width=device-width, initial-scale=1' />
+	<meta id="timeStampFormat" name="timeStampFormat" content='MMM d, yyyy hh:mm:ss a'/>
+	
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css' />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+		<link href='https://cdn.rawgit.com/anshooarora/extentreports-java/b4a58fcfd1e137bd9287244035a7c80d3d73b3af/dist/css/extent.css' type='text/css' rel='stylesheet' />
+	
+	<title>ExtentReports</title>
+
+	<style type='text/css'>
+	</style>
+</head>
+
+	<body class='extent standard default hide-overflow bdd-report'>
+		<div id='theme-selector' alt='Click to toggle theme. To enable by default, use theme configuration.' title='Click to toggle theme. To enable by default, use theme configuration.'>
+			<span><i class='material-icons'>desktop_windows</i></span>
+		</div>
+
+<nav>
+	<div class="nav-wrapper">
+		<a href="#!" class="brand-logo blue darken-3">Extent</a>
+
+		<!-- slideout menu -->
+		<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
+			<li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
+						<li class='waves-effect'><a href='#!' view='category-view' onclick="configureView(1)"><i class='material-icons'>label_outline</i></a></li>
+			<li class='waves-effect'><a href='#!' view='exception-view' onclick="configureView(2)"><i class='material-icons'>bug_report</i></a></li>
+			<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></i></a></li>
+		</ul>
+
+		<!-- report name -->
+		<span class='report-name'>ExtentReports</span>
+		
+		<!-- report headline -->
+		<span class='report-headline'></span>
+
+		<!-- nav-right -->
+		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
+			<li>
+                <a href='#!'>
+                    <span class='label suite-start-time blue darken-3'>Mar 2, 2019 06:10:28 PM</span>
+				</a>
+			</li>
+			<li>
+                <a href='#!'>
+                    <span class='label blue darken-3'>3.1.5</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+
+		<!-- container -->
+		<div class='container'>
+
+<div id='test-view' class='view'>
+				
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- test toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button tests-toggle' data-activates='tests-toggle' data-constrainwidth='true' data-beloworigin='true' data-hover='true' href='#'>
+					<i class='material-icons'>warning</i> Status
+				</a>
+				<ul id='tests-toggle' class='dropdown-content'>
+											<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
+						<li status='fail'><a href='#!'>Fail <i class='material-icons red-text'>cancel</i></a></li>
+						<li status='skip'><a href='#!'>Skip <i class='material-icons cyan-text'>redo</i></a></li>
+					<li class='divider'></li>
+					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
+				</ul>
+			</div>
+			<!-- test toggle -->
+
+			<!-- category toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button category-toggle' data-activates='category-toggle' data-constrainwidth='false' data-beloworigin='true' data-hover='true' href='#'>
+					<i class='material-icons'>local_offer</i> Category
+				</a>
+				<ul id='category-toggle' class='dropdown-content'>
+					<li><a href='#'>@DV_2253_TaxPayer_Portal_objection_appeal_TC_16_18_19</a></li>
+					<li><a href='#'>@DV_2253_TaxPayer_Portal_objection_appeal_TC_20_21_22</a></li>
+					<li><a href='#'>@DV_2253_TaxPayer_Portal_objection_appeal_TC_02_14_23_24</a></li>
+					<li><a href='#'>@TC_03_Priority</a></li>
+					<li><a href='#'>@TC_03_CaseType</a></li>
+					<li><a href='#'>@TC_03_Status</a></li>
+					<li><a href='#'>@TC_03_Taxofficer</a></li>
+					<li><a href='#'>@TC_09</a></li>
+					<li><a href='#'>@TC_19</a></li>
+					<li><a href='#'>@TC_21_17_18</a></li>
+					<li><a href='#'>@TC_08</a></li>
+					<li><a href='#'>@TC_11</a></li>
+					<li class='divider'></li>
+					<li class='clear'><a href='#!' clear='true'>Clear Filters</a></li>
+				</ul>
+			</div>
+			<!-- category toggle -->
+
+			<!-- clear filters -->
+			<div class='chip transparent hide'>
+				<a class='' id='clear-filters' alt='Clear Filters' title='Clear Filters'>
+					<i class='material-icons'>close</i> Clear
+				</a>
+			</div>
+			<!-- clear filters -->
+
+			<!-- enable dashboard -->
+			<div id='toggle-test-view-charts' class='chip transparent'>
+				<a class='pink-text' id='enable-dashboard' alt='Enable Dashboard' title='Enable Dashboard'>
+					<i class='material-icons'>track_changes</i> Dashboard
+				</a>
+			</div>
+			<!-- enable dashboard -->
+
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+					<i class='material-icons'>search</i> Search
+				</a>
+
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+				
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+
+
+<div id='test-view-charts' class='subview-full'>
+	<div id='charts-row' class='row nm-v nm-h'>
+		<div class='col s12 m4 l4 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Features</div>
+				<div class='chart-box'>
+					<canvas id='parent-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='50%'><span class='strong'>1</span> feature(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='50%'>1</span> feature(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+				</div>
+			</div>
+		</div>
+		
+		<div class='col s12 m4 l4 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Scenarios</div>
+				<div class='chart-box'>
+					<canvas id='child-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='93.75%'><span class='strong'>15</span> scenario(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='6.25%'>1</span> scenario(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+				</div>
+			</div>
+		</div>
+		
+		<div class='col s12 m4 l4 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Steps</div>
+				<div class='chart-box'>
+					<canvas id='grandchild-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='94.355%'><span class='strong'>117</span> step(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='0.806%'>1</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='4.839%'>6</span> others
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+	<div class='subview-left left'>
+		
+		<div class='view-summary'>
+			<h5>Features</h5>
+			<ul id='test-collection' class='test-collection'>
+				
+				
+				<li class='test displayed active has-leaf fail' status='fail' bdd='true' test-id='1'>
+					<div class='test-heading'>
+						<span class='test-name'>User is on Tax Payer portal Objection and Appeal</span>
+						<span class='test-time'>Mar 2, 2019 06:10:28 PM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='scenariooutline node' test-id='2' status='fail'>
+	<span class='duration right label'>0h 0m 51s+194ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Validate title ,period and object type</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='3' class='node scenario fail' status='fail'>
+			<div class='category-list'>
+				<span class='category label white-text'>@DV_2253_TaxPayer_Portal_objection_appeal_TC_16_18_19</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Validate title ,period and object type</span>
+			
+				<ul class='steps'>
+					<li test-id='4' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given User Enter email "automationseventytwo@mt2015.com" and  password "Test@123"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='5' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given User is on Tax Payer portal Objection and Appeal and click on VAT e-Filing Tab "Objection_Appeal_Tax_Payer_16_18_19" "Verify raise notice for objection"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='6' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on collapse for the month "eMar"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='7' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on view for month "btn_Mar_View"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='8' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on view on notice popup</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='9' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User see period on notice</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='10' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on Object on notice page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='11' class='node and fail' status='fail'><b>And</b>
+						<span class="bdd-step-name">And User verify the period field on objection page</span>
+							<div class='pre'><pre>java.lang.IllegalArgumentException: Cannot find elements when the XPath is null.
+	at org.openqa.selenium.By.xpath(By.java:113)
+	at org.drc.vat.appmanager.HelperBase.elementText(HelperBase.java:317)
+	at org.drc.vat.StepDefinitions.DV_2253_TaxPayer_Portal_objection_appeal.user_verify_the_period_field_on_objection_page(DV_2253_TaxPayer_Portal_objection_appeal.java:390)
+	at ?.And User verify the period field on objection page(features/30_TaxPayer_Portal_objection_appeal.feature:37)
+</pre></div>
+					</li>
+					<li test-id='12' class='node and skip' status='skip'><b>And</b>
+						<span class="bdd-step-name">And User click on Objection Type and select "drp_Objection_Assesment"</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='13' class='node and skip' status='skip'><b>And</b>
+						<span class="bdd-step-name">And User verify selected objection type "Assessment"</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='14' class='node and skip' status='skip'><b>And</b>
+						<span class="bdd-step-name">And User enter data "abc" in title for objection page</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='15' class='node and skip' status='skip'><b>And</b>
+						<span class="bdd-step-name">And User enter description "Notice raised"</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='16' class='node and skip' status='skip'><b>And</b>
+						<span class="bdd-step-name">And user return back to original frame from description</span>
+							<div class='pre'>skipped</div>
+					</li>
+					<li test-id='17' class='node and skip' status='skip'><b>And</b>
+						<span class="bdd-step-name">And User click on submit button on notice page and see message "Title field is required."</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="E:\DRC Merge Regreation\DRC-Automation\test-output\Sat Mar 02\screenshots\Validate title ,period and object type_181029.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>skipped</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='18' status='pass'>
+	<span class='duration right label'>0h 0m 52s+68ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Validate the Description field FileUpload</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='19' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@DV_2253_TaxPayer_Portal_objection_appeal_TC_20_21_22</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Validate the Description field FileUpload</span>
+			
+				<ul class='steps'>
+					<li test-id='20' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given user click on VAT menu</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='21' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User is on Tax Payer portal Objection and Appeal and click on VAT e-Filing Tab "Objection_Appeal_Tax_Payer_20_21_22" "Verify Description"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='22' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on collapse for the month "eMar"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='23' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on view for month "btn_Mar_View"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='24' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on view on notice popup</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='25' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on Object on notice page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='26' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User enter number "25375123761547615" and check</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='27' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User enter alphabets "Notice raise by you is incorrect" and check</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='28' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User enter special character "-$%^%$^@$^%" aned checks</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='29' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User select file format zip "src.zip" and see message "File format not found" on objection page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='30' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on browse button and upload file more than two mp "Big File.xlsx" and validate mess "File size must be less than 2MB" on objection page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='31' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on browser and upload file "Officers List With Tax Center.xlsx" on objection page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='32' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on Cancel and navigate to notice page</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="E:\DRC Merge Regreation\DRC-Automation\test-output\Sat Mar 02\screenshots\Validate the Description field FileUpload_181120.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='33' status='pass'>
+	<span class='duration right label'>0h 0m 37s+891ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">validate raise notice,object and submit</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='34' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@DV_2253_TaxPayer_Portal_objection_appeal_TC_02_14_23_24</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">validate raise notice,object and submit</span>
+			
+				<ul class='steps'>
+					<li test-id='35' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User is on Tax Payer portal Objection and Appeal and click on VAT e-Filing Tab "Objection_Appeal_Tax_Payer_02_14_23_24" "Verify raise notice for objection"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='36' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on collapse for the month "eMar"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='37' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on view for month "btn_Mar_View"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='38' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on view on notice popup</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='39' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on Object on notice page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='40' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on Objection Type and select "drp_Objection_Assesment"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='41' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User enter description "Notice raised"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='42' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And user return back to original frame from description</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='43' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on submit button on notice page</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="E:\DRC Merge Regreation\DRC-Automation\test-output\Sat Mar 02\screenshots\validate raise notice,object and submit_181213.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='44'>
+					<div class='test-heading'>
+						<span class='test-name'>User is on internal Portal for objection and appeal</span>
+						<span class='test-time'>Mar 2, 2019 06:12:52 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='scenariooutline node' test-id='45' status='pass'>
+	<span class='duration right label'>0h 0m 44s+818ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Verify the Filter by Functionality based on filter option Priority Tax Officer - internal portal</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='46' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@TC_03_Priority</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Verify the Filter by Functionality based on filter option Priority Tax Officer - internal portal</span>
+			
+				<ul class='steps'>
+					<li test-id='47' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given User is on Internal Portal "Priority_1" "Verify date filteration functionalityt"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='48' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on Dashboard and click on pin button</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='49' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on case management</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='50' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on filter by on case management and click on "drp_Priority_click_filter"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='51' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User type status "High" and verify "High"</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="E:\DRC Merge Regreation\DRC-Automation\test-output\Sat Mar 02\screenshots\Verify the Filter by Functionality based on filter option Priority Tax Officer - internal portal_181252.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='52' status='pass'>
+	<span class='duration right label'>0h 1m 8s+796ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Verify the Filter by Functionality based on filter option Case Type Status Priority Tax Officer</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='53' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@TC_03_CaseType</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Verify the Filter by Functionality based on filter option Case Type Status Priority Tax Officer</span>
+			
+				<ul class='steps'>
+					<li test-id='54' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given User is on Internal Portal "CaseType_3_1" "Verify date filteration functionalityt"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='55' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on case management</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='56' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on filter by on case management and click on "drp_CaseType"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='57' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User user click on case type "drp_ObjectionAndAppeal" and click on search button search result "Objection and appeal" on case management</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="E:\DRC Merge Regreation\DRC-Automation\test-output\Sat Mar 02\screenshots\Verify the Filter by Functionality based on filter option Case Type Status Priority Tax Officer_181337.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+		<li test-id='58' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@TC_03_CaseType</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Verify the Filter by Functionality based on filter option Case Type Status Priority Tax Officer</span>
+			
+				<ul class='steps'>
+					<li test-id='59' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given User is on Internal Portal "CaseType_3_2" "Verify date filteration functionalityt"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='60' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on case management</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='61' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on filter by on case management and click on "drp_CaseType"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='62' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User user click on case type "drp_Debt" and click on search button search result "Debt Collection" on case management</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="E:\DRC Merge Regreation\DRC-Automation\test-output\Sat Mar 02\screenshots\Verify the Filter by Functionality based on filter option Case Type Status Priority Tax Officer_181355.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+		<li test-id='63' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@TC_03_CaseType</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Verify the Filter by Functionality based on filter option Case Type Status Priority Tax Officer</span>
+			
+				<ul class='steps'>
+					<li test-id='64' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given User is on Internal Portal "CaseType_3_3" "Verify date filteration functionalityt"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='65' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on case management</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='66' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on filter by on case management and click on "drp_CaseType"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='67' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User user click on case type "drp_PA1" and click on search button search result "Payment Agreement" on case management</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="E:\DRC Merge Regreation\DRC-Automation\test-output\Sat Mar 02\screenshots\Verify the Filter by Functionality based on filter option Case Type Status Priority Tax Officer_181412.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+		<li test-id='68' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@TC_03_CaseType</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Verify the Filter by Functionality based on filter option Case Type Status Priority Tax Officer</span>
+			
+				<ul class='steps'>
+					<li test-id='69' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given User is on Internal Portal "CaseType_3_4" "Verify date filteration functionalityt"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='70' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on case management</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='71' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on filter by on case management and click on "drp_CaseType"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='72' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User user click on case type "drp_Audit" and click on search button search result "Audit" on case management</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="E:\DRC Merge Regreation\DRC-Automation\test-output\Sat Mar 02\screenshots\Verify the Filter by Functionality based on filter option Case Type Status Priority Tax Officer_181429.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='73' status='pass'>
+	<span class='duration right label'>0h 0m 34s+324ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Verify the Filter by Functionality based on filter option Status</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='74' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@TC_03_Status</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Verify the Filter by Functionality based on filter option Status</span>
+			
+				<ul class='steps'>
+					<li test-id='75' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given User is on Internal Portal "Case_Status_1" "Verify date filteration functionalityt"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='76' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on Dashboard and click on pin button</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='77' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on case management</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='78' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on filter by on case management and click on "drp_Status_Click"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='79' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User type status "Open" and verify "Open"</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="E:\DRC Merge Regreation\DRC-Automation\test-output\Sat Mar 02\screenshots\Verify the Filter by Functionality based on filter option Status_181447.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+		<li test-id='80' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@TC_03_Status</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Verify the Filter by Functionality based on filter option Status</span>
+			
+				<ul class='steps'>
+					<li test-id='81' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given User is on Internal Portal "Case_Status_3" "Verify date filteration functionalityt"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='82' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on Dashboard and click on pin button</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='83' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on case management</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='84' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on filter by on case management and click on "drp_Status_Click"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='85' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User type status "Under Review" and verify "Under Review"</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="E:\DRC Merge Regreation\DRC-Automation\test-output\Sat Mar 02\screenshots\Verify the Filter by Functionality based on filter option Status_181504.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='86' status='pass'>
+	<span class='duration right label'>0h 0m 16s+506ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Verify the Filter by Functionality based on filter option Priority Tax Officer</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='87' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@TC_03_Taxofficer</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Verify the Filter by Functionality based on filter option Priority Tax Officer</span>
+			
+				<ul class='steps'>
+					<li test-id='88' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given User is on Internal Portal "Case_Taxofficer_1" "Verify date filteration functionalityt"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='89' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on Dashboard and click on pin button</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='90' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on case management</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='91' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on filter by on case management and click on "drp_Officer_Click"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='92' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User type status "Laxman" and verify "Laxman"</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="E:\DRC Merge Regreation\DRC-Automation\test-output\Sat Mar 02\screenshots\Verify the Filter by Functionality based on filter option Priority Tax Officer_181522.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='93' status='pass'>
+	<span class='duration right label'>0h 0m 30s+132ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Validate the Reassign option functionality under view column</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='94' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@TC_09</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Validate the Reassign option functionality under view column</span>
+			
+				<ul class='steps'>
+					<li test-id='95' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given User is on Internal Portal "Case_Management_09" "Verify date filteration functionalityt"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='96' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on Dashboard and click on pin button</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='97' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on case management</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='98' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on filter by on case management and click on "drp_Status_Click"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='99' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User type status "Open"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='100' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And user click on Reassign</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='101' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And select another Tax Officier fron the list "drp_SelectTaxOfficerOne"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='102' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And click on right tick for reassign</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='103' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Tax Officier Changed and toast message display</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="E:\DRC Merge Regreation\DRC-Automation\test-output\Sat Mar 02\screenshots\Validate the Reassign option functionality under view column_181539.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='104' status='pass'>
+	<span class='duration right label'>0h 0m 38s+243ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Validate the functionality of Transaction Details button</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='105' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@TC_19</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Validate the functionality of Transaction Details button</span>
+			
+				<ul class='steps'>
+					<li test-id='106' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given User is on Internal Portal "Case_Management_19" "Verify date filteration functionalityt"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='107' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on Dashboard and click on pin button</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='108' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on case management</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='109' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on filter by on case management and click on "drp_CaseType"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='110' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User user click on case type "drp_ObjectionAndAppeal" and click on search button search result "Objection and appeal" on case management</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='111' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on manage drop down and click on view</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='112' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on Transaction Detail button</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='113' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User navigate to Statement of transaction page</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="E:\DRC Merge Regreation\DRC-Automation\test-output\Sat Mar 02\screenshots\Validate the functionality of Transaction Details button_181610.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='114' status='pass'>
+	<span class='duration right label'>0h 0m 30s+241ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Validate the previous and cancel button functionality</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='115' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@TC_21_17_18</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Validate the previous and cancel button functionality</span>
+			
+				<ul class='steps'>
+					<li test-id='116' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given User is on Internal Portal "Case_Management_21_17_18" "Verify date filteration functionalityt"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='117' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on Dashboard and click on pin button</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='118' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on case management</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='119' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on manage drop down and click on view</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='120' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on previous button on objection page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='121' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User navigate to Case Management list page</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='122' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on manage drop down and click on view</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="E:\DRC Merge Regreation\DRC-Automation\test-output\Sat Mar 02\screenshots\Validate the previous and cancel button functionality_181649.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='123' status='pass'>
+	<span class='duration right label'>0h 0m 35s+5ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Validate the priority is set correctly for the individual tax payer</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='124' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@TC_08</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Validate the priority is set correctly for the individual tax payer</span>
+			
+				<ul class='steps'>
+					<li test-id='125' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given User is on Internal Portal "Case_Management_08" "Verify date filteration functionalityt"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='126' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on Dashboard and click on pin button</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='127' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on case management</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='128' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on filter by on case management and click on "drp_CaseID"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='129' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User type case id</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='130' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on search button</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='131' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on manage drop down and click on view</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='132' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on priority</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='133' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User select priority "drp_P_High"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='134' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on submit button</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='135' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User see frame is default in internal</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='136' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User see validation message for changing priority "Objection updated successfully"</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="E:\DRC Merge Regreation\DRC-Automation\test-output\Sat Mar 02\screenshots\Validate the priority is set correctly for the individual tax payer_181720.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='137' status='pass'>
+	<span class='duration right label'>0h 0m 47s+597ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Validate Reject status</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='138' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@TC_11</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Validate Reject status</span>
+			
+				<ul class='steps'>
+					<li test-id='139' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given User is on Internal Portal "Objection_Appeal_internal_portal_11" "Verify Reassign functionality"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='140' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on Dashboard and click on pin button</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='141' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on case management</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='142' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on filter by on case management and click on "drp_CaseID"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='143' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User type case id</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='144' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on search button</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='145' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on manage drop down and click on view</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='146' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User enter in iframe</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='147' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on select action</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='148' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User select under review</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='149' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on submit button</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='150' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User again click on select action</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='151' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User select reject</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='152' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User click on submit button</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='153' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User see frame is default in internal</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='154' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And User see validation message for changing priority "Objection updated successfully"</span>
+						<ul class='screenshots right'>
+							<li><a data-featherlight="image" href="E:\DRC Merge Regreation\DRC-Automation\test-output\Sat Mar 02\screenshots\Validate Reject status_181755.png"><i class='material-icons'>panorama</i></a></li>
+						</ul>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- subview left -->
+
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='test-name'></h5>
+
+			<div id='step-filters' class="right">
+				<span class="blue-text" status="info" alt="info" title="info"><i class="material-icons">info_outline</i></span>
+				<span class="green-text" status="pass" alt="pass" title="pass"><i class="material-icons">check_circle</i></span>
+				<span class="red-text" status="fail" alt="fail" title="fail"><i class="material-icons">cancel</i></span>
+				<span class="red-text text-darken-4" status="fatal" alt="fatal" title="fatal"><i class="material-icons">cancel</i></span>
+				<span class="pink-text text-lighten-1" status="error" alt="error" title="error"><i class="material-icons">error</i></span>
+				<span class="orange-text" alt="warning" status="warning" title="warning"><i class="material-icons">warning</i></span>
+				<span class="teal-text" status="skip" alt="skip" title="skip"><i class="material-icons">redo</i></span>
+				<span status="clear" alt="Clear filters" title="Clear filters"><i class="material-icons">clear</i></span>
+			</div>
+		</div>
+	</div>
+	<!-- subview right -->
+
+</div>
+<!-- test view -->
+<div id='category-view' class='view hide'>
+
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+					<i class='material-icons'>search</i> Search
+				</a>
+				
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+				
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+
+	<div class='subview-left left'>
+		
+		<div class='view-summary'>
+			<h5>Categories</h3>
+			<ul id='category-collection' class='category-collection'>
+				
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@DV_2253_TaxPayer_Portal_objection_appeal_TC_16_18_19</span>
+						<span class='category-status right'>
+							<span class='label fail'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							
+							<span class='label red lighten-1 white-text'>Failed: 1</span>
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Mar 2, 2019 06:10:29 PM</td>
+										<td class='linked' test-id='3'>User is on Tax Payer portal Objection and Appeal.Validate title ,period and object type.Validate title ,period and object type</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@DV_2253_TaxPayer_Portal_objection_appeal_TC_20_21_22</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Mar 2, 2019 06:11:20 PM</td>
+										<td class='linked' test-id='19'>User is on Tax Payer portal Objection and Appeal.Validate the Description field FileUpload.Validate the Description field FileUpload</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@DV_2253_TaxPayer_Portal_objection_appeal_TC_02_14_23_24</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Mar 2, 2019 06:12:13 PM</td>
+										<td class='linked' test-id='34'>User is on Tax Payer portal Objection and Appeal.validate raise notice,object and submit.validate raise notice,object and submit</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@TC_03_Priority</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Mar 2, 2019 06:12:52 PM</td>
+										<td class='linked' test-id='46'>User is on internal Portal for objection and appeal.Verify the Filter by Functionality based on filter option Priority Tax Officer - internal portal.Verify the Filter by Functionality based on filter option Priority Tax Officer - internal portal</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@TC_03_CaseType</span>
+						<span class='category-status right'>
+							<span class='label pass'>4</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 4</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Mar 2, 2019 06:13:37 PM</td>
+										<td class='linked' test-id='53'>User is on internal Portal for objection and appeal.Verify the Filter by Functionality based on filter option Case Type Status Priority Tax Officer.Verify the Filter by Functionality based on filter option Case Type Status Priority Tax Officer</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 2, 2019 06:13:55 PM</td>
+										<td class='linked' test-id='58'>User is on internal Portal for objection and appeal.Verify the Filter by Functionality based on filter option Case Type Status Priority Tax Officer.Verify the Filter by Functionality based on filter option Case Type Status Priority Tax Officer</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 2, 2019 06:14:12 PM</td>
+										<td class='linked' test-id='63'>User is on internal Portal for objection and appeal.Verify the Filter by Functionality based on filter option Case Type Status Priority Tax Officer.Verify the Filter by Functionality based on filter option Case Type Status Priority Tax Officer</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 2, 2019 06:14:29 PM</td>
+										<td class='linked' test-id='68'>User is on internal Portal for objection and appeal.Verify the Filter by Functionality based on filter option Case Type Status Priority Tax Officer.Verify the Filter by Functionality based on filter option Case Type Status Priority Tax Officer</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@TC_03_Status</span>
+						<span class='category-status right'>
+							<span class='label pass'>2</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 2</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Mar 2, 2019 06:14:47 PM</td>
+										<td class='linked' test-id='74'>User is on internal Portal for objection and appeal.Verify the Filter by Functionality based on filter option Status.Verify the Filter by Functionality based on filter option Status</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 2, 2019 06:15:04 PM</td>
+										<td class='linked' test-id='80'>User is on internal Portal for objection and appeal.Verify the Filter by Functionality based on filter option Status.Verify the Filter by Functionality based on filter option Status</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@TC_03_Taxofficer</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Mar 2, 2019 06:15:22 PM</td>
+										<td class='linked' test-id='87'>User is on internal Portal for objection and appeal.Verify the Filter by Functionality based on filter option Priority Tax Officer.Verify the Filter by Functionality based on filter option Priority Tax Officer</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@TC_09</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Mar 2, 2019 06:15:39 PM</td>
+										<td class='linked' test-id='94'>User is on internal Portal for objection and appeal.Validate the Reassign option functionality under view column.Validate the Reassign option functionality under view column</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@TC_19</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Mar 2, 2019 06:16:10 PM</td>
+										<td class='linked' test-id='105'>User is on internal Portal for objection and appeal.Validate the functionality of Transaction Details button.Validate the functionality of Transaction Details button</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@TC_21_17_18</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Mar 2, 2019 06:16:49 PM</td>
+										<td class='linked' test-id='115'>User is on internal Portal for objection and appeal.Validate the previous and cancel button functionality.Validate the previous and cancel button functionality</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@TC_08</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Mar 2, 2019 06:17:20 PM</td>
+										<td class='linked' test-id='124'>User is on internal Portal for objection and appeal.Validate the priority is set correctly for the individual tax payer.Validate the priority is set correctly for the individual tax payer</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@TC_11</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Mar 2, 2019 06:17:55 PM</td>
+										<td class='linked' test-id='138'>User is on internal Portal for objection and appeal.Validate Reject status.Validate Reject status</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+
+			</ul>
+		</div>
+	</div>
+
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='category-name'></h5>
+		</div>
+	</div>
+</div>
+<!-- category view -->
+<div id='exception-view' class='view hide'>
+
+    <section id='controls'>
+        <div class='controls grey lighten-4'>
+            <!-- search -->
+            <div class='chip transparent' alt='Search Tests' title='Search Tests'>
+                <a href="#" class='search-div'>
+                    <i class='material-icons'>search</i> Search
+                </a>
+
+                <div class='input-field left hide'>
+                    <input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+                </div>
+
+            </div>
+            <!-- search -->
+        </div>
+    </section>
+
+    <div class='subview-left left'>
+
+        <div class='view-summary'>
+            <h5>Exceptions</h3>
+                <ul id='exception-collection' class='exception-collection'>
+
+                        <li class='exception displayed active'>
+                            <div class='exception-heading'>
+                                <span class='exception-name'>java.lang.IllegalArgumentException</span>
+                                <span class='exception-count right'><span class='label red lighten-1 white-text'>1</span></span>
+                            </div>
+                            <div class='exception-content hide'>
+                                <div class='exception-tests'>
+                                    <table class='bordered table-results'>
+                                        <thead>
+                                        <tr>
+                                            <th>Timestamp</th>
+                                            <th>TestName</th>
+                                            <th>Status</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                                    <tr>
+                                                        <td>Mar 2, 2019 06:11:15 PM</td>
+                                                        <td class='linked' test-id='11'>User is on Tax Payer portal Objection and Appeal.Validate title ,period and object type.Validate title ,period and object type.And User verify the period field on objection page</td>
+                                                        <td><pre><pre>java.lang.IllegalArgumentException: Cannot find elements when the XPath is null.
+	at org.openqa.selenium.By.xpath(By.java:113)
+	at org.drc.vat.appmanager.HelperBase.elementText(HelperBase.java:317)
+	at org.drc.vat.StepDefinitions.DV_2253_TaxPayer_Portal_objection_appeal.user_verify_the_period_field_on_objection_page(DV_2253_TaxPayer_Portal_objection_appeal.java:390)
+	at ?.And User verify the period field on objection page(features/30_TaxPayer_Portal_objection_appeal.feature:37)
+</pre></pre></td>
+                                                    </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </li>
+                </ul>
+        </div>
+    </div>
+
+    <div class='subview-right left'>
+        <div class='view-summary'>
+            <h5 class='exception-name'></h5>
+        </div>
+    </div>
+</div>
+<!-- exception view -->
+<div id='dashboard-view' class='view hide'>
+	<div class='card-panel transparent np-v'>
+		<h5>Dashboard</h5>
+
+		<div class='row'>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Features
+					<div class='panel-lead'>2</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Scenarios
+					<div class='panel-lead'>16</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Steps
+					<div class='panel-lead'>124</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Start
+					<div class='panel-lead'>Mar 2, 2019 06:10:28 PM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+			 		End
+			 		<div class='panel-lead'>Mar 2, 2019 06:18:44 PM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Time Taken
+					<div class='panel-lead'>0h 8m 15s+403ms</div>
+				</div>
+			</div>
+			<div class='col s6'>
+				<div class='card-panel dashboard-categories'>
+					<span class='right label cyan white-text'>Categories</span><p>&nbsp;</p>
+					
+					<table>
+						<tr>
+							<th>Name</th>
+							<th>Passed</th>
+							<th>Failed</th>
+							<th>Others</th>
+							<th>Passed %</th>
+						</tr>
+						<tr>
+							<td>@DV_2253_TaxPayer_Portal_objection_appeal_TC_16_18_19</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>
+									0%
+							</td>
+						</tr>
+						<tr>
+							<td>@DV_2253_TaxPayer_Portal_objection_appeal_TC_20_21_22</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>@DV_2253_TaxPayer_Portal_objection_appeal_TC_02_14_23_24</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>@TC_03_Priority</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>@TC_03_CaseType</td>
+							<td>4</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>@TC_03_Status</td>
+							<td>2</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>@TC_03_Taxofficer</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>@TC_09</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>@TC_19</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>@TC_21_17_18</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>@TC_08</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>@TC_11</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- dashboard view -->
+<!-- testrunner-logs view -->
+		</div>
+		<!-- container -->
+
+		<script>
+			var statusGroup = {
+				passParent: 1,
+				failParent: 1,
+				fatalParent: 0,
+				errorParent: 0,
+				warningParent: 0,
+				skipParent: 0,
+				exceptionsParent: 1,
+				
+				passChild: 15,
+				failChild: 1,
+				fatalChild: 0,
+				errorChild: 0,
+				warningChild: 0,
+				skipChild: 0,
+				infoChild: 0,
+				exceptionsChild: 1,
+				
+				passGrandChild: 117,
+				failGrandChild: 1,
+				fatalGrandChild: 0,
+				errorGrandChild: 0,
+				warningGrandChild: 0,
+				skipGrandChild: 6,
+				infoGrandChild: 0,
+				exceptionsGrandChild: 7,
+			};
+		</script>
+		
+			<script src='https://cdn.rawgit.com/anshooarora/extentreports-java/fca20fb7653aade98810546ab96a2a4360e3e712/dist/js/extent.js' type='text/javascript'></script>
+		
+		
+ 		<script type='text/javascript'>
+ 		</script>
+	</body>
+	
+</html>

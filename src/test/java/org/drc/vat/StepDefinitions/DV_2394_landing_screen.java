@@ -294,7 +294,8 @@ public class DV_2394_landing_screen
 	@And("^clicks on e-filing on landing screen$")
 	public void clicks_on_e_filing_on_landing_screen() throws Throwable 
 	{
-		sleepWait(2000);
+		sleepWait(5000);
+		sleepWait(1000);
 		for(int i =1;i<=12;i++)
 		{
 			String first_part = "(//div[@class='list-item-th text-left'])[";
@@ -516,7 +517,7 @@ public class DV_2394_landing_screen
 	{
 		sleepWait(5000);	
 		wd.switchTo().window(wd.getWindowHandles().toArray()[1].toString());		
-		sleepWait(5000);
+		sleepWait(7000);
 		String title=wd.getTitle();
 		System.out.println("Title is"+title);
 		Assert.assertTrue(title.contains("Banque Centrale du Congo"));
@@ -607,7 +608,7 @@ public class DV_2394_landing_screen
 	 * Important dates 
 	 */
 
-
+ 
 	@Then("^User can see the e-filing screen$")
 	public void user_can_see_the_e_filing_screen() throws Throwable 
 	{
@@ -676,7 +677,9 @@ public class DV_2394_landing_screen
 	@And("^User click on Pay button on Total Liability$")
 	public void user_click_on_Pay_button_on_Total_Liability() throws Throwable 
 	{
+		sleepWait(1000);
 		clickOn("btn_TotalPay", "");
+		sleepWait(1000);
 	}
 
 	@And("^User check current liability \"([^\"]*)\"$")

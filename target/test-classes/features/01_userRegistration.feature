@@ -9,13 +9,23 @@ Feature: User Registration for the steps involved in creating a user account for
     And Update data in roles table
 
     Examples: 
-
-      | Test Case ID                  | Description              | username               |
-      | DRC_ATC_Valid_Registration_04 | Register with valid data |  Regression Marchde  |
-     #| DRC_ATC_Valid_Registration_04 | Register with valid data | Regression MarchMone |
-    # | DRC_ATC_Valid_Registration_04 | Register with valid data | Regression MarchLone |
-
-
+      | Test Case ID                   | Description              | username                 |
+      | DRC_ATC_Valid_Registration_01  | Register with valid data | Regression AprilTOne     |
+      | DRC_ATC_Valid_Registration_02  | Register with valid data | Regression AprilTTwo     |
+      | DRC_ATC_Valid_Registration_03  | Register with valid data | Regression AprilTThree    |
+      #| DRC_ATC_Valid_Registration_01  | Register with valid data | Regression AprilTwoOne   |
+      #| DRC_ATC_Valid_Registration_02  | Register with valid data | Regression AprilTwoTwo   |
+      #| DRC_ATC_Valid_Registration_03  | Register with valid data | Regression AprilTwoThree |
+      #| DRC_ATC_Valid_Registration_04 | Register with valid data | Regression AprilOneOne   |
+      #| DRC_ATC_Valid_Registration_04 | Register with valid data | Regression AprilOneTwo   |
+      #| DRC_ATC_Valid_Registration_04 | Register with valid data | Regression AprilOneThree |
+      #| DRC_ATC_Valid_Registration_01 | Register with valid data | Regression AprilOneFour  |
+      #| DRC_ATC_Valid_Registration_02 | Register with valid data | Regression AprilOneFive  |
+      #| DRC_ATC_Valid_Registration_03 | Register with valid data | Regression AprilOneSix   |
+      #| DRC_ATC_Valid_Registration_01  | Register with valid data | Regression AprilOneSeven |
+      #| DRC_ATC2_Valid_Registration_02 | Register with valid data | Regression AprilOneEight |
+      #| DRC_ATC_Valid_Registration_03  | Register with valid data | Regression AprilOneNine  |
+  
   @Invalid_Registration @mtc3 @mtc4 @mtc5 @mtc6 @mtc8 @mtc9 @Sprint3
   Scenario Outline: User Should not be allowed to Register in DRC TAX Portal with InValid details.
     Given User is on Welcome to DRC Tax Portal page"<Test Case ID>" "<Description>"
@@ -43,7 +53,7 @@ Feature: User Registration for the steps involved in creating a user account for
       | DRC_ATC_Invalid_Registration_13 | Invalid Email id  (Special Characters)                             | Abhi Jo                                                                                                                                                                                                           | ÐÑÒÓÔÕÖ×ØÙÚÛÜÝÞ@gmail.com                                                                                                                               | abq@12345 | abq@12345        | 8989898989898 | Please enter valid Email |
       | DRC_ATC_Invalid_Registration_14 | Invalid Email id                                                   | Abhi Jo                                                                                                                                                                                                           | Ravii@1rivet.com testing                                                                                                                                | abq@12345 | abq@12345        | 8989898989898 | Please enter valid Email |
       #| DRC_ATC_Invalid_Registration_15 | Invalid Email id  (no domain)                       | Abhi Jo                                                                                                                                                                  | Ravi@1rivet                                                                                                                                            | abq@12345  | abq@12345        |               8989898989898 | Please enter valid Email                      |
-      | DRC_ATC_Invalid_Registration_16 | Invalid Email id   with hypen                                      | Abhi Jo                                                                                                                                                                                                           | Ravi@-1rivet.com                                                                                                                                       | abq@12345 | abq@12345        | 8989898989898 | Please enter valid Email |
+      | DRC_ATC_Invalid_Registration_16 | Invalid Email id   with hypen                                      | Abhi Jo                                                                                                                                                                                                           | Ravi@-1rivet.com                                                                                                                                        | abq@12345 | abq@12345        | 8989898989898 | Please enter valid Email |
       | DRC_ATC_Invalid_Registration_17 | Invalid Email id  multiple dots   before domain                    | Abhi Jo                                                                                                                                                                                                           | Ravii@1rivet..com                                                                                                                                       | abq@12345 | abq@12345        | 8989898989898 | Please enter valid Email |
       | DRC_ATC_Invalid_Registration_18 | Invalid Email id  invalid domain                                   | Abhi Jo                                                                                                                                                                                                           | sdhfklshdfhsdfkhsdklfhskdfhkasdhf@hdkhkldhkhgflkhsflkhdfklhsdflkshdfdsfjdsklfjsdlkjfksdjflkjflsdjfskdjflksdjfkjflkjdsflksjdflksjdflkjflkjdslkklsdhf.com | abq@12345 | abq@12345        | 8989898989898 | Please enter valid Email |
       | DRC_ATC_Invalid_Registration_19 | Invalid Email id  multiple dots   after username                   | Abhi Jo                                                                                                                                                                                                           | Ravii@1rivet..com                                                                                                                                       | abq@12345 | abq@12345        | 8989898989898 | Please enter valid Email |

@@ -100,7 +100,7 @@ for(int i=1;i<=12;i++) {
 }
 @Given("^After Efiling Wait for Five Minutes$")
 public void after_Efiling_Wait_for_Five_Minutes() throws Throwable {
-   Thread.sleep(150000);
+   Thread.sleep(360000);
 }
 
 @Then("^Records should be in Assessment Records$")

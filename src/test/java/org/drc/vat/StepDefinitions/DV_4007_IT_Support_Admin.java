@@ -122,13 +122,16 @@ public class DV_4007_IT_Support_Admin {
 	}
 	
 	@Then("^successfull \"([^\"]*)\" display on given page$")
-	public void successfull_display_on_given_page(String tostmessage) throws Throwable {
+	public void successfull_display_on_given_page(String tostmessage) throws Throwable 
+	{
+		sleepWait(3000);		
+		waitFor("txt_it_toast_wait");
 		sleepWait(1000);
 		if(wd.findElement(By.xpath("//*[contains(text(),'" + tostmessage + "')]")).isDisplayed() )
         {
 			assertTrue(true);
         }
-	sleepWait(2000);
+		sleepWait(2000);
 	}
 	@And("^User switch to tab$")
 	public void user_switch_to_tab() throws Throwable 
