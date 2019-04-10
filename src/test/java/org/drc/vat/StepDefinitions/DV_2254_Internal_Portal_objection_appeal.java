@@ -14,7 +14,7 @@ public class DV_2254_Internal_Portal_objection_appeal
 	@And("^User click on Dashboard and click on pin button$")
 	public void user_click_on_Dashboard_and_click_on_pin_button() throws Throwable {
 	    
-		sleepWait(1000);
+		sleepWait(1000); 
 		waitFor("txt_dashboard");
 		sleepWait(1000);
 		waitFor("txt_dashboard");

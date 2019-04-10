@@ -41,7 +41,7 @@ public class userRegistration {
 	boolean minTextcount = false;
 	boolean minPhonecount = false;
 	boolean maxPhonecount = false;
-	boolean minPasswordcount = false;
+	boolean minPasswordcount = false; 
 	boolean maxPasswordcount = false;
 	boolean showvalidationMessage = true;
 	static boolean fullNameValidation = false;

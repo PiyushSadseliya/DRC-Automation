@@ -15,7 +15,6 @@ import java.text.SimpleDateFormat;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;
 
-import static org.drc.vat.appmanager.xls_file.xls;
 import static org.drc.vat.appmanager.HelperBase.sleepWait;
 import org.openqa.selenium.By;
 

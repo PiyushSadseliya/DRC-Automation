@@ -77,17 +77,30 @@ public class DV_1376_AcceptRejectAdditionalClarification
 	@And("^user click on Submit button$")
 	public void user_click_on_Submit_button() throws Throwable 
 	{
+		sleepWait(1000);
 		clickOn("btn_RejCommentSubmit","");
-		sleepWait(3500);			
-		if(wd.findElement(By.xpath(obj.getProperty("txt_RejectCommentPopup"))).isDisplayed())
+		sleepWait(4000);
+		
+		//waitTillElementDisappear(object)
+		if(!wd.findElement(By.xpath(obj.getProperty("txt_RejectCommentPopup"))).isDisplayed())
+		{
+			if(wd.findElement(By.xpath(obj.getProperty("txt_RejectCommentPopup"))).isDisplayed())
+			{
+				assertTrue(true);
+			}
+		}
+		
+		
+		/*if(wd.findElement(By.xpath(obj.getProperty("txt_RejectCommentPopup"))).isDisplayed())
 		{
 			assertTrue(true);
-		}	
+		}*/	
 	}
 	
 	@Then("^user click on Additional Clarification/Document Needed$")
 	public void user_click_on_Additional_Clarification_Document_Needed() throws Throwable 
-	{		 
+	{	
+		sleepWait(1000);
 		clickOn("txt_AdditionalClarification","");
 		sleepWait(20000);
 	}
@@ -95,18 +108,21 @@ public class DV_1376_AcceptRejectAdditionalClarification
 	@Then("^user entered comment for required document \"([^\"]*)\"$")
 	public void user_entered_comment_for_required_document(String value) throws Throwable 
 	{		
+		sleepWait(1000);
 		type("txt_AdditionalInput",value);
 		sleepWait(2000);
 		clickOn("btb_AdditionalInputSendButton","");
-		sleepWait(2000);
+		sleepWait(5000);
 	}
 	
 	@Then("^user click on on hold button$")
 	public void user_click_on_on_hold_button() throws Throwable
 	{
 		sleepWait(1000);
-		clickOn("btn_BHold","");
-		sleepWait(5000);		
+		clickOn("btn_BHold","");				
+		//sleepWait(5000);				
+		waitFor("txt_BHoldCommentPopup");
+		sleepWait(1000);		
 		if(wd.findElement(By.xpath(obj.getProperty("txt_BHoldCommentPopup"))).isDisplayed())
 		{
 			assertTrue(true);

@@ -790,7 +790,7 @@ public class DV_2878_Assessment_Summary_Manual
 			
 			sleepWait(500);
 		}
-		
+		sleepWait(1000);
 		String Remark_Selected= elementText("drp_remark_selected_text");
 		Store_Remark_Selected = Remark_Selected; 
 		sleepWait(500);		

@@ -5,6 +5,10 @@ import static org.testng.Assert.assertTrue;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import static org.drc.vat.appmanager.HelperBase.*;
@@ -12,11 +16,14 @@ import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.encryption.InvalidPasswordException;
 import org.apache.pdfbox.text.PDFTextStripper;
 import org.apache.poi.xwpf.usermodel.IBodyElement;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
 
 public class test 
 {
@@ -31,8 +38,8 @@ public class test
 	public static void main(String args []) throws InvalidPasswordException, IOException
 	{
 		//String No = null;
-		/*String No = "FT19030700003";		
-		String inc = No.substring(0,12).concat("A"); //No.concat("0");
+//		String No = "FT19030700003";		
+		/*String inc = No.substring(0,12).concat("A"); //No.concat("0");
 		System.out.println(inc);
 		
 		String Two = inc.substring(0,12).concat("B");
@@ -40,12 +47,41 @@ public class test
 		
 		String Three = inc.substring(0,12).concat("C");
 		System.out.println(Three);
-		*/
+		
 		
 		String Nit = "20190311070746381"; 
+*/		
+		/*
+		String newamount = "2040.00";		
+		double ch_result = Double.parseDouble(newamount);	
+		System.out.println(ch_result);
+		double AM = ch_result + 10;
+		System.out.println(AM);*/
+		
+		//String DA = "26 Mar, 2019";
+		
+		Calendar cal = Calendar.getInstance();
+	    //cal.add(Calendar.DATE,0);
+	    Date date = cal.getTime();             
+	    //SimpleDateFormat format1 = new SimpleDateFormat("dd MMM, YYYY");
+	    SimpleDateFormat format1 = new SimpleDateFormat("hh:mm:ss");
+	    String date1 = format1.format(date);
+	    System.out.println(date1);
+	    
+	    
+	    
+	    /*Calendar cal = Calendar.getInstance();
+	    cal.add(Calendar.DATE,0-1);
+	    Date date = cal.getTime();             
+	    SimpleDateFormat format1 = new SimpleDateFormat("dd MMM, YYYY");
+	    String date1 = format1.format(date);	    	    	    
+	    System.out.println(date1);*/
+	    
+		 
+	   // assertEquals(DA, date1);
 						
-		String inc = Nit.substring(0,16).concat("A"); //No.concat("0");
-		System.out.println(inc);
+		/*String inc = Nit.substring(0,16).concat("A"); //No.concat("0");
+		System.out.println(inc);*/
 		
 		/*wd = new ChromeDriver();
 		wd.manage().window().maximize();
@@ -122,8 +158,38 @@ public class test
 		assertEquals(text.contains(text_Name), true);
 		assertEquals(text.contains(text_NITVA), true);
 		assertEquals(text.contains(text_TransactionNo), true);
-		assertEquals(text.contains(text_InstitutionName_BankName), true);*/
+		assertEquals(text.contains(text_InstitutionName_BankName), true);
 	
+		
+		
+		//static WebDriver driver;		
 
-	}
+	/*public static void main(String[] args) throws InterruptedException {
+		//System.setProperty("webdriver.chrome.driver", "./DriverFile/chromedriver.exe");
+		WebDriver driver = new ChromeDriver(); 
+		driver.manage().window().maximize();
+		driver.manage().deleteAllCookies();
+		driver.get("http://the-internet.herokuapp.com/iframe");
+		WebElement frameReq = driver.findElement(By.xpath("//iframe[@id='mce_0_ifr']"));
+		driver.switchTo().frame(frameReq);
+		Thread.sleep(2000);
+		
+		WebElement textBox = driver.findElement(By.xpath("//body[@id='tinymce']"));
+		textBox.clear();
+		textBox.sendKeys("Hi , I am Manas");
+		System.out.println("print Successfully");
+		//driver.close();
+	}*/
+
+ }
 }
+		
+		
+		
+		
+		
+		
+		
+		
+		
+

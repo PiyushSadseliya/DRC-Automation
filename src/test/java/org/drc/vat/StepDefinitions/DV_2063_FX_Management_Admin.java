@@ -27,6 +27,7 @@ public class DV_2063_FX_Management_Admin
 	@And("^User click on currency and select \"([^\"]*)\"$")
 	public void user_click_on_currency_and_select(String value) throws Throwable 
 	{
+		sleepWait(1000);
 		clickOn("drp_SelectOptionFX", "");
 		Thread.sleep(1000);
 		clickOn(value, "");	    
@@ -193,7 +194,7 @@ public class DV_2063_FX_Management_Admin
 		wd.findElement(By.xpath(obj.getProperty("btn_windowsClick"))).click();
 		sleepWait(5000);			
 		wd.findElement(By.xpath(obj.getProperty("txt_FxManagement"))).click();
-		sleepWait(1000);		
+		sleepWait(5000);		
 		
 		String CheckCurrency = elementText("txt_new_curr_Check");	
 		String	FC1 = CheckCurrency.replace("." ,"");		

@@ -10,7 +10,7 @@ import static org.drc.vat.appmanager.HelperBase.elementDisplayed;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertNotEquals;
-import static org.drc.vat.appmanager.xls_file.xls;
+import static org.drc.vat.appmanager.xls_file.*;
 import java.text.SimpleDateFormat;
 import java.util.List;
 

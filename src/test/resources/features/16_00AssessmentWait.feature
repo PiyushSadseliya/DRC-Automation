@@ -1,10 +1,8 @@
 
 @AssessmentBackgroundWait
-Feature: Title of your feature
-  I want to use this template for my feature file
+Feature: Backgroung process wait till Record Reflect in Assessement 
 
-
-  Scenario: Title of your scenario
+  Scenario: Record display on Manual Assessement Page 
     Given After Efiling Wait for Five Minutes
     Then Records should be in Assessment Records
 

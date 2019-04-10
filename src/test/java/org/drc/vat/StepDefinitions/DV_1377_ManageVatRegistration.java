@@ -65,7 +65,7 @@ public class DV_1377_ManageVatRegistration
 		sleepWait(1000);
 		clickOn("drp_FilterByMVT", "");
 		sleepWait(1000);
-		clickOn("span","[contains(text(),'" + value + "')][last()]");
+		clickOn("drp_Filter_click_Re","//span[contains(text(),'" + value + "')]");
 		sleepWait(1000);			
 	}
 
@@ -75,26 +75,18 @@ public class DV_1377_ManageVatRegistration
 	{
 		sleepWait(1000);
 		clickOn("drp_FilterByMVT", "");
+		sleepWait(1000); 		
+		clickOn("drp_Filter_click_Re","//span[contains(text(),'" + value + "')]");				
 		sleepWait(1000);
-		clickOn("drp_NIF", "");			
-		sleepWait(1000);
-		clickOn("drp_FilterByMVT", "");
-		sleepWait(1000);
-		clickOn("span","[contains(text(),'" + value + "')]");			
-		sleepWait(500);
 	}
 
 	@And("^user selects value from filter drop down \"([^\"]*)\" for nif$")
 	public void user_selects_value_from_filter_drop_down_for_nif(String value) throws Throwable 
 	{
-		sleepWait(1000);
+		sleepWait(1000);		
 		clickOn("drp_FilterByMVT", "");
 		sleepWait(1000);
-		clickOn("drp_ApplicantName", "");			
-		sleepWait(1000);
-		clickOn("drp_FilterByMVT", "");
-		sleepWait(1000);
-		clickOn("span","[contains(text(),'" + value + "')]");			
+		clickOn("drp_Filter_click_Re","//span[contains(text(),'" + value + "')]");				
 		sleepWait(1000);
 	}
 
@@ -104,11 +96,7 @@ public class DV_1377_ManageVatRegistration
 		sleepWait(1000);
 		clickOn("drp_FilterByMVT", "");
 		sleepWait(1000);
-		clickOn("drp_TaxPayerCategory", "");			
-		sleepWait(1000);
-		clickOn("drp_FilterByMVT", "");
-		sleepWait(1000);
-		clickOn("span","[contains(text(),'" + value + "')]");			
+		clickOn("drp_Filter_click_Re","//span[contains(text(),'" + value + "')]");		
 		sleepWait(1000);
 	}
 
@@ -118,11 +106,7 @@ public class DV_1377_ManageVatRegistration
 		sleepWait(1000);
 		clickOn("drp_FilterByMVT", "");
 		sleepWait(1000);
-		clickOn("drp_Priority", "");			
-		sleepWait(1000);
-		clickOn("drp_FilterByMVT", "");
-		sleepWait(2000);
-		clickOn("span","[contains(text(),'" + value + "')]");			
+		clickOn("drp_Filter_click_Re","//span[contains(text(),'" + value + "')]");				
 		sleepWait(1000);
 	}
 
@@ -130,14 +114,10 @@ public class DV_1377_ManageVatRegistration
 	@And("^user selects value from filter drop down \"([^\"]*)\" for Location$")
 	public void user_selects_value_from_filter_drop_down_for_Location(String value) throws Throwable 
 	{
-		sleepWait(1000);
+		sleepWait(1000);		
 		clickOn("drp_FilterByMVT", "");
 		sleepWait(1000);
-		clickOn("drp_Priority", "");			
-		sleepWait(1000);
-		clickOn("drp_FilterByMVT", "");
-		sleepWait(2000);
-		clickOn("span","[contains(text(),'" + value + "')]");			
+		clickOn("drp_Filter_click_Re","//span[contains(text(),'" + value + "')]");		
 		sleepWait(1000);
 	}
 
@@ -147,11 +127,7 @@ public class DV_1377_ManageVatRegistration
 		sleepWait(1000);
 		clickOn("drp_FilterByMVT", "");
 		sleepWait(1000);
-		clickOn("drp_Priority", "");			
-		sleepWait(1000);
-		clickOn("drp_FilterByMVT", "");
-		sleepWait(1000);
-		clickOn("span","[contains(text(),'" + value + "')]");			
+		clickOn("drp_Filter_click_Re","//span[contains(text(),'" + value + "')]");	
 		sleepWait(1000);
 	}
 
@@ -161,11 +137,7 @@ public class DV_1377_ManageVatRegistration
 		sleepWait(1000);
 		clickOn("drp_FilterByMVT", "");
 		sleepWait(1000);
-		clickOn("drp_Priority", "");			
-		sleepWait(1000);
-		clickOn("drp_FilterByMVT", "");
-		sleepWait(1000);
-		clickOn("span","[contains(text(),'" + value + "')]");			
+		clickOn("drp_Filter_click_Re","//span[contains(text(),'" + value + "')]");
 		sleepWait(1000);
 	}
 
@@ -174,13 +146,9 @@ public class DV_1377_ManageVatRegistration
 	public void user_selects_value_from_filter_drop_down_for_Status(String value) throws Throwable 
 	{
 		sleepWait(1000);
-		clickOn("drp_FilterByMVT", "");
+		clickOn("drp_FilterByMVT", ""); 
 		sleepWait(1000);
-		clickOn("drp_Priority", "");			
-		sleepWait(1000);
-		clickOn("drp_FilterByMVT", "");
-		sleepWait(1000);
-		clickOn("span","[contains(text(),'" + value + "')]");			
+		clickOn("drp_Filter_click_Re","//span[contains(text(),'" + value + "')]");
 		sleepWait(1000);
 	}
 
@@ -461,7 +429,7 @@ public class DV_1377_ManageVatRegistration
 		clickOn("lbl_AssFirst", "");
 		sleepWait(1000);
 		clickOn("start","[@class='pl-1 fa fa-sort-" + value + "']");
-		sleepWait(1000);
+		sleepWait(1000); 
 	}
 
 	@Then("^User see sorting result$")
@@ -589,496 +557,3 @@ public class DV_1377_ManageVatRegistration
 		sleepWait(1000);
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

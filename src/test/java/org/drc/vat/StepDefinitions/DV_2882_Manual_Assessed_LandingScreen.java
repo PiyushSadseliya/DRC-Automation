@@ -10,8 +10,11 @@ import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 /*import org.sikuli.script.Pattern;
 import org.sikuli.script.Screen;*/
@@ -588,17 +591,25 @@ public class DV_2882_Manual_Assessed_LandingScreen {
 			System.out.println("Pass");
 		}
 	}
-
-	@And("^User click on page \"([^\"]*)\" and check page\"([^\"]*)\" \"([^\"]*)\"$")
+	
+	@And("^User click on page \"([^\"]*)\" and check page\"([^\"]*)\" \"([^\"]*)\"$") 
 	public void user_click_on_page_and_check_page(String value, String value2, String arg3) throws Throwable {
-		sleepWait(1000);
-		// sleepWait(2000);
+		sleepWait(1000);		
 		try {
 			obj.load(fis);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		if (arg3.equals("last and right")) {
+		
+	if(!isElementPresent("//a[contains(text(),'2')]"))
+	{
+		System.out.println("Only First Page Exists....");
+	}
+	else 
+	{
+		System.out.println("Multiple Page Exists....");		
+		if (arg3.equals("last and right")) 
+		{
 			WebElement we, we1;
 			we = wd.findElement(By.xpath(obj.getProperty(value)));
 			we.click();
@@ -607,10 +618,12 @@ public class DV_2882_Manual_Assessed_LandingScreen {
 			sleepWait(1000);
 			we = wd.findElement(By.xpath(obj.getProperty(value)));
 			sleepWait(1000);
-			if ((!we.isEnabled() && !we1.isEnabled())) {
+			if ((!we.isEnabled() && !we1.isEnabled())) 
+			{
 				assertTrue(true);
 			}
-		} else if (arg3.equals("last and left")) {
+		} else if (arg3.equals("last and left")) 
+		{
 			WebElement we, we1;
 			we = wd.findElement(By.xpath(obj.getProperty(value)));
 			we.click();
@@ -623,7 +636,8 @@ public class DV_2882_Manual_Assessed_LandingScreen {
 				assertTrue(true);
 			}
 
-		} else if (arg3.equals("right and left")) {
+		} else if (arg3.equals("right and left"))
+		{
 			WebElement we, we1;
 			we = wd.findElement(By.xpath(obj.getProperty(value)));
 			we.click();
@@ -632,10 +646,12 @@ public class DV_2882_Manual_Assessed_LandingScreen {
 			sleepWait(1000);
 			we = wd.findElement(By.xpath(obj.getProperty(value)));
 			sleepWait(1000);
-			if ((we.isEnabled() && we1.isEnabled())) {
+			if ((we.isEnabled() && we1.isEnabled())) 
+			{
 				assertTrue(true);
 			}
-		} else if (arg3.equals("right and first")) {
+		} else if (arg3.equals("right and first"))
+		{
 			WebElement we, we1;
 			we = wd.findElement(By.xpath(obj.getProperty(value)));
 			we.click();
@@ -644,29 +660,35 @@ public class DV_2882_Manual_Assessed_LandingScreen {
 			sleepWait(1000);
 			we = wd.findElement(By.xpath(obj.getProperty(value)));
 			sleepWait(1000);
-			if ((we.isEnabled() && we1.isEnabled())) {
+			if ((we.isEnabled() && we1.isEnabled()))
+			{
 				assertTrue(true);
 			}
-		} else if (arg3.equals("first and left")) {
+		} else if (arg3.equals("first and left")) 
+		{
 			WebElement we, we1;
 			we = wd.findElement(By.xpath(obj.getProperty(value)));
 			// we.click();
 			sleepWait(1000);
 			we1 = wd.findElement(By.xpath(obj.getProperty(value2)));
 			sleepWait(1000);
-			if ((!we.isEnabled() && !we1.isEnabled())) {
+			if ((!we.isEnabled() && !we1.isEnabled())) 
+			{
 				assertTrue(true);
 			}
-		} else if (arg3.endsWith("first and first")) {
+		} else if (arg3.endsWith("first and first")) 
+		{
 			WebElement we, we1;
 			we = wd.findElement(By.xpath(obj.getProperty(value)));
 			sleepWait(1000);
 			we1 = wd.findElement(By.xpath(obj.getProperty(value2)));
 			sleepWait(1000);
-			if ((!we.isEnabled() && !we1.isEnabled())) {
+			if ((!we.isEnabled() && !we1.isEnabled())) 
+			{
 				assertTrue(true);
 			}
 		}
+	}
 
 	}
 
@@ -694,26 +716,6 @@ public class DV_2882_Manual_Assessed_LandingScreen {
 	@And("^User click on Last \"([^\"]*)\"$")
 	public void user_click_on_Last(String value) throws Throwable 
 	{ 		
-		
-	  /*  WebElement Click_C=wd.findElement(By.xpath(obj.getProperty(value)));
-	    Select click=new Select(Click_C);
-	    country.selectByVisibleText("India (+91)");*/
-		
-	  /*  WebElement Click_C= wd.findElement(By.xpath(obj.getProperty(value)));
-	    List<WebElement> click = Click_C.findElements(By.tagName("li"));
-	    for (WebElement li : click) 
-	    {
-	    	if (Click_C.isEnabled()) 
-	    	{
-	    		System.out.println("User Click and navigate to last page");
-	    		li.click();
-	    	}	
-	    	else
-	    	{
-	    		System.out.println("User is on last page");
-	    	}
-	    }*/
-	
 		WebElement button = wd.findElement(By.xpath(obj.getProperty(value)));
         if (button.isEnabled()) 
         {
@@ -723,17 +725,9 @@ public class DV_2882_Manual_Assessed_LandingScreen {
         else
         {
         	System.out.println("button disable");        	
-        	//System.out.println("User is on last page");
         }
 
 	}
-
-	/*
-	 * @And("^User select \"([^\"]*)\"$") public void user_select(String month)
-	 * throws Throwable { clickOn("", ""); sleepWait(1000); clickOn(month, "");
-	 * 
-	 * }
-	 */
 
 	@And("^User enter data for NITVA \"([^\"]*)\"$")
 	public void user_enter_data_for_NITVA(String typeValue) throws Throwable {

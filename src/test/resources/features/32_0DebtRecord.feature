@@ -8,7 +8,7 @@ Feature: Debt Record in 0-3 Months age bracket
     And Update data in roles table
 
     Examples: 
-      | Test Case ID                  | Description              | username             |
+      | Test Case ID                  | Description              | username          |
       | DRC_ATC_Valid_Registration_01 | Register with valid data | Regression AprilD |
 
   @SP_03
@@ -41,7 +41,7 @@ Feature: Debt Record in 0-3 Months age bracket
     And Click on Logout on Dashboard
 
     Examples: 
-      | TestCase_Id   | Description          | email                          | password | Category     | SubCategory       | Nif                   | Nif Registration Date | FName Business       | COI             | Incorporation Date | Business Type | Start Date | Company Size | Revenue  | AddressLine1      | AddressLine2   | Province | City  | ZipCode | MobileNumber | BName      | BAddressLine1     | BAddressLine2  | BProvince | BCity | BZipCode | BEmail         | BMobileNumber | Option | Job Title        | FName | AEmail          | Mobile     | Account Number | Account Holder Name | Bank Name   | Branch  | A1Document Description | A1Status    | A2Document Description | A2Status    | A3Document Description | A3Status    | A4Document Description | A4Status    | A5Document Description | A5Status    | A6Document Description | A6Status    | Filter                     | Manage | DeOption | SDomestic1 | SExport1 | SAdjustment1 | SDomestic2 | SExport2 | SAdjustment2 | PDomestic1 | PImport1 | PAdjustment1 | PDomestic2 | PImport2 | PAdjustment2 | Efile                                 | Authorized Signatory |
+      | TestCase_Id   | Description          | email                       | password | Category     | SubCategory       | Nif                   | Nif Registration Date | FName Business    | COI             | Incorporation Date | Business Type | Start Date | Company Size | Revenue  | AddressLine1      | AddressLine2   | Province | City  | ZipCode | MobileNumber | BName      | BAddressLine1     | BAddressLine2  | BProvince | BCity | BZipCode | BEmail         | BMobileNumber | Option | Job Title        | FName | AEmail          | Mobile     | Account Number | Account Holder Name | Bank Name   | Branch  | A1Document Description | A1Status    | A2Document Description | A2Status    | A3Document Description | A3Status    | A4Document Description | A4Status    | A5Document Description | A5Status    | A6Document Description | A6Status    | Filter                     | Manage | DeOption | SDomestic1 | SExport1 | SAdjustment1 | SDomestic2 | SExport2 | SAdjustment2 | PDomestic1 | PImport1 | PAdjustment1 | PDomestic2 | PImport2 | PAdjustment2 | Efile                                 | Authorized Signatory |
       | TC_End2End_01 | Registartion Process | RegressionAprilD@mt2015.com | Test@123 | Legal Entity | Government Entity | 1702211ABCDFE00100487 | 2018-08-22            | Regression AprilD | ABC09ABC09AGC09 | 2018-08-25         | Mining        | 2018-08-22 | Large Scale  | 75000000 | Dharamdas Chamber | Near Axis Bank | Bas-Uele | Aketi |  444604 |   1234567890 | Business 1 | Dharamdas Chamber | Near Axis Bank | Bas-Uele  | Aketi |   444604 | abc@mt2015.com |    7896541023 | Yes    | Business Analyst | John  | john@mt2015.com | 7412508963 | 00112233440017 | Automation User 21  | Advans Bank | Branch4 | doc_desc1              | capture.png | doc_desc1              | capture.png | doc_desc1              | capture.png | doc_desc1              | capture.png | doc_desc1              | capture.png | doc_desc1              | capture.png | Name of Business/Applicant | Review | Approve  |        100 |      100 |          100 |         10 |       10 |           10 |        100 |      100 |          100 |         10 |       10 |           10 | \\src\\test\\resources\\Scenario.xlsx | bindi                |
 
   Scenario Outline: Validating file download, view certificate, download certificate and approval of VAT - internal portal
@@ -54,7 +54,7 @@ Feature: Debt Record in 0-3 Months age bracket
     And user click on Approve and Continue
 
     Examples: 
-      | TestcaseID                              | Description                                                                | Filters        | Value                |
+      | TestcaseID                              | Description                                                                | Filters        | Value             |
       | Valid_Manage_VAT_Creation_Cerificate_01 | Validating file view certificate, download certificate and approval of VAT | Applicant Name | Regression AprilD |
 
   @TC_01_Login
@@ -66,7 +66,7 @@ Feature: Debt Record in 0-3 Months age bracket
     And User Click on SignIn
 
     Examples: 
-      | TestcaseID       | Description          | email                          | password |
+      | TestcaseID       | Description          | email                       | password |
       | e-file_Login_001 | Login into tax payer | RegressionAprilD@mt2015.com | Test@123 |
 
   @TC_02_debtMan
@@ -78,5 +78,5 @@ Feature: Debt Record in 0-3 Months age bracket
     And Enter OTP and click on verify button and click on Ok button
 
     Examples: 
-      | Description                               |     1 | email                          |
+      | Description                               |     1 | email                       |
       | E-filing in the age bracket of 0-3 Months | 50000 | RegressionAprilD@mt2015.com |

@@ -19,8 +19,8 @@ Feature: User is on Manual Assement on Adjustment Page
     And Validate Period field
 
     Examples: 
-      | TestcaseID    | Description                    | Period        | TaxPayer          | Year            |
-      | Man_Adj_02_03 | validate nitva no,Period field | txt_PeriodFeb | Regression MarchMons| txt_2019_Period |
+      | TestcaseID    | Description                    | Period        | TaxPayer               | Year            |
+      | Man_Adj_02_03 | validate nitva no,Period field | txt_PeriodFeb | Regression AprilTOne | txt_2019_Period |
 
   @TC_07_06_08_09
   Scenario Outline: validate Total additional liability tile on adjustment,Total Assessed tile,Edit button functionality,save button
@@ -46,8 +46,8 @@ Feature: User is on Manual Assement on Adjustment Page
     And User again click on prev button and click on edit button and validate amount is saved
 
     Examples: 
-      | TestcaseID          | Description                                                                    | Period        | TaxPayer          | 17 | 18 | 19 | 20 | mes                | 17.1 | 18.1 | 19.1 | 20.1 | Year            |
-      | Man_Adj_07_06_08_09 | validate view icon in transaction received table and Total of Difference field | txt_PeriodFeb | Regression MarchMons|  0 |  0 |  5 |  5 | Saved Successfully |   10 |   10 |   10 |   10 | txt_2019_Period |
+      | TestcaseID          | Description                                                                    | Period        | TaxPayer               | 17 | 18 | 19 | 20 | mes                | 17.1 | 18.1 | 19.1 | 20.1 | Year            |
+      | Man_Adj_07_06_08_09 | validate view icon in transaction received table and Total of Difference field | txt_PeriodFeb | Regression AprilTOne |  0 |  0 |  5 |  5 | Saved Successfully |   10 |   10 |   10 |   10 | txt_2019_Period |
 
   @TC_12_13
   Scenario Outline: Validate the view icon in transaction received table and Total of Difference field under Amount column
@@ -69,8 +69,8 @@ Feature: User is on Manual Assement on Adjustment Page
     And User validate amount Difference on Adjustement page
 
     Examples: 
-      | TestcaseID    | Description                                                                    | Period        | TaxPayer          | Year            |
-      | Man_Adj_12_13 | validate view icon in transaction received table and Total of Difference field | txt_PeriodFeb | Regression MarchMons| txt_2019_Period |
+      | TestcaseID    | Description                                                                    | Period        | TaxPayer               | Year            |
+      | Man_Adj_12_13 | validate view icon in transaction received table and Total of Difference field | txt_PeriodFeb | Regression AprilTOne | txt_2019_Period |
 
   @TC_15_16_17_18_20
   Scenario Outline: Validate the prev button, next,previous, download functionality of Transaction Received button and e-filing schedule button functionality when file is not uploaded by tax payer
@@ -92,8 +92,8 @@ Feature: User is on Manual Assement on Adjustment Page
     And User click on Previous button and navigate to Manual assessment Tax payer list page
 
     Examples: 
-      | TestcaseID             | Description                                                                    | Period        | Period1       | TaxPayer          | mes            | Year            |
-      | Man_Adj_15_16_17_18_20 | validate view icon in transaction received table and Total of Difference field | txt_PeriodJan | txt_PeriodFeb | Regression MarchMons| File not found | txt_2019_Period |
+      | TestcaseID             | Description                                                                    | Period        | Period1       | TaxPayer               | mes            | Year            |
+      | Man_Adj_15_16_17_18_20 | validate view icon in transaction received table and Total of Difference field | txt_PeriodJan | txt_PeriodFeb | Regression AprilTOne | File not found | txt_2019_Period |
 
   @TC_19
   Scenario Outline: Validate the e-filing schedule button functionality when e-file schedule file is uploaded by tax payer from tax payer portal
@@ -111,8 +111,8 @@ Feature: User is on Manual Assement on Adjustment Page
     And User click on e-Filing Scedule on Manual Assessment and validate
 
     Examples: 
-      | TestcaseID | Description                                                        | Period        | TaxPayer          | Year            |
-      | Man_Adj_19 | validate download functionality when user upload file on tax payer | txt_PeriodFeb | Regression MarchMons| txt_2019_Period |
+      | TestcaseID | Description                                                        | Period        | TaxPayer               | Year            |
+      | Man_Adj_19 | validate download functionality when user upload file on tax payer | txt_PeriodFeb | Regression AprilTOne | txt_2019_Period |
 
   @TC_Negative_Scenario_field_length_Manual_2879
   Scenario Outline: Validate Negative Scenario for all fields length
@@ -130,8 +130,8 @@ Feature: User is on Manual Assement on Adjustment Page
     And User entered value "<17>" "<18>" "<19>" "<20>" for Adjustment page negative field length
 
     Examples: 
-      | TestcaseID | Description               | Period        | TaxPayer          |               17 |               18 |               19 |               20 | Year            |
-      | Man_Adj_1  | Validate length of number | txt_PeriodFeb | Regression MarchMons| 1234567891011123 | 1234567891011123 | 1234567891011123 | 1234567891011123 | txt_2019_Period |
+      | TestcaseID | Description               | Period        | TaxPayer               |               17 |               18 |               19 |               20 | Year            |
+      | Man_Adj_1  | Validate length of number | txt_PeriodFeb | Regression AprilTOne | 1234567891011123 | 1234567891011123 | 1234567891011123 | 1234567891011123 | txt_2019_Period |
 
   @TC_Negative_Scenario_Manual_2879
   Scenario Outline: Validate Negative Scenario for all fields
@@ -149,6 +149,6 @@ Feature: User is on Manual Assement on Adjustment Page
     And User entered value "<17>" "<18>" "<19>" "<20>" for Adjustment page negative field
 
     Examples: 
-      | TestcaseID | Description                 | Period        | TaxPayer          |   17 |   18 |   19 |   20 | Year            |
-      | Man_Adj_1  | Validate special chatracter | txt_PeriodFeb | Regression MarchMons| @!@$ | @!@$ | @!@$ | @!@$ | txt_2019_Period |
-      | Man_Adj_2  | Validate alpha numeric      | txt_PeriodFeb | Regression MarchMons| A12  | B123 | C465 | D234 | txt_2019_Period |
+      | TestcaseID | Description                 | Period        | TaxPayer               |   17 |   18 |   19 |   20 | Year            |
+      | Man_Adj_1  | Validate special chatracter | txt_PeriodFeb | Regression AprilTOne | @!@$ | @!@$ | @!@$ | @!@$ | txt_2019_Period |
+      | Man_Adj_2  | Validate alpha numeric      | txt_PeriodFeb | Regression AprilTOne | A12  | B123 | C465 | D234 | txt_2019_Period |

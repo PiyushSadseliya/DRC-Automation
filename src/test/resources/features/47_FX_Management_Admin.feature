@@ -57,11 +57,11 @@ Feature: User is on FX Management Page DGI Admin
       | TestcaseID                 | Description                           | type1        | See                    |
       | FX_Management_Officer_05_1 | multiple dot in currency rate         | 7.15.10      | Invalid currency rate! |
       | FX_Management_Officer_05_2 | multiple dot in between currency rate | 14.......100 | Invalid currency rate! |
-      | FX_Management_Officer_05_3 | currency rate starting with dot       |        .2500 | Invalid currency rate! |
+      | FX_Management_Officer_05_3 | currency rate starting with dot       |       ..2500 | Invalid currency rate! |
       | FX_Management_Officer_05_4 | currency rate ending with dot         |        2500. | Invalid currency rate! |
 
   @TC_06_07
-  Scenario Outline: Validate add new currency and remove currency functionality under currency dropdown 
+  Scenario Outline: Validate add new currency and remove currency functionality under currency dropdown -internal portal
     Given User is on FX Management "<TestcaseID>" "<Description>"
     And User click on Dashboard
     And User click on FX Management tab
@@ -103,7 +103,7 @@ Feature: User is on FX Management Page DGI Admin
 
     Examples: 
       | TestcaseID             | Description                      | TodayDate  | ToDate    | DisplayDate | NoCurrencyFromDate | NoCurrencyToDate |
-      | FX_Management_Admin_15 | Verify date search functionality |2019-03-12 | 2019-03-12 | 03/12/2019  | 2019-02-02         | 2019-02-02       |
+      | FX_Management_Admin_15 | Verify date search functionality |2019-04-09 | 2019-04-09 | 04/09/2019  | 2019-02-02         | 2019-02-02       |
 
   @TC_16
   Scenario Outline: Validate the Pagination on the FX management page with historic data

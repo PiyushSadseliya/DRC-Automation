@@ -1,4 +1,4 @@
-Feature: User is on Manage VAT Registration
+	Feature: User is on Manage VAT Registration
 
 #  @ManageVATRegistration_DV-1377
 #  Scenario: Validate the Manual Assessment dashboard page All clicking compoment - internal portal
@@ -21,6 +21,7 @@ Feature: User is on Manage VAT Registration
  @FilterByDropdown_Piority_invalid_data_DV-1377
   Scenario Outline: Validate Filter Functionality for Dropdown 
     Given User is on Internal Portal "<TestcaseID>" "<Description>"
+    And User click on Dashboard
     When user selects Manage Vat Registraion
     Then user selects value from filter drop down "<Filters>" for piority
     And enters data in type here text box "<Value>"
@@ -34,8 +35,9 @@ Feature: User is on Manage VAT Registration
 
   #TC_02,TC_03 Name of business, Taxpayer sub Category,Location,Last Updated Date, Tax officer, Status are all common
   @FilterByDropdown_DV-1377
-  Scenario Outline: Validate Filter Functionality for Dropdown 
+  Scenario Outline: Validate Filter Functionality for Dropdown   
     Given User is on Internal Portal "<TestcaseID>" "<Description>"
+    And User click on Dashboard
     When user selects Manage Vat Registraion
     Then user selects value from filter drop down "<Filters>"
     And enters data in type here text box "<Value>"
@@ -53,6 +55,7 @@ Feature: User is on Manage VAT Registration
   @FilterByDropdown_NIF_invalid_data_DV-1377
   Scenario Outline: Validate Filter Functionality for Dropdown
     Given User is on Internal Portal "<TestcaseID>" "<Description>"
+    And User click on Dashboard
     When user selects Manage Vat Registraion
     Then user selects value from filter drop down "<Filters>" for nif
     And enters data in type here text box "<Value>"
@@ -80,6 +83,7 @@ Feature: User is on Manage VAT Registration
   @FilterByDropdown_TaxpayerCategory_invalid_data_DV-1377
   Scenario Outline: Validate Filter Functionality for Dropdown 
     Given User is on Internal Portal "<TestcaseID>" "<Description>"
+    And User click on Dashboard
     When user selects Manage Vat Registraion
     Then user selects value from filter drop down "<Filters>" for Taxpayer Category
     And enters data in type here text box "<Value>"
@@ -94,6 +98,7 @@ Feature: User is on Manage VAT Registration
   @FilterByDropdown_Location_invalid_data_DV-1377
   Scenario Outline: Validate Filter Functionality for Dropdown 
     Given User is on Internal Portal "<TestcaseID>" "<Description>"
+    And User click on Dashboard
     When user selects Manage Vat Registraion
     Then user selects value from filter drop down "<Filters>" for Location
     And enters data in type here text box "<Value>"
@@ -108,6 +113,7 @@ Feature: User is on Manage VAT Registration
   @FilterByDropdown_UpdatedDate_invalid_data_DV-1377
   Scenario Outline: Validate Filter Functionality for Dropdown
     Given User is on Internal Portal "<TestcaseID>" "<Description>"
+    And User click on Dashboard
     When user selects Manage Vat Registraion
     Then user selects value from filter drop down "<Filters>" for Updated Date
     And enters data in type here text box "<Value>"
@@ -122,6 +128,7 @@ Feature: User is on Manage VAT Registration
   @FilterByDropdown_TaxOfficer_invalid_data_DV-1377
   Scenario Outline: Validate Filter Functionality for Dropdown 
     Given User is on Internal Portal "<TestcaseID>" "<Description>"
+    And User click on Dashboard
     When user selects Manage Vat Registraion
     Then user selects value from filter drop down "<Filters>" for Tax Officer
     And enters data in type here text box "<Value>"
@@ -188,22 +195,23 @@ Feature: User is on Manage VAT Registration
     #Examples: 
       #| TestcaseID                        | Description                        | Filters  | Value |
       #| Valid_Manage_VAT_Reg_DonPDF_05_06 | Filter with download PDF and Excel | Priority |    10 |
-#
-  #@TC_07_ManageVATRegistration_DV-1377
-  #Scenario Outline: User Navigate to particular page
-    #Given User is on Internal Portal "<TestcaseID>" "<Description>"
-    #When user selects Manage Vat Registraion
-    #And User click on page "<ClickPage>" and check page"<CheckPage>" "<option>"
-    #And User click on Dashboard
-#
-    #Examples: 
-      #| TestcaseID                       | Description                | Filters  | Value    | Period        | ClickPage       | CheckPage       | option          |
-      #| Valid_Manage_VAT_Reg_Navigate_01 | validating last and right  | Status   | rejected | txt_PeriodJan | lbl_AssLast     | lbl_AssestRight | last and right  |
-      #| Valid_Manage_VAT_Reg_Navigate_02 | validating last and left   | Priority |        1 | txt_PeriodJan | lbl_AssLast     | lbl_AssestLeft  | last and left   |
-      #| Valid_Manage_VAT_Reg_Navigate_03 | validating right and left  | Status   | rejected | txt_PeriodJan | lbl_AssestRight | lbl_AssestLeft  | right and left  |
-      #| Valid_Manage_VAT_Reg_Navigate_04 | validating right and first | Priority |        1 | txt_PeriodJan | lbl_AssestRight | lbl_AssFirst    | right and first |
-      #| Valid_Manage_VAT_Reg_Navigate_05 | validating first and left  | Status   | rejected | txt_PeriodJan | lbl_AssFirst    | lbl_AssestLeft  | first and left  |
-      #| Valid_Manage_VAT_Reg_Navigate_06 | validating first and first | Priority |        1 | txt_PeriodJan | lbl_AssFirst    | lbl_AssFirst    | first and first |
+
+  @TC_07_ManageVATRegistration_DV-1377
+  Scenario Outline: User Navigate to particular page
+    Given User is on Internal Portal "<TestcaseID>" "<Description>"
+    And User click on Dashboard
+    When user selects Manage Vat Registraion
+    And User click on page "<ClickPage>" and check page"<CheckPage>" "<option>"
+    And User click on Dashboard
+
+    Examples: 
+      | TestcaseID                       | Description                | Filters  | Value    | Period        | ClickPage       | CheckPage       | option          |
+      | Valid_Manage_VAT_Reg_Navigate_01 | validating last and right  | Status   | rejected | txt_PeriodJan | lbl_AssLast     | lbl_AssestRight | last and right  |
+      | Valid_Manage_VAT_Reg_Navigate_02 | validating last and left   | Priority |        1 | txt_PeriodJan | lbl_AssLast     | lbl_AssestLeft  | last and left   |
+      | Valid_Manage_VAT_Reg_Navigate_03 | validating right and left  | Status   | rejected | txt_PeriodJan | lbl_AssestRight | lbl_AssestLeft  | right and left  |
+      | Valid_Manage_VAT_Reg_Navigate_04 | validating right and first | Priority |        1 | txt_PeriodJan | lbl_AssestRight | lbl_AssFirst    | right and first |
+      | Valid_Manage_VAT_Reg_Navigate_05 | validating first and left  | Status   | rejected | txt_PeriodJan | lbl_AssFirst    | lbl_AssestLeft  | first and left  |
+      | Valid_Manage_VAT_Reg_Navigate_06 | validating first and first | Priority |        1 | txt_PeriodJan | lbl_AssFirst    | lbl_AssFirst    | first and first |
 #
   #TC_08
   #@ShowEnteries_ManageVATRegistration_DV-1377
@@ -328,6 +336,7 @@ Feature: User is on Manage VAT Registration
   @FilterCombinationInvalid_ManageVATRegistration_DV-1377
   Scenario Outline: Validate filter fucntionality and Type here with different combination Invalid
     Given User is on Internal Portal "<TestcaseID>" "<Description>"
+    And User click on Dashboard
     When user selects Manage Vat Registraion
     Then user selects value from filter drop down "<Filters>"
     And enters data in type here text box "<Value>"

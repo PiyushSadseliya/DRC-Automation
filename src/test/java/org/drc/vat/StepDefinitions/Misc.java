@@ -10,8 +10,6 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Timer;
 import java.util.concurrent.TimeUnit;
-import org.drc.vat.appmanager.ConnectDatabase;
-
 import org.apache.commons.collections.functors.SwitchClosure;
 import org.drc.vat.appmanager.ConnectDatabase;
 import org.openqa.selenium.WebDriver;
@@ -70,7 +68,7 @@ System.out.println(accessToken[0]);
 	}*/
 	
 	ConnectDatabase CD = new ConnectDatabase();
-	ConnectDatabase.opendb();
+	CD.opendb();
 for(int i=1;i<=12;i++) {
 	String sql = "declare @month int;" + "set @month ="+i+";" + "insert into [DRC-QA].vat.VfVateFile"
 			+ "(VuUserId,FinancialYear,FinancialMonth,PaymentDueDate,TotalAmount,DueAmount,VfDueDate,CreatedDate)"
@@ -100,7 +98,7 @@ for(int i=1;i<=12;i++) {
 }
 @Given("^After Efiling Wait for Five Minutes$")
 public void after_Efiling_Wait_for_Five_Minutes() throws Throwable {
-   Thread.sleep(150000);
+   Thread.sleep(360000);
 }
 
 @Then("^Records should be in Assessment Records$")

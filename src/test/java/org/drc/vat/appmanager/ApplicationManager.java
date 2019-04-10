@@ -115,15 +115,13 @@ public class ApplicationManager {
 			Thread.sleep(1000);
 		}
 		else {
-			if (!wd.getCurrentUrl().contains("8068")) {
-
-				wd.quit();
-
+			if (!wd.getCurrentUrl().contains("8068")) 
+			{
+				//wd.quit();
 				/*wd.close();
->>>>>>> 328469f7bb9ed611df1a391402f01548a7c6865f
 				Thread.sleep(1000);
 				wd = new ChromeDriver();
-				wd.manage().window().maximize();
+				wd.manage().window().maximize(); 
 				Thread.sleep(1000);*/
 				wd = new ChromeDriver();
 				wd.manage().window().maximize();

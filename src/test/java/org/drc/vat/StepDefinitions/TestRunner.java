@@ -21,16 +21,82 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import static org.drc.vat.appmanager.HelperBase.softAssert;
 
-@CucumberOptions(features = {					
-				"classpath:features/32_0DebtRecord.feature"			
+
+@CucumberOptions(features = {	
+		
+		/*
+				"classpath:features/01_userRegistration.feature",
+				"classpath:features/02_01_Login.feature",
+				"classpath:features/03_02VATRegistration.feature",				
+				"classpath:features/04_DV_1377_ManageVatRegistration.feature",				
+				"classpath:features/05_DV_1376_AcceptRejectAdditionalClarification.feature",
+				"classpath:features/07EfilingAPI.feature",								
+				"classpath:features/09_DV_2389_calculation_with_offset.feature",		
+				"classpath:features/10_DV_2390_e_filing.feature",
+				"classpath:features/11_DV_2391_eFile_Preview.feature",
+				"classpath:features/12_1_DV_2394_Landing_Screen.feature",
+				"classpath:features/13_3DV_2394_Total_Liability.feature",
+				"classpath:features/14_ViewAllStatementofTransaction.feature",
+				//"classpath:features/15_01_TaxBillPayment.feature",		
+				"classpath:features/16_00AssessmentWait.feature",
+		 		
+				"classpath:features/16_01_DV_2882_Manual_Assessed_LandingScreen.feature",
+				"classpath:features/17_03_DV_2881_OP_TD_Ad_with_Ass_and_Reass.feature",
+				"classpath:features/18_05_DV_2880_Tax_Deductable_Ass_and_Reass_Adjustement.feature",
+				"classpath:features/19_07_DV_2879_ManAssess_AsseList_Adjustement.feature",
+				"classpath:features/20_09_DV_2878_Assessment_Summary_Manual.feature",
+			//	"classpath:features/21_11_DV_2876_manual_EFD_All.feature",
+				"classpath:features/22_PaymentSummaryLiabilityCalculationPaymentDueManualAssessment.feature",
+				"classpath:features/23_02_DV_2882_Assessed_List.feature",
+				"classpath:features/24_04_DV_2881_OP_TD_Ad_with_Ass_and_Reass_AssessedList.feature",
+				"classpath:features/25_06_DV_2880_Tax_Deductable_Ass_and_Reass_Adjustement_Assessed_List.feature",
+				"classpath:features/26_08_DV_2879_Assessed.feature",
+				"classpath:features/27_10_DV_2878_Assessment_Summary_Assessed.feature",
+				//"classpath:features/28_12_DV_2876_AssessedList_EFD_All.feature",
+				"classpath:features/29_PaymentSummaryLiabilityCalculationPaymentDueManualReAssessment.feature",	
+	*/
+			
+				"classpath:features/30_TaxPayer_Portal_objection_appeal.feature",
+				"classpath:features/31_Internal_Portal_objection_appeal.feature",
+		
+				/*
+				
+				"classpath:features/32_0DebtRecord.feature",
+				"classpath:features/32_DebtManagementLandingScreen.feature",
+				"classpath:features/33_DebtManagementUnassignedDebt.feature",
+				"classpath:features/34_DebtManagementAssignedDebtList.feature",
+				"classpath:features/35_DebtCollectionCaseScreen.feature",
+				"classpath:features/36_popupofAgeingofArrears.feature",
+				"classpath:features/37_NotificationPopUp.feature"
+				*/			
+		
+				//"classpath:features/42_AccountAdjustmentStmtofTransac.feature"
+				//"classpath:features/45_FX_Management_TaxOfficer.feature",
+				//"classpath:features/46_FX_Management_Supervisor.feature",
+				//"classpath:features/47_FX_Management_Admin.feature",
+		
+				//"classpath:features/DV_4007_IT_Support_Admin.feature",
+				//"classpath:features/DV_4007_IT_Support_User1.feature",
+				
+				//"classpath:features/DV_4316_Reconciliation.feature"
+				
+				//"classpath:features/51EFDManufacture.feature",
+				//"classpath:features/52EFDVendor.feature"
+	          //	"classpath:features/SelectExample.feature"
+	
+
+
 
 		},
 		glue = "org.drc.vat.StepDefinitions",
 		plugin = {"com.cucumber.listener.ExtentCucumberFormatter:","html:test-output/cucumber-report", 
 				  "pretty","html:target/site/cucumber-pretty","json:target/cucumber/cucumber.json"}
+		//,tags= {"@e-filing_payment,@TC_02_03_04_16,@TC_08_10_13,@TC_09_17,@TC_12_14"}
+		//,tags= {"@Valid_Registration,@SP_03"}
+		//,tags= {"@TC_06_07"}
 		)
 
-
+ 
 public class TestRunner extends AbstractTestNGCucumberTests {
 	private Logger logger = LoggerFactory.getLogger(TestRunner.class);
 	private String outputDir = "test-output/" + new Date().toString().substring(0, 10);
@@ -57,11 +123,10 @@ public class TestRunner extends AbstractTestNGCucumberTests {
 	//	System.out.println(scenario.getName().replace("\"", ""));
 		/**
 		 * Login with Ketan.prajapati
-		 */
+		 */		
 		if (scenario.getName().toLowerCase().contains("internal portal")) {
 			app.callinternalportal();
-
-		}
+		} 		
 		/**
 		 * taxpayer portal
 		 */

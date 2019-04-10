@@ -68,10 +68,14 @@ public class PaymentSummaryLiabilityCalculationPaymentDueManualAssessment {
 			sleepWait(2000);
 		}
 		clickOn("drp_mafilterby", "");
-		clickOn("span", "[contains(text(),'Tax Payer')]");
+
+		//clickOn("span", "[contains(text(),'Taxpayer')]");
+		clickOn("drp_CM_TaxPayer_Click", "");
+		sleepWait(1000);
 		type("input_masearch", tpayer);
 		sleepWait(2000);
 		clickOn("btn_SearchFX", "");
+		sleepWait(2000);
 		clickOn("drp_AssestManage", "");
 		//clickOn("AssesManage", "");
 		sleepWait(2000);
@@ -421,7 +425,7 @@ assertEquals(text.contains(frenchToIndian(Pamt[3])), true);
 
 		String Toatledeclared = elementText("txt_totalEtile", "");
 		System.out.println(Toatledeclared.substring(3));
-		String TotalAssessed = elementText("txt_totalAtile", "");
+		String TotalAssessed = elementText("txt_totalAtile", ""); 
 		System.out.println(TotalAssessed.substring(3));
 		// double
 		// TA=nf.parse(TotalAssessed).doubleValue()-nf.parse(TotaladdLiab).doubleValue();

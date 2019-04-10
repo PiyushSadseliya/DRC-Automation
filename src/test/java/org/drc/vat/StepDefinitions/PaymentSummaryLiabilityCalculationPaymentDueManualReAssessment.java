@@ -60,11 +60,13 @@ public class PaymentSummaryLiabilityCalculationPaymentDueManualReAssessment {
 
 
 
-		clickOn("span", "[contains(text(),'Tax Payer')]");
+		//clickOn("span", "[contains(text(),'Tax Payer')]");
+		clickOn("drp_CM_TaxPayer_Click", "");
+		sleepWait(1000);
 		type("input_masearch", tpayer);
 		sleepWait(2000);
 		clickOn("btn_Asearch", "");
-
+		sleepWait(2000);
 		clickOn("drp_AssestManage", "");
 		sleepWait(2000);
 		clickOn("href_maRassess", "");
@@ -462,7 +464,10 @@ public class PaymentSummaryLiabilityCalculationPaymentDueManualReAssessment {
 		sleepWait(3000);
 
 		clickOn("drp_mafilterby", "");
-		clickOn("span", "[contains(text(),'Tax Payer')]");
+		sleepWait(1000);
+		clickOn("drp_CM_TaxPayer_Click", "");
+		sleepWait(1000);
+		//clickOn("span", "[contains(text(),'Tax Payer')]");
 		type("input_masearch", tpayer);
 		sleepWait(2000);
 		clickOn("btn_Asearch", "");

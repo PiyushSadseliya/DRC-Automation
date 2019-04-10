@@ -84,6 +84,9 @@ public class DV_2063_FX_Management_TaxOfficer
 	public void user_click_on_update_button() throws Throwable 
 	{
 		sleepWait(1000);
+		waitFor("btn_UpdateFX");
+		sleepWait(1000);
+		waitFor("btn_UpdateFX");
 		clickOn("btn_UpdateFX", "");	    
 	}
 
@@ -265,7 +268,7 @@ public class DV_2063_FX_Management_TaxOfficer
 	    String date2 = format2.format(date01);    
 	    assertEquals(date2, FromDate);
 	}
-	
+	 
 	@And("^User Select Todays date \"([^\"]*)\" in From and Select todays days \"([^\"]*)\" in To check selected date$")
 	public void user_Select_Todays_date_in_From_and_Select_todays_days_in_To_check_selected_date(String To, String From) throws Throwable 
 	{
@@ -356,7 +359,7 @@ public class DV_2063_FX_Management_TaxOfficer
 	@And("^User see New Conversion Rate column on FX management landing page$")
 	public void user_see_New_Conversion_Rate_column_on_FX_management_landing_page() throws Throwable 
 	{		
-		sleepWait(1000);
+		sleepWait(4000);
 		if(wd.findElement(By.xpath(obj.getProperty("txt_ApprovalRequired"))).isDisplayed())
 		{
 			assertTrue(true);
@@ -599,6 +602,10 @@ public class DV_2063_FX_Management_TaxOfficer
 	@Then("^User Click on Historical FX Rates button$")
 	public void user_Click_on_Historical_FX_Rates_button() throws Throwable 
 	{
+		sleepWait(1000);
+		waitFor("btn_HistoricalFX");
+		sleepWait(1000);
+		waitFor("btn_HistoricalFX");
 		sleepWait(1000);
 		clickOn("btn_HistoricalFX", "");
 	}

@@ -101,7 +101,7 @@ public class DV_2880_Tax_Deductable_Ass_and_Reass_Adjustement
 	@And("^User navigate to Tax Deductible$")
 	public void user_navigate_to_Tax_Deductible() throws Throwable 
 	{
-		sleepWait(1000);
+		sleepWait(3000);
 		clickOn("btn_NEXT", "");
 		sleepWait(2000);
 		if(wd.findElement(By.xpath(obj.getProperty("txt_Tax_Deductible_Page"))).isDisplayed())
