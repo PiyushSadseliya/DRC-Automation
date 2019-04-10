@@ -20,6 +20,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import static org.drc.vat.appmanager.HelperBase.softAssert;
+
 @CucumberOptions(features = {	
 		
 		/*
@@ -117,6 +118,7 @@ public class TestRunner extends AbstractTestNGCucumberTests {
 
 	@Before
 	public void startScenario(Scenario scenario) throws IOException, AWTException, InterruptedException {
+	//	System.out.println(scenario.getName().replace("\"", ""));
 		/**
 		 * Login with Ketan.prajapati
 		 */		
@@ -230,7 +232,7 @@ public class TestRunner extends AbstractTestNGCucumberTests {
 	@After
 	public void endScenario(Scenario scenario) throws Exception {
 
-		String screenshot = scenario.getName();
+		String screenshot = scenario.getName().replace("\"", "");
 		File src = app.takeScreenshotAsFile();
 		File dest = new File(
 				System.getProperty("user.dir") + "/" + outputDir + "/screenshots/" + screenshot + timestamp + ".png");

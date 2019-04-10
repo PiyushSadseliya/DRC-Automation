@@ -41,7 +41,7 @@ public class userRegistration {
 	boolean minTextcount = false;
 	boolean minPhonecount = false;
 	boolean maxPhonecount = false;
-	boolean minPasswordcount = false;
+	boolean minPasswordcount = false; 
 	boolean maxPasswordcount = false;
 	boolean showvalidationMessage = true;
 	static boolean fullNameValidation = false;
@@ -144,7 +144,7 @@ public class userRegistration {
 				+ "where Email = CONCAT('" + EmailUsername + "','@mt2015.com'))               "
 				+ "insert into [DRC-QA].[Ref].[RegisteredUsers] values                             "
 				+ "  (@emailvalue                                                          "
-				+ "  ,'en-us'                                                              " + "  ,'" + Username
+				+ "  ,'en-us'                                                                   " + "  ,'" + Username
 				+ "'" + "  ,CONCAT('" + EmailUsername + "','@mt2015.com')                              "				
 				+ "  ,'9876543218'                                                                " //Mobile number
 				+ "  ,CURRENT_TIMESTAMP                                                   "

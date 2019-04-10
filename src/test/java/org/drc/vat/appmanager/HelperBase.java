@@ -3,6 +3,7 @@ package org.drc.vat.appmanager;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -1076,4 +1077,30 @@ public class HelperBase {
 
 		return wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(object)));
 	}
+	public static List <WebElement> elementList(String object,String data) {
+		try {
+			obj.load(fis);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		By locator = By.xpath(obj.getProperty(object) + data);
+		List <WebElement> listedRecords=wd.findElements(locator);
+		return listedRecords;
+		
+	}
+	public static boolean isElementPresent(String locator,String object) {
+		try {
+			wd.findElement(By.xpath(locator+object));
+			return true;
+		} catch (NoSuchElementException e) {
+			return false;
+		}
+	}
+	public static void activeFocus() {
+		String cwindow=wd.getWindowHandle();
+		((JavascriptExecutor)wd).executeScript("alert('Test')");
+		wd.switchTo().alert().accept();
+		
+	}
+	
 }

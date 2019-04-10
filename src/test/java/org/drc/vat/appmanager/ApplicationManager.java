@@ -107,6 +107,7 @@ public class ApplicationManager {
 			wd = new ChromeDriver();
 			wd.manage().window().maximize();
 			wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+			activeFocus();
 			wd.get("http://103.249.120.58:8044");
 			//Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\src\\test\\resources\\authusers\\autoitsample.exe");
 			Runtime.getRuntime().exec(System.getProperty("user.dir") +"\\QA_Internal_Portal_Login\\autoitsample.exe");
@@ -122,7 +123,10 @@ public class ApplicationManager {
 				wd = new ChromeDriver();
 				wd.manage().window().maximize(); 
 				Thread.sleep(1000);*/
+				wd = new ChromeDriver();
+				wd.manage().window().maximize();
 				Thread.sleep(2000);
+				activeFocus();
 				wd.get("http://103.249.120.58:8044");
 				Thread.sleep(500);
 				Runtime.getRuntime().exec(System.getProperty("user.dir") + "\\QA_Internal_Portal_Login\\autoitsample.exe");
@@ -168,6 +172,7 @@ public class ApplicationManager {
 			wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 			wd.get("http://103.249.120.58:8042");
 			Thread.sleep(1000);
+			
 		}
 	}
 	
