@@ -18,7 +18,7 @@ Feature: DGI employee should be able to do following
 
     Examples: 
       | Test Case ID                       | Description                                                                                | officername  | uname           | password | ageing     | tpayer        | Moption1 | Moption2 |
-      | DRC_ATC_DebtManagement_Assigned_01 | Validate whether collection officer is able to view the case for the particular tax payer. | Urvish Patel | ketan.prajapati | admin    | 0-3 Months |Regression Marchde  | View     | Reassign |
+      | DRC_ATC_DebtManagement_Assigned_01 | Validate whether collection officer is able to view the case for the particular tax payer. | Urvish Patel | ketan.prajapati | admin    | 0-3 Months |Regression AprilDebt  | View     | Reassign |
 
 
   @mtc7 @ManageReassign @execute
@@ -33,7 +33,7 @@ Feature: DGI employee should be able to do following
 
     Examples: 
           | Test Case ID                       | Description                                                              | officername  | uname           | password | ageing     | tpayer        | Moption1 | Moption2 | reassign     |
-      | DRC_ATC_DebtManagement_Assigned_02 | Validate whether collection officer is able to reassign the tax officer. | Urvish Patel | ketan.prajapati | admin    | 0-3 Months |Regression Marchde  | View     | Reassign | Urvish Patel |
+      | DRC_ATC_DebtManagement_Assigned_02 | Validate whether collection officer is able to reassign the tax officer. | Urvish Patel | ketan.prajapati | admin    | 0-3 Months |Regression AprilDebt  | View     | Reassign | Urvish Patel |
 
 
   @mtc9 @FilterBy @execute

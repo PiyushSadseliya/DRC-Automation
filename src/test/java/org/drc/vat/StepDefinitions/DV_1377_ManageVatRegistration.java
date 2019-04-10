@@ -278,7 +278,7 @@ public class DV_1377_ManageVatRegistration
 	public void it_Navigate_to_Tax_Payer_Details() throws Throwable 
 	{
 		sleepWait(1000);	
-		if(elementText("txt_ViewClick").equals("Tax Payer Details"))
+		if(elementText("txt_ViewClick").equals("Taxpayer Details"))
 		{
 			assertTrue(true);
 		}

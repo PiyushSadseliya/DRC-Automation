@@ -22,7 +22,7 @@ import java.util.Date;
 import static org.drc.vat.appmanager.HelperBase.softAssert;
 
 @CucumberOptions(features = {					
-				"classpath:features/"
+				"classpath:features/32_0DebtRecord.feature"			
 
 		},
 		glue = "org.drc.vat.StepDefinitions",

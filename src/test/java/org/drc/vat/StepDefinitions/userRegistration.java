@@ -75,7 +75,6 @@ public class userRegistration {
 		Username = UserName;
 		EmailUsername = UserName.replace(" ", "");
 		EmailCapsUsername = UserName.replace(" ", "").toUpperCase();
-
 		ConnectDatabase CD = new ConnectDatabase();
 		CD.opendb();
 		String user = // "DECLARE @a int = (select count(*)+1 from [1AuthoritySTS].dbo.aspnetusers

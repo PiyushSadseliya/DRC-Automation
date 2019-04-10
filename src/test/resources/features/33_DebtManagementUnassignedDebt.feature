@@ -89,7 +89,7 @@ Feature: The Supervisor can assign the collection officer the pending amount fro
 
     Examples: 
       | Test Case ID                         | Description                                                | ageing     | name               | officer | uname           | password | location |
-      | DRC_ATC_DebtManagement_Unassigned_05 | Validate the Filter drop down functionality on Debt screen | 0-3 Months | Regression Marchde  | admin   | ketan.prajapati | admin    | Aketi    |
+      | DRC_ATC_DebtManagement_Unassigned_05 | Validate the Filter drop down functionality on Debt screen | 0-3 Months | Regression AprilDebt  | admin   | ketan.prajapati | admin    | Aketi    |
 
   @mtc_14
   Scenario Outline: Validate view icon functionality
@@ -250,4 +250,4 @@ Feature: The Supervisor can assign the collection officer the pending amount fro
 
     Examples: 
       | Test Case ID                         | Description                                                      | ageing     | name               | officer | uname           | password | location |
-      | DRC_ATC_DebtManagement_Unassigned_02 | Validate the assign officer button functionality with valid data | 0-3 Months |Regression Marchde   | admin   | ketan.prajapati | admin    | Aketi    |
+      | DRC_ATC_DebtManagement_Unassigned_02 | Validate the assign officer button functionality with valid data | 0-3 Months |Regression AprilDebt   | admin   | ketan.prajapati | admin    | Aketi    |
